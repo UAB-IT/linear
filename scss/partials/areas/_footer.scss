@@ -1,0 +1,57 @@
+/*------------------------
+START FOOTER
+------------------------*/
+#footer a, #lockedFooter a {
+	color: white;
+	border-color: $stone-400;
+	&:hover{
+		border-color: $stone-100;
+		background-color: initial;
+	}
+}
+body.ribbonFullwidth #footer .IT-footer{
+	display: flex;
+	margin-top: $s-1;
+	margin-bottom: $s-1;
+}
+body.hd.ribbonFullwidth #footer .IT-footer_left,
+body.hd.ribbonFullwidth #footer .IT-footer_right{
+	width: 100%;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+body.ribbonFullwidth #footer .IT-footer_logo{
+	max-height: $s-2;
+}
+body.ribbonFullwidth #footer .IT-footer_left p {
+	text-align: right;
+	margin: 0px;
+}
+body.ribbonFullwidth #footer .IT-footer_right,
+body.ribbonFullwidth #footer .IT-footer_right .social {
+	text-align: left;
+}
+body.ribbonFullwidth #footer .IT-footer_right {
+	border-left: 2px solid white;
+}
+body.ribbonFullwidth #footer .IT-footer_right .social a {
+	border: 0px solid transparent !important;
+	margin-right: 1rem;
+}
+body.ribbonFullwidth #footer .IT-footer .social {
+	margin-top: $s-1;
+}
+body.ribbonFullwidth #footer .IT-footer .social img {
+	max-height: 2rem;
+	margin-top: 0.5rem;
+}
+body.ribbonFullwidth #footer, #footer .moduletable{
+	padding: 0px;
+}
+#lockedFooter{
+	padding-top: $s-1;
+}
+
+/*------------------------
+END FOOTER
+------------------------*/

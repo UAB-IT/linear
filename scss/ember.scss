@@ -1,0 +1,75 @@
+/*--------------------------------------------------
+Ember 0.1.0
+Matthew McAdams 2019
+--------------------------------------------------*/
+
+/*--------------------------------------------------
+START CORE
+Required css for Ember to function. Includes SCSS variables and CSS Resets.
+Helpers are in the Core category, but are included at the end of the Ember code block.
+--------------------------------------------------*/
+@import 'partials/core/_reset.scss';
+/*--------------------------------------------------
+END CORE - START BASICS
+Basic styling for html elements with a focus on typography.
+--------------------------------------------------*/
+@import 'partials/basics/_typography.scss';
+//@import 'partials/basics/_links.scss';
+//@import 'partials/basics/_blockquote.scss';
+//@import 'partials/basics/_code.scss';
+@import 'partials/basics/_lists.scss';
+@import 'partials/basics/_tables.scss';
+@import 'partials/basics/_media.scss';
+@import 'partials/basics/_buttons.scss';
+@import 'partials/basics/_forms.scss';
+/*--------------------------------------------------
+END BASICS - START COMPONENTS
+Self contained chunks of content with their visual styling.
+--------------------------------------------------*/
+@import 'partials/components/_panels.scss';
+@import 'partials/components/_features.scss';
+//@import 'partials/components/_gallery.scss';
+//@import 'partials/components/_cards.scss';
+@import 'partials/components/_chips.scss';
+@import 'partials/components/_overlay.scss';
+@import 'partials/components/_alert.scss';
+//@import 'partials/components/_details.scss';
+//@import 'partials/components/_status.scss';
+//@import 'partials/components/_contact.scss';
+//@import 'partials/components/_numbers.scss';
+//@import 'partials/components/_timeline.scss';
+/*--------------------------------------------------
+END COMPONENTS - START LAYOUT
+CSS that helps with page layout, from site wide edits to page specific layout.
+--------------------------------------------------*/
+@import 'partials/layout/_grid.scss';
+@import 'partials/layout/_spacing.scss';
+/*--------------------------------------------------
+END LAYOUT - START SYNDICATION
+Components that style syndicated content where we have limited control over
+html and classes of the target elements.
+--------------------------------------------------*/
+@import 'partials/syndication/_calendar.scss';
+//@import 'partials/syndication/_posts.scss';
+//@import 'partials/syndication/_twitter.scss';
+//@import 'partials/syndication/_digital-signage.scss';
+/*--------------------------------------------------
+END SYNDICATION - START AREAS
+Edits to the Linear template areas.
+Most edits undo Ember styling to keep template styles in those areas.
+--------------------------------------------------*/
+@import 'partials/areas/_topnav.scss';
+@import 'partials/areas/_search.scss';
+@import 'partials/areas/_quicklinks.scss';
+@import 'partials/areas/_banner.scss';
+@import 'partials/areas/_sidebar.scss';
+@import 'partials/areas/_footer.scss';
+//@import 'partials/areas/_article.scss';
+//@import 'partials/areas/_layout.scss';
+/*--------------------------------------------------
+END AREAS
+--------------------------------------------------*/
+@import 'partials/core/_helpers.scss';
+/*--------------------------------------------------
+END - EMBER
+--------------------------------------------------*/

@@ -1,0 +1,96 @@
+/*------------------------
+START HELPERS
+------------------------*/
+.type-set-n1 { @include type-setting(n1); }
+.type-set-0 { @include type-setting(0); }
+.type-set-1 { @include type-setting(1); }
+.type-set-2 { @include type-setting(2); }
+.type-set-3 { @include type-setting(3); }
+.type-set-4 { @include type-setting(4); }
+.type-set-5 { @include type-setting(5); }
+
+.txt-c { text-align: center; }
+.txt-l { text-align: left; }
+.txt-r { text-align: right; }
+
+.full {
+  display: block;
+  width: 100%;
+}
+
+[class*='-space-05'] { --u-space: #{$s-05}; }
+[class*='-space-1'] { --u-space: #{$s-1}; }
+[class*='-space-2'] { --u-space: #{$s-2}; }
+[class*='-space-3'] { --u-space: #{$s-3}; }
+[class*='-space-3'] { --u-space: #{$s-3}; }
+[class*='margin-top-'] { margin-top: var(--u-space) !important; }
+[class*='margin-right-'] { margin-right: var(--u-space) !important; }
+[class*='margin-bottom-'] { margin-bottom: var(--u-space) !important; }
+[class*='margin-left-'] { margin-left: var(--u-space) !important; }
+[class*='padding-top-'] { padding-top: var(--u-space) !important; }
+[class*='padding-right-'] { padding-right: var(--u-space) !important; }
+[class*='padding-bottom-'] { padding-bottom: var(--u-space) !important; }
+[class*='padding-left-'] { padding-left: var(--u-space) !important; }
+
+[class*='-stone-050'] { --u-color: #{$stone-050}; }
+[class*='-stone-100'] { --u-color: #{$stone-100}; }
+[class*='-stone-200'] { --u-color: #{$stone-200}; }
+[class*='-stone-300'] { --u-color: #{$stone-300}; }
+[class*='-stone-400'] { --u-color: #{$stone-400}; }
+[class*='-stone-500'] { --u-color: #{$stone-500}; }
+[class*='-stone-600'] { --u-color: #{$stone-600}; }
+[class*='-stone-700'] { --u-color: #{$stone-700}; }
+[class*='-stone-800'] { --u-color: #{$stone-800}; }
+[class*='-stone-900'] { --u-color: #{$stone-900}; }
+[class*='-uabgreen-100'] { --u-color: #{$uabgreen-100}; }
+[class*='-uabgreen-200'] { --u-color: #{$uabgreen-200}; }
+[class*='-uabgreen-300'] { --u-color: #{$uabgreen-300}; }
+[class*='-uabgreen-400'] { --u-color: #{$uabgreen-400}; }
+[class*='-uabgreen-500'] { --u-color: #{$uabgreen-500}; }
+[class*='-uabgreen-600'] { --u-color: #{$uabgreen-600}; }
+[class*='-uabgreen-700'] { --u-color: #{$uabgreen-700}; }
+[class*='-uabgreen-800'] { --u-color: #{$uabgreen-800}; }
+[class*='-uabgreen-900'] { --u-color: #{$uabgreen-900}; }
+[class*='-darkgreen-100'] { --u-color: #{$darkgreen-100}; }
+[class*='-darkgreen-200'] { --u-color: #{$darkgreen-200}; }
+[class*='-darkgreen-300'] { --u-color: #{$darkgreen-300}; }
+[class*='-darkgreen-400'] { --u-color: #{$darkgreen-400}; }
+[class*='-darkgreen-500'] { --u-color: #{$darkgreen-500}; }
+[class*='-darkgreen-600'] { --u-color: #{$darkgreen-600}; }
+[class*='-darkgreen-700'] { --u-color: #{$darkgreen-700}; }
+[class*='-darkgreen-800'] { --u-color: #{$darkgreen-800}; }
+[class*='-darkgreen-900'] { --u-color: #{$darkgreen-900}; }
+[class*='-apple-100'] { --u-color: #{$apple-100}; }
+[class*='-apple-200'] { --u-color: #{$apple-200}; }
+[class*='-apple-300'] { --u-color: #{$apple-300}; }
+[class*='-apple-400'] { --u-color: #{$apple-400}; }
+[class*='-apple-500'] { --u-color: #{$apple-500}; }
+[class*='-apple-600'] { --u-color: #{$apple-600}; }
+[class*='-apple-700'] { --u-color: #{$apple-700}; }
+[class*='-apple-800'] { --u-color: #{$apple-800}; }
+[class*='-apple-900'] { --u-color: #{$apple-900}; }
+[class*='-blaze-100'] { --u-color: #{$blaze-100}; }
+[class*='-blaze-200'] { --u-color: #{$blaze-200}; }
+[class*='-blaze-300'] { --u-color: #{$blaze-300}; }
+[class*='-blaze-400'] { --u-color: #{$blaze-400}; }
+[class*='-blaze-500'] { --u-color: #{$blaze-500}; }
+[class*='-blaze-600'] { --u-color: #{$blaze-600}; }
+[class*='-blaze-700'] { --u-color: #{$blaze-700}; }
+[class*='-blaze-800'] { --u-color: #{$blaze-800}; }
+[class*='-blaze-900'] { --u-color: #{$blaze-900}; }
+[class*='-gold-100'] { --u-color: #{$gold-100}; }
+[class*='-gold-200'] { --u-color: #{$gold-200}; }
+[class*='-gold-300'] { --u-color: #{$gold-300}; }
+[class*='-gold-400'] { --u-color: #{$gold-400}; }
+[class*='-gold-500'] { --u-color: #{$gold-500}; }
+[class*='-gold-600'] { --u-color: #{$gold-600}; }
+[class*='-gold-700'] { --u-color: #{$gold-700}; }
+[class*='-gold-800'] { --u-color: #{$gold-800}; }
+[class*='-gold-900'] { --u-color: #{$gold-900}; }
+
+[class*='txt-color-'] { color: var(--u-color); }
+[class*='bg-color-'] { background-color: var(--u-color); }
+[class*='bdr-color-'] { border-color: var(--u-color); }
+/*------------------------
+END HELPERS
+------------------------*/

@@ -1,0 +1,15 @@
+/*------------------------
+START CHIPS
+------------------------*/
+.label-info, .badge-info, .badge, .label, .label-info[href], .badge-info[href] {
+	background-color: $stone-100;
+	text-shadow: none;
+	border: 0px solid transparent;
+	color: black;
+	font-weight: normal;
+	@include type-setting(n1);
+	padding: 0.1em 0.7em;
+}
+/*------------------------
+END CHIPS
+------------------------*/

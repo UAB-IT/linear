@@ -1,0 +1,21 @@
+/*------------------------
+START TABLES
+------------------------*/
+table {
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+  margin-bottom: $s-1;
+}
+td, th {
+  padding: $pad-block;
+  border: 1px solid black;
+}
+table pre,
+table p {
+  margin: 0px;
+}
+/*------------------------
+END TABLES
+------------------------*/

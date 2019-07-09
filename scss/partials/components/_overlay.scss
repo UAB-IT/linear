@@ -1,0 +1,25 @@
+/*------------------------
+START OVERLAY
+------------------------*/
+.overlay{
+  position: relative;
+}
+.overlay:before {
+  content: "";
+  background-color: #295135;
+  opacity: 0.5;
+  mix-blend-mode: hard-light;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  transition: opacity 0.3s;
+}
+.overlay:hover:before {
+  content: "";
+  opacity: 0;
+}
+/*------------------------
+END OVERLAY
+------------------------*/
