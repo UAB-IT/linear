@@ -1,0 +1,18 @@
+/*------------------------
+START RESET
+------------------------*/
+* {
+  margin: 0px; /* Removes all default margins */
+  font-size: inherit; /* Resets all font sizes */
+  font-family: inherit; /* Resets all font families */
+  line-height: $line-height; /* Resets all line heights to base line height */
+  padding: 0px; /* Removes all default padding */
+  box-sizing: border-box; /* Ensures all elements include their padding and borders */
+}
+/* Reset text coloring on headers */
+h2, h2 a, h2 strong, h2 b, .contentheading, h3, h3 a, h3 strong, h3 b, h4, h4 a, h4 strong, h4 b, #whitebox h5.feed-link{
+	color: #000;
+}
+/*------------------------
+END RESET
+------------------------*/

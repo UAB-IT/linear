@@ -1,0 +1,32 @@
+/*------------------------
+START ALERT
+------------------------*/
+.alert {
+	background: none;
+	border: 0px solid transparent;
+	padding: 0px;
+	margin: 0px;
+	text-shadow: none;
+}
+
+.moduletable.alert {
+	background: tint( $color-red, 80% );
+	border: 2px solid $color-red;
+	border-radius: $bdr-radius;
+	padding: $pad-input;
+	margin-bottom: $s-1;
+	text-shadow: none;
+}
+div.ribbonFullwidth .alert a {
+	border-color: $color-red;
+}
+div.ribbonFullwidth .alert a:hover {
+	border-color: $color-red;
+	background-color: tint( $color-red, 60% )
+}
+.alert p {
+	margin: 0px;
+}
+/*------------------------
+END ALERT
+------------------------*/

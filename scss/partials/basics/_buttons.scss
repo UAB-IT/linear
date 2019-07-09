@@ -1,0 +1,61 @@
+/*------------------------
+START BUTTONS
+------------------------*/
+button,
+.button,
+.btn--fill,
+.btn-primary,
+.btn--full,
+.btn,
+input[type="submit"],
+input[type="reset"],
+input[type="button"] {
+  -webkit-appearance: none;
+  background-color: transparent;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  @include type-setting(0);
+  padding: $pad-input;
+  margin-bottom: $s-1;
+  -webkit-box-shadow: none;
+	-moz-box-shadow: none;
+	box-shadow: none;
+  background-image: none;
+  text-shadow: none;
+
+  border: 1px solid $dark;
+  border-radius: $bdr-radius;
+  color: $dark;
+  &:focus, &:hover{
+    opacity: 0.6;
+    outline: 0;
+    text-decoration: none;
+  }
+}
+.btn--fill {
+  color: white;
+  background: $dark;
+  &:hover,
+  &:focus {
+    opacity: 0.8;
+  }
+}
+.btn-primary {
+  color: $color-primary;
+  border-color: $color-primary;
+}
+.btn--fill.btn-primary{
+  color: white;
+  background: $color-primary;
+}
+.btn--full{
+  display: block;
+  width: 100%;
+}
+/*------------------------
+END BUTTONS
+------------------------*/

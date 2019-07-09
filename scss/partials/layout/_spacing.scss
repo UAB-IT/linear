@@ -1,0 +1,19 @@
+/* Remove gap caused by first header in an article */
+.item-page h2:first-of-type{
+	margin-top: 0px;
+}
+/* Add space after the banner and before the footer */
+body.ribbonFullwidth #whitebox{
+	margin-top: $s-2;
+	margin-bottom: $s-2;
+}
+/* Add a larger space between the sidebar and main content */
+@include large{
+	#maincolumn-l{
+		padding-left: 60px;
+	}
+}
+.section {
+  padding: $pad-section;
+  margin: $mar-section;
+}
