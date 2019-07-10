@@ -1,17 +1,66 @@
 /*------------------------
 START RESET
 ------------------------*/
-* {
-  margin: 0px; /* Removes all default margins */
-  font-size: inherit; /* Resets all font sizes */
-  font-family: inherit; /* Resets all font families */
-  line-height: $line-height; /* Resets all line heights to base line height */
-  padding: 0px; /* Removes all default padding */
-  box-sizing: border-box; /* Ensures all elements include their padding and borders */
+/* Reset most properties from most elements */
+body.hd * {
+  margin: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: $line-height;
+  padding: 0px;
+  box-sizing: border-box;
+  color: inherit;
+	transition-property: none;
 }
-/* Reset text coloring on headers */
-h2, h2 a, h2 strong, h2 b, .contentheading, h3, h3 a, h3 strong, h3 b, h4, h4 a, h4 strong, h4 b, #whitebox h5.feed-link{
-	color: #000;
+
+/* Reset font size, family, and color on inline tags */
+#{$specify} h1 a,
+#{$specify} h1 strong,
+#{$specify} h1 b,
+#{$specify} h2 a,
+#{$specify} h2 strong,
+#{$specify} h2 b,
+#{$specify} h3 a,
+#{$specify} h3 strong,
+#{$specify} h3 b,
+#{$specify} h4 a,
+#{$specify} h4 strong,
+#{$specify} h4 b,
+#{$specify} #footer a,
+#{$specify} #footer span,
+#{$specify} b,
+#{$specify} span,
+#{$specify} strong,
+#{$specify} em, {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+/* Reset font size, family, and color on inline tags in headers */
+/* I'm not sure if any of these are used, so I'm commenting them out for now */
+// #{$specify} .custom_custom-title h2 strong,
+// #{$specify} .custom_custom-title h2 strong a,
+// #{$specify} .lower .feed h4.feed-link a,
+// #{$specify} div.itemHeader h2.itemTitle,
+// #{$specify} div.catItemHeader h2.catItemTitle a,
+// #{$specify} div.itemHeader h3.itemTitle,
+// #{$specify} div.catItemHeader h3.catItemTitle a {
+//   font-family: inherit;
+//   font-size: inherit;
+//   font-family: inherit;
+// }
+
+#{$specify} a {
+  color: inherit;
+  text-decoration: none;
+	font-weight: inherit;
+	-webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+.fa, .far, .fas{
+  font-family: "Font Awesome 5 Free" !important;
 }
 /*------------------------
 END RESET

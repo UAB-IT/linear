@@ -1,21 +1,21 @@
 /*------------------------
 START SEARCH
 ------------------------*/
-#search form{
+#{$specify} #search form{
 	display: flex;
 	justify-content: flex-end;
 	align-items: right;
 }
-#search button{
+#{$specify} #search button{
 	margin: 0px;
-	transition-property: none;
 }
-body.linear.hd #search input{
+
+#{$specify} #search input{
 	border-top-left-radius: $bdr-radius !important;
 	border-bottom-left-radius: $bdr-radius !important;
 	border: 1px solid $uabgreen;
 }
-body.linear.hd #search .btn-primary{
+#{$specify} #search .btn-primary{
 	&:focus, &:hover{
 		background-color: $uabgreen;
     opacity: 0.6;

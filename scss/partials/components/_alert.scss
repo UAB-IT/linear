@@ -1,6 +1,7 @@
 /*------------------------
 START ALERT
 ------------------------*/
+/* remove default alert styling */
 .alert {
 	background: none;
 	border: 0px solid transparent;
@@ -8,7 +9,11 @@ START ALERT
 	margin: 0px;
 	text-shadow: none;
 }
+.alert, .alert h4{
+	color: inherit;
+}
 
+/* Apply the alert style to the alert container */
 .moduletable.alert {
 	background: tint( $color-red, 80% );
 	border: 2px solid $color-red;
@@ -17,6 +22,8 @@ START ALERT
 	margin-bottom: $s-1;
 	text-shadow: none;
 }
+
+/* Adjust link styles for links that appear inside an alert */
 div.ribbonFullwidth .alert a {
 	border-color: $color-red;
 }
@@ -24,6 +31,8 @@ div.ribbonFullwidth .alert a:hover {
 	border-color: $color-red;
 	background-color: tint( $color-red, 60% )
 }
+
+/* Remove bottom margin from paragraphs in an alert */
 .alert p {
 	margin: 0px;
 }

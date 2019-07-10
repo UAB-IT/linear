@@ -1,8 +1,11 @@
 /*------------------------
 START TYPOGRAPHY
 ------------------------*/
+// Variables
+
 $header-top: $s-2 !default;
 $header-bottom: $s-1 !default;
+
 $h1-scale: 5 !default;
 $h2-scale: 3 !default;
 $h3-scale: 2 !default;
@@ -11,75 +14,80 @@ $h5-scale: 0 !default;
 $h6-scale: 0 !default;
 $p-scale: 0 !default;
 $sm-scale: n1 !default;
+
 $kbd-bg: $dark !default;
 $kbd-color: $grey1 !default;
+
 $code-bg: $grey1 !default;
 $code-color: $dark !default;
 
-/* Typographical spacing */
-p, hr, pre, blockquote { margin-bottom: $s-1; }
-p { margin-top: 0px; }
-mark, code, kbd { padding: $pad-inline; }
+/*------------------------
+FONTS
+------------------------*/
 
-.item-page {
-  h1, h2, h3, h4, h5, h6 {
-    margin: $header-top 0px $header-bottom 0px;
-  }
-}
-#leftcolumn h3 {
-  margin: $header-top 0px $header-bottom 0px;
-}
-
-/* Sets header font for headers */
-body.linear.hd h1, body.linear.hd .componentheading, body.linear.hd h2, body.linear.hd .contentheading, body.linear.hd h3, body.linear.hd h4, body.linear.hd #whitebox h5.feed-link, body.linear.hd .camera_caption .ck_title, body.linear.hd .camera_caption .slideh, body.linear.hd .fjalla .camera_caption > div, body.linear.hd .contact-name, body.linear.hd .fjallaSliders .jwts_toggleControlTitle, body.linear.hd span.subheading-category, body.linear.hd .middle_content span.middleTitle, body.linear.hd .custom_custom-title h2 strong, body.linear.hd .custom_custom-title h2 strong a, body.linear.hd .lower .feed h4.feed-link a, body.linear.hd div.itemHeader h2.itemTitle, body.linear.hd #k2Container.tagView div.tagItemList div.tagItemView div.tagItemHeader h2.tagItemTitle a, body.linear.hd div.catItemHeader h2.catItemTitle a, body.linear.hd div.itemHeader h3.itemTitle, body.linear.hd #k2Container.tagView div.tagItemList div.tagItemView div.tagItemHeader h3.tagItemTitle a, body.linear.hd div.catItemHeader h3.catItemTitle a, body.linear.hd .fjalla .feed-link > a, body.linear.hd .threebox, body.linear.hd .fourbox, body.linear.hd .fivebox{
+#{$specify} h1,
+#{$specify} h2,
+#{$specify} h3,
+#{$specify} h4,
+#{$specify} h5,
+#{$specify} h6 {
 	font-family: "kulturista-web", serif;
 }
-body.linear.hd h1 a, body.linear.hd h1 strong, body.linear.hd h1 b, body.linear.hd h2 a, body.linear.hd h2 strong, body.linear.hd h2 b, body.linear.hd h3 a, body.linear.hd h3 strong, body.linear.hd h3 b, body.linear.hd h4 a, body.linear.hd h4 strong, body.linear.hd h4 b, body.hd #footer a, body.hd #footer span {
-  font-family: inherit;
-  font-size: inherit;
-}
+//
+// #{$specify} .componentheading,
+// #{$specify} .contentheading,
+// #{$specify} #whitebox h5.feed-link,
+// #{$specify} .camera_caption .ck_title,
+// #{$specify} .camera_caption .slideh,
+// #{$specify} .fjalla .camera_caption > div,
+// #{$specify} .fjallaSliders .jwts_toggleControlTitle,
+// #{$specify} span.subheading-category,
+// #{$specify} .middle_content span.middleTitle,
+// #{$specify} .threebox,
+// #{$specify} .fourbox, body.linear.hd .fivebox{
+//   font-family: "kulturista-web", serif;
+// }
 
- /* Typesetting */
-h1 { @include type-setting($h1-scale); }
-h2 { @include type-setting($h2-scale); }
-h3 { @include type-setting($h3-scale); }
-h4 { @include type-setting($h4-scale); }
-h5 { @include type-setting($h5-scale); }
-h6 { @include type-setting($h6-scale); }
-body, p { @include type-setting($p-scale); }
-small { @include type-setting($sm-scale); }
+/*------------------------
+TYPESETTING
+------------------------*/
 
-/*code, kbd, samp { font-family: $font-mono; }*/
+#{$specify} h1 { @include type-setting($h1-scale); }
+#{$specify} h2 { @include type-setting($h2-scale); }
+#{$specify} h3, #leftcolumn h3 { @include type-setting($h3-scale); }
+#{$specify} h4 { @include type-setting($h4-scale); }
+#{$specify} h5 { @include type-setting($h5-scale); }
+#{$specify} h6 { @include type-setting($h6-scale); }
+body, #{$specify} p { @include type-setting($p-scale); }
+#{$specify} small { @include type-setting($sm-scale); }
 
-/* Rule Lines */
-hr {
-  box-sizing: content-box; /* removes border from element size */
-  height: 0; /* makes sure no height is added to the document */
-  overflow: visible; /* allows you to still see the border */
-  border-style: solid; /* Removes border effects */
-  border-width: 0px 0px 1px 0px; /* prevents accidental 2px border */
+/*------------------------
+RULE LINES
+------------------------*/
+
+#{$specify} hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  border-style: solid;
+  border-width: 0px 0px 1px 0px;
   border-color: black;
 }
-h1 + hr,
-h2 + hr,
-h3 + hr,
-h4 + hr,
-h5 + hr,
-h6 + hr {
+#{$specify} h1 + hr,
+#{$specify} h2 + hr,
+#{$specify} h3 + hr,
+#{$specify} h4 + hr,
+#{$specify} h5 + hr,
+#{$specify} h6 + hr {
   margin-top: -$header-bottom; /* Allows headers to sit on horizontal rules */
 }
 
-/* START INLINE */
+/*------------------------
+LINKS
+------------------------*/
 
-body.linear.hd a {
-  color: inherit;
-  text-decoration: none;
-	font-weight: inherit;
-	-webkit-transition-property: none;
-  -moz-transition-property: none;
-  -o-transition-property: none;
-  transition-property: none;
-}
+/* Applies link styles to content areas only. Less specific than an id.
+Div is used here because .ribbonFullwidth is also on the body element.*/
 div.ribbonFullwidth a {
 	border-bottom: 2px solid $uabgreen-300;
 }
@@ -91,7 +99,11 @@ a:focus, :focus {
   outline: 5px auto $uabgreen;
 }
 
-/*a:visited { color: initial; }*/
+/*------------------------
+INLINE
+------------------------*/
+
+mark, code, kbd { padding: $pad-inline; }
 
 mark, ::selection { background-color: $mark-color; }
 
@@ -116,7 +128,9 @@ sup {
 sub { bottom: -0.25em; }
 sup { top: -0.5em; }
 
-/* START PREFORMATTED */
+/*------------------------
+PREFORMATTED
+------------------------*/
 
 code {
   background-color: $code-bg;

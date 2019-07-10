@@ -1,7 +1,8 @@
 /*------------------------
 START PANELS
 ------------------------*/
-body .panels > a, .cards > div, .panel, .card {
+body .panels > a,
+.cards > div {
 	border: 1px solid black;
 	padding: $s-1;
 	border-radius: $bdr-radius;

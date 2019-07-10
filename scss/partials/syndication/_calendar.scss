@@ -1,11 +1,11 @@
 /*------------------------
 START CALENDAR
 ------------------------*/
-.localist-month, .localist-day {
+#{$specify} .localist-month, .localist-day {
 	background: $uabgreen;
 	width: 60px;
 }
-.localist-widget-eds div.localist-month{
+#{$specify} .localist-widget-eds div.localist-month{
 	color: #fff;
 	padding-top: 0.5em;
 	text-align: center;
@@ -13,7 +13,7 @@ START CALENDAR
 	font-family: "Kulturista-web", "proxima-nova", sans-serif !important;
 	margin-bottom: -1px;
 }
-.localist-day{
+#{$specify} .localist-day{
 	color: #fff;
 	text-align: center;
 	font-weight: 600;
@@ -21,24 +21,26 @@ START CALENDAR
 	border-bottom: 4px solid $apple;
 	padding-bottom: 0.4em;
 }
-.localist-dateblock{
+#{$specify} .localist-dateblock{
 	margin-right: $s-05;
 }
-.localist-widget-eds li{
+#{$specify} .localist-widget-eds li{
 	display: flex;
+	margin-bottom: $s-05;
 }
-.localist-title h4{
+#{$specify} .localist-title h4{
 	font-family: "proxima-nova", sans-serif !important;
 	@include type-setting(0);
 	margin-top: -0.2em;
+	margin-bottom: 0px;
 }
-.localist-title h4 a{
+#{$specify} .localist-title h4 a{
 	border-bottom: 2px solid transparent
 }
-.localist-otherdetails div, .localist-otherdetails i {
+#{$specify} .localist-otherdetails div, .localist-otherdetails i {
 	@include type-setting(n1);
 }
-.localist-venue {
+#{$specify} .localist-venue {
 	display: none;
 }
 /*------------------------

@@ -1,58 +1,69 @@
 /*------------------------
 START BANNER
 ------------------------*/
-  #banner {
-    position: relative;
-  }
-  #banner::before,
-  #banner::after{
-    content: "";
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    bottom: 0px;
-    right: 0px;
-    z-index: -1;
-  }
-  #banner::before{
-    background: url('images/banners/computer-3368242_1920.jpg'); /*Use article image */
-    background-size: cover;
-    background-position: bottom;
-  }
-  #banner::after{
-    background: #295135;
-    mix-blend-mode: multiply;
-  }
-  #banner .moduletable{
-  	max-width: 1280px;
-    margin: auto;
-  }
-  #banner h1 {
-    margin-top: 12.8rem;
-    margin-bottom: 1.6rem;
-    color: white;
-  }
-  .breadcrumb>li,
-  .breadcrumb>.active{
-    text-shadow: none;
-    color: white;
-  }
-  span{
-    color: inherit;
-    font-size: inherit;
-  }
-  .breadcrumb>li>.divider,
-  .breadcrumb a,
-  .breadcrumb>li>span{
-    color: inherit;
-    font-size: inherit;
-  }
-  .breadcrumb{
-    border: 0px;
-    padding: 0px;
-    margin: 0px;
-    margin-bottom: 1.6rem;
-  }
+
+/* Set min height to the line height of h1 plus the top padding,
+plus 1 line height for the margin below the header,
+one line height for the breadcrumbs, and
+one line height for the margin below the breadcrumbs. */
+$banner-top: $s-1 * 8 !default;
+#banner {
+  position: relative;
+  padding-top: $banner-top;
+  min-height: #{line-height($h1-scale) + $banner-top + $s-3}
+}
+
+/* Set the before and after elements to cover the banner area and send them to the back */
+#banner::before,
+#banner::after{
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  z-index: -1;
+}
+
+/* Set default banner image and the banner's image's and position */
+#banner::before{
+  background: url('https://dev.uab.edu/it/home/images/banners/Home-WebHeader.jpg'); /*Use article image */
+  background-size: cover;
+  background-position: bottom;
+}
+
+/* Add the image filter effect used on the banners */
+#banner::after{
+  background: #295135;
+  mix-blend-mode: multiply;
+}
+
+/* Ensure content inside the banner stays within the width of the main column */
+#banner .moduletable{
+	max-width: 1280px;
+  margin: auto;
+}
+#banner h1 {
+  margin-bottom: 1.6rem;
+  color: white;
+}
+.breadcrumb>li,
+.breadcrumb>.active{
+  text-shadow: none;
+  color: white;
+}
+.breadcrumb>li>.divider,
+.breadcrumb a,
+.breadcrumb>li>span{
+  color: inherit;
+  font-size: inherit;
+}
+.breadcrumb{
+  border: 0px;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 1.6rem;
+}
 /*------------------------
 END BANNER
 ------------------------*/

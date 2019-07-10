@@ -1,6 +1,8 @@
 /*--------------------------------------------------
 Ember 0.2.0
-Matthew McAdams 2019
+University of Alabama at Birmingham
+Department of Information Technology
+2019 Mozilla Public License 2.0
 https://github.com/UAB-IT/Ember
 --------------------------------------------------*/
 
@@ -15,9 +17,7 @@ END CORE - START BASICS
 Basic styling for html elements with a focus on typography.
 --------------------------------------------------*/
 @import 'partials/basics/_typography.scss';
-//@import 'partials/basics/_links.scss';
 //@import 'partials/basics/_blockquote.scss';
-//@import 'partials/basics/_code.scss';
 @import 'partials/basics/_lists.scss';
 @import 'partials/basics/_tables.scss';
 @import 'partials/basics/_media.scss';

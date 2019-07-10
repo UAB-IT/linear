@@ -4,13 +4,25 @@ START QUICKLINKS
 #quicklinks ul {
 	margin: 0px;
 }
+
+/* Remove borders from quicklinks */
 #quicklinks a, #trigger {
 	border: 0px solid transparent;
 }
-#quicklinks .dropdown-menu > li > a:hover, #quicklinks .dropdown-menu > li > a:focus, #quicklinks .dropdown-submenu:hover > a, #quicklinks .dropdown-submenu:focus > a, #quicklinks .newsfeed > li:hover, #quicklinks .newsfeed > li:focus{
+
+/* Ensure hover color is consistant */
+#quicklinks .dropdown-menu > li > a:hover,
+#quicklinks .dropdown-menu > li > a:focus,
+#quicklinks .dropdown-submenu:hover > a,
+#quicklinks .dropdown-submenu:focus > a,
+#quicklinks .newsfeed > li:hover,
+#quicklinks .newsfeed > li:focus{
 	background-color: $uabgreen-100;
 }
-body.hd #quicklinks ul.nav-child.unstyled.dropdown-menu, body.hd #quicklinks div.feed{
+
+/* Fix box shadow styles on quicklinks feed */
+body.hd #quicklinks ul.nav-child.unstyled.dropdown-menu,
+body.hd #quicklinks div.feed{
 	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 /*------------------------
