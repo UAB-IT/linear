@@ -1240,6 +1240,9 @@ body.hd #sidebar_trigger.no-seal {
   font-size: inherit;
   background-color: #f2f3f3; }
 
+body.hd.sidebars #leftcolumn {
+  width: 100%; }
+
 #leftcolumn .moduletable {
   padding: 0px; }
 
