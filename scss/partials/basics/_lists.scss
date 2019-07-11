@@ -1,23 +1,29 @@
+$list-indent: $indent !default;
 /*------------------------
 START LISTS
 ------------------------*/
-$list-indent: $indent !default;
-
-body.linear.hd ul, ol, li{
+#{$specify} ul,
+#{$specify} ol,
+#{$specify} li {
   list-style-position: inside;
   margin: 0px;
   padding: 0px;
 }
-body.linear.hd ul, ol, dl{
+
+#{$specify} ul,
+#{$specify} ol,
+#{$specify} dl {
   margin-bottom: $s-1;
 }
-body.linear.hd ul ul,
-body.linear.hd ul ol,
-body.linear.hd ol ol,
-body.linear.hd ol ul {
+
+#{$specify} ul ul,
+#{$specify} ul ol,
+#{$specify} ol ol,
+#{$specify} ol ul {
   margin-bottom: 0px;
   margin-left: $list-indent;
 }
+
 ul {
   list-style-type: disc;
   ul {
@@ -25,6 +31,7 @@ ul {
     ul { list-style-type: square; }
   }
 }
+
 ol {
   list-style-type: decimal;
   ol {
@@ -32,14 +39,17 @@ ol {
     ol { list-style-type: lower-latin; }
   }
 }
+
 dt {
   font-weight: bolder;
 }
+
 dd {
   margin-left: $list-indent;
   margin-bottom: $s-05;
 }
-#content li{
+
+#content li {
   margin-bottom: 0px;
 }
 /*------------------------

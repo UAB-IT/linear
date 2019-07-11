@@ -54,6 +54,13 @@ body.linear.hd em {
 
 /* Reset font size, family, and color on inline tags in headers */
 /* I'm not sure if any of these are used, so I'm commenting them out for now */
+body.linear.hd h1,
+body.linear.hd h2,
+body.linear.hd h3,
+body.linear.hd h4,
+body.linear.hd h5 {
+  text-align: inherit; }
+
 body.linear.hd a {
   color: inherit;
   text-decoration: none;
@@ -70,23 +77,23 @@ END RESET
 END CORE - START BASICS
 Basic styling for html elements with a focus on typography.
 --------------------------------------------------*/
-/*------------------------
+/* ------------------------
 START TYPOGRAPHY
-------------------------*/
-/*------------------------
+------------------------ */
+/* ------------------------
 FONTS
-------------------------*/
+------------------------ */
 body.linear.hd h1,
 body.linear.hd h2,
 body.linear.hd h3,
 body.linear.hd h4,
 body.linear.hd h5,
 body.linear.hd h6 {
-  font-family: "kulturista-web", serif; }
+  font-family: 'kulturista-web', serif; }
 
-/*------------------------
+/* ------------------------
 TYPESETTING
-------------------------*/
+------------------------ */
 body.linear.hd h1 {
   font-size: 3.05176rem;
   line-height: 3.2rem; }
@@ -95,7 +102,8 @@ body.linear.hd h2 {
   font-size: 1.95312rem;
   line-height: 2.4rem; }
 
-body.linear.hd h3, #leftcolumn h3 {
+body.linear.hd h3,
+#leftcolumn h3 {
   font-size: 1.5625rem;
   line-height: 1.6rem; }
 
@@ -111,7 +119,8 @@ body.linear.hd h6 {
   font-size: 1rem;
   line-height: 1.6rem; }
 
-body, body.linear.hd p {
+body,
+body.linear.hd p {
   font-size: 1rem;
   line-height: 1.6rem; }
 
@@ -127,7 +136,7 @@ body.linear.hd hr {
   height: 0;
   overflow: visible;
   border-style: solid;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0 0 1px;
   border-color: black; }
 
 body.linear.hd h1 + hr,
@@ -143,7 +152,11 @@ body.linear.hd h6 + hr {
 LINKS
 ------------------------*/
 /* Applies link styles to content areas only. Less specific than an id.
-Div is used here because .ribbonFullwidth is also on the body element.*/
+Div is used here because .ribbonFullwidth is also on the body element. */
+a:focus,
+:focus {
+  outline: 5px auto #1E6B52; }
+
 div.ribbonFullwidth a {
   border-bottom: 2px solid #78a697; }
 
@@ -151,25 +164,30 @@ div.ribbonFullwidth a[href]:hover {
   background-color: #d2e1dc;
   border-color: #1E6B52; }
 
-a:focus, :focus {
-  outline: 5px auto #1E6B52; }
-
-/*------------------------
+/* ------------------------
 INLINE
-------------------------*/
-mark, code, kbd {
+------------------------ */
+mark,
+code,
+kbd {
   padding: 0 0.2em 0.1em 0.2em; }
 
-mark, ::selection {
+mark,
+::selection {
   background-color: #d2e1dc; }
 
-strong, b {
+strong,
+b {
   font-weight: bolder; }
 
-em, i, dfn, cite {
+em,
+i,
+dfn,
+cite {
   font-style: italic; }
 
-del, s {
+del,
+s {
   text-decoration: line-through; }
 
 abbr[title] {
@@ -219,12 +237,16 @@ END TYPOGRAPHY
 /*------------------------
 START LISTS
 ------------------------*/
-body.linear.hd ul, ol, li {
+body.linear.hd ul,
+body.linear.hd ol,
+body.linear.hd li {
   list-style-position: inside;
   margin: 0px;
   padding: 0px; }
 
-body.linear.hd ul, ol, dl {
+body.linear.hd ul,
+body.linear.hd ol,
+body.linear.hd dl {
   margin-bottom: 1.6rem; }
 
 body.linear.hd ul ul,
@@ -271,7 +293,8 @@ table {
   overflow: scroll;
   margin-bottom: 1.6rem; }
 
-td, th {
+td,
+th {
   padding: 0.8rem;
   border: 1px solid black; }
 
@@ -300,9 +323,9 @@ button,
 .btn-primary,
 .btn--full,
 .btn,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
   -webkit-appearance: none;
   background-color: transparent;
   text-align: center;
@@ -334,12 +357,12 @@ input[type="button"] {
   .btn--full:hover,
   .btn:focus,
   .btn:hover,
-  input[type="submit"]:focus,
-  input[type="submit"]:hover,
-  input[type="reset"]:focus,
-  input[type="reset"]:hover,
-  input[type="button"]:focus,
-  input[type="button"]:hover {
+  input[type='submit']:focus,
+  input[type='submit']:hover,
+  input[type='reset']:focus,
+  input[type='reset']:hover,
+  input[type='button']:focus,
+  input[type='button']:hover {
     opacity: 0.6;
     outline: 0;
     text-decoration: none; }
@@ -375,9 +398,25 @@ legend {
   font-size: 1.25rem;
   line-height: 1.6rem;
   color: inherit;
-  font-family: "kulturista-web", serif !important; }
+  font-family: 'kulturista-web', serif !important; }
 
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input,
+select,
+textarea,
+input[type='text'],
+input[type='password'],
+input[type='datetime'],
+input[type='datetime-local'],
+input[type='date'],
+input[type='month'],
+input[type='time'],
+input[type='week'],
+input[type='number'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='tel'],
+input[type='color'],
+.uneditable-input,
 textarea,
 progress,
 fieldset,
@@ -388,7 +427,6 @@ fieldset,
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  box-shadow: none;
   outline: 0;
   background: transparent;
   box-sizing: border-box;
@@ -421,19 +459,19 @@ fieldset,
 .chzn-container .chzn-results li.highlighted {
   background-color: #d2e1dc; }
 
-input[type=text],
-input[type=email],
-input[type=url],
-input[type=search],
-input[type=password],
-input[type=search],
-input[type=tel],
-input[type=number],
-input[type=date],
-input[type=time],
-input[type=month],
-input[type=week],
-input[type=file],
+input[type='text'],
+input[type='email'],
+input[type='url'],
+input[type='search'],
+input[type='password'],
+input[type='search'],
+input[type='tel'],
+input[type='number'],
+input[type='date'],
+input[type='time'],
+input[type='month'],
+input[type='week'],
+input[type='file'],
 textarea,
 select {
   padding: 0.25em 0.5em;
@@ -451,14 +489,32 @@ textarea {
   resize: vertical;
   overflow-y: scroll; }
 
-input[type="color"] {
+input[type='color'] {
   display: block; }
 
-textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="date"]:focus, input[type="month"]:focus, input[type="time"]:focus, input[type="week"]:focus, input[type="number"]:focus, input[type="email"]:focus, input[type="url"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="color"]:focus, .uneditable-input:focus {
+textarea:focus,
+input[type='text']:focus,
+input[type='password']:focus,
+input[type='datetime']:focus,
+input[type='datetime-local']:focus,
+input[type='date']:focus,
+input[type='month']:focus,
+input[type='time']:focus,
+input[type='week']:focus,
+input[type='number']:focus,
+input[type='email']:focus,
+input[type='url']:focus,
+input[type='search']:focus,
+input[type='tel']:focus,
+input[type='color']:focus,
+.uneditable-input:focus {
   border-color: #1E6B52;
   box-shadow: none; }
 
-select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"]:focus {
+select:focus,
+input[type='file']:focus,
+input[type='radio']:focus,
+input[type='checkbox']:focus {
   outline: 5px auto #1E6B52; }
 
 /*------------------------
@@ -474,7 +530,7 @@ input[type=date]::before,
 input[type=month]::before,
 input[type=week]::before,
 select::before {
-  content: "◳";
+  content: '◳';
   font-size: 1.5em;
   display: block;
   position: absolute;
@@ -485,40 +541,40 @@ select::before {
 /*------------------------
 Range
 ------------------------*/
-input[type=range] {
+input[type='range'] {
   -webkit-appearance: none;
   width: 100%;
   background: transparent;
   min-height: 1.6rem; }
 
-input[type=range]:focus {
+input[type='range']:focus {
   outline: 0; }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   background: #808285;
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer; }
 
-input[type=range]::-moz-range-thumb {
+input[type='range']::-moz-range-thumb {
   background: #808285;
   border: 2px solid white;
   border-radius: 50%;
   cursor: pointer; }
 
-input[type=range]::-webkit-slider-thumb {
+input[type='range']::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 1.25rem;
   width: 1.25rem;
   margin-top: -0.4rem; }
 
-input[type=range]:focus::-webkit-slider-thumb {
+input[type='range']:focus::-webkit-slider-thumb {
   background: #1E6B52; }
 
-input[type=range]:focus::-moz-range-thumb {
+input[type='range']:focus::-moz-range-thumb {
   background: #1E6B52; }
 
-input[type=range]::-webkit-slider-runnable-track {
+input[type='range']::-webkit-slider-runnable-track {
   width: 100%;
   height: 0.5rem;
   cursor: pointer;
@@ -527,7 +583,7 @@ input[type=range]::-webkit-slider-runnable-track {
   border-color: transparent;
   color: transparent; }
 
-input[type=range]::-moz-range-track {
+input[type='range']::-moz-range-track {
   width: 100%;
   height: 0.5rem;
   cursor: pointer;
@@ -568,18 +624,18 @@ input[type='checkbox']+label {
   }
 }
 input[type='checkbox']+label::before {
-  content: "☐";
+  content: '☐';
 }
 input[type='checkbox']:checked+label::before {
   color: $color-primary;
-  content: "☒";
+  content: '☒';
 }
 input[type='radio']+label::before {
-  content: "⦾";
+  content: '⦾';
 }
 input[type='radio']:checked+label::before {
   color: $color-primary;
-  content: "●";
+  content: '●';
 }
 @include radio-check-focus {
   outline: 2px solid $color-primary;
@@ -641,6 +697,12 @@ Resets
 ::-webkit-outer-spin-button {
   display: none;
 }*/
+::-webkit-progress-bar {
+  background: transparent; }
+
+::-webkit-meter-bar {
+  background: none; }
+
 :-moz-focusring {
   color: transparent;
   text-shadow: 0 0 0 #000;
@@ -648,12 +710,6 @@ Resets
 
 :-moz-focus-inner {
   border-style: none; }
-
-::-webkit-progress-bar {
-  background: transparent; }
-
-::-webkit-meter-bar {
-  background: none; }
 
 /*::-webkit-calendar-picker-indicator {
   opacity: 0;
@@ -751,8 +807,8 @@ START OVERLAY
 .overlay {
   position: relative; }
 
-.overlay:before {
-  content: "";
+.overlay::before {
+  content: '';
   background-color: #295135;
   opacity: 0.5;
   mix-blend-mode: hard-light;
@@ -763,8 +819,8 @@ START OVERLAY
   right: 0px;
   transition: opacity 0.3s; }
 
-.overlay:hover:before {
-  content: "";
+.overlay:hover::before {
+  content: '';
   opacity: 0; }
 
 /*------------------------
@@ -781,7 +837,8 @@ START ALERT
   margin: 0px;
   text-shadow: none; }
 
-.alert, .alert h4 {
+.alert,
+.alert h4 {
   color: inherit; }
 
 /* Apply the alert style to the alert container */
@@ -816,12 +873,12 @@ CSS that helps with page layout, from site wide edits to page specific layout.
 START GRID
 --------------------------------------------------*/
 /*Universal Grid Styles*/
-[class*="col-"] {
+[class*='col-'] {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap; }
 
-[class*="col-"] > * {
+[class*='col-'] > * {
   flex-grow: 1;
   width: 100%;
   box-sizing: border-box; }
@@ -829,24 +886,18 @@ START GRID
 /*Grid Gap*/
 .col--gap {
   --grid-gap: 1.6rem;
-  --row-gap-vsm: var(--grid-gap);
-  --col-gap-vsm: var(--grid-gap);
-  --row-gap: var(--row-gap-vsm);
-  --col-gap: var(--col-gap-vsm);
+  --row-gap-vsm: var( --grid-gap );
+  --col-gap-vsm: var( --grid-gap );
+  --row-gap: var( --row-gap-vsm );
+  --col-gap: var( --col-gap-vsm );
   margin: -0.5rem;
   /*Fallback for IE*/
-  margin-top: calc(var(--row-gap) / 2 * -1);
-  margin-bottom: calc(var(--row-gap) / 2 * -1);
-  margin-left: calc(var(--col-gap) / 2 * -1);
-  margin-right: calc(var(--col-gap) / 2 * -1); }
+  margin: calc( var( --row-gap ) / 2 * -1), calc( var( --col-gap ) / 2 * -1), calc( var( --row-gap ) / 2 * -1), calc( var( --col-gap ) / 2 * -1); }
 
 .col--gap > * {
   margin: 0.5rem;
   /*Fallback for IE*/
-  margin-top: calc(var(--row-gap) / 2);
-  margin-bottom: calc(var(--row-gap) / 2);
-  margin-left: calc(var(--col-gap) / 2);
-  margin-right: calc(var(--col-gap) / 2); }
+  margin: calc( var( --row-gap ) / 2), calc( var( --col-gap ) / 2), calc( var( --row-gap ) / 2), calc( var( --col-gap ) / 2); }
 
 .col_vsm-1 {
   flex-grow: 1; }
@@ -866,52 +917,52 @@ START GRID
 .col--vsm-6 > *,
 .col--vsm-6 .col_vsm-1 {
   width: 14.4%;
-  width: calc(14.4% - var(--col-gap, 0px)); }
+  width: calc( 14.4% - var( --col-gap, 0px )); }
 
 .col--vsm-4 > *,
 .col--vsm-4 .col_vsm-1 {
   width: 21.6%;
-  width: calc(21.6% - var(--col-gap, 0px)); }
+  width: calc( 21.6% - var( --col-gap, 0px )); }
 
 .col--vsm-3 > *,
 .col--vsm-6 .col_vsm-2,
 .col--vsm-3 .col_vsm-1 {
   width: 28.8%;
-  width: calc(28.8% - var(--col-gap, 0px)); }
+  width: calc( 28.8% - var( --col-gap, 0px )); }
 
 .col--vsm-2 > *,
 .col--vsm-2 .col_vsm-1,
 .col--vsm-4 .col_vsm-2,
 .col--vsm-6 .col_vsm-3 {
   width: 43.2%;
-  width: calc(43.2% - var(--col-gap, 0px)); }
+  width: calc( 43.2% - var( --col-gap, 0px )); }
 
 .col--vsm-3 .col_vsm-2,
 .col--vsm-6 .col_vsm-4 {
   width: 57.6%;
-  width: calc(57.6% - var(--col-gap, 0px)); }
+  width: calc( 57.6% - var( --col-gap, 0px )); }
 
 .col--vsm-4 .col_vsm-3 {
   width: 64.8%;
-  width: calc(64.8% - var(--col-gap, 0px)); }
+  width: calc( 64.8% - var( --col-gap, 0px )); }
 
 .col--vsm-6 .col_vsm-5 {
   width: 72%;
-  width: calc(72% - var(--col-gap, 0px)); }
+  width: calc( 72% - var( --col-gap, 0px )); }
 
 .col--vsm-2 .col_vsm-2,
 .col--vsm-3 .col_vsm-3,
 .col--vsm-4 .col_vsm-4,
 .col--vsm-6 .col_vsm-6 {
   width: 86.4%;
-  width: calc(86.4% - var(--col-gap, 0px)); }
+  width: calc( 86.4% - var( --col-gap, 0px )); }
 
 @media all and (min-width: 500px) {
   .col--gap {
-    --row-gap-vmd: var(--grid-gap-vmd, var(--row-gap-vsm));
-    --col-gap-vmd: var(--grid-gap-vmd, var(--col-gap-vsm));
-    --row-gap: var(--row-gap-vmd);
-    --col-gap: var(--col-gap-vmd); }
+    --row-gap-vmd: var( --grid-gap-vmd, var( --row-gap-vsm ) );
+    --col-gap-vmd: var( --grid-gap-vmd, var( --col-gap-vsm ) );
+    --row-gap: var( --row-gap-vmd );
+    --col-gap: var( --col-gap-vmd ); }
   .col_vmd-1 {
     flex-grow: 1; }
   .col_vmd-2 {
@@ -925,45 +976,45 @@ START GRID
   .col--vmd-6 > *,
   .col--vmd-6 .col_vmd-1 {
     width: 14.4%;
-    width: calc(14.4% - var(--col-gap, 0px)); }
+    width: calc( 14.4% - var( --col-gap, 0px )); }
   .col--vmd-4 > *,
   .col--vmd-4 .col_vmd-1 {
     width: 21.6%;
-    width: calc(21.6% - var(--col-gap, 0px)); }
+    width: calc( 21.6% - var( --col-gap, 0px )); }
   .col--vmd-3 > *,
   .col--vmd-6 .col_vmd-2,
   .col--vmd-3 .col_vmd-1 {
     width: 28.8%;
-    width: calc(28.8% - var(--col-gap, 0px)); }
+    width: calc( 28.8% - var( --col-gap, 0px )); }
   .col--vmd-2 > *,
   .col--vmd-2 .col_vmd-1,
   .col--vmd-4 .col_vmd-2,
   .col--vmd-6 .col_vmd-3 {
     width: 43.2%;
-    width: calc(43.2% - var(--col-gap, 0px)); }
+    width: calc( 43.2% - var( --col-gap, 0px )); }
   .col--vmd-3 .col_vmd-2,
   .col--vmd-6 .col_vmd-4 {
     width: 57.6%;
-    width: calc(57.6% - var(--col-gap, 0px)); }
+    width: calc( 57.6% - var( --col-gap, 0px )); }
   .col--vmd-4 .col_vmd-3 {
     width: 64.8%;
-    width: calc(64.8% - var(--col-gap, 0px)); }
+    width: calc( 64.8% - var( --col-gap, 0px )); }
   .col--vmd-6 .col_vmd-5 {
     width: 72%;
-    width: calc(72% - var(--col-gap, 0px)); }
+    width: calc( 72% - var( --col-gap, 0px )); }
   .col--vmd-2 .col_vmd-2,
   .col--vmd-3 .col_vmd-3,
   .col--vmd-4 .col_vmd-4,
   .col--vmd-6 .col_vmd-6 {
     width: 86.4%;
-    width: calc(86.4% - var(--col-gap, 0px)); } }
+    width: calc( 86.4% - var( --col-gap, 0px )); } }
 
 @media all and (min-width: 1024px) {
   .col--gap {
-    --row-gap-vlg: var(--grid-gap-vlg, var(--row-gap-vmd));
-    --col-gap-vlg: var(--grid-gap-vlg, var(--col-gap-vmd));
-    --row-gap: var(--row-gap-vlg);
-    --col-gap: var(--col-gap-vlg); }
+    --row-gap-vlg: var( --grid-gap-vlg, var( --row-gap-vmd ) );
+    --col-gap-vlg: var( --grid-gap-vlg, var( --col-gap-vmd ) );
+    --row-gap: var( --row-gap-vlg );
+    --col-gap: var( --col-gap-vlg ); }
   .col_vlg-1 {
     flex-grow: 1; }
   .col_vlg-2 {
@@ -977,46 +1028,42 @@ START GRID
   .col--vlg-6 > *,
   .col--vlg-6 .col_vlg-1 {
     width: 14.4%;
-    width: calc(14.4% - var(--col-gap, 0px)); }
+    width: calc( 14.4% - var( --col-gap, 0px )); }
   .col--vlg-4 > *,
   .col--vlg-4 .col_vlg-1 {
     width: 21.6%;
-    width: calc(21.6% - var(--col-gap, 0px)); }
+    width: calc( 21.6% - var( --col-gap, 0px )); }
   .col--vlg-3 > *,
   .col--vlg-6 .col_vlg-2,
   .col--vlg-3 .col_vlg-1 {
     width: 28.8%;
-    width: calc(28.8% - var(--col-gap, 0px)); }
+    width: calc( 28.8% - var( --col-gap, 0px )); }
   .col--vlg-2 > *,
   .col--vlg-2 .col_vlg-1,
   .col--vlg-4 .col_vlg-2,
   .col--vlg-6 .col_vlg-3 {
     width: 43.2%;
-    width: calc(43.2% - var(--col-gap, 0px)); }
+    width: calc( 43.2% - var( --col-gap, 0px )); }
   .col--vlg-3 .col_vlg-2,
   .col--vlg-6 .col_vlg-4 {
     width: 57.6%;
-    width: calc(57.6% - var(--col-gap, 0px)); }
+    width: calc( 57.6% - var( --col-gap, 0px )); }
   .col--vlg-4 .col_vlg-3 {
     width: 64.8%;
-    width: calc(64.8% - var(--col-gap, 0px)); }
+    width: calc( 64.8% - var( --col-gap, 0px )); }
   .col--vlg-6 .col_vlg-5 {
     width: 72%;
-    width: calc(72% - var(--col-gap, 0px)); }
+    width: calc( 72% - var( --col-gap, 0px )); }
   .col--vlg-2 .col_vlg-2,
   .col--vlg-3 .col_vlg-3,
   .col--vlg-4 .col_vlg-4,
   .col--vlg-6 .col_vlg-6 {
     width: 86.4%;
-    width: calc(86.4% - var(--col-gap, 0px)); } }
+    width: calc( 86.4% - var( --col-gap, 0px )); } }
 
 /*--------------------------------------------------
 END GRID
 --------------------------------------------------*/
-/* Remove gap caused by first header in an article */
-.item-page h2:first-of-type {
-  margin-top: 0px; }
-
 /* Add space after the banner and before the footer */
 body.ribbonFullwidth #whitebox {
   margin-top: 3.2rem;
@@ -1028,16 +1075,28 @@ body.ribbonFullwidth #whitebox {
   margin: 3.2rem 0; }
 
 /* Typographical Spacing */
-p, body.linear.hd hr, pre, blockquote {
+p,
+body.linear.hd hr,
+pre,
+blockquote {
   margin-bottom: 1.6rem;
   margin-top: 0px; }
 
 /* Applys spacing to headers in the content section only */
-[role="main"] h1, [role="main"] h2, [role="main"] h3, [role="main"] h4, [role="main"] h5, [role="main"] h6 {
+[role='main'] h1,
+[role='main'] h2,
+[role='main'] h3,
+[role='main'] h4,
+[role='main'] h5,
+[role='main'] h6 {
   margin: 3.2rem 0px 1.6rem 0px; }
 
 #leftcolumn h3 {
   margin: 3.2rem 0px 1.6rem 0px; }
+
+/* Remove gap caused by first header in an article */
+.item-page h2:first-of-type {
+  margin-top: 0px; }
 
 /*--------------------------------------------------
 END LAYOUT - START SYNDICATION
@@ -1047,20 +1106,21 @@ html and classes of the target elements.
 /*------------------------
 START CALENDAR
 ------------------------*/
-body.linear.hd .localist-month, .localist-day {
+body.linear.hd .localist-month,
+.localist-day {
   background: #1E6B52;
   width: 60px; }
 
 body.linear.hd .localist-widget-eds div.localist-month {
-  color: #fff;
+  color: #FFF;
   padding-top: 0.5em;
   text-align: center;
   text-transform: uppercase;
-  font-family: "Kulturista-web", "proxima-nova", sans-serif !important;
+  font-family: 'Kulturista-web', 'proxima-nova', sans-serif !important;
   margin-bottom: -1px; }
 
 body.linear.hd .localist-day {
-  color: #fff;
+  color: #FFF;
   text-align: center;
   font-weight: 600;
   font-size: 1.25rem;
@@ -1076,7 +1136,7 @@ body.linear.hd .localist-widget-eds li {
   margin-bottom: 0.8rem; }
 
 body.linear.hd .localist-title h4 {
-  font-family: "proxima-nova", sans-serif !important;
+  font-family: 'proxima-nova', sans-serif !important;
   font-size: 1rem;
   line-height: 1.6rem;
   margin-top: -0.2em;
@@ -1085,7 +1145,8 @@ body.linear.hd .localist-title h4 {
 body.linear.hd .localist-title h4 a {
   border-bottom: 2px solid transparent; }
 
-body.linear.hd .localist-otherdetails div, .localist-otherdetails i {
+body.linear.hd .localist-otherdetails div,
+.localist-otherdetails i {
   font-size: 0.8rem;
   line-height: 1.6rem; }
 
@@ -1145,14 +1206,15 @@ START QUICKLINKS
   margin: 0px; }
 
 /* Remove borders from quicklinks */
-#quicklinks a, #trigger {
+#quicklinks a,
+#trigger {
   border: 0px solid transparent; }
 
 /* Ensure hover color is consistant */
-#quicklinks .dropdown-menu > li > a:hover,
-#quicklinks .dropdown-menu > li > a:focus,
 #quicklinks .dropdown-submenu:hover > a,
 #quicklinks .dropdown-submenu:focus > a,
+#quicklinks .dropdown-menu > li > a:hover,
+#quicklinks .dropdown-menu > li > a:focus,
 #quicklinks .newsfeed > li:hover,
 #quicklinks .newsfeed > li:focus {
   background-color: #d2e1dc; }
@@ -1180,7 +1242,7 @@ one line height for the margin below the breadcrumbs. */
 /* Set the before and after elements to cover the banner area and send them to the back */
 #banner::before,
 #banner::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0px;
   left: 0px;
@@ -1254,25 +1316,24 @@ body.hd.sidebars #leftcolumn {
   margin: 0px;
   display: block;
   border: 0px solid transparent;
-  background-color: transparent; }
+  background-color: transparent;
+  padding: 0.8rem;
+  border-left: 4px solid transparent; }
 
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
   margin: 0px; }
 
-#leftcolumn .sidebar li, #leftcolumn .sidebar ul.menu li {
+#leftcolumn .sidebar li,
+#leftcolumn .sidebar ul.menu li {
   padding: 0px;
   font-weight: normal; }
-
-#leftcolumn ul.nav.menu a {
-  padding: 0.8rem;
-  border-left: 4px solid transparent; }
 
 #leftcolumn ul.nav.menu .current > a {
   border-left: 4px solid #80BC00; }
 
 #leftcolumn ul.nav.menu .parent > a {
-  font-family: "kulturista-web", serif;
+  font-family: 'kulturista-web', serif;
   font-size: 1.25rem;
   line-height: 1.6rem; }
 
@@ -1288,10 +1349,12 @@ END SIDEBAR
 START FOOTER
 ------------------------*/
 /* Adjust link colors in the footer section */
-#footer a, #lockedFooter a {
+#footer a,
+#lockedFooter a {
   color: white;
   border-color: #999b9d; }
-  #footer a:hover, #lockedFooter a:hover {
+  #footer a:hover,
+  #lockedFooter a:hover {
     border-color: #e6e6e7;
     background-color: initial; }
 
@@ -1311,7 +1374,7 @@ body.linear.hd #footer .IT-footer_right {
 /* Align content */
 body.linear.hd #footer .IT-footer_left p {
   text-align: right;
-  margin: 0px; }
+  margin: 0; }
 
 body.linear.hd #footer .IT-footer_right,
 body.linear.hd #footer .IT-footer_right .social {
@@ -1340,7 +1403,8 @@ body.linear.hd #footer .IT-footer_logo {
   max-height: 3.2rem; }
 
 /* Remove default padding on the footer */
-body.linear.hd #footer, #footer .moduletable {
+body.linear.hd #footer,
+#footer .moduletable {
   padding: 0px; }
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */
@@ -1409,8 +1473,8 @@ START HELPERS
 [class*='-space-3'] {
   --u-space: 4.8rem; }
 
-[class*='-space-3'] {
-  --u-space: 4.8rem; }
+[class*='-space-4'] {
+  --u-space: 6.4rem; }
 
 [class*='margin-top-'] {
   margin-top: var(--u-space) !important; }

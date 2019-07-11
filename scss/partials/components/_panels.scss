@@ -3,24 +3,24 @@ START PANELS
 ------------------------*/
 body .panels > a,
 .cards > div {
-	border: 1px solid black;
-	padding: $s-1;
-	border-radius: $bdr-radius;
+  border: 1px solid black;
+  padding: $s-1;
+  border-radius: $bdr-radius;
 }
 body .panels > a:hover {
-	border-color: $uabgreen;
-	box-shadow: 0 0 0 1px $uabgreen;
+  border-color: $uabgreen;
+  box-shadow: 0 0 0 1px $uabgreen;
 }
 .panels > a h4 {
-	display: inline-block;
-	margin-top: 0px;
-	border-bottom: 2px solid $uabgreen-300;
+  display: inline-block;
+  margin-top: 0px;
+  border-bottom: 2px solid $uabgreen-300;
 }
 .panels > a:hover h4 {
-	border-color: $uabgreen;
+  border-color: $uabgreen;
 }
 .panels > a p:last-child {
-	margin-bottom: 0px;
+  margin-bottom: 0px;
 }
 /*------------------------
 END PANELS

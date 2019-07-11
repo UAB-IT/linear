@@ -10,7 +10,7 @@ START RESET
   padding: 0px;
   box-sizing: border-box;
   color: inherit;
-	transition-property: none;
+  transition-property: none;
 }
 
 /* Reset font size, family, and color on inline tags */
@@ -53,12 +53,19 @@ START RESET
 //   font-size: inherit;
 //   font-family: inherit;
 // }
+#{$specify} h1,
+#{$specify} h2,
+#{$specify} h3,
+#{$specify} h4,
+#{$specify} h5 {
+  text-align: inherit;
+}
 
 #{$specify} a {
   color: inherit;
   text-decoration: none;
-	font-weight: inherit;
-	-webkit-transition-property: none;
+  font-weight: inherit;
+  -webkit-transition-property: none;
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none;

@@ -1,8 +1,3 @@
-/*------------------------
-START TYPOGRAPHY
-------------------------*/
-// Variables
-
 $header-top: $s-2 !default;
 $header-bottom: $s-1 !default;
 
@@ -14,10 +9,12 @@ $h5-scale: 0 !default;
 $h6-scale: 0 !default;
 $p-scale: 0 !default;
 $sm-scale: n1 !default;
-
-/*------------------------
+/* ------------------------
+START TYPOGRAPHY
+------------------------ */
+/* ------------------------
 FONTS
-------------------------*/
+------------------------ */
 
 #{$specify} h1,
 #{$specify} h2,
@@ -25,7 +22,7 @@ FONTS
 #{$specify} h4,
 #{$specify} h5,
 #{$specify} h6 {
-	font-family: "kulturista-web", serif;
+  font-family: 'kulturista-web', serif;
 }
 //
 // #{$specify} .componentheading,
@@ -42,17 +39,21 @@ FONTS
 //   font-family: "kulturista-web", serif;
 // }
 
-/*------------------------
+/* ------------------------
 TYPESETTING
-------------------------*/
+------------------------ */
 
-#{$specify} h1 { @include type-setting($h1-scale); }
+#{$specify} h1 {
+  @include type-setting($h1-scale);
+}
 #{$specify} h2 { @include type-setting($h2-scale); }
-#{$specify} h3, #leftcolumn h3 { @include type-setting($h3-scale); }
+#{$specify} h3,
+#leftcolumn h3 { @include type-setting($h3-scale); }
 #{$specify} h4 { @include type-setting($h4-scale); }
 #{$specify} h5 { @include type-setting($h5-scale); }
 #{$specify} h6 { @include type-setting($h6-scale); }
-body, #{$specify} p { @include type-setting($p-scale); }
+body,
+#{$specify} p { @include type-setting($p-scale); }
 #{$specify} small { @include type-setting($sm-scale); }
 
 /*------------------------
@@ -64,9 +65,10 @@ RULE LINES
   height: 0;
   overflow: visible;
   border-style: solid;
-  border-width: 0px 0px 1px 0px;
+  border-width: 0 0 1px;
   border-color: black;
 }
+
 #{$specify} h1 + hr,
 #{$specify} h2 + hr,
 #{$specify} h3 + hr,
@@ -81,37 +83,49 @@ LINKS
 ------------------------*/
 
 /* Applies link styles to content areas only. Less specific than an id.
-Div is used here because .ribbonFullwidth is also on the body element.*/
-div.ribbonFullwidth a {
-	border-bottom: 2px solid $uabgreen-300;
-}
-div.ribbonFullwidth a[href]:hover {
-	background-color: $uabgreen-100;
-	border-color: $uabgreen;
-}
-a:focus, :focus {
+Div is used here because .ribbonFullwidth is also on the body element. */
+a:focus,
+:focus {
   outline: 5px auto $uabgreen;
 }
 
-/*------------------------
+div.ribbonFullwidth a {
+  border-bottom: 2px solid $uabgreen-300;
+}
+
+div.ribbonFullwidth a[href]:hover {
+  background-color: $uabgreen-100;
+  border-color: $uabgreen;
+}
+
+/* ------------------------
 INLINE
-------------------------*/
+------------------------ */
 
-mark, code, kbd { padding: $pad-inline; }
+mark,
+code,
+kbd { padding: $pad-inline; }
 
-mark, ::selection { background-color: $mark-color; }
+mark,
+::selection { background-color: $mark-color; }
 
-strong, b { font-weight: bolder; }
+strong,
+b { font-weight: bolder; }
 
-em, i, dfn, cite { font-style: italic; }
+em,
+i,
+dfn,
+cite { font-style: italic; }
 
-del, s { text-decoration: line-through; }
+del,
+s { text-decoration: line-through; }
 
 abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   text-decoration: underline dotted;
 }
+
 sub,
 sup {
   font-size: 75%;
@@ -119,6 +133,7 @@ sup {
   position: relative;
   vertical-align: baseline;
 }
+
 sub { bottom: -0.25em; }
 sup { top: -0.5em; }
 

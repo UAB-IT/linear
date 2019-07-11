@@ -1,12 +1,7 @@
-/* Remove gap caused by first header in an article */
-.item-page h2:first-of-type{
-	margin-top: 0px;
-}
-
 /* Add space after the banner and before the footer */
-body.ribbonFullwidth #whitebox{
-	margin-top: $s-2;
-	margin-bottom: $s-2;
+body.ribbonFullwidth #whitebox {
+  margin-top: $s-2;
+  margin-bottom: $s-2;
 }
 
 /* Section spacing */
@@ -16,17 +11,30 @@ body.ribbonFullwidth #whitebox{
 }
 
 /* Typographical Spacing */
-p, #{$specify} hr, pre, blockquote {
+p,
+#{$specify} hr,
+pre,
+blockquote {
   margin-bottom: $s-1;
   margin-top: 0px;
 }
 
 /* Applys spacing to headers in the content section only */
-[role="main"] {
-  h1, h2, h3, h4, h5, h6 {
+[role='main'] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     margin: $header-top 0px $header-bottom 0px;
   }
 }
-#leftcolumn h3{
-	margin: $header-top 0px $header-bottom 0px;
+#leftcolumn h3 {
+  margin: $header-top 0px $header-bottom 0px;
+}
+
+/* Remove gap caused by first header in an article */
+.item-page h2:first-of-type {
+  margin-top: 0px;
 }

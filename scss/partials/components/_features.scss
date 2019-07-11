@@ -13,7 +13,7 @@ START FEATURES
  */
 
 .features {
-	text-align: center;
+  text-align: center;
 }
 // /* Remove link styles for this component */
 // #{$specify} .features a {
@@ -24,16 +24,16 @@ START FEATURES
 
 /* Add margin between the image, header, and content */
 #{$specify} .features img + h3 {
-	margin-top: $s-1;
-	margin-bottom: $s-1;
+  margin-top: $s-1;
+  margin-bottom: $s-1;
 }
 
 /* Adjust the size of the image */
 #{$specify} .features img {
-	height: 7rem;
-	width: auto;
-	display: block;
-	margin: auto;
+  height: 7rem;
+  width: auto;
+  display: block;
+  margin: auto;
 }
 
 // body .features a[href]:hover{

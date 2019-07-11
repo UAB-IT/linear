@@ -1,6 +1,6 @@
 // FONTS
-$font-body: Helvetica, Arial, sans-serif !default;
-$font-head: Helvetica, Arial, sans-serif !default;
+$font-body: 'Helvetica', 'Arial', sans-serif !default;
+$font-head: 'Helvetica', 'Arial', sans-serif !default;
 $font-mono: monospace !default;
 $font-icon: false !default;
 
@@ -90,16 +90,15 @@ $bp-xs: 360px !default;
   @return $raised;
 }
 
-
 // TYPOGRAPHY LOGIC
 $type-scales: (
   n1: $txt-size / $ratio,
   0: $txt-size,
   1: $txt-size * $ratio,
-  2: $txt-size * pow($ratio, 2),
-  3: $txt-size * pow($ratio, 3),
-  4: $txt-size * pow($ratio, 4),
-  5: $txt-size * pow($ratio, 5)
+  2: $txt-size * pow( $ratio, 2 ),
+  3: $txt-size * pow( $ratio, 3 ),
+  4: $txt-size * pow( $ratio, 4 ),
+  5: $txt-size * pow( $ratio, 5 )
 );
 $line-heights: (
   n1: $line-height,
@@ -118,23 +117,23 @@ $line-heights: (
   @return map-get($type-scales, $level);
 }
 @mixin type-setting($level) {
-  font-size: #{type-scale($level) + 'rem'};
-  line-height: #{line-height($level)};
+  font-size: #{type-scale( $level ) + 'rem'};
+  line-height: #{line-height( $level )};
 }
 @mixin input {
-  input[type=text],
-  input[type=email],
-  input[type=url],
-  input[type=search],
-  input[type=password],
-  input[type=search],
-  input[type=tel],
-  input[type=number],
-  input[type=date],
-  input[type=time],
-  input[type=month],
-  input[type=week],
-  input[type=file],
+  input[type='text'],
+  input[type='email'],
+  input[type='url'],
+  input[type='search'],
+  input[type='password'],
+  input[type='search'],
+  input[type='tel'],
+  input[type='number'],
+  input[type='date'],
+  input[type='time'],
+  input[type='month'],
+  input[type='week'],
+  input[type='file'],
   textarea,
   select {
     @content;
@@ -142,48 +141,48 @@ $line-heights: (
 }
 @mixin range-thumb($webkit: true, $moz: true, $ms: true) {
   @if $webkit {
-    input[type=range]::-webkit-slider-thumb {
+    input[type='range']::-webkit-slider-thumb {
       @content;
     }
   }
   @if $moz {
-    input[type=range]::-moz-range-thumb {
+    input[type='range']::-moz-range-thumb {
       @content;
     }
   }
 }
 @mixin range-thumb-focus($webkit: true, $moz: true, $ms: true) {
   @if $webkit {
-    input[type=range]:focus::-webkit-slider-thumb {
+    input[type='range']:focus::-webkit-slider-thumb {
       @content;
     }
   }
   @if $moz {
-    input[type=range]:focus::-moz-range-thumb {
+    input[type='range']:focus::-moz-range-thumb {
       @content;
     }
   }
 }
 @mixin range-track($webkit: true, $moz: true, $ms: true) {
   @if $webkit {
-    input[type=range]::-webkit-slider-runnable-track {
+    input[type='range']::-webkit-slider-runnable-track {
       @content;
     }
   }
   @if $moz {
-    input[type=range]::-moz-range-track {
+    input[type='range']::-moz-range-track {
       @content;
     }
   }
 }
 @mixin range-track-focus($webkit: true, $moz: true, $ms: true) {
   @if $webkit {
-    input[type=range]:focus::-webkit-slider-runnable-track {
+    input[type='range']:focus::-webkit-slider-runnable-track {
       @content;
     }
   }
   @if $moz {
-    input[type=range]:focus::-moz-range-track {
+    input[type='range']:focus::-moz-range-track {
       @content;
     }
   }
@@ -207,7 +206,7 @@ $line-heights: (
     }
   }
   @if $moz {
-    :-moz-meter-optimum::-moz-meter-bar{
+    :-moz-meter-optimum::-moz-meter-bar {
       @content;
     }
   }
@@ -237,8 +236,8 @@ $line-heights: (
   }
 }
 @mixin radio-check-focus {
-  input[type='radio']:focus+label,
-  input[type='checkbox']:focus+label {
+  input[type='radio']:focus + label,
+  input[type='checkbox']:focus + label {
     @content;
   }
 }
