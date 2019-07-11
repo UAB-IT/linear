@@ -15,7 +15,7 @@ Helpers are in the Core category, but are included at the end of the Ember code 
 START RESET
 ------------------------*/
 /* Reset most properties from most elements */
-body.hd * {
+* {
   margin: 0px;
   font-size: inherit;
   font-family: inherit;
@@ -29,15 +29,19 @@ body.hd * {
 body.linear.hd h1 a,
 body.linear.hd h1 strong,
 body.linear.hd h1 b,
+body.linear.hd h1 span,
 body.linear.hd h2 a,
 body.linear.hd h2 strong,
 body.linear.hd h2 b,
+body.linear.hd h2 span,
 body.linear.hd h3 a,
 body.linear.hd h3 strong,
 body.linear.hd h3 b,
+body.linear.hd h3 span,
 body.linear.hd h4 a,
 body.linear.hd h4 strong,
 body.linear.hd h4 b,
+body.linear.hd h4 span,
 body.linear.hd #footer a,
 body.linear.hd #footer span,
 body.linear.hd b,
@@ -58,9 +62,6 @@ body.linear.hd a {
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none; }
-
-.fa, .far, .fas {
-  font-family: "Font Awesome 5 Free" !important; }
 
 /*------------------------
 END RESET
@@ -194,7 +195,7 @@ PREFORMATTED
 ------------------------*/
 code {
   background-color: #e6e6e7;
-  color: #333435;
+  color: #4d4e50;
   border-radius: 4px;
   white-space: pre; }
 
@@ -208,7 +209,7 @@ pre > code {
 
 kbd {
   background-color: #333435;
-  color: #e6e6e7;
+  color: #f2f3f3;
   border-radius: 4px;
   white-space: pre; }
 

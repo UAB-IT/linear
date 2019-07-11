@@ -15,12 +15,6 @@ $h6-scale: 0 !default;
 $p-scale: 0 !default;
 $sm-scale: n1 !default;
 
-$kbd-bg: $dark !default;
-$kbd-color: $grey1 !default;
-
-$code-bg: $grey1 !default;
-$code-color: $dark !default;
-
 /*------------------------
 FONTS
 ------------------------*/
@@ -133,8 +127,8 @@ PREFORMATTED
 ------------------------*/
 
 code {
-  background-color: $code-bg;
-  color: $code-color;
+  background-color: $stone-100;
+  color: $stone-700;
   border-radius: $bdr-radius;
   white-space: pre;
 }
@@ -147,8 +141,8 @@ pre > code {
 }
 
 kbd {
-  background-color: $kbd-bg;
-  color: $kbd-color;
+  background-color: $stone-800;
+  color: $stone-050;
   border-radius: $bdr-radius;
   white-space: pre;
 }

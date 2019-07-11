@@ -2,7 +2,7 @@
 START RESET
 ------------------------*/
 /* Reset most properties from most elements */
-body.hd * {
+* {
   margin: 0px;
   font-size: inherit;
   font-family: inherit;
@@ -17,15 +17,19 @@ body.hd * {
 #{$specify} h1 a,
 #{$specify} h1 strong,
 #{$specify} h1 b,
+#{$specify} h1 span,
 #{$specify} h2 a,
 #{$specify} h2 strong,
 #{$specify} h2 b,
+#{$specify} h2 span,
 #{$specify} h3 a,
 #{$specify} h3 strong,
 #{$specify} h3 b,
+#{$specify} h3 span,
 #{$specify} h4 a,
 #{$specify} h4 strong,
 #{$specify} h4 b,
+#{$specify} h4 span,
 #{$specify} #footer a,
 #{$specify} #footer span,
 #{$specify} b,
@@ -58,9 +62,6 @@ body.hd * {
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none;
-}
-.fa, .far, .fas{
-  font-family: "Font Awesome 5 Free" !important;
 }
 /*------------------------
 END RESET
