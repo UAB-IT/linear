@@ -53,8 +53,8 @@ $checkbox-fill: ☒ !default;
 $bp-xxl: 2560px !default;
 $bp-xl: 1440px !default;
 $bp-l: 1024px !default;
-$bp-m: 500px !default;
-$bp-xs: 360px !default;
+$bp-m: 768px !default;
+$bp-sm: 7670px !default;
 @mixin xxlarge {
   @media all and (min-width: $bp-xxl) {
     @content;
@@ -75,8 +75,8 @@ $bp-xs: 360px !default;
     @content;
   }
 }
-@mixin xsmall {
-  @media all and (max-width: $bp-xs) {
+@mixin small {
+  @media all and (max-width: $bp-sm) {
     @content;
   }
 }

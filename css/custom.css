@@ -872,194 +872,249 @@ CSS that helps with page layout, from site wide edits to page specific layout.
 /*--------------------------------------------------
 START GRID
 --------------------------------------------------*/
-/*Universal Grid Styles*/
-[class*='col-'] {
+.span-1 {
+  flex-grow: 1; }
+
+.span-2 {
+  flex-grow: 2; }
+
+.span-3 {
+  flex-grow: 3; }
+
+.span-4 {
+  flex-grow: 4; }
+
+.span-5 {
+  flex-grow: 5; }
+
+[class*='grid-'] {
   box-sizing: border-box;
   display: flex;
   flex-wrap: wrap; }
 
-[class*='col-'] > * {
+[class*='grid-'] > * {
   flex-grow: 1;
   width: 100%;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin: 0.5rem; }
 
-/*Grid Gap*/
-.col--gap {
-  --grid-gap: 1.6rem;
-  --row-gap-vsm: var( --grid-gap );
-  --col-gap-vsm: var( --grid-gap );
-  --row-gap: var( --row-gap-vsm );
-  --col-gap: var( --col-gap-vsm );
-  margin: -0.5rem;
-  /*Fallback for IE*/
-  margin: calc( var( --row-gap ) / 2 * -1), calc( var( --col-gap ) / 2 * -1), calc( var( --row-gap ) / 2 * -1), calc( var( --col-gap ) / 2 * -1); }
+.grid--no-gap,
+.grid--no-gap > * {
+  margin: 0; }
 
-.col--gap > * {
-  margin: 0.5rem;
-  /*Fallback for IE*/
-  margin: calc( var( --row-gap ) / 2), calc( var( --col-gap ) / 2), calc( var( --row-gap ) / 2), calc( var( --col-gap ) / 2); }
+.grid-6 > *,
+.grid-6 > .span-1,
+.grid-6-md > *,
+.grid-6-md > .span-1-md,
+.grid-6-lg > *,
+.grid-6-lg > .span-1 {
+  width: 14.4%; }
 
-.col_vsm-1 {
-  flex-grow: 1; }
+.grid-4 > *,
+.grid-4 .span-1,
+.grid-4-md > *,
+.grid-4-md .span-1-md,
+.grid-4-lg > *,
+.grid-4-lg .span-1-lg {
+  width: 21.6%; }
 
-.col_vsm-2 {
-  flex-grow: 2; }
+.grid-3 > *,
+.grid-3 > .span-1,
+.grid-6 > .span-2,
+.grid-3-md > *,
+.grid-3-md > .span-1-md,
+.grid-6-md > .span-2-md,
+.grid-3-lg > *,
+.grid-3-lg > .span-1-lg,
+.grid-6-lg > .span-2-lg {
+  width: 28.8%; }
 
-.col_vsm-3 {
-  flex-grow: 3; }
+.grid-2 > *,
+.grid-2 > .span-1,
+.grid-4 > .span-2,
+.grid-6 > .span-3,
+.grid-2-md > *,
+.grid-2-md > .span-1-md,
+.grid-4-md > .span-2-md,
+.grid-6-md > .span-3-md,
+.grid-2-lg > *,
+.grid-2-lg > .span-1-lg,
+.grid-4-lg > .span-2-lg,
+.grid-6-lg > .span-3-lg {
+  width: 43.2%; }
 
-.col_vsm-4 {
-  flex-grow: 4; }
+.grid-3 > .span-2,
+.grid-6 > .span-4,
+.grid-3-md > .span-2-md,
+.grid-6-md > .span-4-md,
+.grid-3-lg > .span-2-lg,
+.grid-6-lg > .span-4-lg {
+  width: 57.6%; }
 
-.col_vsm-5 {
-  flex-grow: 5; }
+.grid-4 > .span-3,
+.grid-4-md > .span-3-md,
+.grid-4-lg > .span-3-lg {
+  width: 64.8%; }
 
-.col--vsm-6 > *,
-.col--vsm-6 .col_vsm-1 {
-  width: 14.4%;
-  width: calc( 14.4% - var( --col-gap, 0px )); }
+.grid-6 > .span-5,
+.grid-6-md > .span-5-md,
+.grid-6-lg > .span-5-lg {
+  width: 72%; }
 
-.col--vsm-4 > *,
-.col--vsm-4 .col_vsm-1 {
-  width: 21.6%;
-  width: calc( 21.6% - var( --col-gap, 0px )); }
+.grid-2 > .span-2,
+.grid-3 > .span-3,
+.grid-4 > .span-4,
+.grid-6 > .span-6,
+.grid-2-md > .span-2-md,
+.grid-3-md > .span-3-md,
+.grid-4-md > .span-4-md,
+.grid-6-md > .span-6-md,
+.grid-2-lg > .span-2-lg,
+.grid-3-lg > .span-3-lg,
+.grid-4-lg > .span-4-lg,
+.grid-6-lg > .span-6-lg {
+  width: 86.4%; }
 
-.col--vsm-3 > *,
-.col--vsm-6 .col_vsm-2,
-.col--vsm-3 .col_vsm-1 {
-  width: 28.8%;
-  width: calc( 28.8% - var( --col-gap, 0px )); }
+@supports (display: grid) {
+  [class*='grid-'] > [class*='span-'],
+  [class*='grid-'] > * {
+    width: 100%;
+    margin: 0; }
+  [class*='grid-'] {
+    display: grid;
+    grid-gap: 1.6rem;
+    grid-auto-flow: row; }
+  .grid--no-gap {
+    grid-gap: 0; } }
 
-.col--vsm-2 > *,
-.col--vsm-2 .col_vsm-1,
-.col--vsm-4 .col_vsm-2,
-.col--vsm-6 .col_vsm-3 {
-  width: 43.2%;
-  width: calc( 43.2% - var( --col-gap, 0px )); }
+.grid-1 {
+  grid-template-columns: repeat(1, 1fr); }
 
-.col--vsm-3 .col_vsm-2,
-.col--vsm-6 .col_vsm-4 {
-  width: 57.6%;
-  width: calc( 57.6% - var( --col-gap, 0px )); }
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr); }
 
-.col--vsm-4 .col_vsm-3 {
-  width: 64.8%;
-  width: calc( 64.8% - var( --col-gap, 0px )); }
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr); }
 
-.col--vsm-6 .col_vsm-5 {
-  width: 72%;
-  width: calc( 72% - var( --col-gap, 0px )); }
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr); }
 
-.col--vsm-2 .col_vsm-2,
-.col--vsm-3 .col_vsm-3,
-.col--vsm-4 .col_vsm-4,
-.col--vsm-6 .col_vsm-6 {
-  width: 86.4%;
-  width: calc( 86.4% - var( --col-gap, 0px )); }
+.grid-6 {
+  grid-template-columns: repeat(6, 1fr); }
 
-@media all and (min-width: 500px) {
-  .col--gap {
-    --row-gap-vmd: var( --grid-gap-vmd, var( --row-gap-vsm ) );
-    --col-gap-vmd: var( --grid-gap-vmd, var( --col-gap-vsm ) );
-    --row-gap: var( --row-gap-vmd );
-    --col-gap: var( --col-gap-vmd ); }
-  .col_vmd-1 {
-    flex-grow: 1; }
-  .col_vmd-2 {
-    flex-grow: 2; }
-  .col_vmd-3 {
-    flex-grow: 3; }
-  .col_vmd-4 {
-    flex-grow: 4; }
-  .col_vmd-5 {
-    flex-grow: 5; }
-  .col--vmd-6 > *,
-  .col--vmd-6 .col_vmd-1 {
-    width: 14.4%;
-    width: calc( 14.4% - var( --col-gap, 0px )); }
-  .col--vmd-4 > *,
-  .col--vmd-4 .col_vmd-1 {
-    width: 21.6%;
-    width: calc( 21.6% - var( --col-gap, 0px )); }
-  .col--vmd-3 > *,
-  .col--vmd-6 .col_vmd-2,
-  .col--vmd-3 .col_vmd-1 {
-    width: 28.8%;
-    width: calc( 28.8% - var( --col-gap, 0px )); }
-  .col--vmd-2 > *,
-  .col--vmd-2 .col_vmd-1,
-  .col--vmd-4 .col_vmd-2,
-  .col--vmd-6 .col_vmd-3 {
-    width: 43.2%;
-    width: calc( 43.2% - var( --col-gap, 0px )); }
-  .col--vmd-3 .col_vmd-2,
-  .col--vmd-6 .col_vmd-4 {
-    width: 57.6%;
-    width: calc( 57.6% - var( --col-gap, 0px )); }
-  .col--vmd-4 .col_vmd-3 {
-    width: 64.8%;
-    width: calc( 64.8% - var( --col-gap, 0px )); }
-  .col--vmd-6 .col_vmd-5 {
-    width: 72%;
-    width: calc( 72% - var( --col-gap, 0px )); }
-  .col--vmd-2 .col_vmd-2,
-  .col--vmd-3 .col_vmd-3,
-  .col--vmd-4 .col_vmd-4,
-  .col--vmd-6 .col_vmd-6 {
-    width: 86.4%;
-    width: calc( 86.4% - var( --col-gap, 0px )); } }
+[class*='grid-'] > .span-1 {
+  grid-column: span 1; }
+
+.grid-2 > .span-2,
+.grid-3 > .span-2,
+.grid-4 > .span-2,
+.grid-6 > .span-2 {
+  grid-column: span 2; }
+
+.grid-3 > .span-3,
+.grid-4 > .span-3,
+.grid-6 > .span-3 {
+  grid-column: span 3; }
+
+.grid-4 > .span-4,
+.grid-6 > .span-6 {
+  grid-column: span 4; }
+
+.grid-6 > .span-5 {
+  grid-column: span 5; }
+
+.grid-6 > .span-6 {
+  grid-column: span 6; }
+
+@media all and (max-width: 7670px) {
+  .grid-1-sm {
+    grid-template-columns: repeat(1, 1fr); }
+  .grid-2-sm {
+    grid-template-columns: repeat(2, 1fr); }
+  .grid-3-sm {
+    grid-template-columns: repeat(3, 1fr); }
+  .grid-4-sm {
+    grid-template-columns: repeat(4, 1fr); }
+  .grid-6-sm {
+    grid-template-columns: repeat(6, 1fr); }
+  [class*='grid-'] > .span-1 {
+    grid-column: span 1; }
+  .grid-2-sm > .span-2-sm,
+  .grid-3-sm > .span-2-sm,
+  .grid-4-sm > .span-2-sm,
+  .grid-6 > .span-2-sm {
+    grid-column: span 2; }
+  .grid-3-sm > .span-3-sm,
+  .grid-4-sm > .span-3-sm,
+  .grid-6-sm > .span-3-sm {
+    grid-column: span 3; }
+  .grid-4-sm > .span-4-sm,
+  .grid-6-sm > .span-6-sm {
+    grid-column: span 4; }
+  .grid-6-sm > .span-5-sm {
+    grid-column: span 5; }
+  .grid-6-sm > .span-6-sm {
+    grid-column: span 6; } }
+
+@media all and (min-width: 768px) {
+  .grid-1-md {
+    grid-template-columns: repeat(1, 1fr); }
+  .grid-2-md {
+    grid-template-columns: repeat(2, 1fr); }
+  .grid-3-md {
+    grid-template-columns: repeat(3, 1fr); }
+  .grid-4-md {
+    grid-template-columns: repeat(4, 1fr); }
+  .grid-6-md {
+    grid-template-columns: repeat(6, 1fr); }
+  [class*='grid-'] > .span-1 {
+    grid-column: span 1; }
+  .grid-2-md > .span-2-md,
+  .grid-3-md > .span-2-md,
+  .grid-4-md > .span-2-md,
+  .grid-6-md > .span-2-md {
+    grid-column: span 2; }
+  .grid-3-md > .span-3-md,
+  .grid-4-md > .span-3-md,
+  .grid-6-md > .span-3-md {
+    grid-column: span 3; }
+  .grid-4-md > .span-4-md,
+  .grid-6-md > .span-6-md {
+    grid-column: span 4; }
+  .grid-6-md > .span-5-md {
+    grid-column: span 5; }
+  .grid-6-md > .span-6-md {
+    grid-column: span 6; } }
 
 @media all and (min-width: 1024px) {
-  .col--gap {
-    --row-gap-vlg: var( --grid-gap-vlg, var( --row-gap-vmd ) );
-    --col-gap-vlg: var( --grid-gap-vlg, var( --col-gap-vmd ) );
-    --row-gap: var( --row-gap-vlg );
-    --col-gap: var( --col-gap-vlg ); }
-  .col_vlg-1 {
-    flex-grow: 1; }
-  .col_vlg-2 {
-    flex-grow: 2; }
-  .col_vlg-3 {
-    flex-grow: 3; }
-  .col_vlg-4 {
-    flex-grow: 4; }
-  .col_vlg-5 {
-    flex-grow: 5; }
-  .col--vlg-6 > *,
-  .col--vlg-6 .col_vlg-1 {
-    width: 14.4%;
-    width: calc( 14.4% - var( --col-gap, 0px )); }
-  .col--vlg-4 > *,
-  .col--vlg-4 .col_vlg-1 {
-    width: 21.6%;
-    width: calc( 21.6% - var( --col-gap, 0px )); }
-  .col--vlg-3 > *,
-  .col--vlg-6 .col_vlg-2,
-  .col--vlg-3 .col_vlg-1 {
-    width: 28.8%;
-    width: calc( 28.8% - var( --col-gap, 0px )); }
-  .col--vlg-2 > *,
-  .col--vlg-2 .col_vlg-1,
-  .col--vlg-4 .col_vlg-2,
-  .col--vlg-6 .col_vlg-3 {
-    width: 43.2%;
-    width: calc( 43.2% - var( --col-gap, 0px )); }
-  .col--vlg-3 .col_vlg-2,
-  .col--vlg-6 .col_vlg-4 {
-    width: 57.6%;
-    width: calc( 57.6% - var( --col-gap, 0px )); }
-  .col--vlg-4 .col_vlg-3 {
-    width: 64.8%;
-    width: calc( 64.8% - var( --col-gap, 0px )); }
-  .col--vlg-6 .col_vlg-5 {
-    width: 72%;
-    width: calc( 72% - var( --col-gap, 0px )); }
-  .col--vlg-2 .col_vlg-2,
-  .col--vlg-3 .col_vlg-3,
-  .col--vlg-4 .col_vlg-4,
-  .col--vlg-6 .col_vlg-6 {
-    width: 86.4%;
-    width: calc( 86.4% - var( --col-gap, 0px )); } }
+  .grid-1-lg {
+    grid-template-columns: repeat(1, 1fr); }
+  .grid-2-lg {
+    grid-template-columns: repeat(2, 1fr); }
+  .grid-3-lg {
+    grid-template-columns: repeat(3, 1fr); }
+  .grid-4-lg {
+    grid-template-columns: repeat(4, 1fr); }
+  .grid-6-lg {
+    grid-template-columns: repeat(6, 1fr); }
+  [class*='grid-'] > .span-1 {
+    grid-column: span 1; }
+  .grid-2-lg > .span-2-lg,
+  .grid-3-lg > .span-2-lg,
+  .grid-4-lg > .span-2-lg,
+  .grid-6-lg > .span-2-lg {
+    grid-column: span 2; }
+  .grid-3-lg > .span-3-lg,
+  .grid-4-lg > .span-3-lg,
+  .grid-6-lg > .span-3-lg {
+    grid-column: span 3; }
+  .grid-4-lg > .span-4-lg,
+  .grid-6-lg > .span-6-lg {
+    grid-column: span 4; }
+  .grid-6-lg > .span-5-lg {
+    grid-column: span 5; }
+  .grid-6-lg > .span-6-lg {
+    grid-column: span 6; } }
 
 /*--------------------------------------------------
 END GRID
