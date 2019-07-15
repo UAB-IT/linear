@@ -54,7 +54,7 @@ $bp-xxl: 2560px !default;
 $bp-xl: 1440px !default;
 $bp-l: 1024px !default;
 $bp-m: 768px !default;
-$bp-sm: 7670px !default;
+$bp-sm: 760px !default;
 @mixin xxlarge {
   @media all and (min-width: $bp-xxl) {
     @content;
