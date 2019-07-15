@@ -1,0 +1,31 @@
+/*------------------------
+START NEWS FEEDS
+------------------------*/
+.it-news .newsflash-item {
+  display: grid;
+  grid-template-areas:
+    'image'
+    'title'
+    'footer';
+}
+.it-news h4.newsflash-title {
+  padding: 0px;
+}
+.it-news .newsflash-title {
+  grid-area: title;
+  display: block !important;
+  margin-top: $s-1;
+}
+.it-news .newsflash-image {
+  grid-area: image;
+  margin: 0px;
+}
+.it-news .article-separator {
+  display: none;
+}
+.it-news li.newsflash-item {
+  border: 0px solid transparent;
+}
+/*------------------------
+END NEWS FEEDS
+------------------------*/

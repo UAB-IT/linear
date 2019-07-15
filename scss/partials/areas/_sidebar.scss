@@ -1,4 +1,4 @@
-$sidebar-bg: $stone-050;
+$sidebar-bg: white;
 /*------------------------
 START SIDEBAR
 ------------------------*/
@@ -45,6 +45,7 @@ body.hd.sidebars #leftcolumn {
 }
 
 #leftcolumn ul.nav.menu .current > a {
+  background-color: $stone-050;
   border-left: 4px solid $apple;
 }
 

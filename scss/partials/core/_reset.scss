@@ -58,6 +58,7 @@ START RESET
 #{$specify} h3,
 #{$specify} h4,
 #{$specify} h5 {
+  color: inherit;
   text-align: inherit;
 }
 
@@ -69,6 +70,26 @@ START RESET
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none;
+}
+
+.page-header {
+  margin: 0px;
+  padding: 0px;
+  border-bottom: 0px solid transparent;
+}
+
+body.hd .latestnews li,
+body.hd .relateditems li,
+body.hd .mostread li,
+body.hd .newsfeed li,
+body.hd .sections li,
+body.hd .weblinks li,
+body.hd .k2ItemsBlock li,
+body.hd .category-module,
+body.hd .moduleCustomLink,
+body.hd .rightsidebar .nav.menu li {
+  float: none;
+  width: 100%;
 }
 /*------------------------
 END RESET
