@@ -1,13 +1,35 @@
 /* Add space after the banner and before the footer */
 body.ribbonFullwidth #whitebox {
-  margin-top: $s-2;
-  margin-bottom: $s-2;
+  margin-top: $s-3;
+  margin-bottom: $s-3;
+}
+
+/* Remove odd margins from main column since that spacing is handled
+through the whitebox now */
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r,
+body.hd.inside #maincolumn-l-r,
+body.hd.inside #maincolumn-wide {
+  margin-top: 0px !important;
+  margin-bottom: 0px !important;
+}
+/* Add more consistant gap between sidebars and main content*/
+body.hd.inside #maincolumn-l {
+  margin: 0 0 0 #{$s-2} !important;
+}
+body.hd.inside #maincolumn-r {
+  margin: 0 #{$s-2} 0 0 !important;
+}
+body.hd.inside #maincolumn-l-r {
+  margin: 0 #{$s-1} !important;
 }
 
 /* Section spacing */
 .section {
-  padding: $pad-section;
-  margin: $mar-section;
+  margin: $s-3 0px;
+}
+.section.background {
+  padding: $s-2 0px;
 }
 
 /* Typographical Spacing */

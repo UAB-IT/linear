@@ -22,7 +22,8 @@ FONTS
 #{$specify} h4,
 #{$specify} h5,
 #{$specify} h6 {
-  font-family: 'kulturista-web', serif;
+  font-family: $font-head;
+  font-weight: normal;
 }
 //
 // #{$specify} .componentheading,
