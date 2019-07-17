@@ -69,8 +69,9 @@ START NEWS FEEDS
 .it-feed .mod-articles-category-readmore {
   margin: 0px;
 }
-.it-feed {
-  grid-gap: $s-2;
+#{$specify} ul.it-feed {
+  margin: 0px;
+  list-style-type: none;
 }
 /*------------------------
 END NEWS FEEDS

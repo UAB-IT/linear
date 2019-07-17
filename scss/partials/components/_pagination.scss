@@ -1,0 +1,62 @@
+/*------------------------
+START PAGINATION
+------------------------*/
+.pagination {
+  margin: 0 0 $s-1;
+}
+.pagination ul {
+  border-radius: 0px;
+  box-shadow: none;
+}
+.pagination ul > li > a,
+.pagination ul > li > span {
+  display: inline-block;
+  margin: 0 $s-05;
+  border: 0px solid transparent;
+  padding: $pad-input;
+}
+.pagination ul > li > span {
+  border-bottom: 2px solid $apple;
+}
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  border-bottom-left-radius: $bdr-radius;
+  border-top-left-radius: $bdr-radius;
+}
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span, {
+  border-bottom-right-radius: $bdr-radius;
+  border-top-right-radius: $bdr-radius;
+}
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-next > a {
+  border: 1px solid $uabgreen;
+  color: $uabgreen;
+  margin: 0px;
+}
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-prev > span,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-next > span {
+  border: 1px solid $stone-300;
+  color: $stone-300;
+  background: $stone-050;
+  margin: 0px;
+}
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span {
+  margin-right: $s-05;
+}
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  margin-left: $s-05;
+}
+/*------------------------
+END PAGINATION
+------------------------*/

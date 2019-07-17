@@ -45,7 +45,7 @@ START FOOTER
 
 /* Remove border from social media links. Add spacing between them. */
 #{$specify} #footer .IT-footer_right .social a {
-  border: 0px solid transparent !important;
+  border: 0 solid transparent !important;
   margin-right: 1rem;
 }
 
@@ -57,18 +57,19 @@ START FOOTER
 /* Set size of social media icons */
 #{$specify} #footer .IT-footer .social img {
   max-height: 2rem;
-  margin-top: 0.5rem;
+  margin: 0.5rem 0 0;
 }
 
 /* Set the size of the UAB logo */
 #{$specify} #footer .IT-footer_logo {
   max-height: $s-2;
+  margin: 0;
 }
 
 /* Remove default padding on the footer */
 #{$specify} #footer,
 #footer .moduletable {
-  padding: 0px;
+  padding: 0;
 }
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */

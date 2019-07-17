@@ -976,6 +976,68 @@ div.ribbonFullwidth .alert a:hover {
 /*------------------------
 END ALERT
 ------------------------*/
+/*------------------------
+START PAGINATION
+------------------------*/
+.pagination {
+  margin: 0 0 1.6rem; }
+
+.pagination ul {
+  border-radius: 0px;
+  box-shadow: none; }
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  display: inline-block;
+  margin: 0 0.8rem;
+  border: 0px solid transparent;
+  padding: 0.3em 1em; }
+
+.pagination ul > li > span {
+  border-bottom: 2px solid #80BC00; }
+
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px; }
+
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px; }
+
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-next > a {
+  border: 1px solid #1E6B52;
+  color: #1E6B52;
+  margin: 0px; }
+
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-prev > span,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-next > span {
+  border: 1px solid #b3b4b6;
+  color: #b3b4b6;
+  background: #f2f3f3;
+  margin: 0px; }
+
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span {
+  margin-right: 0.8rem; }
+
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  margin-left: 0.8rem; }
+
+/*------------------------
+END PAGINATION
+------------------------*/
 /*--------------------------------------------------
 END COMPONENTS - START LAYOUT
 CSS that helps with page layout, from site wide edits to page specific layout.
@@ -1488,8 +1550,9 @@ body.linear.hd .it-feed .mod-articles-category-introtext {
 .it-feed .mod-articles-category-readmore {
   margin: 0px; }
 
-.it-feed {
-  grid-gap: 3.2rem; }
+body.linear.hd ul.it-feed {
+  margin: 0px;
+  list-style-type: none; }
 
 /*------------------------
 END NEWS FEEDS
@@ -1745,7 +1808,7 @@ body.linear.hd #footer .IT-footer_right {
 
 /* Remove border from social media links. Add spacing between them. */
 body.linear.hd #footer .IT-footer_right .social a {
-  border: 0px solid transparent !important;
+  border: 0 solid transparent !important;
   margin-right: 1rem; }
 
 /* Add spacing between logo and social links */
@@ -1755,16 +1818,17 @@ body.linear.hd #footer .IT-footer .social {
 /* Set size of social media icons */
 body.linear.hd #footer .IT-footer .social img {
   max-height: 2rem;
-  margin-top: 0.5rem; }
+  margin: 0.5rem 0 0; }
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
-  max-height: 3.2rem; }
+  max-height: 3.2rem;
+  margin: 0; }
 
 /* Remove default padding on the footer */
 body.linear.hd #footer,
 #footer .moduletable {
-  padding: 0px; }
+  padding: 0; }
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */
 #lockedFooter {
