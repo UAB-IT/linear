@@ -1,6 +1,9 @@
 /*--------------------------------------------------
 START GRID
 --------------------------------------------------*/
+/*------------------------
+START IE FALLBACK
+------------------------*/
 $grid-1: 7.2 !default;
 $grid-2: #{ $grid-1 * 2 + '%'};
 $grid-3: #{ $grid-1 * 3 + '%'};
@@ -13,115 +16,243 @@ $grid-9: #{ $grid-1 * 9 + '%'};
 $grid-10: #{ $grid-1 * 10 + '%'};
 $grid-11: #{ $grid-1 * 11 + '%'};
 $grid-12: #{ $grid-1 * 12 + '%'};
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  [class*='grid-2'],
+  [class*='grid-3'],
+  [class*='grid-4'],
+  [class*='grid-6'] {
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+    margin: -0.5rem;
+  }
 
-@mixin grid($x) {
-  .col_#{$x}-1 {
+  [class*='grid-2'] > *,
+  [class*='grid-3'] > *,
+  [class*='grid-4'] > *,
+  [class*='grid-6'] > * {
     flex-grow: 1;
-  }
-  .col_#{$x}-2{
-    flex-grow: 2;
-  }
-  .col_#{$x}-3{
-    flex-grow: 3;
-  }
-  .col_#{$x}-4{
-    flex-grow: 4;
-  }
-  .col_#{$x}-5{
-    flex-grow: 5;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0.5rem;
   }
 
-  .col--#{$x}-6 > *,
-  .col--#{$x}-6 .col_#{$x}-1 {
-    width: #{$grid-2}; width: calc(#{$grid-2} - var(--col-gap, 0px));
+  .span-1 { flex-grow: 1; }
+  .span-2 { flex-grow: 2; }
+  .span-3 { flex-grow: 3; }
+  .span-4 { flex-grow: 4; }
+  .span-5 { flex-grow: 5; }
+
+  .grid--no-gap,
+  .grid--no-gap > * {
+    margin: 0;
   }
-  .col--#{$x}-4 > *,
-  .col--#{$x}-4 .col_#{$x}-1 {
-    width: #{$grid-3}; width: calc(#{$grid-3} - var(--col-gap, 0px));
+
+  .grid-6 > *,
+  .grid-6 > .span-1,
+  .grid-6-md > *,
+  .grid-6-md > .span-1-md,
+  .grid-6-lg > *,
+  .grid-6-lg > .span-1 {
+    width: #{$grid-2};
   }
-  .col--#{$x}-3 > *,
-  .col--#{$x}-6 .col_#{$x}-2,
-  .col--#{$x}-3 .col_#{$x}-1 {
-    width: #{$grid-4}; width: calc(#{$grid-4} - var(--col-gap, 0px));
+  .grid-4 > *,
+  .grid-4 .span-1,
+  .grid-4-md > *,
+  .grid-4-md .span-1-md,
+  .grid-4-lg > *,
+  .grid-4-lg .span-1-lg {
+    width: #{$grid-3};
   }
-  .col--#{$x}-2 > *,
-  .col--#{$x}-2 .col_#{$x}-1,
-  .col--#{$x}-4 .col_#{$x}-2,
-  .col--#{$x}-6 .col_#{$x}-3 {
-    width: #{$grid-6}; width: calc(#{$grid-6} - var(--col-gap, 0px));
+  .grid-3 > *,
+  .grid-3 > .span-1,
+  .grid-6 > .span-2,
+  .grid-3-md > *,
+  .grid-3-md > .span-1-md,
+  .grid-6-md > .span-2-md,
+  .grid-3-lg > *,
+  .grid-3-lg > .span-1-lg,
+  .grid-6-lg > .span-2-lg {
+    width: #{$grid-4};
   }
-  .col--#{$x}-3 .col_#{$x}-2,
-  .col--#{$x}-6 .col_#{$x}-4 {
-    width: #{$grid-8}; width: calc(#{$grid-8} - var(--col-gap, 0px));
+  .grid-2 > *,
+  .grid-2 > .span-1,
+  .grid-4 > .span-2,
+  .grid-6 > .span-3,
+  .grid-2-md > *,
+  .grid-2-md > .span-1-md,
+  .grid-4-md > .span-2-md,
+  .grid-6-md > .span-3-md,
+  .grid-2-lg > *,
+  .grid-2-lg > .span-1-lg,
+  .grid-4-lg > .span-2-lg,
+  .grid-6-lg > .span-3-lg {
+    width: #{$grid-6};
   }
-  .col--#{$x}-4 .col_#{$x}-3 {
-    width: #{$grid-9}; width: calc(#{$grid-9} - var(--col-gap, 0px));
+  .grid-3 > .span-2,
+  .grid-6 > .span-4,
+  .grid-3-md > .span-2-md,
+  .grid-6-md > .span-4-md,
+  .grid-3-lg > .span-2-lg,
+  .grid-6-lg > .span-4-lg {
+    width: #{$grid-8};
   }
-  .col--#{$x}-6 .col_#{$x}-5 {
-    width: #{$grid-10}; width: calc(#{$grid-10} - var(--col-gap, 0px));
+  .grid-4 > .span-3,
+  .grid-4-md > .span-3-md,
+  .grid-4-lg > .span-3-lg {
+    width: #{$grid-9};
   }
-  .col--#{$x}-2 .col_#{$x}-2,
-  .col--#{$x}-3 .col_#{$x}-3,
-  .col--#{$x}-4 .col_#{$x}-4,
-  .col--#{$x}-6 .col_#{$x}-6 {
-    width: #{$grid-12}; width: calc(#{$grid-12} - var(--col-gap, 0px));
+  .grid-6 > .span-5,
+  .grid-6-md > .span-5-md,
+  .grid-6-lg > .span-5-lg {
+    width: #{$grid-10};
+  }
+  .grid-2 > .span-2,
+  .grid-3 > .span-3,
+  .grid-4 > .span-4,
+  .grid-6 > .span-6,
+  .grid-2-md > .span-2-md,
+  .grid-3-md > .span-3-md,
+  .grid-4-md > .span-4-md,
+  .grid-6-md > .span-6-md,
+  .grid-2-lg > .span-2-lg,
+  .grid-3-lg > .span-3-lg,
+  .grid-4-lg > .span-4-lg,
+  .grid-6-lg > .span-6-lg {
+    width: #{$grid-12};
   }
 }
-/*Universal Grid Styles*/
-[class*="col-"] {
-  box-sizing: border-box;
-  display: flex;
-  flex-wrap: wrap;
-}
-[class*="col-"] > * {
-  flex-grow: 1;
-  width: 100%;
-  box-sizing:
-  border-box;
-}
-/*Grid Gap*/
-.col--gap {
-  --grid-gap: #{$s-1};
-  --row-gap-vsm: var(--grid-gap);
-  --col-gap-vsm: var(--grid-gap);
-  --row-gap: var(--row-gap-vsm);
-  --col-gap: var(--col-gap-vsm);
-  margin: -0.5rem; /*Fallback for IE*/
-  margin-top: calc(var(--row-gap) / 2 * -1);
-  margin-bottom: calc(var(--row-gap) / 2 * -1);
-  margin-left: calc(var(--col-gap) / 2 * -1);
-  margin-right: calc(var(--col-gap) / 2 * -1);
+/*------------------------
+END IE FALLBACK
+------------------------*/
+@supports ( display: grid ) {
+  [class*='grid-2'] > [class*='span-'],
+  [class*='grid-3'] > [class*='span-'],
+  [class*='grid-4'] > [class*='span-'],
+  [class*='grid-6'] > [class*='span-'],
+  [class*='grid-2'] > *,
+  [class*='grid-3'] > *,
+  [class*='grid-4'] > *,
+  [class*='grid-6'] > *,
+  [class*='grid-2'],
+  [class*='grid-3'],
+  [class*='grid-4'],
+  [class*='grid-6'] {
+    width: 100%;
+    margin: 0;
+  }
+  [class*='grid-1'],
+  [class*='grid-2'],
+  [class*='grid-3'],
+  [class*='grid-4'],
+  [class*='grid-6'] {
+    display: grid;
+    grid-gap: $s-2;
+    grid-auto-flow: row;
+  }
+  .grid--no-gap {
+    grid-gap: 0;
+  }
 }
 
-.col--gap > * {
-  margin: 0.5rem; /*Fallback for IE*/
-  margin-top: calc(var(--row-gap) / 2);
-  margin-bottom: calc(var(--row-gap) / 2);
-  margin-left: calc(var(--col-gap) / 2);
-  margin-right: calc(var(--col-gap) / 2);
+.grid-1 { grid-template-columns: repeat( 1, 1fr ); }
+.grid-2 { grid-template-columns: repeat( 2, 1fr ); }
+.grid-3 { grid-template-columns: repeat( 3, 1fr ); }
+.grid-4 { grid-template-columns: repeat( 4, 1fr ); }
+.grid-6 { grid-template-columns: repeat( 6, 1fr ); }
+
+.grid-1 > .span-1,
+.grid-2 > .span-1,
+.grid-3 > .span-1,
+.grid-4 > .span-1,
+.grid-6 > .span-1 { grid-column: span 1; }
+.grid-2 > .span-2,
+.grid-3 > .span-2,
+.grid-4 > .span-2,
+.grid-6 > .span-2 { grid-column: span 2; }
+.grid-3 > .span-3,
+.grid-4 > .span-3,
+.grid-6 > .span-3, { grid-column: span 3; }
+.grid-4 > .span-4,
+.grid-6 > .span-6 { grid-column: span 4; }
+.grid-6 > .span-5 { grid-column: span 5; }
+.grid-6 > .span-6 { grid-column: span 6; }
+
+@include small {
+  .grid-1-sm { grid-template-columns: repeat( 1, 1fr ); }
+  .grid-2-sm { grid-template-columns: repeat( 2, 1fr ); }
+  .grid-3-sm { grid-template-columns: repeat( 3, 1fr ); }
+  .grid-4-sm { grid-template-columns: repeat( 4, 1fr ); }
+  .grid-6-sm { grid-template-columns: repeat( 6, 1fr ); }
+
+  .grid-1-sm > .span-1-sm,
+  .grid-2-sm > .span-1-sm,
+  .grid-3-sm > .span-1-sm,
+  .grid-4-sm > .span-1-sm,
+  .grid-6-sm > .span-1-sm { grid-column: span 1; }
+  .grid-2-sm > .span-2-sm,
+  .grid-3-sm > .span-2-sm,
+  .grid-4-sm > .span-2-sm,
+  .grid-6-sm > .span-2-sm { grid-column: span 2; }
+  .grid-3-sm > .span-3-sm,
+  .grid-4-sm > .span-3-sm,
+  .grid-6-sm > .span-3-sm, { grid-column: span 3; }
+  .grid-4-sm > .span-4-sm,
+  .grid-6-sm > .span-6-sm { grid-column: span 4; }
+  .grid-6-sm > .span-5-sm { grid-column: span 5; }
+  .grid-6-sm > .span-6-sm { grid-column: span 6; }
 }
-
-
-@include grid(vsm)
 
 @include medium {
-  .col--gap {
-    --row-gap-vmd: var(--grid-gap-vmd, var(--row-gap-vsm));
-    --col-gap-vmd: var(--grid-gap-vmd, var(--col-gap-vsm));
-    --row-gap: var(--row-gap-vmd);
-    --col-gap: var(--col-gap-vmd);
-  }
-  @include grid(vmd)
+  .grid-1-md { grid-template-columns: repeat( 1, 1fr ); }
+  .grid-2-md { grid-template-columns: repeat( 2, 1fr ); }
+  .grid-3-md { grid-template-columns: repeat( 3, 1fr ); }
+  .grid-4-md { grid-template-columns: repeat( 4, 1fr ); }
+  .grid-6-md { grid-template-columns: repeat( 6, 1fr ); }
+
+  .grid-1-md > .span-1-md,
+  .grid-2-md > .span-1-md,
+  .grid-3-md > .span-1-md,
+  .grid-4-md > .span-1-md,
+  .grid-6-md > .span-1-md { grid-column: span 1; }
+  .grid-2-md > .span-2-md,
+  .grid-3-md > .span-2-md,
+  .grid-4-md > .span-2-md,
+  .grid-6-md > .span-2-md { grid-column: span 2; }
+  .grid-3-md > .span-3-md,
+  .grid-4-md > .span-3-md,
+  .grid-6-md > .span-3-md, { grid-column: span 3; }
+  .grid-4-md > .span-4-md,
+  .grid-6-md > .span-6-md { grid-column: span 4; }
+  .grid-6-md > .span-5-md { grid-column: span 5; }
+  .grid-6-md > .span-6-md { grid-column: span 6; }
 }
+
 @include large {
-  .col--gap {
-    --row-gap-vlg: var(--grid-gap-vlg, var(--row-gap-vmd));
-    --col-gap-vlg: var(--grid-gap-vlg, var(--col-gap-vmd));
-    --row-gap: var(--row-gap-vlg);
-    --col-gap: var(--col-gap-vlg);
-  }
-  @include grid(vlg)
+  .grid-1-lg { grid-template-columns: repeat( 1, 1fr ); }
+  .grid-2-lg { grid-template-columns: repeat( 2, 1fr ); }
+  .grid-3-lg { grid-template-columns: repeat( 3, 1fr ); }
+  .grid-4-lg { grid-template-columns: repeat( 4, 1fr ); }
+  .grid-6-lg { grid-template-columns: repeat( 6, 1fr ); }
+
+  .grid-1-lg > .span-1-lg,
+  .grid-2-lg > .span-1-lg,
+  .grid-3-lg > .span-1-lg,
+  .grid-4-lg > .span-1-lg,
+  .grid-6-lg > .span-1-lg { grid-column: span 1; }
+  .grid-2-lg > .span-2-lg,
+  .grid-3-lg > .span-2-lg,
+  .grid-4-lg > .span-2-lg,
+  .grid-6-lg > .span-2-lg { grid-column: span 2; }
+  .grid-3-lg > .span-3-lg,
+  .grid-4-lg > .span-3-lg,
+  .grid-6-lg > .span-3-lg, { grid-column: span 3; }
+  .grid-4-lg > .span-4-lg,
+  .grid-6-lg > .span-6-lg { grid-column: span 4; }
+  .grid-6-lg > .span-5-lg { grid-column: span 5; }
+  .grid-6-lg > .span-6-lg { grid-column: span 6; }
 }
+
 /*--------------------------------------------------
 END GRID
 --------------------------------------------------*/

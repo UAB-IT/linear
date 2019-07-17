@@ -7,9 +7,9 @@ button,
 .btn-primary,
 .btn--full,
 .btn,
-input[type="submit"],
-input[type="reset"],
-input[type="button"] {
+input[type='submit'],
+input[type='reset'],
+input[type='button'] {
   -webkit-appearance: none;
   background-color: transparent;
   text-align: center;
@@ -22,20 +22,21 @@ input[type="button"] {
   padding: $pad-input;
   margin-bottom: $s-1;
   -webkit-box-shadow: none;
-	-moz-box-shadow: none;
-	box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   background-image: none;
   text-shadow: none;
-
   border: 1px solid $dark;
   border-radius: $bdr-radius;
   color: $dark;
-  &:focus, &:hover{
+  &:focus,
+  &:hover {
     opacity: 0.6;
     outline: 0;
     text-decoration: none;
   }
 }
+
 .btn--fill {
   color: white;
   background: $dark;
@@ -44,14 +45,17 @@ input[type="button"] {
     opacity: 0.8;
   }
 }
+
 .btn-primary {
   color: $color-primary;
   border-color: $color-primary;
 }
-.btn--fill.btn-primary{
+
+.btn--fill.btn-primary {
   color: white;
   background: $color-primary;
 }
+
 .btn--full{
   display: block;
   width: 100%;

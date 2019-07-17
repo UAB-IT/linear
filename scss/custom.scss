@@ -1,4 +1,17 @@
 @import 'partials/core/_colors.scss';
 @import 'partials/core/_global.scss';
 // Edits to Ember Variables
+$specify: "body.linear.hd";
+
+$color-primary: $uabgreen;
+$mark-color: $uabgreen-100;
+
+$color-green: $apple;
+$color-yellow: $blaze;
+$color-red: $coral;
+
+$grey1: $stone-100; //Background color for sections
+$grey2: $stone-300; //Background color for blocks
+$grey3: $stone-500; //Background color for hover (non link)
+$dark: $stone-800; //Dark background color
 @import 'ember.scss';

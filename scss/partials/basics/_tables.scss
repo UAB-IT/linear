@@ -1,20 +1,66 @@
 /*------------------------
 START TABLES
 ------------------------*/
-table {
+#{$specify} table {
   text-align: left;
   border-collapse: collapse;
   width: 100%;
   overflow: scroll;
   margin-bottom: $s-1;
 }
-td, th {
+#{$specify} table tr td,
+#{$specify} table tr th {
   padding: $pad-block;
   border: 1px solid black;
 }
-table pre,
-table p {
+#{$specify} table thead th {
+  @include type-setting($h4-scale);
+  font-family: $font-head;
+  font-weight: normal;
+}
+#{$specify} table pre,
+#{$specify} table p {
   margin: 0px;
+}
+/* START OVERRIDES */
+.table-bordered {
+  border: 0px solid transparent;
+  border-collapse: collapse;
+  border-radius: 0;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 0px;
+}
+table.category td {
+  border: 0px;
+}
+.table-hover tbody tr:hover > td,
+.table-hover tbody tr:hover > th {
+  background: transparent;
+}
+.table-striped tbody > tr:nth-child(odd) > td,
+.table-striped tbody > tr:nth-child(odd) > th {
+  background: none;
+}
+.table-bordered caption + thead tr:first-child th:first-child,
+.table-bordered caption + tbody tr:first-child td:first-child,
+.table-bordered colgroup + thead tr:first-child th:first-child,
+.table-bordered colgroup + tbody tr:first-child td:first-child {
+  border-top-left-radius: 0px;
+}
+/* END OVERRIDES */
+#{$specify} table.table-striped tr td,
+#{$specify} table.table-striped tr th {
+  border: 0px solid transparent;
+}
+#{$specify} .table-striped tbody > tr:nth-child(odd) {
+  background: $stone-050;
+}
+#{$specify} .category.table tbody a {
+  border: 0px;
+  text-decoration: underline;
 }
 /*------------------------
 END TABLES

@@ -1,55 +1,80 @@
 /*------------------------
 START FOOTER
 ------------------------*/
-#footer a, #lockedFooter a {
-	color: white;
-	border-color: $stone-400;
-	&:hover{
-		border-color: $stone-100;
-		background-color: initial;
-	}
+/* Adjust link colors in the footer section */
+#footer a,
+#lockedFooter a {
+  color: white;
+  border-color: $stone-400;
+  &:hover {
+    border-color: $stone-100;
+    background-color: initial;
+  }
 }
-body.ribbonFullwidth #footer .IT-footer{
-	display: flex;
-	margin-top: $s-1;
-	margin-bottom: $s-1;
+
+/* Setup the flex container */
+#{$specify} #footer .IT-footer {
+  display: flex;
+  margin-top: $s-1;
+  margin-bottom: $s-1;
 }
-body.hd.ribbonFullwidth #footer .IT-footer_left,
-body.hd.ribbonFullwidth #footer .IT-footer_right{
-	width: 100%;
-	padding-left: 1rem;
-	padding-right: 1rem;
+
+/* Force containers to be full width and add padding */
+#{$specify} #footer .IT-footer_left,
+#{$specify} #footer .IT-footer_right {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
-body.ribbonFullwidth #footer .IT-footer_logo{
-	max-height: $s-2;
+
+/* Align content */
+#{$specify} #footer .IT-footer_left p {
+  text-align: right;
+  margin: 0;
 }
-body.ribbonFullwidth #footer .IT-footer_left p {
-	text-align: right;
-	margin: 0px;
+
+#{$specify} #footer .IT-footer_right,
+#{$specify} #footer .IT-footer_right .social {
+  text-align: left;
 }
-body.ribbonFullwidth #footer .IT-footer_right,
-body.ribbonFullwidth #footer .IT-footer_right .social {
-	text-align: left;
+
+/* Add middle divider */
+#{$specify} #footer .IT-footer_right {
+  border-left: 2px solid white;
 }
-body.ribbonFullwidth #footer .IT-footer_right {
-	border-left: 2px solid white;
+
+/* Remove border from social media links. Add spacing between them. */
+#{$specify} #footer .IT-footer_right .social a {
+  border: 0 solid transparent !important;
+  margin-right: 1rem;
 }
-body.ribbonFullwidth #footer .IT-footer_right .social a {
-	border: 0px solid transparent !important;
-	margin-right: 1rem;
+
+/* Add spacing between logo and social links */
+#{$specify} #footer .IT-footer .social {
+  margin-top: $s-1;
 }
-body.ribbonFullwidth #footer .IT-footer .social {
-	margin-top: $s-1;
+
+/* Set size of social media icons */
+#{$specify} #footer .IT-footer .social img {
+  max-height: 2rem;
+  margin: 0.5rem 0 0;
 }
-body.ribbonFullwidth #footer .IT-footer .social img {
-	max-height: 2rem;
-	margin-top: 0.5rem;
+
+/* Set the size of the UAB logo */
+#{$specify} #footer .IT-footer_logo {
+  max-height: $s-2;
+  margin: 0;
 }
-body.ribbonFullwidth #footer, #footer .moduletable{
-	padding: 0px;
+
+/* Remove default padding on the footer */
+#{$specify} #footer,
+#footer .moduletable {
+  padding: 0;
 }
-#lockedFooter{
-	padding-top: $s-1;
+
+/* Add 1 line between footer and locked footer to maintain vertical rythem */
+#lockedFooter {
+  padding-top: $s-1;
 }
 
 /*------------------------

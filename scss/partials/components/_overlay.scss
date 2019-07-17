@@ -1,11 +1,11 @@
 /*------------------------
 START OVERLAY
 ------------------------*/
-.overlay{
+.overlay {
   position: relative;
 }
-.overlay:before {
-  content: "";
+.overlay::before {
+  content: '';
   background-color: #295135;
   opacity: 0.5;
   mix-blend-mode: hard-light;
@@ -16,8 +16,8 @@ START OVERLAY
   right: 0px;
   transition: opacity 0.3s;
 }
-.overlay:hover:before {
-  content: "";
+.overlay:hover::before {
+  content: '';
   opacity: 0;
 }
 /*------------------------

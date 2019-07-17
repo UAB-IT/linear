@@ -1,17 +1,146 @@
 /*------------------------
 START RESET
 ------------------------*/
+/* Reset most properties from most elements */
 * {
-  margin: 0px; /* Removes all default margins */
-  font-size: inherit; /* Resets all font sizes */
-  font-family: inherit; /* Resets all font families */
-  line-height: $line-height; /* Resets all line heights to base line height */
-  padding: 0px; /* Removes all default padding */
-  box-sizing: border-box; /* Ensures all elements include their padding and borders */
+  margin: 0px;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: $line-height;
+  padding: 0px;
+  box-sizing: border-box;
+  color: inherit;
+  transition-property: none;
 }
-/* Reset text coloring on headers */
-h2, h2 a, h2 strong, h2 b, .contentheading, h3, h3 a, h3 strong, h3 b, h4, h4 a, h4 strong, h4 b, #whitebox h5.feed-link{
-	color: #000;
+
+/* Reset font size, family, and color on inline tags */
+#{$specify} h1 a,
+#{$specify} h1 strong,
+#{$specify} h1 b,
+#{$specify} h1 span,
+#{$specify} h2 a,
+#{$specify} h2 strong,
+#{$specify} h2 b,
+#{$specify} h2 span,
+#{$specify} h3 a,
+#{$specify} h3 strong,
+#{$specify} h3 b,
+#{$specify} h3 span,
+#{$specify} h4 a,
+#{$specify} h4 strong,
+#{$specify} h4 b,
+#{$specify} h4 span,
+#{$specify} #footer a,
+#{$specify} #footer span,
+#{$specify} b,
+#{$specify} span,
+#{$specify} strong,
+#{$specify} em, {
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+}
+body.linear.hd .categories-list h3 a,
+body.linear.hd span,
+body.linear.hd #rightsidebar h4 .mod-articles-category-title {
+  font-weight: inherit !important;
+}
+body.linear.hd h5 {
+  font-family: $font-head !important;
+}
+// body.linear.hd,
+// body.linear.hd p,
+// body.linear.hd div.itemIntroText,
+// body.linear.hd .camera_caption > div,
+// body.linear.hd .contact > h3,
+// body.linear.hd .custom-header.clearfix > h2,
+// body.linear.hd .custom-header.clearfix > h3,
+// body.linear.hd input,
+// body.linear.hd input[type='text'],
+// input[type='password'],
+// body.linear.hd #suggestion_form input[type='text'],
+// body.linear.hd #suggestion_form input[type='password'],
+// body.linear.hd #suggestion_form input,
+// body.linear.hd #tabs.ui-tabs,
+// body.linear.hd #ribbon,
+// body.linear.hd #rightsidebar div.k2ItemsBlock ul li a.moduleItemTitle,
+// body.linear.hd #rightsidebar .feed-link > a,
+// body.linear.hd #rightsidebar .latestnews a,
+// body.linear.hd #rightsidebar .weblinks a,
+// body.linear.hd #rightsidebar a.mod-articles-category-title.active,
+// body.linear.hd #rightsidebar .mod-articles-category-introtext > a,
+// body.linear.hd #rightsidebar p.mod-articles-category-introtext,
+// body.linear.hd #leftcolumn div.k2ItemsBlock ul li a.moduleItemTitle,
+// body.linear.hd #leftcolumn .feed-link > a,
+// body.linear.hd #leftcolumn .latestnews a,
+// body.linear.hd #leftcolumn .weblinks a,
+// body.linear.hd #leftcolumn a.mod-articles-category-title.active,
+// body.linear.hd #leftcolumn h4 .mod-articles-category-title,
+// body.linear.hd #leftcolumn .mod-articles-category-introtext > a,
+// body.linear.hd #leftcolumn p.mod-articles-category-introtext,
+// body.linear.hd .searchpanel #quicklinks .feed ul.newsfeed li.newsfeed-item h4.feed-link a,
+// body.linear.hd .searchpanel #quicklinks ul.maximenuck li.maximenuck > a span.titreck,
+// body.linear.hd .searchpanel #quicklinks ul.maximenuck li.maximenuck > span.separator span.titreck,
+// body.linear.hd .srfrStream div.srfrContainer ul.srfrList li a,
+// body.linear.hd #safetyinfo > h3,
+// body.linear.hd #safetyinfo li,
+// body.linear.hd body.hd .bigHero .uk-overlay-background,
+// body.linear.hd body.hd .camera_caption > div,
+// body.linear.hd #cse-result .gsc-control-cse,
+// body.linear.hd #cse-result .gsc-control-cse .gsc-table-result,
+// body.linear.hd .gsc-cursor-box.gs-bidi-start-align {
+//
+// }
+/* Reset font size, family, and color on inline tags in headers */
+/* I'm not sure if any of these are used, so I'm commenting them out for now */
+// #{$specify} .custom_custom-title h2 strong,
+// #{$specify} .custom_custom-title h2 strong a,
+// #{$specify} .lower .feed h4.feed-link a,
+// #{$specify} div.itemHeader h2.itemTitle,
+// #{$specify} div.catItemHeader h2.catItemTitle a,
+// #{$specify} div.itemHeader h3.itemTitle,
+// #{$specify} div.catItemHeader h3.catItemTitle a {
+//   font-family: inherit;
+//   font-size: inherit;
+//   font-family: inherit;
+// }
+#{$specify} h1,
+#{$specify} h2,
+#{$specify} h3,
+#{$specify} h4,
+#{$specify} h5 {
+  color: inherit;
+  text-align: inherit;
+}
+
+#{$specify} a {
+  color: inherit;
+  text-decoration: none;
+  font-weight: inherit;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+
+.page-header {
+  margin: 0px;
+  padding: 0px;
+  border-bottom: 0px solid transparent;
+}
+
+body.hd .latestnews li,
+body.hd .relateditems li,
+body.hd .mostread li,
+body.hd .newsfeed li,
+body.hd .sections li,
+body.hd .weblinks li,
+body.hd .k2ItemsBlock li,
+body.hd .category-module,
+body.hd .moduleCustomLink,
+body.hd .rightsidebar .nav.menu li {
+  float: none;
+  width: 100%;
 }
 /*------------------------
 END RESET

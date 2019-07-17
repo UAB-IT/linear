@@ -1,45 +1,49 @@
 /*------------------------
 START CALENDAR
 ------------------------*/
-.localist-month, .localist-day {
-	background: $uabgreen;
-	width: 60px;
+#{$specify} .localist-month,
+.localist-day {
+  background: $uabgreen;
+  width: 60px;
 }
-.localist-widget-eds div.localist-month{
-	color: #fff;
-	padding-top: 0.5em;
-	text-align: center;
-	text-transform: uppercase;
-	font-family: "Kulturista-web", "proxima-nova", sans-serif !important;
-	margin-bottom: -1px;
+#{$specify} .localist-widget-eds div.localist-month {
+  color: #FFF;
+  padding-top: 0.5em;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Kulturista-web', 'proxima-nova', sans-serif !important;
+  margin-bottom: -1px;
 }
-.localist-day{
-	color: #fff;
-	text-align: center;
-	font-weight: 600;
-	@include type-setting(1);
-	border-bottom: 4px solid $apple;
-	padding-bottom: 0.4em;
+#{$specify} .localist-day {
+  color: #FFF;
+  text-align: center;
+  font-weight: 600;
+  @include type-setting(1);
+  border-bottom: 4px solid $apple;
+  padding-bottom: 0.4em;
 }
-.localist-dateblock{
-	margin-right: $s-05;
+#{$specify} .localist-dateblock {
+  margin-right: $s-05;
 }
-.localist-widget-eds li{
-	display: flex;
+#{$specify} .localist-widget-eds li {
+  display: flex;
+  margin-bottom: $s-05;
 }
-.localist-title h4{
-	font-family: "proxima-nova", sans-serif !important;
-	@include type-setting(0);
-	margin-top: -0.2em;
+#{$specify} .localist-title h4 {
+  font-family: 'proxima-nova', sans-serif !important;
+  @include type-setting(0);
+  margin-top: -0.2em;
+  margin-bottom: 0px;
 }
-.localist-title h4 a{
-	border-bottom: 2px solid transparent
+#{$specify} .localist-title h4 a {
+  border-bottom: 2px solid transparent;
 }
-.localist-otherdetails div, .localist-otherdetails i {
-	@include type-setting(n1);
+#{$specify} .localist-otherdetails div,
+.localist-otherdetails i {
+  @include type-setting(n1);
 }
-.localist-venue {
-	display: none;
+#{$specify} .localist-venue {
+  display: none;
 }
 /*------------------------
 END CALENDAR

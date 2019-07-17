@@ -1,8 +1,50 @@
 /*------------------------
 START SIDEBAR
 ------------------------*/
-.sidebar li {
-	font-weight: normal;
+body.hd div.sidebar.gray,
+body.hd div.sidebar.no-seal,
+body.hd #leftcolumn.sidebarpanel.gray,
+body.hd #sidebar_trigger.gray,
+body.hd #leftcolumn.sidebarpanel.no-seal,
+body.hd #sidebar_trigger.no-seal {
+  font-size: inherit;
+  background-color: transparent;
+}
+
+#leftcolumn ul.nav.menu a {
+  margin: 0px;
+  display: block;
+  border: 0px solid transparent;
+  background-color: transparent;
+  padding: $pad-block;
+  border-left: 4px solid transparent;
+}
+
+#leftcolumn ul.nav-child,
+#leftcolumn ul {
+  margin: 0px;
+}
+
+#leftcolumn .sidebar li,
+#leftcolumn .sidebar ul.menu li {
+  padding: 0px;
+  font-weight: normal;
+}
+
+#leftcolumn ul.nav.menu .current > a {
+  background-color: $stone-050;
+  border-left: 4px solid $apple;
+}
+
+#leftcolumn ul.nav.menu .parent > a {
+  font-family: 'kulturista-web', serif;
+  @include type-setting($h4-scale);
+}
+
+#leftcolumn ul.nav.menu a:hover {
+  border-left: 4px solid $apple;
+  color: inherit !important;
+  background-color: $stone-100;
 }
 /*------------------------
 END SIDEBAR

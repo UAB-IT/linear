@@ -3,6 +3,14 @@ START MEDIA
 ------------------------*/
 img {
   max-width: 100%;
+  object-fit: cover;
+  margin-bottom: $s-1;
+}
+figure img {
+  margin: 0px;
+}
+figure {
+  margin-bottom: $s-05;
 }
 /*------------------------
 END MEDIA
