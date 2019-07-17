@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.2.0
+Ember 0.3.0.A
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -29,6 +29,7 @@ Self contained chunks of content with their visual styling.
 --------------------------------------------------*/
 @import 'partials/components/_panels.scss';
 @import 'partials/components/_features.scss';
+@import 'partials/components/_article.scss';
 //@import 'partials/components/_gallery.scss';
 //@import 'partials/components/_cards.scss';
 @import 'partials/components/_chips.scss';

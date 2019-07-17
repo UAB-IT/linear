@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /*--------------------------------------------------
-Ember 0.2.0
+Ember 0.3.0.A
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -889,6 +889,18 @@ body.linear.hd .features img {
 
 /*------------------------
 END FEATURES
+------------------------*/
+/*------------------------
+START ARTICLE
+------------------------*/
+.article-info {
+  text-align: right; }
+
+.article-info .icon-calendar {
+  display: none; }
+
+/*------------------------
+END ARTICLE
 ------------------------*/
 /*------------------------
 START CHIPS
