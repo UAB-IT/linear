@@ -1,4 +1,3 @@
-$sidebar-bg: white;
 /*------------------------
 START SIDEBAR
 ------------------------*/
@@ -9,19 +8,7 @@ body.hd #sidebar_trigger.gray,
 body.hd #leftcolumn.sidebarpanel.no-seal,
 body.hd #sidebar_trigger.no-seal {
   font-size: inherit;
-  background-color: $sidebar-bg;
-}
-
-body.hd.sidebars #leftcolumn {
-  width: 100%;
-}
-
-#leftcolumn .moduletable {
-  padding: 0px;
-}
-
-#leftcolumn .moduletable > .custom {
-  padding: $pad-block;
+  background-color: transparent;
 }
 
 #leftcolumn ul.nav.menu a {

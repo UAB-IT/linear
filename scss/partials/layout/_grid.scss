@@ -147,7 +147,7 @@ END IE FALLBACK
   [class*='grid-4'],
   [class*='grid-6'] {
     display: grid;
-    grid-gap: $s-1;
+    grid-gap: $s-2;
     grid-auto-flow: row;
   }
   .grid--no-gap {

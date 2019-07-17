@@ -48,20 +48,20 @@ $banner-top: $s-1 * 8 !default;
   color: white;
 }
 
-.breadcrumb > li,
-.breadcrumb > .active {
+#{$specify} .breadcrumb > li,
+#{$specify} .breadcrumb > .active {
   text-shadow: none;
   color: white;
 }
 
-.breadcrumb > li > .divider,
-.breadcrumb a,
-.breadcrumb > li > span {
+#{$specify} .breadcrumb > li > .divider,
+#{$specify} .breadcrumb a,
+#{$specify} .breadcrumb > li > span {
   color: inherit;
   font-size: inherit;
 }
 
-.breadcrumb {
+#{$specify} .breadcrumb {
   border: 0px;
   padding: 0px;
   margin: 0px;
