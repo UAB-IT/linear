@@ -142,6 +142,10 @@ body.hd .rightsidebar .nav.menu li {
   float: none;
   width: 100%;
 }
+
+body.ribbonFullwidth #whitebox {
+  overflow: visible;
+}
 /*------------------------
 END RESET
 ------------------------*/

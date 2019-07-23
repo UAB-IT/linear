@@ -37,13 +37,15 @@ input[type='button'] {
   }
 }
 
-.btn-primary {
+a.btn-primary,
+button.btn-primary {
   color: white;
   background: $color-primary;
   border-color: $color-primary;
 }
 
-.btn--full{
+a.btn--full,
+button.btn--full {
   display: block;
   width: 100%;
 }

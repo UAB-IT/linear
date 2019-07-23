@@ -63,6 +63,24 @@ body.hd.sidebars #leftcolumn {
 .section.background {
   margin: $s-3 0;
   padding: $s-2 $s-2 $s-1;
+  background-color: $stone-050;
+}
+.section.background-full {
+  margin: $s-3 0;
+  padding: $s-2 0 $s-1;
+  position: relative;
+}
+.section.background-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 150vw;
+  margin-left: -50vw;
+  background-color: $stone-050;
+  z-index: -1;
 }
 
 /* Typographical Spacing */

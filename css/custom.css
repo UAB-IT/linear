@@ -97,6 +97,9 @@ body.hd .rightsidebar .nav.menu li {
   float: none;
   width: 100%; }
 
+body.ribbonFullwidth #whitebox {
+  overflow: visible; }
+
 /*------------------------
 END RESET
 ------------------------*/
@@ -465,12 +468,14 @@ input[type='button'] {
     outline: 0;
     text-decoration: none; }
 
-.btn-primary {
+a.btn-primary,
+button.btn-primary {
   color: white;
   background: #1E6B52;
   border-color: #1E6B52; }
 
-.btn--full {
+a.btn--full,
+button.btn--full {
   display: block;
   width: 100%; }
 
@@ -1206,7 +1211,8 @@ END IE FALLBACK
   [class*='grid-6'] {
     display: grid;
     grid-gap: 3.2rem;
-    grid-auto-flow: row; }
+    grid-auto-flow: row;
+    margin-bottom: 1.6rem; }
   .grid--no-gap {
     grid-gap: 0; } }
 
@@ -1420,7 +1426,25 @@ body.hd.sidebars #leftcolumn {
 
 .section.background {
   margin: 4.8rem 0;
-  padding: 3.2rem 3.2rem 1.6rem; }
+  padding: 3.2rem 3.2rem 1.6rem;
+  background-color: #f2f3f3; }
+
+.section.background-full {
+  margin: 4.8rem 0;
+  padding: 3.2rem 0 1.6rem;
+  position: relative; }
+
+.section.background-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 150vw;
+  margin-left: -50vw;
+  background-color: #f2f3f3;
+  z-index: -1; }
 
 /* Typographical Spacing */
 p,
