@@ -1,6 +1,9 @@
 /*------------------------
 START CALENDAR
 ------------------------*/
+#{$specify} ul.localist-widget-eds {
+  margin: 0;
+}
 #{$specify} .localist-month,
 .localist-day {
   background: $uabgreen;

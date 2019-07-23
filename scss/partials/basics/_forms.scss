@@ -10,6 +10,22 @@ START BTN TOOLBAR
 #undefined {
   margin: 0px;
 }
+.input-group {
+  display: flex;
+  margin-bottom: $s-1;
+}
+#{$specify} .input-group button,
+#{$specify} .input-group input {
+  margin: 0;
+}
+#{$specify} .input-group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#{$specify} .input-group button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 /*------------------------
 END BTN TOOLBAR
 ------------------------*/

@@ -3,13 +3,14 @@ START BANNER
 ------------------------*/
 /* Set min height to the line height of h1 plus the top padding,
 plus 1 line height for the margin below the header,
+one line height for the margin above the header,
 one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
 $banner-top: $s-1 * 8 !default;
 #banner {
   position: relative;
   padding-top: $banner-top;
-  min-height: #{line-height( $h1-scale ) + $banner-top + $s-3};
+  min-height: #{line-height( $h1-scale ) + $banner-top + $s-4};
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */

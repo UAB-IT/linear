@@ -37,23 +37,10 @@ input[type='button'] {
   }
 }
 
-.btn--fill {
-  color: white;
-  background: $dark;
-  &:hover,
-  &:focus {
-    opacity: 0.8;
-  }
-}
-
 .btn-primary {
-  color: $color-primary;
-  border-color: $color-primary;
-}
-
-.btn--fill.btn-primary {
   color: white;
   background: $color-primary;
+  border-color: $color-primary;
 }
 
 .btn--full{

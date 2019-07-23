@@ -58,10 +58,11 @@ body.hd.sidebars #leftcolumn {
 
 /* Section spacing */
 .section {
-  margin: $s-3 0px;
+  margin: $s-5 0 $s-4;
 }
 .section.background {
-  padding: $s-2 0px;
+  margin: $s-3 0;
+  padding: $s-2 $s-2 $s-1;
 }
 
 /* Typographical Spacing */
@@ -90,6 +91,8 @@ blockquote {
 }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type {
+.item-page h2:first-of-type,
+.section h2:first-of-type,
+.section :first-child {
   margin-top: 0px;
 }

@@ -1,11 +1,30 @@
 /*------------------------
 START ARTICLE
 ------------------------*/
-.article-info {
+#{$specify}.article-layout .article-info {
   text-align: right;
+  border-top: 1px solid black;
+  margin-bottom: 0px;
+  padding-top: $s-1;
 }
-.article-info .icon-calendar {
+#{$specify}.article-layout .article-info .icon-calendar {
   display: none;
+}
+
+#{$specify}.article-layout #content .item-page.article-layout {
+  max-width: 700px;
+  margin: auto;
+}
+#{$specify}.article-layout #content .item-page.article-layout img {
+  max-width: calc( 700px + #{$s-4} );
+  margin-left: -#{$s-2};
+}
+#{$specify}.article-layout .item-page.article-layout > div > p:first-of-type {
+  width: calc( 700px + #{$s-4} );
+  margin-left: -#{$s-2};
+  padding: $s-1 $s-2;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
 }
 /*------------------------
 END ARTICLE

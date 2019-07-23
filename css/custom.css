@@ -123,37 +123,37 @@ body.linear.hd h6 {
 TYPESETTING
 ------------------------ */
 body.linear.hd h1 {
-  font-size: 3.05176rem;
+  font-size: 3.05176em;
   line-height: 3.2rem; }
 
 body.linear.hd h2 {
-  font-size: 1.95312rem;
+  font-size: 1.95312em;
   line-height: 2.4rem; }
 
 body.linear.hd h3,
 #leftcolumn h3 {
-  font-size: 1.5625rem;
+  font-size: 1.5625em;
   line-height: 1.6rem; }
 
 body.linear.hd h4 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 body.linear.hd h5 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body.linear.hd h6 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body,
 body.linear.hd p {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body.linear.hd small {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 /*------------------------
@@ -344,7 +344,7 @@ body.linear.hd table tr th {
   border: 1px solid black; }
 
 body.linear.hd table thead th {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   font-family: "kulturista-web", serif;
   font-weight: normal; }
@@ -432,7 +432,7 @@ input[type='button'] {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   padding: 0.3em 1em;
   margin-bottom: 1.6rem;
@@ -465,19 +465,10 @@ input[type='button'] {
     outline: 0;
     text-decoration: none; }
 
-.btn--fill {
-  color: white;
-  background: #333435; }
-  .btn--fill:hover, .btn--fill:focus {
-    opacity: 0.8; }
-
 .btn-primary {
-  color: #1E6B52;
-  border-color: #1E6B52; }
-
-.btn--fill.btn-primary {
   color: white;
-  background: #1E6B52; }
+  background: #1E6B52;
+  border-color: #1E6B52; }
 
 .btn--full {
   display: block;
@@ -498,6 +489,22 @@ START BTN TOOLBAR
 #undefined {
   margin: 0px; }
 
+.input-group {
+  display: flex;
+  margin-bottom: 1.6rem; }
+
+body.linear.hd .input-group button,
+body.linear.hd .input-group input {
+  margin: 0; }
+
+body.linear.hd .input-group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+body.linear.hd .input-group button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
 /*------------------------
 END BTN TOOLBAR
 ------------------------*/
@@ -505,7 +512,7 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   color: inherit;
   font-family: 'kulturista-web', serif !important; }
@@ -542,7 +549,7 @@ fieldset,
   box-sizing: border-box;
   border: 4px;
   border-radius: 0px;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   box-shadow: none;
   height: auto;
@@ -590,7 +597,7 @@ select {
   width: 100%;
   border: 1px solid black;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 textarea {
@@ -893,11 +900,29 @@ END FEATURES
 /*------------------------
 START ARTICLE
 ------------------------*/
-.article-info {
-  text-align: right; }
+body.linear.hd.article-layout .article-info {
+  text-align: right;
+  border-top: 1px solid black;
+  margin-bottom: 0px;
+  padding-top: 1.6rem; }
 
-.article-info .icon-calendar {
+body.linear.hd.article-layout .article-info .icon-calendar {
   display: none; }
+
+body.linear.hd.article-layout #content .item-page.article-layout {
+  max-width: 700px;
+  margin: auto; }
+
+body.linear.hd.article-layout #content .item-page.article-layout img {
+  max-width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem; }
+
+body.linear.hd.article-layout .item-page.article-layout > div > p:first-of-type {
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem;
+  padding: 1.6rem 3.2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
 
 /*------------------------
 END ARTICLE
@@ -917,7 +942,7 @@ START CHIPS
   border: 0px solid transparent;
   color: black;
   font-weight: normal;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem;
   padding: 0.1em 0.7em; }
 
@@ -1391,10 +1416,11 @@ body.hd.sidebars #leftcolumn {
 
 /* Section spacing */
 .section {
-  margin: 4.8rem 0px; }
+  margin: 8rem 0 6.4rem; }
 
 .section.background {
-  padding: 3.2rem 0px; }
+  margin: 4.8rem 0;
+  padding: 3.2rem 3.2rem 1.6rem; }
 
 /* Typographical Spacing */
 p,
@@ -1417,7 +1443,9 @@ blockquote {
   margin: 3.2rem 0px 1.6rem 0px; }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type {
+.item-page h2:first-of-type,
+.section h2:first-of-type,
+.section :first-child {
   margin-top: 0px; }
 
 /*--------------------------------------------------
@@ -1428,6 +1456,9 @@ html and classes of the target elements.
 /*------------------------
 START CALENDAR
 ------------------------*/
+body.linear.hd ul.localist-widget-eds {
+  margin: 0; }
+
 body.linear.hd .localist-month,
 .localist-day {
   background: #1E6B52;
@@ -1445,7 +1476,7 @@ body.linear.hd .localist-day {
   color: #FFF;
   text-align: center;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   border-bottom: 4px solid #80BC00;
   padding-bottom: 0.4em; }
@@ -1459,7 +1490,7 @@ body.linear.hd .localist-widget-eds li {
 
 body.linear.hd .localist-title h4 {
   font-family: 'proxima-nova', sans-serif !important;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   margin-top: -0.2em;
   margin-bottom: 0px; }
@@ -1469,7 +1500,7 @@ body.linear.hd .localist-title h4 a {
 
 body.linear.hd .localist-otherdetails div,
 .localist-otherdetails i {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 body.linear.hd .localist-venue {
@@ -1485,7 +1516,8 @@ START NEWS FEEDS
 body.linear.hd ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
-  grid-gap: 3.2rem; }
+  grid-gap: 3.2rem;
+  margin: 0 0 1.6rem 0; }
 
 body.linear.hd li.newsflash-item {
   float: none;
@@ -1549,14 +1581,13 @@ body.linear.hd .it-news .newsflash-title {
 /* END NEWS FLASH */
 /* START ARTICLE FEED */
 .it-feed .mod-articles-category-title {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   margin: 0px;
   font-family: "kulturista-web", serif; }
 
 body.linear.hd .it-feed .mod-articles-category-introtext {
-  font-size: 0.8rem;
-  line-height: 1.6rem;
+  /*@include type-setting($sm-scale);*/
   margin: 0.8rem 0px 0px; }
 
 .it-feed .mod-articles-category-readmore {
@@ -1674,12 +1705,13 @@ START BANNER
 ------------------------*/
 /* Set min height to the line height of h1 plus the top padding,
 plus 1 line height for the margin below the header,
+one line height for the margin above the header,
 one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
 #banner {
   position: relative;
   padding-top: 12.8rem;
-  min-height: 20.8rem; }
+  min-height: 22.4rem; }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
 #banner::before,
@@ -1768,7 +1800,7 @@ body.hd #sidebar_trigger.no-seal {
 
 #leftcolumn ul.nav.menu .parent > a {
   font-family: 'kulturista-web', serif;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 #leftcolumn ul.nav.menu a:hover {
@@ -1820,8 +1852,15 @@ body.linear.hd #footer .IT-footer_right {
 
 /* Remove border from social media links. Add spacing between them. */
 body.linear.hd #footer .IT-footer_right .social a {
-  border: 0 solid transparent !important;
-  margin-right: 1rem; }
+  display: inline-block;
+  border: 2px solid #999b9d;
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-top: 0.2rem;
+  padding: 0.5rem; }
+
+body.linear.hd #footer .IT-footer_right .social a:hover {
+  border: 2px solid #e6e6e7; }
 
 /* Add spacing between logo and social links */
 body.linear.hd #footer .IT-footer .social {
@@ -1829,8 +1868,8 @@ body.linear.hd #footer .IT-footer .social {
 
 /* Set size of social media icons */
 body.linear.hd #footer .IT-footer .social img {
-  max-height: 2rem;
-  margin: 0.5rem 0 0; }
+  max-height: 1.5rem;
+  margin: 0; }
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
@@ -1856,31 +1895,31 @@ END AREAS
 START HELPERS
 ------------------------*/
 .type-set-n1 {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 .type-set-0 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 .type-set-1 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 .type-set-2 {
-  font-size: 1.5625rem;
+  font-size: 1.5625em;
   line-height: 1.6rem; }
 
 .type-set-3 {
-  font-size: 1.95312rem;
+  font-size: 1.95312em;
   line-height: 2.4rem; }
 
 .type-set-4 {
-  font-size: 2.44141rem;
+  font-size: 2.44141em;
   line-height: 3.2rem; }
 
 .type-set-5 {
-  font-size: 3.05176rem;
+  font-size: 3.05176em;
   line-height: 3.2rem; }
 
 .txt-c {

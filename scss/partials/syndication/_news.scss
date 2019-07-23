@@ -6,6 +6,7 @@ START NEWS FEEDS
   overflow: visible;
   align-items: stretch;
   grid-gap: $s-2;
+  margin: 0 0 $s-1 0;
 }
 #{$specify} li.newsflash-item {
   float: none; /* remove style from style.css */
@@ -63,7 +64,7 @@ START NEWS FEEDS
   font-family: $font-head;
 }
 #{$specify} .it-feed .mod-articles-category-introtext {
-  @include type-setting($sm-scale);
+  /*@include type-setting($sm-scale);*/
   margin: $s-05 0px 0px;
 }
 .it-feed .mod-articles-category-readmore {
