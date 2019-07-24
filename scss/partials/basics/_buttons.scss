@@ -1,15 +1,15 @@
 /*------------------------
 START BUTTONS
 ------------------------*/
-button,
-.button,
-.btn--fill,
-.btn-primary,
-.btn--full,
-.btn,
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
+#{$specify} button,
+#{$specify} .button,
+#{$specify} .btn--fill,
+#{$specify} .btn-primary,
+#{$specify} .btn--full,
+#{$specify} .btn,
+#{$specify} input[type='submit'],
+#{$specify} input[type='reset'],
+#{$specify} input[type='button'] {
   -webkit-appearance: none;
   background-color: transparent;
   text-align: center;
@@ -17,7 +17,6 @@ input[type='button'] {
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
   @include type-setting(0);
   padding: $pad-input;
   margin-bottom: $s-1;
@@ -37,15 +36,15 @@ input[type='button'] {
   }
 }
 
-a.btn-primary,
-button.btn-primary {
+#{$specify} a.btn-primary,
+#{$specify} button.btn-primary {
   color: white;
   background: $color-primary;
   border-color: $color-primary;
 }
 
-a.btn--full,
-button.btn--full {
+#{$specify} a.btn--full,
+#{$specify} button.btn--full {
   display: block;
   width: 100%;
 }

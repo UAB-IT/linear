@@ -27,7 +27,7 @@ $banner-top: $s-1 * 8 !default;
 
 /* Set default banner image and the banner's image's and position */
 #banner::before {
-  background: url( 'https://dev.uab.edu/it/home/images/banners/Home-WebHeader.jpg' ); /*Use article image */
+  background: url( '/it/home/images/banners/Default-WebHeader.jpg' ); /*Use article image */
   background-size: cover;
   background-position: bottom;
 }
@@ -44,6 +44,10 @@ $banner-top: $s-1 * 8 !default;
   margin: auto;
 }
 
+#{$specify} .stickyNav .page-header {
+  float: none;
+  max-width: 100%;
+}
 #banner h1 {
   margin-bottom: 1.6rem;
   color: white;
@@ -67,6 +71,14 @@ $banner-top: $s-1 * 8 !default;
   padding: 0px;
   margin: 0px;
   margin-bottom: 1.6rem;
+}
+
+/* Remove main image */
+#{$specify} .item-image {
+  display: none;
+}
+#{$specify}.article-layout .item-page.article-layout .item-image {
+  display: block;
 }
 /*------------------------
 END BANNER

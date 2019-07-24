@@ -37,6 +37,16 @@ div.ribbonFullwidth .alert a:hover {
 .alert p {
   margin: 0px;
 }
+
+/* Add styling to hide IE alert on non-IE browsers */
+.ie-alert {
+  display: none;
+}
+/* Add margin between alerts and content. Should equal the margin between
+the banner and content */
+#{$specify} #breadcrumbs > :last-child {
+  margin-bottom: $s-3;
+}
 /*------------------------
 END ALERT
 ------------------------*/

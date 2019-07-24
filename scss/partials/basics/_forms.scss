@@ -147,27 +147,27 @@ input[type='radio']:focus,
 input[type='checkbox']:focus {
   outline: 5px auto $uabgreen;
 }
-/*------------------------
-Date Inputs
-------------------------*/
-/*input[type=date],
-input[type=month],
-input[type=week],
-select {
-  position: relative;
-}
-input[type=date]::before,
-input[type=month]::before,
-input[type=week]::before,
-select::before {
-  content: '◳';
-  font-size: 1.5em;
-  display: block;
-  position: absolute;
-  right: 0.25em;
-  top: 0.15em;
-  height: 100%;
-}*/
+// /*------------------------
+// Date Inputs
+// ------------------------*/
+// input[type=date],
+// input[type=month],
+// input[type=week],
+// select {
+//   position: relative;
+// }
+// input[type=date]::before,
+// input[type=month]::before,
+// input[type=week]::before,
+// select::before {
+//   content: '◳';
+//   font-size: 1.5em;
+//   display: block;
+//   position: absolute;
+//   right: 0.25em;
+//   top: 0.15em;
+//   height: 100%;
+// }
 /*------------------------
 Range
 ------------------------*/
@@ -207,54 +207,54 @@ input[type='range']:focus { outline: 0; }
   border-color: transparent;
   color: transparent;
 }
-/*------------------------
-Radio & Checkbox
-------------------------*/
-/*input[type='radio'],
-input[type='checkbox'] {
-  opacity: 0;
-  position: absolute;
-}
-input[type='radio']+label,
-input[type='checkbox']+label {
-  font-weight: normal;
-  display: block;
-  position: relative;
-  cursor: pointer;
-  &:before {
-    margin-right: 0.5em;
-    display: inline-block;
-    position: relative;
-    color: $grey3;
-    @if $font-icon == false {
-      font-size: 1.5em;
-      top: 0.05em;
-      line-height: 1.6rem;
-      width: 0.6em;
-    }
-    @else {
-      font-family: $font-icon;
-      top: 0.05em;
-    }
-  }
-}
-input[type='checkbox']+label::before {
-  content: '#{$checkbox}';
-}
-input[type='checkbox']:checked+label::before {
-  color: $color-primary;
-  content: '#{$checkbox-fill}';
-}
-input[type='radio']+label::before {
-  content: '#{$radio}';
-}
-input[type='radio']:checked+label::before {
-  color: $color-primary;
-  content: '#{$radio-fill}';
-}
-@include radio-check-focus {
-  outline: 2px solid $color-primary;
-}*/
+// /*------------------------
+// Radio & Checkbox
+// ------------------------*/
+// input[type='radio'],
+// input[type='checkbox'] {
+//   opacity: 0;
+//   position: absolute;
+// }
+// input[type='radio']+label,
+// input[type='checkbox']+label {
+//   font-weight: normal;
+//   display: block;
+//   position: relative;
+//   cursor: pointer;
+//   &:before {
+//     margin-right: 0.5em;
+//     display: inline-block;
+//     position: relative;
+//     color: $grey3;
+//     @if $font-icon == false {
+//       font-size: 1.5em;
+//       top: 0.05em;
+//       line-height: 1.6rem;
+//       width: 0.6em;
+//     }
+//     @else {
+//       font-family: $font-icon;
+//       top: 0.05em;
+//     }
+//   }
+// }
+// input[type='checkbox']+label::before {
+//   content: '#{$checkbox}';
+// }
+// input[type='checkbox']:checked+label::before {
+//   color: $color-primary;
+//   content: '#{$checkbox-fill}';
+// }
+// input[type='radio']+label::before {
+//   content: '#{$radio}';
+// }
+// input[type='radio']:checked+label::before {
+//   color: $color-primary;
+//   content: '#{$radio-fill}';
+// }
+// @include radio-check-focus {
+//   outline: 2px solid $color-primary;
+// }
 /*------------------------
 Progress
 ------------------------*/
@@ -297,10 +297,10 @@ meter {
 /*------------------------
 Resets
 ------------------------*/
-/*::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  display: none;
-}*/
+// ::-webkit-inner-spin-button,
+// ::-webkit-outer-spin-button {
+//   display: none;
+// }
 ::-webkit-progress-bar {
   background: transparent;
 }
@@ -318,9 +318,10 @@ Resets
 :-moz-focus-inner {
   border-style: none;
 }
-/*::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}*/
+
+// ::-webkit-calendar-picker-indicator {
+//   opacity: 0;
+// }
 /*------------------------
 END FORMS
 ------------------------*/

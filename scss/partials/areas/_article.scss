@@ -19,7 +19,7 @@ START ARTICLE
   max-width: calc( 700px + #{$s-4} );
   margin-left: -#{$s-2};
 }
-#{$specify}.article-layout .item-page.article-layout > div > p:first-of-type {
+#{$specify}.article-layout .item-page.article-layout > div > .intro {
   width: calc( 700px + #{$s-4} );
   margin-left: -#{$s-2};
   padding: $s-1 $s-2;
