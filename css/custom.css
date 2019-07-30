@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.4.0
+Ember 0.5.0-a.1
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -807,31 +807,24 @@ END PANELS
 ------------------------*/
 /*------------------------
 START FEATURES
-------------------------*/
-/* Sample HTML
- *<section class="features grid-x-y">
- *	<div>
- *		<img src="image path">
- *		<h3><a href="feature link">Feature Title</a></h3>
- *		<p>Feature Content</p>
- *	</div>
- *	...
- *</section>
- */
-.features {
-  text-align: center; }
 
-/* Add margin between the image, header, and content */
-body.linear.hd .features img + h3 {
-  margin-top: 1.6rem;
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-features {
   margin-bottom: 1.6rem; }
 
-/* Adjust the size of the image */
-body.linear.hd .features img {
+body.linear.hd .wk-features .uk-panel p {
+  margin: 0; }
+
+body.linear.hd .wk-features .uk-panel img {
   height: 7rem;
   width: auto;
   display: block;
   margin: auto; }
+
+body.linear.hd .wk-features .uk-panel-title {
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem; }
 
 /*------------------------
 END FEATURES

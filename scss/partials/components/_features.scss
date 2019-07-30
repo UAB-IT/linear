@@ -1,54 +1,24 @@
 /*------------------------
 START FEATURES
+
+This uses widgetkit for layout
 ------------------------*/
-/* Sample HTML
- *<section class="features grid-x-y">
- *	<div>
- *		<img src="image path">
- *		<h3><a href="feature link">Feature Title</a></h3>
- *		<p>Feature Content</p>
- *	</div>
- *	...
- *</section>
- */
-
-.features {
-  text-align: center;
-}
-// /* Remove link styles for this component */
-// #{$specify} .features a {
-// 	border: 0px;
-// 	display: block;
-// 	border: 0px;
-// }
-
-/* Add margin between the image, header, and content */
-#{$specify} .features img + h3 {
-  margin-top: $s-1;
+#{$specify} .wk-features {
   margin-bottom: $s-1;
 }
-
-/* Adjust the size of the image */
-#{$specify} .features img {
+#{$specify} .wk-features .uk-panel p {
+  margin: 0;
+}
+#{$specify} .wk-features .uk-panel img {
   height: 7rem;
   width: auto;
   display: block;
   margin: auto;
 }
-
-// body .features a[href]:hover{
-// 	border: 0px;
-// 	background-color: transparent;
-// }
-// .features a h3{
-// 	display: inline-block;
-// 	margin: auto;
-// 	border-bottom: 2px solid $uabgreen-300;
-// }
-// .features a:hover h3{
-// 	background-color: $uabgreen-100;
-// 	border-color: $uabgreen;
-// }
+#{$specify} .wk-features .uk-panel-title {
+  margin-top: $s-1;
+  margin-bottom: $s-1;
+}
 /*------------------------
 END FEATURES
 ------------------------*/
