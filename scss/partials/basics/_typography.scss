@@ -44,15 +44,19 @@ FONTS
 TYPESETTING
 ------------------------ */
 
-#{$specify} h1 {
-  @include type-setting($h1-scale);
-}
-#{$specify} h2 { @include type-setting($h2-scale); }
+#{$specify} h1,
+#{$specify} .uk-h1 { @include type-setting($h1-scale); }
+#{$specify} h2,
+#{$specify} .uk-h2 { @include type-setting($h2-scale); }
 #{$specify} h3,
-#leftcolumn h3 { @include type-setting($h3-scale); }
-#{$specify} h4 { @include type-setting($h4-scale); }
-#{$specify} h5 { @include type-setting($h5-scale); }
-#{$specify} h6 { @include type-setting($h6-scale); }
+#leftcolumn h3,
+#{$specify} .uk-h3 { @include type-setting($h3-scale); }
+#{$specify} h4,
+#{$specify} .uk-h4 { @include type-setting($h4-scale); }
+#{$specify} h5,
+#{$specify} .uk-h5 { @include type-setting($h5-scale); }
+#{$specify} h6,
+#{$specify} .uk-h6 { @include type-setting($h6-scale); }
 body,
 #{$specify} p { @include type-setting($p-scale); }
 #{$specify} small { @include type-setting($sm-scale); }

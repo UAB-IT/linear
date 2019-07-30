@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0-a.1
+Ember 0.5.0-a.2
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -124,28 +124,34 @@ body.linear.hd h6 {
 /* ------------------------
 TYPESETTING
 ------------------------ */
-body.linear.hd h1 {
+body.linear.hd h1,
+body.linear.hd .uk-h1 {
   font-size: 3.05176em;
   line-height: 3.2rem; }
 
-body.linear.hd h2 {
+body.linear.hd h2,
+body.linear.hd .uk-h2 {
   font-size: 1.95312em;
   line-height: 2.4rem; }
 
 body.linear.hd h3,
-#leftcolumn h3 {
+#leftcolumn h3,
+body.linear.hd .uk-h3 {
   font-size: 1.5625em;
   line-height: 1.6rem; }
 
-body.linear.hd h4 {
+body.linear.hd h4,
+body.linear.hd .uk-h4 {
   font-size: 1.25em;
   line-height: 1.6rem; }
 
-body.linear.hd h5 {
+body.linear.hd h5,
+body.linear.hd .uk-h5 {
   font-size: 1em;
   line-height: 1.6rem; }
 
-body.linear.hd h6 {
+body.linear.hd h6,
+body.linear.hd .uk-h6 {
   font-size: 1em;
   line-height: 1.6rem; }
 
@@ -801,6 +807,43 @@ body .panels > a:hover {
 
 .panels > a p:last-child {
   margin-bottom: 0px; }
+
+.uk-panel-box {
+  padding: 1.6rem; }
+
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: black; }
+
+body.linear.hd .wk-panels {
+  margin-bottom: 1.6rem; }
+
+body.linear.hd .wk-panels .uk-panel-title {
+  margin-top: 0; }
+
+body.linear.hd .wk-panels .uk-panel {
+  background: white;
+  border: 1px solid black;
+  border-radius: 4px; }
+
+body.linear.hd a.uk-position-cover {
+  opacity: 0 !important; }
+
+body.linear.hd .wk-panels .uk-panel p:last-child {
+  margin: 0; }
+
+body.linear.hd .wk-panels .uk-panel:hover {
+  border-color: #1E6B52;
+  box-shadow: 0 0 0 1px #1E6B52;
+  background: #d2e1dc; }
+
+body.linear.hd .wk-panels .uk-panel:hover h3 a {
+  border-color: #1E6B52; }
 
 /*------------------------
 END PANELS
