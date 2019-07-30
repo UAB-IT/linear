@@ -10,7 +10,7 @@ START NEWS FEEDS
 }
 #{$specify} li.newsflash-item {
   float: none; /* remove style from style.css */
-  padding-bottom: $s-1; /* Provides space for read more */
+  padding-bottom: 0; /* Provides space for read more */
   position: relative; /* Allows positioning of read more */
 }
 /* Allows re-ordering of item's content */
@@ -47,6 +47,9 @@ START NEWS FEEDS
 }
 .it-news li.newsflash-item {
   border: 0px solid transparent; /* Removes default border */
+}
+#{$specify} .it-news li.newsflash-item p {
+  margin: 0;
 }
 .it-news a.readmore {
   position: absolute; /* Allows positioning inside it's parent */

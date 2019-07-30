@@ -3,7 +3,6 @@ START BUTTONS
 ------------------------*/
 #{$specify} button,
 #{$specify} .button,
-#{$specify} .btn--fill,
 #{$specify} .btn-primary,
 #{$specify} .btn--full,
 #{$specify} .btn,
@@ -30,9 +29,12 @@ START BUTTONS
   color: $dark;
   &:focus,
   &:hover {
-    opacity: 0.6;
     outline: 0;
     text-decoration: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 1px $color-primary;
+    background: $uabgreen-100;
+    color: black;
   }
 }
 

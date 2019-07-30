@@ -24,14 +24,14 @@ $dark: $stone-800; //Dark background color
 #{$specify}.it-home #banner .breadcrumb {
   opacity: 0;
 }
-.it-home #twitter-widget-0 {
+/*.it-home #twitter-widget-0 {
   height: calc( 100% - 12.8rem ) !important;
   max-width: 329px !important;
   display: block;
 }
 .it-home div.custom.twitter-feed {
   height: 100%;
-}
+}*/
 .it-home div.custom.twitter-feed h4,
 .it-home div.custom.twitter-feed hr {
   display: none;

@@ -70,12 +70,11 @@ fieldset,
   box-sizing: border-box;
   border: $bdr-radius;
   border-radius: 0px;
-  @include type-setting(0);
   box-shadow: none;
   height: auto;
   color: black;
 }
-
+/*
 .chzn-container-single .chzn-single {
   border: 1px solid black;
   border-radius: $bdr-radius;
@@ -101,15 +100,15 @@ fieldset,
 .chzn-container .chzn-results li.highlighted {
   background-color: $uabgreen-100;
 }
-
+*/
 @include input {
   padding: 0.25em 0.5em;
   background-color: white;
   display: block;
   width: 100%;
   border: 1px solid black;
-  border-radius: $bdr-radius;
-  @include type-setting(0);
+  border-radius: 0;
+  color: black;
 }
 
 textarea {
@@ -136,16 +135,15 @@ input[type='url']:focus,
 input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
-.uneditable-input:focus {
-  border-color: $uabgreen;
-  box-shadow: none;
+select:focus {
+  border-color: $apple !important;
+  box-shadow: 0 0 0 1px $apple;
 }
 
-select:focus,
 input[type='file']:focus,
 input[type='radio']:focus,
 input[type='checkbox']:focus {
-  outline: 5px auto $uabgreen;
+  outline: 2px auto $uabgreen;
 }
 // /*------------------------
 // Date Inputs
