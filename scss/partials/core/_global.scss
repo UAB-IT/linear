@@ -19,6 +19,7 @@ $s-1: $line-height !default;
 $s-2: $line-height * 2 !default;
 $s-3: $line-height * 3 !default;
 $s-4: $line-height * 4 !default;
+$s-5: $line-height * 5 !default;
 
 $pad-inline: 0 0.2em 0.1em 0.2em !default;
 $pad-input: 0.3em 1em !default;
@@ -91,14 +92,23 @@ $bp-sm: 760px !default;
 }
 
 // TYPOGRAPHY LOGIC
+// $type-scales: (
+//   n1: $txt-size / $ratio,
+//   0: $txt-size,
+//   1: $txt-size * $ratio,
+//   2: $txt-size * pow( $ratio, 2 ),
+//   3: $txt-size * pow( $ratio, 3 ),
+//   4: $txt-size * pow( $ratio, 4 ),
+//   5: $txt-size * pow( $ratio, 5 )
+// );
 $type-scales: (
-  n1: $txt-size / $ratio,
-  0: $txt-size,
-  1: $txt-size * $ratio,
-  2: $txt-size * pow( $ratio, 2 ),
-  3: $txt-size * pow( $ratio, 3 ),
-  4: $txt-size * pow( $ratio, 4 ),
-  5: $txt-size * pow( $ratio, 5 )
+  n1: 1 / $ratio,
+  0: 1,
+  1: 1 * $ratio,
+  2: 1 * pow( $ratio, 2 ),
+  3: 1 * pow( $ratio, 3 ),
+  4: 1 * pow( $ratio, 4 ),
+  5: 1 * pow( $ratio, 5 )
 );
 $line-heights: (
   n1: $line-height,
@@ -117,7 +127,7 @@ $line-heights: (
   @return map-get($type-scales, $level);
 }
 @mixin type-setting($level) {
-  font-size: #{type-scale( $level ) + 'rem'};
+  font-size: #{type-scale( $level ) + 'em'};
   line-height: #{line-height( $level )};
 }
 @mixin input {

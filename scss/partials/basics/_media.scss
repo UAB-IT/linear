@@ -10,7 +10,15 @@ figure img {
   margin: 0px;
 }
 figure {
-  margin-bottom: $s-05;
+  margin-bottom: $s-1;
+}
+iframe {
+  margin-bottom: $s-1;
+}
+figure figcaption {
+  @include type-setting($sm-scale);
+  text-align: center;
+  margin: $s-1 0;
 }
 /*------------------------
 END MEDIA

@@ -1,6 +1,5 @@
-@charset "UTF-8";
 /*--------------------------------------------------
-Ember 0.3.0
+Ember 0.4.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -97,6 +96,9 @@ body.hd .rightsidebar .nav.menu li {
   float: none;
   width: 100%; }
 
+body.ribbonFullwidth #whitebox {
+  overflow: visible; }
+
 /*------------------------
 END RESET
 ------------------------*/
@@ -123,37 +125,37 @@ body.linear.hd h6 {
 TYPESETTING
 ------------------------ */
 body.linear.hd h1 {
-  font-size: 3.05176rem;
+  font-size: 3.05176em;
   line-height: 3.2rem; }
 
 body.linear.hd h2 {
-  font-size: 1.95312rem;
+  font-size: 1.95312em;
   line-height: 2.4rem; }
 
 body.linear.hd h3,
 #leftcolumn h3 {
-  font-size: 1.5625rem;
+  font-size: 1.5625em;
   line-height: 1.6rem; }
 
 body.linear.hd h4 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 body.linear.hd h5 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body.linear.hd h6 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body,
 body.linear.hd p {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 body.linear.hd small {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 /*------------------------
@@ -344,7 +346,7 @@ body.linear.hd table tr th {
   border: 1px solid black; }
 
 body.linear.hd table thead th {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   font-family: "kulturista-web", serif;
   font-weight: normal; }
@@ -407,7 +409,16 @@ figure img {
   margin: 0px; }
 
 figure {
-  margin-bottom: 0.8rem; }
+  margin-bottom: 1.6rem; }
+
+iframe {
+  margin-bottom: 1.6rem; }
+
+figure figcaption {
+  font-size: 0.8em;
+  line-height: 1.6rem;
+  text-align: center;
+  margin: 1.6rem 0; }
 
 /*------------------------
 END MEDIA
@@ -415,15 +426,14 @@ END MEDIA
 /*------------------------
 START BUTTONS
 ------------------------*/
-button,
-.button,
-.btn--fill,
-.btn-primary,
-.btn--full,
-.btn,
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
+body.linear.hd button,
+body.linear.hd .button,
+body.linear.hd .btn-primary,
+body.linear.hd .btn--full,
+body.linear.hd .btn,
+body.linear.hd input[type='submit'],
+body.linear.hd input[type='reset'],
+body.linear.hd input[type='button'] {
   -webkit-appearance: none;
   background-color: transparent;
   text-align: center;
@@ -431,8 +441,7 @@ input[type='button'] {
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   padding: 0.3em 1em;
   margin-bottom: 1.6rem;
@@ -444,42 +453,36 @@ input[type='button'] {
   border: 1px solid #333435;
   border-radius: 4px;
   color: #333435; }
-  button:focus, button:hover,
-  .button:focus,
-  .button:hover,
-  .btn--fill:focus,
-  .btn--fill:hover,
-  .btn-primary:focus,
-  .btn-primary:hover,
-  .btn--full:focus,
-  .btn--full:hover,
-  .btn:focus,
-  .btn:hover,
-  input[type='submit']:focus,
-  input[type='submit']:hover,
-  input[type='reset']:focus,
-  input[type='reset']:hover,
-  input[type='button']:focus,
-  input[type='button']:hover {
-    opacity: 0.6;
+  body.linear.hd button:focus, body.linear.hd button:hover,
+  body.linear.hd .button:focus,
+  body.linear.hd .button:hover,
+  body.linear.hd .btn-primary:focus,
+  body.linear.hd .btn-primary:hover,
+  body.linear.hd .btn--full:focus,
+  body.linear.hd .btn--full:hover,
+  body.linear.hd .btn:focus,
+  body.linear.hd .btn:hover,
+  body.linear.hd input[type='submit']:focus,
+  body.linear.hd input[type='submit']:hover,
+  body.linear.hd input[type='reset']:focus,
+  body.linear.hd input[type='reset']:hover,
+  body.linear.hd input[type='button']:focus,
+  body.linear.hd input[type='button']:hover {
     outline: 0;
-    text-decoration: none; }
+    text-decoration: none;
+    border-color: #1E6B52;
+    box-shadow: 0 0 0 1px #1E6B52;
+    background: #d2e1dc;
+    color: black; }
 
-.btn--fill {
+body.linear.hd a.btn-primary,
+body.linear.hd button.btn-primary {
   color: white;
-  background: #333435; }
-  .btn--fill:hover, .btn--fill:focus {
-    opacity: 0.8; }
-
-.btn-primary {
-  color: #1E6B52;
+  background: #1E6B52;
   border-color: #1E6B52; }
 
-.btn--fill.btn-primary {
-  color: white;
-  background: #1E6B52; }
-
-.btn--full {
+body.linear.hd a.btn--full,
+body.linear.hd button.btn--full {
   display: block;
   width: 100%; }
 
@@ -498,6 +501,22 @@ START BTN TOOLBAR
 #undefined {
   margin: 0px; }
 
+.input-group {
+  display: flex;
+  margin-bottom: 1.6rem; }
+
+body.linear.hd .input-group button,
+body.linear.hd .input-group input {
+  margin: 0; }
+
+body.linear.hd .input-group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0; }
+
+body.linear.hd .input-group button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0; }
+
 /*------------------------
 END BTN TOOLBAR
 ------------------------*/
@@ -505,7 +524,7 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   color: inherit;
   font-family: 'kulturista-web', serif !important; }
@@ -542,33 +561,37 @@ fieldset,
   box-sizing: border-box;
   border: 4px;
   border-radius: 0px;
-  font-size: 1rem;
-  line-height: 1.6rem;
   box-shadow: none;
   height: auto;
   color: black; }
 
+/*
 .chzn-container-single .chzn-single {
   border: 1px solid black;
-  border-radius: 4px;
-  padding: 0.25em 0.5em; }
+  border-radius: $bdr-radius;
+  padding: 0.25em 0.5em;
+}
 
 .chzn-container-active.chzn-with-drop .chzn-single {
-  border-color: #1E6B52;
+  border-color: $uabgreen;
   border: 1px solid black;
-  border-radius: 4px; }
+  border-radius: $bdr-radius;
+}
 
 .chzn-container .chzn-results {
   margin-bottom: 0px !important;
-  padding: 0px; }
+  padding: 0px;
+}
 
 .chzn-container .chzn-results li {
   padding: 0px 1rem;
-  line-height: 1.6rem; }
+  line-height: 1.6rem;
+}
 
 .chzn-container .chzn-results li.highlighted {
-  background-color: #d2e1dc; }
-
+  background-color: $uabgreen-100;
+}
+*/
 input[type='text'],
 input[type='email'],
 input[type='url'],
@@ -589,9 +612,8 @@ select {
   display: block;
   width: 100%;
   border: 1px solid black;
-  border-radius: 4px;
-  font-size: 1rem;
-  line-height: 1.6rem; }
+  border-radius: 0;
+  color: black; }
 
 textarea {
   height: 6.4rem;
@@ -617,37 +639,15 @@ input[type='url']:focus,
 input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
-.uneditable-input:focus {
-  border-color: #1E6B52;
-  box-shadow: none; }
+select:focus {
+  border-color: #80BC00 !important;
+  box-shadow: 0 0 0 1px #80BC00; }
 
-select:focus,
 input[type='file']:focus,
 input[type='radio']:focus,
 input[type='checkbox']:focus {
-  outline: 5px auto #1E6B52; }
+  outline: 2px auto #1E6B52; }
 
-/*------------------------
-Date Inputs
-------------------------*/
-/*input[type=date],
-input[type=month],
-input[type=week],
-select {
-  position: relative;
-}
-input[type=date]::before,
-input[type=month]::before,
-input[type=week]::before,
-select::before {
-  content: '◳';
-  font-size: 1.5em;
-  display: block;
-  position: absolute;
-  right: 0.25em;
-  top: 0.15em;
-  height: 100%;
-}*/
 /*------------------------
 Range
 ------------------------*/
@@ -703,54 +703,6 @@ input[type='range']::-moz-range-track {
   color: transparent; }
 
 /*------------------------
-Radio & Checkbox
-------------------------*/
-/*input[type='radio'],
-input[type='checkbox'] {
-  opacity: 0;
-  position: absolute;
-}
-input[type='radio']+label,
-input[type='checkbox']+label {
-  font-weight: normal;
-  display: block;
-  position: relative;
-  cursor: pointer;
-  &:before {
-    margin-right: 0.5em;
-    display: inline-block;
-    position: relative;
-    color: $grey3;
-    @if $font-icon == false {
-      font-size: 1.5em;
-      top: 0.05em;
-      line-height: 1.6rem;
-      width: 0.6em;
-    }
-    @else {
-      font-family: $font-icon;
-      top: 0.05em;
-    }
-  }
-}
-input[type='checkbox']+label::before {
-  content: '☐';
-}
-input[type='checkbox']:checked+label::before {
-  color: $color-primary;
-  content: '☒';
-}
-input[type='radio']+label::before {
-  content: '⦾';
-}
-input[type='radio']:checked+label::before {
-  color: $color-primary;
-  content: '●';
-}
-@include radio-check-focus {
-  outline: 2px solid $color-primary;
-}*/
-/*------------------------
 Progress
 ------------------------*/
 progress {
@@ -803,10 +755,6 @@ meter {
 /*------------------------
 Resets
 ------------------------*/
-/*::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  display: none;
-}*/
 ::-webkit-progress-bar {
   background: transparent; }
 
@@ -821,9 +769,6 @@ Resets
 :-moz-focus-inner {
   border-style: none; }
 
-/*::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}*/
 /*------------------------
 END FORMS
 ------------------------*/
@@ -839,11 +784,12 @@ body .panels > a,
   border: 1px solid black;
   padding: 1.6rem;
   border-radius: 4px;
-  /*background: $stone-050;*/ }
+  background: white; }
 
 body .panels > a:hover {
   border-color: #1E6B52;
-  box-shadow: 0 0 0 1px #1E6B52; }
+  box-shadow: 0 0 0 1px #1E6B52;
+  background: #d2e1dc; }
 
 .panels > a h4 {
   display: inline-block;
@@ -891,18 +837,6 @@ body.linear.hd .features img {
 END FEATURES
 ------------------------*/
 /*------------------------
-START ARTICLE
-------------------------*/
-.article-info {
-  text-align: right; }
-
-.article-info .icon-calendar {
-  display: none; }
-
-/*------------------------
-END ARTICLE
-------------------------*/
-/*------------------------
 START CHIPS
 ------------------------*/
 /* Joomla generated chips */
@@ -917,7 +851,7 @@ START CHIPS
   border: 0px solid transparent;
   color: black;
   font-weight: normal;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem;
   padding: 0.1em 0.7em; }
 
@@ -985,6 +919,15 @@ div.ribbonFullwidth .alert a:hover {
 .alert p {
   margin: 0px; }
 
+/* Add styling to hide IE alert on non-IE browsers */
+.ie-alert {
+  display: none; }
+
+/* Add margin between alerts and content. Should equal the margin between
+the banner and content */
+body.linear.hd #breadcrumbs > :last-child {
+  margin-bottom: 4.8rem; }
+
 /*------------------------
 END ALERT
 ------------------------*/
@@ -1049,6 +992,47 @@ START PAGINATION
 
 /*------------------------
 END PAGINATION
+------------------------*/
+/*------------------------
+START SLIDESHOW
+------------------------*/
+/* NOTE: The slideshow component is built in widgetkit - not html */
+/* Remove margins from slider elements. This will make sure the
+background image doesn't get cropped since widgetkit doesn't
+account for the margins in the sizing of the slideshow. */
+body.linear.hd #content .item-page ul.uk-slideshow,
+body.linear.hd #content .item-page ul.uk-slideshow li,
+body.linear.hd #content .item-page ul.uk-slideshow img {
+  margin: 0; }
+
+/*------------------------
+END SLIDESHOW
+------------------------*/
+/*------------------------
+START PULLQUOTE
+------------------------*/
+body.linear.hd .pullquote {
+  padding: 1.6rem;
+  background-color: #f2f3f3;
+  border-left: 5px solid #80BC00;
+  margin-bottom: 1.6rem; }
+
+body.linear.hd .background .pullquote {
+  background-color: #e6e6e7; }
+
+body.linear.hd .pullquote p,
+body.linear.hd .pullquote q {
+  font-size: 1.25em;
+  line-height: 1.6rem;
+  margin: 0px;
+  display: block; }
+
+body.linear.hd .pullquote footer {
+  text-align: right;
+  margin-top: 0.8rem; }
+
+/*------------------------
+END PULLQUOTE
 ------------------------*/
 /*--------------------------------------------------
 END COMPONENTS - START LAYOUT
@@ -1181,7 +1165,8 @@ END IE FALLBACK
   [class*='grid-6'] {
     display: grid;
     grid-gap: 3.2rem;
-    grid-auto-flow: row; }
+    grid-auto-flow: row;
+    margin-bottom: 1.6rem; }
   .grid--no-gap {
     grid-gap: 0; } }
 
@@ -1389,12 +1374,41 @@ body.hd.sidebars #leftcolumn {
 #leftcolumn .moduletable {
   padding: 0px; }
 
+#whitebox::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0; }
+
 /* Section spacing */
 .section {
-  margin: 4.8rem 0px; }
+  margin: 8rem 0 6.4rem; }
 
 .section.background {
-  padding: 3.2rem 0px; }
+  margin: 4.8rem 0;
+  padding: 3.2rem 3.2rem 1.6rem; }
+
+.background {
+  background-color: #f2f3f3; }
+
+.section.background-full {
+  margin: 4.8rem 0;
+  padding: 4.8rem 0 3.2rem;
+  position: relative; }
+
+.section.background-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 150vw;
+  margin-left: -50vw;
+  background-color: #f2f3f3;
+  z-index: -1; }
 
 /* Typographical Spacing */
 p,
@@ -1417,8 +1431,17 @@ blockquote {
   margin: 3.2rem 0px 1.6rem 0px; }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type {
+.item-page h2:first-of-type,
+.section h2:first-of-type,
+.section :first-child {
   margin-top: 0px; }
+
+/* Add vertical rhythem spacing to the widgetkit margins */
+* + .uk-margin {
+  margin-top: 1.6rem; }
+
+.uk-margin {
+  margin-bottom: 1.6rem; }
 
 /*--------------------------------------------------
 END LAYOUT - START SYNDICATION
@@ -1428,6 +1451,9 @@ html and classes of the target elements.
 /*------------------------
 START CALENDAR
 ------------------------*/
+body.linear.hd ul.localist-widget-eds {
+  margin: 0; }
+
 body.linear.hd .localist-month,
 .localist-day {
   background: #1E6B52;
@@ -1445,7 +1471,7 @@ body.linear.hd .localist-day {
   color: #FFF;
   text-align: center;
   font-weight: 600;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem;
   border-bottom: 4px solid #80BC00;
   padding-bottom: 0.4em; }
@@ -1459,7 +1485,7 @@ body.linear.hd .localist-widget-eds li {
 
 body.linear.hd .localist-title h4 {
   font-family: 'proxima-nova', sans-serif !important;
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   margin-top: -0.2em;
   margin-bottom: 0px; }
@@ -1469,7 +1495,7 @@ body.linear.hd .localist-title h4 a {
 
 body.linear.hd .localist-otherdetails div,
 .localist-otherdetails i {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 body.linear.hd .localist-venue {
@@ -1485,12 +1511,13 @@ START NEWS FEEDS
 body.linear.hd ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
-  grid-gap: 3.2rem; }
+  grid-gap: 3.2rem;
+  margin: 0 0 1.6rem 0; }
 
 body.linear.hd li.newsflash-item {
   float: none;
   /* remove style from style.css */
-  padding-bottom: 1.6rem;
+  padding-bottom: 0;
   /* Provides space for read more */
   position: relative;
   /* Allows positioning of read more */ }
@@ -1536,6 +1563,9 @@ body.linear.hd .it-news .newsflash-title {
   border: 0px solid transparent;
   /* Removes default border */ }
 
+body.linear.hd .it-news li.newsflash-item p {
+  margin: 0; }
+
 .it-news a.readmore {
   position: absolute;
   /* Allows positioning inside it's parent */
@@ -1549,21 +1579,20 @@ body.linear.hd .it-news .newsflash-title {
 /* END NEWS FLASH */
 /* START ARTICLE FEED */
 .it-feed .mod-articles-category-title {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem;
   margin: 0px;
   font-family: "kulturista-web", serif; }
 
 body.linear.hd .it-feed .mod-articles-category-introtext {
-  font-size: 0.8rem;
-  line-height: 1.6rem;
+  /*@include type-setting($sm-scale);*/
   margin: 0.8rem 0px 0px; }
 
 .it-feed .mod-articles-category-readmore {
   margin: 0px; }
 
 body.linear.hd ul.it-feed {
-  margin: 0px;
+  margin: 0 0 1.6rem 0;
   list-style-type: none; }
 
 /*------------------------
@@ -1624,19 +1653,24 @@ body.linear.hd #search form {
   justify-content: flex-end;
   align-items: right; }
 
-body.linear.hd #search button {
-  margin: 0px; }
+body.linear.hd #search button.btn-primary {
+  border: 1px solid #1E6B52;
+  margin: 0px;
+  transition-property: none; }
+
+body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:hover {
+  outline: 0;
+  text-decoration: none;
+  border-color: #1E6B52;
+  box-shadow: none;
+  background: #d2e1dc;
+  color: black;
+  border: 1px solid #1E6B52; }
 
 body.linear.hd #search input {
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
   border: 1px solid #1E6B52; }
-
-body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:hover {
-  background-color: #1E6B52;
-  opacity: 0.6;
-  outline: 0;
-  text-decoration: none; }
 
 /*------------------------
 END SEARCH
@@ -1674,12 +1708,13 @@ START BANNER
 ------------------------*/
 /* Set min height to the line height of h1 plus the top padding,
 plus 1 line height for the margin below the header,
+one line height for the margin above the header,
 one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
 #banner {
   position: relative;
   padding-top: 12.8rem;
-  min-height: 20.8rem; }
+  min-height: 22.4rem; }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
 #banner::before,
@@ -1694,7 +1729,7 @@ one line height for the margin below the breadcrumbs. */
 
 /* Set default banner image and the banner's image's and position */
 #banner::before {
-  background: url("https://dev.uab.edu/it/home/images/banners/Home-WebHeader.jpg");
+  background: url("/it/home/images/banners/Default-WebHeader.jpg");
   /*Use article image */
   background-size: cover;
   background-position: bottom; }
@@ -1708,6 +1743,10 @@ one line height for the margin below the breadcrumbs. */
 #banner .moduletable {
   max-width: 1280px;
   margin: auto; }
+
+body.linear.hd .stickyNav .page-header {
+  float: none;
+  max-width: 100%; }
 
 #banner h1 {
   margin-bottom: 1.6rem;
@@ -1729,6 +1768,13 @@ body.linear.hd .breadcrumb {
   padding: 0px;
   margin: 0px;
   margin-bottom: 1.6rem; }
+
+/* Remove main image */
+body.linear.hd .item-image {
+  display: none; }
+
+body.linear.hd.article-layout .item-page.article-layout .item-image {
+  display: block; }
 
 /*------------------------
 END BANNER
@@ -1768,7 +1814,7 @@ body.hd #sidebar_trigger.no-seal {
 
 #leftcolumn ul.nav.menu .parent > a {
   font-family: 'kulturista-web', serif;
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 #leftcolumn ul.nav.menu a:hover {
@@ -1820,8 +1866,15 @@ body.linear.hd #footer .IT-footer_right {
 
 /* Remove border from social media links. Add spacing between them. */
 body.linear.hd #footer .IT-footer_right .social a {
-  border: 0 solid transparent !important;
-  margin-right: 1rem; }
+  display: inline-block;
+  border: 2px solid #999b9d;
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-top: 0.2rem;
+  padding: 0.5rem; }
+
+body.linear.hd #footer .IT-footer_right .social a:hover {
+  border: 2px solid #e6e6e7; }
 
 /* Add spacing between logo and social links */
 body.linear.hd #footer .IT-footer .social {
@@ -1829,8 +1882,8 @@ body.linear.hd #footer .IT-footer .social {
 
 /* Set size of social media icons */
 body.linear.hd #footer .IT-footer .social img {
-  max-height: 2rem;
-  margin: 0.5rem 0 0; }
+  max-height: 1.5rem;
+  margin: 0; }
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
@@ -1849,6 +1902,36 @@ body.linear.hd #footer,
 /*------------------------
 END FOOTER
 ------------------------*/
+/*------------------------
+START ARTICLE
+------------------------*/
+body.linear.hd.article-layout .article-info {
+  text-align: right;
+  border-top: 1px solid black;
+  margin-bottom: 0px;
+  padding-top: 1.6rem; }
+
+body.linear.hd.article-layout .article-info .icon-calendar {
+  display: none; }
+
+body.linear.hd.article-layout #content .item-page.article-layout {
+  max-width: 700px;
+  margin: auto; }
+
+body.linear.hd.article-layout #content .item-page.article-layout figure {
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem; }
+
+body.linear.hd.article-layout .item-page.article-layout > div > .intro {
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem;
+  padding: 1.6rem 3.2rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black; }
+
+/*------------------------
+END ARTICLE
+------------------------*/
 /*--------------------------------------------------
 END AREAS
 --------------------------------------------------*/
@@ -1856,31 +1939,31 @@ END AREAS
 START HELPERS
 ------------------------*/
 .type-set-n1 {
-  font-size: 0.8rem;
+  font-size: 0.8em;
   line-height: 1.6rem; }
 
 .type-set-0 {
-  font-size: 1rem;
+  font-size: 1em;
   line-height: 1.6rem; }
 
 .type-set-1 {
-  font-size: 1.25rem;
+  font-size: 1.25em;
   line-height: 1.6rem; }
 
 .type-set-2 {
-  font-size: 1.5625rem;
+  font-size: 1.5625em;
   line-height: 1.6rem; }
 
 .type-set-3 {
-  font-size: 1.95312rem;
+  font-size: 1.95312em;
   line-height: 2.4rem; }
 
 .type-set-4 {
-  font-size: 2.44141rem;
+  font-size: 2.44141em;
   line-height: 3.2rem; }
 
 .type-set-5 {
-  font-size: 3.05176rem;
+  font-size: 3.05176em;
   line-height: 3.2rem; }
 
 .txt-c {
@@ -1895,6 +1978,9 @@ START HELPERS
 .full {
   display: block;
   width: 100%; }
+
+[class*='-space-0'] {
+  --u-space: 0; }
 
 [class*='-space-05'] {
   --u-space: 0.8rem; }
@@ -2115,3 +2201,22 @@ END HELPERS
 /*--------------------------------------------------
 END - EMBER
 --------------------------------------------------*/
+body.linear.hd.it-home #banner h1 {
+  text-align: center;
+  margin-top: -3rem;
+  margin-bottom: 4.6rem; }
+
+body.linear.hd.it-home #banner .breadcrumb {
+  opacity: 0; }
+
+/*.it-home #twitter-widget-0 {
+  height: calc( 100% - 12.8rem ) !important;
+  max-width: 329px !important;
+  display: block;
+}
+.it-home div.custom.twitter-feed {
+  height: 100%;
+}*/
+.it-home div.custom.twitter-feed h4,
+.it-home div.custom.twitter-feed hr {
+  display: none; }

@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.3.0
+Ember 0.4.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -17,7 +17,6 @@ END CORE - START BASICS
 Basic styling for html elements with a focus on typography.
 --------------------------------------------------*/
 @import 'partials/basics/_typography.scss';
-//@import 'partials/basics/_blockquote.scss';
 @import 'partials/basics/_lists.scss';
 @import 'partials/basics/_tables.scss';
 @import 'partials/basics/_media.scss';
@@ -29,13 +28,14 @@ Self contained chunks of content with their visual styling.
 --------------------------------------------------*/
 @import 'partials/components/_panels.scss';
 @import 'partials/components/_features.scss';
-@import 'partials/components/_article.scss';
 //@import 'partials/components/_gallery.scss';
 //@import 'partials/components/_cards.scss';
 @import 'partials/components/_chips.scss';
 @import 'partials/components/_overlay.scss';
 @import 'partials/components/_alert.scss';
 @import 'partials/components/_pagination.scss';
+@import 'partials/components/_slideshow.scss';
+@import 'partials/components/_pullquotes.scss';
 //@import 'partials/components/_details.scss';
 //@import 'partials/components/_status.scss';
 //@import 'partials/components/_contact.scss';
@@ -55,7 +55,6 @@ html and classes of the target elements.
 @import 'partials/syndication/_calendar.scss';
 @import 'partials/syndication/_news.scss';
 @import 'partials/syndication/socialIcons.scss';
-//@import 'partials/syndication/_digital-signage.scss';
 /*--------------------------------------------------
 END SYNDICATION - START AREAS
 Edits to the Linear template areas.
@@ -67,7 +66,7 @@ Most edits undo Ember styling to keep template styles in those areas.
 @import 'partials/areas/_banner.scss';
 @import 'partials/areas/_sidebar.scss';
 @import 'partials/areas/_footer.scss';
-//@import 'partials/areas/_article.scss';
+@import 'partials/areas/_article.scss';
 //@import 'partials/areas/_layout.scss';
 /*--------------------------------------------------
 END AREAS

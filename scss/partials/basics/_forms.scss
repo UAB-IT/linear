@@ -10,6 +10,22 @@ START BTN TOOLBAR
 #undefined {
   margin: 0px;
 }
+.input-group {
+  display: flex;
+  margin-bottom: $s-1;
+}
+#{$specify} .input-group button,
+#{$specify} .input-group input {
+  margin: 0;
+}
+#{$specify} .input-group input {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+#{$specify} .input-group button {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
 /*------------------------
 END BTN TOOLBAR
 ------------------------*/
@@ -54,12 +70,11 @@ fieldset,
   box-sizing: border-box;
   border: $bdr-radius;
   border-radius: 0px;
-  @include type-setting(0);
   box-shadow: none;
   height: auto;
   color: black;
 }
-
+/*
 .chzn-container-single .chzn-single {
   border: 1px solid black;
   border-radius: $bdr-radius;
@@ -85,15 +100,15 @@ fieldset,
 .chzn-container .chzn-results li.highlighted {
   background-color: $uabgreen-100;
 }
-
+*/
 @include input {
   padding: 0.25em 0.5em;
   background-color: white;
   display: block;
   width: 100%;
   border: 1px solid black;
-  border-radius: $bdr-radius;
-  @include type-setting(0);
+  border-radius: 0;
+  color: black;
 }
 
 textarea {
@@ -120,38 +135,37 @@ input[type='url']:focus,
 input[type='search']:focus,
 input[type='tel']:focus,
 input[type='color']:focus,
-.uneditable-input:focus {
-  border-color: $uabgreen;
-  box-shadow: none;
+select:focus {
+  border-color: $apple !important;
+  box-shadow: 0 0 0 1px $apple;
 }
 
-select:focus,
 input[type='file']:focus,
 input[type='radio']:focus,
 input[type='checkbox']:focus {
-  outline: 5px auto $uabgreen;
+  outline: 2px auto $uabgreen;
 }
-/*------------------------
-Date Inputs
-------------------------*/
-/*input[type=date],
-input[type=month],
-input[type=week],
-select {
-  position: relative;
-}
-input[type=date]::before,
-input[type=month]::before,
-input[type=week]::before,
-select::before {
-  content: '◳';
-  font-size: 1.5em;
-  display: block;
-  position: absolute;
-  right: 0.25em;
-  top: 0.15em;
-  height: 100%;
-}*/
+// /*------------------------
+// Date Inputs
+// ------------------------*/
+// input[type=date],
+// input[type=month],
+// input[type=week],
+// select {
+//   position: relative;
+// }
+// input[type=date]::before,
+// input[type=month]::before,
+// input[type=week]::before,
+// select::before {
+//   content: '◳';
+//   font-size: 1.5em;
+//   display: block;
+//   position: absolute;
+//   right: 0.25em;
+//   top: 0.15em;
+//   height: 100%;
+// }
 /*------------------------
 Range
 ------------------------*/
@@ -191,54 +205,54 @@ input[type='range']:focus { outline: 0; }
   border-color: transparent;
   color: transparent;
 }
-/*------------------------
-Radio & Checkbox
-------------------------*/
-/*input[type='radio'],
-input[type='checkbox'] {
-  opacity: 0;
-  position: absolute;
-}
-input[type='radio']+label,
-input[type='checkbox']+label {
-  font-weight: normal;
-  display: block;
-  position: relative;
-  cursor: pointer;
-  &:before {
-    margin-right: 0.5em;
-    display: inline-block;
-    position: relative;
-    color: $grey3;
-    @if $font-icon == false {
-      font-size: 1.5em;
-      top: 0.05em;
-      line-height: 1.6rem;
-      width: 0.6em;
-    }
-    @else {
-      font-family: $font-icon;
-      top: 0.05em;
-    }
-  }
-}
-input[type='checkbox']+label::before {
-  content: '#{$checkbox}';
-}
-input[type='checkbox']:checked+label::before {
-  color: $color-primary;
-  content: '#{$checkbox-fill}';
-}
-input[type='radio']+label::before {
-  content: '#{$radio}';
-}
-input[type='radio']:checked+label::before {
-  color: $color-primary;
-  content: '#{$radio-fill}';
-}
-@include radio-check-focus {
-  outline: 2px solid $color-primary;
-}*/
+// /*------------------------
+// Radio & Checkbox
+// ------------------------*/
+// input[type='radio'],
+// input[type='checkbox'] {
+//   opacity: 0;
+//   position: absolute;
+// }
+// input[type='radio']+label,
+// input[type='checkbox']+label {
+//   font-weight: normal;
+//   display: block;
+//   position: relative;
+//   cursor: pointer;
+//   &:before {
+//     margin-right: 0.5em;
+//     display: inline-block;
+//     position: relative;
+//     color: $grey3;
+//     @if $font-icon == false {
+//       font-size: 1.5em;
+//       top: 0.05em;
+//       line-height: 1.6rem;
+//       width: 0.6em;
+//     }
+//     @else {
+//       font-family: $font-icon;
+//       top: 0.05em;
+//     }
+//   }
+// }
+// input[type='checkbox']+label::before {
+//   content: '#{$checkbox}';
+// }
+// input[type='checkbox']:checked+label::before {
+//   color: $color-primary;
+//   content: '#{$checkbox-fill}';
+// }
+// input[type='radio']+label::before {
+//   content: '#{$radio}';
+// }
+// input[type='radio']:checked+label::before {
+//   color: $color-primary;
+//   content: '#{$radio-fill}';
+// }
+// @include radio-check-focus {
+//   outline: 2px solid $color-primary;
+// }
 /*------------------------
 Progress
 ------------------------*/
@@ -281,10 +295,10 @@ meter {
 /*------------------------
 Resets
 ------------------------*/
-/*::-webkit-inner-spin-button,
-::-webkit-outer-spin-button {
-  display: none;
-}*/
+// ::-webkit-inner-spin-button,
+// ::-webkit-outer-spin-button {
+//   display: none;
+// }
 ::-webkit-progress-bar {
   background: transparent;
 }
@@ -302,9 +316,10 @@ Resets
 :-moz-focus-inner {
   border-style: none;
 }
-/*::-webkit-calendar-picker-indicator {
-  opacity: 0;
-}*/
+
+// ::-webkit-calendar-picker-indicator {
+//   opacity: 0;
+// }
 /*------------------------
 END FORMS
 ------------------------*/

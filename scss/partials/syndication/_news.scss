@@ -6,10 +6,11 @@ START NEWS FEEDS
   overflow: visible;
   align-items: stretch;
   grid-gap: $s-2;
+  margin: 0 0 $s-1 0;
 }
 #{$specify} li.newsflash-item {
   float: none; /* remove style from style.css */
-  padding-bottom: $s-1; /* Provides space for read more */
+  padding-bottom: 0; /* Provides space for read more */
   position: relative; /* Allows positioning of read more */
 }
 /* Allows re-ordering of item's content */
@@ -47,6 +48,9 @@ START NEWS FEEDS
 .it-news li.newsflash-item {
   border: 0px solid transparent; /* Removes default border */
 }
+#{$specify} .it-news li.newsflash-item p {
+  margin: 0;
+}
 .it-news a.readmore {
   position: absolute; /* Allows positioning inside it's parent */
   left: 0px;
@@ -63,14 +67,14 @@ START NEWS FEEDS
   font-family: $font-head;
 }
 #{$specify} .it-feed .mod-articles-category-introtext {
-  @include type-setting($sm-scale);
+  /*@include type-setting($sm-scale);*/
   margin: $s-05 0px 0px;
 }
 .it-feed .mod-articles-category-readmore {
   margin: 0px;
 }
 #{$specify} ul.it-feed {
-  margin: 0px;
+  margin: 0 0 $s-1 0;
   list-style-type: none;
 }
 /*------------------------

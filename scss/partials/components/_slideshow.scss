@@ -1,0 +1,19 @@
+/*------------------------
+START SLIDESHOW
+------------------------*/
+/* NOTE: The slideshow component is built in widgetkit - not html */
+
+/* Remove margins from slider elements. This will make sure the
+background image doesn't get cropped since widgetkit doesn't
+account for the margins in the sizing of the slideshow. */
+body.linear.hd #content .item-page ul.uk-slideshow,
+body.linear.hd #content .item-page ul.uk-slideshow li,
+body.linear.hd #content .item-page ul.uk-slideshow img {
+  margin: 0;
+}
+// TODO: Modify the size of dot nav -
+// Size should stay the same, color should be darker on active
+// and darkest on hover
+/*------------------------
+END SLIDESHOW
+------------------------*/

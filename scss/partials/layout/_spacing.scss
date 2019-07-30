@@ -55,13 +55,42 @@ body.hd.sidebars #leftcolumn {
 #leftcolumn .moduletable {
   padding: 0px;
 }
-
+// // NOTE: clearfix
+#whitebox::after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0;
+}
 /* Section spacing */
 .section {
-  margin: $s-3 0px;
+  margin: $s-5 0 $s-4;
 }
 .section.background {
-  padding: $s-2 0px;
+  margin: $s-3 0;
+  padding: $s-2 $s-2 $s-1;
+}
+.background {
+  background-color: $stone-050;
+}
+.section.background-full {
+  margin: $s-3 0;
+  padding: $s-3 0 $s-2;
+  position: relative;
+}
+.section.background-full::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 150vw;
+  margin-left: -50vw;
+  background-color: $stone-050;
+  z-index: -1;
 }
 
 /* Typographical Spacing */
@@ -90,6 +119,17 @@ blockquote {
 }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type {
+.item-page h2:first-of-type,
+.section h2:first-of-type,
+.section :first-child {
   margin-top: 0px;
+}
+
+/* Add vertical rhythem spacing to the widgetkit margins */
+
+* + .uk-margin {
+  margin-top: $s-1;
+}
+.uk-margin {
+  margin-bottom: $s-1;
 }

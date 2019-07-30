@@ -1,15 +1,14 @@
 /*------------------------
 START BUTTONS
 ------------------------*/
-button,
-.button,
-.btn--fill,
-.btn-primary,
-.btn--full,
-.btn,
-input[type='submit'],
-input[type='reset'],
-input[type='button'] {
+#{$specify} button,
+#{$specify} .button,
+#{$specify} .btn-primary,
+#{$specify} .btn--full,
+#{$specify} .btn,
+#{$specify} input[type='submit'],
+#{$specify} input[type='reset'],
+#{$specify} input[type='button'] {
   -webkit-appearance: none;
   background-color: transparent;
   text-align: center;
@@ -17,7 +16,6 @@ input[type='button'] {
   white-space: nowrap;
   box-sizing: border-box;
   cursor: pointer;
-  display: inline-block;
   @include type-setting(0);
   padding: $pad-input;
   margin-bottom: $s-1;
@@ -31,32 +29,24 @@ input[type='button'] {
   color: $dark;
   &:focus,
   &:hover {
-    opacity: 0.6;
     outline: 0;
     text-decoration: none;
+    border-color: $color-primary;
+    box-shadow: 0 0 0 1px $color-primary;
+    background: $uabgreen-100;
+    color: black;
   }
 }
 
-.btn--fill {
+#{$specify} a.btn-primary,
+#{$specify} button.btn-primary {
   color: white;
-  background: $dark;
-  &:hover,
-  &:focus {
-    opacity: 0.8;
-  }
-}
-
-.btn-primary {
-  color: $color-primary;
+  background: $color-primary;
   border-color: $color-primary;
 }
 
-.btn--fill.btn-primary {
-  color: white;
-  background: $color-primary;
-}
-
-.btn--full{
+#{$specify} a.btn--full,
+#{$specify} button.btn--full {
   display: block;
   width: 100%;
 }

@@ -6,11 +6,12 @@ body .panels > a,
   border: 1px solid black;
   padding: $s-1;
   border-radius: $bdr-radius;
-  /*background: $stone-050;*/
+  background: white;
 }
 body .panels > a:hover {
   border-color: $uabgreen;
   box-shadow: 0 0 0 1px $uabgreen;
+  background: $uabgreen-100;
 }
 .panels > a h4 {
   display: inline-block;

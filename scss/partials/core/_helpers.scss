@@ -18,6 +18,7 @@ START HELPERS
   width: 100%;
 }
 
+[class*='-space-0'] { --u-space: 0; }
 [class*='-space-05'] { --u-space: #{$s-05}; }
 [class*='-space-1'] { --u-space: #{$s-1}; }
 [class*='-space-2'] { --u-space: #{$s-2}; }
