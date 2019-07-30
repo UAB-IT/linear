@@ -15,8 +15,8 @@ START ARTICLE
   max-width: 700px;
   margin: auto;
 }
-#{$specify}.article-layout #content .item-page.article-layout img {
-  max-width: calc( 700px + #{$s-4} );
+#{$specify}.article-layout #content .item-page.article-layout figure {
+  width: calc( 700px + #{$s-4} );
   margin-left: -#{$s-2};
 }
 #{$specify}.article-layout .item-page.article-layout > div > .intro {

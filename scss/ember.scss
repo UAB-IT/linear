@@ -17,7 +17,6 @@ END CORE - START BASICS
 Basic styling for html elements with a focus on typography.
 --------------------------------------------------*/
 @import 'partials/basics/_typography.scss';
-//@import 'partials/basics/_blockquote.scss';
 @import 'partials/basics/_lists.scss';
 @import 'partials/basics/_tables.scss';
 @import 'partials/basics/_media.scss';
@@ -36,6 +35,7 @@ Self contained chunks of content with their visual styling.
 @import 'partials/components/_alert.scss';
 @import 'partials/components/_pagination.scss';
 @import 'partials/components/_slideshow.scss';
+@import 'partials/components/_pullquotes.scss';
 //@import 'partials/components/_details.scss';
 //@import 'partials/components/_status.scss';
 //@import 'partials/components/_contact.scss';

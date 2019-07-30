@@ -409,10 +409,16 @@ figure img {
   margin: 0px; }
 
 figure {
-  margin-bottom: 0.8rem; }
+  margin-bottom: 1.6rem; }
 
 iframe {
   margin-bottom: 1.6rem; }
+
+figure figcaption {
+  font-size: 0.8em;
+  line-height: 1.6rem;
+  text-align: center;
+  margin: 1.6rem 0; }
 
 /*------------------------
 END MEDIA
@@ -999,6 +1005,32 @@ body.linear.hd #content .item-page ul.uk-slideshow img {
 
 /*------------------------
 END SLIDESHOW
+------------------------*/
+/*------------------------
+START PULLQUOTE
+------------------------*/
+body.linear.hd .pullquote {
+  padding: 1.6rem;
+  background-color: #f2f3f3;
+  border-left: 5px solid #80BC00;
+  margin-bottom: 1.6rem; }
+
+body.linear.hd .background .pullquote {
+  background-color: #e6e6e7; }
+
+body.linear.hd .pullquote p,
+body.linear.hd .pullquote q {
+  font-size: 1.25em;
+  line-height: 1.6rem;
+  margin: 0px;
+  display: block; }
+
+body.linear.hd .pullquote footer {
+  text-align: right;
+  margin-top: 0.8rem; }
+
+/*------------------------
+END PULLQUOTE
 ------------------------*/
 /*--------------------------------------------------
 END COMPONENTS - START LAYOUT
@@ -1876,8 +1908,8 @@ body.linear.hd.article-layout #content .item-page.article-layout {
   max-width: 700px;
   margin: auto; }
 
-body.linear.hd.article-layout #content .item-page.article-layout img {
-  max-width: calc( 700px + 6.4rem);
+body.linear.hd.article-layout #content .item-page.article-layout figure {
+  width: calc( 700px + 6.4rem);
   margin-left: -3.2rem; }
 
 body.linear.hd.article-layout .item-page.article-layout > div > .intro {
