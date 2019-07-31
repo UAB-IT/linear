@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0-a.3
+Ember 0.5.0-a.4
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -1004,6 +1004,23 @@ body.linear.hd .wk-features .uk-panel-title {
 
 /*------------------------
 END FEATURES
+------------------------*/
+/*------------------------
+START GALLERY
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-gallery p {
+  text-align: center;
+  margin: 0;
+}
+
+body.linear.hd .wk-gallery {
+  margin-bottom: 1.6rem;
+}
+
+/*------------------------
+END GALLERY
 ------------------------*/
 /*------------------------
 START CHIPS
