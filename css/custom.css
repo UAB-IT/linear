@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0-a.4
+Ember 0.5.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -1635,7 +1635,7 @@ END GRID
 Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
-  margin: 4.8rem auto;
+  margin: 6.4rem auto;
   padding: 0 1.6rem;
 }
 
@@ -1708,7 +1708,7 @@ body.hd.sidebars #leftcolumn {
 
 /* Section spacing */
 .section {
-  margin: 8rem 0 6.4rem;
+  margin: 6.4rem 0 6.4rem;
 }
 
 .section.background {
