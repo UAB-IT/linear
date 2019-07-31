@@ -24,6 +24,47 @@ body .panels > a:hover {
 .panels > a p:last-child {
   margin-bottom: 0px;
 }
+
+.uk-panel-box {
+  padding: $s-1;
+}
+
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: black;
+}
+
+#{$specify} .wk-panels {
+  margin-bottom: $s-1;
+}
+#{$specify} .wk-panels .uk-panel-title {
+  margin-top: 0;
+}
+#{$specify} .wk-panels .uk-panel {
+  background: white;
+  border: 1px solid black;
+  border-radius: $bdr-radius;
+}
+#{$specify} a.uk-position-cover {
+  opacity: 0 !important;
+}
+#{$specify} .wk-panels .uk-panel p:last-child {
+  margin: 0;
+}
+
+#{$specify} .wk-panels .uk-panel:hover {
+  border-color: $uabgreen;
+  box-shadow: 0 0 0 1px $uabgreen;
+  background: $uabgreen-100;
+}
+#{$specify} .wk-panels .uk-panel:hover h3 a {
+  border-color: $uabgreen;
+}
 /*------------------------
 END PANELS
 ------------------------*/

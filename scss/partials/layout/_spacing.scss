@@ -2,7 +2,7 @@
 Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
-  margin: $s-3 auto;
+  margin: $s-4 auto;
   padding: 0 $s-1;
 }
 /* Decrease the width by the amount of padding on it's parent
@@ -66,7 +66,7 @@ body.hd.sidebars #leftcolumn {
 }
 /* Section spacing */
 .section {
-  margin: $s-5 0 $s-4;
+  margin: $s-4 0 $s-4;
 }
 .section.background {
   margin: $s-3 0;
