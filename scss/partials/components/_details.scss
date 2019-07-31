@@ -1,0 +1,26 @@
+/*------------------------
+START DETAILS
+------------------------*/
+#{$specify} .wk-details {
+  margin-bottom: $s-1;
+}
+#{$specify} .wk-details .uk-panel p {
+  margin: 0;
+}
+#{$specify} .wk-details .uk-panel img {
+  height: 5rem;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+#{$specify} .wk-details.uk-text-left .uk-panel img {
+  margin: 0;
+}
+#{$specify} .wk-details .uk-panel-title {
+  margin-top: 0;
+  margin-bottom: -#{$s-05};
+  @include type-setting($h4-scale);
+}
+/*------------------------
+END DETAILS
+------------------------*/

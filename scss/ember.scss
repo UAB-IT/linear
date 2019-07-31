@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0-a.2
+Ember 0.5.0-a.3
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -36,7 +36,7 @@ Self contained chunks of content with their visual styling.
 @import 'partials/components/_pagination.scss';
 @import 'partials/components/_slideshow.scss';
 @import 'partials/components/_pullquotes.scss';
-//@import 'partials/components/_details.scss';
+@import 'partials/components/_details.scss';
 //@import 'partials/components/_status.scss';
 //@import 'partials/components/_contact.scss';
 //@import 'partials/components/_numbers.scss';
