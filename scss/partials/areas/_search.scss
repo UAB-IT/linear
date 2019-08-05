@@ -9,27 +9,21 @@ START SEARCH
 
 body.linear.hd #search button.btn-primary {
   border: 1px solid $uabgreen;
-  margin: 0px;
+  margin: 0;
   transition-property: none;
 }
 
 #{$specify} #search .btn-primary {
   &:focus,
   &:hover {
-    outline: 0;
-    text-decoration: none;
-    border-color: $color-primary;
-    box-shadow: none;
-    background: $uabgreen-100;
-    color: black;
-    border: 1px solid $color-primary;
+    @include button-hover;
   }
 }
 
 #{$specify} #search input {
   border-top-left-radius: $bdr-radius !important;
   border-bottom-left-radius: $bdr-radius !important;
-  border: 1px solid $uabgreen;
+  @include border($color: $uabgreen, $radius: omit);
 }
 /*------------------------
 END SEARCH

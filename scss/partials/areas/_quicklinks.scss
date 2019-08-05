@@ -2,13 +2,13 @@
 START QUICKLINKS
 ------------------------*/
 #quicklinks ul {
-  margin: 0px;
+  margin: 0;
 }
 
 /* Remove borders from quicklinks */
 #quicklinks a,
 #trigger {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
 }
 
 /* Ensure hover color is consistant */
@@ -18,7 +18,7 @@ START QUICKLINKS
 #quicklinks .dropdown-menu > li > a:focus,
 #quicklinks .newsfeed > li:hover,
 #quicklinks .newsfeed > li:focus {
-  background-color: $uabgreen-100;
+  background-color: c( $uabgreen, 100 );
 }
 
 /* Fix box shadow styles on quicklinks feed */

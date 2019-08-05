@@ -1,88 +1,13 @@
-// FONTS
-$font-body: 'proxima-nova', Arial, Helvetica, sans-serif !important !default;
-$font-head: 'kulturista-web', serif !default;
-$font-mono: monospace !default;
-$font-icon: false !default;
-
-// TYPOGRAPHY
-$rem-size: 16 !default;
-$ratio: 1.25 !default;
-$txt-size-raw: 16 !default;
-$line-height-raw: 1.6 !default;
-$txt-size: $txt-size-raw / $rem-size; //Unitless, converts to "rem"
-$line-height: $txt-size-raw * $line-height-raw / $rem-size - 0rem;
-//Converts line height to "rem"
-
-// SPACING
-$s-05: $line-height / 2 !default;
-$s-1: $line-height !default;
-$s-2: $line-height * 2 !default;
-$s-3: $line-height * 3 !default;
-$s-4: $line-height * 4 !default;
-$s-5: $line-height * 5 !default;
-
-$pad-inline: 0 0.2em 0.1em 0.2em !default;
-$pad-input: 0.3em 1em !default;
-$pad-btn: 0.3em 1em !default;
-$pad-block: $s-05 !default;
-$pad-section: $s-2 0 !default;
-$mar-section: $s-2 0 !default;
-$indent: 1em !default;
-
-// COLORS
-$color-primary: #4FC3F7 !default;
-$mark-color: #B3E5FC !default;
-
-$color-green: #4C8C2B !default;
-$color-yellow: #FFCD00 !default;
-$color-red: #E63422 !default;
-
-$grey1: #F4F5F5 !default;
-$grey2: #A1A7AB !default;
-$grey3: #6A7579 !default;
-$dark: #3A464B !default;
-
-// CONSISTANCY
-$bdr-radius: 4px !default;
-
-$radio: ⦾ !default;
-$radio-fill: ● !default;
-$checkbox: ☐ !default;
-$checkbox-fill: ☒ !default;
-
 // BREAK POINTS
-$bp-xxl: 2560px !default;
-$bp-xl: 1440px !default;
-$bp-l: 1024px !default;
-$bp-m: 768px !default;
-$bp-sm: 760px !default;
-@mixin xxlarge {
-  @media all and (min-width: $bp-xxl) {
-    @content;
-  }
-}
-@mixin xlarge {
-  @media all and (min-width: $bp-xl) {
-    @content;
-  }
-}
-@mixin large {
-  @media all and (min-width: $bp-l) {
-    @content;
-  }
-}
-@mixin medium {
-  @media all and (min-width: $bp-m) {
-    @content;
-  }
-}
-@mixin small {
-  @media all and (max-width: $bp-sm) {
+
+@mixin breakpoint($size) {
+  @media all and (min-width: map-get($breakpoints, $size)) {
     @content;
   }
 }
 
 // UTILITY FUNCTIONS
+
 @function pow($base, $exponents) {
   $raised: 1;
   @for $i from 1 through $exponents {
@@ -91,163 +16,132 @@ $bp-sm: 760px !default;
   @return $raised;
 }
 
-// TYPOGRAPHY LOGIC
-// $type-scales: (
-//   n1: $txt-size / $ratio,
-//   0: $txt-size,
-//   1: $txt-size * $ratio,
-//   2: $txt-size * pow( $ratio, 2 ),
-//   3: $txt-size * pow( $ratio, 3 ),
-//   4: $txt-size * pow( $ratio, 4 ),
-//   5: $txt-size * pow( $ratio, 5 )
-// );
-$type-scales: (
-  n1: 1 / $ratio,
-  0: 1,
-  1: 1 * $ratio,
-  2: 1 * pow( $ratio, 2 ),
-  3: 1 * pow( $ratio, 3 ),
-  4: 1 * pow( $ratio, 4 ),
-  5: 1 * pow( $ratio, 5 )
-);
-$line-heights: (
-  n1: $line-height,
-  0: $line-height,
-  1: $line-height,
-  2: $line-height,
-  3: $line-height * 1.5,
-  4: $line-height * 2,
-  5: $line-height * 2
-);
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
 
-@function line-height($level) {
-  @return map-get($line-heights, $level);
-}
-@function type-scale($level) {
-  @return map-get($type-scales, $level);
-}
-@mixin type-setting($level) {
-  font-size: #{type-scale( $level ) + 'em'};
-  line-height: #{line-height( $level )};
-}
-@mixin input {
-  input[type='text'],
-  input[type='email'],
-  input[type='url'],
-  input[type='search'],
-  input[type='password'],
-  input[type='search'],
-  input[type='tel'],
-  input[type='number'],
-  input[type='date'],
-  input[type='time'],
-  input[type='month'],
-  input[type='week'],
-  input[type='file'],
-  textarea,
-  select {
-    @content;
-  }
-}
-@mixin range-thumb($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    input[type='range']::-webkit-slider-thumb {
-      @content;
+@mixin reset($properties...) {
+  @for $i from 0 to length($properties) {
+    @if nth($properties, $i + 1) == margin {
+      margin: 0;
     }
-  }
-  @if $moz {
-    input[type='range']::-moz-range-thumb {
-      @content;
+    @if nth($properties, $i + 1) == padding {
+      padding: 0;
+    }
+    @if nth($properties, $i + 1) == border {
+      border: 0;
+    }
+    @if nth($properties, $i + 1) == float {
+      float: none;
+    }
+    @if nth($properties, $i + 1) == font-size {
+      font-size: inherit;
+    }
+    @if nth($properties, $i + 1) == font-weight {
+      font-weight: normal;
+    }
+    @if nth($properties, $i + 1) == color {
+      color: black;
+    }
+    @if nth($properties, $i + 1) == background {
+      background: none;
+      background-color: transparent;
+      background-image: none;
+    }
+    @if nth($properties, $i + 1) == shadow {
+      text-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
     }
   }
 }
-@mixin range-thumb-focus($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    input[type='range']:focus::-webkit-slider-thumb {
-      @content;
-    }
+
+//TYPOGRAPHY LOGIC
+
+$rem-size: 16 !default;
+$ratio: 1.25 !default;
+$txt-size-raw: 16 !default;
+$line-height-raw: 1.6 !default;
+
+$txt-size: $txt-size-raw / $rem-size; //converts raw value to "rem"
+$line-height: $txt-size-raw * $line-height-raw / $rem-size; //converts raw value to "rem"
+
+@function line-height($size) {
+  $value: $line-height;
+  $i: 1.5;
+  @while $value < $size {
+    $value: $line-height * $i;
+    $i: $i + 0.5;
   }
-  @if $moz {
-    input[type='range']:focus::-moz-range-thumb {
-      @content;
-    }
+  @return $value;
+}
+
+$font-sizes: (
+  large: 6,
+  h1: 5,
+  h2: 3,
+  h3: 2,
+  h4: 1,
+  h5: 0,
+  h6: 0,
+  p: 0,
+  sm: -1
+) !default;
+
+@function type-scale($scale) {
+  $level: null;
+  @if type-of($scale) == 'string' {
+    $level: map-get( $font-sizes, $scale );
+  }
+  @else {
+    $level: $scale;
+  }
+  @if $level == 0 {
+    @return $txt-size;
+  }
+  @else if $level < 0 {
+    $level: $level * -1;
+    @return $txt-size / pow( $ratio, $level );
+  }
+  @else {
+    @return $txt-size * pow( $ratio, $level );
   }
 }
-@mixin range-track($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    input[type='range']::-webkit-slider-runnable-track {
-      @content;
-    }
-  }
-  @if $moz {
-    input[type='range']::-moz-range-track {
-      @content;
-    }
-  }
+
+@mixin type-setting($input) {
+  $size: type-scale( $input );
+  font-size: #{$size + 'rem'};
+  line-height: #{line-height( $size ) + 'rem'};
 }
-@mixin range-track-focus($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    input[type='range']:focus::-webkit-slider-runnable-track {
-      @content;
-    }
+
+// COLOR SCALE
+$color-scale: (
+  050: 90%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 20%,
+  700: 40%,
+  800: 60%,
+  900: 80%
+) !default;
+
+@function c($color: black, $level: null) {
+  @if $level >= 600 {
+    $scale: map-get( $color-scale, $level );
+    @return shade( $color, $scale );
   }
-  @if $moz {
-    input[type='range']:focus::-moz-range-track {
-      @content;
-    }
+  @else if $level <= 400 {
+    $scale: map-get( $color-scale, $level );
+    @return tint( $color, $scale );
   }
-}
-@mixin progress-value($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    ::-webkit-progress-value {
-      @content;
-    }
-  }
-  @if $moz {
-    ::-moz-progress-bar {
-      @content;
-    }
-  }
-}
-@mixin meter-good($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    ::-webkit-meter-optimum-value {
-      @content;
-    }
-  }
-  @if $moz {
-    :-moz-meter-optimum::-moz-meter-bar {
-      @content;
-    }
-  }
-}
-@mixin meter-ok($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    ::-webkit-meter-suboptimum-value {
-      @content;
-    }
-  }
-  @if $moz {
-    :-moz-meter-sub-optimum::-moz-meter-bar {
-      @content;
-    }
-  }
-}
-@mixin meter-bad($webkit: true, $moz: true, $ms: true) {
-  @if $webkit {
-    ::-webkit-meter-even-less-good-value {
-      @content;
-    }
-  }
-  @if $moz {
-    :-moz-meter-sub-sub-optimum::-moz-meter-bar {
-      @content;
-    }
-  }
-}
-@mixin radio-check-focus {
-  input[type='radio']:focus + label,
-  input[type='checkbox']:focus + label {
-    @content;
+  @else {
+    @return $color;
   }
 }

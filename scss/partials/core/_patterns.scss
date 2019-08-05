@@ -1,0 +1,127 @@
+@import '_global.scss';
+
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 761px,
+  sm: 760px,
+  xs: 300px
+) !default;
+
+// FONTS
+$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
+$font-head: 'kulturista-web', serif !default;
+$font-mono: monospace !default;
+$font-icon: false !default;
+
+//SPACING
+@function s($value) {
+  @return $line-height * $value;
+}
+
+@mixin section-space($bg: false, $full: false) {
+  @if $bg {
+    margin: s(2) 0;
+    @if $full {
+      padding: s(2) 0 s(1);
+    }
+    @else {
+      padding: s(2) s(2) s(1);
+    }
+  }
+  @else {
+    margin: s(4) 0;
+  }
+}
+
+$header-top: s(2);
+$header-bottom: s(1);
+
+$block-padding: s(0.5);
+$block-margin: s(1);
+
+@mixin block-margin {
+  margin-bottom: $block-margin;
+}
+
+$list-margin: s(0.5);
+
+@mixin list-margin {
+  margin-bottom: $list-margin;
+}
+
+$inline-padding: 0 0.2em 0.1em;
+$header-weight: normal;
+$input-padding: 0.3em 1em;
+
+@mixin inline-space {
+  padding: 0 0.2em 0.1em;
+}
+@mixin block-space {
+  padding: s( 0.5 );
+}
+@mixin input-space {
+  padding: 0.3em 1em;
+}
+@mixin header-space {
+  margin: $header-top 0 $header-bottom 0;
+}
+
+@mixin container-fix {
+  margin-bottom: 0 0 s( 1 );
+  & :last-child {
+    margin-bottom: 0;
+  }
+}
+
+$indent: 1em !default;
+$bdr-radius: 4px !default;
+$bdr-width: 1px !default;
+
+@mixin border($width: $bdr-width, $color: black, $radius: $bdr-radius, $style: solid) {
+  @if $width == none {
+    border: 0 solid transparent;
+  }
+  @if $width == radius or $color == radius {
+    border-radius: $bdr-radius;
+  }
+  @else {
+    @if $radius == none {
+      border-radius: 0;
+    }
+    @else {
+      @if $radius != omit {
+        border-radius: $radius;
+      }
+    }
+    border: $width $style $color;
+  }
+}
+
+// BRAND COLORS
+$uabgreen: #1E6B52;
+$darkgreen: #295135;
+$blaze: #FFD400;
+$apple: #80BC00;
+$gold: #AA9767;
+$stone: #808285;
+$coral: #EA6852;
+
+// COLORS
+$color-primary: $uabgreen !default;
+$color-secondary: $apple !default;
+$mark-color: c( $uabgreen, 100 ) !default;
+
+$color-green: $apple !default;
+$color-yellow: $blaze !default;
+$color-red: $coral !default;
+
+$hr-color: black;
+$txt-color: black;
+
+$background: c( $stone, 050 );
+
+$banner-top: s( 1 ) * 8 !default;
+
+$cont-width: 1280px;

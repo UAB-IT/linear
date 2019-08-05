@@ -3,11 +3,11 @@ START RESET
 ------------------------*/
 /* Reset most properties from most elements */
 * {
-  margin: 0px;
+  margin: 0;
   font-size: inherit;
   font-family: inherit;
   line-height: $line-height;
-  padding: 0px;
+  padding: 0;
   box-sizing: border-box;
   color: inherit;
   transition-property: none;
@@ -37,7 +37,7 @@ START RESET
 #{$specify} strong,
 #{$specify} em, {
   color: inherit;
-  font-family: inherit;
+  font-family: inherit !important;
   font-size: inherit;
 }
 body.linear.hd .categories-list h3 a,
@@ -124,9 +124,9 @@ body.linear.hd h5 {
 }
 
 .page-header {
-  margin: 0px;
-  padding: 0px;
-  border-bottom: 0px solid transparent;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0 solid transparent;
 }
 
 body.hd .latestnews li,

@@ -5,9 +5,9 @@ START FOOTER
 #footer a,
 #lockedFooter a {
   color: white;
-  border-color: $stone-400;
+  border-color: c( $stone, 400 );
   &:hover {
-    border-color: $stone-100;
+    border-color: c( $stone, 100 );
     background-color: initial;
   }
 }
@@ -15,8 +15,8 @@ START FOOTER
 /* Setup the flex container */
 #{$specify} #footer .IT-footer {
   display: flex;
-  margin-top: $s-1;
-  margin-bottom: $s-1;
+  margin-top: s( 1 );
+  margin-bottom: s( 1 );
 }
 
 /* Force containers to be full width and add padding */
@@ -46,19 +46,19 @@ START FOOTER
 /* Remove border from social media links. Add spacing between them. */
 #{$specify} #footer .IT-footer_right .social a {
   display: inline-block;
-  border: 2px solid $stone-400;
+  border: 2px solid c( $stone, 400 );
   border-radius: 50%;
   margin-right: 1rem;
   margin-top: 0.2rem;
   padding: 0.5rem;
 }
 #{$specify} #footer .IT-footer_right .social a:hover {
-  border: 2px solid $stone-100;
+  border: 2px solid c( $stone, 100 );
 }
 
 /* Add spacing between logo and social links */
 #{$specify} #footer .IT-footer .social {
-  margin-top: $s-1;
+  margin-top: s( 1 );
 }
 
 /* Set size of social media icons */
@@ -69,7 +69,7 @@ START FOOTER
 
 /* Set the size of the UAB logo */
 #{$specify} #footer .IT-footer_logo {
-  max-height: $s-2;
+  max-height: s( 2 );
   margin: 0;
 }
 
@@ -81,7 +81,7 @@ START FOOTER
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */
 #lockedFooter {
-  padding-top: $s-1;
+  padding-top: s( 1 );
 }
 
 /*------------------------

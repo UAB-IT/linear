@@ -1,14 +1,3 @@
-$header-top: $s-2 !default;
-$header-bottom: $s-1 !default;
-
-$h1-scale: 5 !default;
-$h2-scale: 3 !default;
-$h3-scale: 2 !default;
-$h4-scale: 1 !default;
-$h5-scale: 0 !default;
-$h6-scale: 0 !default;
-$p-scale: 0 !default;
-$sm-scale: n1 !default;
 /* ------------------------
 START TYPOGRAPHY
 ------------------------ */
@@ -23,43 +12,29 @@ FONTS
 #{$specify} h5,
 #{$specify} h6 {
   font-family: $font-head;
-  font-weight: normal;
+  font-weight: $header-weight;
 }
-//
-// #{$specify} .componentheading,
-// #{$specify} .contentheading,
-// #{$specify} #whitebox h5.feed-link,
-// #{$specify} .camera_caption .ck_title,
-// #{$specify} .camera_caption .slideh,
-// #{$specify} .fjalla .camera_caption > div,
-// #{$specify} .fjallaSliders .jwts_toggleControlTitle,
-// #{$specify} span.subheading-category,
-// #{$specify} .middle_content span.middleTitle,
-// #{$specify} .threebox,
-// #{$specify} .fourbox, body.linear.hd .fivebox{
-//   font-family: "kulturista-web", serif;
-// }
 
 /* ------------------------
 TYPESETTING
 ------------------------ */
 
 #{$specify} h1,
-#{$specify} .uk-h1 { @include type-setting($h1-scale); }
+#{$specify} .uk-h1 { @include type-setting(h1); }
 #{$specify} h2,
-#{$specify} .uk-h2 { @include type-setting($h2-scale); }
+#{$specify} .uk-h2 { @include type-setting(h2); }
 #{$specify} h3,
 #leftcolumn h3,
-#{$specify} .uk-h3 { @include type-setting($h3-scale); }
+#{$specify} .uk-h3 { @include type-setting(h3); }
 #{$specify} h4,
-#{$specify} .uk-h4 { @include type-setting($h4-scale); }
+#{$specify} .uk-h4 { @include type-setting(h4); }
 #{$specify} h5,
-#{$specify} .uk-h5 { @include type-setting($h5-scale); }
+#{$specify} .uk-h5 { @include type-setting(h5); }
 #{$specify} h6,
-#{$specify} .uk-h6 { @include type-setting($h6-scale); }
+#{$specify} .uk-h6 { @include type-setting(h6); }
 body,
-#{$specify} p { @include type-setting($p-scale); }
-#{$specify} small { @include type-setting($sm-scale); }
+#{$specify} p { @include type-setting(p); }
+#{$specify} small { @include type-setting(sm); }
 
 /*------------------------
 RULE LINES
@@ -70,8 +45,8 @@ RULE LINES
   height: 0;
   overflow: visible;
   border-style: solid;
-  border-width: 0 0 1px;
-  border-color: black;
+  border-width: 0 0 $bdr-width;
+  border-color: $hr-color;
 }
 
 #{$specify} h1 + hr,
@@ -91,16 +66,16 @@ LINKS
 Div is used here because .ribbonFullwidth is also on the body element. */
 a:focus,
 :focus {
-  outline: 5px auto $uabgreen;
+  outline: 5px auto $color-primary;
 }
 
-div.ribbonFullwidth a {
-  border-bottom: 2px solid $uabgreen-300;
+div.ribbonFullwidth a[href]:not(.unstyled) {
+  border-bottom: 2px solid c( $color-primary, 300 );
 }
 
-div.ribbonFullwidth a[href]:hover {
-  background-color: $uabgreen-100;
-  border-color: $uabgreen;
+div.ribbonFullwidth a[href]:not(.unstyled):hover {
+  background-color: c( $color-primary, 100 );
+  border-color: $color-primary;
 }
 
 /* ------------------------
@@ -109,21 +84,31 @@ INLINE
 
 mark,
 code,
-kbd { padding: $pad-inline; }
+kbd {
+  padding: $inline-padding;
+}
 
 mark,
-::selection { background-color: $mark-color; }
-
+::selection {
+  background-color: $mark-color;
+}
+/*
 strong,
-b { font-weight: bolder; }
+b {
+  font-weight: bolder;
+}
 
 em,
 i,
 dfn,
-cite { font-style: italic; }
+cite {
+  font-style: italic;
+}
 
 del,
-s { text-decoration: line-through; }
+s {
+  text-decoration: line-through;
+}
 
 abbr[title] {
   border-bottom: none;
@@ -141,14 +126,14 @@ sup {
 
 sub { bottom: -0.25em; }
 sup { top: -0.5em; }
-
+*/
 /*------------------------
 PREFORMATTED
 ------------------------*/
 
 code {
-  background-color: $stone-100;
-  color: $stone-700;
+  background-color: c( $stone, 100 );
+  color: c( $stone, 700 );
   border-radius: $bdr-radius;
   white-space: pre;
 }
@@ -156,13 +141,13 @@ pre { white-space: pre-wrap; }
 
 pre > code {
   display: block;
-  padding: $pad-block;
+  padding: $block-padding;
   white-space: inherit;
 }
 
 kbd {
-  background-color: $stone-800;
-  color: $stone-050;
+  background-color: c( $stone, 800 );
+  color: c( $stone, 050 );
   border-radius: $bdr-radius;
   white-space: pre;
 }

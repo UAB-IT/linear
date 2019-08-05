@@ -147,9 +147,9 @@ END IE FALLBACK
   [class*='grid-4'],
   [class*='grid-6'] {
     display: grid;
-    grid-gap: $s-2;
+    grid-gap: s(2);
     grid-auto-flow: row;
-    margin-bottom: $s-1;
+    margin-bottom: s(1);
   }
   .grid--no-gap {
     grid-gap: 0;
@@ -179,7 +179,7 @@ END IE FALLBACK
 .grid-6 > .span-5 { grid-column: span 5; }
 .grid-6 > .span-6 { grid-column: span 6; }
 
-@include small {
+@include breakpoint(sm) {
   .grid-1-sm { grid-template-columns: repeat( 1, 1fr ); }
   .grid-2-sm { grid-template-columns: repeat( 2, 1fr ); }
   .grid-3-sm { grid-template-columns: repeat( 3, 1fr ); }
@@ -204,7 +204,7 @@ END IE FALLBACK
   .grid-6-sm > .span-6-sm { grid-column: span 6; }
 }
 
-@include medium {
+@include breakpoint(md) {
   .grid-1-md { grid-template-columns: repeat( 1, 1fr ); }
   .grid-2-md { grid-template-columns: repeat( 2, 1fr ); }
   .grid-3-md { grid-template-columns: repeat( 3, 1fr ); }
@@ -229,7 +229,7 @@ END IE FALLBACK
   .grid-6-md > .span-6-md { grid-column: span 6; }
 }
 
-@include large {
+@include breakpoint(lg) {
   .grid-1-lg { grid-template-columns: repeat( 1, 1fr ); }
   .grid-2-lg { grid-template-columns: repeat( 2, 1fr ); }
   .grid-3-lg { grid-template-columns: repeat( 3, 1fr ); }

@@ -8,7 +8,7 @@ This uses widgetkit for layout
   margin: 0;
 }
 #{$specify} .wk-gallery {
-  margin-bottom: $s-1;
+  margin-bottom: s( 1 );
 }
 /*------------------------
 END GALLERY

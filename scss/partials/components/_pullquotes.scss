@@ -2,23 +2,23 @@
 START PULLQUOTE
 ------------------------*/
 #{$specify} .pullquote {
-  padding: $s-1;
-  background-color: $stone-050;
-  border-left: 5px solid $apple-500;
-  margin-bottom: $s-1;
+  padding: s(1);
+  background-color: c($stone, 050);
+  border-left: 5px solid $apple;
+  margin-bottom: s(1);
 }
 #{$specify} .background .pullquote {
-  background-color: $stone-100;
+  background-color: c($stone, 100);
 }
 #{$specify} .pullquote p,
 #{$specify} .pullquote q {
   @include type-setting(1);
-  margin: 0px;
+  margin: 0;
   display: block;
 }
 #{$specify} .pullquote footer {
   text-align: right;
-  margin-top: $s-05;
+  margin-top: s(0.5);
 }
 /*------------------------
 END PULLQUOTE

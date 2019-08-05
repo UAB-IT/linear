@@ -5,8 +5,8 @@ START NEWS FEEDS
 #{$specify} ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
-  grid-gap: $s-2;
-  margin: 0 0 $s-1 0;
+  grid-gap: s(2);
+  margin: 0 0 s(1) 0;
 }
 #{$specify} li.newsflash-item {
   float: none; /* remove style from style.css */
@@ -27,13 +27,13 @@ START NEWS FEEDS
   padding: 0px; /* Removes padding from style.css */
   grid-area: title; /* Positions the title */
   display: block !important;
-  margin-top: $s-05;
-  margin-bottom: $s-05;
+  margin-top: s(0.5);
+  margin-bottom: s(0.5);
 }
 /* Item Image Container (Figure) */
 .it-news .newsflash-image {
   grid-area: image; /* Positions the Image */
-  margin: 0px; /* Removes margin from style.css */
+  margin: 0; /* Removes margin from style.css */
   max-height: 16rem; /* Sets height of image, equal to 10 spaces */
   overflow: hidden; /* Prevents parts of cropped image from showing */
 }
@@ -46,60 +46,59 @@ START NEWS FEEDS
   display: none; /* Removes space caused by an empty element */
 }
 .it-news li.newsflash-item {
-  border: 0px solid transparent; /* Removes default border */
+  border: 0 solid transparent; /* Removes default border */
 }
 #{$specify} .it-news li.newsflash-item p {
   margin: 0;
 }
 .it-news a.readmore {
   position: absolute; /* Allows positioning inside it's parent */
-  left: 0px;
+  left: 0;
   /*right: 0px;*/
-  bottom: 0px; /* Makes sure the link is at the bottom, even if more space exists */
-  margin: 0px;
+  bottom: 0; /* Makes sure the link is at the bottom, even if more space exists */
+  margin: 0;
   text-align: left;
 }
 /* END NEWS FLASH */
 /* START ARTICLE FEED */
 .it-feed .mod-articles-category-title {
-  @include type-setting($h5-scale);
-  margin: 0px;
+  @include type-setting(h5);
+  margin: 0;
   font-family: $font-head;
 }
 #{$specify} .it-feed .mod-articles-category-introtext {
-  /*@include type-setting($sm-scale);*/
-  margin: $s-05 0px 0px;
+  /*@include type-setting(sm);*/
+  margin: s(0.5) 0 0;
 }
 .it-feed .mod-articles-category-readmore {
-  margin: 0px;
+  margin: 0;
 }
 #{$specify} ul.it-feed {
-  margin: 0 0 $s-1 0;
+  margin: 0 0 s(1) 0;
   list-style-type: none;
 }
 /*------------------------
 END NEWS FEEDS
 ------------------------*/
 /*#{$specify} .it-news .newsflash-item {
-  padding: $s-1;
-  border-radius: $bdr-radius;
-  padding-bottom: $s-2;
+  padding: s(1);
+  padding-bottom: s(2);
   overflow: hidden;
-  border: 1px solid $stone-300;
+  @include border($color: c($stone, 300))
   background-color: $stone-050;
 }
 #{$specify} .it-news .newsflash-image {
-  margin-left: -#{$s-1};
-  margin-top: -#{$s-1};
-  width: calc( 100% + #{$s-2} );
+  margin-left: s(-1);
+  margin-top: s(-1);
+  width: calc( 100% + #{s(2)} );
 }
 #{$specify} .it-news a.readmore {
   border: 0px solid transparent;
-  background-color: $stone-100;
-  padding: $s-05;
+  background-color: c($stone, 100);
+  padding: s(0.5);
   text-align: center;
 }
 #{$specify} .it-news a.readmore:hover {
-  background-color: $stone-200;
+  background-color: c($stone, 100);
 }
 */

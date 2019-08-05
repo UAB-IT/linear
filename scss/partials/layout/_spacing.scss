@@ -2,28 +2,35 @@
 Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
-  margin: $s-4 auto;
-  padding: 0 $s-1;
+  margin: s( 4 ) auto;
+  padding: 0 s( 1 );
 }
 /* Decrease the width by the amount of padding on it's parent
 This makes sure it aligns properly at max width */
 body.linear.hd div.topLinearLogo {
-  max-width: calc( 1280px - #{$s-2} );
+  max-width: calc( 1280px - #{s( 2 )} );
+}
+body.hd.inside #whitebox {
+  max-width: 1280px;
+}
+body.hd #content {
+  margin: 0;
+  width: 100%;
 }
 /* Add space to both sides of all 100% width containers */
 body.hd #whitebar,
 body.linear.hd .topLinearContainer,
 body.hd #ribbon,
 #banner .moduletable {
-  padding-right: $s-1;
-  padding-left: $s-1;
+  padding-right: s( 1 );
+  padding-left: s( 1 );
 }
 /* Remove arbitrary margins , since the padding on the whitebar
 serves the same purpose */
 body.linear.hd #siteName,
 body.linear.hd #search form {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 /* Remove odd margins from main column since that spacing is handled
@@ -32,28 +39,27 @@ body.hd.inside #maincolumn-l,
 body.hd.inside #maincolumn-r,
 body.hd.inside #maincolumn-l-r,
 body.hd.inside #maincolumn-wide {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 /* Add more consistant gap between sidebars and main content*/
 body.hd.inside #maincolumn-l {
-  margin: 0 0 0 #{$s-2} !important;
+  margin: 0 0 0 #{s( 2 )} !important;
 }
 body.hd.inside #maincolumn-r {
-  margin: 0 #{$s-2} 0 0 !important;
+  margin: 0 #{s( 2 )} 0 0 !important;
 }
 body.hd.inside #maincolumn-l-r {
-  margin: 0 #{$s-1} !important;
+  margin: 0 #{s( 1 )} !important;
 }
 /* Make sure left sidebar is sized consistantly
 remove padding since there is no background - see _sidebar.scss */
 body.hd.sidebars #leftcolumn {
   width: 100%;
-  /* padding: 0 #{$s-05}; */
 }
 /* Remove paddings from module tables */
 #leftcolumn .moduletable {
-  padding: 0px;
+  padding: 0;
 }
 // // NOTE: clearfix
 #whitebox::after {
@@ -64,20 +70,23 @@ body.hd.sidebars #leftcolumn {
   clear: both;
   height: 0;
 }
+body.ribbonFullwidth #wrapper {
+  overflow-x: hidden;
+}
 /* Section spacing */
 .section {
-  margin: $s-4 0 $s-4;
+  margin: s( 4 ) 0 s( 4 );
 }
 .section.background {
-  margin: $s-3 0;
-  padding: $s-2 $s-2 $s-1;
+  margin: s( 3 ) 0;
+  padding: s( 2 ) s( 2 ) s( 1 );
 }
 .background {
-  background-color: $stone-050;
+  background-color: c( $stone, 050 );
 }
 .section.background-full {
-  margin: $s-3 0;
-  padding: $s-3 0 $s-2;
+  margin: s( 3 ) 0;
+  padding: s( 3 ) 0 s( 2 );
   position: relative;
 }
 .section.background-full::before {
@@ -89,8 +98,13 @@ body.hd.sidebars #leftcolumn {
   left: 0;
   width: 150vw;
   margin-left: -50vw;
-  background-color: $stone-050;
+  background-color: c( $stone, 050 );
   z-index: -1;
+}
+.hero-sect {
+  height: 70vh;
+  margin-top: -#{s( 2 )};
+  align-items: center;
 }
 
 /* Typographical Spacing */
@@ -98,8 +112,8 @@ p,
 #{$specify} hr,
 pre,
 blockquote {
-  margin-bottom: $s-1;
-  margin-top: 0px;
+  margin-bottom: s( 1 );
+  margin-top: 0;
 }
 
 /* Applys spacing to headers in the content section only */
@@ -110,26 +124,26 @@ blockquote {
   h4,
   h5,
   h6 {
-    margin: $header-top 0px $header-bottom 0px;
+    @include header-space;
   }
 }
 
 #leftcolumn h3 {
-  margin: $header-top 0px $header-bottom 0px;
+  @include header-space;
 }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type,
-.section h2:first-of-type,
-.section :first-child {
-  margin-top: 0px;
+#{$specify} .item-page h2:first-of-type,
+#{$specify} .section h2:first-of-type,
+#{$specify} .section :first-child {
+  margin-top: 0;
 }
 
 /* Add vertical rhythem spacing to the widgetkit margins */
 
 * + .uk-margin {
-  margin-top: $s-1;
+  margin-top: s( 1 );
 }
 .uk-margin {
-  margin-bottom: $s-1;
+  margin-bottom: s( 1 );
 }

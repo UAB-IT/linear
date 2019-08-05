@@ -6,11 +6,11 @@ plus 1 line height for the margin below the header,
 one line height for the margin above the header,
 one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
-$banner-top: $s-1 * 8 !default;
+
 #banner {
   position: relative;
   padding-top: $banner-top;
-  min-height: #{line-height( $h1-scale ) + $banner-top + $s-4};
+  min-height: #{line-height( map-get( $font-sizes, h1 ) ) + $banner-top + s( 4 )};
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -18,10 +18,10 @@ $banner-top: $s-1 * 8 !default;
 #banner::after {
   content: '';
   position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: -1;
 }
 
@@ -34,13 +34,13 @@ $banner-top: $s-1 * 8 !default;
 
 /* Add the image filter effect used on the banners */
 #banner::after {
-  background: #295135;
+  background: $darkgreen;
   mix-blend-mode: multiply;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */
 #banner .moduletable {
-  max-width: 1280px;
+  max-width: $cont-width;
   margin: auto;
 }
 
@@ -49,7 +49,7 @@ $banner-top: $s-1 * 8 !default;
   max-width: 100%;
 }
 #banner h1 {
-  margin-bottom: 1.6rem;
+  margin-bottom: s( 1 );
   color: white;
 }
 
@@ -67,10 +67,10 @@ $banner-top: $s-1 * 8 !default;
 }
 
 #{$specify} .breadcrumb {
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 1.6rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-bottom: s( 1 );
 }
 
 /* Remove main image */

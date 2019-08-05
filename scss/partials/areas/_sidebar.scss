@@ -12,39 +12,42 @@ body.hd #sidebar_trigger.no-seal {
 }
 
 #leftcolumn ul.nav.menu a {
-  margin: 0px;
+  margin: 0;
   display: block;
-  border: 0px solid transparent;
+  border: 0 solid transparent;
   background-color: transparent;
-  padding: $pad-block;
-  border-left: 4px solid transparent;
+  padding: 0.5em;
 }
 
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
-  margin: 0px;
+  margin: 0;
 }
 
 #leftcolumn .sidebar li,
 #leftcolumn .sidebar ul.menu li {
-  padding: 0px;
+  padding: 0;
   font-weight: normal;
 }
 
 #leftcolumn ul.nav.menu .current > a {
-  background-color: $stone-050;
-  border-left: 4px solid $apple;
+  background-color: c( $stone, 050 );
 }
 
-#leftcolumn ul.nav.menu .parent > a {
+#leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  margin-left: sp( 5 );
+  border-left: 2px solid $uabgreen;
+}
+
+#leftcolumn ul.nav.menu > .parent > a {
   font-family: 'kulturista-web', serif;
-  @include type-setting($h4-scale);
+  @include type-setting(h4);
+  font-weight: normal;
 }
 
 #leftcolumn ul.nav.menu a:hover {
-  border-left: 4px solid $apple;
   color: inherit !important;
-  background-color: $stone-100;
+  background-color: c($stone, 100);
 }
 /*------------------------
 END SIDEBAR

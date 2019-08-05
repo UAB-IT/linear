@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0
+Ember 0.6.0.a.1
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -15,11 +15,11 @@ START RESET
 ------------------------*/
 /* Reset most properties from most elements */
 * {
-  margin: 0px;
+  margin: 0;
   font-size: inherit;
   font-family: inherit;
-  line-height: 1.6rem;
-  padding: 0px;
+  line-height: 1.6;
+  padding: 0;
   box-sizing: border-box;
   color: inherit;
   transition-property: none;
@@ -49,7 +49,7 @@ body.linear.hd span,
 body.linear.hd strong,
 body.linear.hd em {
   color: inherit;
-  font-family: inherit;
+  font-family: inherit !important;
   font-size: inherit;
 }
 
@@ -85,9 +85,9 @@ body.linear.hd a {
 }
 
 .page-header {
-  margin: 0px;
-  padding: 0px;
-  border-bottom: 0px solid transparent;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0 solid transparent;
 }
 
 body.hd .latestnews li,
@@ -136,49 +136,49 @@ TYPESETTING
 ------------------------ */
 body.linear.hd h1,
 body.linear.hd .uk-h1 {
-  font-size: 3.05176em;
+  font-size: 3.05176rem;
   line-height: 3.2rem;
 }
 
 body.linear.hd h2,
 body.linear.hd .uk-h2 {
-  font-size: 1.95312em;
+  font-size: 1.95312rem;
   line-height: 2.4rem;
 }
 
 body.linear.hd h3,
 #leftcolumn h3,
 body.linear.hd .uk-h3 {
-  font-size: 1.5625em;
+  font-size: 1.5625rem;
   line-height: 1.6rem;
 }
 
 body.linear.hd h4,
 body.linear.hd .uk-h4 {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
 }
 
 body.linear.hd h5,
 body.linear.hd .uk-h5 {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.6rem;
 }
 
 body.linear.hd h6,
 body.linear.hd .uk-h6 {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.6rem;
 }
 
 body,
 body.linear.hd p {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.6rem;
 }
 
 body.linear.hd small {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   line-height: 1.6rem;
 }
 
@@ -200,7 +200,7 @@ body.linear.hd h3 + hr,
 body.linear.hd h4 + hr,
 body.linear.hd h5 + hr,
 body.linear.hd h6 + hr {
-  margin-top: -1.6rem;
+  margin-top: -1.6;
   /* Allows headers to sit on horizontal rules */
 }
 
@@ -214,11 +214,11 @@ a:focus,
   outline: 5px auto #1E6B52;
 }
 
-div.ribbonFullwidth a {
+div.ribbonFullwidth a[href]:not(.unstyled) {
   border-bottom: 2px solid #78a697;
 }
 
-div.ribbonFullwidth a[href]:hover {
+div.ribbonFullwidth a[href]:not(.unstyled):hover {
   background-color: #d2e1dc;
   border-color: #1E6B52;
 }
@@ -229,7 +229,7 @@ INLINE
 mark,
 code,
 kbd {
-  padding: 0 0.2em 0.1em 0.2em;
+  padding: 0 0.2em 0.1em;
 }
 
 mark,
@@ -237,6 +237,7 @@ mark,
   background-color: #d2e1dc;
 }
 
+/*
 strong,
 b {
   font-weight: bolder;
@@ -268,14 +269,9 @@ sup {
   vertical-align: baseline;
 }
 
-sub {
-  bottom: -0.25em;
-}
-
-sup {
-  top: -0.5em;
-}
-
+sub { bottom: -0.25em; }
+sup { top: -0.5em; }
+*/
 /*------------------------
 PREFORMATTED
 ------------------------*/
@@ -292,7 +288,7 @@ pre {
 
 pre > code {
   display: block;
-  padding: 0.8rem;
+  padding: 0.8;
   white-space: inherit;
 }
 
@@ -313,7 +309,7 @@ body.linear.hd ul,
 body.linear.hd ol {
   list-style-position: outside;
   margin: 0;
-  padding: 0px;
+  padding: 0;
 }
 
 body.linear.hd li {
@@ -327,20 +323,20 @@ body.linear.hd .item-page ol {
 
 body.linear.hd .item-page ul.outside,
 body.linear.hd .item-page ol.outside {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 body.linear.hd .item-page ul,
 body.linear.hd .item-page ol,
 body.linear.hd .item-page dl {
-  margin-bottom: 1.6rem;
+  margin-bottom: 0.8;
 }
 
 body.linear.hd ul ul,
 body.linear.hd ul ol,
 body.linear.hd ol ol,
 body.linear.hd ol ul {
-  margin-bottom: 0px;
+  margin-bottom: 0;
   margin-left: 1em;
 }
 
@@ -374,19 +370,19 @@ body.linear.hd dt {
 
 dd {
   margin-left: 1em;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8;
 }
 
 #content li {
-  margin: 0.8rem 0 0;
+  margin: 0.8 0 0;
 }
 
-#content [class*='grid-1'] > li,
-#content [class*='grid-2'] > li,
-#content [class*='grid-3'] > li,
-#content [class*='grid-4'] > li,
-#content [class*='grid-6'] {
-  margin: 0px;
+#content [class*='grid-1'].no-style > li,
+#content [class*='grid-2'].no-style > li,
+#content [class*='grid-3'].no-style > li,
+#content [class*='grid-4'].no-style > li,
+#content [class*='grid-6'].no-style {
+  margin: 0;
 }
 
 /*------------------------
@@ -400,17 +396,19 @@ body.linear.hd table {
   border-collapse: collapse;
   width: 100%;
   overflow: scroll;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd table tr td,
 body.linear.hd table tr th {
-  padding: 0.8rem;
+  padding: 0.8;
+  border-radius: 4px;
   border: 1px solid black;
+  text-align: inherit;
 }
 
 body.linear.hd table thead th {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
   font-family: "kulturista-web", serif;
   font-weight: normal;
@@ -418,23 +416,23 @@ body.linear.hd table thead th {
 
 body.linear.hd table pre,
 body.linear.hd table p {
-  margin: 0px;
+  margin: 0;
 }
 
 /* START OVERRIDES */
 .table-bordered {
-  border: 0px solid transparent;
+  border: 0;
   border-collapse: collapse;
   border-radius: 0;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 0px;
+  border: 0;
 }
 
 table.category td {
-  border: 0px;
+  border: 0;
 }
 
 .table-hover tbody tr:hover > td,
@@ -451,13 +449,13 @@ table.category td {
 .table-bordered caption + tbody tr:first-child td:first-child,
 .table-bordered colgroup + thead tr:first-child th:first-child,
 .table-bordered colgroup + tbody tr:first-child td:first-child {
-  border-top-left-radius: 0px;
+  border-top-left-radius: 0;
 }
 
 /* END OVERRIDES */
 body.linear.hd table.table-striped tr td,
 body.linear.hd table.table-striped tr th {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
 }
 
 body.linear.hd .table-striped tbody > tr:nth-child(odd) {
@@ -465,7 +463,7 @@ body.linear.hd .table-striped tbody > tr:nth-child(odd) {
 }
 
 body.linear.hd .category.table tbody a {
-  border: 0px;
+  border: 0;
   text-decoration: underline;
 }
 
@@ -478,26 +476,40 @@ START MEDIA
 img {
   max-width: 100%;
   object-fit: cover;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 figure img {
-  margin: 0px;
+  margin: 0;
 }
 
 figure {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 iframe {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 figure figcaption {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   line-height: 1.6rem;
   text-align: center;
-  margin: 1.6rem 0;
+  margin: 1.6 0;
+}
+
+@media all and (max-width: 1800px) {
+  body.linear.hd .off-canvas-img {
+    position: relative;
+    align-self: flex-start;
+  }
+  body.linear.hd .off-canvas-img > img {
+    max-width: 100vw;
+    width: auto;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+  }
 }
 
 /*------------------------
@@ -514,25 +526,26 @@ body.linear.hd .btn,
 body.linear.hd input[type='submit'],
 body.linear.hd input[type='reset'],
 body.linear.hd input[type='button'] {
-  -webkit-appearance: none;
+  background: none;
   background-color: transparent;
-  text-align: center;
-  text-decoration: none;
-  white-space: nowrap;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 1em;
-  line-height: 1.6rem;
-  padding: 0.3em 1em;
-  margin-bottom: 1.6rem;
+  background-image: none;
+  text-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background-image: none;
-  text-shadow: none;
-  border: 1px solid #333435;
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
   border-radius: 4px;
+  border: 1px solid #333435;
   color: #333435;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  padding: 0.3em 1em;
+  text-align: center;
+  margin-bottom: 1.6;
+  white-space: nowrap;
+  box-sizing: border-box;
 }
 
 body.linear.hd button:focus, body.linear.hd button:hover,
@@ -565,12 +578,6 @@ body.linear.hd button.btn-primary {
   border-color: #1E6B52;
 }
 
-body.linear.hd a.btn--full,
-body.linear.hd button.btn--full {
-  display: block;
-  width: 100%;
-}
-
 /*------------------------
 END BUTTONS
 ------------------------*/
@@ -581,16 +588,16 @@ START FORMS
 START BTN TOOLBAR
 ------------------------*/
 .btn-toolbar {
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.6;
 }
 
 #undefined {
-  margin: 0px;
+  margin: 0;
 }
 
 .input-group {
   display: flex;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd .input-group button,
@@ -599,11 +606,13 @@ body.linear.hd .input-group input {
 }
 
 body.linear.hd .input-group input {
+  border-radius: 4px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
 body.linear.hd .input-group button {
+  border-radius: 4px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -615,127 +624,55 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
   color: inherit;
-  font-family: 'kulturista-web', serif !important;
+  font-family: "kulturista-web", serif;
 }
 
-select,
-textarea,
-input[type='text'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='time'],
-input[type='week'],
-input[type='number'],
-input[type='email'],
-input[type='url'],
-input[type='search'],
-input[type='tel'],
-input[type='color'],
-.uneditable-input,
-textarea,
-progress,
-fieldset,
-.chzn-container,
-.chzn-container-single .chzn-single,
-.chzn-container-active.chzn-with-drop .chzn-single,
-.chzn-container .chzn-results li.highlighted {
+body.linear.hd .uneditable-input,
+body.linear.hd textarea,
+body.linear.hd progress,
+body.linear.hd fieldset,
+body.linear.hd input {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: 0;
   background: transparent;
   box-sizing: border-box;
-  border: 4px;
-  border-radius: 0px;
   box-shadow: none;
   height: auto;
+  transition-property: none;
+}
+
+body.linear.hd .uneditable-input,
+body.linear.hd textarea,
+body.linear.hd progress,
+body.linear.hd fieldset,
+body.linear.hd input {
   color: black;
-}
-
-/*
-.chzn-container-single .chzn-single {
+  padding: 0.3em 1em;
+  border-radius: 0;
   border: 1px solid black;
-  border-radius: $bdr-radius;
-  padding: 0.25em 0.5em;
 }
 
-.chzn-container-active.chzn-with-drop .chzn-single {
-  border-color: $uabgreen;
-  border: 1px solid black;
-  border-radius: $bdr-radius;
-}
-
-.chzn-container .chzn-results {
-  margin-bottom: 0px !important;
-  padding: 0px;
-}
-
-.chzn-container .chzn-results li {
-  padding: 0px 1rem;
-  line-height: 1.6rem;
-}
-
-.chzn-container .chzn-results li.highlighted {
-  background-color: $uabgreen-100;
-}
-*/
-input[type='text'],
-input[type='email'],
-input[type='url'],
-input[type='search'],
-input[type='password'],
-input[type='search'],
-input[type='tel'],
-input[type='number'],
-input[type='date'],
-input[type='time'],
-input[type='month'],
-input[type='week'],
-input[type='file'],
-textarea,
-select {
-  padding: 0.25em 0.5em;
-  background-color: white;
+body.linear.hd input,
+body.linear.hd textarea {
   display: block;
   width: 100%;
-  border: 1px solid black;
-  border-radius: 0;
-  color: black;
+  background-color: white;
 }
 
-textarea {
-  height: 6.4rem;
-  width: 100%;
+body.linear.hd textarea {
+  height: 6.4;
   resize: vertical;
   overflow-y: scroll;
 }
 
-input[type='color'] {
-  display: block;
-}
-
-textarea:focus,
-input[type='text']:focus,
-input[type='password']:focus,
-input[type='datetime']:focus,
-input[type='datetime-local']:focus,
-input[type='date']:focus,
-input[type='month']:focus,
-input[type='time']:focus,
-input[type='week']:focus,
-input[type='number']:focus,
-input[type='email']:focus,
-input[type='url']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='color']:focus,
-select:focus {
+body.linear.hd textarea:focus,
+body.linear.hd input:focus,
+body.linear.hd select:focus {
   border-color: #80BC00 !important;
   box-shadow: 0 0 0 1px #80BC00;
 }
@@ -746,153 +683,6 @@ input[type='checkbox']:focus {
   outline: 2px auto #1E6B52;
 }
 
-/*------------------------
-Range
-------------------------*/
-input[type='range'] {
-  -webkit-appearance: none;
-  width: 100%;
-  background: transparent;
-  min-height: 1.6rem;
-}
-
-input[type='range']:focus {
-  outline: 0;
-}
-
-input[type='range']::-webkit-slider-thumb {
-  background: #808285;
-  border: 2px solid white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-input[type='range']::-moz-range-thumb {
-  background: #808285;
-  border: 2px solid white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-input[type='range']::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  height: 1.25rem;
-  width: 1.25rem;
-  margin-top: -0.4rem;
-}
-
-input[type='range']:focus::-webkit-slider-thumb {
-  background: #1E6B52;
-}
-
-input[type='range']:focus::-moz-range-thumb {
-  background: #1E6B52;
-}
-
-input[type='range']::-webkit-slider-runnable-track {
-  width: 100%;
-  height: 0.5rem;
-  cursor: pointer;
-  background: #e6e6e7;
-  border-radius: 100px;
-  border-color: transparent;
-  color: transparent;
-}
-
-input[type='range']::-moz-range-track {
-  width: 100%;
-  height: 0.5rem;
-  cursor: pointer;
-  background: #e6e6e7;
-  border-radius: 100px;
-  border-color: transparent;
-  color: transparent;
-}
-
-/*------------------------
-Progress
-------------------------*/
-progress {
-  vertical-align: baseline;
-  display: block;
-  width: 100%;
-  background: #e6e6e7;
-  color: #1E6B52;
-}
-
-::-webkit-progress-value {
-  background: #1E6B52;
-}
-
-::-moz-progress-bar {
-  background: #1E6B52;
-}
-
-/*------------------------
-Meter
-------------------------*/
-meter {
-  vertical-align: baseline;
-  display: block;
-  width: 100%;
-  background: #e6e6e7;
-  margin-bottom: 1.6rem;
-}
-
-::-webkit-meter-optimum-value {
-  background: none;
-  background-color: #80BC00;
-}
-
-:-moz-meter-optimum::-moz-meter-bar {
-  background: none;
-  background-color: #80BC00;
-}
-
-::-webkit-meter-suboptimum-value {
-  background: none;
-  background-color: #FFD400;
-}
-
-:-moz-meter-sub-optimum::-moz-meter-bar {
-  background: none;
-  background-color: #FFD400;
-}
-
-::-webkit-meter-even-less-good-value {
-  background: none;
-  background-color: #EA6852;
-}
-
-:-moz-meter-sub-sub-optimum::-moz-meter-bar {
-  background: none;
-  background-color: #EA6852;
-}
-
-/*------------------------
-Resets
-------------------------*/
-::-webkit-progress-bar {
-  background: transparent;
-}
-
-::-webkit-meter-bar {
-  background: none;
-}
-
-:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-  border-style: none;
-}
-
-:-moz-focus-inner {
-  border-style: none;
-}
-
-/*------------------------
-END FORMS
-------------------------*/
 /*--------------------------------------------------
 END BASICS - START COMPONENTS
 Self contained chunks of content with their visual styling.
@@ -902,21 +692,24 @@ START PANELS
 ------------------------*/
 body .panels > a,
 .cards > div {
-  border: 1px solid black;
-  padding: 1.6rem;
   border-radius: 4px;
+  border: 1px solid black;
+  padding: 1.6;
   background: white;
 }
 
 body .panels > a:hover {
+  outline: 0;
+  text-decoration: none;
   border-color: #1E6B52;
   box-shadow: 0 0 0 1px #1E6B52;
   background: #d2e1dc;
+  color: black;
 }
 
 .panels > a h4 {
   display: inline-block;
-  margin-top: 0px;
+  margin-top: 0;
   border-bottom: 2px solid #78a697;
 }
 
@@ -925,11 +718,11 @@ body .panels > a:hover {
 }
 
 .panels > a p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .uk-panel-box {
-  padding: 1.6rem;
+  padding: 1.6;
 }
 
 .uk-panel-title,
@@ -943,7 +736,7 @@ body .panels > a:hover {
 }
 
 body.linear.hd .wk-panels {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd .wk-panels .uk-panel-title {
@@ -952,8 +745,8 @@ body.linear.hd .wk-panels .uk-panel-title {
 
 body.linear.hd .wk-panels .uk-panel {
   background: white;
-  border: 1px solid black;
   border-radius: 4px;
+  border: 1px solid black;
 }
 
 body.linear.hd a.uk-position-cover {
@@ -965,9 +758,12 @@ body.linear.hd .wk-panels .uk-panel p:last-child {
 }
 
 body.linear.hd .wk-panels .uk-panel:hover {
+  outline: 0;
+  text-decoration: none;
   border-color: #1E6B52;
   box-shadow: 0 0 0 1px #1E6B52;
   background: #d2e1dc;
+  color: black;
 }
 
 body.linear.hd .wk-panels .uk-panel:hover h3 a {
@@ -983,7 +779,7 @@ START FEATURES
 This uses widgetkit for layout
 ------------------------*/
 body.linear.hd .wk-features {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd .wk-features .uk-panel p {
@@ -998,8 +794,8 @@ body.linear.hd .wk-features .uk-panel img {
 }
 
 body.linear.hd .wk-features .uk-panel-title {
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1.6;
+  margin-bottom: 1.6;
 }
 
 /*------------------------
@@ -1016,7 +812,7 @@ body.linear.hd .wk-gallery p {
 }
 
 body.linear.hd .wk-gallery {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 /*------------------------
@@ -1032,13 +828,16 @@ START CHIPS
 .label,
 .label-info[href],
 .badge-info[href] {
-  background-color: #e6e6e7;
+  border: 0;
   text-shadow: none;
-  border: 0px solid transparent;
-  color: black;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   font-weight: normal;
-  font-size: 0.8em;
+  color: black;
+  font-size: 0.8rem;
   line-height: 1.6rem;
+  background-color: #e6e6e7;
   padding: 0.1em 0.7em;
 }
 
@@ -1058,10 +857,10 @@ START OVERLAY
   opacity: 0.5;
   mix-blend-mode: hard-light;
   position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   transition: opacity 0.3s;
 }
 
@@ -1078,16 +877,21 @@ START ALERT
 ------------------------*/
 /* remove default alert styling */
 .alert {
+  border: 0;
+  margin: 0;
+  padding: 0;
   background: none;
-  border: 0px solid transparent;
-  padding: 0px;
-  margin: 0px;
+  background-color: transparent;
+  background-image: none;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 .alert,
 .alert h4 {
-  color: inherit;
+  color: black;
 }
 
 /* Apply the alert style to the alert container */
@@ -1096,8 +900,11 @@ START ALERT
   border: 2px solid #EA6852;
   border-radius: 4px;
   padding: 0.3em 1em;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
   text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 
 /* Adjust link styles for links that appear inside an alert */
@@ -1112,7 +919,7 @@ div.ribbonFullwidth .alert a:hover {
 
 /* Remove bottom margin from paragraphs in an alert */
 .alert p {
-  margin: 0px;
+  margin: 0;
 }
 
 /* Add styling to hide IE alert on non-IE browsers */
@@ -1123,7 +930,7 @@ div.ribbonFullwidth .alert a:hover {
 /* Add margin between alerts and content. Should equal the margin between
 the banner and content */
 body.linear.hd #breadcrumbs > :last-child {
-  margin-bottom: 4.8rem;
+  margin-bottom: 4.8;
 }
 
 /*------------------------
@@ -1133,19 +940,21 @@ END ALERT
 START PAGINATION
 ------------------------*/
 .pagination {
-  margin: 0 0 1.6rem;
+  margin: 0 0 1.6;
 }
 
 .pagination ul {
-  border-radius: 0px;
+  border-radius: 0;
   box-shadow: none;
 }
 
 .pagination ul > li > a,
 .pagination ul > li > span {
   display: inline-block;
-  margin: 0 0.8rem;
-  border: 0px solid transparent;
+  margin: 0 0.8;
+  border: 0 solid transparent;
+  border-radius: 4px;
+  border: none solid black;
   padding: 0.3em 1em;
 }
 
@@ -1175,27 +984,28 @@ START PAGINATION
 .pagination ul > li.pagination-next > a {
   border: 1px solid #1E6B52;
   color: #1E6B52;
-  margin: 0px;
+  margin: 0;
 }
 
 .pagination ul > li.pagination-start > span,
 .pagination ul > li.pagination-prev > span,
 .pagination ul > li.pagination-end > span,
 .pagination ul > li.pagination-next > span {
+  border-radius: 4px;
   border: 1px solid #b3b4b6;
   color: #b3b4b6;
   background: #f2f3f3;
-  margin: 0px;
+  margin: 0;
 }
 
 .pagination ul > li.pagination-prev > a,
 .pagination ul > li.pagination-prev > span {
-  margin-right: 0.8rem;
+  margin-right: 0.8;
 }
 
 .pagination ul > li.pagination-next > a,
 .pagination ul > li.pagination-next > span {
-  margin-left: 0.8rem;
+  margin-left: 0.8;
 }
 
 /*------------------------
@@ -1221,10 +1031,10 @@ END SLIDESHOW
 START PULLQUOTE
 ------------------------*/
 body.linear.hd .pullquote {
-  padding: 1.6rem;
+  padding: 1.6;
   background-color: #f2f3f3;
   border-left: 5px solid #80BC00;
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd .background .pullquote {
@@ -1233,15 +1043,15 @@ body.linear.hd .background .pullquote {
 
 body.linear.hd .pullquote p,
 body.linear.hd .pullquote q {
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
-  margin: 0px;
+  margin: 0;
   display: block;
 }
 
 body.linear.hd .pullquote footer {
   text-align: right;
-  margin-top: 0.8rem;
+  margin-top: 0.8;
 }
 
 /*------------------------
@@ -1251,7 +1061,7 @@ END PULLQUOTE
 START DETAILS
 ------------------------*/
 body.linear.hd .wk-details {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 body.linear.hd .wk-details .uk-panel p {
@@ -1270,9 +1080,9 @@ body.linear.hd .wk-details.uk-text-left .uk-panel img {
 }
 
 body.linear.hd .wk-details .uk-panel-title {
-  margin-top: 0;
-  margin-bottom: -0.8rem;
-  font-size: 1.25em;
+  margin: 0;
+  margin-bottom: -0.8;
+  font-size: 1.25rem;
   line-height: 1.6rem;
 }
 
@@ -1427,9 +1237,9 @@ END IE FALLBACK
   [class*='grid-4'],
   [class*='grid-6'] {
     display: grid;
-    grid-gap: 3.2rem;
+    grid-gap: 3.2;
     grid-auto-flow: row;
-    margin-bottom: 1.6rem;
+    margin-bottom: 1.6;
   }
   .grid--no-gap {
     grid-gap: 0;
@@ -1490,7 +1300,7 @@ END IE FALLBACK
   grid-column: span 6;
 }
 
-@media all and (max-width: 760px) {
+@media all and (min-width: 760px) {
   .grid-1-sm {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -1536,7 +1346,7 @@ END IE FALLBACK
   }
 }
 
-@media all and (min-width: 768px) {
+@media all and (min-width: 761px) {
   .grid-1-md {
     grid-template-columns: repeat(1, 1fr);
   }
@@ -1635,14 +1445,23 @@ END GRID
 Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
-  margin: 6.4rem auto;
-  padding: 0 1.6rem;
+  margin: 6.4 auto;
+  padding: 0 1.6;
 }
 
 /* Decrease the width by the amount of padding on it's parent
 This makes sure it aligns properly at max width */
 body.linear.hd div.topLinearLogo {
-  max-width: calc( 1280px - 3.2rem);
+  max-width: calc( 1280px - 3.2);
+}
+
+body.hd.inside #whitebox {
+  max-width: 1280px;
+}
+
+body.hd #content {
+  margin: 0;
+  width: 100%;
 }
 
 /* Add space to both sides of all 100% width containers */
@@ -1650,16 +1469,16 @@ body.hd #whitebar,
 body.linear.hd .topLinearContainer,
 body.hd #ribbon,
 #banner .moduletable {
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
+  padding-right: 1.6;
+  padding-left: 1.6;
 }
 
 /* Remove arbitrary margins , since the padding on the whitebar
 serves the same purpose */
 body.linear.hd #siteName,
 body.linear.hd #search form {
-  margin-right: 0px;
-  margin-left: 0px;
+  margin-right: 0;
+  margin-left: 0;
 }
 
 /* Remove odd margins from main column since that spacing is handled
@@ -1668,33 +1487,32 @@ body.hd.inside #maincolumn-l,
 body.hd.inside #maincolumn-r,
 body.hd.inside #maincolumn-l-r,
 body.hd.inside #maincolumn-wide {
-  margin-top: 0px !important;
-  margin-bottom: 0px !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 /* Add more consistant gap between sidebars and main content*/
 body.hd.inside #maincolumn-l {
-  margin: 0 0 0 3.2rem !important;
+  margin: 0 0 0 3.2 !important;
 }
 
 body.hd.inside #maincolumn-r {
-  margin: 0 3.2rem 0 0 !important;
+  margin: 0 3.2 0 0 !important;
 }
 
 body.hd.inside #maincolumn-l-r {
-  margin: 0 1.6rem !important;
+  margin: 0 1.6 !important;
 }
 
 /* Make sure left sidebar is sized consistantly
 remove padding since there is no background - see _sidebar.scss */
 body.hd.sidebars #leftcolumn {
   width: 100%;
-  /* padding: 0 0.8rem; */
 }
 
 /* Remove paddings from module tables */
 #leftcolumn .moduletable {
-  padding: 0px;
+  padding: 0;
 }
 
 #whitebox::after {
@@ -1706,14 +1524,18 @@ body.hd.sidebars #leftcolumn {
   height: 0;
 }
 
+body.ribbonFullwidth #wrapper {
+  overflow-x: hidden;
+}
+
 /* Section spacing */
 .section {
-  margin: 6.4rem 0 6.4rem;
+  margin: 6.4 0 6.4;
 }
 
 .section.background {
-  margin: 4.8rem 0;
-  padding: 3.2rem 3.2rem 1.6rem;
+  margin: 4.8 0;
+  padding: 3.2 3.2 1.6;
 }
 
 .background {
@@ -1721,8 +1543,8 @@ body.hd.sidebars #leftcolumn {
 }
 
 .section.background-full {
-  margin: 4.8rem 0;
-  padding: 4.8rem 0 3.2rem;
+  margin: 4.8 0;
+  padding: 4.8 0 3.2;
   position: relative;
 }
 
@@ -1739,13 +1561,19 @@ body.hd.sidebars #leftcolumn {
   z-index: -1;
 }
 
+.hero-sect {
+  height: 70vh;
+  margin-top: -3.2;
+  align-items: center;
+}
+
 /* Typographical Spacing */
 p,
 body.linear.hd hr,
 pre,
 blockquote {
-  margin-bottom: 1.6rem;
-  margin-top: 0px;
+  margin-bottom: 1.6;
+  margin-top: 0;
 }
 
 /* Applys spacing to headers in the content section only */
@@ -1755,27 +1583,27 @@ blockquote {
 [role='main'] h4,
 [role='main'] h5,
 [role='main'] h6 {
-  margin: 3.2rem 0px 1.6rem 0px;
+  margin: 3.2 0 1.6 0;
 }
 
 #leftcolumn h3 {
-  margin: 3.2rem 0px 1.6rem 0px;
+  margin: 3.2 0 1.6 0;
 }
 
 /* Remove gap caused by first header in an article */
-.item-page h2:first-of-type,
-.section h2:first-of-type,
-.section :first-child {
-  margin-top: 0px;
+body.linear.hd .item-page h2:first-of-type,
+body.linear.hd .section h2:first-of-type,
+body.linear.hd .section :first-child {
+  margin-top: 0;
 }
 
 /* Add vertical rhythem spacing to the widgetkit margins */
 * + .uk-margin {
-  margin-top: 1.6rem;
+  margin-top: 1.6;
 }
 
 .uk-margin {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
 }
 
 /*--------------------------------------------------
@@ -1809,24 +1637,24 @@ body.linear.hd .localist-day {
   color: #FFF;
   text-align: center;
   font-weight: 600;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
   border-bottom: 4px solid #80BC00;
   padding-bottom: 0.4em;
 }
 
 body.linear.hd .localist-dateblock {
-  margin-right: 0.8rem;
+  margin-right: 0.8;
 }
 
 body.linear.hd .localist-widget-eds li {
   display: flex;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.8;
 }
 
 body.linear.hd .localist-title h4 {
   font-family: 'proxima-nova', sans-serif !important;
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.6rem;
   margin-top: -0.2em;
   margin-bottom: 0px;
@@ -1838,7 +1666,7 @@ body.linear.hd .localist-title h4 a {
 
 body.linear.hd .localist-otherdetails div,
 .localist-otherdetails i {
-  font-size: 0.8em;
+  font-size: 0.8rem;
   line-height: 1.6rem;
 }
 
@@ -1856,8 +1684,8 @@ START NEWS FEEDS
 body.linear.hd ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
-  grid-gap: 3.2rem;
-  margin: 0 0 1.6rem 0;
+  grid-gap: 3.2;
+  margin: 0 0 1.6 0;
 }
 
 body.linear.hd li.newsflash-item {
@@ -1883,15 +1711,15 @@ body.linear.hd .it-news .newsflash-title {
   grid-area: title;
   /* Positions the title */
   display: block !important;
-  margin-top: 0.8rem;
-  margin-bottom: 0.8rem;
+  margin-top: 0.8;
+  margin-bottom: 0.8;
 }
 
 /* Item Image Container (Figure) */
 .it-news .newsflash-image {
   grid-area: image;
   /* Positions the Image */
-  margin: 0px;
+  margin: 0;
   /* Removes margin from style.css */
   max-height: 16rem;
   /* Sets height of image, equal to 10 spaces */
@@ -1912,7 +1740,7 @@ body.linear.hd .it-news .newsflash-title {
 }
 
 .it-news li.newsflash-item {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
   /* Removes default border */
 }
 
@@ -1923,34 +1751,34 @@ body.linear.hd .it-news li.newsflash-item p {
 .it-news a.readmore {
   position: absolute;
   /* Allows positioning inside it's parent */
-  left: 0px;
+  left: 0;
   /*right: 0px;*/
-  bottom: 0px;
+  bottom: 0;
   /* Makes sure the link is at the bottom, even if more space exists */
-  margin: 0px;
+  margin: 0;
   text-align: left;
 }
 
 /* END NEWS FLASH */
 /* START ARTICLE FEED */
 .it-feed .mod-articles-category-title {
-  font-size: 1em;
+  font-size: 1rem;
   line-height: 1.6rem;
-  margin: 0px;
+  margin: 0;
   font-family: "kulturista-web", serif;
 }
 
 body.linear.hd .it-feed .mod-articles-category-introtext {
-  /*@include type-setting($sm-scale);*/
-  margin: 0.8rem 0px 0px;
+  /*@include type-setting(sm);*/
+  margin: 0.8 0 0;
 }
 
 .it-feed .mod-articles-category-readmore {
-  margin: 0px;
+  margin: 0;
 }
 
 body.linear.hd ul.it-feed {
-  margin: 0 0 1.6rem 0;
+  margin: 0 0 1.6 0;
   list-style-type: none;
 }
 
@@ -1958,26 +1786,25 @@ body.linear.hd ul.it-feed {
 END NEWS FEEDS
 ------------------------*/
 /*body.linear.hd .it-news .newsflash-item {
-  padding: $s-1;
-  border-radius: $bdr-radius;
-  padding-bottom: $s-2;
+  padding: s(1);
+  padding-bottom: s(2);
   overflow: hidden;
-  border: 1px solid $stone-300;
+  @include border($color: c($stone, 300))
   background-color: $stone-050;
 }
 body.linear.hd .it-news .newsflash-image {
-  margin-left: -1.6rem;
-  margin-top: -1.6rem;
-  width: calc( 100% + 3.2rem );
+  margin-left: s(-1);
+  margin-top: s(-1);
+  width: calc( 100% + 3.2 );
 }
 body.linear.hd .it-news a.readmore {
   border: 0px solid transparent;
-  background-color: $stone-100;
-  padding: $s-05;
+  background-color: c($stone, 100);
+  padding: s(0.5);
   text-align: center;
 }
 body.linear.hd .it-news a.readmore:hover {
-  background-color: $stone-200;
+  background-color: c($stone, 100);
 }
 */
 /*------------------------
@@ -1996,11 +1823,11 @@ START TOP NAVIGATION
 ------------------------*/
 /* Removes link styles in the top navigation. Most of this styling is handled with central CSS. */
 #ribbon .nav a {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
 }
 
 #ribbon .nav {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 /*------------------------
@@ -2017,7 +1844,7 @@ body.linear.hd #search form {
 
 body.linear.hd #search button.btn-primary {
   border: 1px solid #1E6B52;
-  margin: 0px;
+  margin: 0;
   transition-property: none;
 }
 
@@ -2025,10 +1852,9 @@ body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:h
   outline: 0;
   text-decoration: none;
   border-color: #1E6B52;
-  box-shadow: none;
+  box-shadow: 0 0 0 1px #1E6B52;
   background: #d2e1dc;
   color: black;
-  border: 1px solid #1E6B52;
 }
 
 body.linear.hd #search input {
@@ -2044,13 +1870,13 @@ END SEARCH
 START QUICKLINKS
 ------------------------*/
 #quicklinks ul {
-  margin: 0px;
+  margin: 0;
 }
 
 /* Remove borders from quicklinks */
 #quicklinks a,
 #trigger {
-  border: 0px solid transparent;
+  border: 0 solid transparent;
 }
 
 /* Ensure hover color is consistant */
@@ -2082,8 +1908,8 @@ one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
 #banner {
   position: relative;
-  padding-top: 12.8rem;
-  min-height: 22.4rem;
+  padding-top: 12.8;
+  min-height: 24.8;
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -2091,10 +1917,10 @@ one line height for the margin below the breadcrumbs. */
 #banner::after {
   content: '';
   position: absolute;
-  top: 0px;
-  left: 0px;
-  bottom: 0px;
-  right: 0px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
   z-index: -1;
 }
 
@@ -2124,7 +1950,7 @@ body.linear.hd .stickyNav .page-header {
 }
 
 #banner h1 {
-  margin-bottom: 1.6rem;
+  margin-bottom: 1.6;
   color: white;
 }
 
@@ -2142,10 +1968,10 @@ body.linear.hd .breadcrumb > li > span {
 }
 
 body.linear.hd .breadcrumb {
-  border: 0px;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 1.6rem;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 1.6;
 }
 
 /* Remove main image */
@@ -2174,38 +2000,41 @@ body.hd #sidebar_trigger.no-seal {
 }
 
 #leftcolumn ul.nav.menu a {
-  margin: 0px;
+  margin: 0;
   display: block;
-  border: 0px solid transparent;
+  border: 0 solid transparent;
   background-color: transparent;
-  padding: 0.8rem;
-  border-left: 4px solid transparent;
+  padding: 0.5em;
 }
 
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
-  margin: 0px;
+  margin: 0;
 }
 
 #leftcolumn .sidebar li,
 #leftcolumn .sidebar ul.menu li {
-  padding: 0px;
+  padding: 0;
   font-weight: normal;
 }
 
 #leftcolumn ul.nav.menu .current > a {
   background-color: #f2f3f3;
-  border-left: 4px solid #80BC00;
 }
 
-#leftcolumn ul.nav.menu .parent > a {
+#leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  margin-left: sp(5);
+  border-left: 2px solid #1E6B52;
+}
+
+#leftcolumn ul.nav.menu > .parent > a {
   font-family: 'kulturista-web', serif;
-  font-size: 1.25em;
+  font-size: 1.25rem;
   line-height: 1.6rem;
+  font-weight: normal;
 }
 
 #leftcolumn ul.nav.menu a:hover {
-  border-left: 4px solid #80BC00;
   color: inherit !important;
   background-color: #e6e6e7;
 }
@@ -2232,8 +2061,8 @@ START FOOTER
 /* Setup the flex container */
 body.linear.hd #footer .IT-footer {
   display: flex;
-  margin-top: 1.6rem;
-  margin-bottom: 1.6rem;
+  margin-top: 1.6;
+  margin-bottom: 1.6;
 }
 
 /* Force containers to be full width and add padding */
@@ -2276,7 +2105,7 @@ body.linear.hd #footer .IT-footer_right .social a:hover {
 
 /* Add spacing between logo and social links */
 body.linear.hd #footer .IT-footer .social {
-  margin-top: 1.6rem;
+  margin-top: 1.6;
 }
 
 /* Set size of social media icons */
@@ -2287,7 +2116,7 @@ body.linear.hd #footer .IT-footer .social img {
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
-  max-height: 3.2rem;
+  max-height: 3.2;
   margin: 0;
 }
 
@@ -2299,7 +2128,7 @@ body.linear.hd #footer,
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */
 #lockedFooter {
-  padding-top: 1.6rem;
+  padding-top: 1.6;
 }
 
 /*------------------------
@@ -2312,7 +2141,7 @@ body.linear.hd.article-layout .article-info {
   text-align: right;
   border-top: 1px solid black;
   margin-bottom: 0px;
-  padding-top: 1.6rem;
+  padding-top: 1.6;
 }
 
 body.linear.hd.article-layout .article-info .icon-calendar {
@@ -2325,14 +2154,14 @@ body.linear.hd.article-layout #content .item-page.article-layout {
 }
 
 body.linear.hd.article-layout #content .item-page.article-layout figure {
-  width: calc( 700px + 6.4rem);
-  margin-left: -3.2rem;
+  width: calc( 700px + 6.4);
+  margin-left: -3.2;
 }
 
 body.linear.hd.article-layout .item-page.article-layout > div > .intro {
-  width: calc( 700px + 6.4rem);
-  margin-left: -3.2rem;
-  padding: 1.6rem 3.2rem;
+  width: calc( 700px + 6.4);
+  margin-left: -3.2;
+  padding: 1.6 3.2;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
@@ -2346,51 +2175,51 @@ END AREAS
 /*------------------------
 START HELPERS
 ------------------------*/
-.type-set-n1 {
-  font-size: 0.8em;
+body.linear.hd .type-set-n1 {
+  font-size: 0.8rem;
   line-height: 1.6rem;
 }
 
-.type-set-0 {
-  font-size: 1em;
+body.linear.hd .type-set-0 {
+  font-size: 1rem;
   line-height: 1.6rem;
 }
 
-.type-set-1 {
-  font-size: 1.25em;
+body.linear.hd .type-set-1 {
+  font-size: 1.25rem;
   line-height: 1.6rem;
 }
 
-.type-set-2 {
-  font-size: 1.5625em;
+body.linear.hd .type-set-2 {
+  font-size: 1.5625rem;
   line-height: 1.6rem;
 }
 
-.type-set-3 {
-  font-size: 1.95312em;
+body.linear.hd .type-set-3 {
+  font-size: 1.95312rem;
   line-height: 2.4rem;
 }
 
-.type-set-4 {
-  font-size: 2.44141em;
+body.linear.hd .type-set-4 {
+  font-size: 2.44141rem;
   line-height: 3.2rem;
 }
 
-.type-set-5 {
-  font-size: 3.05176em;
+body.linear.hd .type-set-5 {
+  font-size: 3.05176rem;
   line-height: 3.2rem;
 }
 
 .txt-c {
-  text-align: center;
+  text-align: center !important;
 }
 
 .txt-l {
-  text-align: left;
+  text-align: left !important;
 }
 
 .txt-r {
-  text-align: right;
+  text-align: right !important;
 }
 
 .full {
@@ -2403,23 +2232,23 @@ START HELPERS
 }
 
 [class*='-space-05'] {
-  --u-space: 0.8rem;
+  --u-space: s( 0.5 );
 }
 
 [class*='-space-1'] {
-  --u-space: 1.6rem;
+  --u-space: s( 1 );
 }
 
 [class*='-space-2'] {
-  --u-space: 3.2rem;
+  --u-space: s( 2 );
 }
 
 [class*='-space-3'] {
-  --u-space: 4.8rem;
+  --u-space: s( 3 );
 }
 
 [class*='-space-4'] {
-  --u-space: 6.4rem;
+  --u-space: s( 4 );
 }
 
 [class*='margin-top-'] {
@@ -2452,238 +2281,6 @@ START HELPERS
 
 [class*='padding-left-'] {
   padding-left: var(--u-space) !important;
-}
-
-[class*='-stone-050'] {
-  --u-color: #f2f3f3;
-}
-
-[class*='-stone-100'] {
-  --u-color: #e6e6e7;
-}
-
-[class*='-stone-200'] {
-  --u-color: #cccdce;
-}
-
-[class*='-stone-300'] {
-  --u-color: #b3b4b6;
-}
-
-[class*='-stone-400'] {
-  --u-color: #999b9d;
-}
-
-[class*='-stone-500'] {
-  --u-color: #808285;
-}
-
-[class*='-stone-600'] {
-  --u-color: #66686a;
-}
-
-[class*='-stone-700'] {
-  --u-color: #4d4e50;
-}
-
-[class*='-stone-800'] {
-  --u-color: #333435;
-}
-
-[class*='-stone-900'] {
-  --u-color: #1a1a1b;
-}
-
-[class*='-uabgreen-100'] {
-  --u-color: #d2e1dc;
-}
-
-[class*='-uabgreen-200'] {
-  --u-color: #a5c4ba;
-}
-
-[class*='-uabgreen-300'] {
-  --u-color: #78a697;
-}
-
-[class*='-uabgreen-400'] {
-  --u-color: #4b8975;
-}
-
-[class*='-uabgreen-500'] {
-  --u-color: #1E6B52;
-}
-
-[class*='-uabgreen-600'] {
-  --u-color: #185642;
-}
-
-[class*='-uabgreen-700'] {
-  --u-color: #124031;
-}
-
-[class*='-uabgreen-800'] {
-  --u-color: #0c2b21;
-}
-
-[class*='-uabgreen-900'] {
-  --u-color: #061510;
-}
-
-[class*='-darkgreen-100'] {
-  --u-color: #d4dcd7;
-}
-
-[class*='-darkgreen-200'] {
-  --u-color: #a9b9ae;
-}
-
-[class*='-darkgreen-300'] {
-  --u-color: #7f9786;
-}
-
-[class*='-darkgreen-400'] {
-  --u-color: #54745d;
-}
-
-[class*='-darkgreen-500'] {
-  --u-color: #295135;
-}
-
-[class*='-darkgreen-600'] {
-  --u-color: #21412a;
-}
-
-[class*='-darkgreen-700'] {
-  --u-color: #193120;
-}
-
-[class*='-darkgreen-800'] {
-  --u-color: #102015;
-}
-
-[class*='-darkgreen-900'] {
-  --u-color: #08100b;
-}
-
-[class*='-apple-100'] {
-  --u-color: #e6f2cc;
-}
-
-[class*='-apple-200'] {
-  --u-color: #cce499;
-}
-
-[class*='-apple-300'] {
-  --u-color: #b3d766;
-}
-
-[class*='-apple-400'] {
-  --u-color: #99c933;
-}
-
-[class*='-apple-500'] {
-  --u-color: #80BC00;
-}
-
-[class*='-apple-600'] {
-  --u-color: #669600;
-}
-
-[class*='-apple-700'] {
-  --u-color: #4d7100;
-}
-
-[class*='-apple-800'] {
-  --u-color: #334b00;
-}
-
-[class*='-apple-900'] {
-  --u-color: #1a2600;
-}
-
-[class*='-blaze-100'] {
-  --u-color: #fff6cc;
-}
-
-[class*='-blaze-200'] {
-  --u-color: #ffee99;
-}
-
-[class*='-blaze-300'] {
-  --u-color: #ffe566;
-}
-
-[class*='-blaze-400'] {
-  --u-color: #ffdd33;
-}
-
-[class*='-blaze-500'] {
-  --u-color: #FFD400;
-}
-
-[class*='-blaze-600'] {
-  --u-color: #ccaa00;
-}
-
-[class*='-blaze-700'] {
-  --u-color: #997f00;
-}
-
-[class*='-blaze-800'] {
-  --u-color: #665500;
-}
-
-[class*='-blaze-900'] {
-  --u-color: #332a00;
-}
-
-[class*='-gold-100'] {
-  --u-color: #eeeae1;
-}
-
-[class*='-gold-200'] {
-  --u-color: #ddd5c2;
-}
-
-[class*='-gold-300'] {
-  --u-color: #ccc1a4;
-}
-
-[class*='-gold-400'] {
-  --u-color: #bbac85;
-}
-
-[class*='-gold-500'] {
-  --u-color: #AA9767;
-}
-
-[class*='-gold-600'] {
-  --u-color: #887952;
-}
-
-[class*='-gold-700'] {
-  --u-color: #665b3e;
-}
-
-[class*='-gold-800'] {
-  --u-color: #443c29;
-}
-
-[class*='-gold-900'] {
-  --u-color: #221e15;
-}
-
-[class*='txt-color-'] {
-  color: var(--u-color);
-}
-
-[class*='bg-color-'] {
-  background-color: var(--u-color);
-}
-
-[class*='bdr-color-'] {
-  border-color: var(--u-color);
 }
 
 /*------------------------
