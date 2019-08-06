@@ -12,21 +12,20 @@ START ALERT
 
 /* Apply the alert style to the alert container */
 .moduletable.alert {
-  background: tint( $color-red, 80% );
-  border: 2px solid $color-red;
-  border-radius: $bdr-radius;
+  @include reset(shadow);
+  background: tint( $c-red, 80% );
+  @include border($bdr-md, $c-red);
   padding: $input-padding;
   @include block-margin;
-  @include reset(shadow);
 }
 
 /* Adjust link styles for links that appear inside an alert */
 div.ribbonFullwidth .alert a {
-  border-color: $color-red;
+  border-color: $c-red;
 }
 div.ribbonFullwidth .alert a:hover {
-  border-color: $color-red;
-  background-color: tint( $color-red, 60% );
+  border-color: $c-red;
+  background-color: tint( $c-red, 60% );
 }
 
 /* Remove bottom margin from paragraphs in an alert */

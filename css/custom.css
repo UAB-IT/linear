@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.0.a.1
+Ember 0.7.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -14,17 +14,6 @@ Helpers are in the Core category, but are included at the end of the Ember code 
 START RESET
 ------------------------*/
 /* Reset most properties from most elements */
-* {
-  margin: 0;
-  font-size: inherit;
-  font-family: inherit;
-  line-height: 1.6;
-  padding: 0;
-  box-sizing: border-box;
-  color: inherit;
-  transition-property: none;
-}
-
 /* Reset font size, family, and color on inline tags */
 body.linear.hd h1 a,
 body.linear.hd h1 strong,
@@ -49,8 +38,8 @@ body.linear.hd span,
 body.linear.hd strong,
 body.linear.hd em {
   color: inherit;
-  font-family: inherit !important;
   font-size: inherit;
+  font-family: inherit !important;
 }
 
 body.linear.hd .categories-list h3 a,
@@ -65,29 +54,20 @@ body.linear.hd h5 {
 
 /* Reset font size, family, and color on inline tags in headers */
 /* I'm not sure if any of these are used, so I'm commenting them out for now */
-body.linear.hd h1,
-body.linear.hd h2,
-body.linear.hd h3,
-body.linear.hd h4,
-body.linear.hd h5 {
-  color: inherit;
-  text-align: inherit;
-}
-
 body.linear.hd a {
   color: inherit;
-  text-decoration: none;
-  font-weight: inherit;
+  font-weight: normal;
   -webkit-transition-property: none;
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none;
+  text-decoration: none;
 }
 
 .page-header {
   margin: 0;
   padding: 0;
-  border-bottom: 0 solid transparent;
+  border: 0;
 }
 
 body.hd .latestnews li,
@@ -104,8 +84,24 @@ body.hd .rightsidebar .nav.menu li {
   width: 100%;
 }
 
+/* Allow content to expand to full viewport width */
 body.ribbonFullwidth #whitebox {
   overflow: visible;
+}
+
+/* Clearfix for main area.
+This fixes layout problems from changing overflow property */
+#whitebox::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+body.ribbonFullwidth #wrapper {
+  overflow-x: hidden;
 }
 
 /*------------------------
@@ -119,7 +115,7 @@ Basic styling for html elements with a focus on typography.
 START TYPOGRAPHY
 ------------------------ */
 /* ------------------------
-FONTS
+SPACING
 ------------------------ */
 body.linear.hd h1,
 body.linear.hd h2,
@@ -127,13 +123,44 @@ body.linear.hd h3,
 body.linear.hd h4,
 body.linear.hd h5,
 body.linear.hd h6 {
-  font-family: "kulturista-web", serif;
   font-weight: normal;
+  font-family: "kulturista-web", serif;
+  color: inherit;
+  text-align: inherit;
+}
+
+[role='main'] h1,
+[role='main'] h2,
+[role='main'] h3,
+[role='main'] h4,
+[role='main'] h5,
+[role='main'] h6 {
+  margin: 3.2rem 0 1.6rem 0;
+}
+
+#leftcolumn h3 {
+  margin: 3.2rem 0 1.6rem 0;
+}
+
+p,
+body.linear.hd hr,
+pre,
+blockquote {
+  margin-bottom: 1.6rem;
+  margin-top: 0;
+}
+
+/* Remove gap caused by first header in an article */
+body.linear.hd .item-page h2:first-of-type,
+body.linear.hd .section h2:first-of-type,
+body.linear.hd .section :first-child {
+  margin-top: 0;
 }
 
 /* ------------------------
 TYPESETTING
 ------------------------ */
+/* ID is used here to overwrite equally high specificity from style.css */
 body.linear.hd h1,
 body.linear.hd .uk-h1 {
   font-size: 3.05176rem;
@@ -200,7 +227,7 @@ body.linear.hd h3 + hr,
 body.linear.hd h4 + hr,
 body.linear.hd h5 + hr,
 body.linear.hd h6 + hr {
-  margin-top: -1.6;
+  margin-top: -1.6rem;
   /* Allows headers to sit on horizontal rules */
 }
 
@@ -209,16 +236,31 @@ LINKS
 ------------------------*/
 /* Applies link styles to content areas only. Less specific than an id.
 Div is used here because .ribbonFullwidth is also on the body element. */
-a:focus,
-:focus {
-  outline: 5px auto #1E6B52;
-}
-
-div.ribbonFullwidth a[href]:not(.unstyled) {
+p a[href]:not(.unstyled),
+li a[href]:not(.unstyled),
+h1 a[href]:not(.unstyled),
+h2 a[href]:not(.unstyled),
+h3 a[href]:not(.unstyled),
+h4 a[href]:not(.unstyled),
+h5 a[href]:not(.unstyled),
+h6 a[href]:not(.unstyled),
+table a[href]:not(.unstyled),
+dl a[href]:not(.unstyled),
+pre a[href]:not(.unstyled) {
   border-bottom: 2px solid #78a697;
 }
 
-div.ribbonFullwidth a[href]:not(.unstyled):hover {
+p a[href]:not(.unstyled):hover,
+li a[href]:not(.unstyled):hover,
+h1 a[href]:not(.unstyled):hover,
+h2 a[href]:not(.unstyled):hover,
+h3 a[href]:not(.unstyled):hover,
+h4 a[href]:not(.unstyled):hover,
+h5 a[href]:not(.unstyled):hover,
+h6 a[href]:not(.unstyled):hover,
+table a[href]:not(.unstyled):hover,
+dl a[href]:not(.unstyled):hover,
+pre a[href]:not(.unstyled):hover {
   background-color: #d2e1dc;
   border-color: #1E6B52;
 }
@@ -288,7 +330,7 @@ pre {
 
 pre > code {
   display: block;
-  padding: 0.8;
+  padding: 1.6rem;
   white-space: inherit;
 }
 
@@ -307,17 +349,17 @@ START LISTS
 ------------------------*/
 body.linear.hd ul,
 body.linear.hd ol {
-  list-style-position: outside;
   margin: 0;
   padding: 0;
+  list-style-position: outside;
 }
 
 body.linear.hd li {
   list-style-position: inherit;
 }
 
-body.linear.hd .item-page ul,
-body.linear.hd .item-page ol {
+body.linear.hd .item-page ul:not(.unstyled),
+body.linear.hd .item-page ol:not(.unstyled) {
   margin-left: 1.2em;
 }
 
@@ -329,38 +371,38 @@ body.linear.hd .item-page ol.outside {
 body.linear.hd .item-page ul,
 body.linear.hd .item-page ol,
 body.linear.hd .item-page dl {
-  margin-bottom: 0.8;
+  margin-bottom: 0.8rem;
 }
 
-body.linear.hd ul ul,
-body.linear.hd ul ol,
-body.linear.hd ol ol,
-body.linear.hd ol ul {
+body.linear.hd ul:not(.unstyled) ul,
+body.linear.hd ul:not(.unstyled) ol,
+body.linear.hd ol:not(.unstyled) ol,
+body.linear.hd ol:not(.unstyled) ul {
   margin-bottom: 0;
   margin-left: 1em;
 }
 
-body.linear.hd .item-page ul {
+body.linear.hd .item-page ul:not(.unstyled) {
   list-style-type: disc;
 }
 
-body.linear.hd .item-page ul ul {
+body.linear.hd .item-page ul:not(.unstyled) ul {
   list-style-type: circle;
 }
 
-body.linear.hd .item-page ul ul ul {
+body.linear.hd .item-page ul:not(.unstyled) ul ul {
   list-style-type: square;
 }
 
-body.linear.hd .item-page ol {
+body.linear.hd .item-page ol:not(.unstyled) {
   list-style-type: decimal;
 }
 
-body.linear.hd .item-page ol ol {
+body.linear.hd .item-page ol:not(.unstyled) ol {
   list-style-type: upper-latin;
 }
 
-body.linear.hd .item-page ol ol ol {
+body.linear.hd .item-page ol:not(.unstyled) ol ol {
   list-style-type: lower-latin;
 }
 
@@ -369,20 +411,18 @@ body.linear.hd dt {
 }
 
 dd {
+  margin-bottom: 0.8rem;
   margin-left: 1em;
-  margin-bottom: 0.8;
 }
 
+/* Gets rid of bootstrap style */
 #content li {
-  margin: 0.8 0 0;
+  margin: 0;
 }
 
-#content [class*='grid-1'].no-style > li,
-#content [class*='grid-2'].no-style > li,
-#content [class*='grid-3'].no-style > li,
-#content [class*='grid-4'].no-style > li,
-#content [class*='grid-6'].no-style {
-  margin: 0;
+#content ul:not(.unstyled) li,
+#content ol:not(.unstyled) li {
+  margin: 0.8rem 0 0;
 }
 
 /*------------------------
@@ -396,22 +436,22 @@ body.linear.hd table {
   border-collapse: collapse;
   width: 100%;
   overflow: scroll;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 body.linear.hd table tr td,
 body.linear.hd table tr th {
-  padding: 0.8;
   border-radius: 4px;
   border: 1px solid black;
+  padding: 0.8rem;
   text-align: inherit;
 }
 
 body.linear.hd table thead th {
+  font-weight: normal;
+  font-family: "kulturista-web", serif;
   font-size: 1.25rem;
   line-height: 1.6rem;
-  font-family: "kulturista-web", serif;
-  font-weight: normal;
 }
 
 body.linear.hd table pre,
@@ -437,12 +477,16 @@ table.category td {
 
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background: transparent;
+  background: none;
+  background-color: transparent;
+  background-image: none;
 }
 
 .table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
   background: none;
+  background-color: transparent;
+  background-image: none;
 }
 
 .table-bordered caption + thead tr:first-child th:first-child,
@@ -455,7 +499,7 @@ table.category td {
 /* END OVERRIDES */
 body.linear.hd table.table-striped tr td,
 body.linear.hd table.table-striped tr th {
-  border: 0 solid transparent;
+  border: 0;
 }
 
 body.linear.hd .table-striped tbody > tr:nth-child(odd) {
@@ -476,7 +520,7 @@ START MEDIA
 img {
   max-width: 100%;
   object-fit: cover;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 figure img {
@@ -484,18 +528,18 @@ figure img {
 }
 
 figure {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 iframe {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 figure figcaption {
   font-size: 0.8rem;
   line-height: 1.6rem;
   text-align: center;
-  margin: 1.6 0;
+  margin: 1.6rem 0;
 }
 
 @media all and (max-width: 1800px) {
@@ -543,7 +587,7 @@ body.linear.hd input[type='button'] {
   line-height: 1.6rem;
   padding: 0.3em 1em;
   text-align: center;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -575,7 +619,8 @@ body.linear.hd a.btn-primary,
 body.linear.hd button.btn-primary {
   color: white;
   background: #1E6B52;
-  border-color: #1E6B52;
+  border-radius: 4px;
+  border: 1px solid #1E6B52;
 }
 
 /*------------------------
@@ -588,7 +633,7 @@ START FORMS
 START BTN TOOLBAR
 ------------------------*/
 .btn-toolbar {
-  margin: 0 0 1.6;
+  margin: 0 0 1.6rem;
 }
 
 #undefined {
@@ -597,7 +642,7 @@ START BTN TOOLBAR
 
 .input-group {
   display: flex;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 body.linear.hd .input-group button,
@@ -624,10 +669,11 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
+  font-weight: normal;
+  font-family: "kulturista-web", serif;
+  color: inherit;
   font-size: 1.25rem;
   line-height: 1.6rem;
-  color: inherit;
-  font-family: "kulturista-web", serif;
 }
 
 body.linear.hd .uneditable-input,
@@ -635,15 +681,23 @@ body.linear.hd textarea,
 body.linear.hd progress,
 body.linear.hd fieldset,
 body.linear.hd input {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: 0;
-  background: transparent;
   box-sizing: border-box;
-  box-shadow: none;
   height: auto;
-  transition-property: none;
 }
 
 body.linear.hd .uneditable-input,
@@ -665,7 +719,7 @@ body.linear.hd textarea {
 }
 
 body.linear.hd textarea {
-  height: 6.4;
+  height: 6.4rem;
   resize: vertical;
   overflow-y: scroll;
 }
@@ -694,7 +748,7 @@ body .panels > a,
 .cards > div {
   border-radius: 4px;
   border: 1px solid black;
-  padding: 1.6;
+  padding: 1.6rem;
   background: white;
 }
 
@@ -714,6 +768,7 @@ body .panels > a:hover {
 }
 
 .panels > a:hover h4 {
+  background-color: #d2e1dc;
   border-color: #1E6B52;
 }
 
@@ -722,7 +777,7 @@ body .panels > a:hover {
 }
 
 .uk-panel-box {
-  padding: 1.6;
+  padding: 1.6rem;
 }
 
 .uk-panel-title,
@@ -736,7 +791,7 @@ body .panels > a:hover {
 }
 
 body.linear.hd .wk-panels {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 body.linear.hd .wk-panels .uk-panel-title {
@@ -747,6 +802,7 @@ body.linear.hd .wk-panels .uk-panel {
   background: white;
   border-radius: 4px;
   border: 1px solid black;
+  padding: 1.6rem;
 }
 
 body.linear.hd a.uk-position-cover {
@@ -779,7 +835,7 @@ START FEATURES
 This uses widgetkit for layout
 ------------------------*/
 body.linear.hd .wk-features {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 body.linear.hd .wk-features .uk-panel p {
@@ -794,8 +850,8 @@ body.linear.hd .wk-features .uk-panel img {
 }
 
 body.linear.hd .wk-features .uk-panel-title {
-  margin-top: 1.6;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
 }
 
 /*------------------------
@@ -807,12 +863,12 @@ START GALLERY
 This uses widgetkit for layout
 ------------------------*/
 body.linear.hd .wk-gallery p {
-  text-align: center;
   margin: 0;
+  text-align: center;
 }
 
 body.linear.hd .wk-gallery {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 /*------------------------
@@ -834,7 +890,7 @@ START CHIPS
   -moz-box-shadow: none;
   box-shadow: none;
   font-weight: normal;
-  color: black;
+  color: inherit;
   font-size: 0.8rem;
   line-height: 1.6rem;
   background-color: #e6e6e7;
@@ -891,20 +947,20 @@ START ALERT
 
 .alert,
 .alert h4 {
-  color: black;
+  color: inherit;
 }
 
 /* Apply the alert style to the alert container */
 .moduletable.alert {
-  background: #fbe1dc;
-  border: 2px solid #EA6852;
-  border-radius: 4px;
-  padding: 0.3em 1em;
-  margin-bottom: 1.6;
   text-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  background: #fbe1dc;
+  border-radius: 4px;
+  border: 2px solid #EA6852;
+  padding: 0.3em 1em;
+  margin-bottom: 1.6rem;
 }
 
 /* Adjust link styles for links that appear inside an alert */
@@ -930,7 +986,7 @@ div.ribbonFullwidth .alert a:hover {
 /* Add margin between alerts and content. Should equal the margin between
 the banner and content */
 body.linear.hd #breadcrumbs > :last-child {
-  margin-bottom: 4.8;
+  margin-bottom: 4.8rem;
 }
 
 /*------------------------
@@ -940,22 +996,26 @@ END ALERT
 START PAGINATION
 ------------------------*/
 .pagination {
-  margin: 0 0 1.6;
+  margin: 0;
+  margin-bottom: 1.6rem;
 }
 
 .pagination ul {
-  border-radius: 0;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
   box-shadow: none;
+  border-radius: 0;
 }
 
 .pagination ul > li > a,
 .pagination ul > li > span {
   display: inline-block;
-  margin: 0 0.8;
   border: 0 solid transparent;
   border-radius: 4px;
   border: none solid black;
   padding: 0.3em 1em;
+  margin: 0 0.8rem;
 }
 
 .pagination ul > li > span {
@@ -982,30 +1042,30 @@ START PAGINATION
 .pagination ul > li.pagination-prev > a,
 .pagination ul > li.pagination-end > a,
 .pagination ul > li.pagination-next > a {
+  margin: 0;
   border: 1px solid #1E6B52;
   color: #1E6B52;
-  margin: 0;
 }
 
 .pagination ul > li.pagination-start > span,
 .pagination ul > li.pagination-prev > span,
 .pagination ul > li.pagination-end > span,
 .pagination ul > li.pagination-next > span {
+  margin: 0;
   border-radius: 4px;
   border: 1px solid #b3b4b6;
   color: #b3b4b6;
   background: #f2f3f3;
-  margin: 0;
 }
 
 .pagination ul > li.pagination-prev > a,
 .pagination ul > li.pagination-prev > span {
-  margin-right: 0.8;
+  margin-right: 0.8rem;
 }
 
 .pagination ul > li.pagination-next > a,
 .pagination ul > li.pagination-next > span {
-  margin-left: 0.8;
+  margin-left: 0.8rem;
 }
 
 /*------------------------
@@ -1031,10 +1091,10 @@ END SLIDESHOW
 START PULLQUOTE
 ------------------------*/
 body.linear.hd .pullquote {
-  padding: 1.6;
+  margin-bottom: 1.6rem;
+  padding: 1.6rem;
   background-color: #f2f3f3;
   border-left: 5px solid #80BC00;
-  margin-bottom: 1.6;
 }
 
 body.linear.hd .background .pullquote {
@@ -1043,15 +1103,15 @@ body.linear.hd .background .pullquote {
 
 body.linear.hd .pullquote p,
 body.linear.hd .pullquote q {
+  margin: 0;
   font-size: 1.25rem;
   line-height: 1.6rem;
-  margin: 0;
   display: block;
 }
 
 body.linear.hd .pullquote footer {
   text-align: right;
-  margin-top: 0.8;
+  margin-top: 0.8rem;
 }
 
 /*------------------------
@@ -1061,7 +1121,7 @@ END PULLQUOTE
 START DETAILS
 ------------------------*/
 body.linear.hd .wk-details {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 body.linear.hd .wk-details .uk-panel p {
@@ -1081,9 +1141,9 @@ body.linear.hd .wk-details.uk-text-left .uk-panel img {
 
 body.linear.hd .wk-details .uk-panel-title {
   margin: 0;
-  margin-bottom: -0.8;
   font-size: 1.25rem;
   line-height: 1.6rem;
+  margin-bottom: -0.8rem;
 }
 
 /*------------------------
@@ -1236,10 +1296,10 @@ END IE FALLBACK
   [class*='grid-3'],
   [class*='grid-4'],
   [class*='grid-6'] {
+    margin-bottom: 1.6rem;
     display: grid;
-    grid-gap: 3.2;
+    grid-gap: 3.2rem;
     grid-auto-flow: row;
-    margin-bottom: 1.6;
   }
   .grid--no-gap {
     grid-gap: 0;
@@ -1441,44 +1501,8 @@ END IE FALLBACK
 /*--------------------------------------------------
 END GRID
 --------------------------------------------------*/
-/* Add space after the banner and before the footer
-Add minimal side margins through padding. Prevents content
-from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
-  margin: 6.4 auto;
-  padding: 0 1.6;
-}
-
-/* Decrease the width by the amount of padding on it's parent
-This makes sure it aligns properly at max width */
-body.linear.hd div.topLinearLogo {
-  max-width: calc( 1280px - 3.2);
-}
-
-body.hd.inside #whitebox {
-  max-width: 1280px;
-}
-
-body.hd #content {
-  margin: 0;
-  width: 100%;
-}
-
-/* Add space to both sides of all 100% width containers */
-body.hd #whitebar,
-body.linear.hd .topLinearContainer,
-body.hd #ribbon,
-#banner .moduletable {
-  padding-right: 1.6;
-  padding-left: 1.6;
-}
-
-/* Remove arbitrary margins , since the padding on the whitebar
-serves the same purpose */
-body.linear.hd #siteName,
-body.linear.hd #search form {
-  margin-right: 0;
-  margin-left: 0;
+  margin: 6.4rem auto;
 }
 
 /* Remove odd margins from main column since that spacing is handled
@@ -1491,51 +1515,25 @@ body.hd.inside #maincolumn-wide {
   margin-bottom: 0 !important;
 }
 
-/* Add more consistant gap between sidebars and main content*/
-body.hd.inside #maincolumn-l {
-  margin: 0 0 0 3.2 !important;
-}
-
-body.hd.inside #maincolumn-r {
-  margin: 0 3.2 0 0 !important;
-}
-
-body.hd.inside #maincolumn-l-r {
-  margin: 0 1.6 !important;
-}
-
 /* Make sure left sidebar is sized consistantly
 remove padding since there is no background - see _sidebar.scss */
 body.hd.sidebars #leftcolumn {
   width: 100%;
 }
 
-/* Remove paddings from module tables */
-#leftcolumn .moduletable {
-  padding: 0;
-}
-
-#whitebox::after {
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  content: '';
-  clear: both;
-  height: 0;
-}
-
-body.ribbonFullwidth #wrapper {
-  overflow-x: hidden;
+/* correct max width on pages without sidebar */
+body.hd.inside #whitebox {
+  max-width: 1280px;
 }
 
 /* Section spacing */
 .section {
-  margin: 6.4 0 6.4;
+  margin: 6.4rem 0;
 }
 
 .section.background {
-  margin: 4.8 0;
-  padding: 3.2 3.2 1.6;
+  margin: 6.4rem 0;
+  padding: 3.2rem 3.2rem 1.6rem;
 }
 
 .background {
@@ -1543,8 +1541,8 @@ body.ribbonFullwidth #wrapper {
 }
 
 .section.background-full {
-  margin: 4.8 0;
-  padding: 4.8 0 3.2;
+  margin: 6.4rem 0;
+  padding: 3.2rem 0 1.6rem;
   position: relative;
 }
 
@@ -1563,47 +1561,70 @@ body.ribbonFullwidth #wrapper {
 
 .hero-sect {
   height: 70vh;
-  margin-top: -3.2;
+  margin-top: -3.2rem;
   align-items: center;
 }
 
-/* Typographical Spacing */
-p,
-body.linear.hd hr,
-pre,
-blockquote {
-  margin-bottom: 1.6;
-  margin-top: 0;
+/* Add space after the banner and before the footer
+Add minimal side margins through padding. Prevents content
+from hitting edge of screen on mobile */
+body.ribbonFullwidth #whitebox {
+  padding: 0 1.6rem;
 }
 
-/* Applys spacing to headers in the content section only */
-[role='main'] h1,
-[role='main'] h2,
-[role='main'] h3,
-[role='main'] h4,
-[role='main'] h5,
-[role='main'] h6 {
-  margin: 3.2 0 1.6 0;
+/* Decrease the width by the amount of padding on it's parent
+This makes sure it aligns properly at max width */
+body.linear.hd div.topLinearLogo {
+  max-width: calc( 1280px - 3.2rem);
 }
 
-#leftcolumn h3 {
-  margin: 3.2 0 1.6 0;
+body.hd #content {
+  margin: 0;
+  width: 100%;
 }
 
-/* Remove gap caused by first header in an article */
-body.linear.hd .item-page h2:first-of-type,
-body.linear.hd .section h2:first-of-type,
-body.linear.hd .section :first-child {
-  margin-top: 0;
+/* Add space to both sides of all 100% width containers */
+body.hd #whitebar,
+body.linear.hd .topLinearContainer,
+body.hd #ribbon,
+#banner .moduletable {
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+}
+
+/* Remove arbitrary margins , since the padding on the whitebar
+serves the same purpose */
+body.linear.hd #siteName,
+body.linear.hd #search form {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Add more consistant gap between sidebars and main content*/
+body.hd.inside #maincolumn-l {
+  margin: 0 0 0 3.2rem !important;
+}
+
+body.hd.inside #maincolumn-r {
+  margin: 0 3.2rem 0 0 !important;
+}
+
+body.hd.inside #maincolumn-l-r {
+  margin: 0 1.6rem !important;
+}
+
+/* Remove paddings from module tables */
+#leftcolumn .moduletable {
+  padding: 0;
 }
 
 /* Add vertical rhythem spacing to the widgetkit margins */
 * + .uk-margin {
-  margin-top: 1.6;
+  margin-top: 1.6rem;
 }
 
 .uk-margin {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 /*--------------------------------------------------
@@ -1644,12 +1665,12 @@ body.linear.hd .localist-day {
 }
 
 body.linear.hd .localist-dateblock {
-  margin-right: 0.8;
+  margin-right: 0.8rem;
 }
 
 body.linear.hd .localist-widget-eds li {
   display: flex;
-  margin-bottom: 0.8;
+  margin-bottom: 0.8rem;
 }
 
 body.linear.hd .localist-title h4 {
@@ -1681,11 +1702,11 @@ END CALENDAR
 START NEWS FEEDS
 ------------------------*/
 /* START NEWSFLASH */
-body.linear.hd ul.newsflash-vert {
+body.linear.hd .item-page ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
-  grid-gap: 3.2;
-  margin: 0 0 1.6 0;
+  grid-gap: 3.2rem;
+  margin: 0 0 1.6rem 0;
 }
 
 body.linear.hd li.newsflash-item {
@@ -1711,8 +1732,8 @@ body.linear.hd .it-news .newsflash-title {
   grid-area: title;
   /* Positions the title */
   display: block !important;
-  margin-top: 0.8;
-  margin-bottom: 0.8;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 /* Item Image Container (Figure) */
@@ -1770,7 +1791,7 @@ body.linear.hd .it-news li.newsflash-item p {
 
 body.linear.hd .it-feed .mod-articles-category-introtext {
   /*@include type-setting(sm);*/
-  margin: 0.8 0 0;
+  margin: 0.8rem 0 0;
 }
 
 .it-feed .mod-articles-category-readmore {
@@ -1778,7 +1799,7 @@ body.linear.hd .it-feed .mod-articles-category-introtext {
 }
 
 body.linear.hd ul.it-feed {
-  margin: 0 0 1.6 0;
+  margin: 0 0 1.6rem 0;
   list-style-type: none;
 }
 
@@ -1795,7 +1816,7 @@ END NEWS FEEDS
 body.linear.hd .it-news .newsflash-image {
   margin-left: s(-1);
   margin-top: s(-1);
-  width: calc( 100% + 3.2 );
+  width: calc( 100% + 3.2rem );
 }
 body.linear.hd .it-news a.readmore {
   border: 0px solid transparent;
@@ -1823,7 +1844,7 @@ START TOP NAVIGATION
 ------------------------*/
 /* Removes link styles in the top navigation. Most of this styling is handled with central CSS. */
 #ribbon .nav a {
-  border: 0 solid transparent;
+  border: 0;
 }
 
 #ribbon .nav {
@@ -1843,9 +1864,17 @@ body.linear.hd #search form {
 }
 
 body.linear.hd #search button.btn-primary {
+  color: white;
+  background: #1E6B52;
+  border-radius: 4px;
   border: 1px solid #1E6B52;
   margin: 0;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
   transition-property: none;
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:hover {
@@ -1858,9 +1887,9 @@ body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:h
 }
 
 body.linear.hd #search input {
+  border: 1px solid #1E6B52;
   border-top-left-radius: 4px !important;
   border-bottom-left-radius: 4px !important;
-  border: 1px solid #1E6B52;
 }
 
 /*------------------------
@@ -1876,7 +1905,7 @@ START QUICKLINKS
 /* Remove borders from quicklinks */
 #quicklinks a,
 #trigger {
-  border: 0 solid transparent;
+  border: 0;
 }
 
 /* Ensure hover color is consistant */
@@ -1908,8 +1937,8 @@ one line height for the breadcrumbs, and
 one line height for the margin below the breadcrumbs. */
 #banner {
   position: relative;
-  padding-top: 12.8;
-  min-height: 24.8;
+  padding-top: 12.8rem;
+  min-height: 10rem;
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -1950,13 +1979,16 @@ body.linear.hd .stickyNav .page-header {
 }
 
 #banner h1 {
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
   color: white;
 }
 
 body.linear.hd .breadcrumb > li,
 body.linear.hd .breadcrumb > .active {
   text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
   color: white;
 }
 
@@ -1971,7 +2003,7 @@ body.linear.hd .breadcrumb {
   border: 0;
   padding: 0;
   margin: 0;
-  margin-bottom: 1.6;
+  margin-bottom: 1.6rem;
 }
 
 /* Remove main image */
@@ -1996,14 +2028,18 @@ body.hd #sidebar_trigger.gray,
 body.hd #leftcolumn.sidebarpanel.no-seal,
 body.hd #sidebar_trigger.no-seal {
   font-size: inherit;
+  background: none;
   background-color: transparent;
+  background-image: none;
 }
 
 #leftcolumn ul.nav.menu a {
   margin: 0;
-  display: block;
-  border: 0 solid transparent;
+  border: 0;
+  background: none;
   background-color: transparent;
+  background-image: none;
+  display: block;
   padding: 0.5em;
 }
 
@@ -2022,13 +2058,8 @@ body.hd #sidebar_trigger.no-seal {
   background-color: #f2f3f3;
 }
 
-#leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  margin-left: sp(5);
-  border-left: 2px solid #1E6B52;
-}
-
 #leftcolumn ul.nav.menu > .parent > a {
-  font-family: 'kulturista-web', serif;
+  font-family: "kulturista-web", serif;
   font-size: 1.25rem;
   line-height: 1.6rem;
   font-weight: normal;
@@ -2037,6 +2068,11 @@ body.hd #sidebar_trigger.no-seal {
 #leftcolumn ul.nav.menu a:hover {
   color: inherit !important;
   background-color: #e6e6e7;
+}
+
+#leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  margin-left: sp(5);
+  border-left: 2px solid #1E6B52;
 }
 
 /*------------------------
@@ -2061,8 +2097,8 @@ START FOOTER
 /* Setup the flex container */
 body.linear.hd #footer .IT-footer {
   display: flex;
-  margin-top: 1.6;
-  margin-bottom: 1.6;
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem;
 }
 
 /* Force containers to be full width and add padding */
@@ -2105,7 +2141,7 @@ body.linear.hd #footer .IT-footer_right .social a:hover {
 
 /* Add spacing between logo and social links */
 body.linear.hd #footer .IT-footer .social {
-  margin-top: 1.6;
+  margin-top: 1.6rem;
 }
 
 /* Set size of social media icons */
@@ -2116,7 +2152,7 @@ body.linear.hd #footer .IT-footer .social img {
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
-  max-height: 3.2;
+  max-height: 3.2rem;
   margin: 0;
 }
 
@@ -2128,7 +2164,7 @@ body.linear.hd #footer,
 
 /* Add 1 line between footer and locked footer to maintain vertical rythem */
 #lockedFooter {
-  padding-top: 1.6;
+  padding-top: 1.6rem;
 }
 
 /*------------------------
@@ -2140,8 +2176,8 @@ START ARTICLE
 body.linear.hd.article-layout .article-info {
   text-align: right;
   border-top: 1px solid black;
-  margin-bottom: 0px;
-  padding-top: 1.6;
+  margin-bottom: 0;
+  padding-top: 1.6rem;
 }
 
 body.linear.hd.article-layout .article-info .icon-calendar {
@@ -2154,14 +2190,14 @@ body.linear.hd.article-layout #content .item-page.article-layout {
 }
 
 body.linear.hd.article-layout #content .item-page.article-layout figure {
-  width: calc( 700px + 6.4);
-  margin-left: -3.2;
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem;
 }
 
 body.linear.hd.article-layout .item-page.article-layout > div > .intro {
-  width: calc( 700px + 6.4);
-  margin-left: -3.2;
-  padding: 1.6 3.2;
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem;
+  padding: 1.6rem 3.2rem;
   border-top: 1px solid black;
   border-bottom: 1px solid black;
 }
@@ -2232,23 +2268,23 @@ body.linear.hd .type-set-5 {
 }
 
 [class*='-space-05'] {
-  --u-space: s( 0.5 );
+  --u-space: 0.8rem;
 }
 
 [class*='-space-1'] {
-  --u-space: s( 1 );
+  --u-space: 1.6rem;
 }
 
 [class*='-space-2'] {
-  --u-space: s( 2 );
+  --u-space: 3.2rem;
 }
 
 [class*='-space-3'] {
-  --u-space: s( 3 );
+  --u-space: 4.8rem;
 }
 
 [class*='-space-4'] {
-  --u-space: s( 4 );
+  --u-space: 6.4rem;
 }
 
 [class*='margin-top-'] {
@@ -2299,14 +2335,6 @@ body.linear.hd.it-home #banner .breadcrumb {
   opacity: 0;
 }
 
-/*.it-home #twitter-widget-0 {
-  height: calc( 100% - 12.8rem ) !important;
-  max-width: 329px !important;
-  display: block;
-}
-.it-home div.custom.twitter-feed {
-  height: 100%;
-}*/
 .it-home div.custom.twitter-feed h4,
 .it-home div.custom.twitter-feed hr {
   display: none;

@@ -7,47 +7,43 @@ body.hd #leftcolumn.sidebarpanel.gray,
 body.hd #sidebar_trigger.gray,
 body.hd #leftcolumn.sidebarpanel.no-seal,
 body.hd #sidebar_trigger.no-seal {
-  font-size: inherit;
-  background-color: transparent;
+  @include reset(font-size, background);
 }
 
 #leftcolumn ul.nav.menu a {
-  margin: 0;
+  @include reset(margin, border, background);
   display: block;
-  border: 0 solid transparent;
-  background-color: transparent;
   padding: 0.5em;
 }
 
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
-  margin: 0;
+  @include reset(margin);
 }
 
 #leftcolumn .sidebar li,
 #leftcolumn .sidebar ul.menu li {
-  padding: 0;
-  font-weight: normal;
+  @include reset(padding, font-weight);
 }
 
 #leftcolumn ul.nav.menu .current > a {
   background-color: c( $stone, 050 );
 }
 
-#leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  margin-left: sp( 5 );
-  border-left: 2px solid $uabgreen;
-}
-
 #leftcolumn ul.nav.menu > .parent > a {
-  font-family: 'kulturista-web', serif;
+  font-family: $font-head;
   @include type-setting(h4);
-  font-weight: normal;
+  @include reset(font-weight);
 }
 
 #leftcolumn ul.nav.menu a:hover {
   color: inherit !important;
   background-color: c($stone, 100);
+}
+
+#leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  margin-left: sp( 5 );
+  border-left: 2px solid $c-primary;
 }
 /*------------------------
 END SIDEBAR

@@ -19,11 +19,11 @@ START HELPERS
 }
 
 [class*='-space-0'] { --u-space: 0; }
-[class*='-space-05'] { --u-space: s( 0.5 ); }
-[class*='-space-1'] { --u-space: s( 1 ); }
-[class*='-space-2'] { --u-space: s( 2 ); }
-[class*='-space-3'] { --u-space: s( 3 ); }
-[class*='-space-4'] { --u-space: s( 4 ); }
+[class*='-space-05'] { --u-space: #{s( 0.5 )}; }
+[class*='-space-1'] { --u-space: #{s( 1 )}; }
+[class*='-space-2'] { --u-space: #{s( 2 )}; }
+[class*='-space-3'] { --u-space: #{s( 3 )}; }
+[class*='-space-4'] { --u-space: #{s( 4 )}; }
 [class*='margin-top-'] { margin-top: var( --u-space ) !important; }
 [class*='margin-right-'] { margin-right: var( --u-space ) !important; }
 [class*='margin-bottom-'] { margin-bottom: var( --u-space ) !important; }

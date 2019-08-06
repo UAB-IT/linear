@@ -9,7 +9,7 @@ account for the margins in the sizing of the slideshow. */
 body.linear.hd #content .item-page ul.uk-slideshow,
 body.linear.hd #content .item-page ul.uk-slideshow li,
 body.linear.hd #content .item-page ul.uk-slideshow img {
-  margin: 0;
+  @include reset(margin);
 }
 // TODO: Modify the size of dot nav -
 // Size should stay the same, color should be darker on active

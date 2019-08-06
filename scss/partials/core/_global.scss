@@ -1,84 +1,7 @@
-// BREAK POINTS
-
-@mixin breakpoint($size) {
-  @media all and (min-width: map-get($breakpoints, $size)) {
-    @content;
-  }
-}
-
-// UTILITY FUNCTIONS
-
-@function pow($base, $exponents) {
-  $raised: 1;
-  @for $i from 1 through $exponents {
-    $raised: $raised * $base;
-  }
-  @return $raised;
-}
-
-@function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
-}
-@function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
-}
-
-@mixin reset($properties...) {
-  @for $i from 0 to length($properties) {
-    @if nth($properties, $i + 1) == margin {
-      margin: 0;
-    }
-    @if nth($properties, $i + 1) == padding {
-      padding: 0;
-    }
-    @if nth($properties, $i + 1) == border {
-      border: 0;
-    }
-    @if nth($properties, $i + 1) == float {
-      float: none;
-    }
-    @if nth($properties, $i + 1) == font-size {
-      font-size: inherit;
-    }
-    @if nth($properties, $i + 1) == font-weight {
-      font-weight: normal;
-    }
-    @if nth($properties, $i + 1) == color {
-      color: black;
-    }
-    @if nth($properties, $i + 1) == background {
-      background: none;
-      background-color: transparent;
-      background-image: none;
-    }
-    @if nth($properties, $i + 1) == shadow {
-      text-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-  }
-}
-
-//TYPOGRAPHY LOGIC
-
 $rem-size: 16 !default;
 $ratio: 1.25 !default;
 $txt-size-raw: 16 !default;
 $line-height-raw: 1.6 !default;
-
-$txt-size: $txt-size-raw / $rem-size; //converts raw value to "rem"
-$line-height: $txt-size-raw * $line-height-raw / $rem-size; //converts raw value to "rem"
-
-@function line-height($size) {
-  $value: $line-height;
-  $i: 1.5;
-  @while $value < $size {
-    $value: $line-height * $i;
-    $i: $i + 0.5;
-  }
-  @return $value;
-}
 
 $font-sizes: (
   large: 6,
@@ -92,56 +15,6 @@ $font-sizes: (
   sm: -1
 ) !default;
 
-@function type-scale($scale) {
-  $level: null;
-  @if type-of($scale) == 'string' {
-    $level: map-get( $font-sizes, $scale );
-  }
-  @else {
-    $level: $scale;
-  }
-  @if $level == 0 {
-    @return $txt-size;
-  }
-  @else if $level < 0 {
-    $level: $level * -1;
-    @return $txt-size / pow( $ratio, $level );
-  }
-  @else {
-    @return $txt-size * pow( $ratio, $level );
-  }
-}
-
-@mixin type-setting($input) {
-  $size: type-scale( $input );
-  font-size: #{$size + 'rem'};
-  line-height: #{line-height( $size ) + 'rem'};
-}
-
-// COLOR SCALE
-$color-scale: (
-  050: 90%,
-  100: 80%,
-  200: 60%,
-  300: 40%,
-  400: 20%,
-  500: 0%,
-  600: 20%,
-  700: 40%,
-  800: 60%,
-  900: 80%
-) !default;
-
-@function c($color: black, $level: null) {
-  @if $level >= 600 {
-    $scale: map-get( $color-scale, $level );
-    @return shade( $color, $scale );
-  }
-  @else if $level <= 400 {
-    $scale: map-get( $color-scale, $level );
-    @return tint( $color, $scale );
-  }
-  @else {
-    @return $color;
-  }
-}
+$use-typography: true !default;
+$use-vertical-rhythem: true !default;
+$use-grid-layout: true !default;

@@ -2,21 +2,22 @@
 START PAGINATION
 ------------------------*/
 .pagination {
-  margin: 0 0 s(1);
+  @include reset(margin);
+  @include block-margin;
 }
 .pagination ul {
+  @include reset(shadow);
   border-radius: 0;
-  box-shadow: none;
 }
 .pagination ul > li > a,
 .pagination ul > li > span {
   display: inline-block;
-  margin: 0 s(0.5);
   @include border(none);
-  @include input-space;
+  padding: $input-padding;
+  margin: 0 s(0.5);
 }
 .pagination ul > li > span {
-  border-bottom: 2px solid $apple;
+  border-bottom: $bdr-md solid $c-secondary;
 }
 .pagination ul > li.pagination-start > a,
 .pagination ul > li.pagination-start > span,
@@ -36,18 +37,18 @@ START PAGINATION
 .pagination ul > li.pagination-prev > a,
 .pagination ul > li.pagination-end > a,
 .pagination ul > li.pagination-next > a {
-  @include border($color: $uabgreen, $radius: omit);
-  color: $uabgreen;
-  margin: 0;
+  @include reset(margin);
+  @include border($color: $c-primary, $radius: omit);
+  color: $c-primary;
 }
 .pagination ul > li.pagination-start > span,
 .pagination ul > li.pagination-prev > span,
 .pagination ul > li.pagination-end > span,
 .pagination ul > li.pagination-next > span {
+  @include reset(margin);
   @include border($color: c($stone, 300));
   color: c($stone, 300);
-  background: c($stone, 050);
-  margin: 0;
+  background: $c-background;
 }
 .pagination ul > li.pagination-prev > a,
 .pagination ul > li.pagination-prev > span {

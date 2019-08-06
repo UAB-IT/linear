@@ -1,28 +1,46 @@
 @import '_global.scss';
 
-$breakpoints: (
-  xxl: 2560px,
-  xl: 1440px,
-  lg: 1024px,
-  md: 761px,
-  sm: 760px,
-  xs: 300px
-) !default;
+// TYPOGRAPHY
 
-// FONTS
-$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
-$font-head: 'kulturista-web', serif !default;
-$font-mono: monospace !default;
-$font-icon: false !default;
+@mixin header-margin {
+  margin: $header-top 0 $header-bottom 0;
+}
+
+@mixin header-style($margin: true) {
+  @if $margin == true {
+    @include header-margin;
+  }
+  font-weight: $header-weight;
+  font-family: $font-head;
+}
+
+@mixin type-setting($input) {
+  $size: type-scale( $input );
+  font-size: #{$size + 'rem'};
+  line-height: #{line-height( $size ) + 'rem'};
+}
 
 //SPACING
-@function s($value) {
-  @return $line-height * $value;
+// BLOCK LEVEL ELEMENTS
+
+@mixin block-margin {
+  margin-bottom: $block-margin;
 }
+
+@mixin card-styles {
+  @include border();
+  padding: $block-padding;
+}
+
+@mixin list-margin {
+  margin-bottom: $list-margin;
+}
+
+// SECTION
 
 @mixin section-space($bg: false, $full: false) {
   @if $bg {
-    margin: s(2) 0;
+    margin: $section-margin 0;
     @if $full {
       padding: s(2) 0 s(1);
     }
@@ -31,53 +49,11 @@ $font-icon: false !default;
     }
   }
   @else {
-    margin: s(4) 0;
+    margin: $section-margin 0;
   }
 }
 
-$header-top: s(2);
-$header-bottom: s(1);
-
-$block-padding: s(0.5);
-$block-margin: s(1);
-
-@mixin block-margin {
-  margin-bottom: $block-margin;
-}
-
-$list-margin: s(0.5);
-
-@mixin list-margin {
-  margin-bottom: $list-margin;
-}
-
-$inline-padding: 0 0.2em 0.1em;
-$header-weight: normal;
-$input-padding: 0.3em 1em;
-
-@mixin inline-space {
-  padding: 0 0.2em 0.1em;
-}
-@mixin block-space {
-  padding: s( 0.5 );
-}
-@mixin input-space {
-  padding: 0.3em 1em;
-}
-@mixin header-space {
-  margin: $header-top 0 $header-bottom 0;
-}
-
-@mixin container-fix {
-  margin-bottom: 0 0 s( 1 );
-  & :last-child {
-    margin-bottom: 0;
-  }
-}
-
-$indent: 1em !default;
-$bdr-radius: 4px !default;
-$bdr-width: 1px !default;
+// BORDER
 
 @mixin border($width: $bdr-width, $color: black, $radius: $bdr-radius, $style: solid) {
   @if $width == none {
@@ -99,29 +75,106 @@ $bdr-width: 1px !default;
   }
 }
 
-// BRAND COLORS
-$uabgreen: #1E6B52;
-$darkgreen: #295135;
-$blaze: #FFD400;
-$apple: #80BC00;
-$gold: #AA9767;
-$stone: #808285;
-$coral: #EA6852;
+// LINKS
 
-// COLORS
-$color-primary: $uabgreen !default;
-$color-secondary: $apple !default;
-$mark-color: c( $uabgreen, 100 ) !default;
+@mixin link-style($hover: false, $hover-bg: c( $c-primary, 100), $hover-bdr: $c-primary, $border: c( $c-primary, 300 )) {
+  @if $hover == true {
+    background-color: $hover-bg;
+    border-color: $hover-bdr;
+  }
+  @else {
+    border-bottom: 2px solid $border;
+  }
+}
 
-$color-green: $apple !default;
-$color-yellow: $blaze !default;
-$color-red: $coral !default;
+// BUTTONS
 
-$hr-color: black;
-$txt-color: black;
+@mixin button-primary {
+  color: white;
+  background: $c-primary;
+  @include border( $color: $c-primary );
+}
 
-$background: c( $stone, 050 );
+@mixin button($pri: false) {
+  @if $pri == true {
+    @include button-primary;
+  }
+  @else {
+    @include border( $color: c( $stone, 800 ) );
+    color: c( $stone, 800 );
+  }
+  @include type-setting(0);
+  padding: $input-padding;
+  text-align: center;
+  margin-bottom: s( 1 );
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+@mixin button-hover {
+  outline: 0;
+  text-decoration: none;
+  border-color: $c-primary;
+  box-shadow: 0 0 0 1px $c-primary;
+  background: c( $c-primary, 100 );
+  color: black;
+}
 
-$banner-top: s( 1 ) * 8 !default;
+// MISC
 
-$cont-width: 1280px;
+@mixin container-fix {
+  margin-bottom: 0 0 s( 1 );
+  & :last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin breakpoint($size) {
+  @media all and (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// RESET
+
+@mixin reset($properties...) {
+  @for $i from 0 to length($properties) {
+    @if nth($properties, $i + 1) == margin {
+      margin: 0;
+    }
+    @if nth($properties, $i + 1) == padding {
+      padding: 0;
+    }
+    @if nth($properties, $i + 1) == border {
+      border: 0;
+    }
+    @if nth($properties, $i + 1) == float {
+      float: none;
+    }
+    @if nth($properties, $i + 1) == font-size {
+      font-size: inherit;
+    }
+    @if nth($properties, $i + 1) == font-weight {
+      font-weight: normal;
+    }
+    @if nth($properties, $i + 1) == color {
+      color: inherit;
+    }
+    @if nth($properties, $i + 1) == background {
+      background: none;
+      background-color: transparent;
+      background-image: none;
+    }
+    @if nth($properties, $i + 1) == shadow {
+      text-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    @if nth($properties, $i + 1) == transition {
+      -webkit-transition-property: none;
+      -moz-transition-property: none;
+      -o-transition-property: none;
+      transition-property: none;
+    }
+  }
+}

@@ -8,9 +8,10 @@ START SEARCH
 }
 
 body.linear.hd #search button.btn-primary {
-  border: 1px solid $uabgreen;
-  margin: 0;
-  transition-property: none;
+  @include button-primary;
+  @include reset(margin, transition);
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
 }
 
 #{$specify} #search .btn-primary {
@@ -21,9 +22,9 @@ body.linear.hd #search button.btn-primary {
 }
 
 #{$specify} #search input {
+  @include border($color: $c-primary, $radius: omit);
   border-top-left-radius: $bdr-radius !important;
   border-bottom-left-radius: $bdr-radius !important;
-  @include border($color: $uabgreen, $radius: omit);
 }
 /*------------------------
 END SEARCH

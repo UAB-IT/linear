@@ -18,8 +18,8 @@ START DETAILS
 }
 #{$specify} .wk-details .uk-panel-title {
   @include reset(margin);
-  margin-bottom: s( -0.5 );
   @include type-setting(h4);
+  margin-bottom: s( -0.5 );
 }
 /*------------------------
 END DETAILS

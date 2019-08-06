@@ -1,0 +1,92 @@
+// UTILITY FUNCTIONS
+
+$txt-size: $txt-size-raw / $rem-size; //converts raw value to "rem"
+$line-height: $txt-size-raw * $line-height-raw / $rem-size; //converts raw value to "rem"
+
+@function pow($base, $exponents) {
+  $raised: 1;
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+  @return $raised;
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// COLOR SCALE
+
+$color-scale: (
+  050: 90%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 20%,
+  700: 40%,
+  800: 60%,
+  900: 80%
+) !default;
+
+@function c($color: black, $level: null) {
+  @if $level >= 600 {
+    $scale: map-get( $color-scale, $level );
+    @return shade( $color, $scale );
+  }
+  @else if $level <= 400 {
+    $scale: map-get( $color-scale, $level );
+    @return tint( $color, $scale );
+  }
+  @else {
+    @return $color;
+  }
+}
+
+// TYPOGRAPHY
+
+@function line-height($size) {
+  $value: $line-height;
+  $i: 1.5;
+  @while $value < $size {
+    $value: $line-height * $i;
+    $i: $i + 0.5;
+  }
+  @return $value;
+}
+
+@function type-scale($scale) {
+  $level: null;
+  @if type-of($scale) == 'string' {
+    $level: map-get( $font-sizes, $scale );
+  }
+  @else {
+    $level: $scale;
+  }
+  @if $level == 0 {
+    @return $txt-size;
+  }
+  @else if $level < 0 {
+    $level: $level * -1;
+    @return $txt-size / pow( $ratio, $level );
+  }
+  @else {
+    @return $txt-size * pow( $ratio, $level );
+  }
+}
+
+// SPACE UNIT
+$space-unit: 1.6rem !default;
+@if $use-vertical-rhythem == true {
+  $space-unit: $line-height !default;
+}
+@else {
+  $space-unit: 1.6rem !default;
+}
+@function s($value) {
+  @return ($space-unit * $value) + 0rem;
+}

@@ -2,18 +2,18 @@
 START PULLQUOTE
 ------------------------*/
 #{$specify} .pullquote {
-  padding: s(1);
-  background-color: c($stone, 050);
-  border-left: 5px solid $apple;
-  margin-bottom: s(1);
+  @include block-margin;
+  padding: $block-padding;
+  background-color: $c-background;
+  border-left: $bdr-lg solid $c-secondary;
 }
 #{$specify} .background .pullquote {
   background-color: c($stone, 100);
 }
 #{$specify} .pullquote p,
 #{$specify} .pullquote q {
+  @include reset(margin);
   @include type-setting(1);
-  margin: 0;
   display: block;
 }
 #{$specify} .pullquote footer {

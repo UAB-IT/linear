@@ -4,11 +4,11 @@ START GALLERY
 This uses widgetkit for layout
 ------------------------*/
 #{$specify} .wk-gallery p {
+  @include reset(margin);
   text-align: center;
-  margin: 0;
 }
 #{$specify} .wk-gallery {
-  margin-bottom: s( 1 );
+  @include block-margin;
 }
 /*------------------------
 END GALLERY

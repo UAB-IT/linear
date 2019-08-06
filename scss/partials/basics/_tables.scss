@@ -11,40 +11,39 @@ START TABLES
 }
 #{$specify} table tr td,
 #{$specify} table tr th {
-  padding: $block-padding;
   @include border;
+  padding: $table-padding;
   text-align: inherit;
 }
 #{$specify} table thead th {
+  @include header-style(false);
   @include type-setting(h4);
-  font-family: $font-head;
-  font-weight: normal;
 }
 #{$specify} table pre,
 #{$specify} table p {
-  margin: 0;
+  @include reset(margin);
 }
 /* START OVERRIDES */
 .table-bordered {
-  border: 0;
+  @include reset(border);
   border-collapse: collapse;
   border-radius: 0;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 0;
+  @include reset(border);
 }
 table.category td {
-  border: 0;
+  @include reset(border);
 }
 .table-hover tbody tr:hover > td,
 .table-hover tbody tr:hover > th {
-  background: transparent;
+  @include reset(background);
 }
 .table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
-  background: none;
+  @include reset(background);
 }
 .table-bordered caption + thead tr:first-child th:first-child,
 .table-bordered caption + tbody tr:first-child td:first-child,
@@ -55,13 +54,13 @@ table.category td {
 /* END OVERRIDES */
 #{$specify} table.table-striped tr td,
 #{$specify} table.table-striped tr th {
-  border: 0 solid transparent;
+  @include reset(border);
 }
 #{$specify} .table-striped tbody > tr:nth-child(odd) {
-  background: c($stone, 050);
+  background: $c-background;
 }
 #{$specify} .category.table tbody a {
-  border: 0;
+  @include reset(border);
   text-decoration: underline;
 }
 /*------------------------

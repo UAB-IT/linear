@@ -2,7 +2,7 @@
 START TYPOGRAPHY
 ------------------------ */
 /* ------------------------
-FONTS
+SPACING
 ------------------------ */
 
 #{$specify} h1,
@@ -11,14 +11,45 @@ FONTS
 #{$specify} h4,
 #{$specify} h5,
 #{$specify} h6 {
-  font-family: $font-head;
-  font-weight: $header-weight;
+  @include header-style(false);
+  color: inherit;
+  text-align: inherit;
+}
+[role='main'] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include header-margin;
+  }
+}
+
+#leftcolumn h3 {
+  @include header-margin;
+}
+
+p,
+#{$specify} hr,
+pre,
+blockquote {
+  @include block-margin;
+  margin-top: 0;
+}
+
+/* Remove gap caused by first header in an article */
+#{$specify} .item-page h2:first-of-type,
+#{$specify} .section h2:first-of-type,
+#{$specify} .section :first-child {
+  margin-top: 0;
 }
 
 /* ------------------------
 TYPESETTING
 ------------------------ */
 
+/* ID is used here to overwrite equally high specificity from style.css */
 #{$specify} h1,
 #{$specify} .uk-h1 { @include type-setting(h1); }
 #{$specify} h2,
@@ -64,18 +95,22 @@ LINKS
 
 /* Applies link styles to content areas only. Less specific than an id.
 Div is used here because .ribbonFullwidth is also on the body element. */
-a:focus,
-:focus {
-  outline: 5px auto $color-primary;
-}
 
-div.ribbonFullwidth a[href]:not(.unstyled) {
-  border-bottom: 2px solid c( $color-primary, 300 );
-}
-
-div.ribbonFullwidth a[href]:not(.unstyled):hover {
-  background-color: c( $color-primary, 100 );
-  border-color: $color-primary;
+p a[href]:not(.unstyled),
+li a[href]:not(.unstyled),
+h1 a[href]:not(.unstyled),
+h2 a[href]:not(.unstyled),
+h3 a[href]:not(.unstyled),
+h4 a[href]:not(.unstyled),
+h5 a[href]:not(.unstyled),
+h6 a[href]:not(.unstyled),
+table a[href]:not(.unstyled),
+dl a[href]:not(.unstyled),
+pre a[href]:not(.unstyled) {
+  @include link-style;
+  &:hover {
+    @include link-style($hover: true);
+  }
 }
 
 /* ------------------------
@@ -90,7 +125,7 @@ kbd {
 
 mark,
 ::selection {
-  background-color: $mark-color;
+  background-color: $c-mark;
 }
 /*
 strong,

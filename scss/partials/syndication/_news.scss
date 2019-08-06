@@ -2,7 +2,7 @@
 START NEWS FEEDS
 ------------------------*/
 /* START NEWSFLASH */
-#{$specify} ul.newsflash-vert {
+#{$specify} .item-page ul.newsflash-vert {
   overflow: visible;
   align-items: stretch;
   grid-gap: s(2);

@@ -7,7 +7,7 @@ img {
   @include block-margin;
 }
 figure img {
-  margin: 0;
+  @include reset(margin);
 }
 figure {
   @include block-margin;

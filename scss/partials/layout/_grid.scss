@@ -146,10 +146,10 @@ END IE FALLBACK
   [class*='grid-3'],
   [class*='grid-4'],
   [class*='grid-6'] {
+    @include block-margin;
     display: grid;
     grid-gap: s(2);
     grid-auto-flow: row;
-    margin-bottom: s(1);
   }
   .grid--no-gap {
     grid-gap: 0;

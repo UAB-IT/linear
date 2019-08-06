@@ -3,14 +3,15 @@ START ARTICLE
 ------------------------*/
 #{$specify}.article-layout .article-info {
   text-align: right;
-  border-top: 1px solid black;
-  margin-bottom: 0px;
+  border-top: $bdr-width solid black;
+  margin-bottom: 0;
   padding-top: s( 1 );
 }
 #{$specify}.article-layout .article-info .icon-calendar {
   display: none;
 }
 
+// why 700?
 #{$specify}.article-layout #content .item-page.article-layout {
   max-width: 700px;
   margin: auto;
@@ -23,8 +24,8 @@ START ARTICLE
   width: calc( 700px + #{s( 4 )} );
   margin-left: -#{s( 2 )};
   padding: s( 1 ) s( 2 );
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  border-top: $bdr-width solid black;
+  border-bottom: $bdr-width solid black;
 }
 /*------------------------
 END ARTICLE
