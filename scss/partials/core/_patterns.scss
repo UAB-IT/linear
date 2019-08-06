@@ -42,7 +42,7 @@
   @if $bg {
     margin: $section-margin 0;
     @if $full {
-      padding: s(2) 0 s(1);
+      padding: s(4) 0 s(3);
     }
     @else {
       padding: s(2) s(2) s(1);

@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.0
+Ember 0.6.1
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -1542,7 +1542,7 @@ body.hd.inside #whitebox {
 
 .section.background-full {
   margin: 6.4rem 0;
-  padding: 3.2rem 0 1.6rem;
+  padding: 6.4rem 0 4.8rem;
   position: relative;
 }
 
@@ -1806,28 +1806,6 @@ body.linear.hd ul.it-feed {
 /*------------------------
 END NEWS FEEDS
 ------------------------*/
-/*body.linear.hd .it-news .newsflash-item {
-  padding: s(1);
-  padding-bottom: s(2);
-  overflow: hidden;
-  @include border($color: c($stone, 300))
-  background-color: $stone-050;
-}
-body.linear.hd .it-news .newsflash-image {
-  margin-left: s(-1);
-  margin-top: s(-1);
-  width: calc( 100% + 3.2rem );
-}
-body.linear.hd .it-news a.readmore {
-  border: 0px solid transparent;
-  background-color: c($stone, 100);
-  padding: s(0.5);
-  text-align: center;
-}
-body.linear.hd .it-news a.readmore:hover {
-  background-color: c($stone, 100);
-}
-*/
 /*------------------------
 START SOCIAL ICONS
 ------------------------*/
