@@ -4,38 +4,37 @@ START LISTS
 ------------------------*/
 #{$specify} ul,
 #{$specify} ol {
+  @include reset(margin, padding);
   list-style-position: outside;
-  margin: 0;
-  padding: 0px;
 }
 #{$specify} li {
   list-style-position: inherit;
 }
 
-#{$specify} .item-page ul,
-#{$specify} .item-page ol {
+#{$specify} .item-page ul:not(.unstyled),
+#{$specify} .item-page ol:not(.unstyled) {
   margin-left: 1.2em;
 }
 #{$specify} .item-page ul.outside,
 #{$specify} .item-page ol.outside {
-  margin-left: 0px;
+  margin-left: 0;
 }
 
 #{$specify} .item-page ul,
 #{$specify} .item-page ol,
 #{$specify} .item-page dl {
-  margin-bottom: $s-1;
+  @include list-margin;
 }
 
-#{$specify} ul ul,
-#{$specify} ul ol,
-#{$specify} ol ol,
-#{$specify} ol ul {
-  margin-bottom: 0px;
+#{$specify} ul:not(.unstyled) ul,
+#{$specify} ul:not(.unstyled) ol,
+#{$specify} ol:not(.unstyled) ol,
+#{$specify} ol:not(.unstyled) ul {
+  margin-bottom: 0;
   margin-left: $list-indent;
 }
 
-#{$specify} .item-page ul {
+#{$specify} .item-page ul:not(.unstyled) {
   list-style-type: disc;
   ul {
     list-style-type: circle;
@@ -43,7 +42,7 @@ START LISTS
   }
 }
 
-#{$specify} .item-page ol {
+#{$specify} .item-page ol:not(.unstyled) {
   list-style-type: decimal;
   ol {
     list-style-type: upper-latin;
@@ -56,19 +55,18 @@ START LISTS
 }
 
 dd {
+  @include list-margin;
   margin-left: $list-indent;
-  margin-bottom: $s-05;
 }
 
+/* Gets rid of bootstrap style */
 #content li {
-  margin: $s-05 0 0;
+  @include reset(margin);
 }
-#content [class*='grid-1'] > li,
-#content [class*='grid-2'] > li,
-#content [class*='grid-3'] > li,
-#content [class*='grid-4'] > li,
-#content [class*='grid-6'] {
-  margin: 0px;
+
+#content ul:not(.unstyled) li,
+#content ol:not(.unstyled) li {
+  margin: $list-margin 0 0;
 }
 /*------------------------
 END LISTS

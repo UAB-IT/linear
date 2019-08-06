@@ -5,24 +5,26 @@ START FORMS
 START BTN TOOLBAR
 ------------------------*/
 .btn-toolbar {
-  margin: 0 0 $s-1;
+  margin: 0 0 $block-margin;
 }
 #undefined {
-  margin: 0px;
+  @include reset(margin);
 }
 .input-group {
   display: flex;
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 #{$specify} .input-group button,
 #{$specify} .input-group input {
-  margin: 0;
+  @include reset(margin);
 }
 #{$specify} .input-group input {
+  border-radius: $bdr-radius;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 #{$specify} .input-group button {
+  border-radius: $bdr-radius;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
@@ -33,293 +35,57 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
-  @include type-setting($h4-scale);
-  color: inherit;
-  font-family: 'kulturista-web', serif !important;
+  @include header-style(false);
+  @include reset(color);
+  @include type-setting(h4);
 }
 
-select,
-textarea,
-input[type='text'],
-input[type='password'],
-input[type='datetime'],
-input[type='datetime-local'],
-input[type='date'],
-input[type='month'],
-input[type='time'],
-input[type='week'],
-input[type='number'],
-input[type='email'],
-input[type='url'],
-input[type='search'],
-input[type='tel'],
-input[type='color'],
-.uneditable-input,
-textarea,
-progress,
-fieldset,
-.chzn-container,
-.chzn-container-single .chzn-single,
-.chzn-container-active.chzn-with-drop .chzn-single,
-.chzn-container .chzn-results li.highlighted {
+#{$specify} .uneditable-input,
+#{$specify} textarea,
+#{$specify} progress,
+#{$specify} fieldset,
+#{$specify} input {
+  @include reset(background, shadow, transition);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   outline: 0;
-  background: transparent;
   box-sizing: border-box;
-  border: $bdr-radius;
-  border-radius: 0px;
-  box-shadow: none;
   height: auto;
-  color: black;
-}
-/*
-.chzn-container-single .chzn-single {
-  border: 1px solid black;
-  border-radius: $bdr-radius;
-  padding: 0.25em 0.5em;
 }
 
-.chzn-container-active.chzn-with-drop .chzn-single {
-  border-color: $uabgreen;
-  border: 1px solid black;
-  border-radius: $bdr-radius;
+#{$specify} .uneditable-input,
+#{$specify} textarea,
+#{$specify} progress,
+#{$specify} fieldset,
+#{$specify} input {
+  color: $txt-color;
+  padding: $input-padding;
+  @include border($radius: 0);
 }
 
-.chzn-container .chzn-results {
-  margin-bottom: 0px !important;
-  padding: 0px;
-}
-
-.chzn-container .chzn-results li {
-  padding: 0px 1rem;
-  line-height: 1.6rem;
-}
-
-.chzn-container .chzn-results li.highlighted {
-  background-color: $uabgreen-100;
-}
-*/
-@include input {
-  padding: 0.25em 0.5em;
-  background-color: white;
+#{$specify} input,
+#{$specify} textarea {
   display: block;
   width: 100%;
-  border: 1px solid black;
-  border-radius: 0;
-  color: black;
+  background-color: white;
 }
 
-textarea {
-  height: $s-4;
-  width: 100%;
+#{$specify} textarea {
+  height: s(4);
   resize: vertical;
   overflow-y: scroll;
 }
 
-input[type='color'] { display: block; }
-
-textarea:focus,
-input[type='text']:focus,
-input[type='password']:focus,
-input[type='datetime']:focus,
-input[type='datetime-local']:focus,
-input[type='date']:focus,
-input[type='month']:focus,
-input[type='time']:focus,
-input[type='week']:focus,
-input[type='number']:focus,
-input[type='email']:focus,
-input[type='url']:focus,
-input[type='search']:focus,
-input[type='tel']:focus,
-input[type='color']:focus,
-select:focus {
-  border-color: $apple !important;
-  box-shadow: 0 0 0 1px $apple;
+#{$specify} textarea:focus,
+#{$specify} input:focus,
+#{$specify} select:focus {
+  border-color: $c-secondary !important;
+  box-shadow: 0 0 0 1px $c-secondary;
 }
 
 input[type='file']:focus,
 input[type='radio']:focus,
 input[type='checkbox']:focus {
-  outline: 2px auto $uabgreen;
+  outline: 2px auto $c-primary;
 }
-// /*------------------------
-// Date Inputs
-// ------------------------*/
-// input[type=date],
-// input[type=month],
-// input[type=week],
-// select {
-//   position: relative;
-// }
-// input[type=date]::before,
-// input[type=month]::before,
-// input[type=week]::before,
-// select::before {
-//   content: '◳';
-//   font-size: 1.5em;
-//   display: block;
-//   position: absolute;
-//   right: 0.25em;
-//   top: 0.15em;
-//   height: 100%;
-// }
-/*------------------------
-Range
-------------------------*/
-input[type='range'] {
-  -webkit-appearance: none;
-  width: 100%;
-  background: transparent;
-  min-height: 1.6rem;
-}
-
-input[type='range']:focus { outline: 0; }
-
-@include range-thumb {
-  background: $grey3;
-  border: 2px solid white;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-@include range-thumb($moz: false, $ms: false) {
-  -webkit-appearance: none;
-  height: 1.25rem;
-  width: 1.25rem;
-  margin-top: -0.4rem;
-}
-
-@include range-thumb-focus {
-  background: $color-primary;
-}
-
-@include range-track {
-  width: 100%;
-  height: 0.5rem;
-  cursor: pointer;
-  background: $grey1;
-  border-radius: 100px;
-  border-color: transparent;
-  color: transparent;
-}
-// /*------------------------
-// Radio & Checkbox
-// ------------------------*/
-// input[type='radio'],
-// input[type='checkbox'] {
-//   opacity: 0;
-//   position: absolute;
-// }
-// input[type='radio']+label,
-// input[type='checkbox']+label {
-//   font-weight: normal;
-//   display: block;
-//   position: relative;
-//   cursor: pointer;
-//   &:before {
-//     margin-right: 0.5em;
-//     display: inline-block;
-//     position: relative;
-//     color: $grey3;
-//     @if $font-icon == false {
-//       font-size: 1.5em;
-//       top: 0.05em;
-//       line-height: 1.6rem;
-//       width: 0.6em;
-//     }
-//     @else {
-//       font-family: $font-icon;
-//       top: 0.05em;
-//     }
-//   }
-// }
-// input[type='checkbox']+label::before {
-//   content: '#{$checkbox}';
-// }
-// input[type='checkbox']:checked+label::before {
-//   color: $color-primary;
-//   content: '#{$checkbox-fill}';
-// }
-// input[type='radio']+label::before {
-//   content: '#{$radio}';
-// }
-// input[type='radio']:checked+label::before {
-//   color: $color-primary;
-//   content: '#{$radio-fill}';
-// }
-// @include radio-check-focus {
-//   outline: 2px solid $color-primary;
-// }
-/*------------------------
-Progress
-------------------------*/
-progress {
-  vertical-align: baseline;
-  display: block;
-  width: 100%;
-  background: $grey1;
-  color: $color-primary;
-}
-
-@include progress-value {
-  background: $color-primary;
-}
-/*------------------------
-Meter
-------------------------*/
-meter {
-  vertical-align: baseline;
-  display: block;
-  width: 100%;
-  background: $grey1;
-  margin-bottom: $s-1;
-}
-
-@include meter-good {
-  background: none;
-  background-color: $color-green;
-}
-
-@include meter-ok {
-  background: none;
-  background-color: $color-yellow;
-}
-
-@include meter-bad {
-  background: none;
-  background-color: $color-red;
-}
-/*------------------------
-Resets
-------------------------*/
-// ::-webkit-inner-spin-button,
-// ::-webkit-outer-spin-button {
-//   display: none;
-// }
-::-webkit-progress-bar {
-  background: transparent;
-}
-
-::-webkit-meter-bar {
-  background: none;
-}
-
-:-moz-focusring {
-  color: transparent;
-  text-shadow: 0 0 0 #000;
-  border-style: none;
-}
-
-:-moz-focus-inner {
-  border-style: none;
-}
-
-// ::-webkit-calendar-picker-indicator {
-//   opacity: 0;
-// }
-/*------------------------
-END FORMS
-------------------------*/

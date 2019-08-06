@@ -9,46 +9,20 @@ START BUTTONS
 #{$specify} input[type='submit'],
 #{$specify} input[type='reset'],
 #{$specify} input[type='button'] {
+  @include reset(background, shadow);
   -webkit-appearance: none;
-  background-color: transparent;
-  text-align: center;
   text-decoration: none;
-  white-space: nowrap;
-  box-sizing: border-box;
   cursor: pointer;
-  @include type-setting(0);
-  padding: $pad-input;
-  margin-bottom: $s-1;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  background-image: none;
-  text-shadow: none;
-  border: 1px solid $dark;
-  border-radius: $bdr-radius;
-  color: $dark;
+  @include button;
   &:focus,
   &:hover {
-    outline: 0;
-    text-decoration: none;
-    border-color: $color-primary;
-    box-shadow: 0 0 0 1px $color-primary;
-    background: $uabgreen-100;
-    color: black;
+    @include button-hover;
   }
 }
 
 #{$specify} a.btn-primary,
 #{$specify} button.btn-primary {
-  color: white;
-  background: $color-primary;
-  border-color: $color-primary;
-}
-
-#{$specify} a.btn--full,
-#{$specify} button.btn--full {
-  display: block;
-  width: 100%;
+  @include button-primary;
 }
 /*------------------------
 END BUTTONS

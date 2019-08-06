@@ -4,21 +4,34 @@ START MEDIA
 img {
   max-width: 100%;
   object-fit: cover;
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 figure img {
-  margin: 0px;
+  @include reset(margin);
 }
 figure {
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 iframe {
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 figure figcaption {
-  @include type-setting($sm-scale);
+  @include type-setting(sm);
   text-align: center;
-  margin: $s-1 0;
+  margin: $block-margin 0;
+}
+@media all and (max-width: 1800px) {
+  #{$specify} .off-canvas-img {
+    position: relative;
+    align-self: flex-start;
+  }
+  #{$specify} .off-canvas-img > img {
+    max-width: 100vw;
+    width: auto;
+    height: 70vh;
+    position: absolute;
+    left: 0;
+  }
 }
 /*------------------------
 END MEDIA

@@ -4,10 +4,10 @@ START FEATURES
 This uses widgetkit for layout
 ------------------------*/
 #{$specify} .wk-features {
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 #{$specify} .wk-features .uk-panel p {
-  margin: 0;
+  @include reset(margin);
 }
 #{$specify} .wk-features .uk-panel img {
   height: 7rem;
@@ -16,8 +16,8 @@ This uses widgetkit for layout
   margin: auto;
 }
 #{$specify} .wk-features .uk-panel-title {
-  margin-top: $s-1;
-  margin-bottom: $s-1;
+  @include block-margin;
+  margin-top: s( 1 );
 }
 /*------------------------
 END FEATURES

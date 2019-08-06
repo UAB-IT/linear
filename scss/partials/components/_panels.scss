@@ -3,30 +3,26 @@ START PANELS
 ------------------------*/
 body .panels > a,
 .cards > div {
-  border: 1px solid black;
-  padding: $s-1;
-  border-radius: $bdr-radius;
+  @include card-styles;
   background: white;
 }
 body .panels > a:hover {
-  border-color: $uabgreen;
-  box-shadow: 0 0 0 1px $uabgreen;
-  background: $uabgreen-100;
+  @include button-hover;
 }
 .panels > a h4 {
   display: inline-block;
-  margin-top: 0px;
-  border-bottom: 2px solid $uabgreen-300;
+  margin-top: 0;
+  @include link-style;
 }
 .panels > a:hover h4 {
-  border-color: $uabgreen;
+  @include link-style($hover: true);
 }
 .panels > a p:last-child {
-  margin-bottom: 0px;
+  margin-bottom: 0;
 }
 
 .uk-panel-box {
-  padding: $s-1;
+  padding: $block-padding;
 }
 
 .uk-panel-title,
@@ -36,34 +32,31 @@ body .panels > a:hover {
 .uk-panel-box-hover:hover,
 .uk-panel-box-primary .uk-panel-title,
 .uk-panel-box-primary-hover:hover {
-  color: black;
+  color: $txt-color;
 }
 
 #{$specify} .wk-panels {
-  margin-bottom: $s-1;
+  @include block-margin;
 }
 #{$specify} .wk-panels .uk-panel-title {
   margin-top: 0;
 }
 #{$specify} .wk-panels .uk-panel {
   background: white;
-  border: 1px solid black;
-  border-radius: $bdr-radius;
+  @include card-styles;
 }
 #{$specify} a.uk-position-cover {
   opacity: 0 !important;
 }
 #{$specify} .wk-panels .uk-panel p:last-child {
-  margin: 0;
+  @include reset(margin);
 }
 
 #{$specify} .wk-panels .uk-panel:hover {
-  border-color: $uabgreen;
-  box-shadow: 0 0 0 1px $uabgreen;
-  background: $uabgreen-100;
+  @include button-hover;
 }
 #{$specify} .wk-panels .uk-panel:hover h3 a {
-  border-color: $uabgreen;
+  border-color: $c-primary;
 }
 /*------------------------
 END PANELS

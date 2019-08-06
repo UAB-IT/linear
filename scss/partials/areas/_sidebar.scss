@@ -7,44 +7,43 @@ body.hd #leftcolumn.sidebarpanel.gray,
 body.hd #sidebar_trigger.gray,
 body.hd #leftcolumn.sidebarpanel.no-seal,
 body.hd #sidebar_trigger.no-seal {
-  font-size: inherit;
-  background-color: transparent;
+  @include reset(font-size, background);
 }
 
 #leftcolumn ul.nav.menu a {
-  margin: 0px;
+  @include reset(margin, border, background);
   display: block;
-  border: 0px solid transparent;
-  background-color: transparent;
-  padding: $pad-block;
-  border-left: 4px solid transparent;
+  padding: 0.5em;
 }
 
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
-  margin: 0px;
+  @include reset(margin);
 }
 
 #leftcolumn .sidebar li,
 #leftcolumn .sidebar ul.menu li {
-  padding: 0px;
-  font-weight: normal;
+  @include reset(padding, font-weight);
 }
 
 #leftcolumn ul.nav.menu .current > a {
-  background-color: $stone-050;
-  border-left: 4px solid $apple;
+  background-color: c( $stone, 050 );
 }
 
-#leftcolumn ul.nav.menu .parent > a {
-  font-family: 'kulturista-web', serif;
-  @include type-setting($h4-scale);
+#leftcolumn ul.nav.menu > .parent > a {
+  font-family: $font-head;
+  @include type-setting(h4);
+  @include reset(font-weight);
 }
 
 #leftcolumn ul.nav.menu a:hover {
-  border-left: 4px solid $apple;
   color: inherit !important;
-  background-color: $stone-100;
+  background-color: c($stone, 100);
+}
+
+#leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  margin-left: sp( 5 );
+  border-left: 2px solid $c-primary;
 }
 /*------------------------
 END SIDEBAR

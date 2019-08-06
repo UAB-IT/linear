@@ -1,0 +1,60 @@
+// UTILITY FUNCTIONS
+$specify: 'body.linear.hd';
+$cont-width: 1280px;
+
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 761px,
+  sm: 760px,
+  xs: 300px
+) !default;
+
+$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
+$font-head: 'kulturista-web', serif !default;
+$font-mono: monospace !default;
+$font-icon: false !default;
+
+$header-top: s(2);
+$header-bottom: s(1);
+$header-weight: normal;
+
+$uabgreen: #1E6B52;
+$darkgreen: #295135;
+$blaze: #FFD400;
+$apple: #80BC00;
+$gold: #AA9767;
+$stone: #808285;
+$coral: #EA6852;
+
+$c-primary: $uabgreen !default;
+$c-secondary: $apple !default;
+$c-mark: c( $uabgreen, 100 ) !default;
+
+$c-green: $apple !default;
+$c-yellow: $blaze !default;
+$c-red: $coral !default;
+
+$hr-color: black;
+$txt-color: black;
+
+$c-background: c( $stone, 050 );
+
+$block-margin: s(1);
+$block-padding: s(1);
+$inline-padding: 0 0.2em 0.1em;
+$input-padding: 0.3em 1em;
+$table-padding: s(0.5);
+$list-margin: s(0.5);
+
+$indent: 1em !default;
+
+$section-margin: s(4);
+
+$bdr-radius: 4px !default;
+$bdr-width: 1px !default;
+$bdr-md: 2px !default;
+$bdr-lg: 5px !default;
+
+$banner-top: s( 1 ) * 8 !default;

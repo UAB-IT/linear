@@ -6,7 +6,7 @@ START CALENDAR
 }
 #{$specify} .localist-month,
 .localist-day {
-  background: $uabgreen;
+  background: $c-primary;
   width: 60px;
 }
 #{$specify} .localist-widget-eds div.localist-month {
@@ -22,15 +22,15 @@ START CALENDAR
   text-align: center;
   font-weight: 600;
   @include type-setting(1);
-  border-bottom: 4px solid $apple;
+  border-bottom: 4px solid $c-secondary;
   padding-bottom: 0.4em;
 }
 #{$specify} .localist-dateblock {
-  margin-right: $s-05;
+  margin-right: s(0.5);
 }
 #{$specify} .localist-widget-eds li {
   display: flex;
-  margin-bottom: $s-05;
+  margin-bottom: s(0.5);
 }
 #{$specify} .localist-title h4 {
   font-family: 'proxima-nova', sans-serif !important;
@@ -43,7 +43,7 @@ START CALENDAR
 }
 #{$specify} .localist-otherdetails div,
 .localist-otherdetails i {
-  @include type-setting(n1);
+  @include type-setting(-1);
 }
 #{$specify} .localist-venue {
   display: none;

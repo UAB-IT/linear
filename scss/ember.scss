@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.5.0
+Ember 0.6.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -11,6 +11,10 @@ START CORE
 Required css for Ember to function. Includes SCSS variables and CSS Resets.
 Helpers are in the Core category, but are included at the end of the Ember code block.
 --------------------------------------------------*/
+@import 'partials/core/_global.scss';
+@import 'partials/core/_functions.scss';
+@import 'partials/core/_variables.scss';
+@import 'partials/core/_patterns.scss';
 @import 'partials/core/_reset.scss';
 /*--------------------------------------------------
 END CORE - START BASICS
@@ -47,6 +51,8 @@ CSS that helps with page layout, from site wide edits to page specific layout.
 --------------------------------------------------*/
 @import 'partials/layout/_grid.scss';
 @import 'partials/layout/_spacing.scss';
+@import 'partials/layout/_areas.scss';
+@import 'partials/layout/_widgetkit.scss';
 /*--------------------------------------------------
 END LAYOUT - START SYNDICATION
 Components that style syndicated content where we have limited control over
@@ -67,7 +73,6 @@ Most edits undo Ember styling to keep template styles in those areas.
 @import 'partials/areas/_sidebar.scss';
 @import 'partials/areas/_footer.scss';
 @import 'partials/areas/_article.scss';
-//@import 'partials/areas/_layout.scss';
 /*--------------------------------------------------
 END AREAS
 --------------------------------------------------*/

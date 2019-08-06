@@ -1,19 +1,8 @@
-$header-top: $s-2 !default;
-$header-bottom: $s-1 !default;
-
-$h1-scale: 5 !default;
-$h2-scale: 3 !default;
-$h3-scale: 2 !default;
-$h4-scale: 1 !default;
-$h5-scale: 0 !default;
-$h6-scale: 0 !default;
-$p-scale: 0 !default;
-$sm-scale: n1 !default;
 /* ------------------------
 START TYPOGRAPHY
 ------------------------ */
 /* ------------------------
-FONTS
+SPACING
 ------------------------ */
 
 #{$specify} h1,
@@ -22,44 +11,61 @@ FONTS
 #{$specify} h4,
 #{$specify} h5,
 #{$specify} h6 {
-  font-family: $font-head;
-  font-weight: normal;
+  @include header-style(false);
+  color: inherit;
+  text-align: inherit;
 }
-//
-// #{$specify} .componentheading,
-// #{$specify} .contentheading,
-// #{$specify} #whitebox h5.feed-link,
-// #{$specify} .camera_caption .ck_title,
-// #{$specify} .camera_caption .slideh,
-// #{$specify} .fjalla .camera_caption > div,
-// #{$specify} .fjallaSliders .jwts_toggleControlTitle,
-// #{$specify} span.subheading-category,
-// #{$specify} .middle_content span.middleTitle,
-// #{$specify} .threebox,
-// #{$specify} .fourbox, body.linear.hd .fivebox{
-//   font-family: "kulturista-web", serif;
-// }
+[role='main'] {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @include header-margin;
+  }
+}
+
+#leftcolumn h3 {
+  @include header-margin;
+}
+
+p,
+#{$specify} hr,
+pre,
+blockquote {
+  @include block-margin;
+  margin-top: 0;
+}
+
+/* Remove gap caused by first header in an article */
+#{$specify} .item-page h2:first-of-type,
+#{$specify} .section h2:first-of-type,
+#{$specify} .section :first-child {
+  margin-top: 0;
+}
 
 /* ------------------------
 TYPESETTING
 ------------------------ */
 
+/* ID is used here to overwrite equally high specificity from style.css */
 #{$specify} h1,
-#{$specify} .uk-h1 { @include type-setting($h1-scale); }
+#{$specify} .uk-h1 { @include type-setting(h1); }
 #{$specify} h2,
-#{$specify} .uk-h2 { @include type-setting($h2-scale); }
+#{$specify} .uk-h2 { @include type-setting(h2); }
 #{$specify} h3,
 #leftcolumn h3,
-#{$specify} .uk-h3 { @include type-setting($h3-scale); }
+#{$specify} .uk-h3 { @include type-setting(h3); }
 #{$specify} h4,
-#{$specify} .uk-h4 { @include type-setting($h4-scale); }
+#{$specify} .uk-h4 { @include type-setting(h4); }
 #{$specify} h5,
-#{$specify} .uk-h5 { @include type-setting($h5-scale); }
+#{$specify} .uk-h5 { @include type-setting(h5); }
 #{$specify} h6,
-#{$specify} .uk-h6 { @include type-setting($h6-scale); }
+#{$specify} .uk-h6 { @include type-setting(h6); }
 body,
-#{$specify} p { @include type-setting($p-scale); }
-#{$specify} small { @include type-setting($sm-scale); }
+#{$specify} p { @include type-setting(p); }
+#{$specify} small { @include type-setting(sm); }
 
 /*------------------------
 RULE LINES
@@ -70,8 +76,8 @@ RULE LINES
   height: 0;
   overflow: visible;
   border-style: solid;
-  border-width: 0 0 1px;
-  border-color: black;
+  border-width: 0 0 $bdr-width;
+  border-color: $hr-color;
 }
 
 #{$specify} h1 + hr,
@@ -89,18 +95,22 @@ LINKS
 
 /* Applies link styles to content areas only. Less specific than an id.
 Div is used here because .ribbonFullwidth is also on the body element. */
-a:focus,
-:focus {
-  outline: 5px auto $uabgreen;
-}
 
-div.ribbonFullwidth a {
-  border-bottom: 2px solid $uabgreen-300;
-}
-
-div.ribbonFullwidth a[href]:hover {
-  background-color: $uabgreen-100;
-  border-color: $uabgreen;
+p a[href]:not(.unstyled),
+li a[href]:not(.unstyled),
+h1 a[href]:not(.unstyled),
+h2 a[href]:not(.unstyled),
+h3 a[href]:not(.unstyled),
+h4 a[href]:not(.unstyled),
+h5 a[href]:not(.unstyled),
+h6 a[href]:not(.unstyled),
+table a[href]:not(.unstyled),
+dl a[href]:not(.unstyled),
+pre a[href]:not(.unstyled) {
+  @include link-style;
+  &:hover {
+    @include link-style($hover: true);
+  }
 }
 
 /* ------------------------
@@ -109,21 +119,31 @@ INLINE
 
 mark,
 code,
-kbd { padding: $pad-inline; }
+kbd {
+  padding: $inline-padding;
+}
 
 mark,
-::selection { background-color: $mark-color; }
-
+::selection {
+  background-color: $c-mark;
+}
+/*
 strong,
-b { font-weight: bolder; }
+b {
+  font-weight: bolder;
+}
 
 em,
 i,
 dfn,
-cite { font-style: italic; }
+cite {
+  font-style: italic;
+}
 
 del,
-s { text-decoration: line-through; }
+s {
+  text-decoration: line-through;
+}
 
 abbr[title] {
   border-bottom: none;
@@ -141,14 +161,14 @@ sup {
 
 sub { bottom: -0.25em; }
 sup { top: -0.5em; }
-
+*/
 /*------------------------
 PREFORMATTED
 ------------------------*/
 
 code {
-  background-color: $stone-100;
-  color: $stone-700;
+  background-color: c( $stone, 100 );
+  color: c( $stone, 700 );
   border-radius: $bdr-radius;
   white-space: pre;
 }
@@ -156,13 +176,13 @@ pre { white-space: pre-wrap; }
 
 pre > code {
   display: block;
-  padding: $pad-block;
+  padding: $block-padding;
   white-space: inherit;
 }
 
 kbd {
-  background-color: $stone-800;
-  color: $stone-050;
+  background-color: c( $stone, 800 );
+  color: c( $stone, 050 );
   border-radius: $bdr-radius;
   white-space: pre;
 }

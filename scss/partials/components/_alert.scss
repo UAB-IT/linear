@@ -3,39 +3,34 @@ START ALERT
 ------------------------*/
 /* remove default alert styling */
 .alert {
-  background: none;
-  border: 0px solid transparent;
-  padding: 0px;
-  margin: 0px;
-  text-shadow: none;
+  @include reset(border, margin, padding, background, shadow);
 }
 .alert,
 .alert h4 {
-  color: inherit;
+  @include reset(color);
 }
 
 /* Apply the alert style to the alert container */
 .moduletable.alert {
-  background: tint( $color-red, 80% );
-  border: 2px solid $color-red;
-  border-radius: $bdr-radius;
-  padding: $pad-input;
-  margin-bottom: $s-1;
-  text-shadow: none;
+  @include reset(shadow);
+  background: tint( $c-red, 80% );
+  @include border($bdr-md, $c-red);
+  padding: $input-padding;
+  @include block-margin;
 }
 
 /* Adjust link styles for links that appear inside an alert */
 div.ribbonFullwidth .alert a {
-  border-color: $color-red;
+  border-color: $c-red;
 }
 div.ribbonFullwidth .alert a:hover {
-  border-color: $color-red;
-  background-color: tint( $color-red, 60% );
+  border-color: $c-red;
+  background-color: tint( $c-red, 60% );
 }
 
 /* Remove bottom margin from paragraphs in an alert */
 .alert p {
-  margin: 0px;
+  @include reset(margin);
 }
 
 /* Add styling to hide IE alert on non-IE browsers */
@@ -45,7 +40,7 @@ div.ribbonFullwidth .alert a:hover {
 /* Add margin between alerts and content. Should equal the margin between
 the banner and content */
 #{$specify} #breadcrumbs > :last-child {
-  margin-bottom: $s-3;
+  margin-bottom: s( 3 );
 }
 /*------------------------
 END ALERT
