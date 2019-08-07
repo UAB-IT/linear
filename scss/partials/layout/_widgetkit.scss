@@ -6,3 +6,37 @@
 .uk-margin {
   margin-bottom: s( 1 );
 }
+.uk-grid {
+  margin-left: -$gap;
+}
+[id].uk-grid {
+  margin-top: $section-margin;
+  margin-bottom: $section-margin;
+}
+.uk-grid > * {
+  padding-left: $gap;
+}
+.uk-grid-small {
+  margin-left: -$gap-sm;
+}
+.uk-grid-small > * {
+  padding-left: $gap-sm;
+}
+.uk-grid-medium {
+  margin-left: -$gap-md;
+}
+.uk-grid-medium > * {
+  padding-left: $gap-md;
+}
+.uk-grid-large {
+  margin-left: -$gap-lg;
+}
+.uk-grid-large > * {
+  padding-left: $gap-lg;
+}
+
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: $gap;
+}

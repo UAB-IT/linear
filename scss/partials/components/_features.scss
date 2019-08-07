@@ -3,9 +3,6 @@ START FEATURES
 
 This uses widgetkit for layout
 ------------------------*/
-#{$specify} .wk-features {
-  @include block-margin;
-}
 #{$specify} .wk-features .uk-panel p {
   @include reset(margin);
 }

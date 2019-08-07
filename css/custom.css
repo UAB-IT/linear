@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.1
+Ember 0.6.2
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -125,21 +125,35 @@ body.linear.hd h5,
 body.linear.hd h6 {
   font-weight: normal;
   font-family: "kulturista-web", serif;
+  margin: 0;
   color: inherit;
   text-align: inherit;
 }
 
-[role='main'] h1,
-[role='main'] h2,
-[role='main'] h3,
-[role='main'] h4,
-[role='main'] h5,
-[role='main'] h6 {
-  margin: 3.2rem 0 1.6rem 0;
+body.linear.hd [role='main'] h1,
+body.linear.hd [role='main'] h2,
+body.linear.hd [role='main'] h3,
+body.linear.hd [role='main'] h4,
+body.linear.hd [role='main'] h5,
+body.linear.hd [role='main'] h6 {
+  margin-bottom: 1.6rem;
 }
 
-#leftcolumn h3 {
-  margin: 3.2rem 0 1.6rem 0;
+body.linear.hd [role='main'] :not(div) + h1,
+body.linear.hd [role='main'] :not(div) + h2,
+body.linear.hd [role='main'] :not(div) + h3,
+body.linear.hd [role='main'] :not(div) + h4,
+body.linear.hd [role='main'] :not(div) + h5,
+body.linear.hd [role='main'] :not(div) + h6 {
+  margin-top: 3.2rem;
+}
+
+body.linear.hd [role='main'] h1 + h2,
+body.linear.hd [role='main'] h2 + h3,
+body.linear.hd [role='main'] h3 + h4,
+body.linear.hd [role='main'] h4 + h5,
+body.linear.hd [role='main'] h5 + h6 {
+  margin-top: 0;
 }
 
 p,
@@ -147,13 +161,6 @@ body.linear.hd hr,
 pre,
 blockquote {
   margin-bottom: 1.6rem;
-  margin-top: 0;
-}
-
-/* Remove gap caused by first header in an article */
-body.linear.hd .item-page h2:first-of-type,
-body.linear.hd .section h2:first-of-type,
-body.linear.hd .section :first-child {
   margin-top: 0;
 }
 
@@ -623,6 +630,17 @@ body.linear.hd button.btn-primary {
   border: 1px solid #1E6B52;
 }
 
+body.linear.hd p button,
+body.linear.hd p .button,
+body.linear.hd p .btn-primary,
+body.linear.hd p .btn--full,
+body.linear.hd p .btn,
+body.linear.hd p input[type='submit'],
+body.linear.hd p input[type='reset'],
+body.linear.hd p input[type='button'] {
+  margin: 0;
+}
+
 /*------------------------
 END BUTTONS
 ------------------------*/
@@ -790,10 +808,6 @@ body .panels > a:hover {
   color: black;
 }
 
-body.linear.hd .wk-panels {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-panels .uk-panel-title {
   margin-top: 0;
 }
@@ -834,10 +848,6 @@ START FEATURES
 
 This uses widgetkit for layout
 ------------------------*/
-body.linear.hd .wk-features {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-features .uk-panel p {
   margin: 0;
 }
@@ -867,12 +877,48 @@ body.linear.hd .wk-gallery p {
   text-align: center;
 }
 
-body.linear.hd .wk-gallery {
-  margin-bottom: 1.6rem;
+/*------------------------
+END GALLERY
+------------------------*/
+/*------------------------
+START ANCHORS
+------------------------*/
+h2[id] {
+  position: relative;
+}
+
+h2[id] a.anchor {
+  border: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  left: -1em;
+  width: 1.5em;
+  height: 1em;
+}
+
+h2[id]:hover a.anchor {
+  opacity: 1;
+}
+
+h2[id] a.anchor:hover {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  margin: 0;
+}
+
+h2[id] a.anchor::before {
+  content: '\e252';
+  /*72*/
+  font-size: 70%;
+  color: #80BC00;
+  font-family: 'IcoMoon';
+  speak: none;
 }
 
 /*------------------------
-END GALLERY
+END ANCHORS
 ------------------------*/
 /*------------------------
 START CHIPS
@@ -1120,10 +1166,6 @@ END PULLQUOTE
 /*------------------------
 START DETAILS
 ------------------------*/
-body.linear.hd .wk-details {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-details .uk-panel p {
   margin: 0;
 }
@@ -1303,6 +1345,15 @@ END IE FALLBACK
   }
   .grid--no-gap {
     grid-gap: 0;
+  }
+  .grid--gap-sm {
+    grid-gap: 1.6rem;
+  }
+  .grid--gap-md {
+    grid-gap: 3.2rem;
+  }
+  .grid--gap-lg {
+    grid-gap: 6.4rem;
   }
 }
 
@@ -1533,7 +1584,7 @@ body.hd.inside #whitebox {
 
 .section.background {
   margin: 6.4rem 0;
-  padding: 3.2rem 3.2rem 1.6rem;
+  padding: 3.2rem;
 }
 
 .background {
@@ -1542,7 +1593,7 @@ body.hd.inside #whitebox {
 
 .section.background-full {
   margin: 6.4rem 0;
-  padding: 6.4rem 0 4.8rem;
+  padding: 6.4rem 0;
   position: relative;
 }
 
@@ -1560,9 +1611,33 @@ body.hd.inside #whitebox {
 }
 
 .hero-sect {
-  height: 70vh;
+  /*height: 70vh;*/
   margin-top: -3.2rem;
   align-items: center;
+}
+
+body.linear.hd .section > :last-child {
+  margin-bottom: 0;
+}
+
+body.linear.hd .section > [id]:last-of-type {
+  margin-bottom: 0;
+}
+
+body.linear.hd [itemprop='articleBody'] > :first-child {
+  margin-top: 0;
+}
+
+body.linear.hd [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0;
+}
+
+body.linear.hd [class*='grid-1'] > * :last-child,
+body.linear.hd [class*='grid-2'] > * :last-child,
+body.linear.hd [class*='grid-3'] > * :last-child,
+body.linear.hd [class*='grid-4'] > * :last-child,
+body.linear.hd [class*='grid-6'] > * :last-child {
+  margin-bottom: 0;
 }
 
 /* Add space after the banner and before the footer
@@ -1625,6 +1700,49 @@ body.hd.inside #maincolumn-l-r {
 
 .uk-margin {
   margin-bottom: 1.6rem;
+}
+
+.uk-grid {
+  margin-left: -3.2rem;
+}
+
+[id].uk-grid {
+  margin-top: 6.4rem;
+  margin-bottom: 6.4rem;
+}
+
+.uk-grid > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-small {
+  margin-left: -1.6rem;
+}
+
+.uk-grid-small > * {
+  padding-left: 1.6rem;
+}
+
+.uk-grid-medium {
+  margin-left: -3.2rem;
+}
+
+.uk-grid-medium > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-large {
+  margin-left: -6.4rem;
+}
+
+.uk-grid-large > * {
+  padding-left: 6.4rem;
+}
+
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
 }
 
 /*--------------------------------------------------
@@ -2051,6 +2169,10 @@ body.hd #sidebar_trigger.no-seal {
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
   margin-left: sp(5);
   border-left: 2px solid #1E6B52;
+}
+
+#leftcolumn .moduletable {
+  margin-bottom: 3.2rem;
 }
 
 /*------------------------

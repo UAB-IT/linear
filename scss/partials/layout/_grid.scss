@@ -148,11 +148,20 @@ END IE FALLBACK
   [class*='grid-6'] {
     @include block-margin;
     display: grid;
-    grid-gap: s(2);
+    grid-gap: $gap;
     grid-auto-flow: row;
   }
   .grid--no-gap {
     grid-gap: 0;
+  }
+  .grid--gap-sm {
+    grid-gap: $gap-sm;
+  }
+  .grid--gap-md {
+    grid-gap: $gap-md;
+  }
+  .grid--gap-lg {
+    grid-gap: $gap-lg;
   }
 }
 

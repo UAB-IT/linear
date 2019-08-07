@@ -50,7 +50,38 @@ body.hd.inside #whitebox {
   z-index: -1;
 }
 .hero-sect {
-  height: 70vh;
+  /*height: 70vh;*/
   margin-top: -#{s( 2 )};
   align-items: center;
+}
+
+// EXPERIMENTAL MARGIN FIX
+
+// Fix for most sections
+#{$specify} .section > :last-child {
+  margin-bottom: 0;
+}
+
+// Fix for widgetkit blocks
+#{$specify} .section > [id]:last-of-type {
+  margin-bottom: 0;
+}
+
+// Fix for first element of the page
+#{$specify} [itemprop='articleBody'] > :first-child {
+  margin-top: 0;
+}
+
+// Fix for last element of the page
+#{$specify} [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0;
+}
+
+// Fix for Grid Items
+#{$specify} [class*='grid-1'] > * :last-child,
+#{$specify} [class*='grid-2'] > * :last-child,
+#{$specify} [class*='grid-3'] > * :last-child,
+#{$specify} [class*='grid-4'] > * :last-child,
+#{$specify} [class*='grid-6'] > * :last-child {
+  margin-bottom: 0;
 }

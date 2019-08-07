@@ -45,6 +45,10 @@ body.hd #sidebar_trigger.no-seal {
   margin-left: sp( 5 );
   border-left: 2px solid $c-primary;
 }
+
+#leftcolumn .moduletable {
+  margin-bottom: s(2);
+}
 /*------------------------
 END SIDEBAR
 ------------------------*/

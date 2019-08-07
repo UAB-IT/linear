@@ -1,9 +1,6 @@
 /*------------------------
 START DETAILS
 ------------------------*/
-#{$specify} .wk-details {
-  @include block-margin;
-}
 #{$specify} .wk-details .uk-panel p {
   @include reset(margin);
 }

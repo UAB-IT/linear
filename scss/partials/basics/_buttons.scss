@@ -24,6 +24,17 @@ START BUTTONS
 #{$specify} button.btn-primary {
   @include button-primary;
 }
+
+#{$specify} p button,
+#{$specify} p .button,
+#{$specify} p .btn-primary,
+#{$specify} p .btn--full,
+#{$specify} p .btn,
+#{$specify} p input[type='submit'],
+#{$specify} p input[type='reset'],
+#{$specify} p input[type='button'] {
+  @include reset(margin);
+}
 /*------------------------
 END BUTTONS
 ------------------------*/
