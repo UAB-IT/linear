@@ -22,6 +22,8 @@ $list-margin: s(0.5) !default;
 $indent: 1em !default;
 
 $section-margin: s(4) !default;
+$section-padding: s(4) !default;
+$section-padding-small: s(2) !default;
 $content-margin: $section-margin !default;
 $banner-top: $section-margin * 2 !default;
 
@@ -53,7 +55,7 @@ $c-mark: c( $uabgreen, 100 ) !default;
 
 $c-green: $apple !default;
 $c-yellow: $blaze !default;
-$c-red: $coral !default;
+$c-red: #FF0000 !default;
 
 $hr-color: black !default;
 $txt-color: black !default;

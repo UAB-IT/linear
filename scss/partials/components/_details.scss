@@ -18,6 +18,24 @@ START DETAILS
   @include type-setting(h4);
   margin-bottom: s( -0.5 );
 }
+#{$specify} .uk-panel .uk-grid {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+#{$specify} .uk-panel .uk-grid div {
+  padding: 0;
+  width: auto;
+  flex-shrink: 1;
+}
+#{$specify} .uk-panel .uk-grid div.uk-row-first {
+  margin-right: s(1);
+  flex-shrink: 0;
+  width: 6rem;
+}
+#{$specify} .uk-panel .uk-grid div.uk-row-first img {
+  float: right;
+}
 /*------------------------
 END DETAILS
 ------------------------*/

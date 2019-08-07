@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.3
+Ember 0.6.4
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -555,20 +555,6 @@ figure figcaption {
   margin: 1.6rem 0;
 }
 
-@media all and (max-width: 1800px) {
-  body.linear.hd .off-canvas-img {
-    position: relative;
-    align-self: flex-start;
-  }
-  body.linear.hd .off-canvas-img > img {
-    max-width: 100vw;
-    width: auto;
-    height: 70vh;
-    position: absolute;
-    left: 0;
-  }
-}
-
 /*------------------------
 END MEDIA
 ------------------------*/
@@ -1008,21 +994,21 @@ START ALERT
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background: #fbe1dc;
+  background: #ffcccc;
   border-radius: 4px;
-  border: 2px solid #EA6852;
+  border: 2px solid #FF0000;
   padding: 0.3em 1em;
   margin-bottom: 1.6rem;
 }
 
 /* Adjust link styles for links that appear inside an alert */
 div.ribbonFullwidth .alert a {
-  border-color: #EA6852;
+  border-color: #FF0000;
 }
 
 div.ribbonFullwidth .alert a:hover {
-  border-color: #EA6852;
-  background-color: #f7c3ba;
+  border-color: #FF0000;
+  background-color: #ff9999;
 }
 
 /* Remove bottom margin from paragraphs in an alert */
@@ -1192,6 +1178,28 @@ body.linear.hd .wk-details .uk-panel-title {
   font-size: 1.25rem;
   line-height: 1.6rem;
   margin-bottom: -0.8rem;
+}
+
+body.linear.hd .uk-panel .uk-grid {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+body.linear.hd .uk-panel .uk-grid div {
+  padding: 0;
+  width: auto;
+  flex-shrink: 1;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first {
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  width: 6rem;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first img {
+  float: right;
 }
 
 /*------------------------
@@ -1805,12 +1813,24 @@ body.linear.hd #sidebar_trigger::before {
   padding-left: 3.2rem;
 }
 
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
 .uk-grid-small {
   margin-left: -1.6rem;
 }
 
 .uk-grid-small > * {
   padding-left: 1.6rem;
+}
+
+.uk-grid-small .uk-grid + .uk-grid,
+.uk-grid-small .uk-grid-margin,
+.uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 1.6rem;
 }
 
 .uk-grid-medium {
@@ -1821,18 +1841,38 @@ body.linear.hd #sidebar_trigger::before {
   padding-left: 3.2rem;
 }
 
+.uk-grid-medium .uk-grid + .uk-grid,
+.uk-grid-medium .uk-grid-margin,
+.uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
 .uk-grid-large {
-  margin-left: -6.4rem;
+  margin-left: -3.2rem;
 }
 
 .uk-grid-large > * {
-  padding-left: 6.4rem;
+  padding-left: 3.2rem;
 }
 
-.uk-grid + .uk-grid,
-.uk-grid-margin,
-.uk-grid > * > .uk-panel + .uk-panel {
+.uk-grid-large .uk-grid + .uk-grid,
+.uk-grid-large .uk-grid-margin,
+.uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
   margin-top: 3.2rem;
+}
+
+@media all and (min-width: 1024px) {
+  .uk-grid-large {
+    margin-left: -6.4rem;
+  }
+  .uk-grid-large > * {
+    padding-left: 6.4rem;
+  }
+  .uk-grid-large .uk-grid + .uk-grid,
+  .uk-grid-large .uk-grid-margin,
+  .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+    margin-top: 6.4rem;
+  }
 }
 
 /*--------------------------------------------------
@@ -2255,7 +2295,7 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  padding-left: 0.5rem;
+  padding-left: 1rem;
   margin-left: 0.5rem;
   border-left: 2px solid #1E6B52;
 }
