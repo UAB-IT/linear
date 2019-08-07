@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.2
+Ember 0.6.3
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -14,6 +14,10 @@ Helpers are in the Core category, but are included at the end of the Ember code 
 START RESET
 ------------------------*/
 /* Reset most properties from most elements */
+:root {
+  font-size: 16px;
+}
+
 /* Reset font size, family, and color on inline tags */
 body.linear.hd h1 a,
 body.linear.hd h1 strong,
@@ -527,7 +531,9 @@ START MEDIA
 img {
   max-width: 100%;
   object-fit: cover;
+  margin: auto;
   margin-bottom: 1.6rem;
+  display: block;
 }
 
 figure img {
@@ -584,6 +590,7 @@ body.linear.hd input[type='button'] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  margin: 0;
   -webkit-appearance: none;
   text-decoration: none;
   cursor: pointer;
@@ -594,7 +601,6 @@ body.linear.hd input[type='button'] {
   line-height: 1.6rem;
   padding: 0.3em 1em;
   text-align: center;
-  margin-bottom: 1.6rem;
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -630,15 +636,15 @@ body.linear.hd button.btn-primary {
   border: 1px solid #1E6B52;
 }
 
-body.linear.hd p button,
-body.linear.hd p .button,
-body.linear.hd p .btn-primary,
-body.linear.hd p .btn--full,
-body.linear.hd p .btn,
-body.linear.hd p input[type='submit'],
-body.linear.hd p input[type='reset'],
-body.linear.hd p input[type='button'] {
-  margin: 0;
+body.linear.hd :not(p) > * + button,
+body.linear.hd :not(p) > * + .button,
+body.linear.hd :not(p) > * + .btn-primary,
+body.linear.hd :not(p) > * + .btn--full,
+body.linear.hd :not(p) > * + .btn,
+body.linear.hd :not(p) > * + input[type='submit'],
+body.linear.hd :not(p) > * + input[type='reset'],
+body.linear.hd :not(p) > * + input[type='button'] {
+  margin-bottom: 1.6rem;
 }
 
 /*------------------------
@@ -1595,6 +1601,7 @@ body.hd.inside #whitebox {
   margin: 6.4rem 0;
   padding: 6.4rem 0;
   position: relative;
+  z-index: 1;
 }
 
 .section.background-full::before {
@@ -1640,11 +1647,26 @@ body.linear.hd [class*='grid-6'] > * :last-child {
   margin-bottom: 0;
 }
 
+body.linear.hd [id*='wk'] {
+  margin-top: 6.4rem;
+  margin-bottom: 6.4rem;
+}
+
+body.linear.hd h1 + [id*='wk'],
+body.linear.hd h2 + [id*='wk'],
+body.linear.hd h3 + [id*='wk'],
+body.linear.hd h4 + [id*='wk'],
+body.linear.hd h5 + [id*='wk'],
+body.linear.hd h6 + [id*='wk'] {
+  margin-top: 3.2rem;
+}
+
 /* Add space after the banner and before the footer
 Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
   padding: 0 1.6rem;
+  box-sizing: border-box;
 }
 
 /* Decrease the width by the amount of padding on it's parent
@@ -1685,12 +1707,85 @@ body.hd.inside #maincolumn-r {
 }
 
 body.hd.inside #maincolumn-l-r {
-  margin: 0 1.6rem !important;
+  margin: 0 3.2rem !important;
+}
+
+/* Fix column widths after larger gap is added */
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r {
+  width: calc( 78% - 3.2rem) !important;
+}
+
+body.hd.sidebars #leftcolumn {
+  max-width: 20%;
 }
 
 /* Remove paddings from module tables */
 #leftcolumn .moduletable {
   padding: 0;
+}
+
+/* RESPONSIVE */
+/* Adjust the position of sidebar trigger */
+body.linear.hd #sidebar_trigger::before {
+  height: auto;
+  top: -1.5em;
+}
+
+/* Fix width of main column */
+@media (max-width: 699px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Remove unneeded space from sidebar on med screens */
+@media only screen and (max-width: 1024px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    padding: 0 !important;
+    float: left;
+  }
+  .sidebar {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .sidebarpanel ul li li {
+    text-indent: 0;
+  }
+  .sidebarpanel_content,
+  .left-position .sidebarpanel_content {
+    float: none;
+  }
+  /* Allow content to overflow containers */
+  #maincolumn-l-r,
+  #maincolumn-l,
+  #maincolumn-r,
+  #maincolumn-wide,
+  #footer,
+  #content {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body.hd.sidebars #leftcolumn {
+    max-width: 100%;
+    min-width: 250px;
+    width: 300px;
+  }
+  .sidebar {
+    margin-right: 50px;
+  }
+  body.hd #sidebar_trigger.active {
+    margin-left: 250px;
+  }
 }
 
 /* Add vertical rhythem spacing to the widgetkit margins */
@@ -1704,11 +1799,6 @@ body.hd.inside #maincolumn-l-r {
 
 .uk-grid {
   margin-left: -3.2rem;
-}
-
-[id].uk-grid {
-  margin-top: 6.4rem;
-  margin-bottom: 6.4rem;
 }
 
 .uk-grid > * {
@@ -2035,6 +2125,7 @@ one line height for the margin below the breadcrumbs. */
   position: relative;
   padding-top: 12.8rem;
   min-height: 10rem;
+  z-index: 1;
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -2055,6 +2146,7 @@ one line height for the margin below the breadcrumbs. */
   /*Use article image */
   background-size: cover;
   background-position: bottom;
+  background-attachment: scroll;
 }
 
 /* Add the image filter effect used on the banners */
@@ -2120,13 +2212,9 @@ START SIDEBAR
 body.hd div.sidebar.gray,
 body.hd div.sidebar.no-seal,
 body.hd #leftcolumn.sidebarpanel.gray,
-body.hd #sidebar_trigger.gray,
-body.hd #leftcolumn.sidebarpanel.no-seal,
-body.hd #sidebar_trigger.no-seal {
+body.hd #leftcolumn.sidebarpanel.no-seal {
   font-size: inherit;
-  background: none;
-  background-color: transparent;
-  background-image: none;
+  background-color: white;
 }
 
 #leftcolumn ul.nav.menu a {
@@ -2136,7 +2224,7 @@ body.hd #sidebar_trigger.no-seal {
   background-color: transparent;
   background-image: none;
   display: block;
-  padding: 0.5em;
+  padding: 0.5rem;
 }
 
 #leftcolumn ul.nav-child,
@@ -2167,7 +2255,8 @@ body.hd #sidebar_trigger.no-seal {
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  margin-left: sp(5);
+  padding-left: 0.5rem;
+  margin-left: 0.5rem;
   border-left: 2px solid #1E6B52;
 }
 

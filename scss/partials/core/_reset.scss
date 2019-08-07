@@ -11,6 +11,9 @@ START RESET
 //   color: inherit;
 //   transition-property: none;
 // }
+:root {
+  font-size: #{$rem-size + 'px'};
+}
 
 /* Reset font size, family, and color on inline tags */
 #{$specify} h1 a,

@@ -17,7 +17,7 @@ body.hd.sidebars #leftcolumn {
 }
 /* correct max width on pages without sidebar */
 body.hd.inside #whitebox {
-  max-width: $cont-width;
+  max-width: $max-width;
 }
 
 /* Section spacing */
@@ -36,6 +36,7 @@ body.hd.inside #whitebox {
 .section.background-full {
   @include section-space($bg: true, $full: true);
   position: relative;
+  z-index: 1;
 }
 .section.background-full::before {
   content: '';
@@ -51,7 +52,7 @@ body.hd.inside #whitebox {
 }
 .hero-sect {
   /*height: 70vh;*/
-  margin-top: -#{s( 2 )};
+  margin-top: s( -2 );
   align-items: center;
 }
 
@@ -84,4 +85,18 @@ body.hd.inside #whitebox {
 #{$specify} [class*='grid-4'] > * :last-child,
 #{$specify} [class*='grid-6'] > * :last-child {
   margin-bottom: 0;
+}
+
+// Decrease space between headers & widgetkit blocks
+#{$specify} [id*='wk'] {
+  margin-top: $section-margin;
+  margin-bottom: $section-margin;
+}
+#{$specify} h1 + [id*='wk'],
+#{$specify} h2 + [id*='wk'],
+#{$specify} h3 + [id*='wk'],
+#{$specify} h4 + [id*='wk'],
+#{$specify} h5 + [id*='wk'],
+#{$specify} h6 + [id*='wk'] {
+  margin-top: #{$section-margin / 2};
 }
