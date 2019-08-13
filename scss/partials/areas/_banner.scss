@@ -38,6 +38,7 @@ one line height for the margin below the breadcrumbs. */
 #banner::after {
   background: $darkgreen;
   mix-blend-mode: multiply;
+  opacity: 0.95;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */

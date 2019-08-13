@@ -49,6 +49,24 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 #leftcolumn .moduletable {
   margin-bottom: s(2);
 }
+
+/* Clearfix for modules */
+#leftcolumn .moduletable::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+#leftcolumn .moduletable.sidebar-btns {
+  overflow: visible;
+}
+
+#leftcolumn .sidebar-btns + .sidebar-btns {
+  margin-top: s(-1);
+}
 /*------------------------
 END SIDEBAR
 ------------------------*/

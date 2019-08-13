@@ -55,6 +55,10 @@
   margin-top: $gap-md;
 }
 
+.uk-panel-space {
+  padding: s(1);
+}
+
 @include breakpoint(lg) {
   .uk-grid-large {
     margin-left: -$gap-lg;

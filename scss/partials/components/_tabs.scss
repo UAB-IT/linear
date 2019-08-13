@@ -1,0 +1,33 @@
+/*------------------------
+START TABS
+------------------------*/
+#{$specify} #content ul.uk-tab,
+#{$specify} #content ul.uk-tab li,
+#{$specify} #content ul.uk-switcher,
+#{$specify} #content ul.uk-switcher li {
+  margin: 0;
+}
+#{$specify} #content ul.uk-switcher.uk-margin-top {
+  margin-top: 0 !important;
+}
+#{$specify} ul.uk-tab > li > a {
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+}
+#{$specify} ul.uk-tab > li > a:hover {
+  border-bottom: 1px solid transparent;
+}
+#{$specify} ul.uk-tab > li.uk-active > a {
+  border-color: $stone;
+}
+#{$specify} ul.uk-tab {
+  border-bottom: 0px solid transparent;
+}
+#{$specify} ul.uk-switcher .uk-panel {
+  border: 1px solid $stone;
+  margin-top: -1px;
+  padding: s(1) s(1) 0;
+}
+/*------------------------
+END TABS
+------------------------*/

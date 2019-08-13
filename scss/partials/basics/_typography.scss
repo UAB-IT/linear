@@ -28,11 +28,7 @@ SPACING
 }
 #{$specify} [role='main'] :not(div) + {
   h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
+  h2 {
     margin-top: $header-top;
   }
 }
