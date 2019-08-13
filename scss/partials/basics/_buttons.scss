@@ -4,12 +4,11 @@ START BUTTONS
 #{$specify} button,
 #{$specify} .button,
 #{$specify} .btn-primary,
-#{$specify} .btn--full,
 #{$specify} .btn,
 #{$specify} input[type='submit'],
 #{$specify} input[type='reset'],
 #{$specify} input[type='button'] {
-  @include reset(background, shadow);
+  @include reset(background, shadow, margin);
   -webkit-appearance: none;
   text-decoration: none;
   cursor: pointer;
@@ -23,6 +22,29 @@ START BUTTONS
 #{$specify} a.btn-primary,
 #{$specify} button.btn-primary {
   @include button-primary;
+}
+
+#{$specify} :not(p) > * + button,
+#{$specify} :not(p) > * + .button,
+#{$specify} :not(p) > * + .btn-primary,
+#{$specify} :not(p) > * + .btn--full,
+#{$specify} :not(p) > * + .btn,
+#{$specify} :not(p) > * + input[type='submit'],
+#{$specify} :not(p) > * + input[type='reset'],
+#{$specify} :not(p) > * + input[type='button'] {
+  @include block-margin;
+}
+
+#{$specify} button.full,
+#{$specify} .button.full,
+#{$specify} .btn-primary.full,
+#{$specify} .btn.full,
+#{$specify} input[type='submit'].full,
+#{$specify} input[type='reset'].full,
+#{$specify} input[type='button'].full {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 /*------------------------
 END BUTTONS

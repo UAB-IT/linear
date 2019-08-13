@@ -42,10 +42,10 @@
   @if $bg {
     margin: $section-margin 0;
     @if $full {
-      padding: s(2) 0 s(1);
+      padding: $section-padding 0;
     }
     @else {
-      padding: s(2) s(2) s(1);
+      padding: $section-padding-small;
     }
   }
   @else {
@@ -106,7 +106,6 @@
   @include type-setting(0);
   padding: $input-padding;
   text-align: center;
-  margin-bottom: s( 1 );
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -120,13 +119,6 @@
 }
 
 // MISC
-
-@mixin container-fix {
-  margin-bottom: 0 0 s( 1 );
-  & :last-child {
-    margin-bottom: 0;
-  }
-}
 
 @mixin breakpoint($size) {
   @media all and (min-width: map-get($breakpoints, $size)) {

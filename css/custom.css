@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.6.0
+Ember 0.7.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -14,6 +14,10 @@ Helpers are in the Core category, but are included at the end of the Ember code 
 START RESET
 ------------------------*/
 /* Reset most properties from most elements */
+:root {
+  font-size: 16px;
+}
+
 /* Reset font size, family, and color on inline tags */
 body.linear.hd h1 a,
 body.linear.hd h1 strong,
@@ -125,21 +129,31 @@ body.linear.hd h5,
 body.linear.hd h6 {
   font-weight: normal;
   font-family: "kulturista-web", serif;
+  margin: 0;
   color: inherit;
   text-align: inherit;
 }
 
-[role='main'] h1,
-[role='main'] h2,
-[role='main'] h3,
-[role='main'] h4,
-[role='main'] h5,
-[role='main'] h6 {
-  margin: 3.2rem 0 1.6rem 0;
+body.linear.hd [role='main'] h1,
+body.linear.hd [role='main'] h2,
+body.linear.hd [role='main'] h3,
+body.linear.hd [role='main'] h4,
+body.linear.hd [role='main'] h5,
+body.linear.hd [role='main'] h6 {
+  margin-bottom: 1.6rem;
 }
 
-#leftcolumn h3 {
-  margin: 3.2rem 0 1.6rem 0;
+body.linear.hd [role='main'] :not(div) + h1,
+body.linear.hd [role='main'] :not(div) + h2 {
+  margin-top: 3.2rem;
+}
+
+body.linear.hd [role='main'] h1 + h2,
+body.linear.hd [role='main'] h2 + h3,
+body.linear.hd [role='main'] h3 + h4,
+body.linear.hd [role='main'] h4 + h5,
+body.linear.hd [role='main'] h5 + h6 {
+  margin-top: 0;
 }
 
 p,
@@ -147,13 +161,6 @@ body.linear.hd hr,
 pre,
 blockquote {
   margin-bottom: 1.6rem;
-  margin-top: 0;
-}
-
-/* Remove gap caused by first header in an article */
-body.linear.hd .item-page h2:first-of-type,
-body.linear.hd .section h2:first-of-type,
-body.linear.hd .section :first-child {
   margin-top: 0;
 }
 
@@ -520,7 +527,9 @@ START MEDIA
 img {
   max-width: 100%;
   object-fit: cover;
+  margin: auto;
   margin-bottom: 1.6rem;
+  display: block;
 }
 
 figure img {
@@ -542,18 +551,8 @@ figure figcaption {
   margin: 1.6rem 0;
 }
 
-@media all and (max-width: 1800px) {
-  body.linear.hd .off-canvas-img {
-    position: relative;
-    align-self: flex-start;
-  }
-  body.linear.hd .off-canvas-img > img {
-    max-width: 100vw;
-    width: auto;
-    height: 70vh;
-    position: absolute;
-    left: 0;
-  }
+.video-container {
+  margin-bottom: 1.6rem;
 }
 
 /*------------------------
@@ -565,7 +564,6 @@ START BUTTONS
 body.linear.hd button,
 body.linear.hd .button,
 body.linear.hd .btn-primary,
-body.linear.hd .btn--full,
 body.linear.hd .btn,
 body.linear.hd input[type='submit'],
 body.linear.hd input[type='reset'],
@@ -577,6 +575,7 @@ body.linear.hd input[type='button'] {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
+  margin: 0;
   -webkit-appearance: none;
   text-decoration: none;
   cursor: pointer;
@@ -587,7 +586,6 @@ body.linear.hd input[type='button'] {
   line-height: 1.6rem;
   padding: 0.3em 1em;
   text-align: center;
-  margin-bottom: 1.6rem;
   white-space: nowrap;
   box-sizing: border-box;
 }
@@ -597,8 +595,6 @@ body.linear.hd .button:focus,
 body.linear.hd .button:hover,
 body.linear.hd .btn-primary:focus,
 body.linear.hd .btn-primary:hover,
-body.linear.hd .btn--full:focus,
-body.linear.hd .btn--full:hover,
 body.linear.hd .btn:focus,
 body.linear.hd .btn:hover,
 body.linear.hd input[type='submit']:focus,
@@ -621,6 +617,29 @@ body.linear.hd button.btn-primary {
   background: #1E6B52;
   border-radius: 4px;
   border: 1px solid #1E6B52;
+}
+
+body.linear.hd :not(p) > * + button,
+body.linear.hd :not(p) > * + .button,
+body.linear.hd :not(p) > * + .btn-primary,
+body.linear.hd :not(p) > * + .btn--full,
+body.linear.hd :not(p) > * + .btn,
+body.linear.hd :not(p) > * + input[type='submit'],
+body.linear.hd :not(p) > * + input[type='reset'],
+body.linear.hd :not(p) > * + input[type='button'] {
+  margin-bottom: 1.6rem;
+}
+
+body.linear.hd button.full,
+body.linear.hd .button.full,
+body.linear.hd .btn-primary.full,
+body.linear.hd .btn.full,
+body.linear.hd input[type='submit'].full,
+body.linear.hd input[type='reset'].full,
+body.linear.hd input[type='button'].full {
+  display: block;
+  text-align: center;
+  width: 100%;
 }
 
 /*------------------------
@@ -790,10 +809,6 @@ body .panels > a:hover {
   color: black;
 }
 
-body.linear.hd .wk-panels {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-panels .uk-panel-title {
   margin-top: 0;
 }
@@ -834,10 +849,6 @@ START FEATURES
 
 This uses widgetkit for layout
 ------------------------*/
-body.linear.hd .wk-features {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-features .uk-panel p {
   margin: 0;
 }
@@ -867,12 +878,48 @@ body.linear.hd .wk-gallery p {
   text-align: center;
 }
 
-body.linear.hd .wk-gallery {
-  margin-bottom: 1.6rem;
+/*------------------------
+END GALLERY
+------------------------*/
+/*------------------------
+START ANCHORS
+------------------------*/
+h2[id] {
+  position: relative;
+}
+
+h2[id] a.anchor {
+  border: 0;
+  margin: 0;
+  opacity: 0;
+  position: absolute;
+  left: -1em;
+  width: 1.5em;
+  height: 1em;
+}
+
+h2[id]:hover a.anchor {
+  opacity: 1;
+}
+
+h2[id] a.anchor:hover {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  margin: 0;
+}
+
+h2[id] a.anchor::before {
+  content: '\e252';
+  /*72*/
+  font-size: 70%;
+  color: #80BC00;
+  font-family: 'IcoMoon';
+  speak: none;
 }
 
 /*------------------------
-END GALLERY
+END ANCHORS
 ------------------------*/
 /*------------------------
 START CHIPS
@@ -956,21 +1003,21 @@ START ALERT
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
   box-shadow: none;
-  background: #fbe1dc;
+  background: #ffcccc;
   border-radius: 4px;
-  border: 2px solid #EA6852;
+  border: 2px solid #FF0000;
   padding: 0.3em 1em;
   margin-bottom: 1.6rem;
 }
 
 /* Adjust link styles for links that appear inside an alert */
 div.ribbonFullwidth .alert a {
-  border-color: #EA6852;
+  border-color: #FF0000;
 }
 
 div.ribbonFullwidth .alert a:hover {
-  border-color: #EA6852;
-  background-color: #f7c3ba;
+  border-color: #FF0000;
+  background-color: #ff9999;
 }
 
 /* Remove bottom margin from paragraphs in an alert */
@@ -1120,10 +1167,6 @@ END PULLQUOTE
 /*------------------------
 START DETAILS
 ------------------------*/
-body.linear.hd .wk-details {
-  margin-bottom: 1.6rem;
-}
-
 body.linear.hd .wk-details .uk-panel p {
   margin: 0;
 }
@@ -1146,8 +1189,70 @@ body.linear.hd .wk-details .uk-panel-title {
   margin-bottom: -0.8rem;
 }
 
+body.linear.hd .uk-panel .uk-grid {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+body.linear.hd .uk-panel .uk-grid div {
+  padding: 0;
+  width: auto;
+  flex-shrink: 1;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first {
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  width: 6rem;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first img {
+  float: right;
+}
+
 /*------------------------
 END DETAILS
+------------------------*/
+/*------------------------
+START TABS
+------------------------*/
+body.linear.hd #content ul.uk-tab,
+body.linear.hd #content ul.uk-tab li,
+body.linear.hd #content ul.uk-switcher,
+body.linear.hd #content ul.uk-switcher li {
+  margin: 0;
+}
+
+body.linear.hd #content ul.uk-switcher.uk-margin-top {
+  margin-top: 0 !important;
+}
+
+body.linear.hd ul.uk-tab > li > a {
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+}
+
+body.linear.hd ul.uk-tab > li > a:hover {
+  border-bottom: 1px solid transparent;
+}
+
+body.linear.hd ul.uk-tab > li.uk-active > a {
+  border-color: #808285;
+}
+
+body.linear.hd ul.uk-tab {
+  border-bottom: 0px solid transparent;
+}
+
+body.linear.hd ul.uk-switcher .uk-panel {
+  border: 1px solid #808285;
+  margin-top: -1px;
+  padding: 1.6rem 1.6rem 0;
+}
+
+/*------------------------
+END TABS
 ------------------------*/
 /*--------------------------------------------------
 END COMPONENTS - START LAYOUT
@@ -1303,6 +1408,15 @@ END IE FALLBACK
   }
   .grid--no-gap {
     grid-gap: 0;
+  }
+  .grid--gap-sm {
+    grid-gap: 1.6rem;
+  }
+  .grid--gap-md {
+    grid-gap: 3.2rem;
+  }
+  .grid--gap-lg {
+    grid-gap: 6.4rem;
   }
 }
 
@@ -1533,7 +1647,7 @@ body.hd.inside #whitebox {
 
 .section.background {
   margin: 6.4rem 0;
-  padding: 3.2rem 3.2rem 1.6rem;
+  padding: 3.2rem;
 }
 
 .background {
@@ -1542,8 +1656,9 @@ body.hd.inside #whitebox {
 
 .section.background-full {
   margin: 6.4rem 0;
-  padding: 3.2rem 0 1.6rem;
+  padding: 6.4rem 0;
   position: relative;
+  z-index: 1;
 }
 
 .section.background-full::before {
@@ -1560,9 +1675,47 @@ body.hd.inside #whitebox {
 }
 
 .hero-sect {
-  height: 70vh;
+  /*height: 70vh;*/
   margin-top: -3.2rem;
   align-items: center;
+}
+
+body.linear.hd .section > :last-child {
+  margin-bottom: 0;
+}
+
+body.linear.hd .section > [id]:last-of-type {
+  margin-bottom: 0;
+}
+
+body.linear.hd [itemprop='articleBody'] > :first-child {
+  margin-top: 0;
+}
+
+body.linear.hd [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0;
+}
+
+body.linear.hd [class*='grid-1'] > * :last-child,
+body.linear.hd [class*='grid-2'] > * :last-child,
+body.linear.hd [class*='grid-3'] > * :last-child,
+body.linear.hd [class*='grid-4'] > * :last-child,
+body.linear.hd [class*='grid-6'] > * :last-child {
+  margin-bottom: 0;
+}
+
+body.linear.hd [id*='wk'] {
+  margin-top: 6.4rem;
+  margin-bottom: 6.4rem;
+}
+
+body.linear.hd h1 + [id*='wk'],
+body.linear.hd h2 + [id*='wk'],
+body.linear.hd h3 + [id*='wk'],
+body.linear.hd h4 + [id*='wk'],
+body.linear.hd h5 + [id*='wk'],
+body.linear.hd h6 + [id*='wk'] {
+  margin-top: 3.2rem;
 }
 
 /* Add space after the banner and before the footer
@@ -1570,6 +1723,7 @@ Add minimal side margins through padding. Prevents content
 from hitting edge of screen on mobile */
 body.ribbonFullwidth #whitebox {
   padding: 0 1.6rem;
+  box-sizing: border-box;
 }
 
 /* Decrease the width by the amount of padding on it's parent
@@ -1610,12 +1764,85 @@ body.hd.inside #maincolumn-r {
 }
 
 body.hd.inside #maincolumn-l-r {
-  margin: 0 1.6rem !important;
+  margin: 0 3.2rem !important;
+}
+
+/* Fix column widths after larger gap is added */
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r {
+  width: calc( 78% - 3.2rem) !important;
+}
+
+body.hd.sidebars #leftcolumn {
+  max-width: 20%;
 }
 
 /* Remove paddings from module tables */
 #leftcolumn .moduletable {
   padding: 0;
+}
+
+/* RESPONSIVE */
+/* Adjust the position of sidebar trigger */
+body.linear.hd #sidebar_trigger::before {
+  height: auto;
+  top: -1.5em;
+}
+
+/* Fix width of main column */
+@media (max-width: 699px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Remove unneeded space from sidebar on med screens */
+@media only screen and (max-width: 1024px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    padding: 0 !important;
+    float: left;
+  }
+  .sidebar {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .sidebarpanel ul li li {
+    text-indent: 0;
+  }
+  .sidebarpanel_content,
+  .left-position .sidebarpanel_content {
+    float: none;
+  }
+  /* Allow content to overflow containers */
+  #maincolumn-l-r,
+  #maincolumn-l,
+  #maincolumn-r,
+  #maincolumn-wide,
+  #footer,
+  #content {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body.hd.sidebars #leftcolumn {
+    max-width: 100%;
+    min-width: 250px;
+    width: 300px;
+  }
+  .sidebar {
+    margin-right: 50px;
+  }
+  body.hd #sidebar_trigger.active {
+    margin-left: 250px;
+  }
 }
 
 /* Add vertical rhythem spacing to the widgetkit margins */
@@ -1625,6 +1852,80 @@ body.hd.inside #maincolumn-l-r {
 
 .uk-margin {
   margin-bottom: 1.6rem;
+}
+
+.uk-grid {
+  margin-left: -3.2rem;
+}
+
+.uk-grid > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+.uk-grid-small {
+  margin-left: -1.6rem;
+}
+
+.uk-grid-small > * {
+  padding-left: 1.6rem;
+}
+
+.uk-grid-small .uk-grid + .uk-grid,
+.uk-grid-small .uk-grid-margin,
+.uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 1.6rem;
+}
+
+.uk-grid-medium {
+  margin-left: -3.2rem;
+}
+
+.uk-grid-medium > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-medium .uk-grid + .uk-grid,
+.uk-grid-medium .uk-grid-margin,
+.uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+.uk-grid-large {
+  margin-left: -3.2rem;
+}
+
+.uk-grid-large > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-large .uk-grid + .uk-grid,
+.uk-grid-large .uk-grid-margin,
+.uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+.uk-panel-space {
+  padding: 1.6rem;
+}
+
+@media all and (min-width: 1024px) {
+  .uk-grid-large {
+    margin-left: -6.4rem;
+  }
+  .uk-grid-large > * {
+    padding-left: 6.4rem;
+  }
+  .uk-grid-large .uk-grid + .uk-grid,
+  .uk-grid-large .uk-grid-margin,
+  .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+    margin-top: 6.4rem;
+  }
 }
 
 /*--------------------------------------------------
@@ -1806,28 +2107,6 @@ body.linear.hd ul.it-feed {
 /*------------------------
 END NEWS FEEDS
 ------------------------*/
-/*body.linear.hd .it-news .newsflash-item {
-  padding: s(1);
-  padding-bottom: s(2);
-  overflow: hidden;
-  @include border($color: c($stone, 300))
-  background-color: $stone-050;
-}
-body.linear.hd .it-news .newsflash-image {
-  margin-left: s(-1);
-  margin-top: s(-1);
-  width: calc( 100% + 3.2rem );
-}
-body.linear.hd .it-news a.readmore {
-  border: 0px solid transparent;
-  background-color: c($stone, 100);
-  padding: s(0.5);
-  text-align: center;
-}
-body.linear.hd .it-news a.readmore:hover {
-  background-color: c($stone, 100);
-}
-*/
 /*------------------------
 START SOCIAL ICONS
 ------------------------*/
@@ -1902,6 +2181,10 @@ START QUICKLINKS
   margin: 0;
 }
 
+#quicklinks .moduletable {
+  z-index: 2;
+}
+
 /* Remove borders from quicklinks */
 #quicklinks a,
 #trigger {
@@ -1939,6 +2222,7 @@ one line height for the margin below the breadcrumbs. */
   position: relative;
   padding-top: 12.8rem;
   min-height: 10rem;
+  z-index: 1;
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -1959,12 +2243,14 @@ one line height for the margin below the breadcrumbs. */
   /*Use article image */
   background-size: cover;
   background-position: bottom;
+  background-attachment: scroll;
 }
 
 /* Add the image filter effect used on the banners */
 #banner::after {
   background: #295135;
   mix-blend-mode: multiply;
+  opacity: 0.95;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */
@@ -2024,13 +2310,9 @@ START SIDEBAR
 body.hd div.sidebar.gray,
 body.hd div.sidebar.no-seal,
 body.hd #leftcolumn.sidebarpanel.gray,
-body.hd #sidebar_trigger.gray,
-body.hd #leftcolumn.sidebarpanel.no-seal,
-body.hd #sidebar_trigger.no-seal {
+body.hd #leftcolumn.sidebarpanel.no-seal {
   font-size: inherit;
-  background: none;
-  background-color: transparent;
-  background-image: none;
+  background-color: white;
 }
 
 #leftcolumn ul.nav.menu a {
@@ -2040,7 +2322,7 @@ body.hd #sidebar_trigger.no-seal {
   background-color: transparent;
   background-image: none;
   display: block;
-  padding: 0.5em;
+  padding: 0.5rem;
 }
 
 #leftcolumn ul.nav-child,
@@ -2071,8 +2353,31 @@ body.hd #sidebar_trigger.no-seal {
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  margin-left: sp(5);
+  padding-left: 1rem;
+  margin-left: 0.5rem;
   border-left: 2px solid #1E6B52;
+}
+
+#leftcolumn .moduletable {
+  margin-bottom: 3.2rem;
+}
+
+/* Clearfix for modules */
+#leftcolumn .moduletable::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+#leftcolumn .moduletable.sidebar-btns {
+  overflow: visible;
+}
+
+#leftcolumn .sidebar-btns + .sidebar-btns {
+  margin-top: -1.6rem;
 }
 
 /*------------------------
@@ -2338,4 +2643,46 @@ body.linear.hd.it-home #banner .breadcrumb {
 .it-home div.custom.twitter-feed h4,
 .it-home div.custom.twitter-feed hr {
   display: none;
+}
+
+.org-card {
+  display: grid;
+  grid-template-columns: 6.4rem 1fr;
+  grid-template-areas: 'org-image org-name' 'org-content org-content';
+  grid-gap: 1.6rem;
+  margin-bottom: 1.6rem;
+}
+
+.org-card-cio {
+  grid-template-columns: 9.6rem 1fr;
+  grid-template-areas: 'org-image org-name' 'org-content org-content';
+  grid-gap: 1.6rem;
+}
+
+.org-img {
+  grid-area: org-image;
+  height: 6.4rem;
+  background: grey;
+}
+
+.org-card-cio .org-img {
+  height: 9.6rem;
+}
+
+.org-name {
+  grid-area: org-name;
+}
+
+.org-content {
+  grid-area: org-content;
+}
+
+.org-child .org-name h3,
+.org-name a.btn {
+  margin: 0 !important;
+}
+
+.org-child {
+  padding-left: 1.6rem;
+  border-left: 3px solid #80BC00;
 }

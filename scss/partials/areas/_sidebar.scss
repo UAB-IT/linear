@@ -4,16 +4,15 @@ START SIDEBAR
 body.hd div.sidebar.gray,
 body.hd div.sidebar.no-seal,
 body.hd #leftcolumn.sidebarpanel.gray,
-body.hd #sidebar_trigger.gray,
-body.hd #leftcolumn.sidebarpanel.no-seal,
-body.hd #sidebar_trigger.no-seal {
-  @include reset(font-size, background);
+body.hd #leftcolumn.sidebarpanel.no-seal {
+  @include reset(font-size);
+  background-color: white;
 }
 
 #leftcolumn ul.nav.menu a {
   @include reset(margin, border, background);
   display: block;
-  padding: 0.5em;
+  padding: 0.5rem;
 }
 
 #leftcolumn ul.nav-child,
@@ -42,8 +41,31 @@ body.hd #sidebar_trigger.no-seal {
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  margin-left: sp( 5 );
+  padding-left: 1rem;
+  margin-left: 0.5rem;
   border-left: 2px solid $c-primary;
+}
+
+#leftcolumn .moduletable {
+  margin-bottom: s(2);
+}
+
+/* Clearfix for modules */
+#leftcolumn .moduletable::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+#leftcolumn .moduletable.sidebar-btns {
+  overflow: visible;
+}
+
+#leftcolumn .sidebar-btns + .sidebar-btns {
+  margin-top: s(-1);
 }
 /*------------------------
 END SIDEBAR

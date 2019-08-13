@@ -12,22 +12,32 @@ SPACING
 #{$specify} h5,
 #{$specify} h6 {
   @include header-style(false);
+  @include reset(margin);
   color: inherit;
   text-align: inherit;
 }
-[role='main'] {
+#{$specify} [role='main'] {
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
-    @include header-margin;
+    margin-bottom: $header-bottom;
   }
 }
-
-#leftcolumn h3 {
-  @include header-margin;
+#{$specify} [role='main'] :not(div) + {
+  h1,
+  h2 {
+    margin-top: $header-top;
+  }
+}
+#{$specify} [role='main'] h1 + h2,
+#{$specify} [role='main'] h2 + h3,
+#{$specify} [role='main'] h3 + h4,
+#{$specify} [role='main'] h4 + h5,
+#{$specify} [role='main'] h5 + h6 {
+  margin-top: 0;
 }
 
 p,
@@ -35,13 +45,6 @@ p,
 pre,
 blockquote {
   @include block-margin;
-  margin-top: 0;
-}
-
-/* Remove gap caused by first header in an article */
-#{$specify} .item-page h2:first-of-type,
-#{$specify} .section h2:first-of-type,
-#{$specify} .section :first-child {
   margin-top: 0;
 }
 

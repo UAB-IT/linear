@@ -11,6 +11,7 @@ one line height for the margin below the breadcrumbs. */
   position: relative;
   padding-top: $banner-top;
   min-height: 10rem;
+  z-index: 1;
 }
 
 /* Set the before and after elements to cover the banner area and send them to the back */
@@ -30,17 +31,19 @@ one line height for the margin below the breadcrumbs. */
   background: url( '/it/home/images/banners/Default-WebHeader.jpg' ); /*Use article image */
   background-size: cover;
   background-position: bottom;
+  background-attachment: scroll;
 }
 
 /* Add the image filter effect used on the banners */
 #banner::after {
   background: $darkgreen;
   mix-blend-mode: multiply;
+  opacity: 0.95;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */
 #banner .moduletable {
-  max-width: $cont-width;
+  max-width: $max-width;
   margin: auto;
 }
 

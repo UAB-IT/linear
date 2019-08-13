@@ -5,6 +5,10 @@ START QUICKLINKS
   @include reset(margin);
 }
 
+#quicklinks .moduletable {
+  z-index: 2;
+}
+
 /* Remove borders from quicklinks */
 #quicklinks a,
 #trigger {

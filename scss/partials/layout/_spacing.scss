@@ -17,7 +17,7 @@ body.hd.sidebars #leftcolumn {
 }
 /* correct max width on pages without sidebar */
 body.hd.inside #whitebox {
-  max-width: $cont-width;
+  max-width: $max-width;
 }
 
 /* Section spacing */
@@ -36,6 +36,7 @@ body.hd.inside #whitebox {
 .section.background-full {
   @include section-space($bg: true, $full: true);
   position: relative;
+  z-index: 1;
 }
 .section.background-full::before {
   content: '';
@@ -50,7 +51,52 @@ body.hd.inside #whitebox {
   z-index: -1;
 }
 .hero-sect {
-  height: 70vh;
-  margin-top: -#{s( 2 )};
+  /*height: 70vh;*/
+  margin-top: s( -2 );
   align-items: center;
+}
+
+// EXPERIMENTAL MARGIN FIX
+
+// Fix for most sections
+#{$specify} .section > :last-child {
+  margin-bottom: 0;
+}
+
+// Fix for widgetkit blocks
+#{$specify} .section > [id]:last-of-type {
+  margin-bottom: 0;
+}
+
+// Fix for first element of the page
+#{$specify} [itemprop='articleBody'] > :first-child {
+  margin-top: 0;
+}
+
+// Fix for last element of the page
+#{$specify} [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0;
+}
+
+// Fix for Grid Items
+#{$specify} [class*='grid-1'] > * :last-child,
+#{$specify} [class*='grid-2'] > * :last-child,
+#{$specify} [class*='grid-3'] > * :last-child,
+#{$specify} [class*='grid-4'] > * :last-child,
+#{$specify} [class*='grid-6'] > * :last-child {
+  margin-bottom: 0;
+}
+
+// Decrease space between headers & widgetkit blocks
+#{$specify} [id*='wk'] {
+  margin-top: $section-margin;
+  margin-bottom: $section-margin;
+}
+#{$specify} h1 + [id*='wk'],
+#{$specify} h2 + [id*='wk'],
+#{$specify} h3 + [id*='wk'],
+#{$specify} h4 + [id*='wk'],
+#{$specify} h5 + [id*='wk'],
+#{$specify} h6 + [id*='wk'] {
+  margin-top: #{$section-margin / 2};
 }
