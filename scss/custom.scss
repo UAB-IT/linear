@@ -1,5 +1,7 @@
 @import 'ember.scss';
 
+/* Home Adjustments */
+
 #{$specify}.it-home #banner h1 {
   text-align: center;
   margin-top: -3rem;
@@ -12,6 +14,8 @@
 .it-home div.custom.twitter-feed hr {
   display: none;
 }
+
+/* ORG CARD */
 
 .org-card {
   display: grid;
@@ -49,5 +53,5 @@
 }
 .org-child {
   padding-left: 1.6rem;
-  border-left: 3px solid $c-secondary;
+  border-left: $bdr-lg solid $c-secondary;
 }

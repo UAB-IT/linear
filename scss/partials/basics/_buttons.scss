@@ -24,14 +24,14 @@ START BUTTONS
   @include button-primary;
 }
 
-#{$specify} :not(p) > * + button,
-#{$specify} :not(p) > * + .button,
-#{$specify} :not(p) > * + .btn-primary,
-#{$specify} :not(p) > * + .btn--full,
-#{$specify} :not(p) > * + .btn,
-#{$specify} :not(p) > * + input[type='submit'],
-#{$specify} :not(p) > * + input[type='reset'],
-#{$specify} :not(p) > * + input[type='button'] {
+#{$specify} :not(p):not(.formControls) > * + button,
+#{$specify} :not(p):not(.formControls) > * + .button,
+#{$specify} :not(p):not(.formControls) > * + .btn-primary,
+#{$specify} :not(p):not(.formControls) > * + .btn--full,
+#{$specify} :not(p):not(.formControls) > * + .btn,
+#{$specify} :not(p):not(.formControls) > * + input[type='submit'],
+#{$specify} :not(p):not(.formControls) > * + input[type='reset'],
+#{$specify} :not(p):not(.formControls) > * + input[type='button'] {
   @include block-margin;
 }
 
@@ -45,6 +45,10 @@ START BUTTONS
   display: block;
   text-align: center;
   width: 100%;
+}
+
+.uk-button {
+  border: 1px solid $stone !important;
 }
 /*------------------------
 END BUTTONS

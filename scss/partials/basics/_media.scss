@@ -25,17 +25,10 @@ figure figcaption {
 .video-container {
   margin-bottom: s(1);
 }
-// @media all and (max-width: 1600px) {
-//   #{$specify} .off-canvas-img {
-//     position: relative;
-//     align-self: flex-start;
-//   }
-//   #{$specify} .off-canvas-img > img {
-//     object-fit: fill;
-//     max-width: 100vw;
-//     width: auto;
-//   }
-// }
+#hidden-links img {
+  display: inherit;
+  margin: 0;
+}
 /*------------------------
 END MEDIA
 ------------------------*/

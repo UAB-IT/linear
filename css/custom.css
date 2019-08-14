@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.7.0
+Ember 0.7.1
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -555,6 +555,11 @@ figure figcaption {
   margin-bottom: 1.6rem;
 }
 
+#hidden-links img {
+  display: inherit;
+  margin: 0;
+}
+
 /*------------------------
 END MEDIA
 ------------------------*/
@@ -619,14 +624,14 @@ body.linear.hd button.btn-primary {
   border: 1px solid #1E6B52;
 }
 
-body.linear.hd :not(p) > * + button,
-body.linear.hd :not(p) > * + .button,
-body.linear.hd :not(p) > * + .btn-primary,
-body.linear.hd :not(p) > * + .btn--full,
-body.linear.hd :not(p) > * + .btn,
-body.linear.hd :not(p) > * + input[type='submit'],
-body.linear.hd :not(p) > * + input[type='reset'],
-body.linear.hd :not(p) > * + input[type='button'] {
+body.linear.hd :not(p):not(.formControls) > * + button,
+body.linear.hd :not(p):not(.formControls) > * + .button,
+body.linear.hd :not(p):not(.formControls) > * + .btn-primary,
+body.linear.hd :not(p):not(.formControls) > * + .btn--full,
+body.linear.hd :not(p):not(.formControls) > * + .btn,
+body.linear.hd :not(p):not(.formControls) > * + input[type='submit'],
+body.linear.hd :not(p):not(.formControls) > * + input[type='reset'],
+body.linear.hd :not(p):not(.formControls) > * + input[type='button'] {
   margin-bottom: 1.6rem;
 }
 
@@ -640,6 +645,10 @@ body.linear.hd input[type='button'].full {
   display: block;
   text-align: center;
   width: 100%;
+}
+
+.uk-button {
+  border: 1px solid #808285 !important;
 }
 
 /*------------------------
@@ -695,11 +704,21 @@ legend {
   line-height: 1.6rem;
 }
 
-body.linear.hd .uneditable-input,
+label,
+input,
+select,
+textarea {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
 body.linear.hd textarea,
-body.linear.hd progress,
-body.linear.hd fieldset,
-body.linear.hd input {
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
+body.linear.hd input[type='search'] {
   background: none;
   background-color: transparent;
   background-image: none;
@@ -719,18 +738,24 @@ body.linear.hd input {
   height: auto;
 }
 
-body.linear.hd .uneditable-input,
 body.linear.hd textarea,
-body.linear.hd progress,
-body.linear.hd fieldset,
-body.linear.hd input {
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
+body.linear.hd input[type='search'] {
   color: black;
   padding: 0.3em 1em;
   border-radius: 0;
-  border: 1px solid black;
+  border: 1px solid #808285;
 }
 
-body.linear.hd input,
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
 body.linear.hd textarea {
   display: block;
   width: 100%;
@@ -750,10 +775,59 @@ body.linear.hd select:focus {
   box-shadow: 0 0 0 1px #80BC00;
 }
 
-input[type='file']:focus,
-input[type='radio']:focus,
-input[type='checkbox']:focus {
-  outline: 2px auto #1E6B52;
+.formContainer .row {
+  margin: 0;
+}
+
+body.linear.hd input[type='radio'],
+body.linear.hd input[type='checkbox'] {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  margin-right: 0.8rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #808285;
+  padding-left: 0;
+  float: none;
+}
+
+body.linear.hd input[type='radio'] {
+  border-radius: 50%;
+}
+
+body.linear.hd select:focus,
+body.linear.hd input[type='file']:focus,
+body.linear.hd input[type='radio']:focus,
+body.linear.hd input[type='checkbox']:focus {
+  outline: thin dotted #333;
+  outline-offset: 0;
+}
+
+body.linear.hd input[type='radio']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  background-position: center;
+  border-color: #80BC00;
+}
+
+body.linear.hd input[type='checkbox']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-position: center;
+  border-color: #80BC00;
+}
+
+.uk-checkbox:checked,
+.uk-checkbox:indeterminate,
+input[type='radio']:checked,
+.uk-checkbox:checked:focus,
+.uk-checkbox:indeterminate:focus,
+input[type='radio']:checked:focus {
+  background-color: #80BC00;
+}
+
+body.uk-form ::selection {
+  color: black;
 }
 
 /*--------------------------------------------------
@@ -2630,6 +2704,7 @@ END HELPERS
 /*--------------------------------------------------
 END - EMBER
 --------------------------------------------------*/
+/* Home Adjustments */
 body.linear.hd.it-home #banner h1 {
   text-align: center;
   margin-top: -3rem;
@@ -2645,6 +2720,7 @@ body.linear.hd.it-home #banner .breadcrumb {
   display: none;
 }
 
+/* ORG CARD */
 .org-card {
   display: grid;
   grid-template-columns: 6.4rem 1fr;
@@ -2684,5 +2760,5 @@ body.linear.hd.it-home #banner .breadcrumb {
 
 .org-child {
   padding-left: 1.6rem;
-  border-left: 3px solid #80BC00;
+  border-left: 5px solid #80BC00;
 }

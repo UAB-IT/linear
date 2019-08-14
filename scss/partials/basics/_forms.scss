@@ -39,12 +39,20 @@ legend {
   @include reset(color);
   @include type-setting(h4);
 }
+label,
+input,
+select,
+textarea {
+  @include type-setting(p);
+}
 
-#{$specify} .uneditable-input,
 #{$specify} textarea,
-#{$specify} progress,
-#{$specify} fieldset,
-#{$specify} input {
+#{$specify} input[type='email'],
+#{$specify} input[type='number'],
+#{$specify} input[type='text'],
+#{$specify} input[type='tel'],
+#{$specify} input[type='url'],
+#{$specify} input[type='search'] {
   @include reset(background, shadow, transition);
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -54,17 +62,23 @@ legend {
   height: auto;
 }
 
-#{$specify} .uneditable-input,
 #{$specify} textarea,
-#{$specify} progress,
-#{$specify} fieldset,
-#{$specify} input {
+#{$specify} input[type='email'],
+#{$specify} input[type='number'],
+#{$specify} input[type='text'],
+#{$specify} input[type='tel'],
+#{$specify} input[type='url'],
+#{$specify} input[type='search'] {
   color: $txt-color;
   padding: $input-padding;
-  @include border($radius: 0);
+  @include border($color: $stone, $radius: 0);
 }
 
-#{$specify} input,
+#{$specify} input[type='email'],
+#{$specify} input[type='number'],
+#{$specify} input[type='text'],
+#{$specify} input[type='tel'],
+#{$specify} input[type='url'],
 #{$specify} textarea {
   display: block;
   width: 100%;
@@ -84,8 +98,57 @@ legend {
   box-shadow: 0 0 0 1px $c-secondary;
 }
 
-input[type='file']:focus,
-input[type='radio']:focus,
-input[type='checkbox']:focus {
-  outline: 2px auto $c-primary;
+.formContainer .row {
+  margin: 0;
+}
+
+#{$specify} input[type='radio'],
+#{$specify} input[type='checkbox'] {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  margin-right: s(0.5);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid $stone;
+  padding-left: 0;
+  float: none;
+}
+
+#{$specify} input[type='radio'] {
+  border-radius: 50%;
+}
+
+#{$specify} select:focus,
+#{$specify} input[type='file']:focus,
+#{$specify} input[type='radio']:focus,
+#{$specify} input[type='checkbox']:focus {
+  outline: thin dotted #333;
+  outline-offset: 0;
+}
+
+#{$specify} input[type='radio']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  background-position: center;
+  border-color: $c-secondary;
+}
+
+#{$specify} input[type='checkbox']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-position: center;
+  border-color: $c-secondary;
+}
+
+.uk-checkbox:checked,
+.uk-checkbox:indeterminate,
+input[type='radio']:checked,
+.uk-checkbox:checked:focus,
+.uk-checkbox:indeterminate:focus,
+input[type='radio']:checked:focus {
+  background-color: $c-secondary;
+}
+
+body.uk-form ::selection {
+  color: black;
 }
