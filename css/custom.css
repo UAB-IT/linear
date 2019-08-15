@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.7.1
+Ember 0.8.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -88,33 +88,9 @@ body.hd .rightsidebar .nav.menu li {
   width: 100%;
 }
 
-/* Allow content to expand to full viewport width */
-body.ribbonFullwidth #whitebox {
-  overflow: visible;
-}
-
-/* Clearfix for main area.
-This fixes layout problems from changing overflow property */
-#whitebox::after {
-  content: '';
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-}
-
-body.ribbonFullwidth #wrapper {
-  overflow-x: hidden;
-}
-
 /*------------------------
 END RESET
 ------------------------*/
-/*--------------------------------------------------
-END CORE - START BASICS
-Basic styling for html elements with a focus on typography.
---------------------------------------------------*/
 /* ------------------------
 START TYPOGRAPHY
 ------------------------ */
@@ -127,13 +103,14 @@ body.linear.hd h3,
 body.linear.hd h4,
 body.linear.hd h5,
 body.linear.hd h6 {
+  margin: 0;
   font-weight: normal;
   font-family: "kulturista-web", serif;
-  margin: 0;
   color: inherit;
   text-align: inherit;
 }
 
+/* Add rhythem spacing */
 body.linear.hd [role='main'] h1,
 body.linear.hd [role='main'] h2,
 body.linear.hd [role='main'] h3,
@@ -148,6 +125,7 @@ body.linear.hd [role='main'] :not(div) + h2 {
   margin-top: 3.2rem;
 }
 
+/* Remove additional margin between headers */
 body.linear.hd [role='main'] h1 + h2,
 body.linear.hd [role='main'] h2 + h3,
 body.linear.hd [role='main'] h3 + h4,
@@ -156,6 +134,7 @@ body.linear.hd [role='main'] h5 + h6 {
   margin-top: 0;
 }
 
+/* Apply block level margins to block elements */
 p,
 body.linear.hd hr,
 pre,
@@ -206,12 +185,14 @@ body.linear.hd .uk-h6 {
 }
 
 body,
-body.linear.hd p {
+body.linear.hd p,
+body.linear.hd .uk-p {
   font-size: 1rem;
   line-height: 1.6rem;
 }
 
-body.linear.hd small {
+body.linear.hd small,
+body.linear.hd .uk-small {
   font-size: 0.8rem;
   line-height: 1.6rem;
 }
@@ -219,6 +200,8 @@ body.linear.hd small {
 /*------------------------
 RULE LINES
 ------------------------*/
+/* Ensure hr takes up no vertical space,
+apply thin border for styling */
 body.linear.hd hr {
   box-sizing: content-box;
   height: 0;
@@ -228,6 +211,8 @@ body.linear.hd hr {
   border-color: black;
 }
 
+/* Allow rule lines that immediately follow headers to sit on the header's
+baseline */
 body.linear.hd h1 + hr,
 body.linear.hd h2 + hr,
 body.linear.hd h3 + hr,
@@ -241,8 +226,8 @@ body.linear.hd h6 + hr {
 /*------------------------
 LINKS
 ------------------------*/
-/* Applies link styles to content areas only. Less specific than an id.
-Div is used here because .ribbonFullwidth is also on the body element. */
+/* Applies link styles to content areas only. Less specific than an id and
+helps avoid overreaching styles. */
 p a[href]:not(.unstyled),
 li a[href]:not(.unstyled),
 h1 a[href]:not(.unstyled),
@@ -272,9 +257,28 @@ pre a[href]:not(.unstyled):hover {
   border-color: #1E6B52;
 }
 
+a:not(.btn)[target='_blank']::after {
+  content: '\e024';
+  font-family: 'IcoMoon';
+  speak: none;
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 90%;
+}
+
+a:not(.btn)[href$='.pdf']::after {
+  content: '\e239';
+  font-family: 'IcoMoon';
+  speak: none;
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 90%;
+}
+
 /* ------------------------
 INLINE
 ------------------------ */
+/* Add padding to inline elements with a background */
 mark,
 code,
 kbd {
@@ -354,6 +358,7 @@ END TYPOGRAPHY
 /*------------------------
 START LISTS
 ------------------------*/
+/* Remove margins and paddings from all lists */
 body.linear.hd ul,
 body.linear.hd ol {
   margin: 0;
@@ -365,30 +370,39 @@ body.linear.hd li {
   list-style-position: inherit;
 }
 
+/* Apply margin to compensate for list style,
+only to lists inside the main content area */
 body.linear.hd .item-page ul:not(.unstyled),
 body.linear.hd .item-page ol:not(.unstyled) {
   margin-left: 1.2em;
 }
 
+/* Add rhythem spacing to lists in main content area */
+body.linear.hd .item-page ul,
+body.linear.hd .item-page ol,
+body.linear.hd .item-page dl {
+  margin-bottom: 1.6rem;
+}
+
+/* // REVIEW: What is this for?
+I think this is a theme option for if you want the bullets
+to be in the margin so that the text lines up with a paragraph */
 body.linear.hd .item-page ul.outside,
 body.linear.hd .item-page ol.outside {
   margin-left: 0;
 }
 
-body.linear.hd .item-page ul,
-body.linear.hd .item-page ol,
-body.linear.hd .item-page dl {
-  margin-bottom: 0.8rem;
-}
-
+/* Add indention to child lists */
 body.linear.hd ul:not(.unstyled) ul,
 body.linear.hd ul:not(.unstyled) ol,
 body.linear.hd ol:not(.unstyled) ol,
-body.linear.hd ol:not(.unstyled) ul {
+body.linear.hd ol:not(.unstyled) ul,
+body.linear.hd dl:not(.unstyled) dd {
   margin-bottom: 0;
   margin-left: 1em;
 }
 
+/* Set bullet styles */
 body.linear.hd .item-page ul:not(.unstyled) {
   list-style-type: disc;
 }
@@ -413,13 +427,9 @@ body.linear.hd .item-page ol:not(.unstyled) ol ol {
   list-style-type: lower-latin;
 }
 
+/* Bold description term */
 body.linear.hd dt {
   font-weight: bolder;
-}
-
-dd {
-  margin-bottom: 0.8rem;
-  margin-left: 1em;
 }
 
 /* Gets rid of bootstrap style */
@@ -428,7 +438,8 @@ dd {
 }
 
 #content ul:not(.unstyled) li,
-#content ol:not(.unstyled) li {
+#content ol:not(.unstyled) li,
+#content dl:not(.unstyles) dd {
   margin: 0.8rem 0 0;
 }
 
@@ -438,6 +449,9 @@ END LISTS
 /*------------------------
 START TABLES
 ------------------------*/
+/* Set default sytles,
+make table mobile friendly,
+add rhythem spacing */
 body.linear.hd table {
   text-align: left;
   border-collapse: collapse;
@@ -446,6 +460,8 @@ body.linear.hd table {
   margin-bottom: 1.6rem;
 }
 
+/* Add borders, padding, and ensure
+text alignment is respected */
 body.linear.hd table tr td,
 body.linear.hd table tr th {
   border-radius: 4px;
@@ -454,13 +470,15 @@ body.linear.hd table tr th {
   text-align: inherit;
 }
 
+/* Apply h4 styles to table headers in a thead element */
 body.linear.hd table thead th {
-  font-weight: normal;
-  font-family: "kulturista-web", serif;
   font-size: 1.25rem;
   line-height: 1.6rem;
+  font-weight: normal;
+  font-family: "kulturista-web", serif;
 }
 
+/* remove margin from paragraphs and pre elements inside a table */
 body.linear.hd table pre,
 body.linear.hd table p {
   margin: 0;
@@ -528,22 +546,19 @@ img {
   max-width: 100%;
   object-fit: cover;
   margin: auto;
-  margin-bottom: 1.6rem;
   display: block;
 }
 
-figure img {
-  margin: 0;
-}
-
-figure {
+/* Add rhythem spacing */
+:not(figure) img,
+iframe,
+figure,
+.video-container {
   margin-bottom: 1.6rem;
 }
 
-iframe {
-  margin-bottom: 1.6rem;
-}
-
+/* Style figcaption to display small in the center under the image,
+Add rhythem spacing above caption instead of below image */
 figure figcaption {
   font-size: 0.8rem;
   line-height: 1.6rem;
@@ -551,10 +566,7 @@ figure figcaption {
   margin: 1.6rem 0;
 }
 
-.video-container {
-  margin-bottom: 1.6rem;
-}
-
+/* Remove problematic image styles from hidden links */
 #hidden-links img {
   display: inherit;
   margin: 0;
@@ -563,438 +575,10 @@ figure figcaption {
 /*------------------------
 END MEDIA
 ------------------------*/
-/*------------------------
-START BUTTONS
-------------------------*/
-body.linear.hd button,
-body.linear.hd .button,
-body.linear.hd .btn-primary,
-body.linear.hd .btn,
-body.linear.hd input[type='submit'],
-body.linear.hd input[type='reset'],
-body.linear.hd input[type='button'] {
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  margin: 0;
-  -webkit-appearance: none;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 4px;
-  border: 1px solid #333435;
-  color: #333435;
-  font-size: 1rem;
-  line-height: 1.6rem;
-  padding: 0.3em 1em;
-  text-align: center;
-  white-space: nowrap;
-  box-sizing: border-box;
-}
-
-body.linear.hd button:focus, body.linear.hd button:hover,
-body.linear.hd .button:focus,
-body.linear.hd .button:hover,
-body.linear.hd .btn-primary:focus,
-body.linear.hd .btn-primary:hover,
-body.linear.hd .btn:focus,
-body.linear.hd .btn:hover,
-body.linear.hd input[type='submit']:focus,
-body.linear.hd input[type='submit']:hover,
-body.linear.hd input[type='reset']:focus,
-body.linear.hd input[type='reset']:hover,
-body.linear.hd input[type='button']:focus,
-body.linear.hd input[type='button']:hover {
-  outline: 0;
-  text-decoration: none;
-  border-color: #1E6B52;
-  box-shadow: 0 0 0 1px #1E6B52;
-  background: #d2e1dc;
-  color: black;
-}
-
-body.linear.hd a.btn-primary,
-body.linear.hd button.btn-primary {
-  color: white;
-  background: #1E6B52;
-  border-radius: 4px;
-  border: 1px solid #1E6B52;
-}
-
-body.linear.hd :not(p):not(.formControls) > * + button,
-body.linear.hd :not(p):not(.formControls) > * + .button,
-body.linear.hd :not(p):not(.formControls) > * + .btn-primary,
-body.linear.hd :not(p):not(.formControls) > * + .btn--full,
-body.linear.hd :not(p):not(.formControls) > * + .btn,
-body.linear.hd :not(p):not(.formControls) > * + input[type='submit'],
-body.linear.hd :not(p):not(.formControls) > * + input[type='reset'],
-body.linear.hd :not(p):not(.formControls) > * + input[type='button'] {
-  margin-bottom: 1.6rem;
-}
-
-body.linear.hd button.full,
-body.linear.hd .button.full,
-body.linear.hd .btn-primary.full,
-body.linear.hd .btn.full,
-body.linear.hd input[type='submit'].full,
-body.linear.hd input[type='reset'].full,
-body.linear.hd input[type='button'].full {
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-.uk-button {
-  border: 1px solid #808285 !important;
-}
-
-/*------------------------
-END BUTTONS
-------------------------*/
-/*------------------------
-START FORMS
-------------------------*/
-/*------------------------
-START BTN TOOLBAR
-------------------------*/
-.btn-toolbar {
-  margin: 0 0 1.6rem;
-}
-
-#undefined {
-  margin: 0;
-}
-
-.input-group {
-  display: flex;
-  margin-bottom: 1.6rem;
-}
-
-body.linear.hd .input-group button,
-body.linear.hd .input-group input {
-  margin: 0;
-}
-
-body.linear.hd .input-group input {
-  border-radius: 4px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-
-body.linear.hd .input-group button {
-  border-radius: 4px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-
-/*------------------------
-END BTN TOOLBAR
-------------------------*/
-/*------------------------
-Standard Inputs
-------------------------*/
-legend {
-  font-weight: normal;
-  font-family: "kulturista-web", serif;
-  color: inherit;
-  font-size: 1.25rem;
-  line-height: 1.6rem;
-}
-
-label,
-input,
-select,
-textarea {
-  font-size: 1rem;
-  line-height: 1.6rem;
-}
-
-body.linear.hd textarea,
-body.linear.hd input[type='email'],
-body.linear.hd input[type='number'],
-body.linear.hd input[type='text'],
-body.linear.hd input[type='tel'],
-body.linear.hd input[type='url'],
-body.linear.hd input[type='search'] {
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition-property: none;
-  -moz-transition-property: none;
-  -o-transition-property: none;
-  transition-property: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-sizing: border-box;
-  height: auto;
-}
-
-body.linear.hd textarea,
-body.linear.hd input[type='email'],
-body.linear.hd input[type='number'],
-body.linear.hd input[type='text'],
-body.linear.hd input[type='tel'],
-body.linear.hd input[type='url'],
-body.linear.hd input[type='search'] {
-  color: black;
-  padding: 0.3em 1em;
-  border-radius: 0;
-  border: 1px solid #808285;
-}
-
-body.linear.hd input[type='email'],
-body.linear.hd input[type='number'],
-body.linear.hd input[type='text'],
-body.linear.hd input[type='tel'],
-body.linear.hd input[type='url'],
-body.linear.hd textarea {
-  display: block;
-  width: 100%;
-  background-color: white;
-}
-
-body.linear.hd textarea {
-  height: 6.4rem;
-  resize: vertical;
-  overflow-y: scroll;
-}
-
-body.linear.hd textarea:focus,
-body.linear.hd input:focus,
-body.linear.hd select:focus {
-  border-color: #80BC00 !important;
-  box-shadow: 0 0 0 1px #80BC00;
-}
-
-.formContainer .row {
-  margin: 0;
-}
-
-body.linear.hd input[type='radio'],
-body.linear.hd input[type='checkbox'] {
-  width: 1em;
-  height: 1em;
-  margin: 0;
-  margin-right: 0.8rem;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: 1px solid #808285;
-  padding-left: 0;
-  float: none;
-}
-
-body.linear.hd input[type='radio'] {
-  border-radius: 50%;
-}
-
-body.linear.hd select:focus,
-body.linear.hd input[type='file']:focus,
-body.linear.hd input[type='radio']:focus,
-body.linear.hd input[type='checkbox']:focus {
-  outline: thin dotted #333;
-  outline-offset: 0;
-}
-
-body.linear.hd input[type='radio']:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
-  background-position: center;
-  border-color: #80BC00;
-}
-
-body.linear.hd input[type='checkbox']:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
-  background-position: center;
-  border-color: #80BC00;
-}
-
-.uk-checkbox:checked,
-.uk-checkbox:indeterminate,
-input[type='radio']:checked,
-.uk-checkbox:checked:focus,
-.uk-checkbox:indeterminate:focus,
-input[type='radio']:checked:focus {
-  background-color: #80BC00;
-}
-
-body.uk-form ::selection {
-  color: black;
-}
-
 /*--------------------------------------------------
-END BASICS - START COMPONENTS
+END CORE - START COMPONENTS
 Self contained chunks of content with their visual styling.
 --------------------------------------------------*/
-/*------------------------
-START PANELS
-------------------------*/
-body .panels > a,
-.cards > div {
-  border-radius: 4px;
-  border: 1px solid black;
-  padding: 1.6rem;
-  background: white;
-}
-
-body .panels > a:hover {
-  outline: 0;
-  text-decoration: none;
-  border-color: #1E6B52;
-  box-shadow: 0 0 0 1px #1E6B52;
-  background: #d2e1dc;
-  color: black;
-}
-
-.panels > a h4 {
-  display: inline-block;
-  margin-top: 0;
-  border-bottom: 2px solid #78a697;
-}
-
-.panels > a:hover h4 {
-  background-color: #d2e1dc;
-  border-color: #1E6B52;
-}
-
-.panels > a p:last-child {
-  margin-bottom: 0;
-}
-
-.uk-panel-box {
-  padding: 1.6rem;
-}
-
-.uk-panel-title,
-.uk-panel-box-primary,
-.uk-panel-box,
-.uk-panel-box .uk-panel-title,
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary .uk-panel-title,
-.uk-panel-box-primary-hover:hover {
-  color: black;
-}
-
-body.linear.hd .wk-panels .uk-panel-title {
-  margin-top: 0;
-}
-
-body.linear.hd .wk-panels .uk-panel {
-  background: white;
-  border-radius: 4px;
-  border: 1px solid black;
-  padding: 1.6rem;
-}
-
-body.linear.hd a.uk-position-cover {
-  opacity: 0 !important;
-}
-
-body.linear.hd .wk-panels .uk-panel p:last-child {
-  margin: 0;
-}
-
-body.linear.hd .wk-panels .uk-panel:hover {
-  outline: 0;
-  text-decoration: none;
-  border-color: #1E6B52;
-  box-shadow: 0 0 0 1px #1E6B52;
-  background: #d2e1dc;
-  color: black;
-}
-
-body.linear.hd .wk-panels .uk-panel:hover h3 a {
-  border-color: #1E6B52;
-}
-
-/*------------------------
-END PANELS
-------------------------*/
-/*------------------------
-START FEATURES
-
-This uses widgetkit for layout
-------------------------*/
-body.linear.hd .wk-features .uk-panel p {
-  margin: 0;
-}
-
-body.linear.hd .wk-features .uk-panel img {
-  height: 7rem;
-  width: auto;
-  display: block;
-  margin: auto;
-}
-
-body.linear.hd .wk-features .uk-panel-title {
-  margin-bottom: 1.6rem;
-  margin-top: 1.6rem;
-}
-
-/*------------------------
-END FEATURES
-------------------------*/
-/*------------------------
-START GALLERY
-
-This uses widgetkit for layout
-------------------------*/
-body.linear.hd .wk-gallery p {
-  margin: 0;
-  text-align: center;
-}
-
-/*------------------------
-END GALLERY
-------------------------*/
-/*------------------------
-START ANCHORS
-------------------------*/
-h2[id] {
-  position: relative;
-}
-
-h2[id] a.anchor {
-  border: 0;
-  margin: 0;
-  opacity: 0;
-  position: absolute;
-  left: -1em;
-  width: 1.5em;
-  height: 1em;
-}
-
-h2[id]:hover a.anchor {
-  opacity: 1;
-}
-
-h2[id] a.anchor:hover {
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  margin: 0;
-}
-
-h2[id] a.anchor::before {
-  content: '\e252';
-  /*72*/
-  font-size: 70%;
-  color: #80BC00;
-  font-family: 'IcoMoon';
-  speak: none;
-}
-
-/*------------------------
-END ANCHORS
-------------------------*/
 /*------------------------
 START CHIPS
 ------------------------*/
@@ -1020,34 +604,6 @@ START CHIPS
 
 /*------------------------
 END CHIPS
-------------------------*/
-/*------------------------
-START OVERLAY
-------------------------*/
-.overlay {
-  position: relative;
-}
-
-.overlay::before {
-  content: '';
-  background-color: #295135;
-  opacity: 0.5;
-  mix-blend-mode: hard-light;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: opacity 0.3s;
-}
-
-.overlay:hover::before {
-  content: '';
-  opacity: 0;
-}
-
-/*------------------------
-END OVERLAY
 ------------------------*/
 /*------------------------
 START ALERT
@@ -1114,123 +670,33 @@ body.linear.hd #breadcrumbs > :last-child {
 END ALERT
 ------------------------*/
 /*------------------------
-START PAGINATION
-------------------------*/
-.pagination {
-  margin: 0;
-  margin-bottom: 1.6rem;
-}
-
-.pagination ul {
-  text-shadow: none;
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.pagination ul > li > a,
-.pagination ul > li > span {
-  display: inline-block;
-  border: 0 solid transparent;
-  border-radius: 4px;
-  border: none solid black;
-  padding: 0.3em 1em;
-  margin: 0 0.8rem;
-}
-
-.pagination ul > li > span {
-  border-bottom: 2px solid #80BC00;
-}
-
-.pagination ul > li.pagination-start > a,
-.pagination ul > li.pagination-start > span,
-.pagination ul > li.pagination-next > a,
-.pagination ul > li.pagination-next > span {
-  border-bottom-left-radius: 4px;
-  border-top-left-radius: 4px;
-}
-
-.pagination ul > li.pagination-end > a,
-.pagination ul > li.pagination-end > span,
-.pagination ul > li.pagination-prev > a,
-.pagination ul > li.pagination-prev > span {
-  border-bottom-right-radius: 4px;
-  border-top-right-radius: 4px;
-}
-
-.pagination ul > li.pagination-start > a,
-.pagination ul > li.pagination-prev > a,
-.pagination ul > li.pagination-end > a,
-.pagination ul > li.pagination-next > a {
-  margin: 0;
-  border: 1px solid #1E6B52;
-  color: #1E6B52;
-}
-
-.pagination ul > li.pagination-start > span,
-.pagination ul > li.pagination-prev > span,
-.pagination ul > li.pagination-end > span,
-.pagination ul > li.pagination-next > span {
-  margin: 0;
-  border-radius: 4px;
-  border: 1px solid #b3b4b6;
-  color: #b3b4b6;
-  background: #f2f3f3;
-}
-
-.pagination ul > li.pagination-prev > a,
-.pagination ul > li.pagination-prev > span {
-  margin-right: 0.8rem;
-}
-
-.pagination ul > li.pagination-next > a,
-.pagination ul > li.pagination-next > span {
-  margin-left: 0.8rem;
-}
-
-/*------------------------
-END PAGINATION
-------------------------*/
-/*------------------------
-START SLIDESHOW
-------------------------*/
-/* NOTE: The slideshow component is built in widgetkit - not html */
-/* Remove margins from slider elements. This will make sure the
-background image doesn't get cropped since widgetkit doesn't
-account for the margins in the sizing of the slideshow. */
-body.linear.hd #content .item-page ul.uk-slideshow,
-body.linear.hd #content .item-page ul.uk-slideshow li,
-body.linear.hd #content .item-page ul.uk-slideshow img {
-  margin: 0;
-}
-
-/*------------------------
-END SLIDESHOW
-------------------------*/
-/*------------------------
 START PULLQUOTE
 ------------------------*/
-body.linear.hd .pullquote {
+body.linear.hd .pullquote,
+body.linear.hd blockquote {
   margin-bottom: 1.6rem;
   padding: 1.6rem;
   background-color: #f2f3f3;
   border-left: 5px solid #80BC00;
 }
 
-body.linear.hd .background .pullquote {
+body.linear.hd .background .pullquote,
+body.linear.hd .background blockquote {
   background-color: #e6e6e7;
 }
 
 body.linear.hd .pullquote p,
-body.linear.hd .pullquote q {
+body.linear.hd .pullquote q,
+body.linear.hd blockquote p,
+body.linear.hd blockquote q {
   margin: 0;
   font-size: 1.25rem;
   line-height: 1.6rem;
   display: block;
 }
 
-body.linear.hd .pullquote footer {
+body.linear.hd .pullquote footer,
+body.linear.hd blockquote footer {
   text-align: right;
   margin-top: 0.8rem;
 }
@@ -1238,100 +704,6 @@ body.linear.hd .pullquote footer {
 /*------------------------
 END PULLQUOTE
 ------------------------*/
-/*------------------------
-START DETAILS
-------------------------*/
-body.linear.hd .wk-details .uk-panel p {
-  margin: 0;
-}
-
-body.linear.hd .wk-details .uk-panel img {
-  height: 5rem;
-  width: auto;
-  display: block;
-  margin: auto;
-}
-
-body.linear.hd .wk-details.uk-text-left .uk-panel img {
-  margin: 0;
-}
-
-body.linear.hd .wk-details .uk-panel-title {
-  margin: 0;
-  font-size: 1.25rem;
-  line-height: 1.6rem;
-  margin-bottom: -0.8rem;
-}
-
-body.linear.hd .uk-panel .uk-grid {
-  margin: 0;
-  display: flex;
-  flex-wrap: nowrap;
-}
-
-body.linear.hd .uk-panel .uk-grid div {
-  padding: 0;
-  width: auto;
-  flex-shrink: 1;
-}
-
-body.linear.hd .uk-panel .uk-grid div.uk-row-first {
-  margin-right: 1.6rem;
-  flex-shrink: 0;
-  width: 6rem;
-}
-
-body.linear.hd .uk-panel .uk-grid div.uk-row-first img {
-  float: right;
-}
-
-/*------------------------
-END DETAILS
-------------------------*/
-/*------------------------
-START TABS
-------------------------*/
-body.linear.hd #content ul.uk-tab,
-body.linear.hd #content ul.uk-tab li,
-body.linear.hd #content ul.uk-switcher,
-body.linear.hd #content ul.uk-switcher li {
-  margin: 0;
-}
-
-body.linear.hd #content ul.uk-switcher.uk-margin-top {
-  margin-top: 0 !important;
-}
-
-body.linear.hd ul.uk-tab > li > a {
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-}
-
-body.linear.hd ul.uk-tab > li > a:hover {
-  border-bottom: 1px solid transparent;
-}
-
-body.linear.hd ul.uk-tab > li.uk-active > a {
-  border-color: #808285;
-}
-
-body.linear.hd ul.uk-tab {
-  border-bottom: 0px solid transparent;
-}
-
-body.linear.hd ul.uk-switcher .uk-panel {
-  border: 1px solid #808285;
-  margin-top: -1px;
-  padding: 1.6rem 1.6rem 0;
-}
-
-/*------------------------
-END TABS
-------------------------*/
-/*--------------------------------------------------
-END COMPONENTS - START LAYOUT
-CSS that helps with page layout, from site wide edits to page specific layout.
---------------------------------------------------*/
 /*--------------------------------------------------
 START GRID
 --------------------------------------------------*/
@@ -1689,6 +1061,276 @@ END IE FALLBACK
 /*--------------------------------------------------
 END GRID
 --------------------------------------------------*/
+/*------------------------
+START BUTTONS
+------------------------*/
+body.linear.hd button,
+body.linear.hd .button,
+body.linear.hd .btn-primary,
+body.linear.hd .btn,
+body.linear.hd input[type='submit'],
+body.linear.hd input[type='reset'],
+body.linear.hd input[type='button'] {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid #333435;
+  color: #333435;
+  background: white;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  padding: 0.3em 1em;
+  text-align: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+  text-transform: uppercase;
+  font-size: 90%;
+}
+
+body.linear.hd button:focus, body.linear.hd button:hover,
+body.linear.hd .button:focus,
+body.linear.hd .button:hover,
+body.linear.hd .btn-primary:focus,
+body.linear.hd .btn-primary:hover,
+body.linear.hd .btn:focus,
+body.linear.hd .btn:hover,
+body.linear.hd input[type='submit']:focus,
+body.linear.hd input[type='submit']:hover,
+body.linear.hd input[type='reset']:focus,
+body.linear.hd input[type='reset']:hover,
+body.linear.hd input[type='button']:focus,
+body.linear.hd input[type='button']:hover {
+  outline: 0;
+  text-decoration: none;
+  border-color: #1E6B52;
+  box-shadow: 0 0 0 1px #1E6B52;
+  background: #d2e1dc;
+  color: black;
+}
+
+body.linear.hd a.btn-primary,
+body.linear.hd button.btn-primary {
+  color: white;
+  background: #1E6B52;
+  border-radius: 4px;
+  border: 1px solid #1E6B52;
+}
+
+body.linear.hd :not(p):not(.formControls) > * + button,
+body.linear.hd :not(p):not(.formControls) > * + .button,
+body.linear.hd :not(p):not(.formControls) > * + .btn-primary,
+body.linear.hd :not(p):not(.formControls) > * + .btn--full,
+body.linear.hd :not(p):not(.formControls) > * + .btn,
+body.linear.hd :not(p):not(.formControls) > * + input[type='submit'],
+body.linear.hd :not(p):not(.formControls) > * + input[type='reset'],
+body.linear.hd :not(p):not(.formControls) > * + input[type='button'] {
+  margin-bottom: 1.6rem;
+}
+
+body.linear.hd button.full,
+body.linear.hd .button.full,
+body.linear.hd .btn-primary.full,
+body.linear.hd .btn.full,
+body.linear.hd input[type='submit'].full,
+body.linear.hd input[type='reset'].full,
+body.linear.hd input[type='button'].full {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.uk-button {
+  border: 1px solid #808285 !important;
+}
+
+/*------------------------
+END BUTTONS
+------------------------*/
+/*------------------------
+START FORMS
+------------------------*/
+/*------------------------
+START BTN TOOLBAR
+------------------------*/
+.btn-toolbar {
+  margin: 0 0 1.6rem;
+}
+
+#undefined {
+  margin: 0;
+}
+
+.input-group {
+  display: flex;
+  margin-bottom: 1.6rem;
+}
+
+body.linear.hd .input-group button,
+body.linear.hd .input-group input {
+  margin: 0;
+}
+
+body.linear.hd .input-group input {
+  border-radius: 4px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+body.linear.hd .input-group button {
+  border-radius: 4px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/*------------------------
+END BTN TOOLBAR
+------------------------*/
+/*------------------------
+Standard Inputs
+------------------------*/
+legend {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  font-weight: normal;
+  font-family: "kulturista-web", serif;
+  color: inherit;
+}
+
+label,
+input,
+select,
+textarea {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
+body.linear.hd textarea,
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
+body.linear.hd input[type='search'] {
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-sizing: border-box;
+  height: auto;
+}
+
+body.linear.hd textarea,
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
+body.linear.hd input[type='search'] {
+  color: black;
+  padding: 0.3em 1em;
+  border-radius: 0;
+  border: 1px solid #808285;
+}
+
+body.linear.hd input[type='email'],
+body.linear.hd input[type='number'],
+body.linear.hd input[type='text'],
+body.linear.hd input[type='tel'],
+body.linear.hd input[type='url'],
+body.linear.hd textarea {
+  display: block;
+  width: 100%;
+  background-color: white;
+}
+
+body.linear.hd textarea {
+  height: 6.4rem;
+  resize: vertical;
+  overflow-y: scroll;
+}
+
+body.linear.hd textarea:focus,
+body.linear.hd input:focus,
+body.linear.hd select:focus {
+  border-color: #80BC00 !important;
+  box-shadow: 0 0 0 1px #80BC00;
+}
+
+.formContainer .row {
+  margin: 0;
+}
+
+body.linear.hd input[type='radio'],
+body.linear.hd input[type='checkbox'] {
+  width: 1em;
+  height: 1em;
+  margin: 0;
+  margin-right: 0.8rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: 1px solid #808285;
+  padding-left: 0;
+  float: none;
+}
+
+body.linear.hd input[type='radio'] {
+  border-radius: 50%;
+}
+
+body.linear.hd select:focus,
+body.linear.hd input[type='file']:focus,
+body.linear.hd input[type='radio']:focus,
+body.linear.hd input[type='checkbox']:focus {
+  outline: thin dotted #333;
+  outline-offset: 0;
+}
+
+body.linear.hd input[type='radio']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  background-position: center;
+  border-color: #80BC00;
+}
+
+body.linear.hd input[type='checkbox']:checked {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-position: center;
+  border-color: #80BC00;
+}
+
+.uk-checkbox:checked,
+.uk-checkbox:indeterminate,
+input[type='radio']:checked,
+.uk-checkbox:checked:focus,
+.uk-checkbox:indeterminate:focus,
+input[type='radio']:checked:focus {
+  background-color: #80BC00;
+}
+
+body.uk-form ::selection {
+  color: black;
+}
+
 body.ribbonFullwidth #whitebox {
   margin: 6.4rem auto;
 }
@@ -1703,8 +1345,7 @@ body.hd.inside #maincolumn-wide {
   margin-bottom: 0 !important;
 }
 
-/* Make sure left sidebar is sized consistantly
-remove padding since there is no background - see _sidebar.scss */
+/* Make sure left sidebar is sized consistantly */
 body.hd.sidebars #leftcolumn {
   width: 100%;
 }
@@ -1792,218 +1433,8 @@ body.linear.hd h6 + [id*='wk'] {
   margin-top: 3.2rem;
 }
 
-/* Add space after the banner and before the footer
-Add minimal side margins through padding. Prevents content
-from hitting edge of screen on mobile */
-body.ribbonFullwidth #whitebox {
-  padding: 0 1.6rem;
-  box-sizing: border-box;
-}
-
-/* Decrease the width by the amount of padding on it's parent
-This makes sure it aligns properly at max width */
-body.linear.hd div.topLinearLogo {
-  max-width: calc( 1280px - 3.2rem);
-}
-
-body.hd #content {
-  margin: 0;
-  width: 100%;
-}
-
-/* Add space to both sides of all 100% width containers */
-body.hd #whitebar,
-body.linear.hd .topLinearContainer,
-body.hd #ribbon,
-#banner .moduletable {
-  padding-right: 1.6rem;
-  padding-left: 1.6rem;
-}
-
-/* Remove arbitrary margins , since the padding on the whitebar
-serves the same purpose */
-body.linear.hd #siteName,
-body.linear.hd #search form {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-/* Add more consistant gap between sidebars and main content*/
-body.hd.inside #maincolumn-l {
-  margin: 0 0 0 3.2rem !important;
-}
-
-body.hd.inside #maincolumn-r {
-  margin: 0 3.2rem 0 0 !important;
-}
-
-body.hd.inside #maincolumn-l-r {
-  margin: 0 3.2rem !important;
-}
-
-/* Fix column widths after larger gap is added */
-body.hd.inside #maincolumn-l,
-body.hd.inside #maincolumn-r {
-  width: calc( 78% - 3.2rem) !important;
-}
-
-body.hd.sidebars #leftcolumn {
-  max-width: 20%;
-}
-
-/* Remove paddings from module tables */
-#leftcolumn .moduletable {
-  padding: 0;
-}
-
-/* RESPONSIVE */
-/* Adjust the position of sidebar trigger */
-body.linear.hd #sidebar_trigger::before {
-  height: auto;
-  top: -1.5em;
-}
-
-/* Fix width of main column */
-@media (max-width: 699px) {
-  body.hd.sidebars #maincolumn-l,
-  body.hd.sidebars #maincolumn-r,
-  body.hd.sidebars #maincolumn-l-r {
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-}
-
-/* Remove unneeded space from sidebar on med screens */
-@media only screen and (max-width: 1024px) {
-  body.hd.sidebars #maincolumn-l,
-  body.hd.sidebars #maincolumn-r,
-  body.hd.sidebars #maincolumn-l-r {
-    padding: 0 !important;
-    float: left;
-  }
-  .sidebar {
-    padding: 0 !important;
-    width: 100% !important;
-  }
-  .sidebarpanel ul li li {
-    text-indent: 0;
-  }
-  .sidebarpanel_content,
-  .left-position .sidebarpanel_content {
-    float: none;
-  }
-  /* Allow content to overflow containers */
-  #maincolumn-l-r,
-  #maincolumn-l,
-  #maincolumn-r,
-  #maincolumn-wide,
-  #footer,
-  #content {
-    overflow: visible;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  body.hd.sidebars #leftcolumn {
-    max-width: 100%;
-    min-width: 250px;
-    width: 300px;
-  }
-  .sidebar {
-    margin-right: 50px;
-  }
-  body.hd #sidebar_trigger.active {
-    margin-left: 250px;
-  }
-}
-
-/* Add vertical rhythem spacing to the widgetkit margins */
-* + .uk-margin {
-  margin-top: 1.6rem;
-}
-
-.uk-margin {
-  margin-bottom: 1.6rem;
-}
-
-.uk-grid {
-  margin-left: -3.2rem;
-}
-
-.uk-grid > * {
-  padding-left: 3.2rem;
-}
-
-.uk-grid + .uk-grid,
-.uk-grid-margin,
-.uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 3.2rem;
-}
-
-.uk-grid-small {
-  margin-left: -1.6rem;
-}
-
-.uk-grid-small > * {
-  padding-left: 1.6rem;
-}
-
-.uk-grid-small .uk-grid + .uk-grid,
-.uk-grid-small .uk-grid-margin,
-.uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 1.6rem;
-}
-
-.uk-grid-medium {
-  margin-left: -3.2rem;
-}
-
-.uk-grid-medium > * {
-  padding-left: 3.2rem;
-}
-
-.uk-grid-medium .uk-grid + .uk-grid,
-.uk-grid-medium .uk-grid-margin,
-.uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 3.2rem;
-}
-
-.uk-grid-large {
-  margin-left: -3.2rem;
-}
-
-.uk-grid-large > * {
-  padding-left: 3.2rem;
-}
-
-.uk-grid-large .uk-grid + .uk-grid,
-.uk-grid-large .uk-grid-margin,
-.uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 3.2rem;
-}
-
-.uk-panel-space {
-  padding: 1.6rem;
-}
-
-@media all and (min-width: 1024px) {
-  .uk-grid-large {
-    margin-left: -6.4rem;
-  }
-  .uk-grid-large > * {
-    padding-left: 6.4rem;
-  }
-  .uk-grid-large .uk-grid + .uk-grid,
-  .uk-grid-large .uk-grid-margin,
-  .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
-    margin-top: 6.4rem;
-  }
-}
-
 /*--------------------------------------------------
-END LAYOUT - START SYNDICATION
+END COMPONENTS - START SYNDICATION
 Components that style syndicated content where we have limited control over
 html and classes of the target elements.
 --------------------------------------------------*/
@@ -2182,28 +1613,575 @@ body.linear.hd ul.it-feed {
 END NEWS FEEDS
 ------------------------*/
 /*------------------------
-START SOCIAL ICONS
+START PAGINATION
 ------------------------*/
+.pagination {
+  margin: 0;
+  margin-bottom: 1.6rem;
+}
+
+.pagination ul {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.pagination ul > li > a,
+.pagination ul > li > span {
+  display: inline-block;
+  border: 0 solid transparent;
+  border-radius: 4px;
+  border: none solid black;
+  padding: 0.3em 1em;
+  margin: 0 0.8rem;
+}
+
+.pagination ul > li > span {
+  border-bottom: 2px solid #80BC00;
+}
+
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  border-bottom-left-radius: 4px;
+  border-top-left-radius: 4px;
+}
+
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span {
+  border-bottom-right-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.pagination ul > li.pagination-start > a,
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-end > a,
+.pagination ul > li.pagination-next > a {
+  margin: 0;
+  border: 1px solid #1E6B52;
+  color: #1E6B52;
+}
+
+.pagination ul > li.pagination-start > span,
+.pagination ul > li.pagination-prev > span,
+.pagination ul > li.pagination-end > span,
+.pagination ul > li.pagination-next > span {
+  margin: 0;
+  border-radius: 4px;
+  border: 1px solid #b3b4b6;
+  color: #b3b4b6;
+  background: #f2f3f3;
+}
+
+.pagination ul > li.pagination-prev > a,
+.pagination ul > li.pagination-prev > span {
+  margin-right: 0.8rem;
+}
+
+.pagination ul > li.pagination-next > a,
+.pagination ul > li.pagination-next > span {
+  margin-left: 0.8rem;
+}
+
 /*------------------------
-END SOCIAL ICONS
+END PAGINATION
 ------------------------*/
 /*--------------------------------------------------
-END SYNDICATION - START AREAS
+END SYNDICATION - START WIDGETKIT
+Changes to the widgetkit systems and additional styling
+--------------------------------------------------*/
+/* Add vertical rhythem spacing to the widgetkit margins */
+* + .uk-margin {
+  margin-top: 1.6rem;
+}
+
+.uk-margin {
+  margin-bottom: 1.6rem;
+}
+
+.uk-panel-space {
+  padding: 1.6rem;
+}
+
+/* Grid Gaps */
+.uk-grid {
+  margin-left: -3.2rem;
+}
+
+.uk-grid > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+.uk-grid-small {
+  margin-left: -1.6rem;
+}
+
+.uk-grid-small > * {
+  padding-left: 1.6rem;
+}
+
+.uk-grid-small .uk-grid + .uk-grid,
+.uk-grid-small .uk-grid-margin,
+.uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 1.6rem;
+}
+
+.uk-grid-medium {
+  margin-left: -3.2rem;
+}
+
+.uk-grid-medium > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-medium .uk-grid + .uk-grid,
+.uk-grid-medium .uk-grid-margin,
+.uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+.uk-grid-large {
+  margin-left: -3.2rem;
+}
+
+.uk-grid-large > * {
+  padding-left: 3.2rem;
+}
+
+.uk-grid-large .uk-grid + .uk-grid,
+.uk-grid-large .uk-grid-margin,
+.uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: 3.2rem;
+}
+
+@media all and (min-width: 1024px) {
+  .uk-grid-large {
+    margin-left: -6.4rem;
+  }
+  .uk-grid-large > * {
+    padding-left: 6.4rem;
+  }
+  .uk-grid-large .uk-grid + .uk-grid,
+  .uk-grid-large .uk-grid-margin,
+  .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+    margin-top: 6.4rem;
+  }
+}
+
+/*------------------------
+START DETAILS
+------------------------*/
+body.linear.hd .wk-details .uk-panel p {
+  margin: 0;
+}
+
+body.linear.hd .wk-details .uk-panel img {
+  height: 5rem;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+
+body.linear.hd .wk-details.uk-text-left .uk-panel img {
+  margin: 0;
+}
+
+body.linear.hd .wk-details .uk-panel-title {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  margin-bottom: -0.8rem;
+}
+
+body.linear.hd .uk-panel .uk-grid {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+body.linear.hd .uk-panel .uk-grid div {
+  padding: 0;
+  width: auto;
+  flex-shrink: 1;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first {
+  margin-right: 1.6rem;
+  flex-shrink: 0;
+  width: 6rem;
+}
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first img {
+  float: right;
+}
+
+/*------------------------
+END DETAILS
+------------------------*/
+/*------------------------
+START FEATURES
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-features .uk-panel p {
+  margin: 0;
+}
+
+body.linear.hd .wk-features .uk-panel img {
+  height: 7rem;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+
+body.linear.hd .wk-features .uk-panel-title {
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+}
+
+/*------------------------
+END FEATURES
+------------------------*/
+/*------------------------
+START GALLERY
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-gallery p {
+  margin: 0;
+  text-align: center;
+}
+
+/*------------------------
+END GALLERY
+------------------------*/
+/*------------------------
+START PANELS
+------------------------*/
+body .panels > a,
+.cards > div {
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 1.6rem;
+  background: white;
+}
+
+body .panels > a:hover {
+  outline: 0;
+  text-decoration: none;
+  border-color: #1E6B52;
+  box-shadow: 0 0 0 1px #1E6B52;
+  background: #d2e1dc;
+  color: black;
+}
+
+.panels > a h4 {
+  display: inline-block;
+  margin-top: 0;
+  border-bottom: 2px solid #78a697;
+}
+
+.panels > a:hover h4 {
+  background-color: #d2e1dc;
+  border-color: #1E6B52;
+}
+
+.panels > a p:last-child {
+  margin-bottom: 0;
+}
+
+.uk-panel-box {
+  padding: 1.6rem;
+}
+
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: black;
+}
+
+body.linear.hd .wk-panels .uk-panel-title {
+  margin-top: 0;
+}
+
+body.linear.hd .wk-panels .uk-panel {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding: 1.6rem;
+}
+
+body.linear.hd a.uk-position-cover {
+  opacity: 0 !important;
+}
+
+body.linear.hd .wk-panels .uk-panel p:last-child {
+  margin: 0;
+}
+
+body.linear.hd .wk-panels .uk-panel:hover {
+  outline: 0;
+  text-decoration: none;
+  border-color: #1E6B52;
+  box-shadow: 0 0 0 1px #1E6B52;
+  background: #d2e1dc;
+  color: black;
+}
+
+body.linear.hd .wk-panels .uk-panel:hover h3 a {
+  border-color: #1E6B52;
+}
+
+/*------------------------
+END PANELS
+------------------------*/
+/*------------------------
+START SLIDESHOW
+------------------------*/
+/* NOTE: The slideshow component is built in widgetkit - not html */
+/* Remove margins from slider elements. This will make sure the
+background image doesn't get cropped since widgetkit doesn't
+account for the margins in the sizing of the slideshow. */
+body.linear.hd #content .item-page ul.uk-slideshow,
+body.linear.hd #content .item-page ul.uk-slideshow li,
+body.linear.hd #content .item-page ul.uk-slideshow img {
+  margin: 0;
+}
+
+/*------------------------
+END SLIDESHOW
+------------------------*/
+/*------------------------
+START TABS
+------------------------*/
+body.linear.hd #content ul.uk-tab,
+body.linear.hd #content ul.uk-tab li,
+body.linear.hd #content ul.uk-switcher,
+body.linear.hd #content ul.uk-switcher li {
+  margin: 0;
+}
+
+body.linear.hd #content ul.uk-switcher.uk-margin-top {
+  margin-top: 0 !important;
+}
+
+body.linear.hd ul.uk-tab > li > a {
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+}
+
+body.linear.hd ul.uk-tab > li > a:hover {
+  border-bottom: 1px solid transparent;
+}
+
+body.linear.hd ul.uk-tab > li.uk-active > a {
+  border-color: #808285;
+}
+
+body.linear.hd ul.uk-tab {
+  border-bottom: 0px solid transparent;
+}
+
+body.linear.hd ul.uk-switcher .uk-panel {
+  border: 1px solid #808285;
+  margin-top: -1px;
+  padding: 1.6rem 1.6rem 0;
+}
+
+/*------------------------
+END TABS
+------------------------*/
+/*--------------------------------------------------
+END WIDGETKIT - START AREAS
 Edits to the Linear template areas.
 Most edits undo Ember styling to keep template styles in those areas.
 --------------------------------------------------*/
 /*------------------------
+START TEMPLATE SPACIAL ADJUSTMENTS
+------------------------*/
+/* This is going to remove odd margins and paddings and implement a more uniform
+solution to keep the body content from hitting the edge of the screen when the
+viewport is smaller than the content. */
+body.linear.hd #whitebox {
+  padding: 0 1.6rem;
+  box-sizing: border-box;
+}
+
+/* Decrease the width by the amount of padding on it's parent
+This makes sure it aligns properly at max width */
+body.linear.hd div.topLinearLogo {
+  max-width: calc( 1280px - 3.2rem);
+}
+
+body.linear.hd #content {
+  margin: 0;
+  width: 100%;
+}
+
+/* Add space to both sides of all 100% width containers */
+body.linear.hd #whitebar,
+body.linear.hd .topLinearContainer,
+body.linear.hd #ribbon,
+#banner .moduletable {
+  padding-right: 1.6rem;
+  padding-left: 1.6rem;
+}
+
+/* Remove arbitrary margins , since the padding on the whitebar
+serves the same purpose */
+body.linear.hd #siteName,
+body.linear.hd #search form {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+/* Add more consistant gap between sidebars and main content*/
+body.hd.inside #maincolumn-l {
+  margin: 0 0 0 3.2rem !important;
+}
+
+body.hd.inside #maincolumn-r {
+  margin: 0 3.2rem 0 0 !important;
+}
+
+body.hd.inside #maincolumn-l-r {
+  margin: 0 3.2rem !important;
+}
+
+/* Fix column widths after larger gap is added */
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r {
+  width: calc( 78% - 3.2rem) !important;
+}
+
+body.hd.sidebars #leftcolumn {
+  max-width: 20%;
+}
+
+/* Remove paddings from module tables */
+#leftcolumn .moduletable {
+  padding: 0;
+}
+
+/*------------------------
+END TEMPLATE SPACIAL ADJUSTMENTS
+------------------------*/
+/*------------------------
+START OVERFLOW FIXES
+------------------------*/
+/* It looks like the layout is build with floats and containers have been given
+overflow: hidden to ensure the content is contained. We're going to be using some
+tricks to allow background sections to break out of their parents to look like they
+span the full width of the screen, but this overflow fix prevents us from doing this.
+
+I'll implement some clearfixes instead of overflow to ensure content is still contained
+but allowing us to break out of them when needed. */
+/* Allow content to expand to full viewport width */
+body.ribbonFullwidth #whitebox {
+  overflow: visible;
+}
+
+/* Clearfix for main area.
+This fixes layout problems from changing overflow property */
+#whitebox::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+/* Prevents content from overflowing the body */
+body.ribbonFullwidth #wrapper {
+  overflow-x: hidden;
+}
+
+/*------------------------
+END OVERFLOW FIXES
+------------------------*/
+/* RESPONSIVE */
+/* Adjust the position of sidebar trigger */
+body.linear.hd #sidebar_trigger::before {
+  height: auto;
+  top: -1.5em;
+}
+
+/* Fix width of main column */
+@media (max-width: 699px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
+
+/* Remove unneeded space from sidebar on med screens */
+@media only screen and (max-width: 1024px) {
+  body.hd.sidebars #maincolumn-l,
+  body.hd.sidebars #maincolumn-r,
+  body.hd.sidebars #maincolumn-l-r {
+    padding: 0 !important;
+    float: left;
+  }
+  .sidebar {
+    padding: 0 !important;
+    width: 100% !important;
+  }
+  .sidebarpanel ul li li {
+    text-indent: 0;
+  }
+  .sidebarpanel_content,
+  .left-position .sidebarpanel_content {
+    float: none;
+  }
+  /* Allow content to overflow containers */
+  #maincolumn-l-r,
+  #maincolumn-l,
+  #maincolumn-r,
+  #maincolumn-wide,
+  #footer,
+  #content {
+    overflow: visible;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  body.hd.sidebars #leftcolumn {
+    max-width: 100%;
+    min-width: 250px;
+    width: 300px;
+  }
+  .sidebar {
+    margin-right: 50px;
+  }
+  body.hd #sidebar_trigger.active {
+    margin-left: 250px;
+  }
+}
+
+/*------------------------
 START TOP NAVIGATION
 ------------------------*/
 /* Removes link styles in the top navigation. Most of this styling is handled with central CSS. */
-#ribbon .nav a {
-  border: 0;
-}
-
-#ribbon .nav {
-  margin-bottom: 0;
-}
-
 /*------------------------
 END TOP NAVIGATION
 ------------------------*/
@@ -2255,16 +2233,12 @@ START QUICKLINKS
   margin: 0;
 }
 
+/* BUGFIX: Make sure quicklinks are above banner */
 #quicklinks .moduletable {
   z-index: 2;
 }
 
 /* Remove borders from quicklinks */
-#quicklinks a,
-#trigger {
-  border: 0;
-}
-
 /* Ensure hover color is consistant */
 #quicklinks .dropdown-submenu:hover > a,
 #quicklinks .dropdown-submenu:focus > a,
@@ -2276,8 +2250,8 @@ START QUICKLINKS
 }
 
 /* Fix box shadow styles on quicklinks feed */
-body.hd #quicklinks ul.nav-child.unstyled.dropdown-menu,
-body.hd #quicklinks div.feed {
+body.linear.hd #quicklinks ul.nav-child.unstyled.dropdown-menu,
+body.linear.hd #quicklinks div.feed {
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
@@ -2287,11 +2261,10 @@ END QUICKLINKS
 /*------------------------
 START BANNER
 ------------------------*/
-/* Set min height to the line height of h1 plus the top padding,
-plus 1 line height for the margin below the header,
-one line height for the margin above the header,
-one line height for the breadcrumbs, and
-one line height for the margin below the breadcrumbs. */
+/* relative allows us to position the background,
+padding moves the title and breadcrumbs to the bottom of the container,
+min height sets the size of the banner,
+z-index is incremented to ensure the banner shows up on mobile */
 #banner {
   position: relative;
   padding-top: 12.8rem;
@@ -2311,7 +2284,7 @@ one line height for the margin below the breadcrumbs. */
   z-index: -1;
 }
 
-/* Set default banner image and the banner's image's and position */
+/* Set default banner image and and position */
 #banner::before {
   background: url("/it/home/images/banners/Default-WebHeader.jpg");
   /*Use article image */
@@ -2324,7 +2297,7 @@ one line height for the margin below the breadcrumbs. */
 #banner::after {
   background: #295135;
   mix-blend-mode: multiply;
-  opacity: 0.95;
+  opacity: 0.90;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */
@@ -2333,16 +2306,19 @@ one line height for the margin below the breadcrumbs. */
   margin: auto;
 }
 
+/* Remove default positional styles */
 body.linear.hd .stickyNav .page-header {
   float: none;
   max-width: 100%;
 }
 
+/* apply rhythem spacing & adjust color */
 #banner h1 {
   margin-bottom: 1.6rem;
   color: white;
 }
 
+/* Remove default styles & adjust color */
 body.linear.hd .breadcrumb > li,
 body.linear.hd .breadcrumb > .active {
   text-shadow: none;
@@ -2352,6 +2328,7 @@ body.linear.hd .breadcrumb > .active {
   color: white;
 }
 
+/* Reset default styles */
 body.linear.hd .breadcrumb > li > .divider,
 body.linear.hd .breadcrumb a,
 body.linear.hd .breadcrumb > li > span {
@@ -2359,6 +2336,7 @@ body.linear.hd .breadcrumb > li > span {
   font-size: inherit;
 }
 
+/* Reset default styles and apply rhythem spacing */
 body.linear.hd .breadcrumb {
   border: 0;
   padding: 0;
@@ -2366,13 +2344,11 @@ body.linear.hd .breadcrumb {
   margin-bottom: 1.6rem;
 }
 
-/* Remove main image */
-body.linear.hd .item-image {
+/* Remove main image from page, this gets put into the banner
+background with JS. Don't remove the image on pages that miss
+this functionality. */
+body.linear.hd:not(.article-layout) .item-image {
   display: none;
-}
-
-body.linear.hd.article-layout .item-page.article-layout .item-image {
-  display: block;
 }
 
 /*------------------------
@@ -2397,6 +2373,8 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   background-image: none;
   display: block;
   padding: 0.5rem;
+  font-weight: 600;
+  color: #333435;
 }
 
 #leftcolumn ul.nav-child,
@@ -2415,10 +2393,11 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 }
 
 #leftcolumn ul.nav.menu > .parent > a {
-  font-family: "kulturista-web", serif;
   font-size: 1.25rem;
   line-height: 1.6rem;
   font-weight: normal;
+  font-family: "kulturista-web", serif;
+  font-weight: 600;
 }
 
 #leftcolumn ul.nav.menu a:hover {
@@ -2430,8 +2409,10 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   padding-left: 1rem;
   margin-left: 0.5rem;
   border-left: 2px solid #1E6B52;
+  font-weight: normal;
 }
 
+/* Spacing */
 #leftcolumn .moduletable {
   margin-bottom: 3.2rem;
 }
@@ -2452,6 +2433,17 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 
 #leftcolumn .sidebar-btns + .sidebar-btns {
   margin-top: -1.6rem;
+}
+
+#leftcolumn .divider span.separator {
+  border-top: 2px solid #80BC00;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  display: block;
+  height: 0px;
+  margin-left: 0.5rem;
+  width: calc(100% - 1rem);
+  text-indent: -9999px;
 }
 
 /*------------------------
@@ -2504,18 +2496,23 @@ body.linear.hd #footer .IT-footer_right {
   border-left: 2px solid white;
 }
 
-/* Remove border from social media links. Add spacing between them. */
+/* Add spacing between social media links, apply round border */
 body.linear.hd #footer .IT-footer_right .social a {
   display: inline-block;
-  border: 2px solid #999b9d;
   border-radius: 50%;
+  border: 2px solid #999b9d;
   margin-right: 1rem;
   margin-top: 0.2rem;
   padding: 0.5rem;
 }
 
 body.linear.hd #footer .IT-footer_right .social a:hover {
-  border: 2px solid #e6e6e7;
+  border-color: #e6e6e7;
+}
+
+body.linear.hd #footer .IT-footer_right .social a::after {
+  content: '';
+  display: none;
 }
 
 /* Add spacing between logo and social links */
@@ -2525,14 +2522,14 @@ body.linear.hd #footer .IT-footer .social {
 
 /* Set size of social media icons */
 body.linear.hd #footer .IT-footer .social img {
-  max-height: 1.5rem;
   margin: 0;
+  max-height: 1.5rem;
 }
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
-  max-height: 3.2rem;
   margin: 0;
+  max-height: 3.2rem;
 }
 
 /* Remove default padding on the footer */
@@ -2585,7 +2582,9 @@ body.linear.hd.article-layout .item-page.article-layout > div > .intro {
 END ARTICLE
 ------------------------*/
 /*--------------------------------------------------
-END AREAS
+END AREAS - START HELPERS
+Classes that help with styling content on a case-by-case basis
+and fixing edge case bugs
 --------------------------------------------------*/
 /*------------------------
 START HELPERS
@@ -2702,6 +2701,9 @@ body.linear.hd .type-set-5 {
 END HELPERS
 ------------------------*/
 /*--------------------------------------------------
+END - HELPERS
+--------------------------------------------------*/
+/*--------------------------------------------------
 END - EMBER
 --------------------------------------------------*/
 /* Home Adjustments */
@@ -2723,26 +2725,26 @@ body.linear.hd.it-home #banner .breadcrumb {
 /* ORG CARD */
 .org-card {
   display: grid;
-  grid-template-columns: 6.4rem 1fr;
+  grid-template-columns: 9.6rem 1fr;
   grid-template-areas: 'org-image org-name' 'org-content org-content';
   grid-gap: 1.6rem;
   margin-bottom: 1.6rem;
 }
 
 .org-card-cio {
-  grid-template-columns: 9.6rem 1fr;
+  grid-template-columns: 12.6rem 1fr;
   grid-template-areas: 'org-image org-name' 'org-content org-content';
   grid-gap: 1.6rem;
 }
 
 .org-img {
   grid-area: org-image;
-  height: 6.4rem;
+  height: 9.6rem;
   background: grey;
 }
 
 .org-card-cio .org-img {
-  height: 9.6rem;
+  height: 12.6rem;
 }
 
 .org-name {
@@ -2753,7 +2755,7 @@ body.linear.hd.it-home #banner .breadcrumb {
   grid-area: org-content;
 }
 
-.org-child .org-name h3,
+.org-child .org-name h4,
 .org-name a.btn {
   margin: 0 !important;
 }
@@ -2761,4 +2763,5 @@ body.linear.hd.it-home #banner .breadcrumb {
 .org-child {
   padding-left: 1.6rem;
   border-left: 5px solid #80BC00;
+  margin-left: 1.6rem;
 }

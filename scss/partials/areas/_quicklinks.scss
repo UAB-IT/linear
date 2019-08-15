@@ -5,15 +5,16 @@ START QUICKLINKS
   @include reset(margin);
 }
 
+/* BUGFIX: Make sure quicklinks are above banner */
 #quicklinks .moduletable {
   z-index: 2;
 }
 
 /* Remove borders from quicklinks */
-#quicklinks a,
-#trigger {
-  @include reset(border);
-}
+// #quicklinks a,
+// #trigger {
+//   @include reset(border);
+// }
 
 /* Ensure hover color is consistant */
 #quicklinks .dropdown-submenu:hover > a,
@@ -26,8 +27,8 @@ START QUICKLINKS
 }
 
 /* Fix box shadow styles on quicklinks feed */
-body.hd #quicklinks ul.nav-child.unstyled.dropdown-menu,
-body.hd #quicklinks div.feed {
+#{$specify} #quicklinks ul.nav-child.unstyled.dropdown-menu,
+#{$specify} #quicklinks div.feed {
   box-shadow: 0 2px 5px rgba( 0, 0, 0, 0.3 );
 }
 /*------------------------

@@ -1,12 +1,11 @@
 /*------------------------
 START BANNER
 ------------------------*/
-/* Set min height to the line height of h1 plus the top padding,
-plus 1 line height for the margin below the header,
-one line height for the margin above the header,
-one line height for the breadcrumbs, and
-one line height for the margin below the breadcrumbs. */
 
+/* relative allows us to position the background,
+padding moves the title and breadcrumbs to the bottom of the container,
+min height sets the size of the banner,
+z-index is incremented to ensure the banner shows up on mobile */
 #banner {
   position: relative;
   padding-top: $banner-top;
@@ -26,7 +25,7 @@ one line height for the margin below the breadcrumbs. */
   z-index: -1;
 }
 
-/* Set default banner image and the banner's image's and position */
+/* Set default banner image and and position */
 #banner::before {
   background: url( '/it/home/images/banners/Default-WebHeader.jpg' ); /*Use article image */
   background-size: cover;
@@ -38,7 +37,7 @@ one line height for the margin below the breadcrumbs. */
 #banner::after {
   background: $darkgreen;
   mix-blend-mode: multiply;
-  opacity: 0.95;
+  opacity: 0.90;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */
@@ -47,38 +46,43 @@ one line height for the margin below the breadcrumbs. */
   margin: auto;
 }
 
+/* Remove default positional styles */
 #{$specify} .stickyNav .page-header {
   @include reset(float);
   max-width: 100%;
 }
+
+/* apply rhythem spacing & adjust color */
 #banner h1 {
   @include block-margin;
   color: white;
 }
 
+/* Remove default styles & adjust color */
 #{$specify} .breadcrumb > li,
 #{$specify} .breadcrumb > .active {
   @include reset(shadow);
   color: white;
 }
 
+/* Reset default styles */
 #{$specify} .breadcrumb > li > .divider,
 #{$specify} .breadcrumb a,
 #{$specify} .breadcrumb > li > span {
   @include reset(color, font-size);
 }
 
+/* Reset default styles and apply rhythem spacing */
 #{$specify} .breadcrumb {
   @include reset(border, padding, margin);
   @include block-margin;
 }
 
-/* Remove main image */
-#{$specify} .item-image {
+/* Remove main image from page, this gets put into the banner
+background with JS. Don't remove the image on pages that miss
+this functionality. */
+#{$specify}:not(.article-layout) .item-image {
   display: none;
-}
-#{$specify}.article-layout .item-page.article-layout .item-image {
-  display: block;
 }
 /*------------------------
 END BANNER

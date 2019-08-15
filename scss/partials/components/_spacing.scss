@@ -10,8 +10,7 @@ body.hd.inside #maincolumn-wide {
   margin-top: 0 !important;
   margin-bottom: 0 !important;
 }
-/* Make sure left sidebar is sized consistantly
-remove padding since there is no background - see _sidebar.scss */
+/* Make sure left sidebar is sized consistantly */
 body.hd.sidebars #leftcolumn {
   width: 100%;
 }

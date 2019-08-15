@@ -13,6 +13,8 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   @include reset(margin, border, background);
   display: block;
   padding: 0.5rem;
+  font-weight: 600;
+  color: c($stone, 800)
 }
 
 #leftcolumn ul.nav-child,
@@ -30,9 +32,8 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 }
 
 #leftcolumn ul.nav.menu > .parent > a {
-  font-family: $font-head;
-  @include type-setting(h4);
-  @include reset(font-weight);
+  @include header-style(h4);
+  font-weight: 600;
 }
 
 #leftcolumn ul.nav.menu a:hover {
@@ -44,8 +45,10 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   padding-left: 1rem;
   margin-left: 0.5rem;
   border-left: 2px solid $c-primary;
+  font-weight: normal;
 }
 
+/* Spacing */
 #leftcolumn .moduletable {
   margin-bottom: s(2);
 }
@@ -66,6 +69,17 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 
 #leftcolumn .sidebar-btns + .sidebar-btns {
   margin-top: s(-1);
+}
+
+#leftcolumn .divider span.separator {
+  border-top: 2px solid $c-secondary;
+  margin-top: 0.5rem;
+  padding-top: 0.5rem;
+  display: block;
+  height: 0px;
+  margin-left: 0.5rem;
+  width: calc(100% - 1rem);
+  text-indent: -9999px;
 }
 /*------------------------
 END SIDEBAR

@@ -19,7 +19,7 @@
 
 .org-card {
   display: grid;
-  grid-template-columns: 6.4rem 1fr;
+  grid-template-columns: 9.6rem 1fr;
   grid-template-areas:
     'org-image org-name'
     'org-content org-content';
@@ -27,7 +27,7 @@
   margin-bottom: 1.6rem;
 }
 .org-card-cio {
-  grid-template-columns: 9.6rem 1fr;
+  grid-template-columns: 12.6rem 1fr;
   grid-template-areas:
     'org-image org-name'
     'org-content org-content';
@@ -35,11 +35,11 @@
 }
 .org-img {
   grid-area: org-image;
-  height: 6.4rem;
+  height: 9.6rem;
   background: grey;
 }
 .org-card-cio .org-img {
-  height: 9.6rem;
+  height: 12.6rem;
 }
 .org-name {
   grid-area: org-name;
@@ -47,11 +47,12 @@
 .org-content {
   grid-area: org-content;
 }
-.org-child .org-name h3,
+.org-child .org-name h4,
 .org-name a.btn {
   margin: 0 !important;
 }
 .org-child {
   padding-left: 1.6rem;
   border-left: $bdr-lg solid $c-secondary;
+  margin-left: 1.6rem;
 }

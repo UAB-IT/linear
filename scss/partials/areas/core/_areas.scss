@@ -1,31 +1,39 @@
-/* Add space after the banner and before the footer
-Add minimal side margins through padding. Prevents content
-from hitting edge of screen on mobile */
-body.ribbonFullwidth #whitebox {
+/*------------------------
+START TEMPLATE SPACIAL ADJUSTMENTS
+------------------------*/
+/* This is going to remove odd margins and paddings and implement a more uniform
+solution to keep the body content from hitting the edge of the screen when the
+viewport is smaller than the content. */
+
+#{$specify} #whitebox {
   padding: 0 $body-pad;
   box-sizing: border-box;
 }
+
 /* Decrease the width by the amount of padding on it's parent
 This makes sure it aligns properly at max width */
-body.linear.hd div.topLinearLogo {
+#{$specify} div.topLinearLogo {
   max-width: calc( #{$max-width} - #{s( 2 )} );
 }
-body.hd #content {
+
+#{$specify} #content {
   margin: 0;
   width: 100%;
 }
+
 /* Add space to both sides of all 100% width containers */
-body.hd #whitebar,
-body.linear.hd .topLinearContainer,
-body.hd #ribbon,
+#{$specify} #whitebar,
+#{$specify} .topLinearContainer,
+#{$specify} #ribbon,
 #banner .moduletable {
   padding-right: $body-pad;
   padding-left: $body-pad;
 }
+
 /* Remove arbitrary margins , since the padding on the whitebar
 serves the same purpose */
-body.linear.hd #siteName,
-body.linear.hd #search form {
+#{$specify} #siteName,
+#{$specify} #search form {
   margin-right: 0;
   margin-left: 0;
 }
@@ -54,6 +62,44 @@ body.hd.sidebars #leftcolumn {
 #leftcolumn .moduletable {
   @include reset(padding);
 }
+
+/*------------------------
+END TEMPLATE SPACIAL ADJUSTMENTS
+------------------------*/
+/*------------------------
+START OVERFLOW FIXES
+------------------------*/
+/* It looks like the layout is build with floats and containers have been given
+overflow: hidden to ensure the content is contained. We're going to be using some
+tricks to allow background sections to break out of their parents to look like they
+span the full width of the screen, but this overflow fix prevents us from doing this.
+
+I'll implement some clearfixes instead of overflow to ensure content is still contained
+but allowing us to break out of them when needed. */
+/* Allow content to expand to full viewport width */
+
+body.ribbonFullwidth #whitebox {
+  overflow: visible;
+}
+
+/* Clearfix for main area.
+This fixes layout problems from changing overflow property */
+#whitebox::after {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+/* Prevents content from overflowing the body */
+body.ribbonFullwidth #wrapper {
+  overflow-x: hidden;
+}
+/*------------------------
+END OVERFLOW FIXES
+------------------------*/
 
 /* RESPONSIVE */
 
@@ -105,6 +151,7 @@ body.linear.hd #sidebar_trigger::before {
     overflow: visible;
   }
 }
+
 @media screen and (max-width: 700px) {
   body.hd.sidebars #leftcolumn {
     max-width: 100%;

@@ -1,12 +1,4 @@
-/* Add vertical rhythem spacing to the widgetkit margins */
-
-* + .uk-margin {
-  margin-top: s( 1 );
-}
-.uk-margin {
-  margin-bottom: s( 1 );
-}
-
+/* Grid Gaps */
 .uk-grid {
   margin-left: -$gap;
 }
@@ -53,10 +45,6 @@
 .uk-grid-large .uk-grid-margin,
 .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
   margin-top: $gap-md;
-}
-
-.uk-panel-space {
-  padding: s(1);
 }
 
 @include breakpoint(lg) {

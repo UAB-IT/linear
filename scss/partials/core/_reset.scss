@@ -129,25 +129,6 @@ body.hd .rightsidebar .nav.menu li {
   width: 100%;
 }
 
-/* Allow content to expand to full viewport width */
-
-body.ribbonFullwidth #whitebox {
-  overflow: visible;
-}
-/* Clearfix for main area.
-This fixes layout problems from changing overflow property */
-#whitebox::after {
-  content: '';
-  visibility: hidden;
-  display: block;
-  font-size: 0;
-  height: 0;
-  clear: both;
-}
-body.ribbonFullwidth #wrapper {
-  overflow-x: hidden;
-}
-
 /*------------------------
 END RESET
 ------------------------*/

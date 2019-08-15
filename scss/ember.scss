@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.7.1
+Ember 0.8.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -16,56 +16,44 @@ Helpers are in the Core category, but are included at the end of the Ember code 
 @import 'partials/core/_variables.scss';
 @import 'partials/core/_patterns.scss';
 @import 'partials/core/_reset.scss';
+
+@import 'partials/components/_basics.scss';
 /*--------------------------------------------------
-END CORE - START BASICS
-Basic styling for html elements with a focus on typography.
---------------------------------------------------*/
-@import 'partials/basics/_typography.scss';
-@import 'partials/basics/_lists.scss';
-@import 'partials/basics/_tables.scss';
-@import 'partials/basics/_media.scss';
-@import 'partials/basics/_buttons.scss';
-@import 'partials/basics/_forms.scss';
-/*--------------------------------------------------
-END BASICS - START COMPONENTS
+END CORE - START COMPONENTS
 Self contained chunks of content with their visual styling.
 --------------------------------------------------*/
-@import 'partials/components/_panels.scss';
-@import 'partials/components/_features.scss';
-@import 'partials/components/_gallery.scss';
-@import 'partials/components/_anchors.scss';
 @import 'partials/components/_chips.scss';
-@import 'partials/components/_overlay.scss';
 @import 'partials/components/_alert.scss';
-@import 'partials/components/_pagination.scss';
-@import 'partials/components/_slideshow.scss';
 @import 'partials/components/_pullquotes.scss';
-@import 'partials/components/_details.scss';
-@import 'partials/components/_tabs.scss';
-//@import 'partials/components/_contact.scss';
-//@import 'partials/components/_numbers.scss';
-//@import 'partials/components/_timeline.scss';
+@import 'partials/components/_grid.scss';
+@import 'partials/components/_forms.scss';
+@import 'partials/components/_spacing.scss';
 /*--------------------------------------------------
-END COMPONENTS - START LAYOUT
-CSS that helps with page layout, from site wide edits to page specific layout.
---------------------------------------------------*/
-@import 'partials/layout/_grid.scss';
-@import 'partials/layout/_spacing.scss';
-@import 'partials/layout/_areas.scss';
-@import 'partials/layout/_widgetkit.scss';
-/*--------------------------------------------------
-END LAYOUT - START SYNDICATION
+END COMPONENTS - START SYNDICATION
 Components that style syndicated content where we have limited control over
 html and classes of the target elements.
 --------------------------------------------------*/
 @import 'partials/syndication/_calendar.scss';
 @import 'partials/syndication/_news.scss';
-@import 'partials/syndication/socialIcons.scss';
+@import 'partials/syndication/_pagination.scss';
 /*--------------------------------------------------
-END SYNDICATION - START AREAS
+END SYNDICATION - START WIDGETKIT
+Changes to the widgetkit systems and additional styling
+--------------------------------------------------*/
+@import 'partials/widgetkit/core/_widgetkit.scss';
+@import 'partials/widgetkit/core/_wk-grid.scss';
+@import 'partials/widgetkit/details.scss';
+@import 'partials/widgetkit/features.scss';
+@import 'partials/widgetkit/gallery.scss';
+@import 'partials/widgetkit/panels.scss';
+@import 'partials/widgetkit/slideshow.scss';
+@import 'partials/widgetkit/tabs.scss';
+/*--------------------------------------------------
+END WIDGETKIT - START AREAS
 Edits to the Linear template areas.
 Most edits undo Ember styling to keep template styles in those areas.
 --------------------------------------------------*/
+@import 'partials/areas/core/_areas.scss';
 @import 'partials/areas/_topnav.scss';
 @import 'partials/areas/_search.scss';
 @import 'partials/areas/_quicklinks.scss';
@@ -74,9 +62,14 @@ Most edits undo Ember styling to keep template styles in those areas.
 @import 'partials/areas/_footer.scss';
 @import 'partials/areas/_article.scss';
 /*--------------------------------------------------
-END AREAS
+END AREAS - START HELPERS
+Classes that help with styling content on a case-by-case basis
+and fixing edge case bugs
 --------------------------------------------------*/
 @import 'partials/core/_helpers.scss';
+/*--------------------------------------------------
+END - HELPERS
+--------------------------------------------------*/
 /*--------------------------------------------------
 END - EMBER
 --------------------------------------------------*/

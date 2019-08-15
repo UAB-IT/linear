@@ -12,6 +12,11 @@ $breakpoints: (
   xs: 300px
 ) !default;
 
+$w-light: 300;
+$w-normal: 400;
+$w-bold: 600;
+$w-black: 700;
+
 $block-margin: s(1) !default;
 $block-padding: s(1) !default;
 $inline-padding: 0 0.2em 0.1em !default;
@@ -20,6 +25,7 @@ $table-padding: s(0.5) !default;
 $list-margin: s(0.5) !default;
 
 $indent: 1em !default;
+$list-indent: $indent !default;
 
 $section-margin: s(4) !default;
 $section-padding: s(4) !default;
@@ -33,7 +39,17 @@ $bdr-md: 2px !default;
 $bdr-lg: 5px !default;
 
 $font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
+$font-body-thin: 100 !default;
+$font-body-normal: 400 !default;
+$font-body-bold: 600 !default;
+$font-body-black: 700 !default;
+
 $font-head: 'kulturista-web', serif !default;
+$font-head-thin: 300 !default;
+$font-head-normal: 400 !default;
+$font-head-bold: 600 !default;
+$font-body-black: bold !default;
+
 $font-mono: monospace !default;
 $font-icon: false !default;
 

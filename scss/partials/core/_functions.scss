@@ -71,8 +71,8 @@ $color-scale: (
     @return $txt-size;
   }
   @else if $level < 0 {
-    $level: $level * -1;
-    @return $txt-size / pow( $ratio, $level );
+    $nlevel: $level * -1;
+    @return $txt-size / pow( $ratio, $nlevel );
   }
   @else {
     @return $txt-size * pow( $ratio, $level );

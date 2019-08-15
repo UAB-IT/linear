@@ -1,4 +1,59 @@
 /*------------------------
+START BUTTONS
+------------------------*/
+#{$specify} button,
+#{$specify} .button,
+#{$specify} .btn-primary,
+#{$specify} .btn,
+#{$specify} input[type='submit'],
+#{$specify} input[type='reset'],
+#{$specify} input[type='button'] {
+  @include reset(background, shadow, margin);
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
+  @include button;
+  &:focus,
+  &:hover {
+    @include button-hover;
+  }
+}
+
+#{$specify} a.btn-primary,
+#{$specify} button.btn-primary {
+  @include button-primary;
+}
+
+#{$specify} :not(p):not(.formControls) > * + button,
+#{$specify} :not(p):not(.formControls) > * + .button,
+#{$specify} :not(p):not(.formControls) > * + .btn-primary,
+#{$specify} :not(p):not(.formControls) > * + .btn--full,
+#{$specify} :not(p):not(.formControls) > * + .btn,
+#{$specify} :not(p):not(.formControls) > * + input[type='submit'],
+#{$specify} :not(p):not(.formControls) > * + input[type='reset'],
+#{$specify} :not(p):not(.formControls) > * + input[type='button'] {
+  @include block-margin;
+}
+
+#{$specify} button.full,
+#{$specify} .button.full,
+#{$specify} .btn-primary.full,
+#{$specify} .btn.full,
+#{$specify} input[type='submit'].full,
+#{$specify} input[type='reset'].full,
+#{$specify} input[type='button'].full {
+  display: block;
+  text-align: center;
+  width: 100%;
+}
+
+.uk-button {
+  border: 1px solid $stone !important;
+}
+/*------------------------
+END BUTTONS
+------------------------*/
+/*------------------------
 START FORMS
 ------------------------*/
 /*------------------------
@@ -35,9 +90,8 @@ END BTN TOOLBAR
 Standard Inputs
 ------------------------*/
 legend {
-  @include header-style(false);
+  @include header-style(h4);
   @include reset(color);
-  @include type-setting(h4);
 }
 label,
 input,

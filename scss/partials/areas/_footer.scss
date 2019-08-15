@@ -1,6 +1,7 @@
 /*------------------------
 START FOOTER
 ------------------------*/
+
 /* Adjust link colors in the footer section */
 #footer a,
 #lockedFooter a {
@@ -43,17 +44,20 @@ START FOOTER
   border-left: $bdr-md solid white;
 }
 
-/* Remove border from social media links. Add spacing between them. */
+/* Add spacing between social media links, apply round border */
 #{$specify} #footer .IT-footer_right .social a {
   display: inline-block;
-  border: 2px solid c($stone, 400);
-  border-radius: 50%;
+  @include border(2px, c($stone, 400), 50%);
   margin-right: 1rem;
   margin-top: 0.2rem;
   padding: 0.5rem;
 }
 #{$specify} #footer .IT-footer_right .social a:hover {
-  border: 2px solid c($stone, 100);
+  border-color: c($stone, 100);
+}
+#{$specify} #footer .IT-footer_right .social a::after {
+  content: '';
+  display: none;
 }
 
 /* Add spacing between logo and social links */
@@ -63,14 +67,14 @@ START FOOTER
 
 /* Set size of social media icons */
 #{$specify} #footer .IT-footer .social img {
-  max-height: 1.5rem;
   @include reset(margin);
+  max-height: 1.5rem;
 }
 
 /* Set the size of the UAB logo */
 #{$specify} #footer .IT-footer_logo {
-  max-height: s( 2 );
   @include reset(margin);
+  max-height: s( 2 );
 }
 
 /* Remove default padding on the footer */
