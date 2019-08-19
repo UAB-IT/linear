@@ -9,14 +9,6 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   background-color: white;
 }
 
-#leftcolumn ul.nav.menu a {
-  @include reset(margin, border, background);
-  display: block;
-  padding: 0.5rem;
-  font-weight: 600;
-  color: c($stone, 800)
-}
-
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
   @include reset(margin);
@@ -27,25 +19,34 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   @include reset(padding, font-weight);
 }
 
+#leftcolumn ul.nav.menu a {
+  @include reset(margin, border, background);
+  display: block;
+  padding: 0.5rem;
+  color: c($stone, 800);
+  border-left: 3px solid transparent;
+  @include type-setting(0);
+  // font-weight: 600;
+}
+
 #leftcolumn ul.nav.menu .current > a {
   background-color: c( $stone, 050 );
+  border-left: 3px solid $apple;
 }
 
 #leftcolumn ul.nav.menu > .parent > a {
-  @include header-style(h4);
+  @include type-setting(h4);
   font-weight: 600;
 }
 
 #leftcolumn ul.nav.menu a:hover {
   color: inherit !important;
   background-color: c($stone, 100);
+  border-left: 3px solid c($stone, 400);
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  padding-left: 1rem;
-  margin-left: 0.5rem;
-  border-left: 2px solid $c-primary;
-  font-weight: normal;
+  padding-left: 1.5rem;
 }
 
 /* Spacing */
@@ -65,6 +66,8 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 
 #leftcolumn .moduletable.sidebar-btns {
   overflow: visible;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 #leftcolumn .sidebar-btns + .sidebar-btns {
@@ -77,10 +80,19 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   padding-top: 0.5rem;
   display: block;
   height: 0px;
-  margin-left: 0.5rem;
-  width: calc(100% - 1rem);
+  margin-left: 0.6rem;
+  width: calc(100% - 1.5rem);
   text-indent: -9999px;
 }
 /*------------------------
 END SIDEBAR
 ------------------------*/
+#{$specify} #maincolumn-l {
+  border-left: 1px solid black;
+  margin-left: s(1) !important;
+  padding-left: s(2);
+}
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r {
+  width: calc( 78% - #{s(3)} ) !important;
+}

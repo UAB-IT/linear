@@ -1,5 +1,5 @@
 /*--------------------------------------------------
-Ember 0.8.0
+Ember 0.8.1
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -2365,18 +2365,6 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   background-color: white;
 }
 
-#leftcolumn ul.nav.menu a {
-  margin: 0;
-  border: 0;
-  background: none;
-  background-color: transparent;
-  background-image: none;
-  display: block;
-  padding: 0.5rem;
-  font-weight: 600;
-  color: #333435;
-}
-
 #leftcolumn ul.nav-child,
 #leftcolumn ul {
   margin: 0;
@@ -2388,28 +2376,39 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   font-weight: normal;
 }
 
+#leftcolumn ul.nav.menu a {
+  margin: 0;
+  border: 0;
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  display: block;
+  padding: 0.5rem;
+  color: #333435;
+  border-left: 3px solid transparent;
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+
 #leftcolumn ul.nav.menu .current > a {
   background-color: #f2f3f3;
+  border-left: 3px solid #80BC00;
 }
 
 #leftcolumn ul.nav.menu > .parent > a {
   font-size: 1.25rem;
   line-height: 1.6rem;
-  font-weight: normal;
-  font-family: "kulturista-web", serif;
   font-weight: 600;
 }
 
 #leftcolumn ul.nav.menu a:hover {
   color: inherit !important;
   background-color: #e6e6e7;
+  border-left: 3px solid #999b9d;
 }
 
 #leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  padding-left: 1rem;
-  margin-left: 0.5rem;
-  border-left: 2px solid #1E6B52;
-  font-weight: normal;
+  padding-left: 1.5rem;
 }
 
 /* Spacing */
@@ -2429,6 +2428,8 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
 
 #leftcolumn .moduletable.sidebar-btns {
   overflow: visible;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 #leftcolumn .sidebar-btns + .sidebar-btns {
@@ -2441,14 +2442,25 @@ body.hd #leftcolumn.sidebarpanel.no-seal {
   padding-top: 0.5rem;
   display: block;
   height: 0px;
-  margin-left: 0.5rem;
-  width: calc(100% - 1rem);
+  margin-left: 0.6rem;
+  width: calc(100% - 1.5rem);
   text-indent: -9999px;
 }
 
 /*------------------------
 END SIDEBAR
 ------------------------*/
+body.linear.hd #maincolumn-l {
+  border-left: 1px solid black;
+  margin-left: 1.6rem !important;
+  padding-left: 3.2rem;
+}
+
+body.hd.inside #maincolumn-l,
+body.hd.inside #maincolumn-r {
+  width: calc( 78% - 4.8rem) !important;
+}
+
 /*------------------------
 START FOOTER
 ------------------------*/
