@@ -1,7 +1,7 @@
 /*------------------------
 START BANNER
 ------------------------*/
-
+$banner-top: $section-margin * 2 !default;
 /* relative allows us to position the background,
 padding moves the title and breadcrumbs to the bottom of the container,
 min height sets the size of the banner,

@@ -1,0 +1,235 @@
+/* --------------------------------------------------
+TYPOGRAPHY
+
+This module contains base styling for typographical elements
+including inline and block level text elements and headers
+as well as styles for links
+---------------------------------------------------- */
+
+/* ------------------------
+TYPESETTING
+------------------------ */
+:root {
+  font-size: #{$rem-size + 'px'};
+  color: $body-color;
+}
+
+@if $adjust-template == true {
+  /* Restore inheritance to inline elements
+  !important is used here to adjust aggressive
+  rules from central css */
+  #{$specify} h1 a,
+  #{$specify} h1 strong,
+  #{$specify} h1 b,
+  #{$specify} h1 span,
+  #{$specify} h2 a,
+  #{$specify} h2 strong,
+  #{$specify} h2 b,
+  #{$specify} h2 span,
+  #{$specify} h3 a,
+  #{$specify} h3 strong,
+  #{$specify} h3 b,
+  #{$specify} h3 span,
+  #{$specify} h4 a,
+  #{$specify} h4 strong,
+  #{$specify} h4 b,
+  #{$specify} h4 span,
+  #{$specify} #footer a,
+  #{$specify} #footer span,
+  #{$specify} b,
+  #{$specify} span,
+  #{$specify} strong,
+  #{$specify} em, {
+    @include reset(color, font-size);
+    font-family: inherit !important;
+  }
+
+  /* Restore font weight inheritance to certain inline elements
+  !important is used here to adjust aggressive rules from central css */
+  #{$specify} .categories-list h3 a,
+  #{$specify} span,
+  #{$specify} #rightsidebar h4 .mod-articles-category-title {
+    font-weight: inherit !important;
+  }
+
+  /* Correct header font on h5 elements
+  !important is used to edit aggressive rules from central css */
+  #{$specify} h5 {
+    font-family: $font-head !important;
+  }
+
+  /* remove spacing and border from the generated header from the article title */
+  .page-header {
+    @include reset(margin, padding, border);
+  }
+}
+
+#{$specify} h1,
+#{$specify} h2,
+#{$specify} h3,
+#{$specify} h4,
+#{$specify} h5,
+#{$specify} h6 {
+  @include reset(margin, color);
+  text-align: inherit;
+  @include header-style;
+}
+
+/* Gives added top margin to headers when they follow content */
+#{$specify} [role='main'] :not(div) + {
+  h1,
+  h2 {
+    margin-top: $header-top;
+  }
+}
+
+/* Remove additional margin between headers */
+#{$specify} [role='main'] h1 + h2,
+#{$specify} [role='main'] h2 + h3,
+#{$specify} [role='main'] h3 + h4,
+#{$specify} [role='main'] h4 + h5,
+#{$specify} [role='main'] h5 + h6 {
+  margin-top: 0;
+}
+
+/* Apply block level margins to block elements */
+#{$specify} p,
+#{$specify} hr,
+#{$specify} pre {
+  margin-top: 0;
+  @include block-margin;
+}
+
+/* ID is used here to overwrite equally high specificity from style.css */
+#{$specify} h1,
+#{$specify} .uk-h1 { @include type-setting(h1); }
+#{$specify} h2,
+#{$specify} .uk-h2 { @include type-setting(h2); }
+#{$specify} h3,
+#leftcolumn h3,
+#{$specify} .uk-h3 { @include type-setting(h3); }
+#{$specify} h4,
+#{$specify} .uk-h4 { @include type-setting(h4); }
+#{$specify} h5,
+#{$specify} .uk-h5 { @include type-setting(h5); }
+#{$specify} h6,
+#{$specify} .uk-h6 { @include type-setting(h6); }
+body,
+#{$specify} p,
+#{$specify} .uk-p { @include type-setting(p); }
+#{$specify} small,
+#{$specify} .uk-small { @include type-setting(sm); }
+
+/*------------------------
+RULE LINES
+------------------------*/
+/* Ensure hr takes up no vertical space,
+apply thin border for styling */
+#{$specify} hr {
+  box-sizing: content-box;
+  height: 0;
+  overflow: visible;
+  border-style: solid;
+  border-width: 0 0 $hr-width;
+  border-color: $hr-color;
+}
+
+/* Allow rule lines that immediately follow headers to sit on the header's
+baseline */
+#{$specify} h1 + hr,
+#{$specify} h2 + hr,
+#{$specify} h3 + hr,
+#{$specify} h4 + hr,
+#{$specify} h5 + hr,
+#{$specify} h6 + hr {
+  margin-top: -$header-bottom; /* Allows headers to sit on horizontal rules */
+}
+
+/*------------------------
+LINKS
+------------------------*/
+
+/* Remove existing link styles */
+#{$specify} a {
+  @include reset(color, font-weight, transition);
+  text-decoration: none;
+}
+
+/* Applies link styles to content areas only. Less specific than an id and
+helps avoid overreaching styles. */
+p a[href]:not(.unstyled),
+li a[href]:not(.unstyled),
+h1 a[href]:not(.unstyled),
+h2 a[href]:not(.unstyled),
+h3 a[href]:not(.unstyled),
+h4 a[href]:not(.unstyled),
+h5 a[href]:not(.unstyled),
+h6 a[href]:not(.unstyled),
+table a[href]:not(.unstyled),
+dl a[href]:not(.unstyled),
+pre a[href]:not(.unstyled) {
+  @include link-style;
+  &:hover {
+    @include link-style($hover: true);
+  }
+}
+
+@if $link-icons == true {
+  /* Adds icon to links that open in a new page */
+  a:not(.btn)[target='_blank']::after {
+    content: '#{$icon-new-tab}';
+    font-family: $font-icon;
+    speak: none;
+    margin-left: 0.5em;
+    font-weight: normal;
+    font-size: 90%;
+  }
+  /* Adds icon to links that open a pdf document */
+  a:not(.btn)[href$='.pdf']::after {
+    content: '#{$icon-pdf}';
+    font-family: $font-icon;
+    speak: none;
+    margin-left: 0.5em;
+    font-weight: normal;
+    font-size: 90%;
+  }
+}
+
+/*------------------------
+SEMANTIC HTML
+------------------------*/
+
+mark,
+code,
+kbd {
+  padding: $inline-padding;
+}
+
+mark,
+::selection {
+  background-color: $c-mark;
+}
+code {
+  background-color: c( $c-grey, 100 );
+  color: c( $c-grey, 700 );
+  border-radius: $bdr-radius;
+  white-space: pre;
+}
+kbd {
+  background-color: c( $c-grey, 800 );
+  color: c( $c-grey, 050 );
+  border-radius: $bdr-radius;
+  white-space: pre;
+}
+
+pre {
+  white-space: pre-wrap;
+}
+pre > code {
+  display: block;
+  padding: $block-padding;
+  white-space: inherit;
+}
+/* --------------------------------------------------
+END - TYPOGRAPHY
+---------------------------------------------------- */

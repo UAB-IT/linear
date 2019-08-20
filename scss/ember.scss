@@ -1,75 +1,77 @@
-/*--------------------------------------------------
-Ember 0.8.1
+/* ----------------------------------------------------
+Ember 0.8.0.2
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
 https://github.com/UAB-IT/Ember
---------------------------------------------------*/
+---------------------------------------------------- */
 
-/*--------------------------------------------------
+/* ----------------------------------------------------
 START CORE
-Required css for Ember to function. Includes SCSS variables and CSS Resets.
-Helpers are in the Core category, but are included at the end of the Ember code block.
---------------------------------------------------*/
-@import 'partials/core/_global.scss';
-@import 'partials/core/_functions.scss';
-@import 'partials/core/_variables.scss';
-@import 'partials/core/_patterns.scss';
-@import 'partials/core/_reset.scss';
+Required SCSS for Ember to function, and basic CSS styles
+Includes variables, spacing, and typography.
+---------------------------------------------------- */
+@import 'partials/01-core/_global.scss';
+@import '_config.scss';
 
-@import 'partials/components/_basics.scss';
-/*--------------------------------------------------
+@import './partials/01-core/_spacing.scss';
+@import './partials/01-core/_typography.scss';
+/* ----------------------------------------------------
 END CORE - START COMPONENTS
 Self contained chunks of content with their visual styling.
---------------------------------------------------*/
-@import 'partials/components/_chips.scss';
-@import 'partials/components/_alert.scss';
-@import 'partials/components/_pullquotes.scss';
-@import 'partials/components/_grid.scss';
-@import 'partials/components/_forms.scss';
-@import 'partials/components/_spacing.scss';
-/*--------------------------------------------------
+---------------------------------------------------- */
+@import 'partials/02-components/_lists.scss';
+@import 'partials/02-components/_tables.scss';
+@import 'partials/02-components/_media.scss';
+@import 'partials/02-components/_pullquotes.scss';
+
+@import 'partials/02-components/_chips.scss';
+@import 'partials/02-components/_alert.scss';
+
+@import 'partials/02-components/_grid.scss';
+@import 'partials/02-components/_forms.scss';
+/* ----------------------------------------------------
 END COMPONENTS - START SYNDICATION
 Components that style syndicated content where we have limited control over
 html and classes of the target elements.
---------------------------------------------------*/
-@import 'partials/syndication/_calendar.scss';
-@import 'partials/syndication/_news.scss';
-@import 'partials/syndication/_pagination.scss';
-/*--------------------------------------------------
+---------------------------------------------------- */
+@import 'partials/03-syndication/_calendar.scss';
+@import 'partials/03-syndication/_news.scss';
+@import 'partials/03-syndication/_pagination.scss';
+/* ----------------------------------------------------
 END SYNDICATION - START WIDGETKIT
 Changes to the widgetkit systems and additional styling
---------------------------------------------------*/
-@import 'partials/widgetkit/core/_widgetkit.scss';
-@import 'partials/widgetkit/core/_wk-grid.scss';
-@import 'partials/widgetkit/details.scss';
-@import 'partials/widgetkit/features.scss';
-@import 'partials/widgetkit/gallery.scss';
-@import 'partials/widgetkit/panels.scss';
-@import 'partials/widgetkit/slideshow.scss';
-@import 'partials/widgetkit/tabs.scss';
-/*--------------------------------------------------
+---------------------------------------------------- */
+@import 'partials/04-widgetkit/core/_widgetkit.scss';
+@import 'partials/04-widgetkit/core/_wk-grid.scss';
+@import 'partials/04-widgetkit/details.scss';
+@import 'partials/04-widgetkit/features.scss';
+@import 'partials/04-widgetkit/gallery.scss';
+@import 'partials/04-widgetkit/panels.scss';
+@import 'partials/04-widgetkit/slideshow.scss';
+@import 'partials/04-widgetkit/tabs.scss';
+/* ----------------------------------------------------
 END WIDGETKIT - START AREAS
 Edits to the Linear template areas.
 Most edits undo Ember styling to keep template styles in those areas.
---------------------------------------------------*/
-@import 'partials/areas/core/_areas.scss';
-@import 'partials/areas/_topnav.scss';
-@import 'partials/areas/_search.scss';
-@import 'partials/areas/_quicklinks.scss';
-@import 'partials/areas/_banner.scss';
-@import 'partials/areas/_sidebar.scss';
-@import 'partials/areas/_footer.scss';
-@import 'partials/areas/_article.scss';
-/*--------------------------------------------------
+---------------------------------------------------- */
+@import 'partials/05-areas/core/_areas.scss';
+@import 'partials/05-areas/_topnav.scss';
+@import 'partials/05-areas/_search.scss';
+@import 'partials/05-areas/_quicklinks.scss';
+@import 'partials/05-areas/_banner.scss';
+@import 'partials/05-areas/_sidebar.scss';
+@import 'partials/05-areas/_footer.scss';
+@import 'partials/05-areas/_article.scss';
+/* ----------------------------------------------------
 END AREAS - START HELPERS
 Classes that help with styling content on a case-by-case basis
 and fixing edge case bugs
---------------------------------------------------*/
-@import 'partials/core/_helpers.scss';
-/*--------------------------------------------------
+---------------------------------------------------- */
+@import 'partials/01-core/_helpers.scss';
+/* ----------------------------------------------------
 END - HELPERS
---------------------------------------------------*/
-/*--------------------------------------------------
+---------------------------------------------------- */
+/* ----------------------------------------------------
 END - EMBER
---------------------------------------------------*/
+---------------------------------------------------- */

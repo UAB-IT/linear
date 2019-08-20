@@ -1,6 +1,18 @@
 /*------------------------
 START TEMPLATE SPACIAL ADJUSTMENTS
 ------------------------*/
+
+/* Fixes a bug where left sidebar was not sized consistantly */
+body.hd.sidebars #leftcolumn {
+  width: 100%;
+}
+/* Fixes a bug where the main content was not sized correctly on pages
+without a sidebar */
+body.hd.inside #whitebox {
+  max-width: $max-width;
+}
+
+$layout-gap: s(2) !default;
 /* This is going to remove odd margins and paddings and implement a more uniform
 solution to keep the body content from hitting the edge of the screen when the
 viewport is smaller than the content. */

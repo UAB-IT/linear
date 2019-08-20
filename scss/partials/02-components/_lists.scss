@@ -1,0 +1,93 @@
+/* --------------------------------------------------
+LISTS
+
+Basic list styles and list themes
+---------------------------------------------------- */
+$list-indent: $indent !default;
+$list-margin: s(0.5) !default; // inline-block - list
+
+/* ------------------------
+RESET
+------------------------ */
+#{$specify} ul,
+#{$specify} ol {
+  @include reset(margin, padding);
+  list-style-position: outside;
+}
+#{$specify} li {
+  @include reset(margin);
+  list-style-position: inherit;
+}
+
+/* ------------------------
+BASE STYLES
+------------------------ */
+/* Apply margin to compensate for list style,
+only to lists inside the main content area */
+#{$specify} .item-page ul:not(.unstyled),
+#{$specify} .item-page ol:not(.unstyled) {
+  margin-left: 1.2em;
+}
+
+/* Add rhythem spacing to lists in main content area */
+#{$specify} .item-page ul,
+#{$specify} .item-page ol,
+#{$specify} .item-page dl {
+  @include block-margin;
+}
+
+/* Add indention to child lists */
+#{$specify} ul:not(.unstyled) ul,
+#{$specify} ul:not(.unstyled) ol,
+#{$specify} ol:not(.unstyled) ol,
+#{$specify} ol:not(.unstyled) ul,
+#{$specify} dl:not(.unstyled) dd{
+  margin-bottom: 0;
+  margin-left: $list-indent;
+}
+
+/* Set bullet styles */
+#{$specify} .item-page ul:not(.unstyled) {
+  list-style-type: disc;
+  ul {
+    list-style-type: circle;
+    ul { list-style-type: square; }
+  }
+}
+#{$specify} .item-page ol:not(.unstyled) {
+  list-style-type: decimal;
+  ol {
+    list-style-type: upper-latin;
+    ol { list-style-type: lower-latin; }
+  }
+}
+
+/* Bold description term */
+#{$specify} dt {
+  font-weight: bolder;
+}
+
+// // REVIEW: why the use of ID here?
+// /* Gets rid of bootstrap style */
+// #content li {
+//   @include reset(margin);
+// }
+
+// REVIEW: why the use of ID here?
+// was #content
+#{$specify} ul:not(.unstyled) li,
+#{$specify} ol:not(.unstyled) li,
+#{$specify} dl:not(.unstyles) dd {
+  margin: $list-margin 0 0;
+}
+/*------------------------
+THEMES
+------------------------*/
+/* Align text with paragraphs, bullet sitting in the margin */
+// DEBUG: not sure if this works correctly
+#{$specify} .item-page ul.outside,
+#{$specify} .item-page ol.outside {
+  margin-left: 0;
+}
+
+/* Colored Bullets */

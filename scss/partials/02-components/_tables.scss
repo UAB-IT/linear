@@ -1,0 +1,124 @@
+/* --------------------------------------------------
+TABLES
+
+Styles and themes for tables
+---------------------------------------------------- */
+$table-padding: s(0.5) !default; // inline-block - table
+
+/* ------------------------
+BASE
+------------------------ */
+/* Set default sytles,
+make table mobile friendly,
+add rhythem spacing */
+#{$specify} table {
+  text-align: left;
+  border-collapse: collapse;
+  width: 100%;
+  overflow: scroll;
+  @include block-margin;
+}
+
+/* Add borders, padding, and ensure
+text alignment is respected */
+#{$specify} table tr td,
+#{$specify} table tr th {
+  border: $bdr-width solid black;
+  padding: $table-padding;
+  text-align: inherit;
+}
+
+/* Apply header styles to table headers */
+#{$specify} table th {
+  @include header-style(h5);
+}
+
+/* margin fix for elements inside tables */
+#{$specify} table td :last-child {
+  @include reset(margin);
+}
+
+/* ------------------------
+THEMES
+------------------------ */
+#{$specify} table.borderless tr td,
+#{$specify} table.borderless tr th {
+  border: none;
+}
+
+#{$specify} table.striped tbody > tr:nth-child(odd) {
+  background: $c-background;
+}
+#{$specify} table.hover tbody tr:hover {
+  background: $c-background;
+}
+#{$specify} table.striped.hover tbody tr:hover {
+  background: c($stone, 100);
+}
+
+#{$specify} table.primary {
+  border: $bdr-md solid $c-primary;
+  & thead {
+    background: $c-primary;
+    color: white;
+  }
+}
+#{$specify} table.green {
+  border: $bdr-md solid $c-green;
+  & thead {
+    background: $c-green;
+    color: white;
+  }
+}
+#{$specify} table.yellow {
+  border: $bdr-md solid $c-yellow;
+  & thead {
+    background: $c-yellow;
+  }
+}
+#{$specify} table.red {
+  border: $bdr-md solid $c-red;
+  & thead {
+    background: $c-red;
+    color: white;
+  }
+}
+
+// REVIEW: can this code be isolated to that one page?
+/* START OVERRIDES */
+#{$specify} .table-bordered {
+  @include reset(border);
+  border-collapse: collapse;
+  border-radius: 0;
+}
+
+#{$specify} .table-bordered th,
+#{$specify} .table-bordered td,
+#{$specify} table.category td,
+#{$specify} table.table-striped tr td,
+#{$specify} table.table-striped tr th {
+  @include reset(border);
+}
+#{$specify} .table-hover tbody tr:hover > td,
+#{$specify} .table-hover tbody tr:hover > th,
+#{$specify} .table-striped tbody > tr:nth-child(odd) > td,
+#{$specify} .table-striped tbody > tr:nth-child(odd) > th {
+  @include reset(background);
+}
+
+#{$specify} .table-bordered caption + thead tr:first-child th:first-child,
+#{$specify} .table-bordered caption + tbody tr:first-child td:first-child,
+#{$specify} .table-bordered colgroup + thead tr:first-child th:first-child,
+#{$specify} .table-bordered colgroup + tbody tr:first-child td:first-child {
+  border-top-left-radius: 0;
+}
+
+#{$specify} .category.table tbody a {
+  @include reset(border);
+  text-decoration: underline;
+}
+
+/* END OVERRIDES */
+/*------------------------
+END TABLES
+------------------------*/

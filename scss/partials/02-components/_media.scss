@@ -1,0 +1,34 @@
+/*------------------------
+START MEDIA
+------------------------*/
+img {
+  max-width: 100%;
+  object-fit: cover;
+  margin: auto;
+  display: block;
+}
+
+/* Add rhythem spacing */
+:not(figure) img,
+iframe,
+figure,
+.video-container {
+  @include block-margin;
+}
+
+/* Style figcaption to display small in the center under the image,
+Add rhythem spacing above caption instead of below image */
+figure figcaption {
+  @include type-setting(sm);
+  text-align: center;
+  margin: $block-margin 0;
+}
+
+/* Remove problematic image styles from hidden links */
+#hidden-links img {
+  display: inherit;
+  margin: 0;
+}
+/*------------------------
+END MEDIA
+------------------------*/

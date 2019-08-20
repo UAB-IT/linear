@@ -1,6 +1,10 @@
 /*--------------------------------------------------
 START GRID
 --------------------------------------------------*/
+$gap: s(2) !default;
+$gap-sm: s(1) !default;
+$gap-md: s(2) !default;
+$gap-lg: s(4) !default;
 /*------------------------
 START IE FALLBACK
 ------------------------*/
@@ -266,3 +270,27 @@ END IE FALLBACK
 /*--------------------------------------------------
 END GRID
 --------------------------------------------------*/
+// Fix for Grid Items
+#{$specify} [class*='grid-1'] > * :last-child,
+#{$specify} [class*='grid-2'] > * :last-child,
+#{$specify} [class*='grid-3'] > * :last-child,
+#{$specify} [class*='grid-4'] > * :last-child,
+#{$specify} [class*='grid-6'] > * :last-child {
+  margin-bottom: 0;
+}
+
+
+/* remove floats from sections with columns since this is handled through grid */
+body.hd .latestnews li,
+body.hd .relateditems li,
+body.hd .mostread li,
+body.hd .newsfeed li,
+body.hd .sections li,
+body.hd .weblinks li,
+body.hd .k2ItemsBlock li,
+body.hd .category-module,
+body.hd .moduleCustomLink,
+body.hd .rightsidebar .nav.menu li {
+  @include reset(float);
+  width: 100%;
+}

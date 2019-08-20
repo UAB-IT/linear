@@ -1,0 +1,108 @@
+/* ----------------------------------------------------
+SPACING
+
+This module includes various rules to maintain spacial consistancy
+---------------------------------------------------- */
+
+@if $adjust-template == true {
+  /* ------------------------
+  TEMPLATE ADJUSTMENT
+  ------------------------ */
+  $content-margin: $section-margin !default;
+
+  /* Add space between content and banner and content and footer */
+  body.ribbonFullwidth #whitebox {
+    margin: $content-margin auto;
+  }
+  /* Remove old margins from main column since that spacing is handled
+  through the whitebox now. !important is used to overwrite agressive
+  styles from central style.css @line 3577-3596 as of Aug 20 2019 */
+  body.hd.inside #maincolumn-l,
+  body.hd.inside #maincolumn-r,
+  body.hd.inside #maincolumn-l-r,
+  body.hd.inside #maincolumn-wide {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+  }
+}
+
+/* ------------------------
+SECTIONS
+------------------------ */
+
+.section {
+  margin: $section-margin 0;
+}
+.section.background {
+  padding: $section-padding-small;
+}
+.section.background-full {
+  padding: $section-padding 0;
+}
+
+/* ------------------------
+FULL WIDTH
+------------------------ */
+
+/* Fixes a bug where the background is invisible on mobile */
+.background-full {
+  position: relative;
+  z-index: 1;
+}
+/* Adds background element that spans the width of the screen. */
+.background-full::before {
+  content: '';
+  @include cover;
+  width: 150vw;
+  margin-left: -50vw;
+  background-color: $c-background;
+  z-index: -1;
+}
+
+// .hero-sect {
+//   /*height: 70vh;*/
+//   margin-top: s( -2 );
+//   align-items: center;
+// }
+
+/* ------------------------
+MARGIN FIX
+// NOTE: This code is experimental and may not fix all issues or may have unintentional effects
+// // TODO: Test and verify code is working properly
+------------------------ */
+
+/* Fix for most sections */
+#{$specify} .section > :last-child {
+  margin-bottom: 0;
+}
+/* Fix for first element of the page */
+#{$specify} [itemprop='articleBody'] > :first-child {
+  margin-top: 0;
+}
+/* Fix for last element of the page */
+#{$specify} [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0;
+}
+
+/* Add section spacing to widgetkit blocks */
+#{$specify} [id*='wk'] {
+  margin-top: $section-margin;
+  margin-bottom: $section-margin;
+}
+/* Fix for widgetkit blocks */
+#{$specify} .section > [id]:last-of-type {
+  margin-bottom: 0;
+}
+/* Decrease space between headers & widgetkit blocks */
+#{$specify} h1 + [id*='wk'],
+#{$specify} h2 + [id*='wk'],
+#{$specify} h3 + [id*='wk'],
+#{$specify} h4 + [id*='wk'],
+#{$specify} h5 + [id*='wk'],
+#{$specify} h6 + [id*='wk'] {
+  margin-top: #{$section-margin / 2};
+}
+
+/* ----------------------------------------------------
+END - SPACING
+---------------------------------------------------- */

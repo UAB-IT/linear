@@ -13,7 +13,7 @@ START ALERT
 /* Apply the alert style to the alert container */
 .moduletable.alert {
   @include reset(shadow);
-  background: tint( $c-red, 80% );
+  background: c($c-red, 100);
   @include border($bdr-md, $c-red);
   padding: $input-padding;
   @include block-margin;
@@ -25,7 +25,7 @@ div.ribbonFullwidth .alert a {
 }
 div.ribbonFullwidth .alert a:hover {
   border-color: $c-red;
-  background-color: tint( $c-red, 60% );
+  background-color: c($c-red, 200);
 }
 
 /* Remove bottom margin from paragraphs in an alert */
