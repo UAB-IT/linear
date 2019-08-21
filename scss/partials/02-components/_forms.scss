@@ -1,9 +1,29 @@
-/*------------------------
-START BUTTONS
-------------------------*/
+/* ----------------------------------------------------
+BUTTONS
+---------------------------------------------------- */
+@mixin button-primary {
+  color: white;
+  background: $c-primary;
+  border-color: $c-primary;
+}
+
+@mixin button {
+  box-sizing: border-box;
+  padding: $input-padding;
+  background: white;
+  border: 1px solid c($c-grey, 800);
+  border-radius: $bdr-radius;
+  color: c( $c-grey, 800 );
+  @include type-setting(0);
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 90%;
+  white-space: nowrap;
+}
+/* ------------------------
+BASE
+------------------------ */
 #{$specify} button,
-#{$specify} .button,
-#{$specify} .btn-primary,
 #{$specify} .btn,
 #{$specify} input[type='submit'],
 #{$specify} input[type='reset'],
@@ -15,70 +35,92 @@ START BUTTONS
   @include button;
   &:focus,
   &:hover {
-    @include button-hover;
+    outline: 0;
+    text-decoration: none;
+    @include hover;
   }
 }
 
-#{$specify} a.btn-primary,
-#{$specify} button.btn-primary {
-  @include button-primary;
-}
+// /* Add bottom margin to buttons that sit by themselves */
+// #{$specify} button,
+// #{$specify} .btn,
+// #{$specify} input[type='submit'],
+// #{$specify} input[type='reset'],
+// #{$specify} input[type='button'] {
+//   @include block-margin;
+// }
 
-#{$specify} :not(p):not(.formControls) > * + button,
-#{$specify} :not(p):not(.formControls) > * + .button,
-#{$specify} :not(p):not(.formControls) > * + .btn-primary,
-#{$specify} :not(p):not(.formControls) > * + .btn--full,
-#{$specify} :not(p):not(.formControls) > * + .btn,
-#{$specify} :not(p):not(.formControls) > * + input[type='submit'],
-#{$specify} :not(p):not(.formControls) > * + input[type='reset'],
-#{$specify} :not(p):not(.formControls) > * + input[type='button'] {
-  @include block-margin;
+/* !important is used to override aggressive rule from RS Forms */
+.uk-button {
+  border: 1px solid $c-grey !important;
 }
-
+/*------------------------
+LAYOUT
+------------------------*/
 #{$specify} button.full,
-#{$specify} .button.full,
-#{$specify} .btn-primary.full,
-#{$specify} .btn.full,
-#{$specify} input[type='submit'].full,
-#{$specify} input[type='reset'].full,
-#{$specify} input[type='button'].full {
+#{$specify} .btn.full {
   display: block;
   text-align: center;
   width: 100%;
 }
-
-.uk-button {
-  border: 1px solid $stone !important;
+/*------------------------
+THEMES
+------------------------*/
+/* Primary */
+#{$specify} .btn.primary,
+#{$specify} button.primary {
+  border-color: $c-primary;
+  color: white;
+  background: $c-primary;
 }
-/*------------------------
-END BUTTONS
-------------------------*/
-/*------------------------
-START FORMS
-------------------------*/
+
+/* ----------------------------------------------------
+FORMS
+---------------------------------------------------- */
+$radio-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E';
+$checkbox-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A';
 /*------------------------
 START BTN TOOLBAR
 ------------------------*/
-.btn-toolbar {
-  margin: 0 0 $block-margin;
-}
+// TEMP:  misc bugfix for form on category list page
 #undefined {
   @include reset(margin);
 }
+
+.formContainer .row {
+  margin: 0;
+}
+
+// /* add spacing for button toolbar. // QUESTION: where is this used? */
+// .btn-toolbar {
+//   margin: 0 0 $block-margin;
+// }
+
+/* Setup positioning for input groups, add spacing */
 .input-group {
   display: flex;
   @include block-margin;
 }
+/* remove spacing from input group children */
 #{$specify} .input-group button,
-#{$specify} .input-group input {
+#{$specify} .input-group input,
+#{$specify} .input-group .btn {
   @include reset(margin);
 }
-#{$specify} .input-group input {
+
+/* Adjust border radius
+expected html:
+<div class="input-group">
+  <input> or <button> or <a class="btn">
+  <button> or <a class="btn">
+</div>
+*/
+#{$specify} .input-group :first-child {
   border-radius: $bdr-radius;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
-#{$specify} .input-group button {
+#{$specify} .input-group :last-child {
   border-radius: $bdr-radius;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -86,19 +128,9 @@ START BTN TOOLBAR
 /*------------------------
 END BTN TOOLBAR
 ------------------------*/
-/*------------------------
-Standard Inputs
-------------------------*/
-legend {
-  @include header-style(h4);
-  @include reset(color);
-}
-label,
-input,
-select,
-textarea {
-  @include type-setting(p);
-}
+/* -----------------------
+RESET
+----------------------- */
 
 #{$specify} textarea,
 #{$specify} input[type='email'],
@@ -116,6 +148,22 @@ textarea {
   height: auto;
 }
 
+/*------------------------
+BASE
+------------------------*/
+/* Apply typography styles to form elements */
+#{$specify} legend {
+  @include header-style(h4);
+  @include reset(color);
+}
+#{$specify} label,
+#{$specify} input,
+#{$specify} select,
+#{$specify} textarea {
+  @include type-setting(p);
+}
+
+/* Basic styles for input fields */
 #{$specify} textarea,
 #{$specify} input[type='email'],
 #{$specify} input[type='number'],
@@ -123,17 +171,9 @@ textarea {
 #{$specify} input[type='tel'],
 #{$specify} input[type='url'],
 #{$specify} input[type='search'] {
-  color: $txt-color;
   padding: $input-padding;
-  @include border($color: $stone, $radius: 0);
-}
-
-#{$specify} input[type='email'],
-#{$specify} input[type='number'],
-#{$specify} input[type='text'],
-#{$specify} input[type='tel'],
-#{$specify} input[type='url'],
-#{$specify} textarea {
+  color: $c-body;
+  border: $bdr-width solid $c-grey;
   display: block;
   width: 100%;
   background-color: white;
@@ -145,35 +185,34 @@ textarea {
   overflow-y: scroll;
 }
 
-#{$specify} textarea:focus,
-#{$specify} input:focus,
-#{$specify} select:focus {
-  border-color: $c-secondary !important;
-  box-shadow: 0 0 0 1px $c-secondary;
-}
-
-.formContainer .row {
-  margin: 0;
-}
-
 #{$specify} input[type='radio'],
 #{$specify} input[type='checkbox'] {
-  width: 1em;
-  height: 1em;
-  margin: 0;
-  margin-right: s(0.5);
+  @include reset(margin);
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  border: 1px solid $stone;
-  padding-left: 0;
   float: none;
+  padding-left: 0;
+  margin-right: s(0.5);
+  width: 1em;
+  height: 1em;
+  border: 1px solid $stone;
 }
 
 #{$specify} input[type='radio'] {
   border-radius: 50%;
 }
 
+/* -----------------------
+STATES
+----------------------- */
+/* Add focus states */
+#{$specify} textarea:focus,
+#{$specify} input:focus,
+#{$specify} select:focus {
+  border-color: $c-secondary;
+  box-shadow: 0 0 0 1px $c-secondary;
+}
 #{$specify} select:focus,
 #{$specify} input[type='file']:focus,
 #{$specify} input[type='radio']:focus,
@@ -182,18 +221,27 @@ textarea {
   outline-offset: 0;
 }
 
+/* Add style for checked radio and checkboxes */
 #{$specify} input[type='radio']:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E");
+  background-image: url(#{$radio-checked-image});
   background-position: center;
   border-color: $c-secondary;
+  background-color: $c-secondary;
+  &:focus {
+    background-color: $c-secondary;
+  }
 }
-
 #{$specify} input[type='checkbox']:checked {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A");
+  background-image: url(#{$checkbox-checked-image});
   background-position: center;
   border-color: $c-secondary;
+  background-color: $c-secondary;
+  &:focus {
+    background-color: $c-secondary;
+  }
 }
 
+/* Fix for RS Forms */
 .uk-checkbox:checked,
 .uk-checkbox:indeterminate,
 input[type='radio']:checked,
@@ -203,6 +251,7 @@ input[type='radio']:checked:focus {
   background-color: $c-secondary;
 }
 
+/* Fix for RS Forms */
 body.uk-form ::selection {
   color: black;
 }

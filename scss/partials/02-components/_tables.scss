@@ -1,8 +1,7 @@
 /* --------------------------------------------------
 TABLES
-
-Styles and themes for tables
 ---------------------------------------------------- */
+
 $table-padding: s(0.5) !default; // inline-block - table
 
 /* ------------------------
@@ -26,6 +25,7 @@ text alignment is respected */
   border: $bdr-width solid black;
   padding: $table-padding;
   text-align: inherit;
+  color: inherit;
 }
 
 /* Apply header styles to table headers */
@@ -33,14 +33,10 @@ text alignment is respected */
   @include header-style(h5);
 }
 
-/* margin fix for elements inside tables */
-#{$specify} table td :last-child {
-  @include reset(margin);
-}
-
 /* ------------------------
 THEMES
 ------------------------ */
+
 #{$specify} table.borderless tr td,
 #{$specify} table.borderless tr th {
   border: none;
@@ -86,34 +82,34 @@ THEMES
 
 // REVIEW: can this code be isolated to that one page?
 /* START OVERRIDES */
-#{$specify} .table-bordered {
+#{$specify} .category-list .table-bordered {
   @include reset(border);
   border-collapse: collapse;
   border-radius: 0;
 }
 
-#{$specify} .table-bordered th,
-#{$specify} .table-bordered td,
-#{$specify} table.category td,
-#{$specify} table.table-striped tr td,
-#{$specify} table.table-striped tr th {
+#{$specify} .category-list .table-bordered th,
+#{$specify} .category-list .table-bordered td,
+#{$specify} .category-list table.category td,
+#{$specify} .category-list table.table-striped tr td,
+#{$specify} .category-list table.table-striped tr th {
   @include reset(border);
 }
-#{$specify} .table-hover tbody tr:hover > td,
-#{$specify} .table-hover tbody tr:hover > th,
-#{$specify} .table-striped tbody > tr:nth-child(odd) > td,
-#{$specify} .table-striped tbody > tr:nth-child(odd) > th {
+#{$specify} .category-list .table-hover tbody tr:hover > td,
+#{$specify} .category-list .table-hover tbody tr:hover > th,
+#{$specify} .category-list .table-striped tbody > tr:nth-child(odd) > td,
+#{$specify} .category-list .table-striped tbody > tr:nth-child(odd) > th {
   @include reset(background);
 }
 
-#{$specify} .table-bordered caption + thead tr:first-child th:first-child,
-#{$specify} .table-bordered caption + tbody tr:first-child td:first-child,
-#{$specify} .table-bordered colgroup + thead tr:first-child th:first-child,
-#{$specify} .table-bordered colgroup + tbody tr:first-child td:first-child {
+#{$specify} .category-list .table-bordered caption + thead tr:first-child th:first-child,
+#{$specify} .category-list .table-bordered caption + tbody tr:first-child td:first-child,
+#{$specify} .category-list .table-bordered colgroup + thead tr:first-child th:first-child,
+#{$specify} .category-list .table-bordered colgroup + tbody tr:first-child td:first-child {
   border-top-left-radius: 0;
 }
 
-#{$specify} .category.table tbody a {
+#{$specify} .category-list .category.table tbody a {
   @include reset(border);
   text-decoration: underline;
 }

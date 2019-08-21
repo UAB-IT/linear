@@ -1,25 +1,20 @@
 /* ----------------------------------------------------
-Ember 0.8.0.2
+Ember 0.8.0.3
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
 https://github.com/UAB-IT/Ember
 ---------------------------------------------------- */
-
-/* ----------------------------------------------------
-START CORE
-Required SCSS for Ember to function, and basic CSS styles
-Includes variables, spacing, and typography.
----------------------------------------------------- */
 @import 'partials/01-core/_global.scss';
 @import '_config.scss';
-
-@import './partials/01-core/_spacing.scss';
-@import './partials/01-core/_typography.scss';
+@import 'partials/01-core/_patterns.scss';
 /* ----------------------------------------------------
-END CORE - START COMPONENTS
+START COMPONENTS
 Self contained chunks of content with their visual styling.
 ---------------------------------------------------- */
+@import 'partials/02-components/_spacing.scss';
+@import 'partials/02-components/_typography.scss';
+
 @import 'partials/02-components/_lists.scss';
 @import 'partials/02-components/_tables.scss';
 @import 'partials/02-components/_media.scss';

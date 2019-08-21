@@ -7,8 +7,7 @@ START SEARCH
   align-items: right;
 }
 
-body.linear.hd #search button.btn-primary {
-  @include button-primary;
+#{$specify} #search button.btn-primary {
   @include reset(margin, transition);
   border-top-left-radius: 0 !important;
   border-bottom-left-radius: 0 !important;
@@ -17,12 +16,12 @@ body.linear.hd #search button.btn-primary {
 #{$specify} #search .btn-primary {
   &:focus,
   &:hover {
-    @include button-hover;
+    @include hover;
   }
 }
 
 #{$specify} #search input {
-  @include border($color: $c-primary, $radius: omit);
+  border: $bdr-width solid $c-primary;
   border-top-left-radius: $bdr-radius !important;
   border-bottom-left-radius: $bdr-radius !important;
 }

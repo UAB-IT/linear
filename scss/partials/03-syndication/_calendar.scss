@@ -1,45 +1,84 @@
-/*------------------------
-START CALENDAR
-------------------------*/
-#{$specify} ul.localist-widget-eds {
+/* ----------------------------------------------------
+CALENDAR
+Generated from Localist widget from campus calendar
+Expected HTML:
+<div class="localist-widget">
+  <ul class="localist-widget-eds">
+    <li>
+      <div class="localist-dateblock">
+        <div class="localist-month"> MON </div>
+        <div class="localist-day"> DAY </div>
+      </div>
+      <div class="localist-secondblock">
+        <div class="localist-title">
+          <h4> <a>EVENT NAME</a> </h4>
+        </div>
+        <div class="localist-otherdetails">
+          <div class="localist-time">
+            <i>CLOCK ICON</i>
+            TIME
+          </div>
+          <div class="localist-venue">
+            <i> ICON </i>
+            LOCATION
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+---------------------------------------------------- */
+/* ------------------------
+BASE
+------------------------ */
+/* remove margin from list */
+#{$specify} .localist-widget ul {
   margin: 0;
 }
-#{$specify} .localist-month,
-.localist-day {
-  background: $c-primary;
-  width: 60px;
-}
-#{$specify} .localist-widget-eds div.localist-month {
-  color: #FFF;
-  padding-top: 0.5em;
-  text-align: center;
-  text-transform: uppercase;
-  font-family: 'Kulturista-web', 'proxima-nova', sans-serif !important;
-  margin-bottom: -1px;
-}
-#{$specify} .localist-day {
-  color: #FFF;
-  text-align: center;
-  font-weight: 600;
-  @include type-setting(1);
-  border-bottom: 4px solid $c-secondary;
-  padding-bottom: 0.4em;
-}
-#{$specify} .localist-dateblock {
-  margin-right: s(0.5);
-}
-#{$specify} .localist-widget-eds li {
+#{$specify} .localist-widget ul li {
   display: flex;
   margin-bottom: s(0.5);
 }
+
+/* DATE BLOCK */
+#{$specify} .localist-dateblock {
+  margin-right: s(0.5);
+  background: $c-primary;
+  width: 60px;
+}
+
+// #{$specify} .localist-month,
+// #{$specify} .localist-day {
+//   background: $c-primary;
+//   width: 60px;
+// }
+
+#{$specify} .localist-widget-eds div.localist-month {
+  padding-top: 0.5em;
+  margin-bottom: -1px;
+  color: #FFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: $font-head;
+}
+#{$specify} .localist-day {
+  @include type-setting(1);
+  padding-bottom: 0.4em;
+  border-bottom: $bdr-md solid $c-secondary;
+  color: #FFF;
+  text-align: center;
+  @include weight(bold);
+}
+
+/* EVENT DETAILS */
 #{$specify} .localist-title h4 {
-  font-family: 'proxima-nova', sans-serif !important;
   @include type-setting(0);
   margin-top: -0.2em;
   margin-bottom: 0px;
+  font-family: $font-body;
 }
 #{$specify} .localist-title h4 a {
-  border-bottom: 2px solid transparent;
+  border-bottom: $bdr-md solid transparent;
 }
 #{$specify} .localist-otherdetails div,
 .localist-otherdetails i {

@@ -1,6 +1,5 @@
 /* ----------------------------------------------------
 SPACING
-
 This module includes various rules to maintain spacial consistancy
 ---------------------------------------------------- */
 
@@ -14,6 +13,7 @@ This module includes various rules to maintain spacial consistancy
   body.ribbonFullwidth #whitebox {
     margin: $content-margin auto;
   }
+  
   /* Remove old margins from main column since that spacing is handled
   through the whitebox now. !important is used to overwrite agressive
   styles from central style.css @line 3577-3596 as of Aug 20 2019 */
@@ -82,6 +82,11 @@ MARGIN FIX
 /* Fix for last element of the page */
 #{$specify} [itemprop='articleBody'] > :last-child {
   margin-bottom: 0;
+}
+
+/* margin fix for elements inside tables */
+#{$specify} table td > :last-child {
+  @include reset(margin);
 }
 
 /* Add section spacing to widgetkit blocks */

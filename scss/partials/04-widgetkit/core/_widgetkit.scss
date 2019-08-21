@@ -6,7 +6,21 @@
 .uk-margin {
   margin-bottom: s( 1 );
 }
-
 .uk-panel-space {
   padding: s(1);
+}
+
+.wk-details .uk-panel p {
+  @include reset(margin);
+}
+#{$specify} .wk-features .uk-panel p {
+  @include reset(margin);
+}
+#{$specify} .wk-panels .uk-panel p:last-child {
+  @include reset(margin);
+}
+
+.uk-panel-teaser,
+.uk-panel-title {
+  margin-bottom: 0;
 }

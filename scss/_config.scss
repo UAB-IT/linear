@@ -1,0 +1,18 @@
+$adjust-template: true; // boolean
+$use-grid: true; // boolean
+$adjust-layout: true; // boolean
+
+$specify: 'body.linear.hd'; // string
+$main: '#whitebox'; // string
+
+$font-sizes: (
+  large: 6,
+  h1: 4,
+  h2: 3,
+  h3: 2,
+  h4: 1,
+  h5: 0,
+  h6: 0,
+  p: 0,
+  sm: -1
+) !default;

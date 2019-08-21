@@ -1,15 +1,15 @@
-/*------------------------
-START CHIPS
-------------------------*/
-/* Joomla generated chips */
-.label-info,
-.badge-info,
-.badge,
-.label,
-.label-info[href],
-.badge-info[href] {
+/* ----------------------------------------------------
+CHIPS
+Style for Joomla generated chips
+---------------------------------------------------- */
+#{$specify} .label-info,
+#{$specify} .badge-info,
+#{$specify} .badge,
+#{$specify} .label,
+#{$specify} .label-info[href],
+#{$specify} .badge-info[href] {
   @include reset(border, shadow, font-weight, color);
-  @include type-setting(-1);
+  @include type-setting(sm);
   background-color: c( $stone, 100 );
   padding: 0.1em 0.7em;
 }

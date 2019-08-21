@@ -2,6 +2,7 @@
 START BANNER
 ------------------------*/
 $banner-top: $section-margin * 2 !default;
+$banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 /* relative allows us to position the background,
 padding moves the title and breadcrumbs to the bottom of the container,
 min height sets the size of the banner,
@@ -27,7 +28,7 @@ z-index is incremented to ensure the banner shows up on mobile */
 
 /* Set default banner image and and position */
 #banner::before {
-  background: url( '/it/home/images/banners/Default-WebHeader.jpg' ); /*Use article image */
+  background: url( #{$banner-image} ); /*Use article image */
   background-size: cover;
   background-position: bottom;
   background-attachment: scroll;
@@ -37,7 +38,7 @@ z-index is incremented to ensure the banner shows up on mobile */
 #banner::after {
   background: $darkgreen;
   mix-blend-mode: multiply;
-  opacity: 0.90;
+  opacity: 0.9;
 }
 
 /* Ensure content inside the banner stays within the width of the main column */

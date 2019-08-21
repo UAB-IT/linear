@@ -4,7 +4,9 @@ START QUICKLINKS
 #quicklinks ul {
   @include reset(margin);
 }
-
+body.hd #quicklinks .dropdown-menu a {
+  box-sizing: border-box;
+}
 /* BUGFIX: Make sure quicklinks are above banner */
 #quicklinks .moduletable {
   z-index: 2;

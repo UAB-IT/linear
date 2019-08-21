@@ -1,10 +1,8 @@
 /* --------------------------------------------------
 LISTS
-
-Basic list styles and list themes
 ---------------------------------------------------- */
 $list-indent: $indent !default;
-$list-margin: s(0.5) !default; // inline-block - list
+$list-margin: s(0.5) !default;
 
 /* ------------------------
 RESET
@@ -24,41 +22,41 @@ BASE STYLES
 ------------------------ */
 /* Apply margin to compensate for list style,
 only to lists inside the main content area */
-#{$specify} .item-page ul:not(.unstyled),
-#{$specify} .item-page ol:not(.unstyled) {
+#{$specify} #{$main} ul:not(.unstyled),
+#{$specify} #{$main} ol:not(.unstyled) {
   margin-left: 1.2em;
 }
 
 /* Add rhythem spacing to lists in main content area */
-#{$specify} .item-page ul,
-#{$specify} .item-page ol,
-#{$specify} .item-page dl {
+#{$specify} #{$main} ul:not(.unstyled),
+#{$specify} #{$main} ol:not(.unstyled),
+#{$specify} #{$main} dl:not(.unstyled) {
   @include block-margin;
 }
 
 /* Add indention to child lists */
-#{$specify} ul:not(.unstyled) ul,
-#{$specify} ul:not(.unstyled) ol,
-#{$specify} ol:not(.unstyled) ol,
-#{$specify} ol:not(.unstyled) ul,
-#{$specify} dl:not(.unstyled) dd{
+#{$specify} #{$main} ul:not(.unstyled) ul:not(.unstyled),
+#{$specify} #{$main} ul:not(.unstyled) ol:not(.unstyled),
+#{$specify} #{$main} ol:not(.unstyled) ol:not(.unstyled),
+#{$specify} #{$main} ol:not(.unstyled) ul:not(.unstyled),
+#{$specify} #{$main} dl:not(.unstyled) dd:not(.unstyled){
   margin-bottom: 0;
   margin-left: $list-indent;
 }
 
 /* Set bullet styles */
-#{$specify} .item-page ul:not(.unstyled) {
+#{$specify} #{$main} ul:not(.unstyled) {
   list-style-type: disc;
-  ul {
+  ul:not(.unstyled) {
     list-style-type: circle;
-    ul { list-style-type: square; }
+    ul:not(.unstyled) { list-style-type: square; }
   }
 }
-#{$specify} .item-page ol:not(.unstyled) {
+#{$specify} #{$main} ol:not(.unstyled) {
   list-style-type: decimal;
-  ol {
+  ol:not(.unstyled) {
     list-style-type: upper-latin;
-    ol { list-style-type: lower-latin; }
+    ol:not(.unstyled) { list-style-type: lower-latin; }
   }
 }
 
@@ -74,10 +72,10 @@ only to lists inside the main content area */
 // }
 
 // REVIEW: why the use of ID here?
-// was #content
-#{$specify} ul:not(.unstyled) li,
-#{$specify} ol:not(.unstyled) li,
-#{$specify} dl:not(.unstyles) dd {
+// was #content now #{$specify}
+#{$specify} #{$main} ul:not(.unstyled) > li,
+#{$specify} #{$main} ol:not(.unstyled) > li,
+#{$specify} #{$main} dl:not(.unstyled) > dd {
   margin: $list-margin 0 0;
 }
 /*------------------------
@@ -85,8 +83,8 @@ THEMES
 ------------------------*/
 /* Align text with paragraphs, bullet sitting in the margin */
 // DEBUG: not sure if this works correctly
-#{$specify} .item-page ul.outside,
-#{$specify} .item-page ol.outside {
+#{$specify} #{$main} ul.outside,
+#{$specify} #{$main} ol.outside {
   margin-left: 0;
 }
 

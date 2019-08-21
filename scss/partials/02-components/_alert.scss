@@ -1,47 +1,64 @@
+/* ----------------------------------------------------
+ALERT
+
+Expected HTML:
+<div class="moduletable alert">
+  <p> Alert Content </p>
+</div>
+---------------------------------------------------- */
 /*------------------------
-START ALERT
+RESET
 ------------------------*/
 /* remove default alert styling */
-.alert {
+#{$specify} .alert {
   @include reset(border, margin, padding, background, shadow);
 }
-.alert,
-.alert h4 {
+#{$specify} .alert,
+#{$specify} .alert h4 {
   @include reset(color);
 }
 
+/* Remove bottom margin from paragraphs in an alert */
+#{$specify} .alert p {
+  @include reset(margin);
+}
+/* ------------------------
+BASE
+------------------------ */
+
 /* Apply the alert style to the alert container */
-.moduletable.alert {
+#{$specify} .moduletable.alert {
   @include reset(shadow);
   background: c($c-red, 100);
-  @include border($bdr-md, $c-red);
+  border: $bdr-md solid $c-red;
   padding: $input-padding;
   @include block-margin;
 }
 
 /* Adjust link styles for links that appear inside an alert */
-div.ribbonFullwidth .alert a {
+#{$specify} .alert a {
   border-color: $c-red;
 }
-div.ribbonFullwidth .alert a:hover {
+#{$specify} .alert a:hover {
   border-color: $c-red;
   background-color: c($c-red, 200);
 }
 
-/* Remove bottom margin from paragraphs in an alert */
-.alert p {
-  @include reset(margin);
-}
-
-/* Add styling to hide IE alert on non-IE browsers */
-.ie-alert {
-  display: none;
-}
 /* Add margin between alerts and content. Should equal the margin between
 the banner and content */
 #{$specify} #breadcrumbs > :last-child {
   margin-bottom: s( 3 );
 }
 /*------------------------
-END ALERT
+THEMES
 ------------------------*/
+/* IE Alerts */
+/* Add styling to hide IE alert on non-IE browsers */
+#{$specify} .ie-alert {
+  display: none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #{$specify} .ie-alert {
+    display: block;
+  }
+}

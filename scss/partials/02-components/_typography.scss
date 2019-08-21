@@ -9,12 +9,11 @@ as well as styles for links
 /* ------------------------
 TYPESETTING
 ------------------------ */
-:root {
-  font-size: #{$rem-size + 'px'};
-  color: $body-color;
-}
-
 @if $adjust-template == true {
+  :root {
+    font-size: #{$rem-size + 'px'};
+    color: $c-body;
+  }
   /* Restore inheritance to inline elements
   !important is used here to adjust aggressive
   rules from central css */
@@ -131,7 +130,7 @@ apply thin border for styling */
   overflow: visible;
   border-style: solid;
   border-width: 0 0 $hr-width;
-  border-color: $hr-color;
+  border-color: $c-hr;
 }
 
 /* Allow rule lines that immediately follow headers to sit on the header's
@@ -157,41 +156,38 @@ LINKS
 
 /* Applies link styles to content areas only. Less specific than an id and
 helps avoid overreaching styles. */
-p a[href]:not(.unstyled),
-li a[href]:not(.unstyled),
-h1 a[href]:not(.unstyled),
-h2 a[href]:not(.unstyled),
-h3 a[href]:not(.unstyled),
-h4 a[href]:not(.unstyled),
-h5 a[href]:not(.unstyled),
-h6 a[href]:not(.unstyled),
-table a[href]:not(.unstyled),
-dl a[href]:not(.unstyled),
-pre a[href]:not(.unstyled) {
-  @include link-style;
-  &:hover {
-    @include link-style($hover: true);
+[role='banner'],
+[role='main'],
+div.footerGray {
+  a[href]:not(.unstyled) {
+    @include link-style;
+    &:hover {
+      @include link-style($hover: true);
+    }
   }
-}
 
-@if $link-icons == true {
-  /* Adds icon to links that open in a new page */
-  a:not(.btn)[target='_blank']::after {
-    content: '#{$icon-new-tab}';
-    font-family: $font-icon;
-    speak: none;
-    margin-left: 0.5em;
-    font-weight: normal;
-    font-size: 90%;
-  }
-  /* Adds icon to links that open a pdf document */
-  a:not(.btn)[href$='.pdf']::after {
-    content: '#{$icon-pdf}';
-    font-family: $font-icon;
-    speak: none;
-    margin-left: 0.5em;
-    font-weight: normal;
-    font-size: 90%;
+  $link-icons: false !default;
+  @if $icon-pdf != null and $icon-new-tab != null { $link-icons: true; }
+
+  @if $link-icons == true {
+    /* Adds icon to links that open in a new page */
+    a:not(.btn)[target='_blank']::after {
+      content: '#{$icon-new-tab}';
+      font-family: $font-icon;
+      speak: none;
+      margin-left: 0.5em;
+      font-weight: normal;
+      font-size: 90%;
+    }
+    /* Adds icon to links that open a pdf document */
+    a:not(.btn)[href$='.pdf']::after {
+      content: '#{$icon-pdf}';
+      font-family: $font-icon;
+      speak: none;
+      margin-left: 0.5em;
+      font-weight: normal;
+      font-size: 90%;
+    }
   }
 }
 

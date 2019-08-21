@@ -1,0 +1,285 @@
+// ----------------------------------------------------
+// FONTS
+// ----------------------------------------------------
+
+$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default; // string
+$font-head: 'kulturista-web', serif !default; // string
+$font-mono: monospace !default; // string
+$font-icon: 'IcoMoon' !default; // string
+
+$font-weights: (
+  body: (
+    thin: 100,
+    normal: 400,
+    bold: 600,
+    black: 700
+  ),
+  head: (
+    thin: 300,
+    normal: 400,
+    bold: 600,
+    black: bold
+  ),
+  mono: (
+    thin: normal,
+    normal: normal,
+    bold: bold,
+    black: bold
+  )
+) !default;
+
+// Gets weight value for font
+// Params:
+// $weight: Keyword [thin, normal, bold, black]
+// $font: Keyword [body, head, mono]
+@mixin weight($weight: normal, $font: body) {
+  font-weight: map-deep-get($font-weights, $font, $weight);
+}
+
+// Sets the font sizes to a step on the type scale
+// Integer
+$font-sizes: (
+  large: 6,
+  h1: 5,
+  h2: 4,
+  h3: 3,
+  h4: 2,
+  h5: 1,
+  h6: 0,
+  p: 0,
+  sm: -1
+) !default;
+
+// Calculates font size from scale steps
+// Params:
+// $scale: Number
+@function type-scale($scale) {
+  $level: null;
+  // Gets numerical level from the font sizes map
+  @if type-of($scale) == 'string' {
+    $level: map-get( $font-sizes, $scale );
+  }
+  @else {
+    $level: $scale;
+  }
+  // Passes the numerical scale to the function to calculate font size
+  @if $level == 0 {
+    @return $txt-size;
+  }
+  @else if $level <= -0.1 {
+    // remove negative from number
+    $nlevel: $level * -1;
+    @return $txt-size / pow( $ratio, $nlevel );
+  }
+  @else {
+    @return $txt-size * pow( $ratio, $level );
+  }
+}
+
+// Combines font size and line height for the input scale
+// Params:
+// $input: Number or Keyword [large, h1, h2, h3, h4, h5, h6, p, sm]
+@mixin type-setting($input) {
+  $size: type-scale( $input );
+  font-size: #{$size + 'rem'};
+  line-height: #{line-height( $size ) + 'rem'};
+}
+
+// ----------------------------------------------------
+// COLORS
+// ----------------------------------------------------
+
+$uabgreen: #1E6B52;
+$darkgreen: #295135;
+$blaze: #FFD400;
+$apple: #80BC00;
+$gold: #AA9767;
+$stone: #808285;
+$coral: #EA6852;
+
+$c-primary: $uabgreen !default; // Color
+$c-secondary: $apple !default; // Color
+
+$c-green: $apple !default; // Color
+$c-yellow: $blaze !default; // Color
+$c-red: #F00 !default; // Color
+$c-grey: $stone !default; // Color
+
+$c-mark: c( $c-primary, 100 ) !default; // Color
+$c-background: c( $c-grey, 050 ) !default; // Color
+$c-body: black !default; // Color
+$c-header: black !default; // Color
+$c-bdr: black !default; // Color
+$c-hr: $c-bdr !default; // Color
+
+// ----------------------------------------------------
+// BORDER
+// ----------------------------------------------------
+
+$bdr-radius: 4px !default; // Value
+$bdr-width: 1px !default; // Value
+$bdr-md: 2px !default; // Value
+$bdr-lg: 5px !default; // Value
+
+$hr-width: $bdr-width !default; // Value
+
+// ----------------------------------------------------
+// SPACING
+// ----------------------------------------------------
+
+$indent: 1em !default;
+$inline-padding: 0 0.2em 0.1em !default; // inline
+
+$block-margin: s(1) !default; // every block level element
+$block-padding: s(1) !default; // every block level element with a border or background
+
+$input-padding: 0.3em 1em !default; // input (inline-block)
+
+$section-margin: s(4) !default;
+$section-padding: s(4) !default;
+$section-padding-small: s(2) !default;
+
+$max-width: 1280px !default;
+$body-pad: s(1) !default;
+
+$header-bottom: $block-margin !default;
+$header-top: ($section-margin / 2) !default;
+$header-weight: normal !default;
+
+// ----------------------------------------------------
+// MEDIA QUERIES
+// ----------------------------------------------------
+
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 761px,
+  sm: 760px,
+  xs: 300px
+) !default;
+
+// ----------------------------------------------------
+// UTILITY
+// ----------------------------------------------------
+
+@mixin cover {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+// ----------------------------------------------------
+// PATTERNS
+// ----------------------------------------------------
+
+@mixin breakpoint($size) {
+  @media all and (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin block-margin { margin-bottom: $block-margin; }
+
+@mixin header-style($size: null, $margin: true) {
+  @if $margin == true {
+    margin: 0 0 $header-bottom;
+  }
+  @if $size != null {
+    @include type-setting($size);
+  }
+  @include weight($header-weight, head);
+  font-family: $font-head;
+  color: $c-header;
+}
+
+@mixin link-style($theme: null, $hover: false) {
+  @if $hover == true {
+    @if $theme == alert {
+      background-color: c($c-red, 200);
+      border-color: $c-red;
+    }
+    @else if $theme == mute {
+      background-color: initial;
+      border-color: c($stone, 100);
+    }
+    @else {
+      background-color: c($c-primary, 100);
+      border-color: $c-primary;
+    }
+  }
+  @else {
+    @if $theme == alert {
+      border-bottom: 2px solid $c-red;
+    }
+    @else if $theme == mute {
+      color: white;
+      border-bottom: 2px solid c($stone, 400);
+    }
+    @else {
+      border-bottom: 2px solid c($c-primary, 200);
+    }
+  }
+}
+
+@mixin hover {
+  border-color: $c-primary;
+  box-shadow: 0 0 0 1px $c-primary;
+  background: c( $c-primary, 100 );
+  color: black;
+}
+
+@mixin card-styles {
+  border: $bdr-width solid black;
+  border-radius: $bdr-radius;
+  padding: $block-padding;
+}
+
+// ----------------------------------------------------
+// RESET
+// ----------------------------------------------------
+
+@mixin reset($properties...) {
+  @for $i from 0 to length($properties) {
+    @if nth($properties, $i + 1) == margin {
+      margin: 0;
+    }
+    @if nth($properties, $i + 1) == padding {
+      padding: 0;
+    }
+    @if nth($properties, $i + 1) == border {
+      border: 0;
+    }
+    @if nth($properties, $i + 1) == float {
+      float: none;
+    }
+    @if nth($properties, $i + 1) == font-size {
+      font-size: inherit;
+    }
+    @if nth($properties, $i + 1) == font-weight {
+      font-weight: normal;
+    }
+    @if nth($properties, $i + 1) == color {
+      color: inherit;
+    }
+    @if nth($properties, $i + 1) == background {
+      background: none;
+      background-color: transparent;
+      background-image: none;
+    }
+    @if nth($properties, $i + 1) == shadow {
+      text-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    @if nth($properties, $i + 1) == transition {
+      -webkit-transition-property: none;
+      -moz-transition-property: none;
+      -o-transition-property: none;
+      transition-property: none;
+    }
+  }
+}

@@ -1,15 +1,10 @@
 // ----------------------------------------------------
-// CONFIG
+// CORE FUNCTIONS
 // ----------------------------------------------------
 
-$adjust-template: true !default;
-
-$specify: 'body.linear.hd' !default;
-
-// ----------------------------------------------------
-// FUNCTIONS
-// ----------------------------------------------------
-
+// Params:
+// $base: Number
+// $exponents: Integer
 @function pow($base, $exponents) {
   $raised: 1;
   @for $i from 1 through $exponents {
@@ -18,6 +13,9 @@ $specify: 'body.linear.hd' !default;
   @return $raised;
 }
 
+// Params:
+// $map: Map
+// $keys: Key, Label
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
     $map: map-get($map, $key);
@@ -25,6 +23,9 @@ $specify: 'body.linear.hd' !default;
   @return $map;
 }
 
+// Params:
+// $color: color
+// $percentage: percentage
 @function tint($color, $percentage) {
   @return mix(white, $color, $percentage);
 }
@@ -33,20 +34,37 @@ $specify: 'body.linear.hd' !default;
 }
 
 // ----------------------------------------------------
-// CORE
+// REQUIREMENTS
 // ----------------------------------------------------
 
-$rem-size: 16 !default;
-$ratio: 1.25 !default;
-$txt-size-raw: 16 !default;
-$line-height-raw: 1.6 !default;
+$rem-size: 16 !default; // Integer(px)
+$ratio: 1.25 !default; // Number
+$init-txt-size: 16 !default; // Integer(px)
+$init-line-height: 1.6 !default; // Number
 
-$txt-size: $txt-size-raw / $rem-size; //converts raw value to "rem"
-$line-height: $txt-size-raw * $line-height-raw / $rem-size; //converts raw value to "rem"
+$txt-size: $init-txt-size / $rem-size; //converts raw value to "rem"
+$line-height: $init-txt-size * $init-line-height / $rem-size; //converts raw value to "rem"
 
-// ----------------------------------------------------
-// COLORS
-// ----------------------------------------------------
+// Calculates line height for text
+// Params:
+// $size: Number (equal to the font size)
+@function line-height($size) {
+  $value: $line-height;
+  $i: 1.5;
+  @while $value < $size {
+    $value: $line-height * $i;
+    $i: $i + 0.5;
+  }
+  @return $value;
+}
+
+$space-unit: $line-height !default;
+// General unit of measurement for spacing
+// Params:
+// $value: Number
+@function s($value) {
+  @return ($space-unit * $value) + 0rem;
+}
 
 $color-scale: (
   050: 90%,
@@ -61,6 +79,10 @@ $color-scale: (
   900: 80%
 ) !default;
 
+// Generates tint or shade of color input
+// Params:
+// $color: color
+// $level: Keyword [050, 100, 200, 300, 400, 500, 600, 700, 800, 900]
 @function c($color: black, $level: null) {
   @if $level >= 600 {
     $scale: map-get( $color-scale, $level );
@@ -75,351 +97,16 @@ $color-scale: (
   }
 }
 
-$uabgreen: #1E6B52;
-$darkgreen: #295135;
-$blaze: #FFD400;
-$apple: #80BC00;
-$gold: #AA9767;
-$stone: #808285;
-$coral: #EA6852;
-
-$c-primary: $uabgreen !default;
-$c-secondary: $apple !default;
-
-$c-green: $apple !default;
-$c-yellow: $blaze !default;
-$c-red: #FF0000 !default;
-$c-grey: $stone !default;
-
-$c-mark: c( $c-primary, 100 ) !default;
-$c-background: c( $c-grey, 050 ) !default;
-$c-body: black !default;
-$c-header: black !default;
-
 // ----------------------------------------------------
-// SPACING
+// CONFIG
 // ----------------------------------------------------
 
-$space-unit: $line-height !default;
+$adjust-template: true !default; // boolean
+$use-grid: true !default; // boolean
+$adjust-layout: true !default; // boolean
 
-@function s($value) {
-  @return ($space-unit * $value) + 0rem;
-}
+$specify: 'body.linear.hd' !default; // string
+$main: '#whitebox' !default;
 
-$indent: 1em !default;
-$inline-padding: 0 0.2em 0.1em !default; // inline
-
-$block-margin: s(1) !default; // every block level element
-$block-padding: s(1) !default; // every block level element with a border or background
-@mixin block-margin { margin-bottom: $block-margin; }
-
-$input-padding: 0.3em 1em !default; // input (inline-block)
-
-$section-margin: s(4) !default;
-$section-padding: s(4) !default;
-$section-padding-small: s(2) !default;
-
-// ----------------------------------------------------
-// LAYOUT
-// ----------------------------------------------------
-
-$max-width: 1280px !default;
-$body-pad: s(1) !default;
-
-// ----------------------------------------------------
-// FONTS
-// ----------------------------------------------------
-
-$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
-$font-head: 'kulturista-web', serif !default;
-$font-mono: monospace !default;
-$font-icon: 'IcoMoon' !default;
-
-$font-weights: (
-  body: (
-    thin: 100,
-    normal: 400,
-    bold: 600,
-    black: 700
-  ),
-  head: (
-    thin: 300,
-    normal: 400,
-    bold: 600,
-    black: bold
-  ),
-  mono: (
-    thin: normal,
-    normal: normal,
-    bold: bold,
-    black: bold
-  )
-) !default;
-
-@mixin weight($weight: normal, $font: body) {
-  font-weight: map-deep-get($font-weights, $font, $weight);
-}
-
-// ----------------------------------------------------
-// TYPOGRAPHY
-// ----------------------------------------------------
-
-$font-sizes: (
-  large: 6,
-  h1: 5,
-  h2: 4,
-  h3: 3,
-  h4: 2,
-  h5: 1,
-  h6: 0,
-  p: 0,
-  sm: -1
-) !default;
-
-@function line-height($size) {
-  $value: $line-height;
-  $i: 1.5;
-  @while $value < $size {
-    $value: $line-height * $i;
-    $i: $i + 0.5;
-  }
-  @return $value;
-}
-
-@function type-scale($scale) {
-  $level: null;
-  // Gets numerical level from the font sizes map
-  @if type-of($scale) == 'string' {
-    $level: map-get( $font-sizes, $scale );
-  }
-  @else {
-    $level: $scale;
-  }
-  // Passes the numerical scale to the function to calculate font size
-  @if $level == 0 {
-    @return $txt-size;
-  }
-  @else if $level <= -0.1 {
-    // remove negative from number
-    $nlevel: $level * -1;
-    @return $txt-size / pow( $ratio, $nlevel );
-  }
-  @else {
-    @return $txt-size * pow( $ratio, $level );
-  }
-}
-
-@mixin type-setting($input) {
-  $size: type-scale( $input );
-  font-size: #{$size + 'rem'};
-  line-height: #{line-height( $size ) + 'rem'};
-}
-
-$header-bottom: $block-margin !default;
-$header-top: ($section-margin / 2) !default;
-$header-weight: normal !default;
-
-@mixin header-style($size: null, $margin: true) {
-  @if $margin == true {
-    margin: 0 0 $header-bottom;
-  }
-  @if $size != null {
-    @include type-setting($size);
-  }
-  @include weight($header-weight, head);
-  font-family: $font-head;
-  color: $header-color;
-}
-
-// ----------------------------------------------------
-// MEDIA QUERIES
-// ----------------------------------------------------
-
-$breakpoints: (
-  xxl: 2560px,
-  xl: 1440px,
-  lg: 1024px,
-  md: 761px,
-  sm: 760px,
-  xs: 300px
-) !default;
-
-@mixin breakpoint($size) {
-  @media all and (min-width: map-get($breakpoints, $size)) {
-    @content;
-  }
-}
-
-// ----------------------------------------------------
-// RESET
-// ----------------------------------------------------
-
-@mixin reset($properties...) {
-  @for $i from 0 to length($properties) {
-    @if nth($properties, $i + 1) == margin {
-      margin: 0;
-    }
-    @if nth($properties, $i + 1) == padding {
-      padding: 0;
-    }
-    @if nth($properties, $i + 1) == border {
-      border: 0;
-    }
-    @if nth($properties, $i + 1) == float {
-      float: none;
-    }
-    @if nth($properties, $i + 1) == font-size {
-      font-size: inherit;
-    }
-    @if nth($properties, $i + 1) == font-weight {
-      font-weight: normal;
-    }
-    @if nth($properties, $i + 1) == color {
-      color: inherit;
-    }
-    @if nth($properties, $i + 1) == background {
-      background: none;
-      background-color: transparent;
-      background-image: none;
-    }
-    @if nth($properties, $i + 1) == shadow {
-      text-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-    @if nth($properties, $i + 1) == transition {
-      -webkit-transition-property: none;
-      -moz-transition-property: none;
-      -o-transition-property: none;
-      transition-property: none;
-    }
-  }
-}
-
-// ----------------------------------------------------
-// BORDER
-// ----------------------------------------------------
-
-$hr-color: black !default;
-$hr-width: $bdr-width !default;
-
-$bdr-radius: 4px !default;
-$bdr-width: 1px !default;
-$bdr-md: 2px !default;
-$bdr-lg: 5px !default;
-
-@mixin border($width: $bdr-width, $color: black, $radius: $bdr-radius, $style: solid) {
-  @if $width == none {
-    border: 0 solid transparent;
-  }
-  @if $width == radius or $color == radius {
-    border-radius: $bdr-radius;
-  }
-  @else {
-    @if $radius == none {
-      border-radius: 0;
-    }
-    @else {
-      @if $radius != omit {
-        border-radius: $radius;
-      }
-    }
-    border: $width $style $color;
-  }
-}
-
-// ----------------------------------------------------
-// LINKS
-// ----------------------------------------------------
-
-$icon-new-tab: '\e024';
-$icon-pdf: '\e239';
-$link-icons: false !default;
-@if $icon-pdf != null and $icon-new-tab != null { $link-icons: true; }
-
-@mixin link-style($theme: null, $hover: false) {
-  @if $hover == true {
-    @if $theme == alert {
-      background-color: c($c-red, 200);
-      border-color: $c-red;
-    }
-    @else if $theme == mute {
-      background-color: initial;
-      border-color: c($stone, 100);
-    }
-    @else {
-      background-color: c($c-primary, 100);
-      border-color: $c-primary;
-    }
-  }
-  @else {
-    @if $theme == alert {
-      border-bottom: 2px solid $c-red;
-    }
-    @else if $theme == mute {
-      color: white;
-      border-bottom: 2px solid c($stone, 400);
-    }
-    @else {
-      border-bottom: 2px solid c($c-primary, 200);
-    }
-  }
-}
-
-// ----------------------------------------------------
-// BUTTONS
-// ----------------------------------------------------
-
-@mixin button-primary {
-  color: white;
-  background: $c-primary;
-  @include border( $color: $c-primary );
-}
-
-@mixin button($pri: false) {
-  @if $pri == true {
-    @include button-primary;
-  }
-  @else {
-    @include border( $color: c( $stone, 800 ) );
-    color: c( $stone, 800 );
-    background: white;
-  }
-  @include type-setting(0);
-  padding: $input-padding;
-  text-align: center;
-  white-space: nowrap;
-  box-sizing: border-box;
-  text-transform: uppercase;
-  font-size: 90%;
-}
-@mixin button-hover {
-  outline: 0;
-  text-decoration: none;
-  border-color: $c-primary;
-  box-shadow: 0 0 0 1px $c-primary;
-  background: c( $c-primary, 100 );
-  color: black;
-}
-
-// ----------------------------------------------------
-// CARDS
-// ----------------------------------------------------
-
-@mixin card-styles {
-  @include border();
-  padding: $block-padding;
-}
-
-// ----------------------------------------------------
-// UTILITY
-// ----------------------------------------------------
-
-@mixin cover {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
+$icon-new-tab: '\e024' !default; // string
+$icon-pdf: '\e239' !default; // string

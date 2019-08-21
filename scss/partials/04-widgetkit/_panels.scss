@@ -6,17 +6,21 @@ body .panels > a,
   @include card-styles;
   background: white;
 }
+
 body .panels > a:hover {
-  @include button-hover;
+  @include hover;
 }
+
 .panels > a h4 {
   display: inline-block;
   margin-top: 0;
   @include link-style;
 }
+
 .panels > a:hover h4 {
   @include link-style($hover: true);
 }
+
 .panels > a p:last-child {
   margin-bottom: 0;
 }
@@ -32,25 +36,24 @@ body .panels > a:hover {
 .uk-panel-box-hover:hover,
 .uk-panel-box-primary .uk-panel-title,
 .uk-panel-box-primary-hover:hover {
-  color: $txt-color;
+  color: $c-body;
 }
 
 #{$specify} .wk-panels .uk-panel-title {
   margin-top: 0;
 }
+
 #{$specify} .wk-panels .uk-panel {
   background: white;
   @include card-styles;
 }
+
 #{$specify} a.uk-position-cover {
   opacity: 0 !important;
 }
-#{$specify} .wk-panels .uk-panel p:last-child {
-  @include reset(margin);
-}
 
 #{$specify} .wk-panels .uk-panel:hover {
-  @include button-hover;
+  @include hover;
 }
 #{$specify} .wk-panels .uk-panel:hover h3 a {
   border-color: $c-primary;

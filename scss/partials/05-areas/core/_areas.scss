@@ -1,83 +1,92 @@
+@if $adjust-template == true {
+  /* ------------------------
+  TEMPLATE ADJUSTMENT
+  ------------------------ */
+  /* Fixes a bug where left sidebar was not sized consistantly */
+  body.hd.sidebars #leftcolumn {
+    width: 100%;
+  }
+
+  /* Fixes a bug where the main content was not sized correctly on pages
+  without a sidebar */
+  body.hd.inside #whitebox {
+    max-width: $max-width;
+  }
+}
 /*------------------------
 START TEMPLATE SPACIAL ADJUSTMENTS
 ------------------------*/
 
-/* Fixes a bug where left sidebar was not sized consistantly */
-body.hd.sidebars #leftcolumn {
-  width: 100%;
-}
-/* Fixes a bug where the main content was not sized correctly on pages
-without a sidebar */
-body.hd.inside #whitebox {
-  max-width: $max-width;
+@if $adjust-layout == true {
+  $layout-gap: s(2) !default;
+  /* ------------------------
+  LAYOUT ADJUSTMENT
+  ------------------------ */
+  /* This is going to remove odd margins and paddings and implement a more uniform
+  solution to keep the body content from hitting the edge of the screen when the
+  viewport is smaller than the content. */
+
+  #{$specify} #whitebox {
+    padding: 0 $body-pad;
+    box-sizing: border-box;
+  }
+
+  /* Decrease the width by the amount of padding on it's parent
+  This makes sure it aligns properly at max width */
+  #{$specify} div.topLinearLogo {
+    max-width: calc( #{$max-width} - #{s(2)} );
+  }
+
+  #{$specify} #content {
+    margin: 0;
+    width: 100%;
+  }
+
+  /* Add space to both sides of all 100% width containers */
+  #{$specify} #whitebar,
+  #{$specify} .topLinearContainer,
+  #{$specify} #ribbon,
+  #banner .moduletable {
+    padding-right: $body-pad;
+    padding-left: $body-pad;
+  }
+
+  /* Remove margins , since the padding
+  serves the same purpose */
+  #{$specify} #siteName,
+  #{$specify} #search form {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  /* Remove paddings from module tables */
+  #leftcolumn .moduletable {
+    @include reset(padding);
+  }
+  /* ------------------------
+  COLUMN GAPS
+  ------------------------ */
+  /* Add more consistant gap between sidebars and main content*/
+  body.hd.inside #maincolumn-l {
+    margin: 0 0 0 $layout-gap !important;
+  }
+  body.hd.inside #maincolumn-r {
+    margin: 0 $layout-gap 0 0 !important;
+  }
+  body.hd.inside #maincolumn-l-r {
+    margin: 0 $layout-gap !important;
+  }
+
+  /* Fix column widths after larger gap is added */
+  body.hd.inside #maincolumn-l,
+  body.hd.inside #maincolumn-r {
+    width: calc( 78% - #{$layout-gap} ) !important;
+  }
+  body.hd.sidebars #leftcolumn {
+    max-width: 20%;
+  }
 }
 
-$layout-gap: s(2) !default;
-/* This is going to remove odd margins and paddings and implement a more uniform
-solution to keep the body content from hitting the edge of the screen when the
-viewport is smaller than the content. */
-
-#{$specify} #whitebox {
-  padding: 0 $body-pad;
-  box-sizing: border-box;
-}
-
-/* Decrease the width by the amount of padding on it's parent
-This makes sure it aligns properly at max width */
-#{$specify} div.topLinearLogo {
-  max-width: calc( #{$max-width} - #{s( 2 )} );
-}
-
-#{$specify} #content {
-  margin: 0;
-  width: 100%;
-}
-
-/* Add space to both sides of all 100% width containers */
-#{$specify} #whitebar,
-#{$specify} .topLinearContainer,
-#{$specify} #ribbon,
-#banner .moduletable {
-  padding-right: $body-pad;
-  padding-left: $body-pad;
-}
-
-/* Remove arbitrary margins , since the padding on the whitebar
-serves the same purpose */
-#{$specify} #siteName,
-#{$specify} #search form {
-  margin-right: 0;
-  margin-left: 0;
-}
-
-/* Add more consistant gap between sidebars and main content*/
-body.hd.inside #maincolumn-l {
-  margin: 0 0 0 $layout-gap !important;
-}
-body.hd.inside #maincolumn-r {
-  margin: 0 $layout-gap 0 0 !important;
-}
-body.hd.inside #maincolumn-l-r {
-  margin: 0 $layout-gap !important;
-}
-
-/* Fix column widths after larger gap is added */
-body.hd.inside #maincolumn-l,
-body.hd.inside #maincolumn-r {
-  width: calc( 78% - #{$layout-gap} ) !important;
-}
-body.hd.sidebars #leftcolumn {
-  max-width: 20%;
-}
-
-/* Remove paddings from module tables */
-#leftcolumn .moduletable {
-  @include reset(padding);
-}
-
-/*------------------------
-END TEMPLATE SPACIAL ADJUSTMENTS
-------------------------*/
 /*------------------------
 START OVERFLOW FIXES
 ------------------------*/
@@ -88,7 +97,6 @@ span the full width of the screen, but this overflow fix prevents us from doing 
 
 I'll implement some clearfixes instead of overflow to ensure content is still contained
 but allowing us to break out of them when needed. */
-/* Allow content to expand to full viewport width */
 
 body.ribbonFullwidth #whitebox {
   overflow: visible;
@@ -109,11 +117,10 @@ This fixes layout problems from changing overflow property */
 body.ribbonFullwidth #wrapper {
   overflow-x: hidden;
 }
-/*------------------------
-END OVERFLOW FIXES
-------------------------*/
 
-/* RESPONSIVE */
+/*------------------------
+RESPONSIVE
+------------------------*/
 
 /* Adjust the position of sidebar trigger */
 body.linear.hd #sidebar_trigger::before {

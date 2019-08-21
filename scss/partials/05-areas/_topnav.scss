@@ -2,12 +2,9 @@
 START TOP NAVIGATION
 ------------------------*/
 /* Removes link styles in the top navigation. Most of this styling is handled with central CSS. */
-// #ribbon .nav a {
-//   @include reset(border);
-// }
-// #ribbon .nav {
-//   margin-bottom: 0;
-// }
+#ribbon .nav a {
+  @include reset(border);
+}
 /*------------------------
 END TOP NAVIGATION
 ------------------------*/
