@@ -39,7 +39,7 @@ $font-weights: (
 // Sets the font sizes to a step on the type scale
 // Integer
 $font-sizes: (
-  large: 6,
+  large: 5,
   h1: 5,
   h2: 4,
   h3: 3,
@@ -105,8 +105,9 @@ $c-yellow: $blaze !default; // Color
 $c-red: #F00 !default; // Color
 $c-grey: $stone !default; // Color
 
-$c-mark: c( $c-primary, 100 ) !default; // Color
-$c-background: c( $c-grey, 050 ) !default; // Color
+$c-select: c($c-primary, 100) !default;
+$c-mark: c( $apple, 100 ) !default; // Color
+$c-background: rgba(128, 130, 133, 0.15) !default; // Color
 $c-body: black !default; // Color
 $c-header: black !default; // Color
 $c-bdr: black !default; // Color
@@ -117,7 +118,12 @@ $c-hr: $c-bdr !default; // Color
 // ----------------------------------------------------
 
 $bdr-radius: 4px !default; // Value
+$btn-radius: $bdr-radius !default;
+$card-radius: $bdr-radius !default;
+
 $bdr-width: 1px !default; // Value
+$card-bdr-width: $bdr-width !default;
+
 $bdr-md: 2px !default; // Value
 $bdr-lg: 5px !default; // Value
 
@@ -169,6 +175,15 @@ $breakpoints: (
   right: 0;
   bottom: 0;
   left: 0;
+}
+
+@mixin clearfix {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
 }
 
 // ----------------------------------------------------

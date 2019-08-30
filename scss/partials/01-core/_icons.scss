@@ -1,0 +1,319 @@
+// /* ----------------------------------------------------
+// ARROWS
+// ---------------------------------------------------- */
+$i-arrow-up: '\e005';
+$i-arrow-right: '\e006';
+$i-arrow-down: '\e007';
+$i-arrow-left: '\e008';
+
+$i-arrow-up-2: '\e009';
+$i-arrow-right-2: '\e00a';
+$i-arrow-down-2: '\e00b';
+$i-arrow-left-2: '\e00c';
+
+$i-arrow-up-3: '\e00f';
+$i-arrow-right-3: '\e010';
+$i-arrow-down-3: '\e011';
+$i-arrow-left-3: '\e012';
+
+$i-arrow-up-4: '\e201';
+$i-arrow-right-4: '\e202';
+$i-arrow-down-4: '\e203';
+$i-arrow-left-4: '\e204';
+
+$i-arrow-first: '\e003';
+$i-arrow-last: '\e004';
+
+// /* ----------------------------------------------------
+// EDITOR
+// ---------------------------------------------------- */
+$i-joomla: '\e200';
+
+$i-redo: '\27';
+$i-undo: '\28';
+$i-redo-2: '\6c';
+$i-undo-2: '\e207';
+
+$i-expand: '\66';
+$i-expand-2: '\68';
+
+$i-contract: '\67';
+$i-contract-2: '\69';
+
+$i-zoom-in: '\64';
+$i-zoom-out: '\65';
+
+$i-move: '\7a';
+$i-pencil: '\2b';
+$i-pencil-2: '\2c';
+$i-brush: '\3b';
+$i-wand: '\6b';
+$i-eye: '\3c';
+$i-eye-close: '\e269';
+
+$i-grid: '\58';
+$i-grid-dense: '\59';
+
+$i-list: '\31';
+$i-list-2: '\e231';
+
+$i-folder-solid-open: '\2d';
+$i-folder-solid: '\2e';
+$i-folder-solid-plus: '\e234';
+$i-folder-solid-minus: '\e235';
+
+$i-folder: '\e236';
+$i-folder-plus: '\e237';
+$i-folder-minus: '\e238';
+
+$i-file: '\e016';
+$i-file-text: '\e239';
+$i-file-plus: '\29';
+$i-file-minus: '\e017';
+$i-file-check: '\e240';
+$i-file-xmark: '\e241';
+$i-copy: '\e018';
+$i-stack: '\e242';
+
+$i-fork: '\e243';
+$i-flowchart: '\e244';
+
+$i-paragraph-left: '\e246';
+$i-paragraph-center: '\e247';
+$i-paragraph-right: '\e248';
+$i-paragraph-justify: '\e249';
+
+$i-image: '\2f';
+$i-images: '\30';
+$i-palette: '\e014';
+$i-camera: '\55';
+$i-video: '\e015';
+
+$i-drawer: '\4f';
+$i-drawer-full: '\50';
+
+$i-trash: '\4c';
+
+// /* ----------------------------------------------------
+// MEDIA
+// ---------------------------------------------------- */
+
+$i-play: '\e208';
+$i-play-circle: '\e00d';
+$i-pause: '\e209';
+$i-pause-circle: '\e211';
+$i-stop: '\e210';
+$i-stop-circle: '\e212';
+
+$i-forward: '\e205';
+$i-reply: '\e206';
+
+$i-previous: '\7c';
+$i-next:'\7b';
+$i-first: '\7d';
+$i-last: '\e000';
+
+$i-previous-circle: '\e213';
+$i-next-circle: '\e214';
+
+$i-loop: '\e001';
+$i-shuffle: '\e002';
+
+$i-youtube: '\56';
+
+$i-music: '\57';
+
+// /* ----------------------------------------------------
+// UI
+// ---------------------------------------------------- */
+
+$i-search: '\53';
+
+$i-menu: '\5a';
+$i-menu-2: '\e00e';
+$i-menu-3: '\e232';
+
+$i-checkbox-unchecked: '\3d';
+$i-checkbox-checked: '\3e';
+$i-checkbox-partial: '\3f';
+
+$i-radio-unchecked: '\e227';
+$i-radio-checked: '\e228';
+
+$i-square-filled: '\e226';
+$i-circle-filled: '\e229';
+
+$i-home: '\e250';
+$i-home-solid: '\21';
+
+$i-download: '\e021';
+$i-upload: '\e022';
+
+$i-new-tab: '\e024';
+$i-new-tab-2: '\e251';
+
+$i-link: '\e252';
+
+$i-user: '\22';
+$i-users: '\e01f';
+
+$i-vcard: '\6d';
+$i-address: '\70';
+$i-phone: '\e260';
+$i-phone-2: '\e261';
+
+$i-share: '\26';
+
+$i-enter-door: '\e257';
+$i-exit-door: '\e258';
+
+$i-comment: '\24';
+$i-comments: '\25';
+
+$i-quotes-left: '\60';
+$i-quotes-right: '\61';
+$i-bubble-quote: '\e259';
+
+$i-mail: '\4d';
+$i-mail-open: '\4e';
+
+$i-briefcase: '\e020';
+
+$i-tag: '\e263';
+$i-tag-filled: '\e262';
+$i-tags: '\e265';
+$i-tags-filled: '\e264';
+
+$i-support: '\46';
+$i-options: '\38';
+$i-cogs: '\37';
+$i-tools: '\36';
+$i-wrench: '\3a';
+
+$i-power: '\e266';
+
+$i-filter: '\54';
+
+$i-clock: '\6e';
+$i-compass: '\6f';
+$i-wifi: '\e01b';
+
+$i-feed: '\71';
+
+$i-print: '\e013';
+
+// /* ----------------------------------------------------
+// STATES
+// ---------------------------------------------------- */
+
+$i-xmark: '\49';
+$i-xmark-circle: '\e217';
+$i-xmark-circle-filled: '\4a';
+
+$i-checkmark: '\47';
+$i-checkmark-circle: '\e219';
+$i-checkmark-circle-filled: '\e218';
+
+$i-plus: '\5d';
+$i-plus-circle: '\e215';
+$i-plus-circle-filled: '\2a';
+
+$i-minus: '\5e';
+$i-minus-circle: '\e216';
+$i-minus-circle-filled: '\4b';
+
+$i-info-circle: '\e221';
+$i-info-circle-filled: '\e220';
+
+$i-question-circle: '\e222';
+$i-question-circle-filled: '\45';
+
+$i-notification-circle: '\e224';
+$i-notification-circle-filled: '\e223';
+
+$i-warning: '\e225';
+$i-warning-filled: '\48';
+
+$i-flag-filled: '\35';
+$i-flag: '\e275';
+
+$i-bookmark-filled: '\e023';
+$i-bookmark: '\e276';
+
+$i-heart-filled: '\e277';
+$i-heart: '\e278';
+
+$i-thumbs-up: '\5b';
+$i-thumbs-down: '\5c';
+
+$i-star-empty: '\40';
+$i-star-half: '\41';
+$i-star-filled: '\42';
+
+$i-happy: '\e280';
+$i-happy-filled: '\e279';
+
+$i-sad: '\e282';
+$i-sad-filled: '\e281';
+
+$i-neutral: '\e284';
+$i-neutral-filled: '\e283';
+
+// /* ----------------------------------------------------
+// MISC
+// ---------------------------------------------------- */
+$i-signup: '\e230';
+
+$i-screen: '\e01c';
+$i-tablet: '\e01d';
+$i-mobile: '\e01e';
+
+$i-box-add: '\51';
+$i-box-remove: '\52';
+
+$i-lock: '\23';
+$i-unlock: '\e267';
+$i-key: '\5f';
+
+$i-equalizer: '\39';
+$i-dashboard: '\78';
+
+$i-database: '\62';
+
+$i-scissors: '\e268';
+
+$i-health: '\6a';
+
+$i-book: '\e271';
+
+$i-flash: '\79';
+
+$i-calendar: '\43';
+$i-calendar-dense: '\44';
+$i-calendar-number: '\e273';
+
+$i-pie: '\77';
+$i-bars: '\76';
+$i-chart: '\75';
+
+$i-power-cord: '\32';
+
+$i-cube: '\33';
+
+$i-puzzle: '\34';
+
+$i-paperclip: '\72';
+
+$i-lamp: '\74';
+
+$i-pin: '\73';
+
+$i-location: '\63';
+
+$i-shield: '\e274';
+
+$i-cart: '\e019';
+$i-basket: '\e01a';
+
+$i-credit: '\e286';
+$i-credit-filled: '\e287';

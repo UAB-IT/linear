@@ -64,11 +64,17 @@ TYPESETTING
 }
 
 #{$specify} h1,
+#{$specify} .uk-h1,
 #{$specify} h2,
+#{$specify} .uk-h2,
 #{$specify} h3,
+#{$specify} .uk-h3,
 #{$specify} h4,
+#{$specify} .uk-h4,
 #{$specify} h5,
-#{$specify} h6 {
+#{$specify} .uk-h5,
+#{$specify} h6,
+#{$specify} .uk-h6, {
   @include reset(margin, color);
   text-align: inherit;
   @include header-style;
@@ -201,9 +207,11 @@ kbd {
   padding: $inline-padding;
 }
 
-mark,
-::selection {
+mark {
   background-color: $c-mark;
+}
+::selection {
+  background-color: $c-select;
 }
 code {
   background-color: c( $c-grey, 100 );

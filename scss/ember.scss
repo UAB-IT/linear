@@ -6,6 +6,7 @@ Department of Information Technology
 https://github.com/UAB-IT/Ember
 ---------------------------------------------------- */
 @import 'partials/01-core/_global.scss';
+@import 'partials/01-core/_icons.scss';
 @import '_config.scss';
 @import 'partials/01-core/_patterns.scss';
 /* ----------------------------------------------------
@@ -50,12 +51,9 @@ END WIDGETKIT - START AREAS
 Edits to the Linear template areas.
 Most edits undo Ember styling to keep template styles in those areas.
 ---------------------------------------------------- */
-@import 'partials/05-areas/core/_areas.scss';
-@import 'partials/05-areas/_topnav.scss';
-@import 'partials/05-areas/_search.scss';
-@import 'partials/05-areas/_quicklinks.scss';
+@import 'partials/05-areas/core/_navigation.scss';
+@import 'partials/05-areas/core/_layout.scss';
 @import 'partials/05-areas/_banner.scss';
-@import 'partials/05-areas/_sidebar.scss';
 @import 'partials/05-areas/_footer.scss';
 @import 'partials/05-areas/_article.scss';
 /* ----------------------------------------------------

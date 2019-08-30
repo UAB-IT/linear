@@ -41,12 +41,6 @@ z-index is incremented to ensure the banner shows up on mobile */
   opacity: 0.9;
 }
 
-/* Ensure content inside the banner stays within the width of the main column */
-#banner .moduletable {
-  max-width: $max-width;
-  margin: auto;
-}
-
 /* Remove default positional styles */
 #{$specify} .stickyNav .page-header {
   @include reset(float);

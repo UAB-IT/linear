@@ -3,29 +3,6 @@ SPACING
 This module includes various rules to maintain spacial consistancy
 ---------------------------------------------------- */
 
-@if $adjust-template == true {
-  /* ------------------------
-  TEMPLATE ADJUSTMENT
-  ------------------------ */
-  $content-margin: $section-margin !default;
-
-  /* Add space between content and banner and content and footer */
-  body.ribbonFullwidth #whitebox {
-    margin: $content-margin auto;
-  }
-  
-  /* Remove old margins from main column since that spacing is handled
-  through the whitebox now. !important is used to overwrite agressive
-  styles from central style.css @line 3577-3596 as of Aug 20 2019 */
-  body.hd.inside #maincolumn-l,
-  body.hd.inside #maincolumn-r,
-  body.hd.inside #maincolumn-l-r,
-  body.hd.inside #maincolumn-wide {
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-  }
-}
-
 /* ------------------------
 SECTIONS
 ------------------------ */

@@ -14,13 +14,6 @@ Self contained chunks of content with their visual styling.
 SPACING
 This module includes various rules to maintain spacial consistancy
 ---------------------------------------------------- */
-/* ------------------------ TEMPLATE ADJUSTMENT ------------------------ */
-/* Add space between content and banner and content and footer */
-body.ribbonFullwidth #whitebox { margin: 6.4rem auto; }
-
-/* Remove old margins from main column since that spacing is handled through the whitebox now. !important is used to overwrite agressive styles from central style.css @line 3577-3596 as of Aug 20 2019 */
-body.hd.inside #maincolumn-l, body.hd.inside #maincolumn-r, body.hd.inside #maincolumn-l-r, body.hd.inside #maincolumn-wide { margin-top: 0 !important; margin-bottom: 0 !important; }
-
 /* ------------------------
 SECTIONS
 ------------------------ */
@@ -37,7 +30,7 @@ FULL WIDTH
 .background-full { position: relative; z-index: 1; }
 
 /* Adds background element that spans the width of the screen. */
-.background-full::before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 150vw; margin-left: -50vw; background-color: #f2f3f3; z-index: -1; }
+.background-full::before { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; width: 150vw; margin-left: -50vw; background-color: rgba(128, 130, 133, 0.15); z-index: -1; }
 
 /* ------------------------
 MARGIN FIX
@@ -92,7 +85,7 @@ body.linear.hd h5 { font-family: "kulturista-web", serif !important; }
 /* remove spacing and border from the generated header from the article title */
 .page-header { margin: 0; padding: 0; border: 0; }
 
-body.linear.hd h1, body.linear.hd h2, body.linear.hd h3, body.linear.hd h4, body.linear.hd h5, body.linear.hd h6 { margin: 0; color: inherit; text-align: inherit; margin: 0 0 1.6rem; font-weight: 400; font-family: "kulturista-web", serif; color: black; }
+body.linear.hd h1, body.linear.hd .uk-h1, body.linear.hd h2, body.linear.hd .uk-h2, body.linear.hd h3, body.linear.hd .uk-h3, body.linear.hd h4, body.linear.hd .uk-h4, body.linear.hd h5, body.linear.hd .uk-h5, body.linear.hd h6, body.linear.hd .uk-h6 { margin: 0; color: inherit; text-align: inherit; margin: 0 0 1.6rem; font-weight: 400; font-family: "kulturista-web", serif; color: black; }
 
 /* Gives added top margin to headers when they follow content */
 body.linear.hd [role='main'] :not(div) + h1, body.linear.hd [role='main'] :not(div) + h2 { margin-top: 3.2rem; }
@@ -104,7 +97,7 @@ body.linear.hd [role='main'] h1 + h2, body.linear.hd [role='main'] h2 + h3, body
 body.linear.hd p, body.linear.hd hr, body.linear.hd pre { margin-top: 0; margin-bottom: 1.6rem; }
 
 /* ID is used here to overwrite equally high specificity from style.css */
-body.linear.hd h1, body.linear.hd .uk-h1 { font-size: 2.44141rem; line-height: 3.2rem; }
+body.linear.hd h1, body.linear.hd .uk-h1 { font-size: 3.05176rem; line-height: 3.2rem; }
 
 body.linear.hd h2, body.linear.hd .uk-h2 { font-size: 1.95312rem; line-height: 2.4rem; }
 
@@ -154,11 +147,13 @@ SEMANTIC HTML
 ------------------------*/
 mark, code, kbd { padding: 0 0.2em 0.1em; }
 
-mark, ::selection { background-color: #d2e1dc; }
+mark { background-color: #e6f2cc; }
 
-code { background-color: #e6e6e7; color: #4d4e50; border-radius: 4px; white-space: pre; }
+::selection { background-color: #d2e1dc; }
 
-kbd { background-color: #333435; color: #f2f3f3; border-radius: 4px; white-space: pre; }
+code { background-color: #e6e6e7; color: #4d4e50; border-radius: 2px; white-space: pre; }
+
+kbd { background-color: #333435; color: #f2f3f3; border-radius: 2px; white-space: pre; }
 
 pre { white-space: pre-wrap; }
 
@@ -238,9 +233,9 @@ THEMES
 ------------------------ */
 body.linear.hd table.borderless tr td, body.linear.hd table.borderless tr th { border: none; }
 
-body.linear.hd table.striped tbody > tr:nth-child(odd) { background: #f2f3f3; }
+body.linear.hd table.striped tbody > tr:nth-child(odd) { background: rgba(128, 130, 133, 0.15); }
 
-body.linear.hd table.hover tbody tr:hover { background: #f2f3f3; }
+body.linear.hd table.hover tbody tr:hover { background: rgba(128, 130, 133, 0.15); }
 
 body.linear.hd table.striped.hover tbody tr:hover { background: #e6e6e7; }
 
@@ -290,7 +285,7 @@ Add rhythem spacing above caption instead of below image */
 /* --------------------------------------------------
 PULLQUOTE
 ---------------------------------------------------- */
-body.linear.hd .pullquote, body.linear.hd blockquote { margin-bottom: 1.6rem; padding: 1.6rem; background-color: #f2f3f3; border-left: 5px solid #80BC00; }
+body.linear.hd .pullquote, body.linear.hd blockquote { margin-bottom: 1.6rem; padding: 1.6rem; background-color: rgba(128, 130, 133, 0.15); border-left: 5px solid #80BC00; }
 
 body.linear.hd .pullquote p, body.linear.hd .pullquote q, body.linear.hd blockquote p, body.linear.hd blockquote q { margin: 0; font-size: 1.25rem; line-height: 1.6rem; display: block; }
 
@@ -405,7 +400,7 @@ body.hd .latestnews li, body.hd .relateditems li, body.hd .mostread li, body.hd 
 
 .grid-6 > .span-6 { grid-column: span 6; }
 
-@media all and (min-width: 760px) { .grid-1-sm { grid-template-columns: repeat(1, 1fr); }
+@media all and (min-width: 300px) { .grid-1-sm { grid-template-columns: repeat(1, 1fr); }
   .grid-2-sm { grid-template-columns: repeat(2, 1fr); }
   .grid-3-sm { grid-template-columns: repeat(3, 1fr); }
   .grid-4-sm { grid-template-columns: repeat(4, 1fr); }
@@ -417,7 +412,7 @@ body.hd .latestnews li, body.hd .relateditems li, body.hd .mostread li, body.hd 
   .grid-6-sm > .span-5-sm { grid-column: span 5; }
   .grid-6-sm > .span-6-sm { grid-column: span 6; } }
 
-@media all and (min-width: 761px) { .grid-1-md { grid-template-columns: repeat(1, 1fr); }
+@media all and (min-width: 700px) { .grid-1-md { grid-template-columns: repeat(1, 1fr); }
   .grid-2-md { grid-template-columns: repeat(2, 1fr); }
   .grid-3-md { grid-template-columns: repeat(3, 1fr); }
   .grid-4-md { grid-template-columns: repeat(4, 1fr); }
@@ -450,7 +445,7 @@ BUTTONS
 /* ------------------------
 BASE
 ------------------------ */
-body.linear.hd button, body.linear.hd .btn, body.linear.hd input[type='submit'], body.linear.hd input[type='reset'], body.linear.hd input[type='button'] { background: none; background-color: transparent; background-image: none; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin: 0; -webkit-appearance: none; text-decoration: none; cursor: pointer; box-sizing: border-box; padding: 0.3em 1em; background: white; border: 1px solid #333435; border-radius: 4px; color: #333435; font-size: 1rem; line-height: 1.6rem; text-align: center; text-transform: uppercase; font-size: 90%; white-space: nowrap; }
+body.linear.hd button, body.linear.hd .btn, body.linear.hd input[type='submit'], body.linear.hd input[type='reset'], body.linear.hd input[type='button'] { background: none; background-color: transparent; background-image: none; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; margin: 0; -webkit-appearance: none; text-decoration: none; cursor: pointer; box-sizing: border-box; padding: 0.3em 1em; background: white; border: 1px solid #333435; border-radius: 2px; color: #333435; font-size: 1rem; line-height: 1.6rem; text-align: center; text-transform: uppercase; font-size: 90%; white-space: nowrap; }
 
 body.linear.hd button:focus, body.linear.hd button:hover, body.linear.hd .btn:focus, body.linear.hd .btn:hover, body.linear.hd input[type='submit']:focus, body.linear.hd input[type='submit']:hover, body.linear.hd input[type='reset']:focus, body.linear.hd input[type='reset']:hover, body.linear.hd input[type='button']:focus, body.linear.hd input[type='button']:hover { outline: 0; text-decoration: none; border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background: #d2e1dc; color: black; }
 
@@ -485,9 +480,9 @@ START BTN TOOLBAR
 body.linear.hd .input-group button, body.linear.hd .input-group input, body.linear.hd .input-group .btn { margin: 0; }
 
 /* Adjust border radius expected html: <div class="input-group"> <input> or <button> or <a class="btn"> <button> or <a class="btn"> </div> */
-body.linear.hd .input-group :first-child { border-radius: 4px; border-top-right-radius: 0; border-bottom-right-radius: 0; }
+body.linear.hd .input-group :first-child { border-radius: 2px; border-top-right-radius: 0; border-bottom-right-radius: 0; }
 
-body.linear.hd .input-group :last-child { border-radius: 4px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
+body.linear.hd .input-group :last-child { border-radius: 2px; border-top-left-radius: 0; border-bottom-left-radius: 0; }
 
 /*------------------------
 END BTN TOOLBAR
@@ -542,30 +537,59 @@ END COMPONENTS - START SYNDICATION
 Components that style syndicated content where we have limited control over
 html and classes of the target elements.
 ---------------------------------------------------- */
-/* ---------------------------------------------------- CALENDAR Generated from Localist widget from campus calendar Expected HTML: <div class="localist-widget"> <ul class="localist-widget-eds"> <li> <div class="localist-dateblock"> <div class="localist-month"> MON </div> <div class="localist-day"> DAY </div> </div> <div class="localist-secondblock"> <div class="localist-title"> <h4> <a>EVENT NAME</a> </h4> </div> <div class="localist-otherdetails"> <div class="localist-time"> <i>CLOCK ICON</i> TIME </div> <div class="localist-venue"> <i> ICON </i> LOCATION </div> </div> </div> </li> </ul> </div> ---------------------------------------------------- */
+/* ----------------------------------------------------
+CALENDAR
+Generated from Localist widget from campus calendar
+// Expected HTML:
+// <div class="localist-widget">
+//   <ul class="localist-widget-eds">
+//     <li>
+//       <div class="localist-dateblock">
+//         <div class="localist-month"> MON </div>
+//         <div class="localist-day"> DAY </div>
+//       </div>
+//       <div class="localist-secondblock">
+//         <div class="localist-title">
+//           <h4> <a>EVENT NAME</a> </h4>
+//         </div>
+//         <div class="localist-otherdetails">
+//           <div class="localist-time">
+//             <i>CLOCK ICON</i>
+//             TIME
+//           </div>
+//           <div class="localist-venue">
+//             <i> ICON </i>
+//             LOCATION
+//           </div>
+//         </div>
+//       </div>
+//     </li>
+//   </ul>
+// </div>
+---------------------------------------------------- */
 /* ------------------------
 BASE
 ------------------------ */
 /* remove margin from list */
-body.linear.hd .localist-widget ul { margin: 0; }
+body.linear.hd .localist-widget ul.localist-widget-eds { margin: 0 !important; }
 
-body.linear.hd .localist-widget ul li { display: flex; margin-bottom: 0.8rem; }
+body.linear.hd .localist-widget li { list-style: none; display: flex; margin-bottom: 0.8rem; }
 
 /* DATE BLOCK */
-body.linear.hd .localist-dateblock { margin-right: 0.8rem; background: #1E6B52; width: 60px; }
+body.linear.hd .localist-dateblock { width: 60px; min-width: 60px; min-height: 50px; }
 
-body.linear.hd .localist-widget-eds div.localist-month { padding-top: 0.5em; margin-bottom: -1px; color: #FFF; text-align: center; text-transform: uppercase; font-family: "kulturista-web", serif; }
+body.linear.hd .localist-widget-eds div.localist-month { text-decoration: none; color: white; background-color: #1E6B52; font-size: 1em; font-family: "kulturista-web", serif; text-transform: uppercase; text-align: center; padding-top: 2px; padding-bottom: 1px; border-bottom: 2px solid #80BC00; }
 
-body.linear.hd .localist-day { font-size: 1.25rem; line-height: 1.6rem; padding-bottom: 0.4em; border-bottom: 2px solid #80BC00; color: #FFF; text-align: center; font-weight: 600; }
+body.linear.hd .localist-day { color: #555; background-color: rgba(128, 130, 133, 0.15); font-size: 1.4em; font-weight: 600; text-align: center; text-decoration: none; line-height: 1; padding-top: 10px; padding-bottom: 10px; }
 
 /* EVENT DETAILS */
+body.linear.hd .localist-widget-eds div.localist-secondblock { margin: 0 0 0 1em !important; min-height: 44px; /*min-width: 20em;*/ }
+
 body.linear.hd .localist-title h4 { font-size: 1rem; line-height: 1.6rem; margin-top: -0.2em; margin-bottom: 0px; font-family: "proxima-nova", arial, helvetica, sans-serif !important; }
 
 body.linear.hd .localist-title h4 a { border-bottom: 2px solid transparent; }
 
 body.linear.hd .localist-otherdetails div, .localist-otherdetails i { font-size: 0.8rem; line-height: 1.6rem; }
-
-body.linear.hd .localist-venue { display: none; }
 
 /*------------------------
 END CALENDAR
@@ -619,9 +643,9 @@ BASE
 .pagination a.pagenav, .pagination span.pagenav { border: 0; display: inline-block; padding: 0.3em 1em; margin: 0 0.8rem; }
 
 /* Button groups */
-.pagination ul > li.pagination-start > .pagenav .pagination ul > li.pagination-next > .pagenav { border-bottom-left-radius: 4px; border-top-left-radius: 4px; }
+.pagination ul > li.pagination-start > .pagenav .pagination ul > li.pagination-next > .pagenav { border-bottom-left-radius: 2px; border-top-left-radius: 2px; }
 
-.pagination ul > li.pagination-end > .pagenav .pagination ul > li.pagination-prev > .pagenav { border-bottom-right-radius: 4px; border-top-right-radius: 4px; }
+.pagination ul > li.pagination-end > .pagenav .pagination ul > li.pagination-prev > .pagenav { border-bottom-right-radius: 2px; border-top-right-radius: 2px; }
 
 .pagination ul > li.pagination-prev > .pagenav { margin-right: 0.8rem; }
 
@@ -637,7 +661,7 @@ STATES
 .pagination span.pagenav { border-bottom: 2px solid #80BC00; }
 
 /* Disabled */
-.pagination ul > li.pagination-start > span, .pagination ul > li.pagination-prev > span, .pagination ul > li.pagination-end > span, .pagination ul > li.pagination-next > span { margin: 0; border: 1px solid #b3b4b6; color: #b3b4b6; background: #f2f3f3; }
+.pagination ul > li.pagination-start > span, .pagination ul > li.pagination-prev > span, .pagination ul > li.pagination-end > span, .pagination ul > li.pagination-next > span { margin: 0; border: 1px solid #b3b4b6; color: #b3b4b6; background: rgba(128, 130, 133, 0.15); }
 
 /*------------------------
 END PAGINATION
@@ -736,7 +760,7 @@ END GALLERY
 /*------------------------
 START PANELS
 ------------------------*/
-body .panels > a, .cards > div { border: 1px solid black; border-radius: 4px; padding: 1.6rem; background: white; }
+body .panels > a, .cards > div { border: 1px solid black; border-radius: 2px; padding: 1.6rem; background: white; }
 
 body .panels > a:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background: #d2e1dc; color: black; }
 
@@ -752,7 +776,7 @@ body .panels > a:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; b
 
 body.linear.hd .wk-panels .uk-panel-title { margin-top: 0; }
 
-body.linear.hd .wk-panels .uk-panel { background: white; border: 1px solid black; border-radius: 4px; padding: 1.6rem; }
+body.linear.hd .wk-panels .uk-panel { background: white; border: 1px solid black; border-radius: 2px; padding: 1.6rem; }
 
 body.linear.hd a.uk-position-cover { opacity: 0 !important; }
 
@@ -800,130 +824,184 @@ END WIDGETKIT - START AREAS
 Edits to the Linear template areas.
 Most edits undo Ember styling to keep template styles in those areas.
 ---------------------------------------------------- */
-/* ------------------------ TEMPLATE ADJUSTMENT ------------------------ */
-/* Fixes a bug where left sidebar was not sized consistantly */
-body.hd.sidebars #leftcolumn { width: 100%; }
-
-/* Fixes a bug where the main content was not sized correctly on pages without a sidebar */
-body.hd.inside #whitebox { max-width: 1280px; }
-
 /*------------------------
-START TEMPLATE SPACIAL ADJUSTMENTS
-------------------------*/
-/* ------------------------ LAYOUT ADJUSTMENT ------------------------ */
-/* This is going to remove odd margins and paddings and implement a more uniform solution to keep the body content from hitting the edge of the screen when the viewport is smaller than the content. */
-body.linear.hd #whitebox { padding: 0 1.6rem; box-sizing: border-box; }
-
-/* Decrease the width by the amount of padding on it's parent This makes sure it aligns properly at max width */
-body.linear.hd div.topLinearLogo { max-width: calc( 1280px - 3.2rem); }
-
-body.linear.hd #content { margin: 0; width: 100%; }
-
-/* Add space to both sides of all 100% width containers */
-body.linear.hd #whitebar, body.linear.hd .topLinearContainer, body.linear.hd #ribbon, #banner .moduletable { padding-right: 1.6rem; padding-left: 1.6rem; }
-
-/* Remove margins , since the padding serves the same purpose */
-body.linear.hd #siteName, body.linear.hd #search form { margin-right: 0; margin-left: 0; }
-
-/* Remove paddings from module tables */
-#leftcolumn .moduletable { padding: 0; }
-
-/* ------------------------ COLUMN GAPS ------------------------ */
-/* Add more consistant gap between sidebars and main content*/
-body.hd.inside #maincolumn-l { margin: 0 0 0 3.2rem !important; }
-
-body.hd.inside #maincolumn-r { margin: 0 3.2rem 0 0 !important; }
-
-body.hd.inside #maincolumn-l-r { margin: 0 3.2rem !important; }
-
-/* Fix column widths after larger gap is added */
-body.hd.inside #maincolumn-l, body.hd.inside #maincolumn-r { width: calc( 78% - 3.2rem) !important; }
-
-body.hd.sidebars #leftcolumn { max-width: 20%; }
-
-/*------------------------
-START OVERFLOW FIXES
-------------------------*/
-/* It looks like the layout is build with floats and containers have been given
-overflow: hidden to ensure the content is contained. We're going to be using some
-tricks to allow background sections to break out of their parents to look like they
-span the full width of the screen, but this overflow fix prevents us from doing this.
-
-I'll implement some clearfixes instead of overflow to ensure content is still contained
-but allowing us to break out of them when needed. */
-body.ribbonFullwidth #whitebox { overflow: visible; }
-
-/* Clearfix for main area.
-This fixes layout problems from changing overflow property */
-#whitebox::after { content: ''; visibility: hidden; display: block; font-size: 0; height: 0; clear: both; }
-
-/* Prevents content from overflowing the body */
-body.ribbonFullwidth #wrapper { overflow-x: hidden; }
-
-/*------------------------
-RESPONSIVE
-------------------------*/
-/* Adjust the position of sidebar trigger */
-body.linear.hd #sidebar_trigger::before { height: auto; top: -1.5em; }
-
-/* Fix width of main column */
-@media (max-width: 699px) { body.hd.sidebars #maincolumn-l, body.hd.sidebars #maincolumn-r, body.hd.sidebars #maincolumn-l-r { width: 100% !important; max-width: 100% !important; margin: 0 !important; padding: 0 !important; } }
-
-/* Remove unneeded space from sidebar on med screens */
-@media only screen and (max-width: 1024px) { body.hd.sidebars #maincolumn-l, body.hd.sidebars #maincolumn-r, body.hd.sidebars #maincolumn-l-r { padding: 0 !important; float: left; }
-  .sidebar { padding: 0 !important; width: 100% !important; }
-  .sidebarpanel ul li li { text-indent: 0; }
-  .sidebarpanel_content, .left-position .sidebarpanel_content { float: none; }
-  /* Allow content to overflow containers */
-  #maincolumn-l-r, #maincolumn-l, #maincolumn-r, #maincolumn-wide, #footer, #content { overflow: visible; } }
-
-@media screen and (max-width: 700px) { body.hd.sidebars #leftcolumn { max-width: 100%; min-width: 250px; width: 300px; }
-  .sidebar { margin-right: 50px; }
-  body.hd #sidebar_trigger.active { margin-left: 250px; } }
-
-/*------------------------
-START TOP NAVIGATION
-------------------------*/
-/* Removes link styles in the top navigation. Most of this styling is handled with central CSS. */
-#ribbon .nav a { border: 0; }
-
-/*------------------------
-END TOP NAVIGATION
+START NAVIGATION
 ------------------------*/
 /*------------------------
-START SEARCH
+TOP NAVIGATION
 ------------------------*/
-body.linear.hd #search form { display: flex; justify-content: flex-end; align-items: right; }
+/* Removes link styles in the top navigation. */
+body.linear.hd #ribbon .nav a { border: 0; padding: 15px !important; }
 
-body.linear.hd #search button.btn-primary { margin: 0; -webkit-transition-property: none; -moz-transition-property: none; -o-transition-property: none; transition-property: none; border-top-left-radius: 0 !important; border-bottom-left-radius: 0 !important; }
+/* Add nav styles from ur department websites, use Apple */
+body.linear.hd #tray #ribbon .nav.menu > .active > a, body.linear.hd #tray #ribbon .nav.menu > .active > a:hover, body.linear.hd #tray #ribbon .nav.menu > .active > a:focus, body.linear.hd #tray #ribbon .nav.menu > .alias-parent-active > a { background-color: #80BC00; color: white !important; }
 
-body.linear.hd #search .btn-primary:focus, body.linear.hd #search .btn-primary:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background: #d2e1dc; color: black; }
+body.linear.hd div#tray { border-bottom: 7px solid #80BC00; }
 
-body.linear.hd #search input { border: 1px solid #1E6B52; border-top-left-radius: 4px !important; border-bottom-left-radius: 4px !important; }
+/* ensure grey colors are consistant */
+body.linear.hd #ribbon .nav > li > a:hover, body.linear.hd #ribbon .nav > li > a:focus, body.linear.hd #ribbon .dropdown-menu > li > a:hover, body.linear.hd #ribbon .dropdown-menu > li > a:focus, body.linear.hd #ribbon .nav > li > span:hover, body.linear.hd #ribbon .nav > li > span:focus, body.linear.hd #ribbon .dropdown-menu > .active > a:hover, body.linear.hd #ribbon .dropdown-menu > .active > a:focus { background: rgba(128, 130, 133, 0.15); }
 
 /*------------------------
-END SEARCH
+SIDEBAR
 ------------------------*/
-/*------------------------
-START QUICKLINKS
-------------------------*/
-#quicklinks ul { margin: 0; }
+/* Reset font sizes in the sidebar */
+body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: transparent; }
 
-body.hd #quicklinks .dropdown-menu a { box-sizing: border-box; }
+/* Remove list styles */
+body.linear.hd #leftcolumn ul.nav-child, body.linear.hd #leftcolumn ul.nav { margin: 0; }
+
+body.linear.hd #leftcolumn .sidebar li, body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal; margin: 0; }
+
+/* Add border to the right of the sidebar */
+@media all and (min-width: 700px) { body.linear.hd #leftcolumn { position: relative; }
+  body.linear.hd #leftcolumn::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: -0.8rem; border-right: 1px solid black; pointer-events: none; } }
+
+@media all and (min-width: 1024px) { body.linear.hd #leftcolumn::after { right: -1.6rem; } }
+
+/* Base styles for menu links */
+#leftcolumn ul.nav.menu a { margin: 0; border: 0; background: none; background-color: transparent; background-image: none; font-size: 1rem; line-height: 1.6rem; display: block; padding: 0.5rem; color: #333435; border-left: 5px solid transparent; }
+
+/* Style for link to Section Page */
+#leftcolumn ul.nav.menu > .parent > a { font-size: 1.25rem; line-height: 1.6rem; font-weight: 600; }
+
+/* Child items */
+#leftcolumn ul.nav.menu .nav-child .parent > ul a { padding-left: 1.5rem; }
+
+/* States */
+#leftcolumn ul.nav.menu .current > a { background-color: rgba(128, 130, 133, 0.15); border-left: 5px solid #80BC00; }
+
+#leftcolumn ul.nav.menu a:hover { color: inherit !important; background-color: rgba(128, 130, 133, 0.15); /*border-left: 5px solid c($stone, 400);*/ }
+
+/* Spacing */
+#leftcolumn .moduletable { margin-bottom: 1.6rem; }
+
+/* Style for seperators */
+#leftcolumn .divider span.separator { display: none; }
+
+#leftcolumn .divider span.separator + ul::before { content: ''; display: block; margin: 1rem 0.5rem; border-top: 3px solid #80BC00; }
+
+/*------------------------
+QUICKLINKS
+------------------------*/
+/* Remove list margin */
+body.linear.hd #quicklinks ul { margin: 0; }
+
+/* Ensure links are sized correctly */
+body.linear.hd #quicklinks .dropdown-menu a { box-sizing: border-box; }
 
 /* BUGFIX: Make sure quicklinks are above banner */
-#quicklinks .moduletable { z-index: 2; }
+body.linear.hd #quicklinks .moduletable { z-index: 2; }
 
-/* Remove borders from quicklinks */
 /* Ensure hover color is consistant */
-#quicklinks .dropdown-submenu:hover > a, #quicklinks .dropdown-submenu:focus > a, #quicklinks .dropdown-menu > li > a:hover, #quicklinks .dropdown-menu > li > a:focus, #quicklinks .newsfeed > li:hover, #quicklinks .newsfeed > li:focus { background-color: #d2e1dc; }
+body.linear.hd #quicklinks .dropdown-submenu:hover > a, body.linear.hd #quicklinks .dropdown-submenu:focus > a, body.linear.hd #quicklinks .dropdown-menu > li > a:hover, body.linear.hd #quicklinks .dropdown-menu > li > a:focus, body.linear.hd #quicklinks .newsfeed > li:hover, body.linear.hd #quicklinks .newsfeed > li:focus { background-color: #d2e1dc; }
 
-/* Fix box shadow styles on quicklinks feed */
+/* BUGFIX: Fix box shadow styles on quicklinks feed */
 body.linear.hd #quicklinks ul.nav-child.unstyled.dropdown-menu, body.linear.hd #quicklinks div.feed { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
 
 /*------------------------
-END QUICKLINKS
+SEARCH
 ------------------------*/
+body.linear.hd #search form { display: flex; justify-content: flex-end; align-items: right; }
+
+body.linear.hd #search button.btn-primary { border: 1px solid #1E6B52; }
+
+body.linear.hd #search button.btn-primary:hover { background: #d2e1dc; color: black; outline: 0; box-shadow: none; }
+
+body.linear.hd #search input:focus + .btn-primary, body.linear.hd #search input:focus + .btn-primary:hover { box-shadow: 0 0 0 1px #1E6B52; }
+
+/*------------------------
+BREADCRUMBS
+------------------------*/
+.breadcrumb li span.divider::after { content: '\e006'; font-family: 'IcoMoon'; font-size: .7em !important; color: #80BC00; margin-right: 3px; }
+
+.breadcrumb span.divider > img { display: none; }
+
+/* ----------------------------------------------------
+LAYOUT
+This module introduces overrides for the template area
+positioning styles to offer a better experience on
+browsers that support it.
+---------------------------------------------------- */
+/* Fixes a bug where outlines would be cutoff in modules */
+body.linear.hd .moduletable { overflow: visible !important; }
+
+/* ------------------------
+START GRID
+------------------------ */
+@supports (display: grid) { /* reset sizing and positional properties of main areas to prevent odd layout issues when using grid. These resets requre grid to be supported, so it will fallback to the old positioning CSS */
+  body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-l, body.linear.hd #maincolumn-l-r, body.linear.hd #maincolumn-wide, body.linear.hd #system-message-container, body.linear.hd #leftcolumn, body.linear.hd #downright, body.linear.hd #epilogue, body.linear.hd .left-position { width: auto !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; box-sizing: border-box !important; }
+  /* fixes a bug where elements that overflow the whitebox could overflow the body and allow the page to be scrolled on the x axis */
+  body.linear.hd #wrapper { overflow-x: hidden; }
+  /* Setup basic grid areas and layout allow elements to overflow the grid to cover the full width of the screen */
+  body.linear.hd #whitebox { display: grid; overflow: visible; grid-template-columns: 1fr; grid-template-areas: 'sys' 'left' 'main' 'right' 'epi'; }
+  body.linear.hd #system-message-container { grid-area: sys; }
+  body.linear.hd #sidebar_trigger { grid-area: left; }
+  body.linear.hd #leftcolumn { grid-area: left; }
+  body.linear.hd #maincolumn-l-r, body.linear.hd #maincolumn-l, body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-wide { grid-area: main; }
+  body.linear.hd #downright { grid-area: right; }
+  body.linear.hd #epilogue { grid-area: epi; }
+  @media all and (min-width: 700px) { /* Add left column to tablet size */
+    body.linear.hd #whitebox { grid-template-columns: 200px 1fr; grid-template-areas: 'sys sys' 'left main' 'right right' 'epi epi'; grid-column-gap: 1.6rem; }
+    body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-wide { grid-area: left / span 2; } }
+  @media all and (min-width: 1024px) { /* Add right column and increase the column gap for larger screens */
+    body.linear.hd #whitebox { grid-template-columns: 250px 1fr 250px; grid-template-areas: 'sys sys sys' 'left main right' 'epi epi epi'; grid-column-gap: 3.2rem; }
+    body.linear.hd #maincolumn-l { grid-area: main / span 2; }
+    body.linear.hd #maincolumn-wide { grid-area: left / span 3; } } }
+
+/* ------------------------
+END GRID - START PADDING
+Adds space around content so
+that content doesn't hit edge
+of screen
+------------------------ */
+@supports (display: grid) { body.linear.hd #whitebox { padding: 1.6rem; width: auto !important; display: border-box !important; max-width: 1280px !important; } }
+
+/* ------------------------
+END PADDING - START MARGINS
+Adds space above and below
+the main content area
+------------------------ */
+body.linear.hd #whitebox { margin: 6.4rem auto; }
+
+/* ------------------------
+END MARGINS - START SIDEBAR
+Adjusts the position and layout
+of the responsive navigation menu
+and it's trigger
+------------------------ */
+@media only screen and (max-width: 700px) { /* only applying these edits when grid is supported, it relies on changes made above */
+  @supports (display: grid) { /* Set the max width of the sidebar, add padding equal to size of the touch target, position it in the gap between the banner and content */
+    body.linear.hd #leftcolumn { max-width: 300px !important; padding: 38px !important; margin-top: calc(((6.4rem / 2) + 38px) * -1) !important; }
+    /* align touch target with sidebar, remove border added by link styles */
+    body.linear.hd #sidebar_trigger { margin-top: calc(((6.4rem / 2) + 38px) * -1) !important; border: none !important; }
+    /* Fix a bug where the icon was not centered in the box */
+    body.linear.hd #sidebar_trigger::before { height: auto; }
+    /* Remove styling of default touch target, align it to the right side of the sidebar */
+    body.linear.hd #sidebar_trigger.active { border: none !important; width: 38px !important; height: 38px !important; background: white !important; margin-left: 262px !important; }
+    /* Add new touch target using an icon instead of an image align it to the center of the touch target */
+    body.linear.hd #sidebar_trigger.active::after { content: '\49'; font-family: "IcoMoon"; display: block !important; font-size: 18px; line-height: 38px; text-align: center; color: #333435; } } }
+
+@supports (display: grid) { /* remove unneeded padding from module tables */
+  body.linear.hd #leftcolumn .moduletable { padding: 0; } }
+
+/* ------------------------
+END SIDEBAR - START BANNER
+Adjusts the content of the
+banner position to ensure content
+lines up and doesn't hit the edge
+of the screen.
+------------------------ */
+/* Ensure content inside the banner stays
+within the width of the main column,
+add same padding as is on whitebox */
+body.linear.hd #banner .moduletable { max-width: 1280px; margin: auto; padding: 1.6rem; }
+
+/* ------------------------
+END BANNER - START WHITEBAR
+Adds space to the site name area
+------------------------ */
+body.linear.hd #whitebar { margin-top: 1.6rem; margin-bottom: 1.6rem; }
+
 /*------------------------
 START BANNER
 ------------------------*/
@@ -941,9 +1019,6 @@ z-index is incremented to ensure the banner shows up on mobile */
 
 /* Add the image filter effect used on the banners */
 #banner::after { background: #295135; mix-blend-mode: multiply; opacity: 0.9; }
-
-/* Ensure content inside the banner stays within the width of the main column */
-#banner .moduletable { max-width: 1280px; margin: auto; }
 
 /* Remove default positional styles */
 body.linear.hd .stickyNav .page-header { float: none; max-width: 100%; }
@@ -968,46 +1043,6 @@ body.linear.hd:not(.article-layout) .item-image { display: none; }
 /*------------------------
 END BANNER
 ------------------------*/
-/*------------------------
-START SIDEBAR
-------------------------*/
-body.hd div.sidebar.gray, body.hd div.sidebar.no-seal, body.hd #leftcolumn.sidebarpanel.gray, body.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: white; }
-
-#leftcolumn ul.nav-child, #leftcolumn ul { margin: 0; }
-
-#leftcolumn .moduletable { padding: 0; }
-
-#leftcolumn .sidebar li, #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal; }
-
-#leftcolumn ul.nav.menu a { margin: 0; border: 0; background: none; background-color: transparent; background-image: none; display: block; padding: 0.5rem; color: #333435; border-left: 3px solid transparent; font-size: 1rem; line-height: 1.6rem; }
-
-#leftcolumn ul.nav.menu .current > a { background-color: #f2f3f3; border-left: 3px solid #80BC00; }
-
-#leftcolumn ul.nav.menu > .parent > a { font-size: 1.25rem; line-height: 1.6rem; font-weight: 600; }
-
-#leftcolumn ul.nav.menu a:hover { color: inherit !important; background-color: #e6e6e7; border-left: 3px solid #999b9d; }
-
-#leftcolumn ul.nav.menu .nav-child .parent > ul a { padding-left: 1.5rem; }
-
-/* Spacing */
-#leftcolumn .moduletable { margin-bottom: 3.2rem; }
-
-/* Clearfix for modules */
-#leftcolumn .moduletable::after { content: ''; visibility: hidden; display: block; font-size: 0; height: 0; clear: both; }
-
-#leftcolumn .moduletable.sidebar-btns { overflow: visible; margin-left: 0.5rem; margin-right: 0.5rem; }
-
-#leftcolumn .sidebar-btns + .sidebar-btns { margin-top: -1.6rem; }
-
-#leftcolumn .divider span.separator { border-top: 2px solid #80BC00; margin-top: 0.5rem; padding-top: 0.5rem; display: block; height: 0px; margin-left: 0.6rem; width: calc(100% - 1.5rem); text-indent: -9999px; }
-
-/*------------------------
-END SIDEBAR
-------------------------*/
-body.linear.hd #maincolumn-l { border-left: 1px solid black; margin-left: 1.6rem !important; padding-left: 3.2rem; }
-
-body.hd.inside #maincolumn-l, body.hd.inside #maincolumn-r { width: calc( 78% - 4.8rem) !important; }
-
 /*------------------------
 START FOOTER
 ------------------------*/
@@ -1101,7 +1136,7 @@ body.linear.hd .type-set-5 { font-size: 3.05176rem; line-height: 3.2rem; }
 
 .full { display: block; width: 100%; }
 
-.round { border-radius: 4px; }
+.round { border-radius: 2px; }
 
 .square { border-radius: 0; }
 
@@ -1109,7 +1144,7 @@ body.linear.hd .type-set-5 { font-size: 3.05176rem; line-height: 3.2rem; }
 
 .border { border: 1px solid black; }
 
-.background { padding: 1.6rem; background-color: #f2f3f3; }
+.background { padding: 1.6rem; background-color: rgba(128, 130, 133, 0.15); }
 
 [class*='-space-0'] { --u-space: 0; }
 
