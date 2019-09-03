@@ -67,7 +67,7 @@ $font-sizes: (
     @return $txt-size;
   }
   @else if $level <= -0.1 {
-    // remove negative from number
+    // remove negative from number, division does this for us
     $nlevel: $level * -1;
     @return $txt-size / pow( $ratio, $nlevel );
   }
@@ -112,6 +112,7 @@ $c-body: black !default; // Color
 $c-header: black !default; // Color
 $c-bdr: black !default; // Color
 $c-hr: $c-bdr !default; // Color
+$c-contrast: black !default; // Color, used when high contrast is enabled
 
 // ----------------------------------------------------
 // BORDER
@@ -122,11 +123,10 @@ $btn-radius: $bdr-radius !default;
 $card-radius: $bdr-radius !default;
 
 $bdr-width: 1px !default; // Value
-$card-bdr-width: $bdr-width !default;
-
 $bdr-md: 2px !default; // Value
 $bdr-lg: 5px !default; // Value
 
+$card-bdr-width: $bdr-width !default;
 $hr-width: $bdr-width !default; // Value
 
 // ----------------------------------------------------

@@ -1,6 +1,7 @@
 /* ----------------------------------------------------
 CALENDAR
 Generated from Localist widget from campus calendar
+---------------------------------------------------- */
 // Expected HTML:
 // <div class="localist-widget">
 //   <ul class="localist-widget-eds">
@@ -27,14 +28,18 @@ Generated from Localist widget from campus calendar
 //     </li>
 //   </ul>
 // </div>
----------------------------------------------------- */
 /* ------------------------
-BASE
+RESET
 ------------------------ */
 /* remove margin from list */
 #{$specify} .localist-widget ul.localist-widget-eds {
   margin: 0 !important;
 }
+/* ------------------------
+BASE
+Styles taken from department websites
+------------------------ */
+
 #{$specify} .localist-widget li {
   list-style: none;
   display: flex;

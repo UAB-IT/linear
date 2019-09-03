@@ -10,13 +10,8 @@
   padding: s(1);
 }
 
-.wk-details .uk-panel p {
-  @include reset(margin);
-}
-#{$specify} .wk-features .uk-panel p {
-  @include reset(margin);
-}
-#{$specify} .wk-panels .uk-panel p:last-child {
+/* Margin fix for items inside widgetkit blocks */
+#{$specify} .uk-panel p:last-child {
   @include reset(margin);
 }
 
@@ -24,3 +19,13 @@
 .uk-panel-title {
   margin-bottom: 0;
 }
+
+// /* PANEL */
+// .uk-panel {
+//   display: grid;
+//   grid-template-areas:
+//     'img'
+//     'head'
+//     'body'
+//     'foot';
+// }

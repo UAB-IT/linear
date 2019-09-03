@@ -10,7 +10,7 @@ Style for Joomla generated chips
 #{$specify} .badge-info[href] {
   @include reset(border, shadow, font-weight, color);
   @include type-setting(sm);
-  background-color: c( $stone, 100 );
+  background-color: $c-background;
   padding: 0.1em 0.7em;
 }
 /*------------------------

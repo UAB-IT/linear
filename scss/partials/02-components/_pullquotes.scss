@@ -1,6 +1,7 @@
 /* --------------------------------------------------
 PULLQUOTE
 ---------------------------------------------------- */
+
 #{$specify} .pullquote,
 #{$specify} blockquote {
   @include block-margin;
@@ -22,12 +23,33 @@ PULLQUOTE
   margin-top: s(0.5);
 }
 
+/* --------------------------------------------------
+CALLOUT
+---------------------------------------------------- */
+
+#{$specify} .callout {
+  @include block-margin;
+  padding: 0 $block-padding;
+  border-left: $bdr-lg solid $c-secondary;
+}
+#{$specify} .callout p {
+  @include reset(margin);
+  display: block;
+}
+
 /* ------------------------
 THEMES
 ------------------------ */
 
-/* Add darker color when on background */
-#{$specify} .background .pullquote,
-#{$specify} .background blockquote {
-  background-color: c($stone, 100);
+#{$specify} .callout.red {
+  border-color: $c-red;
+}
+#{$specify} .callout.yellow {
+  border-color: $c-yellow;
+}
+#{$specify} .callout.green {
+  border-color: $c-green;
+}
+#{$specify} .callout.primary {
+  border-color: $c-primary;
 }

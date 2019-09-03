@@ -3,6 +3,15 @@ START BANNER
 ------------------------*/
 $banner-top: $section-margin * 2 !default;
 $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
+
+/* Reset */
+
+/* Remove default positional styles */
+#{$specify} .stickyNav .page-header {
+  @include reset(float);
+  max-width: 100%;
+}
+
 /* relative allows us to position the background,
 padding moves the title and breadcrumbs to the bottom of the container,
 min height sets the size of the banner,
@@ -18,17 +27,13 @@ z-index is incremented to ensure the banner shows up on mobile */
 #banner::before,
 #banner::after {
   content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
+  @include cover;
   z-index: -1;
 }
 
 /* Set default banner image and and position */
 #banner::before {
-  background: url( #{$banner-image} ); /*Use article image */
+  background: url( #{$banner-image} );
   background-size: cover;
   background-position: bottom;
   background-attachment: scroll;
@@ -41,17 +46,22 @@ z-index is incremented to ensure the banner shows up on mobile */
   opacity: 0.9;
 }
 
-/* Remove default positional styles */
-#{$specify} .stickyNav .page-header {
-  @include reset(float);
-  max-width: 100%;
-}
-
-/* apply rhythem spacing & adjust color */
+/* apply rhythem spacing & adjust color to header */
 #banner h1 {
   @include block-margin;
   color: white;
 }
+
+/* Media */
+
+/* Remove main image from page, this gets put into the banner
+background with JS. Don't remove the image on pages that miss
+this functionality. */
+#{$specify}:not(.article-layout) .item-image {
+  display: none;
+}
+
+/* Breadcrumb */
 
 /* Remove default styles & adjust color */
 #{$specify} .breadcrumb > li,
@@ -73,12 +83,6 @@ z-index is incremented to ensure the banner shows up on mobile */
   @include block-margin;
 }
 
-/* Remove main image from page, this gets put into the banner
-background with JS. Don't remove the image on pages that miss
-this functionality. */
-#{$specify}:not(.article-layout) .item-image {
-  display: none;
-}
 /*------------------------
 END BANNER
 ------------------------*/

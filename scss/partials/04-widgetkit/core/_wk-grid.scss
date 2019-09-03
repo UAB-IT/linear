@@ -33,7 +33,7 @@
 .uk-grid-large {
   margin-left: -$gap-md;
 }
-.uk-grid-medium,
+.uk-grid-medium > *,
 .uk-grid-large > * {
   padding-left: $gap-md;
 }
@@ -83,3 +83,99 @@ NESTED GRIDS
 #{$specify} .uk-panel .uk-grid div.uk-row-first img {
   float: right;
 }
+//
+// @supports (display: grid) {
+//   .uk-grid,
+//   .uk-grid-small,
+//   .uk-grid-large,
+//   .uk-grid-medium {
+//     margin: 0;
+//     display: grid;
+//     grid-gap: $gap;
+//   }
+//   .uk-grid-small {
+//     grid-gap: $gap-sm;
+//   }
+//   .uk-grid-large {
+//     grid-gap: $gap-lg;
+//   }
+//
+//   .uk-grid > *,
+//   .uk-grid-small > *,
+//   .uk-grid-large > *,
+//   .uk-grid-medium > * {
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//   }
+//
+//   .uk-grid-width-1-1,
+//   .uk-grid-width-small-1-1 {
+//     grid-template-columns: 1fr;
+//   }
+//   .uk-grid-width-1-2,
+//   .uk-grid-width-small-1-2 {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+//   .uk-grid-width-1-3,
+//   .uk-grid-width-small-1-3 {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+//   .uk-grid-width-1-4,
+//   .uk-grid-width-small-1-4 {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+//   .uk-grid-width-1-5,
+//   .uk-grid-width-small-1-5 {
+//     grid-template-columns: repeat(5, 1fr);
+//   }
+//   .uk-grid-width-1-6,
+//   .uk-grid-width-small-1-6 {
+//     grid-template-columns: repeat(6, 1fr);
+//   }
+//   @include breakpoint(md) {
+//     .uk-grid-width-medium-1-1 {
+//       grid-template-columns: 1fr;
+//     }
+//     .uk-grid-width-medium-1-2 {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
+//     .uk-grid-width-medium-1-3 {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//     .uk-grid-width-medium-1-4 {
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .uk-grid-width-medium-1-5 {
+//       grid-template-columns: repeat(5, 1fr);
+//     }
+//     .uk-grid-width-medium-1-6 {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//   }
+//   @include breakpoint(lg) {
+//     .uk-grid-width-large-1-1 {
+//       grid-template-columns: 1fr;
+//     }
+//     .uk-grid-width-large-1-2 {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
+//     .uk-grid-width-large-1-3 {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//     .uk-grid-width-large-1-4 {
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .uk-grid-width-large-1-5 {
+//       grid-template-columns: repeat(5, 1fr);
+//     }
+//     .uk-grid-width-large-1-6 {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//   }
+//   /* Prevent unnecessary clearfixes from breaking grid */
+//   .uk-grid::after,
+//   .uk-grid::before {
+//     display: none;
+//   }
+// }

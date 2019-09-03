@@ -213,6 +213,9 @@ mark {
 ::selection {
   background-color: $c-select;
 }
+
+// TODO: Test styles of code blocks and kbd tags
+
 code {
   background-color: c( $c-grey, 100 );
   color: c( $c-grey, 700 );

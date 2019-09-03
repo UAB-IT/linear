@@ -65,14 +65,14 @@ SIDEBAR
     top: 0;
     bottom: 0;
     left: 0;
-    right: s(-0.5);
+    right: s(-0.5); /* half of grid gap, see layout */
     border-right: 1px solid black;
     pointer-events: none;
   }
 }
 @include breakpoint(lg) {
   #{$specify} #leftcolumn::after {
-    right: s(-1);
+    right: s(-1); /* half of grid gap, see layout */
   }
 }
 

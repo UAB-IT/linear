@@ -39,9 +39,14 @@ only to lists inside the main content area */
 #{$specify} #{$main} ul:not(.unstyled) ol:not(.unstyled),
 #{$specify} #{$main} ol:not(.unstyled) ol:not(.unstyled),
 #{$specify} #{$main} ol:not(.unstyled) ul:not(.unstyled),
-#{$specify} #{$main} dl:not(.unstyled) dd:not(.unstyled){
+#{$specify} #{$main} dl:not(.unstyled) dd:not(.unstyled) {
   margin-bottom: 0;
   margin-left: $list-indent;
+}
+
+/* Bold description term */
+#{$specify} dt {
+  font-weight: bolder;
 }
 
 /* Set bullet styles */
@@ -60,11 +65,6 @@ only to lists inside the main content area */
   }
 }
 
-/* Bold description term */
-#{$specify} dt {
-  font-weight: bolder;
-}
-
 // // REVIEW: why the use of ID here?
 // /* Gets rid of bootstrap style */
 // #content li {
@@ -73,9 +73,9 @@ only to lists inside the main content area */
 
 // REVIEW: why the use of ID here?
 // was #content now #{$specify}
-#{$specify} #{$main} ul:not(.unstyled) > li,
-#{$specify} #{$main} ol:not(.unstyled) > li,
-#{$specify} #{$main} dl:not(.unstyled) > dd {
+#{$specify} #{$main} ul:not(.unstyled) li,
+#{$specify} #{$main} ol:not(.unstyled) li,
+#{$specify} #{$main} dl:not(.unstyled) dd {
   margin: $list-margin 0 0;
 }
 /*------------------------
@@ -83,9 +83,91 @@ THEMES
 ------------------------*/
 /* Align text with paragraphs, bullet sitting in the margin */
 // DEBUG: not sure if this works correctly
-#{$specify} #{$main} ul.outside,
-#{$specify} #{$main} ol.outside {
+#{$specify} #{$main} ul.list-align,
+#{$specify} #{$main} ol.list-align {
   margin-left: 0;
 }
 
-/* Colored Bullets */
+/* Colored Lists */
+
+#{$specify} #{$main} ul.color,
+#{$specify} #{$main} ul.color ul,
+#{$specify} #{$main} ul.color ul ul {
+  list-style: none !important;
+  position: relative;
+}
+#{$specify} #{$main} ul.color li::before {
+  content: '\2022';
+  color: $c-secondary;
+  position: absolute;
+  left: -0.8em;
+  width: 1em;
+  font-size: 1.5em;
+}
+#{$specify} #{$main} ul.color ul li::before {
+  content: '\25E6';
+  color: $c-secondary;
+  position: absolute;
+  left: -0.8em;
+  width: 1em;
+  font-size: 1.5em;
+}
+#{$specify} #{$main} ul.color ul ul li::before {
+  content: '\25AA';
+  color: $c-secondary;
+  position: absolute;
+  left: -0.8em;
+  width: 1em;
+  font-size: 1.5em;
+}
+
+#{$specify} #{$main} ol.color, {
+  list-style: none !important;
+  counter-reset: topli;
+}
+#{$specify} #{$main} ol.color > li { counter-increment: topli; }
+
+#{$specify} #{$main} ol.color > li::before {
+  content: '.' counter(topli, decimal);
+  color: $c-secondary;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  margin-right: 0.5em;
+  text-align: right;
+  direction: rtl;
+}
+
+#{$specify} #{$main} ol.color > li > ol, {
+  list-style: none !important;
+  counter-reset: secondli;
+}
+#{$specify} #{$main} ol.color > li > ol > li { counter-increment: secondli; }
+
+#{$specify} #{$main} ol.color ol > li::before {
+  content: '.' counter(secondli, upper-latin);
+  color: $c-secondary;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  margin-right: 0.5em;
+  text-align: right;
+  direction: rtl;
+}
+
+#{$specify} #{$main} ol.color > li > ol > li > ol, {
+  list-style: none !important;
+  counter-reset: thirdli;
+}
+#{$specify} #{$main} ol.color > li > ol > li > ol > li { counter-increment: thirdli; }
+
+#{$specify} #{$main} ol.color ol ol > li::before {
+  content: '.' counter(thirdli, lower-latin);
+  color: $c-secondary;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1.5em;
+  margin-right: 0.5em;
+  text-align: right;
+  direction: rtl;
+}
