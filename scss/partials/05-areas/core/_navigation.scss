@@ -65,8 +65,8 @@ SIDEBAR
     top: 0;
     bottom: 0;
     left: 0;
-    right: s(-0.5); /* half of grid gap, see layout */
-    border-right: 1px solid black;
+    right: s(-1); /* half of grid gap, see layout */
+    border-right: 1px solid c($c-grey, 200);
     pointer-events: none;
   }
 }

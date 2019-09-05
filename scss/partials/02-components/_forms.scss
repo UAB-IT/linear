@@ -72,6 +72,9 @@ THEMES
   border-color: $c-primary;
   color: white;
   background: $c-primary;
+  &:hover {
+    @include hover;
+  }
 }
 
 /* ----------------------------------------------------

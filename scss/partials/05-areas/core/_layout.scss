@@ -84,7 +84,7 @@ START GRID
         'left main'
         'right right'
         'epi epi';
-      grid-column-gap: s(1);
+      grid-column-gap: s(2);
     }
     #{$specify} #maincolumn-r,
     #{$specify} #maincolumn-wide {
@@ -100,7 +100,7 @@ START GRID
         'sys sys sys'
         'left main right'
         'epi epi epi';
-      grid-column-gap: s(2);
+      grid-column-gap: s(3);
     }
     #{$specify} #maincolumn-l {
       grid-area: main / span 2;

@@ -242,7 +242,7 @@ $breakpoints: (
 @mixin hover {
   border-color: $c-primary;
   box-shadow: 0 0 0 1px $c-primary;
-  background: c( $c-primary, 100 );
+  background-color: c( $c-primary, 100 );
   color: black;
 }
 

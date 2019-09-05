@@ -81,7 +81,7 @@ TYPESETTING
 }
 
 /* Gives added top margin to headers when they follow content */
-#{$specify} [role='main'] :not(div) + {
+#{$specify} [role='main'] * + {
   h1,
   h2 {
     margin-top: $header-top;
