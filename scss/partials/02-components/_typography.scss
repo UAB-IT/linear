@@ -83,19 +83,38 @@ TYPESETTING
 /* Gives added top margin to headers when they follow content */
 #{$specify} [role='main'] * + {
   h1,
-  h2 {
+  h2,
+  h3,
+  h4 {
     margin-top: $header-top;
   }
 }
+#{$specify} [role='main'] {
+  h4,
+  h5,
+  h6 {
+    margin-bottom: s(0.5);
+  }
+}
+/*#{$specify} h4 + p {
+  margin-top: s(-1);
+}
+#{$specify} h5 + p {
+  margin-top: s(-1);
+}*/
+#{$specify} h5,
+#{$specify} h6 {
+  font-weight: 600;
+}
 
 /* Remove additional margin between headers */
-#{$specify} [role='main'] h1 + h2,
+/*#{$specify} [role='main'] h1 + h2,
 #{$specify} [role='main'] h2 + h3,
 #{$specify} [role='main'] h3 + h4,
 #{$specify} [role='main'] h4 + h5,
 #{$specify} [role='main'] h5 + h6 {
   margin-top: 0;
-}
+}*/
 
 /* Apply block level margins to block elements */
 #{$specify} p,
@@ -103,6 +122,9 @@ TYPESETTING
 #{$specify} pre {
   margin-top: 0;
   @include block-margin;
+}
+#{$specify} p + p {
+  margin-top: s(-0.5);
 }
 
 /* ID is used here to overwrite equally high specificity from style.css */
