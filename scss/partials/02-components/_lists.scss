@@ -38,8 +38,7 @@ only to lists inside the main content area */
 #{$specify} #{$main} ul ul,
 #{$specify} #{$main} ul ol,
 #{$specify} #{$main} ol ol,
-#{$specify} #{$main} ol ul,
-#{$specify} #{$main} dl dd {
+#{$specify} #{$main} ol ul {
   margin-bottom: 0;
   margin-left: $list-indent;
 }
@@ -74,9 +73,11 @@ only to lists inside the main content area */
 // REVIEW: why the use of ID here?
 // was #content now #{$specify}
 #{$specify} #{$main} ul li,
-#{$specify} #{$main} ol li,
-#{$specify} #{$main} dl dd {
+#{$specify} #{$main} ol li {
   margin: $list-margin 0 0;
+}
+#{$specify} #{$main} dl dd {
+  margin: 0 0 $list-margin $list-indent;
 }
 /*------------------------
 THEMES

@@ -128,7 +128,7 @@ body.linear.hd hr { box-sizing: content-box; height: 0; overflow: visible; borde
 
 /* Allow rule lines that immediately follow headers to sit on the header's
 baseline */
-body.linear.hd h1 + hr, body.linear.hd h2 + hr, body.linear.hd h3 + hr, body.linear.hd h4 + hr, body.linear.hd h5 + hr, body.linear.hd h6 + hr { margin-top: -1.6rem; /* Allows headers to sit on horizontal rules */ }
+body.linear.hd h1 + hr, body.linear.hd h2 + hr, body.linear.hd h3 + hr, body.linear.hd h4 + hr, body.linear.hd h5 + hr, body.linear.hd h6 + hr { margin-top: -0.8rem; /* Allows headers to sit on horizontal rules */ }
 
 /*------------------------
 LINKS
@@ -144,13 +144,15 @@ helps avoid overreaching styles. */
 
 [role='banner'] a[href]:not(.unstyled):hover, [role='main'] a[href]:not(.unstyled):hover, div.footerGray a[href]:not(.unstyled):hover { background-color: #d2e1dc; border-color: #1E6B52; }
 
-[role='banner'] a:not(.btn)[target='_blank']::after, [role='main'] a:not(.btn)[target='_blank']::after, div.footerGray a:not(.btn)[target='_blank']::after { content: ""; font-family: "IcoMoon"; speak: none; margin-left: 0.5em; font-weight: normal; font-size: 90%; }
+[role='banner'] a:not(.btn)[target='_blank']::after, [role='main'] a:not(.btn)[target='_blank']::after, div.footerGray a:not(.btn)[target='_blank']::after { content: ""; font-family: "IcoMoon"; speak: none; margin-left: 0.5em; font-weight: normal; font-size: 75%; }
 
-[role='banner'] a:not(.btn)[href$='.pdf']::after, [role='main'] a:not(.btn)[href$='.pdf']::after, div.footerGray a:not(.btn)[href$='.pdf']::after { content: ""; font-family: "IcoMoon"; speak: none; margin-left: 0.5em; font-weight: normal; font-size: 90%; }
+[role='banner'] a:not(.btn)[href$='.pdf']::after, [role='main'] a:not(.btn)[href$='.pdf']::after, div.footerGray a:not(.btn)[href$='.pdf']::after { content: ""; font-family: "IcoMoon"; speak: none; margin-left: 0.5em; font-weight: normal; font-size: 75%; }
 
 /*------------------------
 SEMANTIC HTML
 ------------------------*/
+abbr { text-decoration: none; }
+
 mark, code, kbd { padding: 0 0.2em 0.1em; }
 
 mark { background-color: #e6f2cc; }
@@ -189,7 +191,7 @@ body.linear.hd #whitebox ul, body.linear.hd #whitebox ol { margin-left: 1.2em; }
 body.linear.hd #whitebox ul, body.linear.hd #whitebox ol, body.linear.hd #whitebox dl { margin-bottom: 1.6rem; }
 
 /* Add indention to child lists */
-body.linear.hd #whitebox ul ul, body.linear.hd #whitebox ul ol, body.linear.hd #whitebox ol ol, body.linear.hd #whitebox ol ul, body.linear.hd #whitebox dl dd { margin-bottom: 0; margin-left: 1em; }
+body.linear.hd #whitebox ul ul, body.linear.hd #whitebox ul ol, body.linear.hd #whitebox ol ol, body.linear.hd #whitebox ol ul { margin-bottom: 0; margin-left: 1em; }
 
 /* Bold description term */
 body.linear.hd dt { font-weight: bolder; }
@@ -207,7 +209,9 @@ body.linear.hd #whitebox ol ol { list-style-type: upper-latin; }
 
 body.linear.hd #whitebox ol ol ol { list-style-type: lower-latin; }
 
-body.linear.hd #whitebox ul li, body.linear.hd #whitebox ol li, body.linear.hd #whitebox dl dd { margin: 0.8rem 0 0; }
+body.linear.hd #whitebox ul li, body.linear.hd #whitebox ol li { margin: 0.8rem 0 0; }
+
+body.linear.hd #whitebox dl dd { margin: 0 0 0.8rem 1em; }
 
 /*------------------------
 THEMES
@@ -357,6 +361,19 @@ body.linear.hd .label-info, body.linear.hd .badge-info, body.linear.hd .badge, b
 /*------------------------
 END CHIPS
 ------------------------*/
+/* ----------------------------------------------------
+FLAGS
+---------------------------------------------------- */
+:root { --theme-color: #1E6B52; }
+
+.flag { display: inline-block; position: relative; padding: 0 1em; color: white; background-color: #1E6B52; background-color: var(--theme-color); line-height: 2em; align-content: center; }
+
+.flag::after { content: ''; position: absolute; bottom: 0; right: -1em; width: 0; height: 0; border-top: 2em solid #1E6B52; border-top: 2em solid var(--theme-color); border-right: 1em solid transparent; }
+
+.flag.l-right { float: right; }
+
+.flag.l-right::after { left: -1em; right: 0; border-right: 0; border-left: 1em solid transparent; clear: both; }
+
 /* ----------------------------------------------------
 ALERT
 //

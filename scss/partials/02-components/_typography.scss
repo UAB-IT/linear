@@ -169,7 +169,7 @@ baseline */
 #{$specify} h4 + hr,
 #{$specify} h5 + hr,
 #{$specify} h6 + hr {
-  margin-top: -$header-bottom; /* Allows headers to sit on horizontal rules */
+  margin-top: s(-0.5); /* Allows headers to sit on horizontal rules */
 }
 
 /*------------------------
@@ -205,7 +205,7 @@ div.footerGray {
       speak: none;
       margin-left: 0.5em;
       font-weight: normal;
-      font-size: 90%;
+      font-size: 75%;
     }
     /* Adds icon to links that open a pdf document */
     a:not(.btn)[href$='.pdf']::after {
@@ -214,7 +214,7 @@ div.footerGray {
       speak: none;
       margin-left: 0.5em;
       font-weight: normal;
-      font-size: 90%;
+      font-size: 75%;
     }
   }
 }
@@ -222,6 +222,9 @@ div.footerGray {
 /*------------------------
 SEMANTIC HTML
 ------------------------*/
+abbr {
+  text-decoration: none;
+}
 
 mark,
 code,
@@ -235,8 +238,6 @@ mark {
 ::selection {
   background-color: $c-select;
 }
-
-// TODO: Test styles of code blocks and kbd tags
 
 code {
   background-color: c( $c-grey, 100 );

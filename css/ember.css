@@ -214,6 +214,39 @@ STATES
 END PAGINATION
 ------------------------*/
 /* ----------------------------------------------------
+Simple RSS Feed Generator
+---------------------------------------------------- */
+body.linear.hd .srfrContainer.srfrStream { float: none; display: block; }
+
+body.linear.hd #whitebox ul.srfrList { list-style: none; }
+
+body.linear.hd #whitebox ul li.srfrRow { margin: 0 0 1.6rem 0; padding-bottom: 1.6rem; border-bottom: 1px solid #cccdce; display: grid; grid-template-columns: 200px 1fr; grid-column-gap: 3.2rem; }
+
+body.linear.hd .srfrStream .col1 { width: 100%; }
+
+body.linear.hd .srfrStream .col1 a::after { display: none; }
+
+body.linear.hd .srfrStream .col2 { width: 100%; margin: 0; }
+
+body.linear.hd a.srfrTitle { display: block; float: none; border: none; margin-bottom: 0.8rem; }
+
+body.linear.hd a.srfrTitle:hover { background: transparent; text-decoration: underline; border: none; }
+
+body.linear.hd a.srfrTitle::after { display: none; }
+
+body.linear.hd .srfrStream .srfrReadMore > a { font-size: 0; border: none; }
+
+body.linear.hd .srfrReadMore a::after { border: 1px solid #80bc00; border-radius: 2px; font-size: 1rem; line-height: 1.6rem; color: #4d4e50; display: inline; font-family: "kulturista-web", serif !important; font-size: 14px; padding: 0.3em 1em; }
+
+body.linear.hd .srfrReadMore a:hover::after { text-decoration: underline; }
+
+body.linear.hd .srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
+
+body.linear.hd .srfrReadMore a[href*="reporter"]::after { content: 'UAB Reporter'; }
+
+body.linear.hd .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
+
+/* ----------------------------------------------------
 END SYNDICATION - START WIDGETKIT
 Changes to the widgetkit systems and additional styling
 ---------------------------------------------------- */
@@ -593,12 +626,6 @@ END BANNER
 /*------------------------
 START FOOTER
 ------------------------*/
-/* ------------------------
-RESET
------------------------- */
-/* Remove default padding on the footer */
-body.linear.hd #footer, #footer .moduletable { padding: 0; }
-
 /* ------------------------
 BASE
 ------------------------ */
