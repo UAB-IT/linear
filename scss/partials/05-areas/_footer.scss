@@ -1,0 +1,103 @@
+/*------------------------
+START FOOTER
+------------------------*/
+// 
+// /* ------------------------
+// RESET
+// ------------------------ */
+// /* Remove default padding on the footer */
+// #{$specify} #footer,
+// #footer .moduletable {
+//   @include reset(padding);
+// }
+/* ------------------------
+BASE
+------------------------ */
+/* Setup the flex container */
+#{$specify} #footer .IT-footer {
+  display: flex;
+  margin-top: $block-margin;
+  margin-bottom: $block-margin;
+}
+
+/* Force containers to be full width and add padding */
+#{$specify} #footer .IT-footer_left,
+#{$specify} #footer .IT-footer_right {
+  width: 100%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+/* Align content */
+#{$specify} #footer .IT-footer_left p {
+  text-align: right;
+  @include reset(margin);
+}
+
+#{$specify} #footer .IT-footer_right,
+#{$specify} #footer .IT-footer_right .social {
+  text-align: left;
+}
+
+/* Add middle divider */
+#{$specify} #footer .IT-footer_right {
+  border-left: $bdr-md solid white;
+}
+
+/* Add spacing between logo and social links */
+#{$specify} #footer .IT-footer .social {
+  margin-top: s( 1 );
+}
+
+/* Set the size of the UAB logo */
+#{$specify} #footer .IT-footer_logo {
+  @include reset(margin);
+  max-height: s( 2 );
+}
+
+/* Add 1 line between footer and locked footer to maintain vertical rythem */
+#lockedFooter {
+  padding-top: $block-margin;
+}
+
+/* ------------------------
+LINKS
+------------------------ */
+/* Adjust link colors in the footer section */
+#footer a,
+#lockedFooter a {
+  color: white;
+  border-color: c( $stone, 400 );
+  &:hover {
+    border-color: c( $stone, 100 );
+    background-color: initial;
+  }
+}
+
+/* Set size of social media icons */
+#{$specify} #footer .IT-footer .social img {
+  @include reset(margin);
+  max-height: 1.5rem;
+}
+
+/* Add spacing between social media links, apply round border */
+#{$specify} #footer .IT-footer_right .social a {
+  display: inline-block;
+  border: 2px solid c($c-grey, 400);
+  border-radius: 50%;
+  margin-right: 1rem;
+  margin-top: 0.2rem;
+  padding: 0.5rem;
+}
+
+#{$specify} #footer .IT-footer_right .social a:hover {
+  border-color: c($stone, 100);
+}
+#{$specify} #footer .IT-footer_right .social a::after {
+  content: '';
+  display: none;
+}
+
+/*------------------------
+END FOOTER
+------------------------*/

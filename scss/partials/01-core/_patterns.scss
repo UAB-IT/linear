@@ -1,0 +1,511 @@
+////
+/// @author Matt McAdams
+////
+
+// ----------------------------------------------------
+// FONTS
+// ----------------------------------------------------
+
+/// Sets the font for body text
+/// @group typography
+/// @type string | keyword(serif, sans-serif, monospace, cursive, system-ui) [sans-serif]
+$font-body: 'proxima-nova', arial, helvetica, sans-serif !important !default;
+
+/// Sets the font for header text
+/// @group typography
+/// @type string | keyword(serif, sans-serif, monospace, cursive, system-ui) [serif]
+$font-head: 'kulturista-web', serif !default;
+
+/// Sets the font for monospace text
+/// @group typography
+/// @type string | keyword(serif, sans-serif, monospace, cursive, system-ui) [monospace]
+$font-mono: monospace !default;
+
+/// Sets the icon font
+/// @group typography
+/// @type string [null]
+$font-icon: 'IcoMoon' !default;
+
+/// Sets the font weights to use numbers from font family
+/// @group typography
+/// @type map
+///   map properties are X00 value of font weight according to font used, or
+///   font weight keyword as used in CSS
+$font-weights: (
+  body: (
+    thin: 100,
+    normal: 400,
+    bold: 600,
+    black: 700
+  ),
+  head: (
+    thin: 300,
+    normal: 400,
+    bold: 600,
+    black: bold
+  ),
+  mono: (
+    thin: normal,
+    normal: normal,
+    bold: bold,
+    black: bold
+  )
+) !default;
+
+/// Default header weight
+/// @group typography
+/// @type string [normal]
+$header-weight: normal !default;
+
+/// Gets weight value for font based on `$font-weights`
+/// @group typography
+/// @requires $font-weights
+/// @requires map-deep-get
+/// @param {keyword (thin, normal, bold, black)} $weight [normal]
+///   The desired weight of the font
+/// @param {keyword (body, head, mono)} $font [body]
+///   The text font
+/// @output {string} font-weight: value from `$font-weights` matching both params
+/// @example
+///   @include weight(bold, head);
+@mixin weight($weight: normal, $font: body) {
+  font-weight: map-deep-get($font-weights, $font, $weight);
+}
+
+/// Sets the font sizes to a step on the type scale
+/// @see type-scale
+/// @see $ratio
+/// @group typography
+/// @type map | integers
+$font-sizes: (
+  large: 5,
+  h1: 5,
+  h2: 4,
+  h3: 3,
+  h4: 2,
+  h5: 1,
+  h6: 0,
+  p: 0,
+  sm: -1
+) !default;
+
+/// Calculates font size from scale steps
+/// @group typography
+/// @requires $ratio
+/// @requires $font-sizes
+/// @requires $txt-size
+/// @param {number (unitless) | keyword (large, h1, h2, h3, h4, h5, h6, p, sm)} $scale
+///   Number denotes step on the stype scale, use keyword to match font scale to that key in $font-sizes
+/// @return
+///   {number (unitless)} $txt-size * pow( $ratio, $scale )
+///   this unitless number needs to be given the 'rem' unit in use
+/// @example
+///   font-size: #{type-scale( h1 ) + 'rem'};
+/// @see type-setting
+@function type-scale($scale) {
+  $level: null;
+  // Gets numerical level from the font sizes map
+  @if type-of($scale) == 'string' {
+    $level: map-get( $font-sizes, $scale );
+  }
+  @else {
+    $level: $scale;
+  }
+  // Passes the numerical scale to the function to calculate font size
+  @if $level == 0 {
+    @return $txt-size;
+  }
+  @else if $level <= -0.1 {
+    // remove negative from number, division does this for us
+    $nlevel: $level * -1;
+    @return $txt-size / pow( $ratio, $nlevel );
+  }
+  @else {
+    @return $txt-size * pow( $ratio, $level );
+  }
+}
+
+/// Combines font size and line height for the input scale
+/// @group typography
+/// @requires type-scale
+/// @requires line-height
+/// @param {number (unitless) | keyword (large, h1, h2, h3, h4, h5, h6, p, sm)} $input
+///   Number denotes step on the stype scale, use keyword to match font scale to that key in $font-sizes
+/// @output
+///   font-size: #{$size + 'rem'};
+///   line-height: #{line-height( $size ) + 'rem'};
+@mixin type-setting($input) {
+  $size: type-scale( $input );
+  font-size: #{$size + 'rem'};
+  line-height: #{line-height( $size ) + 'rem'};
+}
+
+// ----------------------------------------------------
+// COLORS
+// ----------------------------------------------------
+
+$uabgreen: #1E6B52;
+$darkgreen: #295135;
+$blaze: #FFD400;
+$apple: #80BC00;
+$gold: #AA9767;
+$stone: #808285;
+$coral: #EA6852;
+
+/// Sets the primary brand color
+/// @group color
+$c-primary: $uabgreen !default;
+/// Sets the accent brand color
+/// @group color
+$c-accent: $apple !default;
+
+/// Color used for success information
+/// @group color
+$c-green: $apple !default;
+
+/// Color used for caution information
+/// @group color
+$c-yellow: $blaze !default;
+
+/// Color used for warning information
+/// @group color
+$c-red: #F00 !default;
+
+/// Color used for color fields and other tinted sections
+/// @group color
+$c-grey: $stone !default;
+
+/// Color used for :select
+/// @group color
+$c-select: c($c-primary, 100) !default;
+
+/// Color used for <mark>
+/// @group color
+$c-mark: c( $apple, 100 ) !default;
+
+/// Color used for backgrounds
+/// @group color
+$c-background: rgba(128, 130, 133, 0.15) !default;
+
+/// Standard body text color
+/// @group color
+$c-body: black !default;
+
+/// Standard header text color
+/// @group color
+$c-header: black !default;
+
+/// Standard border color
+/// @group color
+$c-bdr: black !default;
+
+/// Standard <hr> color
+/// @group color
+$c-hr: $c-bdr !default;
+
+/// Text color used when high contrast is enabled
+/// @group color
+$c-contrast: black !default;
+
+// ----------------------------------------------------
+// BORDER
+// ----------------------------------------------------
+
+/// Default border radius on containers with a border or background
+/// @group borders
+/// @type number [4px]
+$bdr-radius: 4px !default;
+
+/// Border radius on buttons
+/// @group borders
+/// @type number [$bdr-radius]
+$btn-radius: $bdr-radius !default;
+
+/// Border radius on cards and other block level elements with background or border
+/// @group borders
+/// @type number [$bdr-radius]
+$card-radius: $bdr-radius !default;
+
+/// Default border width
+/// @group borders
+/// @type number [1px]
+$bdr-width: 1px !default;
+
+/// Medium border width
+/// @group borders
+/// @type number [2px]
+$bdr-md: 2px !default;
+
+/// Large border width
+/// @group borders
+/// @type number [5px]
+$bdr-lg: 5px !default;
+
+/// Border width for cards
+/// @group borders
+/// @type number [$bdr-width]
+$card-bdr-width: $bdr-width !default;
+
+/// Border width for <hr>
+/// @group borders
+/// @type number [$bdr-width]
+$hr-width: $bdr-width !default;
+
+// ----------------------------------------------------
+// SPACING
+// ----------------------------------------------------
+
+/// Indention of text when text is indented
+/// @group spacing
+/// @type number [1em]
+$indent: 1em !default;
+
+/// Padding for inline elements that have a background
+/// @group spacing
+/// @type number [0 0.2em 0.1em]
+$inline-padding: 0 0.2em 0.1em !default;
+
+/// Margin given to block level elements to establish vertical rhythem
+/// @group spacing
+/// @requires s()
+/// @type number [s(1)]
+$block-margin: s(1) !default;
+
+/// Padding given to block level elements with border or background
+/// @group spacing
+/// @requires s()
+/// @type number [s(1)]
+$block-padding: s(1) !default;
+
+/// Padding on inputs such as buttons, form fields, and other inline-block elements
+/// @group spacing
+/// @type number [0.3em 1em]
+$input-padding: 0.3em 1em !default;
+
+/// Margin for sections without a background
+/// @group spacing
+/// @requires s()
+/// @type number [s(4)]
+$section-margin: s(4) !default;
+
+/// Padding for sections with a background
+/// @group spacing
+/// @requires s()
+/// @type number [s(4)]
+$section-padding: s(4) !default;
+
+/// Smaller padding for sections with a background
+/// @group spacing
+/// @requires s()
+/// @type number [s(4)]
+$section-padding-small: s(2) !default;
+
+/// Width of the main layout column
+/// @group spacing
+/// @type number(px) [1000px]
+$max-width: 1280px !default;
+
+/// Space between content and edge of screen on smaller devices
+/// @group spacing
+/// @requires s()
+/// @type number [s(1)]
+$body-pad: s(1) !default;
+
+/// Space below headers
+/// @deprecated Typography has become too complex for this variable to do a good job
+/// @group spacing
+/// @requires $block-margin
+/// @type number [$block-margin]
+$header-bottom: $block-margin !default;
+
+/// Space above headers
+/// @deprecated Typography has become too complex for this variable to do a good job
+/// @group spacing
+/// @requires $section-margin
+/// @type number [$section-margin / 2]
+$header-top: ($section-margin / 2) !default;
+
+/// Sets margin for block level elements for vertical rhythem
+/// @group spacing
+/// @deprecated Unnecessary complication
+/// @requires $block-margin
+@mixin block-margin { margin-bottom: $block-margin; }
+
+// ----------------------------------------------------
+// MEDIA QUERIES
+// ----------------------------------------------------
+
+/// Screen sizes to use for break points
+/// @group responsive
+/// @type map | number(px)
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 761px,
+  sm: 760px,
+  xs: 300px
+) !default;
+
+/// Media Query Mixin
+/// @group responsive
+/// @requires $breakpoints
+/// @param {string} $size - key from $breakpoints map
+@mixin breakpoint($size) {
+  @media all and (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
+
+// ----------------------------------------------------
+// UTILITY
+// ----------------------------------------------------
+
+/// Clearfix for floated containers, used as a bugfix
+/// @group utility
+@mixin clearfix {
+  content: '';
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  height: 0;
+  clear: both;
+}
+
+/// Shorthand for the position property
+/// includes quick option to make the element cover its parent
+/// @group utility
+/// @param {string | keyword(cover)} $position - value for position property
+/// @param {number} $top - value for top property
+/// @param {number} $right [$top] - value for right property
+/// @param {number} $bottom [$top] - value for bottom property
+/// @param {number} $left [$right] - value for the left property
+@mixin position($position, $top: null, $right: $top, $bottom: $top, $left: $right) {
+  @if $position == cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @else {
+    position: $position;
+    @if $top != null {
+      top: $top;
+    }
+    @if $right != null {
+      right: $right;
+    }
+    @if $bottom != null {
+      bottom: $bottom;
+    }
+    @if $left != null {
+      left: $left;
+    }
+  }
+}
+
+// ----------------------------------------------------
+// PATTERNS
+// ----------------------------------------------------
+
+@mixin header-style($size: null, $margin: true) {
+  @if $margin == true {
+    margin: 0 0 $header-bottom;
+  }
+  @if $size != null {
+    @include type-setting($size);
+  }
+  @include weight($header-weight, head);
+  font-family: $font-head;
+  color: $c-header;
+}
+
+@mixin link-style($theme: null, $hover: false) {
+  @if $hover == true {
+    @if $theme == alert {
+      background-color: c($c-red, 200);
+      border-color: $c-red;
+    }
+    @else if $theme == mute {
+      background-color: initial;
+      border-color: c($stone, 100);
+    }
+    @else {
+      background-color: c($c-primary, 100);
+      border-color: $c-primary;
+    }
+  }
+  @else {
+    @if $theme == alert {
+      border-bottom: 2px solid $c-red;
+    }
+    @else if $theme == mute {
+      color: white;
+      border-bottom: 2px solid c($stone, 400);
+    }
+    @else {
+      border-bottom: 2px solid c($c-primary, 200);
+    }
+  }
+}
+
+@mixin hover {
+  border-color: $c-primary;
+  box-shadow: 0 0 0 1px $c-primary;
+  background-color: c( $c-primary, 100 );
+  color: black;
+}
+
+@mixin card-styles {
+  border: $bdr-width solid black;
+  border-radius: $bdr-radius;
+  padding: $block-padding;
+}
+
+// ----------------------------------------------------
+// RESET
+// ----------------------------------------------------
+
+@mixin reset($properties...) {
+  @for $i from 0 to length($properties) {
+    @if nth($properties, $i + 1) == margin {
+      margin: 0;
+    }
+    @if nth($properties, $i + 1) == padding {
+      padding: 0;
+    }
+    @if nth($properties, $i + 1) == border {
+      border: 0;
+    }
+    @if nth($properties, $i + 1) == float {
+      float: none;
+    }
+    @if nth($properties, $i + 1) == font-size {
+      font-size: inherit;
+    }
+    @if nth($properties, $i + 1) == font-weight {
+      font-weight: normal;
+    }
+    @if nth($properties, $i + 1) == color {
+      color: inherit;
+    }
+    @if nth($properties, $i + 1) == background {
+      background: none;
+      background-color: transparent;
+      background-image: none;
+    }
+    @if nth($properties, $i + 1) == shadow {
+      text-shadow: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+    }
+    @if nth($properties, $i + 1) == transition {
+      -webkit-transition-property: none;
+      -moz-transition-property: none;
+      -o-transition-property: none;
+      transition-property: none;
+    }
+  }
+}

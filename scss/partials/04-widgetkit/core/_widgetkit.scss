@@ -1,0 +1,31 @@
+/* Add vertical rhythem spacing to the widgetkit margins */
+
+* + .uk-margin {
+  margin-top: s( 1 );
+}
+.uk-margin {
+  margin-bottom: s( 1 );
+}
+.uk-panel-space {
+  padding: s(1);
+}
+
+/* Margin fix for items inside widgetkit blocks */
+#{$specify} .uk-panel p:last-child {
+  @include reset(margin);
+}
+
+.uk-panel-teaser,
+.uk-panel-title {
+  margin-bottom: 0;
+}
+
+// /* PANEL */
+// .uk-panel {
+//   display: grid;
+//   grid-template-areas:
+//     'img'
+//     'head'
+//     'body'
+//     'foot';
+// }

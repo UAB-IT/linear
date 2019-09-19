@@ -1,0 +1,63 @@
+/*------------------------
+START PANELS
+------------------------*/
+body .panels > a,
+.cards > div {
+  @include card-styles;
+  background: white;
+}
+
+body .panels > a:hover {
+  @include hover;
+}
+
+.panels > a h4 {
+  display: inline-block;
+  margin-top: 0;
+  @include link-style;
+}
+
+.panels > a:hover h4 {
+  @include link-style($hover: true);
+}
+
+.panels > a p:last-child {
+  margin-bottom: 0;
+}
+
+.uk-panel-box {
+  padding: $block-padding;
+}
+
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: $c-body;
+}
+
+#{$specify} .wk-panels .uk-panel-title {
+  margin-top: 0;
+}
+
+#{$specify} .wk-panels .uk-panel {
+  background: white;
+  @include card-styles;
+}
+
+#{$specify} a.uk-position-cover {
+  opacity: 0 !important;
+}
+
+#{$specify} .wk-panels .uk-panel:hover {
+  @include hover;
+}
+#{$specify} .wk-panels .uk-panel:hover h3 a {
+  border-color: $c-primary;
+}
+/*------------------------
+END PANELS
+------------------------*/

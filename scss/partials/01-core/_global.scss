@@ -1,0 +1,138 @@
+// ----------------------------------------------------
+// CORE FUNCTIONS
+// ----------------------------------------------------
+
+/// Power function
+/// @group utility
+/// @param {number} $base - number to be multiplied
+/// @param {number (unitless)} $exponents - number of times it should be multiplied
+/// @return `$base` to the power of `$exponents`
+@function pow($base, $exponents) {
+  $raised: 1;
+  @for $i from 1 through $exponents {
+    $raised: $raised * $base;
+  }
+  @return $raised;
+}
+
+/// Get value from a deep map
+/// @group utility
+/// @param {map} $map - source map to pull key from
+/// @param {string...} $keys - key to extract value of
+/// @return key value
+@function map-deep-get($map, $keys...) {
+  @each $key in $keys {
+    $map: map-get($map, $key);
+  }
+  @return $map;
+}
+
+/// Tint color
+/// @group utility
+/// @param {color} $color - color to be tinted
+/// @param {number(%)} $percentage - key to extract value of
+/// @return `$color` mixed with white by `$percentage`
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+/// Shade color
+/// @group utility
+/// @param {color} $color - color to be shaded
+/// @param {number(%)} $percentage - key to extract value of
+/// @return `$color` mixed with black by `$percentage`
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// ----------------------------------------------------
+// REQUIREMENTS
+// ----------------------------------------------------
+
+$rem-size: 16 !default; // Integer(px)
+$ratio: 1.25 !default; // Number
+$init-txt-size: 16 !default; // Integer(px)
+$init-line-height: 1.6 !default; // Number
+
+$txt-size: $init-txt-size / $rem-size; //converts raw value to "rem"
+$line-height: $init-txt-size * $init-line-height / $rem-size; //converts raw value to "rem"
+
+/// Calculates line height for input text size
+/// @group typography
+/// @param {number (unitless)} $size - input text size (rem)
+/// @return number >= `$size`
+@function line-height($size) {
+  $value: $line-height;
+  $i: 1;
+  @while $value < $size {
+    $value: $line-height * $i;
+    $i: $i + 0.5;
+  }
+  @return $value;
+}
+
+/// base unit of measurement for spacing
+/// @type number
+$space-unit: $line-height !default;
+
+/// function to create a general unit of measurement for spacing
+/// @requires $space-unit
+/// @group spacing
+/// @param {number} $value
+/// @return number(rem) = `$space-unit` times `$value`
+@function s($value) {
+  @return ($space-unit * $value) + 0rem;
+}
+
+/// configuration of color scale
+/// @group color
+/// 500 is the base color, higher numbers are mixed with black, lower numbers are mixed with white
+$color-scale: (
+  050: 90%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 20%,
+  700: 40%,
+  800: 60%,
+  900: 80%
+) !default;
+
+/// Generates tint or shade of color input
+/// @group utility
+/// @requires map-get()
+/// @requires shade()
+/// @requires tint()
+/// @requires $color-scale
+/// @param {color} $color [black] - color to be manipulated
+/// @param {$color-scale.key} $level - level of the color
+/// @see $color-scale
+/// @return manipulated color
+@function c($color: black, $level: null) {
+  @if $level >= 600 {
+    $scale: map-get( $color-scale, $level );
+    @return shade( $color, $scale );
+  }
+  @else if $level <= 400 {
+    $scale: map-get( $color-scale, $level );
+    @return tint( $color, $scale );
+  }
+  @else {
+    @return $color;
+  }
+}
+
+// ----------------------------------------------------
+// CONFIG
+// ----------------------------------------------------
+
+$adjust-template: true !default; // boolean
+$use-grid: true !default; // boolean
+$adjust-layout: true !default; // boolean
+
+$specify: 'body.linear.hd' !default; // string
+$main: '#whitebox' !default;
+
+$icon-new-tab: '\e024' !default; // string
+$icon-pdf: '\e239' !default; // string

@@ -1,8 +1,0 @@
-/* Add vertical rhythem spacing to the widgetkit margins */
-* + .uk-margin {
-  margin-top: s(1);
-}
-
-.uk-margin {
-  margin-bottom: s(1);
-}

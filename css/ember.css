@@ -1,0 +1,781 @@
+/*--------------------------------------------------
+START GRID
+--------------------------------------------------*/
+/*------------------------
+START IE FALLBACK
+------------------------*/
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { [class*='grid-2'], [class*='grid-3'], [class*='grid-4'], [class*='grid-6'] { box-sizing: border-box; display: flex; flex-wrap: wrap; margin: -0.5rem; }
+  [class*='grid-2'] > *, [class*='grid-3'] > *, [class*='grid-4'] > *, [class*='grid-6'] > * { flex-grow: 1; width: 100%; box-sizing: border-box; margin: 0.5rem; }
+  .span-1 { flex-grow: 1; }
+  .span-2 { flex-grow: 2; }
+  .span-3 { flex-grow: 3; }
+  .span-4 { flex-grow: 4; }
+  .span-5 { flex-grow: 5; }
+  .grid--no-gap, .grid--no-gap > * { margin: 0; }
+  .grid-6 > *, .grid-6 > .span-1, .grid-6-md > *, .grid-6-md > .span-1-md, .grid-6-lg > *, .grid-6-lg > .span-1 { width: 14.4%; }
+  .grid-4 > *, .grid-4 .span-1, .grid-4-md > *, .grid-4-md .span-1-md, .grid-4-lg > *, .grid-4-lg .span-1-lg { width: 21.6%; }
+  .grid-3 > *, .grid-3 > .span-1, .grid-6 > .span-2, .grid-3-md > *, .grid-3-md > .span-1-md, .grid-6-md > .span-2-md, .grid-3-lg > *, .grid-3-lg > .span-1-lg, .grid-6-lg > .span-2-lg { width: 28.8%; }
+  .grid-2 > *, .grid-2 > .span-1, .grid-4 > .span-2, .grid-6 > .span-3, .grid-2-md > *, .grid-2-md > .span-1-md, .grid-4-md > .span-2-md, .grid-6-md > .span-3-md, .grid-2-lg > *, .grid-2-lg > .span-1-lg, .grid-4-lg > .span-2-lg, .grid-6-lg > .span-3-lg { width: 43.2%; }
+  .grid-3 > .span-2, .grid-6 > .span-4, .grid-3-md > .span-2-md, .grid-6-md > .span-4-md, .grid-3-lg > .span-2-lg, .grid-6-lg > .span-4-lg { width: 57.6%; }
+  .grid-4 > .span-3, .grid-4-md > .span-3-md, .grid-4-lg > .span-3-lg { width: 64.8%; }
+  .grid-6 > .span-5, .grid-6-md > .span-5-md, .grid-6-lg > .span-5-lg { width: 72%; }
+  .grid-2 > .span-2, .grid-3 > .span-3, .grid-4 > .span-4, .grid-6 > .span-6, .grid-2-md > .span-2-md, .grid-3-md > .span-3-md, .grid-4-md > .span-4-md, .grid-6-md > .span-6-md, .grid-2-lg > .span-2-lg, .grid-3-lg > .span-3-lg, .grid-4-lg > .span-4-lg, .grid-6-lg > .span-6-lg { width: 86.4%; } }
+
+/*------------------------
+END IE FALLBACK
+------------------------*/
+/* remove floats from sections with columns since this is handled through grid */
+body.hd .latestnews li, body.hd .relateditems li, body.hd .mostread li, body.hd .newsfeed li, body.hd .sections li, body.hd .weblinks li, body.hd .k2ItemsBlock li, body.hd .category-module, body.hd .moduleCustomLink, body.hd .rightsidebar .nav.menu li { float: none; width: 100%; }
+
+@supports (display: grid) { [class*='grid-2'] > [class*='span-'], [class*='grid-3'] > [class*='span-'], [class*='grid-4'] > [class*='span-'], [class*='grid-6'] > [class*='span-'], [class*='grid-2'] > *, [class*='grid-3'] > *, [class*='grid-4'] > *, [class*='grid-6'] > *, [class*='grid-2'], [class*='grid-3'], [class*='grid-4'], [class*='grid-6'] { width: 100%; margin: 0; }
+  [class*='grid-1'], [class*='grid-2'], [class*='grid-3'], [class*='grid-4'], [class*='grid-6'] { margin-bottom: 1.6rem; display: grid; grid-gap: 3.2rem; grid-auto-flow: row; }
+  .grid--no-gap { grid-gap: 0; }
+  .grid--gap-sm { grid-gap: 1.6rem; }
+  .grid--gap-md { grid-gap: 3.2rem; }
+  .grid--gap-lg { grid-gap: 6.4rem; } }
+
+.grid-1 { grid-template-columns: repeat(1, 1fr); }
+
+.grid-2 { grid-template-columns: repeat(2, 1fr); }
+
+.grid-3 { grid-template-columns: repeat(3, 1fr); }
+
+.grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+.grid-6 { grid-template-columns: repeat(6, 1fr); }
+
+.grid-1 > .span-1, .grid-2 > .span-1, .grid-3 > .span-1, .grid-4 > .span-1, .grid-6 > .span-1 { grid-column: span 1; }
+
+.grid-2 > .span-2, .grid-3 > .span-2, .grid-4 > .span-2, .grid-6 > .span-2 { grid-column: span 2; }
+
+.grid-3 > .span-3, .grid-4 > .span-3, .grid-6 > .span-3 { grid-column: span 3; }
+
+.grid-4 > .span-4, .grid-6 > .span-6 { grid-column: span 4; }
+
+.grid-6 > .span-5 { grid-column: span 5; }
+
+.grid-6 > .span-6 { grid-column: span 6; }
+
+@media all and (min-width: 300px) { .grid-1-sm { grid-template-columns: repeat(1, 1fr); }
+  .grid-2-sm { grid-template-columns: repeat(2, 1fr); }
+  .grid-3-sm { grid-template-columns: repeat(3, 1fr); }
+  .grid-4-sm { grid-template-columns: repeat(4, 1fr); }
+  .grid-6-sm { grid-template-columns: repeat(6, 1fr); }
+  .grid-1-sm > .span-1-sm, .grid-2-sm > .span-1-sm, .grid-3-sm > .span-1-sm, .grid-4-sm > .span-1-sm, .grid-6-sm > .span-1-sm { grid-column: span 1; }
+  .grid-2-sm > .span-2-sm, .grid-3-sm > .span-2-sm, .grid-4-sm > .span-2-sm, .grid-6-sm > .span-2-sm { grid-column: span 2; }
+  .grid-3-sm > .span-3-sm, .grid-4-sm > .span-3-sm, .grid-6-sm > .span-3-sm { grid-column: span 3; }
+  .grid-4-sm > .span-4-sm, .grid-6-sm > .span-6-sm { grid-column: span 4; }
+  .grid-6-sm > .span-5-sm { grid-column: span 5; }
+  .grid-6-sm > .span-6-sm { grid-column: span 6; } }
+
+@media all and (min-width: 700px) { .grid-1-md { grid-template-columns: repeat(1, 1fr); }
+  .grid-2-md { grid-template-columns: repeat(2, 1fr); }
+  .grid-3-md { grid-template-columns: repeat(3, 1fr); }
+  .grid-4-md { grid-template-columns: repeat(4, 1fr); }
+  .grid-6-md { grid-template-columns: repeat(6, 1fr); }
+  .grid-1-md > .span-1-md, .grid-2-md > .span-1-md, .grid-3-md > .span-1-md, .grid-4-md > .span-1-md, .grid-6-md > .span-1-md { grid-column: span 1; }
+  .grid-2-md > .span-2-md, .grid-3-md > .span-2-md, .grid-4-md > .span-2-md, .grid-6-md > .span-2-md { grid-column: span 2; }
+  .grid-3-md > .span-3-md, .grid-4-md > .span-3-md, .grid-6-md > .span-3-md { grid-column: span 3; }
+  .grid-4-md > .span-4-md, .grid-6-md > .span-6-md { grid-column: span 4; }
+  .grid-6-md > .span-5-md { grid-column: span 5; }
+  .grid-6-md > .span-6-md { grid-column: span 6; } }
+
+@media all and (min-width: 1024px) { .grid-1-lg { grid-template-columns: repeat(1, 1fr); }
+  .grid-2-lg { grid-template-columns: repeat(2, 1fr); }
+  .grid-3-lg { grid-template-columns: repeat(3, 1fr); }
+  .grid-4-lg { grid-template-columns: repeat(4, 1fr); }
+  .grid-6-lg { grid-template-columns: repeat(6, 1fr); }
+  .grid-1-lg > .span-1-lg, .grid-2-lg > .span-1-lg, .grid-3-lg > .span-1-lg, .grid-4-lg > .span-1-lg, .grid-6-lg > .span-1-lg { grid-column: span 1; }
+  .grid-2-lg > .span-2-lg, .grid-3-lg > .span-2-lg, .grid-4-lg > .span-2-lg, .grid-6-lg > .span-2-lg { grid-column: span 2; }
+  .grid-3-lg > .span-3-lg, .grid-4-lg > .span-3-lg, .grid-6-lg > .span-3-lg { grid-column: span 3; }
+  .grid-4-lg > .span-4-lg, .grid-6-lg > .span-6-lg { grid-column: span 4; }
+  .grid-6-lg > .span-5-lg { grid-column: span 5; }
+  .grid-6-lg > .span-6-lg { grid-column: span 6; } }
+
+/* Fix for inside margin */
+body.linear.hd [class*='grid-1'] > * :last-child, body.linear.hd [class*='grid-2'] > * :last-child, body.linear.hd [class*='grid-3'] > * :last-child, body.linear.hd [class*='grid-4'] > * :last-child, body.linear.hd [class*='grid-6'] > * :last-child { margin-bottom: 0; }
+
+/* ----------------------------------------------------
+END COMPONENTS - START SYNDICATION
+Components that style syndicated content where we have limited control over
+html and classes of the target elements.
+---------------------------------------------------- */
+/* ----------------------------------------------------
+CALENDAR
+Generated from Localist widget from campus calendar
+---------------------------------------------------- */
+/* ------------------------
+RESET
+------------------------ */
+/* remove margin from list */
+body.linear.hd .localist-widget ul.localist-widget-eds { margin: 0 !important; }
+
+/* ------------------------
+BASE
+Styles taken from department websites
+------------------------ */
+body.linear.hd .localist-widget li { list-style: none; display: flex; margin-bottom: 0.8rem; }
+
+/* DATE BLOCK */
+body.linear.hd .localist-dateblock { width: 60px; min-width: 60px; min-height: 50px; }
+
+body.linear.hd .localist-widget-eds div.localist-month { text-decoration: none; color: white; background-color: #1E6B52; font-size: 1em; font-family: "kulturista-web", serif; text-transform: uppercase; text-align: center; padding-top: 2px; padding-bottom: 1px; border-bottom: 2px solid #80BC00; }
+
+body.linear.hd .localist-day { color: #555; background-color: rgba(128, 130, 133, 0.15); font-size: 1.4em; font-weight: 600; text-align: center; text-decoration: none; line-height: 1; padding-top: 10px; padding-bottom: 10px; }
+
+/* EVENT DETAILS */
+body.linear.hd .localist-widget-eds div.localist-secondblock { margin: 0 0 0 1em !important; min-height: 44px; /*min-width: 20em;*/ }
+
+body.linear.hd .localist-title h4 { font-size: 1rem; line-height: 1.6rem; margin-top: -0.2em; margin-bottom: 0px; font-family: "proxima-nova", arial, helvetica, sans-serif !important; }
+
+body.linear.hd .localist-title h4 a { border-bottom: 2px solid transparent; }
+
+body.linear.hd .localist-otherdetails div, .localist-otherdetails i { font-size: 0.8rem; line-height: 1.6rem; }
+
+/*------------------------
+END CALENDAR
+------------------------*/
+/* ----------------------------------------------------
+NEWSFLASH
+Generated from article feed component
+---------------------------------------------------- */
+/* ------------------------
+RESET
+------------------------ */
+body.linear.hd li.newsflash-item { float: none; /* remove style from style.css */ }
+
+.it-news .article-separator { display: none; /* Removes space caused by an empty element */ }
+
+/* ------------------------
+BASE
+------------------------ */
+body.linear.hd #whitebox ul.newsflash-vert { overflow: visible; align-items: stretch; margin: 0 0 1.6rem 0; }
+
+/* Allows re-ordering of item's content */
+.it-news > .newsflash-item { display: grid; grid-template-areas: 'image' 'title' 'content' 'footer'; align-content: flex-start; border: none; }
+
+/* Item Title */
+body.linear.hd .it-news .newsflash-title { grid-area: title; display: block !important; padding: 0; margin-top: 0.8rem; margin-bottom: 0.8rem; }
+
+/* Item Image Container (Figure) */
+.it-news .newsflash-image { grid-area: image; margin: 0; /* Removes margin from style.css */ max-height: 16rem; overflow: hidden; /* Prevents parts of cropped image from showing */ }
+
+.it-news .newsflash-image img { width: 100%; max-height: 16rem; }
+
+/* Remove trailing margin from inside paragraph */
+body.linear.hd .it-news li.newsflash-item p { margin: 0; }
+
+/* ---------------------------------------------------- NEWS FEED Generated from article feed component Expected HTML: <ul class="category-module it-feed mod-list"> <li> <a class="mod-articles-category-title"></a> <p class="mod-articles-category-introtext"></p> </li> </ul> ---------------------------------------------------- */
+/* Remove list style and add block margin */
+body.linear.hd ul.it-feed { margin-bottom: 1.6rem; }
+
+body.linear.hd .it-feed .mod-articles-category-title { margin: 0; font-size: 1rem; line-height: 1.6rem; font-family: "kulturista-web", serif; }
+
+body.linear.hd .it-feed .mod-articles-category-introtext { margin: 0.8rem 0 0; }
+
+/* ----------------------------------------------------
+PAGINATION
+Joomla generated pagination
+---------------------------------------------------- */
+/* ------------------------
+RESET
+------------------------ */
+.pagination { margin: 0; margin-bottom: 1.6rem; }
+
+.pagination ul { text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; border-radius: 0; }
+
+/* ------------------------
+BASE
+------------------------ */
+.pagination a.pagenav, .pagination span.pagenav { border: 0; display: inline-block; padding: 0.3em 1em; margin: 0 0.8rem; }
+
+/* Button groups */
+.pagination ul > li.pagination-start > .pagenav .pagination ul > li.pagination-next > .pagenav { border-bottom-left-radius: 2px; border-top-left-radius: 2px; }
+
+.pagination ul > li.pagination-end > .pagenav .pagination ul > li.pagination-prev > .pagenav { border-bottom-right-radius: 2px; border-top-right-radius: 2px; }
+
+.pagination ul > li.pagination-prev > .pagenav { margin-right: 0.8rem; }
+
+.pagination ul > li.pagination-next > .pagenav { margin-left: 0.8rem; }
+
+/* Buttons */
+.pagination ul > li.pagination-start > a, .pagination ul > li.pagination-prev > a, .pagination ul > li.pagination-end > a, .pagination ul > li.pagination-next > a { margin: 0; border: 1px solid #1E6B52; color: #1E6B52; }
+
+/* ------------------------
+STATES
+------------------------ */
+/* Active */
+.pagination span.pagenav { border-bottom: 2px solid #80BC00; }
+
+/* Disabled */
+.pagination ul > li.pagination-start > span, .pagination ul > li.pagination-prev > span, .pagination ul > li.pagination-end > span, .pagination ul > li.pagination-next > span { margin: 0; border: 1px solid #b3b4b6; color: #b3b4b6; background: rgba(128, 130, 133, 0.15); }
+
+/*------------------------
+END PAGINATION
+------------------------*/
+/* ----------------------------------------------------
+Simple RSS Feed Generator
+---------------------------------------------------- */
+body.linear.hd .srfrContainer.srfrStream { float: none; display: block; }
+
+body.linear.hd #whitebox ul.srfrList { list-style: none; }
+
+body.linear.hd #whitebox ul li.srfrRow { margin: 0 0 1.6rem 0; padding-bottom: 1.6rem; border-bottom: 1px solid #cccdce; display: grid; grid-template-columns: 200px 1fr; grid-column-gap: 3.2rem; }
+
+body.linear.hd .srfrStream .col1 { width: 100%; }
+
+body.linear.hd .srfrStream .col1 a::after { display: none; }
+
+body.linear.hd .srfrStream .col2 { width: 100%; margin: 0; }
+
+body.linear.hd a.srfrTitle { display: block; float: none; border: none; margin-bottom: 0.8rem; }
+
+body.linear.hd a.srfrTitle:hover { background: transparent; text-decoration: underline; border: none; }
+
+body.linear.hd a.srfrTitle::after { display: none; }
+
+body.linear.hd .srfrStream .srfrReadMore > a { font-size: 0; border: none; }
+
+body.linear.hd .srfrReadMore a::after { border: 1px solid #80bc00; border-radius: 2px; font-size: 1rem; line-height: 1.6rem; color: #4d4e50; display: inline; font-family: "kulturista-web", serif !important; font-size: 14px; padding: 0.3em 1em; }
+
+body.linear.hd .srfrReadMore a:hover::after { text-decoration: underline; }
+
+body.linear.hd .srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
+
+body.linear.hd .srfrReadMore a[href*="reporter"]::after { content: 'UAB Reporter'; }
+
+body.linear.hd .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
+
+/* ----------------------------------------------------
+END SYNDICATION - START WIDGETKIT
+Changes to the widgetkit systems and additional styling
+---------------------------------------------------- */
+/* Add vertical rhythem spacing to the widgetkit margins */
+* + .uk-margin { margin-top: 1.6rem; }
+
+.uk-margin { margin-bottom: 1.6rem; }
+
+.uk-panel-space { padding: 1.6rem; }
+
+/* Margin fix for items inside widgetkit blocks */
+body.linear.hd .uk-panel p:last-child { margin: 0; }
+
+.uk-panel-teaser, .uk-panel-title { margin-bottom: 0; }
+
+/* Adjust margin for grid gap */
+.uk-grid { margin-left: -3.2rem; }
+
+/* Apply grid gap */
+.uk-grid > * { padding-left: 3.2rem; }
+
+.uk-grid + .uk-grid, .uk-grid-margin, .uk-grid > * > .uk-panel + .uk-panel { margin-top: 3.2rem; }
+
+/* Smaller grid gap */
+.uk-grid-small { margin-left: -1.6rem; }
+
+.uk-grid-small > * { padding-left: 1.6rem; }
+
+.uk-grid-small .uk-grid + .uk-grid, .uk-grid-small .uk-grid-margin, .uk-grid-small .uk-grid > * > .uk-panel + .uk-panel { margin-top: 1.6rem; }
+
+/* medium and large grid gap, share sizes on smaller screens */
+.uk-grid-medium, .uk-grid-large { margin-left: -3.2rem; }
+
+.uk-grid-medium > *, .uk-grid-large > * { padding-left: 3.2rem; }
+
+.uk-grid-medium .uk-grid + .uk-grid, .uk-grid-medium .uk-grid-margin, .uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel, .uk-grid-large .uk-grid + .uk-grid, .uk-grid-large .uk-grid-margin, .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel { margin-top: 3.2rem; }
+
+@media all and (min-width: 1024px) { /* apply larger gap size to large screens */
+  .uk-grid-large { margin-left: -6.4rem; }
+  .uk-grid-large > * { padding-left: 6.4rem; }
+  .uk-grid-large .uk-grid + .uk-grid, .uk-grid-large .uk-grid-margin, .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel { margin-top: 6.4rem; } }
+
+/* ------------------------
+NESTED GRIDS
+------------------------ */
+body.linear.hd .uk-panel .uk-grid { margin: 0; display: flex; flex-wrap: nowrap; }
+
+body.linear.hd .uk-panel .uk-grid div { padding: 0; width: auto; flex-shrink: 1; }
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first { margin-right: 1.6rem; flex-shrink: 0; width: 6rem; }
+
+body.linear.hd .uk-panel .uk-grid div.uk-row-first img { float: right; }
+
+/*------------------------
+START DETAILS
+------------------------*/
+body.linear.hd .wk-details .uk-panel img { height: 5rem; width: auto; display: block; margin: auto; }
+
+body.linear.hd .wk-details.uk-text-left .uk-panel img { margin: 0; }
+
+body.linear.hd .wk-details .uk-panel-title { margin: 0; font-size: 1.25rem; line-height: 1.6rem; margin-bottom: -0.8rem; }
+
+/*------------------------
+END DETAILS
+------------------------*/
+/*------------------------
+START FEATURES
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-features .uk-panel img { height: 7rem; width: auto; display: block; margin: auto; }
+
+body.linear.hd .wk-features .uk-panel-title { margin-bottom: 1.6rem; margin-top: 1.6rem; }
+
+/*------------------------
+END FEATURES
+------------------------*/
+/*------------------------
+START GALLERY
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-gallery p { margin: 0; text-align: center; }
+
+/*------------------------
+END GALLERY
+------------------------*/
+/*------------------------
+START PANELS
+------------------------*/
+body .panels > a, .cards > div { border: 1px solid black; border-radius: 2px; padding: 1.6rem; background: white; }
+
+body .panels > a:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background-color: #d2e1dc; color: black; }
+
+.panels > a h4 { display: inline-block; margin-top: 0; border-bottom: 2px solid #a5c4ba; }
+
+.panels > a:hover h4 { background-color: #d2e1dc; border-color: #1E6B52; }
+
+.panels > a p:last-child { margin-bottom: 0; }
+
+.uk-panel-box { padding: 1.6rem; }
+
+.uk-panel-title, .uk-panel-box-primary, .uk-panel-box, .uk-panel-box .uk-panel-title, .uk-panel-box-hover:hover, .uk-panel-box-primary .uk-panel-title, .uk-panel-box-primary-hover:hover { color: black; }
+
+body.linear.hd .wk-panels .uk-panel-title { margin-top: 0; }
+
+body.linear.hd .wk-panels .uk-panel { background: white; border: 1px solid black; border-radius: 2px; padding: 1.6rem; }
+
+body.linear.hd a.uk-position-cover { opacity: 0 !important; }
+
+body.linear.hd .wk-panels .uk-panel:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background-color: #d2e1dc; color: black; }
+
+body.linear.hd .wk-panels .uk-panel:hover h3 a { border-color: #1E6B52; }
+
+/*------------------------
+END PANELS
+------------------------*/
+/*------------------------
+START SLIDESHOW
+------------------------*/
+/* NOTE: The slideshow component is built in widgetkit - not html */
+/* Remove margins from slider elements. This will make sure the
+background image doesn't get cropped since widgetkit doesn't
+account for the margins in the sizing of the slideshow. */
+body.linear.hd #content .item-page ul.uk-slideshow, body.linear.hd #content .item-page ul.uk-slideshow li, body.linear.hd #content .item-page ul.uk-slideshow img { margin: 0; }
+
+/*------------------------
+END SLIDESHOW
+------------------------*/
+/*------------------------
+START TABS
+------------------------*/
+body.linear.hd #content ul.uk-tab, body.linear.hd #content ul.uk-tab li, body.linear.hd #content ul.uk-switcher, body.linear.hd #content ul.uk-switcher li { margin: 0; }
+
+body.linear.hd #content ul.uk-switcher.uk-margin-top { margin-top: 0 !important; }
+
+body.linear.hd ul.uk-tab > li > a { border-bottom: 1px solid transparent; border-radius: 0; }
+
+body.linear.hd ul.uk-tab > li > a:hover { border-bottom: 1px solid transparent; }
+
+body.linear.hd ul.uk-tab > li.uk-active > a { border-color: #808285; }
+
+body.linear.hd ul.uk-tab { border-bottom: 0px solid transparent; }
+
+body.linear.hd ul.uk-switcher .uk-panel { border: 1px solid #808285; margin-top: -1px; padding: 1.6rem 1.6rem 0; }
+
+/*------------------------
+END TABS
+------------------------*/
+/* ----------------------------------------------------
+END WIDGETKIT - START AREAS
+Edits to the Linear template areas.
+Most edits undo Ember styling to keep template styles in those areas.
+---------------------------------------------------- */
+/*------------------------
+START NAVIGATION
+------------------------*/
+/*------------------------
+TOP NAVIGATION
+------------------------*/
+/* Removes link styles in the top navigation. */
+body.linear.hd #ribbon .nav a { border: 0; padding: 15px !important; }
+
+/* Add nav styles from ur department websites, use Apple */
+body.linear.hd #tray #ribbon .nav.menu > .active > a, body.linear.hd #tray #ribbon .nav.menu > .active > a:hover, body.linear.hd #tray #ribbon .nav.menu > .active > a:focus, body.linear.hd #tray #ribbon .nav.menu > .alias-parent-active > a { background-color: #80BC00; color: white !important; }
+
+body.linear.hd div#tray { border-bottom: 7px solid #80BC00; }
+
+/* ensure grey colors are consistant */
+body.linear.hd #ribbon .nav > li > a:hover, body.linear.hd #ribbon .nav > li > a:focus, body.linear.hd #ribbon .dropdown-menu > li > a:hover, body.linear.hd #ribbon .dropdown-menu > li > a:focus, body.linear.hd #ribbon .nav > li > span:hover, body.linear.hd #ribbon .nav > li > span:focus, body.linear.hd #ribbon .dropdown-menu > .active > a:hover, body.linear.hd #ribbon .dropdown-menu > .active > a:focus { background: rgba(128, 130, 133, 0.15); }
+
+/*------------------------
+SIDEBAR
+------------------------*/
+/* Reset font sizes in the sidebar */
+body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: transparent; }
+
+/* Remove list styles */
+body.linear.hd #leftcolumn ul.nav-child, body.linear.hd #leftcolumn ul.nav { margin: 0; }
+
+body.linear.hd #leftcolumn .sidebar li, body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal; margin: 0; }
+
+/* Add border to the right of the sidebar */
+@media all and (min-width: 700px) { body.linear.hd #leftcolumn { position: relative; }
+  body.linear.hd #leftcolumn::after { content: ''; position: absolute; top: 0; bottom: 0; left: 0; right: -1.6rem; /* half of grid gap, see layout */ border-right: 1px solid #cccdce; pointer-events: none; } }
+
+@media all and (min-width: 1024px) { body.linear.hd #leftcolumn::after { right: -1.6rem; /* half of grid gap, see layout */ } }
+
+/* Base styles for menu links */
+#leftcolumn ul.nav.menu a { margin: 0; border: 0; background: none; background-color: transparent; background-image: none; font-size: 1rem; line-height: 1.6rem; display: block; padding: 0.5rem; color: #333435; border-left: 5px solid transparent; }
+
+/* Style for link to Section Page */
+#leftcolumn ul.nav.menu > .parent > a { font-size: 1.25rem; line-height: 1.6rem; font-weight: 600; }
+
+/* Child items */
+#leftcolumn ul.nav.menu .nav-child .parent > ul a { padding-left: 1.5rem; }
+
+/* States */
+#leftcolumn ul.nav.menu .current > a { background-color: rgba(128, 130, 133, 0.15); border-left: 5px solid #80BC00; }
+
+#leftcolumn ul.nav.menu a:hover { color: inherit !important; background-color: rgba(128, 130, 133, 0.15); /*border-left: 5px solid c($stone, 400);*/ }
+
+/* Spacing */
+#leftcolumn .moduletable { margin-bottom: 1.6rem; }
+
+/* Style for seperators */
+#leftcolumn .divider span.separator { display: none; }
+
+#leftcolumn .divider span.separator + ul::before { content: ''; display: block; margin: 1rem 0.5rem; border-top: 3px solid #80BC00; }
+
+/*------------------------
+QUICKLINKS
+------------------------*/
+/* Remove list margin */
+body.linear.hd #quicklinks ul { margin: 0; }
+
+/* Ensure links are sized correctly */
+body.linear.hd #quicklinks .dropdown-menu a { box-sizing: border-box; }
+
+/* BUGFIX: Make sure quicklinks are above banner */
+body.linear.hd #quicklinks .moduletable { z-index: 2; }
+
+/* Ensure hover color is consistant */
+body.linear.hd #quicklinks .dropdown-submenu:hover > a, body.linear.hd #quicklinks .dropdown-submenu:focus > a, body.linear.hd #quicklinks .dropdown-menu > li > a:hover, body.linear.hd #quicklinks .dropdown-menu > li > a:focus, body.linear.hd #quicklinks .newsfeed > li:hover, body.linear.hd #quicklinks .newsfeed > li:focus { background-color: #d2e1dc; }
+
+/* BUGFIX: Fix box shadow styles on quicklinks feed */
+body.linear.hd #quicklinks ul.nav-child.unstyled.dropdown-menu, body.linear.hd #quicklinks div.feed { box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); }
+
+/*------------------------
+SEARCH
+------------------------*/
+body.linear.hd #search form { display: flex; justify-content: flex-end; align-items: right; }
+
+body.linear.hd #search button.btn-primary { border: 1px solid #1E6B52; }
+
+body.linear.hd #search button.btn-primary:hover { background: #d2e1dc; color: black; outline: 0; box-shadow: none; }
+
+body.linear.hd #search input:focus + .btn-primary, body.linear.hd #search input:focus + .btn-primary:hover { box-shadow: 0 0 0 1px #1E6B52; }
+
+/*------------------------
+BREADCRUMBS
+------------------------*/
+.breadcrumb li span.divider::after { content: '\e006'; font-family: 'IcoMoon'; font-size: .7em !important; color: #80BC00; margin-right: 3px; }
+
+.breadcrumb span.divider > img { display: none; }
+
+/* ----------------------------------------------------
+LAYOUT
+This module introduces overrides for the template area
+positioning styles to offer a better experience on
+browsers that support it.
+---------------------------------------------------- */
+/* Fixes a bug where outlines would be cutoff in modules */
+body.linear.hd .moduletable { overflow: visible !important; }
+
+/* ------------------------
+START GRID
+------------------------ */
+@supports (display: grid) { /* reset sizing and positional properties of main areas to prevent odd layout issues when using grid. These resets requre grid to be supported, so it will fallback to the old positioning CSS */
+  body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-l, body.linear.hd #maincolumn-l-r, body.linear.hd #maincolumn-wide, body.linear.hd #system-message-container, body.linear.hd #leftcolumn, body.linear.hd #downright, body.linear.hd #epilogue, body.linear.hd .left-position { width: auto !important; max-width: 100% !important; padding: 0 !important; margin: 0 !important; box-sizing: border-box !important; }
+  /* fixes a bug where elements that overflow the whitebox could overflow the body and allow the page to be scrolled on the x axis */
+  body.linear.hd #wrapper { overflow-x: hidden; }
+  /* Setup basic grid areas and layout allow elements to overflow the grid to cover the full width of the screen */
+  body.linear.hd #whitebox { display: grid; overflow: visible; grid-template-columns: 1fr; grid-template-areas: 'sys' 'left' 'main' 'right' 'epi'; }
+  body.linear.hd #system-message-container { grid-area: sys; }
+  body.linear.hd #sidebar_trigger { grid-area: left; }
+  body.linear.hd #leftcolumn { grid-area: left; }
+  body.linear.hd #maincolumn-l-r, body.linear.hd #maincolumn-l, body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-wide { grid-area: main; }
+  body.linear.hd #downright { grid-area: right; }
+  body.linear.hd #epilogue { grid-area: epi; }
+  @media all and (min-width: 700px) { /* Add left column to tablet size */
+    body.linear.hd #whitebox { grid-template-columns: 200px 1fr; grid-template-areas: 'sys sys' 'left main' 'right right' 'epi epi'; grid-column-gap: 3.2rem; }
+    body.linear.hd #maincolumn-r, body.linear.hd #maincolumn-wide { grid-area: left / span 2; } }
+  @media all and (min-width: 1024px) { /* Add right column and increase the column gap for larger screens */
+    body.linear.hd #whitebox { grid-template-columns: 250px 1fr 250px; grid-template-areas: 'sys sys sys' 'left main right' 'epi epi epi'; grid-column-gap: 4.8rem; }
+    body.linear.hd #maincolumn-l { grid-area: main / span 2; }
+    body.linear.hd #maincolumn-wide { grid-area: left / span 3; } } }
+
+/* ------------------------
+END GRID - START PADDING
+Adds space around content so
+that content doesn't hit edge
+of screen
+------------------------ */
+@supports (display: grid) { body.linear.hd #whitebox { padding: 1.6rem; width: auto !important; display: border-box !important; max-width: 1280px !important; } }
+
+/* ------------------------
+END PADDING - START MARGINS
+Adds space above and below
+the main content area
+------------------------ */
+body.linear.hd #whitebox { margin: 6.4rem auto; }
+
+/* ------------------------
+END MARGINS - START SIDEBAR
+Adjusts the position and layout
+of the responsive navigation menu
+and it's trigger
+------------------------ */
+@media only screen and (max-width: 700px) { /* only applying these edits when grid is supported, it relies on changes made above */
+  @supports (display: grid) { /* Set the max width of the sidebar, add padding equal to size of the touch target, position it in the gap between the banner and content */
+    body.linear.hd #leftcolumn { max-width: 300px !important; padding: 38px !important; margin-top: calc(((6.4rem / 2) + 38px) * -1) !important; }
+    /* align touch target with sidebar, remove border added by link styles */
+    body.linear.hd #sidebar_trigger { margin-top: calc(((6.4rem / 2) + 38px) * -1) !important; border: none !important; }
+    /* Fix a bug where the icon was not centered in the box */
+    body.linear.hd #sidebar_trigger::before { height: auto; }
+    /* Remove styling of default touch target, align it to the right side of the sidebar */
+    body.linear.hd #sidebar_trigger.active { border: none !important; width: 38px !important; height: 38px !important; background: white !important; margin-left: 262px !important; }
+    /* Add new touch target using an icon instead of an image align it to the center of the touch target */
+    body.linear.hd #sidebar_trigger.active::after { content: '\49'; font-family: "IcoMoon"; display: block !important; font-size: 18px; line-height: 38px; text-align: center; color: #333435; } } }
+
+@supports (display: grid) { /* remove unneeded padding from module tables */
+  body.linear.hd #leftcolumn .moduletable { padding: 0; } }
+
+/* ------------------------
+END SIDEBAR - START BANNER
+Adjusts the content of the
+banner position to ensure content
+lines up and doesn't hit the edge
+of the screen.
+------------------------ */
+/* Ensure content inside the banner stays
+within the width of the main column,
+add same padding as is on whitebox */
+body.linear.hd #banner .moduletable { max-width: 1280px; margin: auto; padding: 1.6rem; }
+
+/* ------------------------
+END BANNER - START WHITEBAR
+Adds space to the site name area
+------------------------ */
+body.linear.hd #whitebar { margin-top: 1.6rem; margin-bottom: 1.6rem; }
+
+/*------------------------
+START BANNER
+------------------------*/
+/* Reset */
+/* Remove default positional styles */
+body.linear.hd .stickyNav .page-header { float: none; max-width: 100%; }
+
+/* relative allows us to position the background,
+padding moves the title and breadcrumbs to the bottom of the container,
+min height sets the size of the banner,
+z-index is incremented to ensure the banner shows up on mobile */
+#banner { position: relative; padding-top: 12.8rem; min-height: 10rem; z-index: 1; }
+
+/* Set the before and after elements to cover the banner area and send them to the back */
+#banner::before, #banner::after { content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; }
+
+/* Set default banner image and and position */
+#banner::before { background: url(/it/home/images/banners/Default-WebHeader.jpg); background-size: cover; background-position: bottom; background-attachment: scroll; }
+
+/* Add the image filter effect used on the banners */
+#banner::after { background: #295135; mix-blend-mode: multiply; opacity: 0.9; }
+
+/* apply rhythem spacing & adjust color to header */
+#banner h1 { margin-bottom: 1.6rem; color: white; }
+
+/* Media */
+/* Remove main image from page, this gets put into the banner
+background with JS. Don't remove the image on pages that miss
+this functionality. */
+body.linear.hd:not(.article-layout) .item-image { display: none; }
+
+/* Breadcrumb */
+/* Remove default styles & adjust color */
+body.linear.hd .breadcrumb > li, body.linear.hd .breadcrumb > .active { text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; color: white; }
+
+/* Reset default styles */
+body.linear.hd .breadcrumb > li > .divider, body.linear.hd .breadcrumb a, body.linear.hd .breadcrumb > li > span { color: inherit; font-size: inherit; }
+
+/* Reset default styles and apply rhythem spacing */
+body.linear.hd .breadcrumb { border: 0; padding: 0; margin: 0; margin-bottom: 1.6rem; }
+
+/*------------------------
+END BANNER
+------------------------*/
+/*------------------------
+START FOOTER
+------------------------*/
+/* ------------------------
+BASE
+------------------------ */
+/* Setup the flex container */
+body.linear.hd #footer .IT-footer { display: flex; margin-top: 1.6rem; margin-bottom: 1.6rem; }
+
+/* Force containers to be full width and add padding */
+body.linear.hd #footer .IT-footer_left, body.linear.hd #footer .IT-footer_right { width: 100%; padding-left: 1rem; padding-right: 1rem; }
+
+/* Align content */
+body.linear.hd #footer .IT-footer_left p { text-align: right; margin: 0; }
+
+body.linear.hd #footer .IT-footer_right, body.linear.hd #footer .IT-footer_right .social { text-align: left; }
+
+/* Add middle divider */
+body.linear.hd #footer .IT-footer_right { border-left: 2px solid white; }
+
+/* Add spacing between logo and social links */
+body.linear.hd #footer .IT-footer .social { margin-top: 1.6rem; }
+
+/* Set the size of the UAB logo */
+body.linear.hd #footer .IT-footer_logo { margin: 0; max-height: 3.2rem; }
+
+/* Add 1 line between footer and locked footer to maintain vertical rythem */
+#lockedFooter { padding-top: 1.6rem; }
+
+/* ------------------------
+LINKS
+------------------------ */
+/* Adjust link colors in the footer section */
+#footer a, #lockedFooter a { color: white; border-color: #999b9d; }
+
+#footer a:hover, #lockedFooter a:hover { border-color: #e6e6e7; background-color: initial; }
+
+/* Set size of social media icons */
+body.linear.hd #footer .IT-footer .social img { margin: 0; max-height: 1.5rem; }
+
+/* Add spacing between social media links, apply round border */
+body.linear.hd #footer .IT-footer_right .social a { display: inline-block; border: 2px solid #999b9d; border-radius: 50%; margin-right: 1rem; margin-top: 0.2rem; padding: 0.5rem; }
+
+body.linear.hd #footer .IT-footer_right .social a:hover { border-color: #e6e6e7; }
+
+body.linear.hd #footer .IT-footer_right .social a::after { content: ''; display: none; }
+
+/*------------------------
+END FOOTER
+------------------------*/
+/*------------------------
+START ARTICLE
+------------------------*/
+/* ------------------------
+BASE
+------------------------ */
+body.linear.hd.article-layout #content .item-page.article-layout { max-width: 700px !important; margin: auto; }
+
+/* ------------------------
+DETAILS
+------------------------ */
+/* position article info */
+body.linear.hd.article-layout .article-info { text-align: right; border-top: 1px solid black; margin-bottom: 0; padding-top: 1.6rem; }
+
+/* Reove calendar icon in article info */
+body.linear.hd.article-layout .article-info .icon-calendar { display: none; }
+
+/* ------------------------
+MEDIA
+------------------------ */
+/* Allow images and videos to break out of the text column on both sides */
+body.linear.hd.article-layout #content .item-page.article-layout figure { width: calc( 700px + 6.4rem); margin-left: -3.2rem; }
+
+/* ------------------------
+INTRO
+------------------------ */
+/* Add styling for intro section at top of articles */
+body.linear.hd.article-layout .item-page.article-layout > div > .intro { width: calc( 700px + 6.4rem); margin-left: -3.2rem; padding: 1.6rem 3.2rem; border-top: 1px solid black; border-bottom: 1px solid black; }
+
+/*------------------------
+END ARTICLE
+------------------------*/
+/* ----------------------------------------------------
+END AREAS - START HELPERS
+Classes that help with styling content on a case-by-case basis
+and fixing edge case bugs
+---------------------------------------------------- */
+/*------------------------
+START HELPERS
+------------------------*/
+body.linear.hd .type-set--1 { font-size: 0.8rem; line-height: 1.6rem; }
+
+body.linear.hd .type-set-0 { font-size: 1rem; line-height: 1.6rem; }
+
+body.linear.hd .type-set-1 { font-size: 1.25rem; line-height: 1.6rem; }
+
+body.linear.hd .type-set-2 { font-size: 1.5625rem; line-height: 1.6rem; }
+
+body.linear.hd .type-set-3 { font-size: 1.95312rem; line-height: 2.4rem; }
+
+body.linear.hd .type-set-4 { font-size: 2.44141rem; line-height: 3.2rem; }
+
+body.linear.hd .type-set-5 { font-size: 3.05176rem; line-height: 3.2rem; }
+
+.txt-c { text-align: center !important; }
+
+.txt-l { text-align: left !important; }
+
+.txt-r { text-align: right !important; }
+
+.full { display: block; width: 100%; }
+
+.round { border-radius: 2px; }
+
+.square { border-radius: 0; }
+
+.circle { border-radius: 50%; }
+
+.border { border: 1px solid black; }
+
+.background { padding: 1.6rem; background-color: rgba(128, 130, 133, 0.15); }
+
+[class*='-space-0'] { --u-space: 0; }
+
+[class*='-space-05'] { --u-space: 0.8rem; }
+
+[class*='-space-1'] { --u-space: 1.6rem; }
+
+[class*='-space-2'] { --u-space: 3.2rem; }
+
+[class*='-space-3'] { --u-space: 4.8rem; }
+
+[class*='-space-4'] { --u-space: 6.4rem; }
+
+[class*='u-margin-top-'] { margin-top: var(--u-space) !important; }
+
+[class*='u-margin-right-'] { margin-right: var(--u-space) !important; }
+
+[class*='u-margin-bottom-'] { margin-bottom: var(--u-space) !important; }
+
+[class*='u-margin-left-'] { margin-left: var(--u-space) !important; }
+
+[class*='u-padding-top-'] { padding-top: var(--u-space) !important; }
+
+[class*='u-padding-right-'] { padding-right: var(--u-space) !important; }
+
+[class*='u-padding-bottom-'] { padding-bottom: var(--u-space) !important; }
+
+[class*='u-padding-left-'] { padding-left: var(--u-space) !important; }
+
+/*------------------------
+END HELPERS
+------------------------*/
+/* ----------------------------------------------------
+END - HELPERS
+---------------------------------------------------- */

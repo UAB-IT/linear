@@ -1,0 +1,27 @@
+$adjust-template: true; // boolean
+$use-grid: true; // boolean
+$bdr-radius: 2px;
+
+$specify: 'body.linear.hd'; // string
+$main: '#whitebox'; // string
+
+$font-sizes: (
+  large: 6,
+  h1: 5,
+  h2: 3,
+  h3: 2,
+  h4: 1,
+  h5: 0,
+  h6: 0,
+  p: 0,
+  sm: -1
+);
+
+$breakpoints: (
+  xxl: 2560px,
+  xl: 1440px,
+  lg: 1024px,
+  md: 700px,
+  sm: 300px,
+  xs: 299px
+);

@@ -1,0 +1,181 @@
+// TODO: Redesign to use with Grid
+
+/* Adjust margin for grid gap */
+.uk-grid {
+  margin-left: -$gap;
+}
+
+/* Apply grid gap */
+.uk-grid > * {
+  padding-left: $gap;
+}
+.uk-grid + .uk-grid,
+.uk-grid-margin,
+.uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: $gap;
+}
+
+/* Smaller grid gap */
+.uk-grid-small {
+  margin-left: -$gap-sm;
+}
+.uk-grid-small > * {
+  padding-left: $gap-sm;
+}
+.uk-grid-small .uk-grid + .uk-grid,
+.uk-grid-small .uk-grid-margin,
+.uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: $gap-sm;
+}
+
+/* medium and large grid gap, share sizes on smaller screens */
+.uk-grid-medium,
+.uk-grid-large {
+  margin-left: -$gap-md;
+}
+.uk-grid-medium > *,
+.uk-grid-large > * {
+  padding-left: $gap-md;
+}
+.uk-grid-medium .uk-grid + .uk-grid,
+.uk-grid-medium .uk-grid-margin,
+.uk-grid-medium .uk-grid > * > .uk-panel + .uk-panel,
+.uk-grid-large .uk-grid + .uk-grid,
+.uk-grid-large .uk-grid-margin,
+.uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+  margin-top: $gap-md;
+}
+
+@include breakpoint(lg) {
+  /* apply larger gap size to large screens */
+  .uk-grid-large {
+    margin-left: -$gap-lg;
+  }
+  .uk-grid-large > * {
+    padding-left: $gap-lg;
+  }
+  .uk-grid-large .uk-grid + .uk-grid,
+  .uk-grid-large .uk-grid-margin,
+  .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
+    margin-top: $gap-lg;
+  }
+}
+
+/* ------------------------
+NESTED GRIDS
+------------------------ */
+// NOTE: This was designed for the details component and assumes a layout to have an image on left and text on right
+#{$specify} .uk-panel .uk-grid {
+  margin: 0;
+  display: flex;
+  flex-wrap: nowrap;
+}
+#{$specify} .uk-panel .uk-grid div {
+  padding: 0;
+  width: auto;
+  flex-shrink: 1;
+}
+#{$specify} .uk-panel .uk-grid div.uk-row-first {
+  margin-right: s(1);
+  flex-shrink: 0;
+  width: 6rem;
+}
+#{$specify} .uk-panel .uk-grid div.uk-row-first img {
+  float: right;
+}
+//
+// @supports (display: grid) {
+//   .uk-grid,
+//   .uk-grid-small,
+//   .uk-grid-large,
+//   .uk-grid-medium {
+//     margin: 0;
+//     display: grid;
+//     grid-gap: $gap;
+//   }
+//   .uk-grid-small {
+//     grid-gap: $gap-sm;
+//   }
+//   .uk-grid-large {
+//     grid-gap: $gap-lg;
+//   }
+//
+//   .uk-grid > *,
+//   .uk-grid-small > *,
+//   .uk-grid-large > *,
+//   .uk-grid-medium > * {
+//     margin: 0;
+//     padding: 0;
+//     width: 100%;
+//   }
+//
+//   .uk-grid-width-1-1,
+//   .uk-grid-width-small-1-1 {
+//     grid-template-columns: 1fr;
+//   }
+//   .uk-grid-width-1-2,
+//   .uk-grid-width-small-1-2 {
+//     grid-template-columns: repeat(2, 1fr);
+//   }
+//   .uk-grid-width-1-3,
+//   .uk-grid-width-small-1-3 {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+//   .uk-grid-width-1-4,
+//   .uk-grid-width-small-1-4 {
+//     grid-template-columns: repeat(4, 1fr);
+//   }
+//   .uk-grid-width-1-5,
+//   .uk-grid-width-small-1-5 {
+//     grid-template-columns: repeat(5, 1fr);
+//   }
+//   .uk-grid-width-1-6,
+//   .uk-grid-width-small-1-6 {
+//     grid-template-columns: repeat(6, 1fr);
+//   }
+//   @include breakpoint(md) {
+//     .uk-grid-width-medium-1-1 {
+//       grid-template-columns: 1fr;
+//     }
+//     .uk-grid-width-medium-1-2 {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
+//     .uk-grid-width-medium-1-3 {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//     .uk-grid-width-medium-1-4 {
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .uk-grid-width-medium-1-5 {
+//       grid-template-columns: repeat(5, 1fr);
+//     }
+//     .uk-grid-width-medium-1-6 {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//   }
+//   @include breakpoint(lg) {
+//     .uk-grid-width-large-1-1 {
+//       grid-template-columns: 1fr;
+//     }
+//     .uk-grid-width-large-1-2 {
+//       grid-template-columns: repeat(2, 1fr);
+//     }
+//     .uk-grid-width-large-1-3 {
+//       grid-template-columns: repeat(3, 1fr);
+//     }
+//     .uk-grid-width-large-1-4 {
+//       grid-template-columns: repeat(4, 1fr);
+//     }
+//     .uk-grid-width-large-1-5 {
+//       grid-template-columns: repeat(5, 1fr);
+//     }
+//     .uk-grid-width-large-1-6 {
+//       grid-template-columns: repeat(6, 1fr);
+//     }
+//   }
+//   /* Prevent unnecessary clearfixes from breaking grid */
+//   .uk-grid::after,
+//   .uk-grid::before {
+//     display: none;
+//   }
+// }

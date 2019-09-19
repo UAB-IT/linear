@@ -1,0 +1,72 @@
+/* ----------------------------------------------------
+Simple RSS Feed Generator
+---------------------------------------------------- */
+#{$specify} .srfrContainer.srfrStream {
+  float: none;
+  display: block;
+}
+#{$specify} #whitebox ul.srfrList {
+  list-style: none;
+}
+
+#{$specify} #whitebox ul li.srfrRow {
+  margin: 0 0 s(1) 0;
+  padding-bottom: s(1);
+  border-bottom: 1px solid c($c-grey, 200);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: s(2);
+}
+
+#{$specify} .srfrStream .col1 {
+  width: 100%;
+}
+#{$specify} .srfrStream .col1 a::after {
+  display: none;
+}
+
+#{$specify} .srfrStream .col2 {
+  width: 100%;
+  margin: 0;
+}
+#{$specify} a.srfrTitle {
+  display: block;
+  float: none;
+  border: none;
+  margin-bottom: s(0.5);
+}
+#{$specify} a.srfrTitle:hover {
+  background: transparent;
+  text-decoration: underline;
+  border: none;
+}
+#{$specify} a.srfrTitle::after {
+  display: none;
+}
+#{$specify} .srfrStream .srfrReadMore > a {
+  font-size: 0;
+  border: none;
+}
+
+#{$specify} .srfrReadMore a::after {
+  border: 1px solid #80bc00;
+  border-radius: $bdr-radius;
+  @include type-setting(0);
+  color: c( $c-grey, 700 );
+  display: inline;
+  font-family: "kulturista-web", serif !important;
+  font-size: 14px;
+  padding: $input-padding;
+}
+#{$specify} .srfrReadMore a:hover::after {
+  text-decoration: underline;
+}
+#{$specify} .srfrReadMore a[href*='uab.edu/news']::after {
+  content: 'UAB News';
+}
+#{$specify} .srfrReadMore a[href*="reporter"]::after {
+  content: 'UAB Reporter';
+}
+#{$specify} .srfrReadMore a[href*='uab.edu/it']::after {
+  content: 'IT News';
+}
