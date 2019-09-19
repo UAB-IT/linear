@@ -213,8 +213,8 @@ STATES
 #{$specify} textarea:focus,
 #{$specify} input:focus,
 #{$specify} select:focus {
-  border-color: $c-secondary;
-  box-shadow: 0 0 0 1px $c-secondary;
+  border-color: $c-accent;
+  box-shadow: 0 0 0 1px $c-accent;
 }
 #{$specify} select:focus,
 #{$specify} input[type='file']:focus,
@@ -228,19 +228,19 @@ STATES
 #{$specify} input[type='radio']:checked {
   background-image: url(#{$radio-checked-image});
   background-position: center;
-  border-color: $c-secondary;
-  background-color: $c-secondary;
+  border-color: $c-accent;
+  background-color: $c-accent;
   &:focus {
-    background-color: $c-secondary;
+    background-color: $c-accent;
   }
 }
 #{$specify} input[type='checkbox']:checked {
   background-image: url(#{$checkbox-checked-image});
   background-position: center;
-  border-color: $c-secondary;
-  background-color: $c-secondary;
+  border-color: $c-accent;
+  background-color: $c-accent;
   &:focus {
-    background-color: $c-secondary;
+    background-color: $c-accent;
   }
 }
 
@@ -251,7 +251,7 @@ input[type='radio']:checked,
 .uk-checkbox:checked:focus,
 .uk-checkbox:indeterminate:focus,
 input[type='radio']:checked:focus {
-  background-color: $c-secondary;
+  background-color: $c-accent;
 }
 
 /* Fix for RS Forms */

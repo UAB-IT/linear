@@ -99,7 +99,7 @@ THEMES
 }
 #{$specify} #{$main} ul.color li::before {
   content: '\2022';
-  color: $c-secondary;
+  color: $c-accent;
   position: absolute;
   left: -0.8em;
   width: 1em;
@@ -107,7 +107,7 @@ THEMES
 }
 #{$specify} #{$main} ul.color ul li::before {
   content: '\25E6';
-  color: $c-secondary;
+  color: $c-accent;
   position: absolute;
   left: -0.8em;
   width: 1em;
@@ -115,7 +115,7 @@ THEMES
 }
 #{$specify} #{$main} ul.color ul ul li::before {
   content: '\25AA';
-  color: $c-secondary;
+  color: $c-accent;
   position: absolute;
   left: -0.8em;
   width: 1em;
@@ -130,7 +130,7 @@ THEMES
 
 #{$specify} #{$main} ol.color > li::before {
   content: '.' counter(topli, decimal);
-  color: $c-secondary;
+  color: $c-accent;
   display: inline-block;
   width: 1em;
   margin-left: -1.5em;
@@ -147,7 +147,7 @@ THEMES
 
 #{$specify} #{$main} ol.color ol > li::before {
   content: '.' counter(secondli, upper-latin);
-  color: $c-secondary;
+  color: $c-accent;
   display: inline-block;
   width: 1em;
   margin-left: -1.5em;
@@ -164,7 +164,7 @@ THEMES
 
 #{$specify} #{$main} ol.color ol ol > li::before {
   content: '.' counter(thirdli, lower-latin);
-  color: $c-secondary;
+  color: $c-accent;
   display: inline-block;
   width: 1em;
   margin-left: -1.5em;

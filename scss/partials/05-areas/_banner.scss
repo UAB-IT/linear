@@ -27,7 +27,7 @@ z-index is incremented to ensure the banner shows up on mobile */
 #banner::before,
 #banner::after {
   content: '';
-  @include cover;
+  @include position(cover);
   z-index: -1;
 }
 

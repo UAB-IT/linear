@@ -29,7 +29,7 @@ FULL WIDTH
 /* Adds background element that spans the width of the screen. */
 .background-full::before {
   content: '';
-  @include cover;
+  @include position(cover);
   width: 150vw;
   margin-left: -50vw;
   background-color: $c-background;
