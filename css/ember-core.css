@@ -50,7 +50,9 @@ body.linear.hd [itemprop='articleBody'] > :last-child { margin-bottom: 0; }
 body.linear.hd table td > :last-child { margin: 0; }
 
 /* Add section spacing to widgetkit blocks */
-body.linear.hd [id*='wk'] { margin-top: 6.4rem; margin-bottom: 6.4rem; }
+body.linear.hd [id*='wk']:not(:first-child) { margin-top: 6.4rem; }
+
+body.linear.hd [id*='wk'] { margin-bottom: 6.4rem; }
 
 /* Fix for widgetkit blocks */
 body.linear.hd .section > [id]:last-of-type { margin-bottom: 0; }

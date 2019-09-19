@@ -49,7 +49,7 @@ SIDEBAR
 #{$specify} #leftcolumn ul.nav {
   @include reset(margin);
 }
-#{$specify} #leftcolumn .sidebar li,
+// #{$specify} #leftcolumn .sidebar li,
 #{$specify} #leftcolumn .sidebar ul.menu li {
   @include reset(padding, font-weight, margin);
 }

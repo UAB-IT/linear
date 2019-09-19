@@ -218,7 +218,7 @@ Simple RSS Feed Generator
 ---------------------------------------------------- */
 body.linear.hd .srfrContainer.srfrStream { float: none; display: block; }
 
-body.linear.hd #whitebox ul.srfrList { list-style: none; }
+body.linear.hd #whitebox ul.srfrList { list-style: none; margin-left: 0; }
 
 body.linear.hd #whitebox ul li.srfrRow { margin: 0 0 1.6rem 0; padding-bottom: 1.6rem; border-bottom: 1px solid #cccdce; display: grid; grid-template-columns: 200px 1fr; grid-column-gap: 3.2rem; }
 
@@ -226,7 +226,7 @@ body.linear.hd .srfrStream .col1 { width: 100%; }
 
 body.linear.hd .srfrStream .col1 a::after { display: none; }
 
-body.linear.hd .srfrStream .col2 { width: 100%; margin: 0; }
+body.linear.hd .srfrStream .col2 { width: auto; margin: 0; }
 
 body.linear.hd a.srfrTitle { display: block; float: none; border: none; margin-bottom: 0.8rem; }
 
@@ -236,7 +236,7 @@ body.linear.hd a.srfrTitle::after { display: none; }
 
 body.linear.hd .srfrStream .srfrReadMore > a { font-size: 0; border: none; }
 
-body.linear.hd .srfrReadMore a::after { border: 1px solid #80bc00; border-radius: 2px; font-size: 1rem; line-height: 1.6rem; color: #4d4e50; display: inline; font-family: "kulturista-web", serif !important; font-size: 14px; padding: 0.3em 1em; }
+body.linear.hd .srfrReadMore a::after { border: 1px solid #1E6B52; border-radius: 2px; font-size: 1rem; line-height: 1.6rem; color: #4d4e50; display: inline; font-family: 'kulturista-web', serif !important; font-size: 14px; padding: 0.3em 1em; }
 
 body.linear.hd .srfrReadMore a:hover::after { text-decoration: underline; }
 
@@ -245,6 +245,22 @@ body.linear.hd .srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News
 body.linear.hd .srfrReadMore a[href*="reporter"]::after { content: 'UAB Reporter'; }
 
 body.linear.hd .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
+
+body.linear.hd #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow { margin: 0 0 3.2rem 0; border: 1px solid #1E6B52; grid-template-areas: 'article image'; grid-template-columns: 2fr 1fr; padding: 0; border-radius: 4px; }
+
+body.linear.hd .srfrStream.featured-rss-story .col1 { grid-area: image; }
+
+body.linear.hd .srfrStream.featured-rss-story .col2 { padding: 6.4rem 0 3.2rem 3.2rem; position: relative; }
+
+body.linear.hd .srfrStream.featured-rss-story .col2 p { margin-bottom: 0; }
+
+body.linear.hd #wrapper div.srfrContainer.srfrStream.featured-rss-story ul.srfrList li img.srfrImage { max-width: 100%; max-height: 100%; width: 100%; height: 100%; object-fit: cover; margin: 0; }
+
+body.linear.hd .srfrStream.featured-rss-story .srfrReadMore { display: none; }
+
+body.linear.hd .featured-rss-story a.srfrTitle { font-family: 'kulturista-web', serif !important; font-size: 1.5625rem; line-height: 1.6rem; display: block; float: none; border: none; margin-bottom: 0.8rem; }
+
+body.linear.hd .srfrStream.featured-rss-story .col2::before { content: 'Featured'; display: inline-block; position: absolute; top: 1.6rem; left: 0; padding: 0 1em; color: white; background-color: #1E6B52; line-height: 2em; align-content: center; }
 
 /* ----------------------------------------------------
 END SYNDICATION - START WIDGETKIT
@@ -391,7 +407,7 @@ body.linear.hd ul.uk-tab > li.uk-active > a { border-color: #808285; }
 
 body.linear.hd ul.uk-tab { border-bottom: 0px solid transparent; }
 
-body.linear.hd ul.uk-switcher .uk-panel { border: 1px solid #808285; margin-top: -1px; padding: 1.6rem 1.6rem 0; }
+body.linear.hd ul.uk-switcher .uk-panel { border: 1px solid #808285; margin-top: -1px; }
 
 /*------------------------
 END TABS
@@ -427,7 +443,7 @@ body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-s
 /* Remove list styles */
 body.linear.hd #leftcolumn ul.nav-child, body.linear.hd #leftcolumn ul.nav { margin: 0; }
 
-body.linear.hd #leftcolumn .sidebar li, body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal; margin: 0; }
+body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal; margin: 0; }
 
 /* Add border to the right of the sidebar */
 @media all and (min-width: 700px) { body.linear.hd #leftcolumn { position: relative; }

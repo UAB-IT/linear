@@ -67,8 +67,10 @@ MARGIN FIX
 }
 
 /* Add section spacing to widgetkit blocks */
-#{$specify} [id*='wk'] {
+#{$specify} [id*='wk']:not(:first-child) {
   margin-top: $section-margin;
+}
+#{$specify} [id*='wk'] {
   margin-bottom: $section-margin;
 }
 /* Fix for widgetkit blocks */
