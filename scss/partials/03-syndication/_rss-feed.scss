@@ -74,11 +74,12 @@ Simple RSS Feed Generator
 
 #{$specify} #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow{
   margin: 0 0 s(2) 0;
-  border: 1px solid $c-primary;
+  border-left: $bdr-md solid $c-primary;
+  border-bottom: none;
   grid-template-areas: 'article image';
   grid-template-columns: 2fr 1fr;
   padding: 0;
-  border-radius: 4px;
+  background-color: $c-background;
 }
 #{$specify} .srfrStream.featured-rss-story .col1 {
   grid-area: image;
@@ -104,10 +105,6 @@ Simple RSS Feed Generator
 #{$specify} .featured-rss-story a.srfrTitle {
   font-family: 'kulturista-web', serif !important;
   @include type-setting(h3);
-  display: block;
-  float: none;
-  border: none;
-  margin-bottom: s(0.5);
 }
 
 #{$specify} .srfrStream.featured-rss-story .col2::before {

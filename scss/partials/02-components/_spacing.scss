@@ -66,27 +66,6 @@ MARGIN FIX
   @include reset(margin);
 }
 
-/* Add section spacing to widgetkit blocks */
-#{$specify} [id*='wk']:not(:first-child) {
-  margin-top: $section-margin;
-}
-#{$specify} [id*='wk'] {
-  margin-bottom: $section-margin;
-}
-/* Fix for widgetkit blocks */
-#{$specify} .section > [id]:last-of-type {
-  margin-bottom: 0;
-}
-/* Decrease space between headers & widgetkit blocks */
-#{$specify} h1 + [id*='wk'],
-#{$specify} h2 + [id*='wk'],
-#{$specify} h3 + [id*='wk'],
-#{$specify} h4 + [id*='wk'],
-#{$specify} h5 + [id*='wk'],
-#{$specify} h6 + [id*='wk'] {
-  margin-top: #{$section-margin / 2};
-}
-
 /* ----------------------------------------------------
 END - SPACING
 ---------------------------------------------------- */

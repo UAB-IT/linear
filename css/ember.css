@@ -246,7 +246,7 @@ body.linear.hd .srfrReadMore a[href*="reporter"]::after { content: 'UAB Reporter
 
 body.linear.hd .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
 
-body.linear.hd #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow { margin: 0 0 3.2rem 0; border: 1px solid #1E6B52; grid-template-areas: 'article image'; grid-template-columns: 2fr 1fr; padding: 0; border-radius: 4px; }
+body.linear.hd #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow { margin: 0 0 3.2rem 0; border-left: 2px solid #1E6B52; border-bottom: none; grid-template-areas: 'article image'; grid-template-columns: 2fr 1fr; padding: 0; background-color: rgba(128, 130, 133, 0.15); }
 
 body.linear.hd .srfrStream.featured-rss-story .col1 { grid-area: image; }
 
@@ -258,7 +258,7 @@ body.linear.hd #wrapper div.srfrContainer.srfrStream.featured-rss-story ul.srfrL
 
 body.linear.hd .srfrStream.featured-rss-story .srfrReadMore { display: none; }
 
-body.linear.hd .featured-rss-story a.srfrTitle { font-family: 'kulturista-web', serif !important; font-size: 1.5625rem; line-height: 1.6rem; display: block; float: none; border: none; margin-bottom: 0.8rem; }
+body.linear.hd .featured-rss-story a.srfrTitle { font-family: 'kulturista-web', serif !important; font-size: 1.5625rem; line-height: 1.6rem; }
 
 body.linear.hd .srfrStream.featured-rss-story .col2::before { content: 'Featured'; display: inline-block; position: absolute; top: 1.6rem; left: 0; padding: 0 1em; color: white; background-color: #1E6B52; line-height: 2em; align-content: center; }
 
@@ -266,6 +266,13 @@ body.linear.hd .srfrStream.featured-rss-story .col2::before { content: 'Featured
 END SYNDICATION - START WIDGETKIT
 Changes to the widgetkit systems and additional styling
 ---------------------------------------------------- */
+/* ----------------------------------------------------
+WIDGETKIT CORE STYLES
+Override of widgetkit styles for a more consistant look on the site
+---------------------------------------------------- */
+/* ------------------------
+SPACING
+------------------------ */
 /* Add vertical rhythem spacing to the widgetkit margins */
 * + .uk-margin { margin-top: 1.6rem; }
 
@@ -276,7 +283,24 @@ Changes to the widgetkit systems and additional styling
 /* Margin fix for items inside widgetkit blocks */
 body.linear.hd .uk-panel p:last-child { margin: 0; }
 
+/* Remove default margin from .uk elements so their correct margin can be used */
 .uk-panel-teaser, .uk-panel-title { margin-bottom: 0; }
+
+/* Add section spacing to widgetkit blocks */
+body.linear.hd [id*='wk']:not(:first-child) { margin-top: 6.4rem; }
+
+body.linear.hd [id*='wk'] { margin-bottom: 6.4rem; }
+
+/* Fix for widgetkit blocks */
+body.linear.hd .section > [id]:last-of-type { margin-bottom: 0; }
+
+/* Decrease space between headers & widgetkit blocks */
+body.linear.hd h1 + [id*='wk'], body.linear.hd h2 + [id*='wk'], body.linear.hd h3 + [id*='wk'], body.linear.hd h4 + [id*='wk'], body.linear.hd h5 + [id*='wk'], body.linear.hd h6 + [id*='wk'] { margin-top: 3.2rem; }
+
+/* ------------------------
+TYPOGRAPHY
+------------------------ */
+body.linear.hd .uk-panel-title { margin: 0; margin-bottom: -0.8rem; }
 
 /* Adjust margin for grid gap */
 .uk-grid { margin-left: -3.2rem; }
@@ -317,13 +341,34 @@ body.linear.hd .uk-panel .uk-grid div.uk-row-first { margin-right: 1.6rem; flex-
 body.linear.hd .uk-panel .uk-grid div.uk-row-first img { float: right; }
 
 /*------------------------
+START PANELS
+------------------------*/
+/* Apply card styles to the box theme */
+.uk-panel-box { border: 1px solid black; border-radius: 2px; padding: 1.6rem; background: white; padding: 1.6rem; }
+
+/* Hide link style so the card will be visible */
+body.linear.hd a.uk-position-cover { opacity: 0 !important; }
+
+/* Add hover styles to cards */
+.uk-panel-box-hover:hover, .uk-panel-box-primary-hover:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background-color: #d2e1dc; color: black; }
+
+/* fix link style on header when card is hovered */
+body.linear.hd .uk-overlay-hover:hover h3 a { border-color: #1E6B52; background-color: #d2e1dc; }
+
+/* Enforce text color */
+.uk-panel-title, .uk-panel-box-primary, .uk-panel-box, .uk-panel-box .uk-panel-title, .uk-panel-box-hover:hover, .uk-panel-box-primary .uk-panel-title, .uk-panel-box-primary-hover:hover { color: black; }
+
+/*------------------------
+END PANELS
+------------------------*/
+/*------------------------
 START DETAILS
 ------------------------*/
+/* Size image for details component */
 body.linear.hd .wk-details .uk-panel img { height: 5rem; width: auto; display: block; margin: auto; }
 
+/* Bugfix for spacing issue */
 body.linear.hd .wk-details.uk-text-left .uk-panel img { margin: 0; }
-
-body.linear.hd .wk-details .uk-panel-title { margin: 0; font-size: 1.25rem; line-height: 1.6rem; margin-bottom: -0.8rem; }
 
 /*------------------------
 END DETAILS
@@ -333,52 +378,11 @@ START FEATURES
 
 This uses widgetkit for layout
 ------------------------*/
+/* Size image used in the features component */
 body.linear.hd .wk-features .uk-panel img { height: 7rem; width: auto; display: block; margin: auto; }
-
-body.linear.hd .wk-features .uk-panel-title { margin-bottom: 1.6rem; margin-top: 1.6rem; }
 
 /*------------------------
 END FEATURES
-------------------------*/
-/*------------------------
-START GALLERY
-
-This uses widgetkit for layout
-------------------------*/
-body.linear.hd .wk-gallery p { margin: 0; text-align: center; }
-
-/*------------------------
-END GALLERY
-------------------------*/
-/*------------------------
-START PANELS
-------------------------*/
-body .panels > a, .cards > div { border: 1px solid black; border-radius: 2px; padding: 1.6rem; background: white; }
-
-body .panels > a:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background-color: #d2e1dc; color: black; }
-
-.panels > a h4 { display: inline-block; margin-top: 0; border-bottom: 2px solid #a5c4ba; }
-
-.panels > a:hover h4 { background-color: #d2e1dc; border-color: #1E6B52; }
-
-.panels > a p:last-child { margin-bottom: 0; }
-
-.uk-panel-box { padding: 1.6rem; }
-
-.uk-panel-title, .uk-panel-box-primary, .uk-panel-box, .uk-panel-box .uk-panel-title, .uk-panel-box-hover:hover, .uk-panel-box-primary .uk-panel-title, .uk-panel-box-primary-hover:hover { color: black; }
-
-body.linear.hd .wk-panels .uk-panel-title { margin-top: 0; }
-
-body.linear.hd .wk-panels .uk-panel { background: white; border: 1px solid black; border-radius: 2px; padding: 1.6rem; }
-
-body.linear.hd a.uk-position-cover { opacity: 0 !important; }
-
-body.linear.hd .wk-panels .uk-panel:hover { border-color: #1E6B52; box-shadow: 0 0 0 1px #1E6B52; background-color: #d2e1dc; color: black; }
-
-body.linear.hd .wk-panels .uk-panel:hover h3 a { border-color: #1E6B52; }
-
-/*------------------------
-END PANELS
 ------------------------*/
 /*------------------------
 START SLIDESHOW
@@ -395,19 +399,26 @@ END SLIDESHOW
 /*------------------------
 START TABS
 ------------------------*/
+/* Remove default list margins */
 body.linear.hd #content ul.uk-tab, body.linear.hd #content ul.uk-tab li, body.linear.hd #content ul.uk-switcher, body.linear.hd #content ul.uk-switcher li { margin: 0; }
 
-body.linear.hd #content ul.uk-switcher.uk-margin-top { margin-top: 0 !important; }
+/* Remove margin from content to let it sit right next to the tabs */
+body.linear.hd #content ul.uk-tab + ul.uk-switcher.uk-margin-top { margin-top: 0 !important; }
 
+/* Remove traditional link styles from the tab links */
 body.linear.hd ul.uk-tab > li > a { border-bottom: 1px solid transparent; border-radius: 0; }
 
 body.linear.hd ul.uk-tab > li > a:hover { border-bottom: 1px solid transparent; }
 
+/* Add border to active tab */
 body.linear.hd ul.uk-tab > li.uk-active > a { border-color: #808285; }
 
+/* Remove default border from the tab bar */
 body.linear.hd ul.uk-tab { border-bottom: 0px solid transparent; }
 
-body.linear.hd ul.uk-switcher .uk-panel { border: 1px solid #808285; margin-top: -1px; }
+/* Bump panel up a pixel to align its border with tab border,
+add border, since we can't add uk-panel-box through this widget */
+body.linear.hd ul.uk-tab + ul.uk-switcher .uk-panel { border: 1px solid #808285; margin-top: -1px; }
 
 /*------------------------
 END TABS

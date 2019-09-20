@@ -2,6 +2,7 @@
 START DETAILS
 ------------------------*/
 
+/* Size image for details component */
 #{$specify} .wk-details .uk-panel img {
   height: 5rem;
   width: auto;
@@ -9,14 +10,9 @@ START DETAILS
   margin: auto;
 }
 
+/* Bugfix for spacing issue */
 #{$specify} .wk-details.uk-text-left .uk-panel img {
   @include reset(margin);
-}
-
-#{$specify} .wk-details .uk-panel-title {
-  @include reset(margin);
-  @include type-setting(h4);
-  margin-bottom: s( -0.5 );
 }
 
 /*------------------------
