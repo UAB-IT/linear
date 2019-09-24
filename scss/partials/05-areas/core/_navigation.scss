@@ -125,6 +125,10 @@ SIDEBAR
   border-top: 3px solid $c-accent;
 }
 
+body.linear.hd #leftcolumn .moduletable::after {
+  @include clearfix;
+}
+
 /*------------------------
 QUICKLINKS
 ------------------------*/
