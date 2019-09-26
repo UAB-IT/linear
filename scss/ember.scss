@@ -18,11 +18,12 @@ Changes to the widgetkit systems and additional styling
 ---------------------------------------------------- */
 @import 'partials/04-widgetkit/core/_widgetkit.scss';
 @import 'partials/04-widgetkit/core/_wk-grid.scss';
-@import 'partials/04-widgetkit/core/panels.scss';
-@import 'partials/04-widgetkit/details.scss';
-@import 'partials/04-widgetkit/features.scss';
-@import 'partials/04-widgetkit/slideshow.scss';
-@import 'partials/04-widgetkit/tabs.scss';
+@import 'partials/04-widgetkit/core/_panels.scss';
+@import 'partials/04-widgetkit/_details.scss';
+@import 'partials/04-widgetkit/_features.scss';
+@import 'partials/04-widgetkit/_slideshow.scss';
+@import 'partials/04-widgetkit/_tabs.scss';
+@import 'partials/04-widgetkit/_numbers.scss';
 /* ----------------------------------------------------
 END WIDGETKIT - START AREAS
 Edits to the Linear template areas.

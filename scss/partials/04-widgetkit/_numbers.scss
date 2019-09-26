@@ -1,0 +1,15 @@
+/*------------------------
+START NUMBERS
+
+This uses widgetkit for layout
+------------------------*/
+#{$specify} .wk-numbers .uk-panel-title {
+  @include type-setting(h1);
+  color: $c-accent;
+}
+#{$specify} [id*='wk'].wk-numbers {
+  margin-bottom: s(2);
+}
+/*------------------------
+END NUMBERS
+------------------------*/

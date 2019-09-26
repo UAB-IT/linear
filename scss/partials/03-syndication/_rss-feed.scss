@@ -13,7 +13,7 @@ Simple RSS Feed Generator
 #{$specify} #whitebox ul li.srfrRow {
   margin: 0 0 s(1) 0;
   padding-bottom: s(1);
-  border-bottom: 1px solid c($c-grey, 200);
+  border-bottom: 1px solid $c-hr;
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-column-gap: s(2);

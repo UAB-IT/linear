@@ -295,7 +295,7 @@ body.linear.hd [id*='wk'] { margin-bottom: 6.4rem; }
 body.linear.hd .section > [id]:last-of-type { margin-bottom: 0; }
 
 /* Decrease space between headers & widgetkit blocks */
-body.linear.hd h1 + [id*='wk'], body.linear.hd h2 + [id*='wk'], body.linear.hd h3 + [id*='wk'], body.linear.hd h4 + [id*='wk'], body.linear.hd h5 + [id*='wk'], body.linear.hd h6 + [id*='wk'] { margin-top: 3.2rem; }
+body.linear.hd h1 + [id*='wk']:not(:first-child), body.linear.hd h2 + [id*='wk']:not(:first-child), body.linear.hd h3 + [id*='wk']:not(:first-child), body.linear.hd h4 + [id*='wk']:not(:first-child), body.linear.hd h5 + [id*='wk']:not(:first-child), body.linear.hd h6 + [id*='wk']:not(:first-child) { margin-top: 3.2rem; }
 
 /* ------------------------
 TYPOGRAPHY
@@ -422,6 +422,18 @@ body.linear.hd ul.uk-tab + ul.uk-switcher .uk-panel { border: 1px solid #808285;
 
 /*------------------------
 END TABS
+------------------------*/
+/*------------------------
+START NUMBERS
+
+This uses widgetkit for layout
+------------------------*/
+body.linear.hd .wk-numbers .uk-panel-title { font-size: 3.05176rem; line-height: 3.2rem; color: #80BC00; }
+
+body.linear.hd [id*='wk'].wk-numbers { margin-bottom: 3.2rem; }
+
+/*------------------------
+END NUMBERS
 ------------------------*/
 /* ----------------------------------------------------
 END WIDGETKIT - START AREAS

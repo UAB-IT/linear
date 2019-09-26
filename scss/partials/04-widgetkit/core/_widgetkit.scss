@@ -39,13 +39,13 @@ SPACING
   margin-bottom: 0;
 }
 /* Decrease space between headers & widgetkit blocks */
-#{$specify} h1 + [id*='wk'],
-#{$specify} h2 + [id*='wk'],
-#{$specify} h3 + [id*='wk'],
-#{$specify} h4 + [id*='wk'],
-#{$specify} h5 + [id*='wk'],
-#{$specify} h6 + [id*='wk'] {
-  margin-top: #{$section-margin / 2};
+#{$specify} h1 + [id*='wk']:not(:first-child),
+#{$specify} h2 + [id*='wk']:not(:first-child),
+#{$specify} h3 + [id*='wk']:not(:first-child),
+#{$specify} h4 + [id*='wk']:not(:first-child),
+#{$specify} h5 + [id*='wk']:not(:first-child),
+#{$specify} h6 + [id*='wk']:not(:first-child) {
+  margin-top: s(2);
 }
 
 /* ------------------------
