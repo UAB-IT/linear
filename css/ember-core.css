@@ -302,6 +302,19 @@ body.linear.hd .category-list .category.table tbody a { border: 0; text-decorati
 
 /* END OVERRIDES */
 /*------------------------
+Comparison table
+------------------------*/
+body.linear.hd table.comparison td, body.linear.hd table.comparison thead { text-align: center !important; }
+
+body.linear.hd table.comparison td { vertical-align: middle; }
+
+body.linear.hd table.comparison em.icon-ok { color: #80BC00; }
+
+body.linear.hd table.comparison em.icon-minus-sign { color: #FFD400; }
+
+body.linear.hd table.comparison em.icon-remove { color: #F00; }
+
+/*------------------------
 END TABLES
 ------------------------*/
 /* --------------------------------------------------
