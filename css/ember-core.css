@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ----------------------------------------------------
-Ember 0.8.0
+Ember 0.9.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -12,7 +12,7 @@ Self contained chunks of content with their visual styling.
 ---------------------------------------------------- */
 /* ----------------------------------------------------
 SPACING
-This module includes various rules to maintain spacial consistancy
+This module includes various rules to maintain spacial consistency
 ---------------------------------------------------- */
 /* ------------------------
 SECTIONS
@@ -178,7 +178,7 @@ BASE STYLES
 only to lists inside the main content area */
 body.linear.hd #whitebox ul, body.linear.hd #whitebox ol { margin-left: 1.2em; }
 
-/* Add rhythem spacing to lists in main content area */
+/* Add rhythm spacing to lists in main content area */
 body.linear.hd #whitebox ul, body.linear.hd #whitebox ol, body.linear.hd #whitebox dl { margin-bottom: 1.6rem; }
 
 /* Add indention to child lists */
@@ -243,9 +243,9 @@ TABLES
 /* ------------------------
 BASE
 ------------------------ */
-/* Set default sytles,
+/* Set default styles,
 make table mobile friendly,
-add rhythem spacing */
+add rhythm spacing */
 body.linear.hd table { text-align: left; border-collapse: collapse; width: 100%; overflow: scroll; margin-bottom: 1.6rem; }
 
 /* Add borders, padding, and ensure
@@ -322,11 +322,11 @@ MEDIA
 ---------------------------------------------------- */
 #whitebox img { max-width: 100%; object-fit: cover; margin: auto; display: block; }
 
-/* Add rhythem spacing */
+/* Add rhythm spacing */
 #whitebox :not(figure) > img, #whitebox iframe, #whitebox figure, #whitebox .video-container { margin-bottom: 1.6rem; }
 
 /* Style figcaption to display small in the center under the image,
-Add rhythem spacing above caption instead of below image */
+Add rhythm spacing above caption instead of below image */
 #whitebox figure figcaption { font-size: 0.8rem; line-height: 1.6rem; text-align: center; margin: 1.6rem 0; }
 
 /* --------------------------------------------------

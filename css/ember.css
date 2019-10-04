@@ -268,12 +268,12 @@ Changes to the widgetkit systems and additional styling
 ---------------------------------------------------- */
 /* ----------------------------------------------------
 WIDGETKIT CORE STYLES
-Override of widgetkit styles for a more consistant look on the site
+Override of widgetkit styles for a more consistent look on the site
 ---------------------------------------------------- */
 /* ------------------------
 SPACING
 ------------------------ */
-/* Add vertical rhythem spacing to the widgetkit margins */
+/* Add vertical rhythm spacing to the widgetkit margins */
 * + .uk-margin { margin-top: 1.6rem; }
 
 .uk-margin { margin-bottom: 1.6rem; }
@@ -292,7 +292,7 @@ body.linear.hd [id*='wk']:not(:first-child) { margin-top: 6.4rem; }
 body.linear.hd [id*='wk'] { margin-bottom: 6.4rem; }
 
 /* Fix for widgetkit blocks */
-body.linear.hd .section > [id]:last-of-type { margin-bottom: 0; }
+body.linear.hd .section [id]:last-of-type { margin-bottom: 0; }
 
 /* Decrease space between headers & widgetkit blocks */
 body.linear.hd h1 + [id*='wk']:not(:first-child), body.linear.hd h2 + [id*='wk']:not(:first-child), body.linear.hd h3 + [id*='wk']:not(:first-child), body.linear.hd h4 + [id*='wk']:not(:first-child), body.linear.hd h5 + [id*='wk']:not(:first-child), body.linear.hd h6 + [id*='wk']:not(:first-child) { margin-top: 3.2rem; }
@@ -367,7 +367,7 @@ START DETAILS
 /* Size image for details component */
 body.linear.hd .wk-details .uk-panel img { height: 5rem; width: auto; display: block; margin: auto; }
 
-/* Bugfix for spacing issue */
+/* Bug fix for spacing issue */
 body.linear.hd .wk-details.uk-text-left .uk-panel img { margin: 0; }
 
 /*------------------------
@@ -690,7 +690,7 @@ body.linear.hd #footer .IT-footer .social { margin-top: 1.6rem; }
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo { margin: 0; max-height: 3.2rem; }
 
-/* Add 1 line between footer and locked footer to maintain vertical rythem */
+/* Add 1 line between footer and locked footer to maintain vertical rhythm */
 #lockedFooter { padding-top: 1.6rem; }
 
 /* ------------------------

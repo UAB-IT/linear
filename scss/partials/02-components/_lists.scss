@@ -27,7 +27,7 @@ only to lists inside the main content area */
   margin-left: 1.2em;
 }
 
-/* Add rhythem spacing to lists in main content area */
+/* Add rhythm spacing to lists in main content area */
 #{$specify} #{$main} ul,
 #{$specify} #{$main} ol,
 #{$specify} #{$main} dl {
@@ -64,7 +64,7 @@ only to lists inside the main content area */
   }
 }
 
-// // REVIEW: why the use of ID here?
+// REVIEW: why the use of ID here?
 // /* Gets rid of bootstrap style */
 // #content li {
 //   @include reset(margin);
@@ -122,7 +122,7 @@ THEMES
   font-size: 1.5em;
 }
 
-#{$specify} #{$main} ol.color, {
+#{$specify} #{$main} ol.color {
   list-style: none !important;
   counter-reset: topli;
 }
@@ -139,7 +139,7 @@ THEMES
   direction: rtl;
 }
 
-#{$specify} #{$main} ol.color > li > ol, {
+#{$specify} #{$main} ol.color > li > ol {
   list-style: none !important;
   counter-reset: secondli;
 }
@@ -156,7 +156,7 @@ THEMES
   direction: rtl;
 }
 
-#{$specify} #{$main} ol.color > li > ol > li > ol, {
+#{$specify} #{$main} ol.color > li > ol > li > ol {
   list-style: none !important;
   counter-reset: thirdli;
 }

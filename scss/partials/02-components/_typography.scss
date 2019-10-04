@@ -38,7 +38,7 @@ TYPESETTING
   #{$specify} b,
   #{$specify} span,
   #{$specify} strong,
-  #{$specify} em, {
+  #{$specify} em {
     @include reset(color, font-size);
     font-family: inherit !important;
   }
@@ -74,7 +74,7 @@ TYPESETTING
 #{$specify} h5,
 #{$specify} .uk-h5,
 #{$specify} h6,
-#{$specify} .uk-h6, {
+#{$specify} .uk-h6 {
   @include reset(margin, color);
   text-align: inherit;
   @include header-style;

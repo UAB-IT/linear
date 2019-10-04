@@ -10,7 +10,7 @@ START DETAILS
   margin: auto;
 }
 
-/* Bugfix for spacing issue */
+/* Bug fix for spacing issue */
 #{$specify} .wk-details.uk-text-left .uk-panel img {
   @include reset(margin);
 }

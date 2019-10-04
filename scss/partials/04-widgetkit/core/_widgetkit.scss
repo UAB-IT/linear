@@ -1,11 +1,11 @@
 /* ----------------------------------------------------
 WIDGETKIT CORE STYLES
-Override of widgetkit styles for a more consistant look on the site
+Override of widgetkit styles for a more consistent look on the site
 ---------------------------------------------------- */
 /* ------------------------
 SPACING
 ------------------------ */
-/* Add vertical rhythem spacing to the widgetkit margins */
+/* Add vertical rhythm spacing to the widgetkit margins */
 * + .uk-margin {
   margin-top: s( 1 );
 }
@@ -35,7 +35,7 @@ SPACING
   margin-bottom: $section-margin;
 }
 /* Fix for widgetkit blocks */
-#{$specify} .section > [id]:last-of-type {
+#{$specify} .section [id]:last-of-type {
   margin-bottom: 0;
 }
 /* Decrease space between headers & widgetkit blocks */

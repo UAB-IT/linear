@@ -66,7 +66,7 @@ START GRID
   #{$specify} #maincolumn-l-r,
   #{$specify} #maincolumn-l,
   #{$specify} #maincolumn-r,
-  #{$specify} #maincolumn-wide, {
+  #{$specify} #maincolumn-wide {
     grid-area: main;
   }
   #{$specify} #downright {
