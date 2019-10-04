@@ -1,6 +1,6 @@
 @charset "UTF-8";
 /* ----------------------------------------------------
-Ember 0.8.0
+Ember 0.9.0
 University of Alabama at Birmingham
 Department of Information Technology
 2019 Mozilla Public License 2.0
@@ -12,7 +12,7 @@ Self contained chunks of content with their visual styling.
 ---------------------------------------------------- */
 /* ----------------------------------------------------
 SPACING
-This module includes various rules to maintain spacial consistancy
+This module includes various rules to maintain spacial consistency
 ---------------------------------------------------- */
 /* ------------------------
 SECTIONS
@@ -48,15 +48,6 @@ body.linear.hd [itemprop='articleBody'] > :last-child { margin-bottom: 0; }
 
 /* margin fix for elements inside tables */
 body.linear.hd table td > :last-child { margin: 0; }
-
-/* Add section spacing to widgetkit blocks */
-body.linear.hd [id*='wk'] { margin-top: 6.4rem; margin-bottom: 6.4rem; }
-
-/* Fix for widgetkit blocks */
-body.linear.hd .section > [id]:last-of-type { margin-bottom: 0; }
-
-/* Decrease space between headers & widgetkit blocks */
-body.linear.hd h1 + [id*='wk'], body.linear.hd h2 + [id*='wk'], body.linear.hd h3 + [id*='wk'], body.linear.hd h4 + [id*='wk'], body.linear.hd h5 + [id*='wk'], body.linear.hd h6 + [id*='wk'] { margin-top: 3.2rem; }
 
 /* ----------------------------------------------------
 END - SPACING
@@ -124,7 +115,7 @@ RULE LINES
 ------------------------*/
 /* Ensure hr takes up no vertical space,
 apply thin border for styling */
-body.linear.hd hr { box-sizing: content-box; height: 0; overflow: visible; border-style: solid; border-width: 0 0 1px; border-color: black; }
+body.linear.hd hr { box-sizing: content-box; height: 0; overflow: visible; border-style: solid; border-width: 0 0 1px; border-color: #cccdce; }
 
 /* Allow rule lines that immediately follow headers to sit on the header's
 baseline */
@@ -187,7 +178,7 @@ BASE STYLES
 only to lists inside the main content area */
 body.linear.hd #whitebox ul, body.linear.hd #whitebox ol { margin-left: 1.2em; }
 
-/* Add rhythem spacing to lists in main content area */
+/* Add rhythm spacing to lists in main content area */
 body.linear.hd #whitebox ul, body.linear.hd #whitebox ol, body.linear.hd #whitebox dl { margin-bottom: 1.6rem; }
 
 /* Add indention to child lists */
@@ -252,9 +243,9 @@ TABLES
 /* ------------------------
 BASE
 ------------------------ */
-/* Set default sytles,
+/* Set default styles,
 make table mobile friendly,
-add rhythem spacing */
+add rhythm spacing */
 body.linear.hd table { text-align: left; border-collapse: collapse; width: 100%; overflow: scroll; margin-bottom: 1.6rem; }
 
 /* Add borders, padding, and ensure
@@ -311,6 +302,19 @@ body.linear.hd .category-list .category.table tbody a { border: 0; text-decorati
 
 /* END OVERRIDES */
 /*------------------------
+Comparison table
+------------------------*/
+body.linear.hd table.comparison td, body.linear.hd table.comparison thead { text-align: center !important; }
+
+body.linear.hd table.comparison td { vertical-align: middle; }
+
+body.linear.hd table.comparison em.icon-ok { color: #80BC00; }
+
+body.linear.hd table.comparison em.icon-minus-sign { color: #FFD400; }
+
+body.linear.hd table.comparison em.icon-remove { color: #F00; }
+
+/*------------------------
 END TABLES
 ------------------------*/
 /* --------------------------------------------------
@@ -318,11 +322,11 @@ MEDIA
 ---------------------------------------------------- */
 #whitebox img { max-width: 100%; object-fit: cover; margin: auto; display: block; }
 
-/* Add rhythem spacing */
+/* Add rhythm spacing */
 #whitebox :not(figure) > img, #whitebox iframe, #whitebox figure, #whitebox .video-container { margin-bottom: 1.6rem; }
 
 /* Style figcaption to display small in the center under the image,
-Add rhythem spacing above caption instead of below image */
+Add rhythm spacing above caption instead of below image */
 #whitebox figure figcaption { font-size: 0.8rem; line-height: 1.6rem; text-align: center; margin: 1.6rem 0; }
 
 /* --------------------------------------------------

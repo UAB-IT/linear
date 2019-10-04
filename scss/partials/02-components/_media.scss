@@ -8,9 +8,9 @@ MEDIA
   display: block;
 }
 
-// QUESTION: Why is rhythem spacing between image and figcaption handled with a margin top on figcaption?
+// QUESTION: Why is rhythm spacing between image and figcaption handled with a margin top on figcaption?
 
-/* Add rhythem spacing */
+/* Add rhythm spacing */
 #{$main} :not(figure) > img,
 #{$main} iframe,
 #{$main} figure,
@@ -19,7 +19,7 @@ MEDIA
 }
 
 /* Style figcaption to display small in the center under the image,
-Add rhythem spacing above caption instead of below image */
+Add rhythm spacing above caption instead of below image */
 #{$main} figure figcaption {
   @include type-setting(sm);
   text-align: center;

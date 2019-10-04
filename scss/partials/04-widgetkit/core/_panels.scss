@@ -1,0 +1,40 @@
+/*------------------------
+START PANELS
+------------------------*/
+/* Apply card styles to the box theme */
+.uk-panel-box {
+  @include card-styles;
+  background: white;
+  padding: $block-padding;
+}
+
+/* Hide link style so the card will be visible */
+#{$specify} a.uk-position-cover {
+  opacity: 0 !important;
+}
+
+/* Add hover styles to cards */
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary-hover:hover {
+  @include hover;
+}
+/* fix link style on header when card is hovered */
+#{$specify} .uk-overlay-hover:hover h3 a {
+  border-color: $c-primary;
+  background-color: c($c-primary, 100);
+}
+
+/* Enforce text color */
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: $c-body;
+}
+
+/*------------------------
+END PANELS
+------------------------*/

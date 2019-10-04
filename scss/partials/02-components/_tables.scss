@@ -7,9 +7,9 @@ $table-padding: s(0.5) !default; // inline-block - table
 /* ------------------------
 BASE
 ------------------------ */
-/* Set default sytles,
+/* Set default styles,
 make table mobile friendly,
-add rhythem spacing */
+add rhythm spacing */
 #{$specify} table {
   text-align: left;
   border-collapse: collapse;
@@ -122,6 +122,25 @@ THEMES
 }
 
 /* END OVERRIDES */
+/*------------------------
+Comparison table
+------------------------*/
+#{$specify} table.comparison td,
+#{$specify} table.comparison thead {
+  text-align: center !important;
+}
+#{$specify} table.comparison td {
+  vertical-align: middle;
+}
+#{$specify} table.comparison em.icon-ok {
+  color: $c-green;
+}
+#{$specify} table.comparison em.icon-minus-sign {
+  color: $c-yellow;
+}
+#{$specify} table.comparison em.icon-remove {
+  color: $c-red;
+}
 /*------------------------
 END TABLES
 ------------------------*/

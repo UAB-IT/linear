@@ -49,7 +49,7 @@ SIDEBAR
 #{$specify} #leftcolumn ul.nav {
   @include reset(margin);
 }
-#{$specify} #leftcolumn .sidebar li,
+// #{$specify} #leftcolumn .sidebar li,
 #{$specify} #leftcolumn .sidebar ul.menu li {
   @include reset(padding, font-weight, margin);
 }
@@ -66,7 +66,7 @@ SIDEBAR
     bottom: 0;
     left: 0;
     right: s(-1); /* half of grid gap, see layout */
-    border-right: 1px solid c($c-grey, 200);
+    border-right: 1px solid $c-hr;
     pointer-events: none;
   }
 }
@@ -123,6 +123,10 @@ SIDEBAR
   display: block;
   margin: 1rem 0.5rem;
   border-top: 3px solid $c-accent;
+}
+
+body.linear.hd #leftcolumn .moduletable::after {
+  @include clearfix;
 }
 
 /*------------------------

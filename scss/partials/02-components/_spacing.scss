@@ -1,6 +1,6 @@
 /* ----------------------------------------------------
 SPACING
-This module includes various rules to maintain spacial consistancy
+This module includes various rules to maintain spacial consistency
 ---------------------------------------------------- */
 
 /* ------------------------
@@ -64,25 +64,6 @@ MARGIN FIX
 /* margin fix for elements inside tables */
 #{$specify} table td > :last-child {
   @include reset(margin);
-}
-
-/* Add section spacing to widgetkit blocks */
-#{$specify} [id*='wk'] {
-  margin-top: $section-margin;
-  margin-bottom: $section-margin;
-}
-/* Fix for widgetkit blocks */
-#{$specify} .section > [id]:last-of-type {
-  margin-bottom: 0;
-}
-/* Decrease space between headers & widgetkit blocks */
-#{$specify} h1 + [id*='wk'],
-#{$specify} h2 + [id*='wk'],
-#{$specify} h3 + [id*='wk'],
-#{$specify} h4 + [id*='wk'],
-#{$specify} h5 + [id*='wk'],
-#{$specify} h6 + [id*='wk'] {
-  margin-top: #{$section-margin / 2};
 }
 
 /* ----------------------------------------------------

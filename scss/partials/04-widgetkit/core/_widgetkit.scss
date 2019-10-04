@@ -1,5 +1,11 @@
-/* Add vertical rhythem spacing to the widgetkit margins */
-
+/* ----------------------------------------------------
+WIDGETKIT CORE STYLES
+Override of widgetkit styles for a more consistent look on the site
+---------------------------------------------------- */
+/* ------------------------
+SPACING
+------------------------ */
+/* Add vertical rhythm spacing to the widgetkit margins */
 * + .uk-margin {
   margin-top: s( 1 );
 }
@@ -15,17 +21,37 @@
   @include reset(margin);
 }
 
+/* Remove default margin from .uk elements so their correct margin can be used */
 .uk-panel-teaser,
 .uk-panel-title {
   margin-bottom: 0;
 }
 
-// /* PANEL */
-// .uk-panel {
-//   display: grid;
-//   grid-template-areas:
-//     'img'
-//     'head'
-//     'body'
-//     'foot';
-// }
+/* Add section spacing to widgetkit blocks */
+#{$specify} [id*='wk']:not(:first-child) {
+  margin-top: $section-margin;
+}
+#{$specify} [id*='wk'] {
+  margin-bottom: $section-margin;
+}
+/* Fix for widgetkit blocks */
+#{$specify} .section [id]:last-of-type {
+  margin-bottom: 0;
+}
+/* Decrease space between headers & widgetkit blocks */
+#{$specify} h1 + [id*='wk']:not(:first-child),
+#{$specify} h2 + [id*='wk']:not(:first-child),
+#{$specify} h3 + [id*='wk']:not(:first-child),
+#{$specify} h4 + [id*='wk']:not(:first-child),
+#{$specify} h5 + [id*='wk']:not(:first-child),
+#{$specify} h6 + [id*='wk']:not(:first-child) {
+  margin-top: s(2);
+}
+
+/* ------------------------
+TYPOGRAPHY
+------------------------ */
+#{$specify} .uk-panel-title {
+  @include reset(margin);
+  margin-bottom: s( -0.5 );
+}

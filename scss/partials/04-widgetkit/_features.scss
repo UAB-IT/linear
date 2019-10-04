@@ -3,16 +3,12 @@ START FEATURES
 
 This uses widgetkit for layout
 ------------------------*/
+/* Size image used in the features component */
 #{$specify} .wk-features .uk-panel img {
   height: 7rem;
   width: auto;
   display: block;
   margin: auto;
-}
-
-#{$specify} .wk-features .uk-panel-title {
-  @include block-margin;
-  margin-top: s( 1 );
 }
 /*------------------------
 END FEATURES

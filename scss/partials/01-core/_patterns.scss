@@ -201,7 +201,7 @@ $c-bdr: black !default;
 
 /// Standard <hr> color
 /// @group color
-$c-hr: $c-bdr !default;
+$c-hr: c($c-grey, 200) !default;
 
 /// Text color used when high contrast is enabled
 /// @group color
