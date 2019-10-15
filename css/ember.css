@@ -461,7 +461,7 @@ body.linear.hd #ribbon .nav > li > a:hover, body.linear.hd #ribbon .nav > li > a
 SIDEBAR
 ------------------------*/
 /* Reset font sizes in the sidebar */
-body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: transparent; }
+body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: white; /* Background must be solid for mobile screens */ }
 
 /* Remove list styles */
 body.linear.hd #leftcolumn ul.nav-child, body.linear.hd #leftcolumn ul.nav { margin: 0; }

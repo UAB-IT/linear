@@ -7,6 +7,9 @@ $table-padding: s(0.5) !default; // inline-block - table
 /* ------------------------
 BASE
 ------------------------ */
+.overflow-container {
+  overflow: auto;
+}
 /* Set default styles,
 make table mobile friendly,
 add rhythm spacing */
@@ -14,7 +17,6 @@ add rhythm spacing */
   text-align: left;
   border-collapse: collapse;
   width: 100%;
-  overflow: scroll;
   @include block-margin;
 }
 

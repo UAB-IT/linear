@@ -41,7 +41,7 @@ SIDEBAR
 #{$specify} div.sidebar.no-seal,
 #{$specify} #leftcolumn.sidebarpanel.no-seal {
   @include reset(font-size);
-  background-color: transparent;
+  background-color: white; /* Background must be solid for mobile screens */
 }
 
 /* Remove list styles */

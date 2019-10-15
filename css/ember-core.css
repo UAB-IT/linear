@@ -243,10 +243,12 @@ TABLES
 /* ------------------------
 BASE
 ------------------------ */
+.overflow-container { overflow: auto; }
+
 /* Set default styles,
 make table mobile friendly,
 add rhythm spacing */
-body.linear.hd table { text-align: left; border-collapse: collapse; width: 100%; overflow: scroll; margin-bottom: 1.6rem; }
+body.linear.hd table { text-align: left; border-collapse: collapse; width: 100%; margin-bottom: 1.6rem; }
 
 /* Add borders, padding, and ensure
 text alignment is respected */
