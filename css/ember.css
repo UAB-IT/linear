@@ -461,7 +461,7 @@ body.linear.hd #ribbon .nav > li > a:hover, body.linear.hd #ribbon .nav > li > a
 SIDEBAR
 ------------------------*/
 /* Reset font sizes in the sidebar */
-body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: transparent; }
+body.linear.hd div.sidebar.no-seal, body.linear.hd #leftcolumn.sidebarpanel.no-seal { font-size: inherit; background-color: white; /* Background must be solid for mobile screens */ }
 
 /* Remove list styles */
 body.linear.hd #leftcolumn ul.nav-child, body.linear.hd #leftcolumn ul.nav { margin: 0; }
@@ -475,7 +475,9 @@ body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal
 @media all and (min-width: 1024px) { body.linear.hd #leftcolumn::after { right: -1.6rem; /* half of grid gap, see layout */ } }
 
 /* Base styles for menu links */
-#leftcolumn ul.nav.menu a { margin: 0; border: 0; background: none; background-color: transparent; background-image: none; font-size: 1rem; line-height: 1.6rem; display: block; padding: 0.5rem; color: #333435; border-left: 5px solid transparent; }
+#leftcolumn ul.nav.menu a, #leftcolumn ul.nav.menu .nav-header { margin: 0; border: 0; background: none; background-color: transparent; background-image: none; font-size: 1rem; line-height: 1.6rem; display: block; padding: 0.5rem; color: #333435; border-left: 5px solid transparent; }
+
+#leftcolumn ul.nav.menu .nav-header { text-transform: none; }
 
 /* Style for link to Section Page */
 #leftcolumn ul.nav.menu > .parent > a { font-size: 1.25rem; line-height: 1.6rem; font-weight: 600; }
@@ -486,8 +488,9 @@ body.linear.hd #leftcolumn .sidebar ul.menu li { padding: 0; font-weight: normal
 /* States */
 #leftcolumn ul.nav.menu .current > a { background-color: rgba(128, 130, 133, 0.15); border-left: 5px solid #80BC00; }
 
-#leftcolumn ul.nav.menu a:hover { color: inherit !important; background-color: rgba(128, 130, 133, 0.15); /*border-left: 5px solid c($stone, 400);*/ }
+#leftcolumn ul.nav.menu a:hover, #leftcolumn ul.nav.menu .nav-header:hover { color: inherit !important; background-color: rgba(128, 130, 133, 0.15); /*border-left: 5px solid c($stone, 400);*/ }
 
+/* Logic for sidebar drop downs #leftcolumn ul.nav.menu li > .nav-header::after { font-family: FontAwesome; content: "\f0d7"; color: $c-accent; margin-left: 5px; } #leftcolumn ul.nav.menu li:focus > .nav-header::after, #leftcolumn ul.nav.menu li.active > .nav-header::after { content: "\f0d8"; } #leftcolumn ul.nav.menu li > .nav-header + ul { display: none; } #leftcolumn ul.nav.menu li:focus > .nav-header + ul, #leftcolumn ul.nav.menu li.active > .nav-header + ul { display: initial; } */
 /* Spacing */
 #leftcolumn .moduletable { margin-bottom: 1.6rem; }
 

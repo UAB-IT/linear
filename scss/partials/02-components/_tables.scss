@@ -7,6 +7,9 @@ $table-padding: s(0.5) !default; // inline-block - table
 /* ------------------------
 BASE
 ------------------------ */
+.overflow-container {
+  overflow: auto;
+}
 /* Set default styles,
 make table mobile friendly,
 add rhythm spacing */
@@ -14,7 +17,6 @@ add rhythm spacing */
   text-align: left;
   border-collapse: collapse;
   width: 100%;
-  overflow: scroll;
   @include block-margin;
 }
 
@@ -48,6 +50,12 @@ THEMES
 #{$specify} table.borderless tr th {
   border: none;
 }
+
+#{$specify} table.condensed tr td,
+#{$specify} table.condensed tr th {
+  padding: 0.4rem;
+}
+
 
 #{$specify} table.striped tbody > tr:nth-child(odd) {
   background: $c-background;
