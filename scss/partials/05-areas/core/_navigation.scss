@@ -77,13 +77,17 @@ SIDEBAR
 }
 
 /* Base styles for menu links */
-#leftcolumn ul.nav.menu a {
+#leftcolumn ul.nav.menu a,
+#leftcolumn ul.nav.menu .nav-header {
   @include reset(margin, border, background);
   @include type-setting(0);
   display: block;
   padding: 0.5rem;
   color: c($stone, 800);
   border-left: 5px solid transparent;
+}
+#leftcolumn ul.nav.menu .nav-header {
+  text-transform: none;
 }
 
 /* Style for link to Section Page */
@@ -103,12 +107,33 @@ SIDEBAR
   border-left: 5px solid $apple;
 }
 
-#leftcolumn ul.nav.menu a:hover {
+#leftcolumn ul.nav.menu a:hover,
+#leftcolumn ul.nav.menu .nav-header:hover {
   color: inherit !important;
   background-color: $c-background;
   /*border-left: 5px solid c($stone, 400);*/
 }
 
+
+/* Logic for sidebar drop downs
+#leftcolumn ul.nav.menu li > .nav-header::after {
+  font-family: FontAwesome;
+  content: "\f0d7";
+  color: $c-accent;
+  margin-left: 5px;
+}
+#leftcolumn ul.nav.menu li:focus > .nav-header::after,
+#leftcolumn ul.nav.menu li.active > .nav-header::after {
+  content: "\f0d8";
+}
+#leftcolumn ul.nav.menu li > .nav-header + ul {
+  display: none;
+}
+#leftcolumn ul.nav.menu li:focus > .nav-header + ul,
+#leftcolumn ul.nav.menu li.active > .nav-header + ul {
+  display: initial;
+}
+*/
 /* Spacing */
 #leftcolumn .moduletable {
   margin-bottom: s(1);
