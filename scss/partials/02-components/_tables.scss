@@ -51,6 +51,12 @@ THEMES
   border: none;
 }
 
+#{$specify} table.condensed tr td,
+#{$specify} table.condensed tr th {
+  padding: 0.4rem;
+}
+
+
 #{$specify} table.striped tbody > tr:nth-child(odd) {
   background: $c-background;
 }

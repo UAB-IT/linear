@@ -269,6 +269,8 @@ THEMES
 ------------------------ */
 body.linear.hd table.borderless tr td, body.linear.hd table.borderless tr th { border: none; }
 
+body.linear.hd table.condensed tr td, body.linear.hd table.condensed tr th { padding: 0.4rem; }
+
 body.linear.hd table.striped tbody > tr:nth-child(odd) { background: rgba(128, 130, 133, 0.15); }
 
 body.linear.hd table.hover tbody tr:hover { background: rgba(128, 130, 133, 0.15); }
