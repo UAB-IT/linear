@@ -115,7 +115,23 @@ SIDEBAR
 }
 
 
-/* Logic for sidebar drop downs
+/* Logic for sidebar drop downs*/
+.clickFade .deeper.parent .deeper.parent.active ul {
+  display: block !important;
+}
+.clickFade .nav-header {
+  cursor: pointer;
+}
+.clickFade .nav-header::after {
+  font-family: FontAwesome;
+  content: "\f0d7";
+  color: $c-accent;
+  margin-left: 5px;
+}
+.clickFade .active > .nav-header::after {
+  content: "\f0d8"
+}
+/*
 #leftcolumn ul.nav.menu li > .nav-header::after {
   font-family: FontAwesome;
   content: "\f0d7";

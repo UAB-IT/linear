@@ -39,6 +39,12 @@ BASE
     text-decoration: none;
     @include hover;
   }
+  &[disabled] {
+    background: $c-background;
+  }
+}
+[disabled] {
+  pointer-events: none;
 }
 
 // /* Add bottom margin to buttons that sit by themselves */
