@@ -235,9 +235,9 @@ kbd {
 mark {
   background-color: $c-mark;
 }
-::selection {
-  background-color: $c-select;
-}
+// ::selection {
+//   background-color: $c-select;
+// }
 
 code {
   background-color: c( $c-grey, 100 );
