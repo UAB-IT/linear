@@ -44,16 +44,6 @@
 		"oAP": "/.stylelintrc",
 		"oF": 1
 		},
-	"/css/ember-core.css": {
-		"aP": 1,
-		"bl": 0,
-		"ft": 16,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/css/ember-core-min.css",
-		"oF": 0,
-		"oS": 3
-		},
 	"/css/ember.css": {
 		"aP": 1,
 		"bl": 0,
@@ -153,19 +143,6 @@
 		"oA": 1,
 		"oAP": "/scss/_config.css",
 		"oF": 0,
-		"oS": 0,
-		"uL": 1
-		},
-	"/scss/ember-core.scss": {
-		"aP": 1,
-		"bl": 0,
-		"dP": 2,
-		"dS": 0,
-		"ft": 4,
-		"ma": 0,
-		"oA": 0,
-		"oAP": "/css/ember-core.css",
-		"oF": 2,
 		"oS": 0,
 		"uL": 1
 		},
@@ -308,6 +285,19 @@
 		"ma": 0,
 		"oA": 1,
 		"oAP": "/scss/partials/02-components/_media.css",
+		"oF": 0,
+		"oS": 0,
+		"uL": 1
+		},
+	"/scss/partials/02-components/_org-chart.scss": {
+		"aP": 1,
+		"bl": 0,
+		"dP": 2,
+		"dS": 0,
+		"ft": 4,
+		"ma": 0,
+		"oA": 1,
+		"oAP": "/scss/partials/02-components/_org-chart.css",
 		"oF": 0,
 		"oS": 0,
 		"uL": 1
