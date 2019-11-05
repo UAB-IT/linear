@@ -1,0 +1,33 @@
+.org-card {
+	display: grid;
+	grid-gap: s(1);
+	margin-bottom: s(1);
+}
+.org-card-cio {
+	grid-gap: s(1);
+}
+@media (min-width: 400px) {
+	.org-card {
+		grid-template-columns: 9.6rem 1fr;
+		grid-template-areas:
+			'org-image org-name'
+			'org-content org-content';
+	}
+	.org-card-cio {
+		grid-template-columns: 12.6rem 1fr;
+	  grid-template-areas:
+	    'org-image org-name'
+	    'org-content org-content';
+	}
+	.org-img { grid-area: org-image; }
+	.org-name { grid-area: org-name; }
+	.org-content { grid-area: org-content; }
+	.org-img { height: 9.6rem; }
+	.org-card-cio .org-img { height: 12.6rem; }
+}
+	
+	
+	.org-child .org-name h4,
+	.org-name a.btn {
+	  margin: 0 !important;
+	}
