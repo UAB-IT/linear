@@ -1,16 +1,21 @@
-/* --------------------------------------------------
-MEDIA
----------------------------------------------------- */
+/* ==========================================================================
+   SECTION MEDIA
+========================================================================== */
+
+/** SECTION Images
+ * [1] Make sure image is never larger than it's container
+ * [2] Make images block / auto by default
+ * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
+ * [4] Add block spacing to block level media
+-------------------------------------------------------------------------- */
 #{$main} img {
-  max-width: 100%;
-  object-fit: cover;
-  margin: auto;
-  display: block;
+  max-width: 100%; /*[1]*/
+  object-fit: cover; /*[3]*/
+  margin: auto; /*[2]*/
+  display: block; /*[2]*/
 }
 
-// QUESTION: Why is rhythm spacing between image and figcaption handled with a margin top on figcaption?
-
-/* Add rhythm spacing */
+/*[4]*/
 #{$main} :not(figure) > img,
 #{$main} iframe,
 #{$main} figure,
@@ -18,6 +23,10 @@ MEDIA
   @include block-margin;
 }
 
+/* End !SECTION Images */
+/** SECTION Captions
+ * Correct font sizing and margins of captions
+-------------------------------------------------------------------------- */
 /* Style figcaption to display small in the center under the image,
 Add rhythm spacing above caption instead of below image */
 #{$main} figure figcaption {
@@ -26,8 +35,11 @@ Add rhythm spacing above caption instead of below image */
   margin: $block-margin 0;
 }
 
-// /* Remove problematic image styles from hidden links */
+// TEMP: Remove problematic image styles from hidden links
 // #hidden-links img {
 //   display: inherit;
 //   margin: 0;
 // }
+
+/* End !SECTION Captions */
+/* End !SECTION MEDIA */
