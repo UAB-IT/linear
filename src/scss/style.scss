@@ -21,15 +21,6 @@ $init-line-height: 1.6; // Number
   * PATTERNS | _patterns.scss
 
   02-BASE
-  * Document | _document.scss
-  * Root ........................... html, :root, body, etc
-  * States ......................... ::selection, [disabled], etc
-  *
-  * SPACING | _spacing.scss
-  * Sections ....................... sections & backgrounds
-  * Full width ..................... sections that break out of the content
-  * Margin Fix ..................... fix for last & first child margins
-  *
   * TYPOGRAPHY | _typography.scss
   * Resets ......................... reset aggressive inline styles
   * Header Spacing ................. h1-h6 & uk- class margins
@@ -38,9 +29,14 @@ $init-line-height: 1.6; // Number
   * Links .......................... a, and states of
   * Semantic HTML .................. inline semantic elements
   *
+  * SPACING | _spacing.scss
+  * Sections ....................... sections & backgrounds
+  * Full width ..................... sections that break out of the content
+  * Margin Fix ..................... fix for last & first child margins
+  *
   * LISTS | _lists.scss
-  * Lists .......................... ul, ol, dl
-  * Items .......................... li, dt, dd
+  * Resets ......................... consistent margins & paddings
+  * Base Styles .................... ul, ol, dl, li, dt, dd
   * Themes ......................... colored, aligned
   *
   * TABLES | _tables.scss
@@ -158,6 +154,8 @@ $init-line-height: 1.6; // Number
 Basic styling for html elements
 ------------------------------------------------------------------------- **/
 @import '02-base/_typography.scss';
+@import '02-base/_spacing.scss';
+@import '02-base/_lists.scss';
 
 /** JOOMLA
 Styles for joomla generated content
