@@ -42,6 +42,7 @@ $c-header: black;
 /* SETTINGS
 -------------------------------------------------------------------------- */
 $adjust-template: true; // boolean
+$adjust-central-typography: true; //boolean
 $use-grid: true; // boolean
 
 $specify: 'body.linear.hd'; // string
@@ -59,7 +60,9 @@ $bdr-width: 1px;
 $bdr-width-md: 2px;
 $bdr-width-lg: 5px;
 $bdr-color: black;
+
 $hr-color: c($c-grey, 200);
+$hr-width: 1px;
 
 /* SPACING
 -------------------------------------------------------------------------- */
@@ -76,7 +79,6 @@ $section-padding-small: s(2);
 
 $max-width: 1280px;
 $body-pad: s(1);
-
 
 $breakpoints: (
   xxl: 2560px,

@@ -35,7 +35,7 @@ $init-line-height: 1.6; // Number
   * Copy ........................... inline semantics
   * Block .......................... pre, p, blockquote / .pullquote
   * Links .......................... a, and states of
-  * 
+  *
   * LISTS | _lists.scss
   * Lists .......................... ul, ol, dl
   * Items .......................... li, dt, dd
@@ -149,11 +149,13 @@ $init-line-height: 1.6; // Number
 // CORE
 // Sass variables, functions, and mixins
 // ---------------------------------------------------------------------- **/
-@import 'partials/01-core/_icons.scss';
+@import '01-core/_icons.scss';
+@import '01-core/_patterns.scss';
 
 /** BASE
 Basic styling for html elements
 ------------------------------------------------------------------------- **/
+@import '02-base/_typography.scss';
 
 /** JOOMLA
 Styles for joomla generated content
@@ -180,3 +182,4 @@ such as the sidebar, banner, and footer.
 Styles that provide atomic classes that help fix layout oddities
 on a case by case basis.
 ------------------------------------------------------------------------- **/
+@import '01-core/_helpers.scss';
