@@ -1,0 +1,63 @@
+/*--------------------------------------------------------------
+## Grid
+@requires _structure.scss
+--------------------------------------------------------------*/
+:root {
+  --grid-gap: #{s(1)};
+}
+
+.gap-md {
+  --grid-gap: #{s(2)};
+}
+
+.gap-lg {
+  --grid-gap: #{s(3)};
+}
+
+@supports ( display: grid ) {
+  [class*='col-'] {
+    @include block-margin;
+    display: grid;
+    grid-gap: var(--grid-gap, #{s(2)});
+    grid-auto-flow: row;
+  }
+  .col-1-sm { grid-template-columns: repeat( 1, 1fr ); }
+  .col-2-sm { grid-template-columns: repeat( 2, 1fr ); }
+  .col-3-sm { grid-template-columns: repeat( 3, 1fr ); }
+  .col-4-sm { grid-template-columns: repeat( 4, 1fr ); }
+  .col-6-sm { grid-template-columns: repeat( 6, 1fr ); }
+
+  .span-1-sm { grid-column: span 1; }
+  .span-2-sm { grid-column: span 2; }
+  .span-3-sm { grid-column: span 3; }
+  .span-4-sm { grid-column: span 4; }
+  .span-6-sm { grid-column: span 6; }
+
+  @include breakpoint(md) {
+    .col-1-md { grid-template-columns: repeat( 1, 1fr ); }
+    .col-2-md { grid-template-columns: repeat( 2, 1fr ); }
+    .col-3-md { grid-template-columns: repeat( 3, 1fr ); }
+    .col-4-md { grid-template-columns: repeat( 4, 1fr ); }
+    .col-6-md { grid-template-columns: repeat( 6, 1fr ); }
+
+    .span-1-md { grid-column: span 1; }
+    .span-2-md { grid-column: span 2; }
+    .span-3-md { grid-column: span 3; }
+    .span-4-md { grid-column: span 4; }
+    .span-6-md { grid-column: span 6; }
+  }
+
+  @include breakpoint(lg) {
+    .col-1-lg { grid-template-columns: repeat( 1, 1fr ); }
+    .col-2-lg { grid-template-columns: repeat( 2, 1fr ); }
+    .col-3-lg { grid-template-columns: repeat( 3, 1fr ); }
+    .col-4-lg { grid-template-columns: repeat( 4, 1fr ); }
+    .col-6-lg { grid-template-columns: repeat( 6, 1fr ); }
+
+    .span-1-lg { grid-column: span 1; }
+    .span-2-lg { grid-column: span 2; }
+    .span-3-lg { grid-column: span 3; }
+    .span-4-lg { grid-column: span 4; }
+    .span-6-lg { grid-column: span 6; }
+  }
+}

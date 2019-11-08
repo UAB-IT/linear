@@ -1,0 +1,55 @@
+// ----------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------
+
+/// Website background
+/// @group color
+$c-website-bg: white;
+
+/// <hr> color
+/// @group color
+$c-hr: $c-bdr !default;
+
+/// ::selection color
+/// @group color
+$c-select: c($c-primary, 800) !default;
+
+/// ::selection background color
+/// @group color
+$c-select-bg: c($c-primary, 200) !default;
+
+/*--------------------------------------------------------------
+## Elements
+@requires _color.scss
+@requires _variables.scss
+@requires _typography.scss
+@requires _structure.scss
+--------------------------------------------------------------*/
+
+html {
+	box-sizing: border-box;
+  font-size: #{$rem-size + 'px'};
+}
+
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+}
+/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+
+body {
+	background: $c-website-bg;
+}
+
+hr {
+	background-color: $c-hr;
+	border: 0;
+	height: 1px;
+	margin-bottom: s(1);
+}
+
+::selection {
+  background-color: $c-select-bg;
+  color: $c-select;
+}

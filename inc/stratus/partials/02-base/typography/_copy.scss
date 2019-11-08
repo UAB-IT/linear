@@ -1,0 +1,64 @@
+// ----------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------
+
+/// <mark> color
+/// @group color
+$c-mark: c( $c-primary, 100 ) !default;
+
+/// <code> background color
+/// @group color
+$c-code: $c-background !default;
+
+/*--------------------------------------------------------------
+## Copy
+@requires _structure.scss
+@requires _color.scss
+@requires _typography.scss
+@requires _variables.scss
+--------------------------------------------------------------*/
+p,
+address,
+blockquote,
+pre {
+  display: block;
+	@include block-margin;
+}
+
+p + p {
+  margin-top: s(-0.5);
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+blockquote {
+  padding: $block-padding;
+  background: $c-background;
+}
+
+pre {
+	font-family: $font-mono;
+	max-width: 100%;
+	overflow: auto;
+	padding: $block-padding;
+}
+
+$c-code: $c-background;
+
+code, kbd, tt, var {
+	font-family: $font-mono;
+  background: $c-code;
+}
+
+abbr, acronym {
+  text-decoration: none;
+	border-bottom: 1px dotted $bdr-color;
+	cursor: help;
+}
+
+mark, ins {
+	background: $c-mark;
+	text-decoration: none;
+}

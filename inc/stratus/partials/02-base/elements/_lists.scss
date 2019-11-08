@@ -1,0 +1,29 @@
+/*--------------------------------------------------------------
+## Lists
+@requires _structure.scss
+--------------------------------------------------------------*/
+ul, ol, dl {
+	@include block-margin;
+}
+
+ul {
+	list-style: disc;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: bold;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}

@@ -1,0 +1,80 @@
+// ----------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------
+
+/// Weight of headers
+/// @group Typography
+$header-weight: normal !default;
+
+/// Header color
+/// @group Color
+$c-header: black !default;
+
+/// Margin above headers
+/// @group Typography
+$header-top: s(2) !default;
+
+/*--------------------------------------------------------------
+## Headings
+@requires _typography.scss
+@requires _structure.scss
+--------------------------------------------------------------*/
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-head;
+  font-weight: $header-weight;
+  color: $c-header;
+  @include block-margin;
+}
+
+/* Add margin when header follows content */
+$header-top: s(2);
+* + {
+  h1,
+  h2,
+  h3,
+  h4 {
+    margin-top: $header-top;
+  }
+}
+
+h1,
+h2,
+h3 {
+  margin-bottom: s(1);
+}
+h4,
+h5,
+h6 {
+  margin-bottom: s(0.5);
+}
+
+/* ID is used here to overwrite equally high specificity from style.css */
+h1,
+.u-h1 { @include type-setting(h1); }
+h2,
+.u-h2 { @include type-setting(h2); }
+h3,
+.u-h3 { @include type-setting(h3); }
+h4,
+.u-h4 { @include type-setting(h4); }
+h5,
+.u-h5 { @include type-setting(h5); }
+h6,
+.u-h6 { @include type-setting(h6); }
+body,
+p,
+.u-p { @include type-setting(p); }
+small,
+.u-small { @include type-setting(sm); }
+
+h1 + hr,
+h2 + hr,
+h3 + hr {
+  margin-top: s(-1); /* Allows headers to sit on horizontal rules */
+}
+h4 + hr,
+h5 + hr,
+h6 + hr {
+  margin-top: s(-0.5); /* Allows headers to sit on horizontal rules */
+}

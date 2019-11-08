@@ -1,0 +1,43 @@
+/*--------------------------------------------------------------
+## Media
+@requires _mixins.scss
+@requires _typography.scss
+@requires _structure.scss
+--------------------------------------------------------------*/
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+.embed-wrapper {
+  height: 0;
+  overflow: hidden;
+  padding-bottom: 56.25%; /* 16:9 -- set the aspect ratio here as (height / width) * 100% */
+  padding-top: 0;
+  position: relative;
+  z-index: 10;
+}
+.embed-wrapper iframe,
+.embed-wrapper embed,
+.embed-wrapper object {
+  height: 100%;
+  @include position(absolute, 0, null, null, 0);
+  width: 100%;
+}
+
+img {
+	height: auto;
+	max-width: 100%;
+}
+
+figure {
+  display: block;
+  margin: 0 0 s(1);
+}
+
+figcaption {
+  display: block;
+  @include type-setting(sm);
+  text-align: center;
+}

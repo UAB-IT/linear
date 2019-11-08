@@ -1,0 +1,34 @@
+// --------------------------------------------------------------
+// 
+// Stratus 0.1.0
+// Author: Matthew McAdams
+// Author URI: https://mattmcadams.com/
+// License: MIT License 2019
+// License URI: https://github.com/MattMcAdams/stratus/blob/master/LICENSE
+// Documentation: https://github.com/MattMcAdams/stratus/wiki
+//
+// -----------------------------------------------------------------
+// >>> TABLE OF CONTENTS:
+// -----------------------------------------------------------------
+// # Typography
+//   ## Headings
+//   ## Copy
+//   ## Links
+// # Elements
+//   ## Elements
+//   ## Lists
+//   ## Media
+//   ## Tables
+// # Forms
+//   ## Buttons
+//   ## Fields
+// # Modules
+//   ## Accessibility
+//   ## Grid
+//   ## Sections
+// -----------------------------------------------------------------
+@import 'partials/01-core/_functions.scss';
+@import 'partials/01-core/_typography.scss';
+@import 'partials/01-core/_color.scss';
+@import 'partials/01-core/_structure.scss';
+@import 'partials/01-core/_mixins.scss';
