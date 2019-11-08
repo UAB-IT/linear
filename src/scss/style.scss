@@ -31,10 +31,12 @@ $init-line-height: 1.6; // Number
   * Margin Fix ..................... fix for last & first child margins
   *
   * TYPOGRAPHY | _typography.scss
-  * Headings ....................... h1-h6 & uk- classes
-  * Copy ........................... inline semantics
-  * Block .......................... pre, p, blockquote / .pullquote
+  * Resets ......................... reset aggressive inline styles
+  * Header Spacing ................. h1-h6 & uk- class margins
+  * Font Sizes ..................... modular scale font sizes and line height
+  * Copy ........................... block level elements: pre, p
   * Links .......................... a, and states of
+  * Semantic HTML .................. inline semantic elements
   *
   * LISTS | _lists.scss
   * Lists .......................... ul, ol, dl
