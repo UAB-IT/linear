@@ -11,7 +11,7 @@ $init-txt-size: 16; // Integer(px)
 $init-line-height: 1.6; // Number
 @import '../../inc/stratus/stratus.scss';
 @import '_config.scss';
-/** -------------------------------------------------------------------------
+/** =========================================================================
   [-TABLE OF CONTENTS-]
 
   01-CORE
@@ -50,8 +50,8 @@ $init-line-height: 1.6; // Number
   *
   * FORMS | _forms.scss
   * Buttons ........................ button base and state styles
-  * Fields ......................... styles for form fields
   * Groups ......................... flex styles for input / button groups
+  * Inputs ......................... styles for form fields
 
   03-CUSTOM
   * TOC | _toc.scss
@@ -142,46 +142,54 @@ $init-line-height: 1.6; // Number
   * Flex ........................... Position footer info
   * Links .......................... Change footer link styles
   * Social ......................... Style for social icons in the footer
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
 // CORE
 // Sass variables, functions, and mixins
-// ---------------------------------------------------------------------- **/
+// ====================================================================== **/
 @import '01-core/_icons.scss';
 @import '01-core/_patterns.scss';
 
-/** BASE
+/** SECTION BASE
 Basic styling for html elements
-------------------------------------------------------------------------- **/
+========================================================================= **/
 @import '02-base/_typography.scss';
 @import '02-base/_spacing.scss';
 @import '02-base/_lists.scss';
 @import '02-base/_tables.scss';
 @import '02-base/_media.scss';
+@import '02-base/_forms.scss';
 
-/** JOOMLA
+/* End !SECTION BASE */
+/** SECTION JOOMLA
 Styles for joomla generated content
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
-/** CUSTOM
+/* End !SECTION JOOMLA */
+/** SECTION CUSTOM
 Styles for custom components
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
-/** WIDGETKIT
+/* End !SECTION CUSTOM */
+/** SECTION WIDGETKIT
 Styles for widgetkit generated content and components
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
-/** SYNDICATION
+/* End !SECTION WIDGETKIT */
+/** SECTION SYNDICATION
 Styles for widgets used to syndicate data, such as RSS feeds
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
-/** CENTRAL
+/* End !SECTION SYNDICATION */
+/** SECTION CENTRAL
 Styles that heavily override central CSS and styles related to positions
 such as the sidebar, banner, and footer.
-------------------------------------------------------------------------- **/
+========================================================================= **/
 
-/** HELPERS
+/* End !SECTION CENTRAL */
+/** SECTION HELPERS
 Styles that provide atomic classes that help fix layout oddities
 on a case by case basis.
-------------------------------------------------------------------------- **/
+========================================================================= **/
 @import '01-core/_helpers.scss';
+/* End !SECTION HELPERS */
