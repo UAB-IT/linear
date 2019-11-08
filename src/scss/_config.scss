@@ -1,9 +1,9 @@
-$adjust-template: true; // boolean
-$use-grid: true; // boolean
-$bdr-radius: 2px;
-
-$specify: 'body.linear.hd'; // string
-$main: '#whitebox'; // string
+/* FONTS
+-------------------------------------------------------------------------- */
+$font-body: 'proxima-nova', arial, helvetica, sans-serif !important;
+$font-head: 'kulturista-web', serif;
+$font-mono: monospace;
+$font-icon: 'IcoMoon';
 
 $font-sizes: (
   large: 6,
@@ -16,6 +16,67 @@ $font-sizes: (
   p: 0,
   sm: -1
 );
+
+/* COLORS
+-------------------------------------------------------------------------- */
+$uabgreen: #1E6B52;
+$darkgreen: #295135;
+$blaze: #FFD400;
+$apple: #80BC00;
+$gold: #AA9767;
+$stone: #808285;
+$coral: #EA6852;
+
+$c-primary: $uabgreen;
+$c-accent: $apple;
+
+$c-green: $apple;
+$c-yellow: $blaze;
+$c-red: #F00;
+$c-grey: $stone;
+
+$c-background: rgba(128, 130, 133, 0.15);
+$c-body: black;
+$c-header: black;
+
+/* SETTINGS
+-------------------------------------------------------------------------- */
+$adjust-template: true; // boolean
+$use-grid: true; // boolean
+
+$specify: 'body.linear.hd'; // string
+$main: '#whitebox'; // string
+
+// $adjust-layout: true; // boolean
+
+$icon-new-tab: '\e024'; // string
+$icon-pdf: '\e239'; // string
+
+/* BORDERS
+-------------------------------------------------------------------------- */
+$bdr-radius: 2px;
+$bdr-width: 1px;
+$bdr-width-md: 2px;
+$bdr-width-lg: 5px
+$bdr-color: black;
+$hr-color: c($c-grey, 200);
+
+/* SPACING
+-------------------------------------------------------------------------- */
+$indent: 1em;
+$inline-padding: 0 0.2em 0.1em;
+$input-padding: 0.3em 1em;
+
+$block-margin: s(1);
+$block-padding: s(1);
+
+$section-margin: s(4);
+$section-padding: s(4);
+$section-padding-small: s(2);
+
+$max-width: 1280px;
+$body-pad: s(1);
+
 
 $breakpoints: (
   xxl: 2560px,
