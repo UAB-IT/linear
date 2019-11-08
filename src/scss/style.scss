@@ -1,43 +1,182 @@
-/* ----------------------------------------------------
-Ember 0.9.3
-University of Alabama at Birmingham
-Department of Information Technology
-2019 Mozilla Public License 2.0
-https://github.com/UAB-IT/Ember
----------------------------------------------------- */
-@import 'partials/01-core/_global.scss';
+/* ==========================================================================
+  IT Website Stylesheet 0.9.3
+  University of Alabama at Birmingham
+  Department of Information Technology
+  2019 Mozilla Public License 2.0
+  https://github.com/UAB-IT/website-design
+========================================================================== */
+@import '../../inc/stratus/stratus.scss';
+/** -------------------------------------------------------------------------
+  [-TABLE OF CONTENTS-]
+
+  CORE
+  * ICONS | _icons.scss
+  * Sass variables for uab.edu/toolkit/web/build-maintain-your-site/icons
+  *
+  * PATTERNS | _patterns.scss
+
+  BASE
+  * Document | _document.scss
+  * Root ........................... html, :root, body, etc
+  * States ......................... ::selection, [disabled], etc
+  *
+  * SPACING | _spacing.scss
+  * Sections ....................... sections & backgrounds
+  * Full width ..................... sections that break out of the content
+  * Margin Fix ..................... fix for last & first child margins
+  *
+  * TYPOGRAPHY | _typography.scss
+  * Headings ....................... h1-h6 & uk- classes
+  * Copy ........................... inline semantics
+  * Block .......................... pre, p, blockquote / .pullquote
+  * Links .......................... a, and states of
+  * 
+  * LISTS | _lists.scss
+  * Lists .......................... ul, ol, dl
+  * Items .......................... li, dt, dd
+  * Themes ......................... colored, aligned
+  *
+  * TABLES | _tables.scss
+  * Basic styles ................... table, thead, tfoot, tr, th, td
+  * Themes ......................... .striped, .borderless, .compact
+  * Comparison ..................... .comparison'
+  *
+  * MEDIA | _media.scss
+  * Images ......................... img, figure, figcaption
+  * Embeds ......................... .responsive-embed
+  *
+  * FORMS | _forms.scss
+  * Buttons ........................ button base and state styles
+  * Fields ......................... styles for form fields
+  * Groups ......................... flex styles for input / button groups
+
+  CUSTOM
+  * TOC | _toc.scss
+  * Container ...................... nav.toc
+  * Items .......................... ul / ol item styles
+  * Themes ......................... list styles for TOC items
+  *
+  * ORG-CHART | _org-chart.scss
+  * Styles for the org structure chart
+  *
+  * GRID | _grid.scss
+  * Basic grid system
+
+  JOOMLA
+  * CHIPS | _chips.scss
+  * Chips .......................... .label, .label-info, .badge
+  * Flags .......................... .flag
+  *
+  * ALERT | _alert.scss
+  * Module overrides ............... box styles
+  * Links .......................... red style for links in an alert
+  * IE-Only ........................ hide IE alert for non IE devices
+  *
+  * NEWS | _news.scss
+  * Newsflash ...................... grid style news cards
+  * Feed ........................... styles article feed module
+  *
+  * PAGINATION | _pagination.scss
+  * Base ........................... overrides joomla styles
+  * States ......................... styles for active, etc
+  *
+  * ARTICLE | _article.scss
+  * Layout ......................... reduce column width
+  * Meta ........................... meta box styles
+  * Intro .......................... styles fancy intro section
+
+  WIDGETKIT
+  * CORE OVERRIDES | _widgetkit.scss
+  * Spacing ........................ Replace wk paddings with s(x) units
+  *
+  * GRID | _wk-grid.scss
+  * Gaps ........................... Use s() units for grid gaps
+  *
+  * PANELS | _panels.scss
+  * Box ............................ box, box-primary
+  * Panel Link ..................... overlays for uk-cover
+  *
+  * DETAILS | _details.scss ........ Size detail image & columns
+  * FEATURES | _features.scss ...... Size feature image
+  * SLIDESHOW | _slideshow.scss .... Fix margins
+  * TABS | _tabs.scss .............. Override styles & fix positioning
+  * NUMBERS | _numbers.scss ........ Size numbers & correct margins
+
+  SYNDICATION
+  * CALENDAR | _calendar.scss
+  * Localist widget from campus calendar
+  * RSS | _rss-feed.scss
+  * Simple RSS Feed Generator
+
+  CENTRAL
+  * NAVIGATION | _navigation.scss
+  * Top navigation ................. Add department styles
+  *
+  * SIDEBAR | _sidebar.scss
+  * Overrides ...................... Correct default styles
+  * Border ......................... Column border between sidebar & content
+  * Base ........................... Styles for link items
+  * Dropdown ....................... Toggle style for sidebar js
+  * Separators ..................... Style for item separators
+  * Spacing ........................ Adjust margins for modules in sidebar
+  *
+  * QUICKLINKS | _quicklinks.scss .. Drop shadow fix
+  *
+  * LAYOUT | _layout.scss
+  * Grid ........................... Use grid layout on browsers that can
+  * Spacing ........................ Use s() units for paddings & margins
+  * Sidebar ........................ Responsive styles for sidebar
+  * Banner ......................... banner spacing adjustments
+  *
+  * BANNER | _banner.scss
+  * Reset .......................... Remove several default styles
+  * Background ..................... Add banner background
+  * Header ......................... Style page header
+  * Breadcrumbs .................... Style breadcrumbs in the header
+  *
+  * FOOTER | _footer.scss
+  * Flex ........................... Position footer info
+  * Links .......................... Change footer link styles
+  * Social ......................... Style for social icons in the footer
+------------------------------------------------------------------------- **/
+
+// CORE
+// Sass variables, functions, and mixins
+// ---------------------------------------------------------------------- **/
 @import 'partials/01-core/_icons.scss';
-@import '_config.scss';
 @import 'partials/01-core/_patterns.scss';
-/* ----------------------------------------------------
-START COMPONENTS
-Self contained chunks of content with their visual styling.
----------------------------------------------------- */
+
+/** BASE
+Basic styling for html elements
+------------------------------------------------------------------------- **/
+@import 'partials/02-components/_document.scss';
 @import 'partials/02-components/_spacing.scss';
+
 @import 'partials/02-components/_typography.scss';
 @import 'partials/02-components/_lists.scss';
 @import 'partials/02-components/_tables.scss';
 @import 'partials/02-components/_media.scss';
-@import 'partials/02-components/_pullquotes.scss';
+@import 'partials/02-components/_forms.scss';
+
+/** JOOMLA
+Styles for joomla generated content
+------------------------------------------------------------------------- **/
 @import 'partials/02-components/_chips.scss';
 @import 'partials/02-components/_alert.scss';
-@import 'partials/02-components/_grid.scss';
-@import 'partials/02-components/_forms.scss';
-@import 'partials/02-components/_toc.scss';
-@import 'partials/02-components/_org-chart.scss';
-/* ----------------------------------------------------
-END COMPONENTS - START SYNDICATION
-Components that style syndicated content where we have limited control over
-html and classes of the target elements.
----------------------------------------------------- */
-@import 'partials/03-syndication/_calendar.scss';
 @import 'partials/03-syndication/_news.scss';
 @import 'partials/03-syndication/_pagination.scss';
-@import 'partials/03-syndication/_rss-feed.scss';
-/* ----------------------------------------------------
-END SYNDICATION - START WIDGETKIT
-Changes to the widgetkit systems and additional styling
----------------------------------------------------- */
+@import 'partials/05-areas/_article.scss';
+
+/** CUSTOM
+Styles for custom components
+------------------------------------------------------------------------- **/
+@import 'partials/02-components/_grid.scss';
+@import 'partials/02-components/_toc.scss';
+@import 'partials/02-components/_org-chart.scss';
+
+/** WIDGETKIT
+Styles for widgetkit generated content and components
+------------------------------------------------------------------------- **/
 @import 'partials/04-widgetkit/core/_widgetkit.scss';
 @import 'partials/04-widgetkit/core/_wk-grid.scss';
 @import 'partials/04-widgetkit/core/_panels.scss';
@@ -46,23 +185,25 @@ Changes to the widgetkit systems and additional styling
 @import 'partials/04-widgetkit/_slideshow.scss';
 @import 'partials/04-widgetkit/_tabs.scss';
 @import 'partials/04-widgetkit/_numbers.scss';
-/* ----------------------------------------------------
-END WIDGETKIT - START AREAS
-Edits to the Linear template areas.
-Most edits undo Ember styling to keep template styles in those areas.
----------------------------------------------------- */
+
+/** SYNDICATION
+Styles for widgets used to syndicate data, such as RSS feeds
+------------------------------------------------------------------------- **/
+@import 'partials/03-syndication/_calendar.scss';
+@import 'partials/03-syndication/_rss-feed.scss';
+
+
+/** CENTRAL
+Styles that heavily override central CSS and styles related to positions
+such as the sidebar, banner, and footer.
+------------------------------------------------------------------------- **/
 @import 'partials/05-areas/core/_navigation.scss';
 @import 'partials/05-areas/core/_layout.scss';
 @import 'partials/05-areas/_banner.scss';
 @import 'partials/05-areas/_footer.scss';
-@import 'partials/05-areas/_article.scss';
-/* ----------------------------------------------------
-END AREAS - START HELPERS
-Classes that help with styling content on a case-by-case basis
-and fixing edge case bugs
----------------------------------------------------- */
+
+/** HELPERS
+Styles that provide atomic classes that help fix layout oddities
+on a case by case basis.
+------------------------------------------------------------------------- **/
 @import 'partials/01-core/_helpers.scss';
-/* ----------------------------------------------------
-END - HELPERS
----------------------------------------------------- */
-/* code is art */
