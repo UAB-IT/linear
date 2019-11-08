@@ -1,71 +1,78 @@
-/* ----------------------------------------------------
-SPACING
-This module includes various rules to maintain spacial consistency
----------------------------------------------------- */
+/* ==========================================================================
+   SECTION SPACING
+========================================================================== */
 
-/* ------------------------
-SECTIONS
------------------------- */
+/** SECTION Sections
+ * [1] Add section top & bottom margin
+ * [2] Add padding on the section if it has a background
+ * [3] Add a larger padding on top and bottom, remove side paddings if
+ * the background is full width
+-------------------------------------------------------------------------- */
 
 .section {
-  margin: $section-margin 0;
+  margin: $section-margin 0; /*[1]*/
 }
 .section.background {
-  padding: $section-padding-small;
+  padding: $section-padding-small; /*[2]*/
 }
 .section.background-full {
-  padding: $section-padding 0;
+  padding: $section-padding 0; /*[3]*/
 }
+/* !SECTION Sections */
+/** SECTION Full Width
+ * Style for a background to stretch to the full width of the window
+ * [1] Fixes a bug where background is invisible on mobile
+ * [2] Size the background to be wider than the window
+ * [3] Position it so that it starts off the left edge of the screen
+ * [4] Position the background behind the element's content
+-------------------------------------------------------------------------- */
 
-/* ------------------------
-FULL WIDTH
------------------------- */
-
-/* Fixes a bug where the background is invisible on mobile */
 .background-full {
   position: relative;
-  z-index: 1;
+  z-index: 1; /*[1]*/
 }
-/* Adds background element that spans the width of the screen. */
+
+// OPTIMIZE: this can be done a little cleaner I think
 .background-full::before {
   content: '';
   @include position(cover);
-  width: 150vw;
-  margin-left: -50vw;
+  width: 150vw; /*[2]*/
+  margin-left: -50vw; /*[3]*/
   background-color: $c-background;
-  z-index: -1;
+  z-index: -1; /*[4]*/
 }
 
+// TEMP: off canvas section
 // .hero-sect {
 //   /*height: 70vh;*/
 //   margin-top: s( -2 );
 //   align-items: center;
 // }
 
-/* ------------------------
-MARGIN FIX
-// NOTE: This code is experimental and may not fix all issues or may have unintentional effects
-// // TODO: Test and verify code is working properly
------------------------- */
+/* !SECTION Full Width */
+/** SECTION Margins
+ * FIX for first and last child margins top and bottom
+ * [1] Fix for most sections
+ * [2] Fix for first element on the page
+ * [3] Fix for last element on the page
+ * [4] Fix for elements inside tables
+-------------------------------------------------------------------------- */
 
-/* Fix for most sections */
 #{$specify} .section > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 0; /*[1]*/
 }
-/* Fix for first element of the page */
+
 #{$specify} [itemprop='articleBody'] > :first-child {
-  margin-top: 0;
+  margin-top: 0; /*[2]*/
 }
-/* Fix for last element of the page */
+
 #{$specify} [itemprop='articleBody'] > :last-child {
-  margin-bottom: 0;
+  margin-bottom: 0; /*[3]*/
 }
 
-/* margin fix for elements inside tables */
 #{$specify} table td > :last-child {
-  @include reset(margin);
+  @include reset(margin); /*[4]*/
 }
 
-/* ----------------------------------------------------
-END - SPACING
----------------------------------------------------- */
+/* !SECTION Margins */
+/* !SECTION SPACING */
