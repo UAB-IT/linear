@@ -98,7 +98,7 @@
 }
 
 /* End !SECTION States */
-/** SECTION Drop down
+/** SECTION Dropdown
  * Logic for sidebar drop down
 -------------------------------------------------------------------------- */
 
@@ -109,17 +109,17 @@
 
 /* Add drop down icon to header items */
 .clickFade .nav-header::after {
-  font-family: FontAwesome;
-  content: "\f0d7";
+  font-family: 'FontAwesome';
+  content: '\f0d7';
   color: $c-accent;
   margin-left: 5px;
 }
 /* Change drop down icon when it is open */
 .clickFade .active > .nav-header::after {
-  content: "\f0d8"
+  content: '\f0d8';
 }
 
-/* End !SECTION Drop down */
+/* End !SECTION Dropdown */
 /** SECTION Misc
  * Ensure consistency
 -------------------------------------------------------------------------- */

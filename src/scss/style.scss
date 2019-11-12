@@ -117,12 +117,11 @@ $init-line-height: 1.6; // Number
   * Breadcrumbs .................... Add nicer link divider
   *
   * SIDEBAR | _sidebar.scss
-  * Overrides ...................... Correct default styles
-  * Border ......................... Column border between sidebar & content
-  * Base ........................... Styles for link items
+  * Resets ......................... Correct default styles
+  * Column ......................... Border between sidebar & content
+  * Links .......................... Styles for link items
   * Dropdown ....................... Toggle style for sidebar js
-  * Separators ..................... Style for item separators
-  * Spacing ........................ Adjust margins for modules in sidebar
+  * Misc ........................... Style for item separators and spacing
   *
   * LAYOUT | _layout.scss
   * Grid ........................... Use grid layout on browsers that can
@@ -205,6 +204,9 @@ such as the sidebar, banner, and footer.
 ========================================================================= **/
 @import '07-central/_navigation.scss';
 @import '07-central/_sidebar.scss';
+// TODO: @import '07-central/_layout.scss';
+// TODO: @import '07-central/_banner.scss';
+// TODO: @import '07-central/_footer.scss';
 
 /* End !SECTION CENTRAL */
 /** SECTION HELPERS
