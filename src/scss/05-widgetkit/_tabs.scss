@@ -1,7 +1,11 @@
-/*------------------------
-START TABS
-------------------------*/
-/* Remove default list margins */
+/* ==========================================================================
+   SECTION TABS
+   Styles for the built in tabs widgetkit widget
+========================================================================== */
+
+/* Remove default list margins
+ * OPTIMIZE: I think this is to combat overly specific styles in _lists.scss
+ */
 #{$specify} #content ul.uk-tab,
 #{$specify} #content ul.uk-tab li,
 #{$specify} #content ul.uk-switcher,
@@ -9,12 +13,16 @@ START TABS
   margin: 0;
 }
 
-/* Remove margin from content to let it sit right next to the tabs */
+/* Remove margin from content to let it sit right next to the tabs
+ * REVIEW: Why important? If we use important, simplify the selector?
+ */
 #{$specify} #content ul.uk-tab + ul.uk-switcher.uk-margin-top {
   margin-top: 0 !important;
 }
 
-/* Remove traditional link styles from the tab links */
+/* Remove link styles from the tab links
+ * REVIEW: This is because of conflict with our own styles?
+ */
 #{$specify} ul.uk-tab > li > a {
   border-bottom: 1px solid transparent;
   border-radius: 0;
@@ -27,17 +35,20 @@ START TABS
 #{$specify} ul.uk-tab > li.uk-active > a {
   border-color: $stone;
 }
-/* Remove default border from the tab bar */
+/* Remove default border from the tab bar
+ * QUESTION: Is this border added by me or by widgetkit?
+ */
 #{$specify} ul.uk-tab {
   border-bottom: 0px solid transparent;
 }
 
-/* Bump panel up a pixel to align its border with tab border,
-add border, since we can't add uk-panel-box through this widget */
+/**
+ * [1] Add a border, since we can't add uk-panel-box through this widget
+ * [2] Bump panel up a pixel to align its border with tab border
+**/
 #{$specify} ul.uk-tab + ul.uk-switcher .uk-panel {
-  border: 1px solid $stone;
-  margin-top: -1px;
+  border: 1px solid $stone; /*[1]*/
+  margin-top: -1px; /*[2]*/
 }
-/*------------------------
-END TABS
-------------------------*/
+
+/* End !SECTION TABS */
