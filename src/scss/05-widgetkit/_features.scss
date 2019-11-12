@@ -1,15 +1,15 @@
-/*------------------------
-START FEATURES
+/* ==========================================================================
+   SECTION FEATURES
+   Style for a custom component called "features" .wk-features
+   Expected use is 3 columns with an image, header, and optional text
+========================================================================== */
 
-This uses widgetkit for layout
-------------------------*/
 /* Size image used in the features component */
 #{$specify} .wk-features .uk-panel img {
-  height: 7rem;
+  height: 7rem; // HACK Magic number
   width: auto;
   display: block;
   margin: auto;
 }
-/*------------------------
-END FEATURES
-------------------------*/
+
+/* End !SECTION FEATURES */
