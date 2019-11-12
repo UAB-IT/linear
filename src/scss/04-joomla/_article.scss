@@ -1,0 +1,61 @@
+/* ==========================================================================
+   SECTION ARTICLE
+   Styles for individual article pages, typically on announcements or stories
+========================================================================== */
+
+/** SECTION Layout
+ * Size the overall article width to a comfortable reading width
+-------------------------------------------------------------------------- */
+
+// OPTIMIZE: Can this specificity be flatter?
+
+$article-width: 700px;
+#{$specify}.article-layout #content .item-page.article-layout {
+  max-width: $article-width !important; // QUESTION: Why is important used here?
+  margin: auto;
+}
+
+/* End !SECTION Layout */
+/** SECTION Details
+ * Styles for the article info box
+-------------------------------------------------------------------------- */
+
+/* position article info */
+#{$specify}.article-layout .article-info {
+  text-align: right;
+  border-top: $bdr-width solid black;
+  margin-bottom: 0;
+  padding-top: s(1);
+}
+
+/* Remove calendar icon in article info */
+#{$specify}.article-layout .article-info .icon-calendar {
+  display: none;
+}
+
+/* End !SECTION Details */
+/** SECTION Media
+ * Allow images and videos to break out of the text column on both sides
+-------------------------------------------------------------------------- */
+
+// OPTIMIZE: Target a class instead of an element. Maybe use important here?
+#{$specify}.article-layout #content .item-page.article-layout figure {
+  width: calc( #{$article-width} + #{s(4)} );
+  margin-left: -#{s(2)};
+}
+
+/* End !SECTION Media */
+/** SECTION Intro
+ * DEPRECATED: Not actively used, but may be used in the future
+ * Adds styling for an into section at the top of articles
+-------------------------------------------------------------------------- */
+
+#{$specify}.article-layout .item-page.article-layout > div > .intro {
+  width: calc( #{$article-width} + #{s(4)} );
+  margin-left: -#{s(2)};
+  padding: s(1) s(2);
+  border-top: $bdr-width solid black;
+  border-bottom: $bdr-width solid black;
+}
+/* End !SECTION Intro */
+/* End !SECTION Article */

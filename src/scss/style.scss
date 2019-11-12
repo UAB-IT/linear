@@ -83,7 +83,8 @@ $init-line-height: 1.6; // Number
   *
   * ARTICLE | _article.scss
   * Layout ......................... reduce column width
-  * Meta ........................... meta box styles
+  * Details ........................ article info area
+  * Media .......................... allow wide alignment
   * Intro .......................... styles fancy intro section
 
   05-WIDGETKIT
@@ -174,6 +175,8 @@ Styles for joomla generated content
 @import '04-joomla/_chips.scss';
 @import '04-joomla/_alert.scss';
 // DEPRECATED @import '04-joomla/_news.scss';
+@import '04-joomla/_pagination.scss';
+@import '04-joomla/_article.scss';
 
 /* End !SECTION JOOMLA */
 /** SECTION CUSTOM
