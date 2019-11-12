@@ -1,11 +1,13 @@
-/* ----------------------------------------------------
-WIDGETKIT CORE STYLES
-Override of widgetkit styles for a more consistent look on the site
----------------------------------------------------- */
-/* ------------------------
-SPACING
------------------------- */
-/* Add vertical rhythm spacing to the widgetkit margins */
+/* ==========================================================================
+   SECTION WIDGETKIT CORE
+   Override of widgetkit styles for a more consistent look on the site
+========================================================================== */
+
+/** SECTION Spacing
+ * Add block spacing to the widgetkit margins
+ * Selectors match those from ui kit
+-------------------------------------------------------------------------- */
+
 * + .uk-margin {
   margin-top: s( 1 );
 }
@@ -16,12 +18,16 @@ SPACING
   padding: s(1);
 }
 
-/* Margin fix for items inside widgetkit blocks */
+/* FIX for item margins inside widgetkit blocks */
+// REVIEW Should this just be :last-child instead of p:last-child?
 #{$specify} .uk-panel p:last-child {
   @include reset(margin);
 }
 
-/* Remove default margin from .uk elements so their correct margin can be used */
+/**
+ * Remove default margin from .uk elements so
+ * their correct margin can be used
+**/
 .uk-panel-teaser,
 .uk-panel-title {
   margin-bottom: 0;
@@ -31,14 +37,17 @@ SPACING
 #{$specify} [id*='wk']:not(:first-child) {
   margin-top: $section-margin;
 }
-#{$specify} [id*='wk'] {
+#{$specify} [id*='wk']:not(:last-child) {
   margin-bottom: $section-margin;
 }
-/* Fix for widgetkit blocks */
+/* FIX for widgetkit blocks */
+/* REVIEW: given the change made above, is this still necessary? */
 #{$specify} .section [id]:last-of-type {
   margin-bottom: 0;
 }
+
 /* Decrease space between headers & widgetkit blocks */
+/* REVIEW: Is there a better solution to this? */
 #{$specify} h1 + [id*='wk']:not(:first-child),
 #{$specify} h2 + [id*='wk']:not(:first-child),
 #{$specify} h3 + [id*='wk']:not(:first-child),
@@ -48,10 +57,15 @@ SPACING
   margin-top: s(2);
 }
 
-/* ------------------------
-TYPOGRAPHY
------------------------- */
+/* End !SECTION Spacing */
+/** SECTION Typography
+ * QUESTION What is this for?
+-------------------------------------------------------------------------- */
+
 #{$specify} .uk-panel-title {
   @include reset(margin);
   margin-bottom: s( -0.5 );
 }
+
+/* End !SECTION Typography */
+/* End !SECTION WIDGETKIT CORE */

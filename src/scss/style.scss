@@ -179,14 +179,10 @@ Styles for joomla generated content
 @import '04-joomla/_article.scss';
 
 /* End !SECTION JOOMLA */
-/** SECTION CUSTOM
-Styles for custom components
-========================================================================= **/
-
-/* End !SECTION CUSTOM */
 /** SECTION WIDGETKIT
 Styles for widgetkit generated content and components
 ========================================================================= **/
+@import '05-widgetkit/_widgetkit.scss';
 
 /* End !SECTION WIDGETKIT */
 /** SECTION SYNDICATION
