@@ -1,18 +1,29 @@
-#{$specify}.grid {
+/* ==========================================================================
+   SECTION GRID
+   This is intended to be a simple grid utility to allow content
+   to be placed side by side without using widgetkit.
+   WARNING: This module is unstable and needs to be tested
+   REVIEW: Class names
+========================================================================== */
+
+/* Fallback for IE */
+#{$specify} .grid {
   display: flex;
   flex-wrap: wrap;
 }
 
 @supports (display: grid) {
-  #{$specify}.grid {
+  #{$specify} .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: s(0.5);
   }
-  #{$specify} .grid.gap-medium {
+  #{$specify} .gap-medium {
     grid-gap: s(1);
   }
-  #{$specify} .grid.gap-large {
+  #{$specify} .gap-large {
     grid-gap: s(2);
   }
 }
+
+/* End !SECTION GRID */

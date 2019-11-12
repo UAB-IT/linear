@@ -60,15 +60,8 @@ $init-line-height: 1.6; // Number
 
   03-CUSTOM
   * TOC | _toc.scss
-  * Container ...................... nav.toc
-  * Items .......................... ul / ol item styles
-  * Themes ......................... list styles for TOC items
-  *
   * ORG-CHART | _org-chart.scss
-  * Styles for the org structure chart
-  *
   * GRID | _grid.scss
-  * Basic grid system
 
   04-JOOMLA
   * CHIPS | _chips.scss
@@ -167,6 +160,14 @@ Basic styling for html elements
 @import '02-base/_forms.scss';
 
 /* End !SECTION BASE */
+/** SECTION CUSTOM
+Styles for hand crafted components
+========================================================================= **/
+@import '03-custom/_toc.scss';
+@import '03-custom/_org-chart.scss';
+@import '03-custom/_grid.scss';
+
+/* End !SECTION CUSTOM */
 /** SECTION JOOMLA
 Styles for joomla generated content
 ========================================================================= **/

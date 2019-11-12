@@ -177,6 +177,7 @@ $list-margin: s(0.5) !default;
   * [2] Increment the counter for every item at the top level
   * [3] Add the indicator to the pseudo element
  **/
+// REVIEW .color class name
 #{$specify} #{$main} ol.color > li > ol > li > ol {
   list-style: none !important;
   counter-reset: thirdli; /*[1]*/

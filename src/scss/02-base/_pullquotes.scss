@@ -49,6 +49,7 @@
 -------------------------------------------------------------------------- */
 
 // IDEA Decide to use css variables or not, use those here
+// REVIEW theme class names
 #{$specify} .callout.red { border-color: $c-red; }
 #{$specify} .callout.yellow { border-color: $c-yellow; }
 #{$specify} .callout.green { border-color: $c-green; }

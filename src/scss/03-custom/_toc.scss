@@ -1,10 +1,18 @@
-#{$specify} nav.table-of-contents {
+/* ==========================================================================
+   SECTION TOC
+   Table of contents block
+========================================================================== */
+
+#{$specify} .table-of-contents {
   padding: $block-padding;
-  width: 80%;
-  min-width: 200px;
+  width: 80%; // HACK: Magic number
+  min-width: 200px; // HACK: Magic number
   border: 1px solid c($c-grey, 200);
   @include block-margin;
 }
+
+// OPTIMIZE Specificity seems extremely unruly
+
 #{$specify} #whitebox nav.table-of-contents ol {
   list-style: none;
 }
@@ -16,10 +24,12 @@
   margin: 0;
   padding: 0;
   color: $uabgreen;
-  /*font-size: #{type-scale(sm) + 'rem'};*/
+  /*TEMP font-size: #{type-scale(sm) + 'rem'};*/
 }
 #{$specify} #whitebox nav.table-of-contents ol li a {
-  /*border: none !important;*/
-  /*text-decoration: underline;*/
+  /*TEMP border: none !important;*/
+  /*TEMP text-decoration: underline;*/
   color: black;
 }
+// TODO Add themes for list styles | Potentially move this to lists.scss?
+/* End !SECTION TOC */
