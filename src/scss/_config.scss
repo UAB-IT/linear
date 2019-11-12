@@ -1,5 +1,9 @@
-/* FONTS
--------------------------------------------------------------------------- */
+// ==========================================================================
+// SECTION CONFIGURATION
+// ==========================================================================
+
+//  SECTION Fonts
+// --------------------------------------------------------------------------
 $font-body: 'proxima-nova', arial, helvetica, sans-serif !important;
 $font-head: 'kulturista-web', serif;
 $font-mono: monospace;
@@ -17,8 +21,9 @@ $font-sizes: (
   sm: -1
 );
 
-/* COLORS
--------------------------------------------------------------------------- */
+// End !SECTION Fonts
+//  SECTION Colors
+// --------------------------------------------------------------------------
 $uabgreen: #1E6B52;
 $darkgreen: #295135;
 $blaze: #FFD400;
@@ -39,8 +44,9 @@ $c-background: rgba(128, 130, 133, 0.15);
 $c-body: black;
 $c-header: black;
 
-/* SETTINGS
--------------------------------------------------------------------------- */
+// End !SECTION Fonts
+//  SECTION Settings
+// --------------------------------------------------------------------------
 $adjust-template: true; // boolean
 $adjust-central-typography: true; //boolean
 $use-grid: true; // boolean
@@ -53,8 +59,8 @@ $main: '#whitebox'; // string
 $icon-new-tab: '\e024'; // string
 $icon-pdf: '\e239'; // string
 
-/* BORDERS
--------------------------------------------------------------------------- */
+// End !SECTION Settings
+//  SECTION Borders
 $bdr-radius: 2px;
 $bdr-width: 1px;
 $bdr-width-md: 2px;
@@ -64,8 +70,9 @@ $bdr-color: black;
 $hr-color: c($c-grey, 200);
 $hr-width: 1px;
 
-/* SPACING
--------------------------------------------------------------------------- */
+// End !SECTION Borders
+//  SECTION Spacing
+// --------------------------------------------------------------------------
 $indent: 1em;
 $inline-padding: 0 0.2em 0.1em;
 $input-padding: 0.3em 1em;
@@ -77,6 +84,9 @@ $section-margin: s(4);
 $section-padding: s(4);
 $section-padding-small: s(2);
 
+// End !SECTION Spacing
+//  SECTION Document
+// --------------------------------------------------------------------------
 $max-width: 1280px;
 $body-pad: s(1);
 
@@ -88,3 +98,6 @@ $breakpoints: (
   sm: 300px,
   xs: 299px
 );
+
+// End !SECTION Document
+// End !SECTION CONFIGURATION

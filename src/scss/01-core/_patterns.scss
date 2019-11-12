@@ -1,7 +1,9 @@
-// ----------------------------------------------------
-// FONTS
-// ----------------------------------------------------
+// ==========================================================================
+// SECTION PATTERNS
+// ==========================================================================
 
+//  SECTION Fonts
+// --------------------------------------------------------------------------
 /// Sets the font weights to use numbers from font family
 /// @group typography
 /// @type map
@@ -48,68 +50,71 @@ $header-weight: normal !default;
   font-weight: map-deep-get($font-weights, $font, $weight);
 }
 
-// ----------------------------------------------------
-// PATTERNS
-// ----------------------------------------------------
+// End !SECTION Fonts
+//  SECTION Styles
+// --------------------------------------------------------------------------
 
-@mixin header-style($size: null, $margin: true) {
-  @if $margin == true {
-    margin: 0 0 $header-bottom;
-  }
-  @if $size != null {
-    @include type-setting($size);
-  }
-  @include weight($header-weight, head);
-  font-family: $font-head;
-  color: $c-header;
-}
+// TEMP Old header style mixin
+// @mixin header-style($size: null, $margin: true) {
+//   @if $margin == true {
+//     margin: 0 0 $header-bottom;
+//   }
+//   @if $size != null {
+//     @include type-setting($size);
+//   }
+//   @include weight($header-weight, head);
+//   font-family: $font-head;
+//   color: $c-header;
+// }
 
-@mixin link-style($theme: null, $hover: false) {
-  @if $hover == true {
-    @if $theme == alert {
-      background-color: c($c-red, 200);
-      border-color: $c-red;
-    }
-    @else if $theme == mute {
-      background-color: initial;
-      border-color: c($stone, 100);
-    }
-    @else {
-      background-color: c($c-primary, 100);
-      border-color: $c-primary;
-    }
-  }
-  @else {
-    @if $theme == alert {
-      border-bottom: 2px solid $c-red;
-    }
-    @else if $theme == mute {
-      color: white;
-      border-bottom: 2px solid c($stone, 400);
-    }
-    @else {
-      border-bottom: 2px solid c($c-primary, 200);
-    }
-  }
-}
+// TEMP: Old link style mixin
+// @mixin link-style($theme: null, $hover: false) {
+//   @if $hover == true {
+//     @if $theme == alert {
+//       background-color: c($c-red, 200);
+//       border-color: $c-red;
+//     }
+//     @else if $theme == mute {
+//       background-color: initial;
+//       border-color: c($stone, 100);
+//     }
+//     @else {
+//       background-color: c($c-primary, 100);
+//       border-color: $c-primary;
+//     }
+//   }
+//   @else {
+//     @if $theme == alert {
+//       border-bottom: 2px solid $c-red;
+//     }
+//     @else if $theme == mute {
+//       color: white;
+//       border-bottom: 2px solid c($stone, 400);
+//     }
+//     @else {
+//       border-bottom: 2px solid c($c-primary, 200);
+//     }
+//   }
+// }
 
-@mixin hover {
-  border-color: $c-primary;
-  box-shadow: 0 0 0 1px $c-primary;
-  background-color: c( $c-primary, 100 );
-  color: black;
-}
+// TEMP: Old hover mixin
+// @mixin hover {
+//   border-color: $c-primary;
+//   box-shadow: 0 0 0 1px $c-primary;
+//   background-color: c( $c-primary, 100 );
+//   color: black;
+// }
 
-@mixin card-styles {
-  border: $bdr-width solid black;
-  border-radius: $bdr-radius;
-  padding: $block-padding;
-}
+// TEMP: Old card style mixin
+// @mixin card-styles {
+//   border: $bdr-width solid black;
+//   border-radius: $bdr-radius;
+//   padding: $block-padding;
+// }
 
-// ----------------------------------------------------
-// RESET
-// ----------------------------------------------------
-
+// End !SECTION Styles
+//  SECTION Reset
+// --------------------------------------------------------------------------
 @mixin reset($properties...) {
   @for $i from 0 to length($properties) {
     @if nth($properties, $i + 1) == margin {
@@ -152,3 +157,5 @@ $header-weight: normal !default;
     }
   }
 }
+// End !SECTION Reset
+// End !SECTION PATTERNS

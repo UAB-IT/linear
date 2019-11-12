@@ -1,6 +1,8 @@
-/*------------------------
-START HELPERS
-------------------------*/
+/* ==========================================================================
+   SECTION HELPERS
+========================================================================== */
+
+// REVIEW: Are these classes still useful, given we have uk- classes?
 #{$specify} .type-set--1 { @include type-setting(-1); }
 #{$specify} .type-set-0 { @include type-setting(0); }
 #{$specify} .type-set-1 { @include type-setting(1); }
@@ -9,25 +11,30 @@ START HELPERS
 #{$specify} .type-set-4 { @include type-setting(4); }
 #{$specify} .type-set-5 { @include type-setting(5); }
 
+// REVIEW: class names
 .txt-c { text-align: center !important; }
 .txt-l { text-align: left !important; }
 .txt-r { text-align: right !important; }
 
+// REVIEW: Possible conflict with full template position
 .full {
   display: block;
   width: 100%;
 }
 
+// REVIEW: class names
 .round { border-radius: $bdr-radius; }
 .square { border-radius: 0; }
 .circle { border-radius: 50%; }
 .border { border: $bdr-width solid black; }
 
+// REVIEW: class name
 .background {
   padding: $block-padding;
   background-color: $c-background;
 }
 
+// REVIEW: Are these classes still helpful? These are expensive and may not be worth using
 [class*='-space-0'] { --u-space: 0; }
 [class*='-space-05'] { --u-space: #{s( 0.5 )}; }
 [class*='-space-1'] { --u-space: #{s( 1 )}; }
@@ -43,6 +50,4 @@ START HELPERS
 [class*='u-padding-bottom-'] { padding-bottom: var( --u-space ) !important; }
 [class*='u-padding-left-'] { padding-left: var( --u-space ) !important; }
 
-/*------------------------
-END HELPERS
-------------------------*/
+/* End !SECTION HELPERS */
