@@ -125,13 +125,14 @@ $checkbox-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221
   @include reset(margin);
 }
 
-/* TEMP Adjust border radius
-expected html:
-<div class="input-group">
-  <input> or <button> or <a class="btn">
-  <button> or <a class="btn">
-</div>
-*/
+/**
+ * Adjust border radius
+ * expected html:
+ * <div class="input-group">
+ *   <input> or <button> or <a class="btn">
+ *   <button> or <a class="btn">
+ * </div>
+**/
 #{$specify} .input-group :first-child {
   border-radius: $bdr-radius;
   border-top-right-radius: 0;
@@ -179,6 +180,7 @@ expected html:
   @include type-setting(p);
 }
 
+// TODO Merge with resets above, duplicate selector warning
 /* Basic styles for input fields */
 #{$specify} textarea,
 #{$specify} input[type='email'],
