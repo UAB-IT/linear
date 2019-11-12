@@ -1,7 +1,8 @@
-/* ----------------------------------------------------
-NEWSFLASH
-Generated from article feed component
----------------------------------------------------- */
+/* ==========================================================================
+   SECTION NEWSFLASH
+   Generated from Article Feed module
+   DEPRECATED: Not used since the move to RSS based feeds
+========================================================================== */
 // Expected HTML:
 // <ul class="newsflash-vert it-news mod-list">
 //   <li class="newsflash-item">
@@ -14,24 +15,36 @@ Generated from article feed component
 //     <p class="intro"></p>
 //   </li>
 // </ul>
-/* ------------------------
-RESET
------------------------- */
+
+/** SECTION Resets
+ * [1] Remove style from central style.css
+ * [2] Removes space caused by an empty element
+ * QUESTION: Provide more context for [2]
+-------------------------------------------------------------------------- */
+
 #{$specify} li.newsflash-item {
-  float: none; /* remove style from style.css */
+  float: none; /*[1]*/
 }
 
 .it-news .article-separator {
-  display: none; /* Removes space caused by an empty element */
+  display: none; /*[2]*/
 }
-/* ------------------------
-BASE
------------------------- */
 
+/* End !SECTION Resets */
+/** SECTION Base Styles
+-------------------------------------------------------------------------- */
+
+// OPTIMIZE: Can this specificity be lower?
+
+/**
+ * [1] QUESTION: What does this fix?
+ * [2] QUESTION: What is this for?
+ * [3] Remove all margins, add block element margin to bottom
+**/
 #{$specify} #{$main} ul.newsflash-vert {
-  overflow: visible;
-  align-items: stretch;
-  margin: 0 0 s(1) 0;
+  overflow: visible; /*[1]*/
+  align-items: stretch; /*[2]*/
+  margin: 0 0 s(1) 0; /*[3]*/
 }
 
 /* Allows re-ordering of item's content */
@@ -59,7 +72,7 @@ BASE
 .it-news .newsflash-image {
   grid-area: image;
   margin: 0; /* Removes margin from style.css */
-  max-height: s(10);
+  max-height: s(10); // HACK: Magic number
   overflow: hidden; /* Prevents parts of cropped image from showing */
   img {
     width: 100%;
@@ -68,28 +81,30 @@ BASE
 }
 
 /* Remove trailing margin from inside paragraph */
+// OPTIMIZE: Shouldn't this be :lastchild instead?
 #{$specify} .it-news li.newsflash-item p {
   margin: 0;
 }
 
-/* ----------------------------------------------------
-NEWS FEED
-Generated from article feed component
-
-Expected HTML:
-<ul class="category-module it-feed mod-list">
-  <li>
-    <a class="mod-articles-category-title"></a>
-    <p class="mod-articles-category-introtext"></p>
-  </li>
-</ul>
----------------------------------------------------- */
+/* End !SECTION Base Styles */
+/* End !SECTION NEWSFLASH */
+/* ==========================================================================
+   SECTION NEWS FEED
+   Generated from article feed module
+   DEPRECATED: Not used since the move to RSS based feeds
+========================================================================== */
+// Expected HTML:
+// <ul class="category-module it-feed mod-list">
+//   <li>
+//     <a class="mod-articles-category-title"></a>
+//     <p class="mod-articles-category-introtext"></p>
+//   </li>
+// </ul>
 
 /* Remove list style and add block margin */
 #{$specify} ul.it-feed {
-  // margin: 0 0 s(1) 0;
   @include block-margin;
-  // list-style-type: none;
+  // TEMP list-style-type: none; // Not sure why this was here?
 }
 
 #{$specify} .it-feed .mod-articles-category-title {
@@ -100,3 +115,4 @@ Expected HTML:
 #{$specify} .it-feed .mod-articles-category-introtext {
   margin: s(0.5) 0 0;
 }
+/* End !SECTION NEWS FEED */

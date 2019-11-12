@@ -69,13 +69,13 @@ $init-line-height: 1.6; // Number
   * Flags .......................... .flag
   *
   * ALERT | _alert.scss
-  * Module overrides ............... box styles
-  * Links .......................... red style for links in an alert
+  * Module overrides ............... remove default styles
+  * Base Styles .................... red style alert containers and links
   * IE-Only ........................ hide IE alert for non IE devices
   *
-  * NEWS | _news.scss
-  * Newsflash ...................... grid style news cards
-  * Feed ........................... styles article feed module
+  * // NEWS | _news.scss
+  * // Newsflash ...................... grid style news cards
+  * // Feed ........................... styles article feed module
   *
   * PAGINATION | _pagination.scss
   * Base ........................... overrides joomla styles
@@ -173,6 +173,7 @@ Styles for joomla generated content
 ========================================================================= **/
 @import '04-joomla/_chips.scss';
 @import '04-joomla/_alert.scss';
+// DEPRECATED @import '04-joomla/_news.scss';
 
 /* End !SECTION JOOMLA */
 /** SECTION CUSTOM
