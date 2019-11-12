@@ -112,6 +112,9 @@ $init-line-height: 1.6; // Number
   07-CENTRAL
   * NAVIGATION | _navigation.scss
   * Top navigation ................. Add department styles
+  * Quicklinks ..................... Fix several bugs related to quicklinks
+  * Search ......................... Enforce consistent button style
+  * Breadcrumbs .................... Add nicer link divider
   *
   * SIDEBAR | _sidebar.scss
   * Overrides ...................... Correct default styles
@@ -120,8 +123,6 @@ $init-line-height: 1.6; // Number
   * Dropdown ....................... Toggle style for sidebar js
   * Separators ..................... Style for item separators
   * Spacing ........................ Adjust margins for modules in sidebar
-  *
-  * QUICKLINKS | _quicklinks.scss .. Drop shadow fix
   *
   * LAYOUT | _layout.scss
   * Grid ........................... Use grid layout on browsers that can
@@ -202,6 +203,7 @@ Styles for widgets used to syndicate data, such as RSS feeds
 Styles that heavily override central CSS and styles related to positions
 such as the sidebar, banner, and footer.
 ========================================================================= **/
+@import '07-central/_navigation.scss';
 
 /* End !SECTION CENTRAL */
 /** SECTION HELPERS
