@@ -95,8 +95,6 @@ $init-line-height: 1.6; // Number
   * Gaps ........................... Use s() units for grid gaps
   *
   * PANELS | _panels.scss
-  * Box ............................ box, box-primary
-  * Panel Link ..................... overlays for uk-cover
   *
   * DETAILS | _details.scss ........ Size detail image & columns
   * FEATURES | _features.scss ...... Size feature image
@@ -183,6 +181,8 @@ Styles for joomla generated content
 Styles for widgetkit generated content and components
 ========================================================================= **/
 @import '05-widgetkit/_widgetkit.scss';
+@import '05-widgetkit/_wk-grid.scss';
+@import '05-widgetkit/_panels.scss';
 
 /* End !SECTION WIDGETKIT */
 /** SECTION SYNDICATION
