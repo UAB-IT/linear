@@ -91,14 +91,14 @@
 
 /* Change button title depending on destination */
 #{$specify} .srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
-#{$specify} .srfrReadMore a[href*="reporter"]::after { content: 'UAB Reporter'; }
+#{$specify} .srfrReadMore a[href*='reporter']::after { content: 'UAB Reporter'; }
 #{$specify} .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
 
 /** SECTION Featured Story
  * Extra style for a highlighted story
 -------------------------------------------------------------------------- */
 
-#{$specify} #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow{
+#{$specify} #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow {
   margin: 0 0 s(2) 0;
   border-left: $bdr-md solid $c-primary;
   border-bottom: none;
