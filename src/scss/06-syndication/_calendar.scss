@@ -1,7 +1,8 @@
-/* ----------------------------------------------------
-CALENDAR
-Generated from Localist widget from campus calendar
----------------------------------------------------- */
+/* ==========================================================================
+   SECTION CALENDAR
+   Generated from the Localist widget from campus calendar
+   https://calendar.uab.edu/help/widget
+========================================================================== */
 // Expected HTML:
 // <div class="localist-widget">
 //   <ul class="localist-widget-eds">
@@ -28,17 +29,16 @@ Generated from Localist widget from campus calendar
 //     </li>
 //   </ul>
 // </div>
-/* ------------------------
-RESET
------------------------- */
-/* remove margin from list */
+
+/** SECTION Base Styles
+-------------------------------------------------------------------------- */
+
+/* remove margin from list
+ * QUESTION: This is because of _lists.scss?
+ */
 #{$specify} .localist-widget ul.localist-widget-eds {
   margin: 0 !important;
 }
-/* ------------------------
-BASE
-Styles taken from department websites
------------------------- */
 
 #{$specify} .localist-widget li {
   list-style: none;
@@ -46,7 +46,12 @@ Styles taken from department websites
   margin-bottom: s(0.5);
 }
 
-/* DATE BLOCK */
+/* End !SECTION Base Styles */
+/** SECTION Date Block
+ * Style the square that shows the date
+ * These styles are mostly taken from QUESTION ?
+-------------------------------------------------------------------------- */
+
 #{$specify} .localist-dateblock {
   width: 60px;
   min-width: 60px;
@@ -77,7 +82,11 @@ Styles taken from department websites
   padding-bottom: 10px;
 }
 
-/* EVENT DETAILS */
+/* End !SECTION Date Block */
+/** SECTION Event Details
+ * Style the block that holds event title, time, etc.
+-------------------------------------------------------------------------- */
+
 #{$specify} .localist-widget-eds div.localist-secondblock {
   margin: 0 0 0 1em !important;
   min-height: 44px;
@@ -96,9 +105,10 @@ Styles taken from department websites
 .localist-otherdetails i {
   @include type-setting(-1);
 }
+// TEMP: Hide the event venue
 // #{$specify} .localist-venue {
 //   display: none;
 // }
-/*------------------------
-END CALENDAR
-------------------------*/
+
+/* End !SECTION Event Details */
+/* End !SECTION CALENDAR */
