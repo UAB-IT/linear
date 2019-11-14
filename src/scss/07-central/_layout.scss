@@ -1,24 +1,32 @@
-/* ----------------------------------------------------
-LAYOUT
-This module introduces overrides for the template area
-positioning styles to offer a better experience on
-browsers that support it.
----------------------------------------------------- */
+/* ==========================================================================
+   SECTION LAYOUT
+   This module introduces overrides for the template area positioning styles
+   to offer a better experience on browsers that support it.
+========================================================================== */
 
-/* Fixes a bug where outlines would be cutoff in modules */
+/* FIX for bug where outlines would be cutoff in modules */
+// REVIEW: Is this just for when grid is enabled, what does this override?
 #{$specify} .moduletable {
   overflow: visible !important;
 }
-/* ------------------------
-START GRID
------------------------- */
+
+/** SECTION Grid
+ * Implement grid positioning instead of floats for supported browsers
+-------------------------------------------------------------------------- */
+
+/**
+ * [1] reset sizing and positional properties of main areas to prevent
+ * old layout issues when using grid. These resets require grid to be
+ * supported, so the site will fallback to the old positioning CSS.
+ * [2] fixes a bug where elements that overflow the whitebox could overflow
+ * the body and allow the page to be scrolled on the x axis.
+ * [3] Setup basic grid areas and layout
+ * [4] allow elements to overflow the grid to cover the full width
+ * of the screen.
+**/
 
 @supports (display: grid) {
-  /* reset sizing and positional properties
-  of main areas to prevent odd layout issues
-  when using grid. These resets requre grid to
-  be supported, so it will fallback to the old
-  positioning CSS */
+  /*[1]*/
   #{$specify} #maincolumn-r,
   #{$specify} #maincolumn-l,
   #{$specify} #maincolumn-l-r,
@@ -34,18 +42,14 @@ START GRID
     margin: 0 !important;
     box-sizing: border-box !important;
   }
-  /* fixes a bug where elements that overflow the whitebox
-  could overflow the body and allow the page to be scrolled
-  on the x axis */
+  /*[2]*/
   #{$specify} #wrapper {
     overflow-x: hidden;
   }
-  /* Setup basic grid areas and layout
-  allow elements to overflow the grid to
-  cover the full width of the screen */
+  /*[3]*/
   #{$specify} #whitebox {
     display: grid;
-    overflow: visible;
+    overflow: visible; /*[4]*/
     grid-template-columns: 1fr;
     grid-template-areas:
       'sys'
@@ -54,27 +58,18 @@ START GRID
       'right'
       'epi';
   }
-  #{$specify} #system-message-container {
-    grid-area: sys;
-  }
-  #{$specify} #sidebar_trigger {
-    grid-area: left;
-  }
-  #{$specify} #leftcolumn {
-    grid-area: left;
-  }
+  #{$specify} #system-message-container { grid-area: sys; }
+  #{$specify} #sidebar_trigger { grid-area: left; }
+  #{$specify} #leftcolumn { grid-area: left; }
+  #{$specify} #downright { grid-area: right; }
+  #{$specify} #epilogue { grid-area: epi; }
   #{$specify} #maincolumn-l-r,
   #{$specify} #maincolumn-l,
   #{$specify} #maincolumn-r,
   #{$specify} #maincolumn-wide {
     grid-area: main;
   }
-  #{$specify} #downright {
-    grid-area: right;
-  }
-  #{$specify} #epilogue {
-    grid-area: epi;
-  }
+
   @include breakpoint(md) {
     /* Add left column to tablet size */
     #{$specify} #whitebox {
@@ -91,6 +86,7 @@ START GRID
       grid-area: left / span 2;
     }
   }
+
   @include breakpoint(lg) {
     /* Add right column and increase the column gap for
     larger screens */
@@ -110,13 +106,13 @@ START GRID
     }
   }
 }
-/* ------------------------
-END GRID - START PADDING
-Adds space around content so
-that content doesn't hit edge
-of screen
------------------------- */
+
+/* End !SECTION Grid */
+/** SECTION Spacing
+-------------------------------------------------------------------------- */
 $mobile-padding: s(1);
+
+/* Adds space around content so that content doesn't hit edge of screen */
 @supports (display: grid) {
   #{$specify} #whitebox {
     padding: $mobile-padding;
@@ -125,48 +121,52 @@ $mobile-padding: s(1);
     max-width: $max-width !important;
   }
 }
-/* ------------------------
-END PADDING - START MARGINS
-Adds space above and below
-the main content area
------------------------- */
+
+/* Adds space above and below the main content area */
 $content-margin: $section-margin !default;
 $half-content-margin: $content-margin / 2;
 
 #{$specify} #whitebox {
   margin: $content-margin auto;
 }
-/* ------------------------
-END MARGINS - START SIDEBAR
-Adjusts the position and layout
-of the responsive navigation menu
-and it's trigger
------------------------- */
+
+/* End !SECTION Spacing */
+/** SECTION Sidebar
+ * Adjust sidebar styles for mobile
+-------------------------------------------------------------------------- */
 $touch-target: 38px;
 
+/**
+ * [1] Only applying these edits when grid is supported, it relies on
+ * changes made above.
+ * [2] Set the max width of the sidebar, add padding equal to size of
+ * the touch target, position it in the gap between the banner and content
+ * [3] Align touch target with sidebar, remove border added by link styles
+ * [4] Remove styling of default touch target, align it to the right side
+ * of the sidebar
+ * [5] Add new touch target using an icon instead of an image align it to
+ * the center of the touch target
+**/
 @media only screen and (max-width: 700px) {
-  /* only applying these edits when grid is supported,
-  it relies on changes made above */
+  /*[1]*/
   @supports (display: grid) {
-    /* Set the max width of the sidebar, add padding equal to size of
-    the touch target, position it in the gap between the banner and content */
+    /*[2]*/
     #{$specify} #leftcolumn {
       max-width: 300px !important;
       padding: $touch-target !important;
       margin-top: calc(((#{$content-margin} / 2) + #{$touch-target}) * -1) !important;
     }
-    /* align touch target with sidebar, remove border added by link styles */
+    /*[3]*/
     #{$specify} #sidebar_trigger {
       margin-top: calc(((#{$content-margin} / 2) + #{$touch-target}) * -1) !important;
       border: none !important;
     }
-    /* Fix a bug where the icon was not centered in the box */
+    /* FIX a bug where the icon was not centered in the box */
     #{$specify} #sidebar_trigger::before {
       height: auto;
     }
 
-    /* Remove styling of default touch target,
-    align it to the right side of the sidebar */
+    /*[4]*/
     #{$specify} #sidebar_trigger.active {
       border: none !important;
       width: $touch-target !important;
@@ -174,8 +174,7 @@ $touch-target: 38px;
       background: white !important;
       margin-left: 300px - $touch-target !important;
     }
-    /* Add new touch target using an icon instead of an image
-    align it to the center of the touch target */
+    /*[5]*/
     #{$specify} #sidebar_trigger.active::after {
       content: '\49';
       font-family: $font-icon;
@@ -194,28 +193,34 @@ $touch-target: 38px;
     padding: 0;
   }
 }
-/* ------------------------
-END SIDEBAR - START BANNER
-Adjusts the content of the
-banner position to ensure content
-lines up and doesn't hit the edge
-of the screen.
------------------------- */
 
-/* Ensure content inside the banner stays
-within the width of the main column,
-add same padding as is on whitebox */
+/* End !SECTION Sidebar */
+/** SECTION Banner
+ * Adjusts the content of the banner position to ensure content lines up
+ * and doesn't hit the edge of the screen.
+-------------------------------------------------------------------------- */
+
+/**
+ * [1] Ensure content inside the banner stays within the width of
+ * the main column
+ * [2] Add same padding as is on whitebox
+**/
 #{$specify} #banner .moduletable {
-  max-width: $max-width;
-  margin: auto;
-  padding: $mobile-padding;
+  max-width: $max-width; /*[1]*/
+  margin: auto; /*[1]*/
+  padding: $mobile-padding; /*[2]*/
 }
 
-/* ------------------------
-END BANNER - START WHITEBAR
-Adds space to the site name area
------------------------- */
+/* End !SECTION Banner */
+/** SECTION Whitebar
+ * Adds space to the site name area
+ * QUESTION Why?
+-------------------------------------------------------------------------- */
+
 #{$specify} #whitebar {
   margin-top: s(1);
   margin-bottom: s(1);
 }
+
+/* End !SECTION Whitebar */
+/* End !SECTION LAYOUT */
