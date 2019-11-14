@@ -12,7 +12,7 @@ $space-unit: $line-height !default;
 /// @param {number(with-unit)} $value
 /// @return number(rem) = `$space-unit` times `$value`
 @function s($value) {
-  @return ($space-unit * $value);
+  @return ($space-unit * $value + 0rem);
 }
 
 $block-padding: s(1);

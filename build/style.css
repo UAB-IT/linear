@@ -210,7 +210,7 @@ body.linear.hd .uk-h6 {
   margin: 0;
   color: inherit;
   text-align: inherit;
-  margin: 0 0 1.6;
+  margin: 0 0 1.6rem;
   font-family: "kulturista-web", serif;
   color: black; }
 
@@ -219,12 +219,12 @@ body.linear.hd [role='main'] * + h1,
 body.linear.hd [role='main'] * + h2,
 body.linear.hd [role='main'] * + h3,
 body.linear.hd [role='main'] * + h4 {
-  margin-top: 3.2; }
+  margin-top: 3.2rem; }
 
 body.linear.hd [role='main'] h4,
 body.linear.hd [role='main'] h5,
 body.linear.hd [role='main'] h6 {
-  margin-bottom: 0.8; }
+  margin-bottom: 0.8rem; }
 
 /* TEMP: Test margins for lower level headers + text
 body.linear.hd h4 + p {
@@ -303,17 +303,17 @@ body.linear.hd p,
 body.linear.hd hr,
 body.linear.hd pre {
   margin-top: 0;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 body.linear.hd p + p {
-  margin-top: -0.8; }
+  margin-top: -0.8rem; }
 
 body.linear.hd pre {
   white-space: pre-wrap; }
 
 body.linear.hd pre > code {
   display: block;
-  padding: 1.6;
+  padding: 1.6rem;
   white-space: inherit; }
 
 /* End !SECTION Copy */
@@ -340,7 +340,7 @@ body.linear.hd h3 + hr,
 body.linear.hd h4 + hr,
 body.linear.hd h5 + hr,
 body.linear.hd h6 + hr {
-  margin-top: -0.8;
+  margin-top: -0.8rem;
   /*[2]*/ }
 
 /* End !SECTION Rule Lines */
@@ -448,15 +448,15 @@ body.linear.hd kbd {
  * the background is full width
 -------------------------------------------------------------------------- */
 .section {
-  margin: 6.4 0;
+  margin: 6.4rem 0;
   /*[1]*/ }
 
 .section.background {
-  padding: 3.2;
+  padding: 3.2rem;
   /*[2]*/ }
 
 .section.background-full {
-  padding: 6.4 0;
+  padding: 6.4rem 0;
   /*[3]*/ }
 
 /* !SECTION Sections */
@@ -518,8 +518,8 @@ body.linear.hd table td > :last-child {
 ========================================================================== */
 body.linear.hd .pullquote,
 body.linear.hd blockquote {
-  margin: 0 0 1.6;
-  padding: 1.6;
+  margin: 0 0 1.6rem;
+  padding: 1.6rem;
   background-color: rgba(128, 130, 133, 0.15);
   border-left: 5px solid #80BC00; }
 
@@ -535,15 +535,15 @@ body.linear.hd blockquote q {
 body.linear.hd .pullquote footer,
 body.linear.hd blockquote footer {
   text-align: right;
-  margin-top: 0.8; }
+  margin-top: 0.8rem; }
 
 /* End !SECTION PULLQUOTES */
 /* ==========================================================================
    SECTION CALLOUTS
 ========================================================================== */
 body.linear.hd .callout {
-  margin: 0 0 1.6;
-  padding: 0 1.6;
+  margin: 0 0 1.6rem;
+  padding: 0 1.6rem;
   border-left: 5px solid #80BC00; }
 
 body.linear.hd .callout p {
@@ -602,7 +602,7 @@ body.linear.hd #whitebox ol {
 body.linear.hd #whitebox ul,
 body.linear.hd #whitebox ol,
 body.linear.hd #whitebox dl {
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 /*[3]*/
 body.linear.hd #whitebox ul ul,
@@ -634,10 +634,10 @@ body.linear.hd #whitebox ol {
 /*[6]*/
 body.linear.hd #whitebox ul li,
 body.linear.hd #whitebox ol li {
-  margin: 0.8 0 0; }
+  margin: 0.8rem 0 0; }
 
 body.linear.hd #whitebox dl dd {
-  margin: 0 0 0.8 1em; }
+  margin: 0 0 0.8rem 1em; }
 
 /* End !SECTION Base Styles */
 /** SECTION Themes
@@ -775,13 +775,13 @@ body.linear.hd table {
   text-align: left;
   border-collapse: collapse;
   width: 100%;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 /* Add borders, padding, and ensure text alignment is respected */
 body.linear.hd table tr td,
 body.linear.hd table tr th {
   border: 1px solid black;
-  padding: 0.8;
+  padding: 0.8rem;
   text-align: inherit;
   color: inherit; }
 
@@ -931,7 +931,7 @@ body.linear.hd .category-list .category.table tbody a {
 #whitebox iframe,
 #whitebox figure,
 #whitebox .video-container {
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 /* End !SECTION Images */
 /** SECTION Captions
@@ -943,7 +943,7 @@ Add rhythm spacing above caption instead of below image */
   font-size: 0.8rem;
   line-height: 1.6rem;
   text-align: center;
-  margin: 1.6 0; }
+  margin: 1.6rem 0; }
 
 /* End !SECTION Captions */
 /* End !SECTION MEDIA */
@@ -1052,7 +1052,7 @@ body.linear.hd button.primary {
 /* Setup positioning for input groups, add spacing */
 .input-group {
   display: flex;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 /* remove spacing from input group children */
 body.linear.hd .input-group button,
@@ -1140,7 +1140,7 @@ body.linear.hd input[type='search'] {
   background-color: white; }
 
 body.linear.hd textarea {
-  height: 6.4;
+  height: 6.4rem;
   resize: vertical;
   overflow-y: scroll; }
 
@@ -1152,7 +1152,7 @@ body.linear.hd input[type='checkbox'] {
   appearance: none;
   float: none;
   padding-left: 0;
-  margin-right: 0.8;
+  margin-right: 0.8rem;
   width: 1em;
   height: 1em;
   border: 1px solid #808285; }
@@ -1218,11 +1218,11 @@ Styles for hand crafted components
    Table of contents block
 ========================================================================== */
 body.linear.hd .table-of-contents {
-  padding: 1.6;
+  padding: 1.6rem;
   width: 80%;
   min-width: 200px;
   border: 1px solid #cccdce;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 body.linear.hd #whitebox nav.table-of-contents ol {
   list-style: none; }
@@ -1251,11 +1251,11 @@ body.linear.hd #whitebox nav.table-of-contents ol li a {
 ========================================================================== */
 .org-card {
   display: grid;
-  grid-gap: 1.6;
-  margin-bottom: 1.6; }
+  grid-gap: 1.6rem;
+  margin-bottom: 1.6rem; }
 
 .org-card-cio {
-  grid-gap: 1.6; }
+  grid-gap: 1.6rem; }
 
 @media (min-width: 400px) {
   .org-card {
@@ -1284,23 +1284,161 @@ body.linear.hd #whitebox nav.table-of-contents ol li a {
    This is intended to be a simple grid utility to allow content
    to be placed side by side without using widgetkit.
    WARNING: This module is unstable and needs to be tested
-   REVIEW: Class names
 ========================================================================== */
-/* Fallback for IE */
+/** SECTION Grid Container
+-------------------------------------------------------------------------- */
 body.linear.hd .grid {
-  display: flex;
-  flex-wrap: wrap; }
+  display: flex; }
 
-@supports (display: grid) {
-  body.linear.hd .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 0.8; }
-  body.linear.hd .gap-medium {
-    grid-gap: 1.6; }
-  body.linear.hd .gap-large {
-    grid-gap: 3.2; } }
+body.linear.hd .grid_item {
+  flex: 1; }
 
+/* Grid Gaps */
+body.linear.hd .grid--gap {
+  margin: -1.6rem 0 -1.6rem; }
+
+body.linear.hd .grid--gap > .grid_item {
+  padding: 1.6rem 0 0 1.6rem; }
+
+body.linear.hd .grid--gap-small {
+  margin: -0.8rem 0 -0.8rem; }
+
+body.linear.hd .grid--gap-small > .grid-item {
+  padding: 0.8rem 0 0 0.8rem; }
+
+body.linear.hd .grid--gap-medium {
+  margin: -1.6rem 0 -1.6rem; }
+
+body.linear.hd .grid--gap-medium > .grid-item {
+  padding: 1.6rem 0 0 1.6rem; }
+
+body.linear.hd .grid--gap-large {
+  margin: -3.2rem 0 -3.2rem; }
+
+body.linear.hd .grid--gap-large > .grid-item {
+  padding: 3.2rem 0 0 3.2rem; }
+
+/* Grid Item Alignment */
+body.linear.hd .grid--top {
+  align-items: flex-start; }
+
+body.linear.hd .grid--bottom {
+  align-items: flex-end; }
+
+body.linear.hd .grid--center {
+  align-items: center; }
+
+/* End !SECTION Grid Container */
+/** SECTION Grid Columns
+-------------------------------------------------------------------------- */
+body.linear.hd .grid--auto > .grid_item {
+  flex: 1; }
+
+body.linear.hd .grid--full > .grid_item {
+  flex: 0 0 100%; }
+
+body.linear.hd .grid--halves > .grid_item {
+  flex: 0 0 50%; }
+
+body.linear.hd .grid--thirds > .grid_item {
+  flex: 0 0 33.333%; }
+
+body.linear.hd .grid--fourths > .grid_item {
+  flex: 0 0 25%; }
+
+@media all and (min-width: null) {
+  body.linear.hd .grid--auto--medium > .grid_item {
+    flex: 1; }
+  body.linear.hd .grid--full--medium > .grid_item {
+    flex: 0 0 100%; }
+  body.linear.hd .grid--halves--medium > .grid_item {
+    flex: 0 0 50%; }
+  body.linear.hd .grid--thirds--medium > .grid_item {
+    flex: 0 0 33.333%; }
+  body.linear.hd .grid--fourths--medium > .grid_item {
+    flex: 0 0 25%; } }
+
+@media all and (min-width: null) {
+  body.linear.hd .grid--auto--large > .grid_item {
+    flex: 1; }
+  body.linear.hd .grid--full--large > .grid_item {
+    flex: 0 0 100%; }
+  body.linear.hd .grid--halves--large > .grid_item {
+    flex: 0 0 50%; }
+  body.linear.hd .grid--thirds--large > .grid_item {
+    flex: 0 0 33.333%; }
+  body.linear.hd .grid--fourths--large > .grid_item {
+    flex: 0 0 25%; } }
+
+/* End !SECTION Grid Columns */
+/** SECTION Item Widths
+-------------------------------------------------------------------------- */
+body.linear.hd .grid .grid_item--auto {
+  flex: 1; }
+
+body.linear.hd .grid .grid_item--1of1,
+body.linear.hd .grid .grid_item--2of2,
+body.linear.hd .grid .grid_item--3of3,
+body.linear.hd .grid .grid_item--4of4 {
+  flex: 0 0 100%; }
+
+body.linear.hd .grid .grid_item--1of2,
+body.linear.hd .grid .grid_item--2of4 {
+  flex: 0 0 50%; }
+
+body.linear.hd .grid .grid_item--1of3 {
+  flex: 0 0 33.333%; }
+
+body.linear.hd .grid .grid_item--2of3 {
+  flex: 0 0 66.666%; }
+
+body.linear.hd .grid .grid_item--1of4 {
+  flex: 0 0 25%; }
+
+body.linear.hd .grid .grid_item--3of4 {
+  flex: 0 0 75%; }
+
+@media all and (min-width: null) {
+  body.linear.hd .grid .grid_item--auto--medium {
+    flex: 1; }
+  body.linear.hd .grid .grid_item--1of1--medium,
+  body.linear.hd .grid .grid_item--2of2--medium,
+  body.linear.hd .grid .grid_item--3of3--medium,
+  body.linear.hd .grid .grid_item--4of4--medium {
+    flex: 0 0 100%; }
+  body.linear.hd .grid .grid_item--1of2--medium,
+  body.linear.hd .grid .grid_item--2of4--medium {
+    flex: 0 0 50%; }
+  body.linear.hd .grid .grid_item--1of3--medium {
+    flex: 0 0 33.333%; }
+  body.linear.hd .grid .grid_item--2of3--medium {
+    flex: 0 0 66.666%; }
+  body.linear.hd .grid .grid_item--1of4--medium {
+    flex: 0 0 25%; }
+  body.linear.hd .grid .grid_item--3of4--medium {
+    flex: 0 0 75%; } }
+
+@media all and (min-width: null) {
+  body.linear.hd .grid .grid_item--auto--large {
+    flex: 1; }
+  body.linear.hd .grid .grid_item--1of1--large,
+  body.linear.hd .grid .grid_item--2of2--large,
+  body.linear.hd .grid .grid_item--3of3--large,
+  body.linear.hd .grid .grid_item--4of4--large {
+    flex: 0 0 100%; }
+  body.linear.hd .grid .grid_item--1of2--large,
+  body.linear.hd .grid .grid_item--2of4--large {
+    flex: 0 0 50%; }
+  body.linear.hd .grid .grid_item--1of3--large {
+    flex: 0 0 33.333%; }
+  body.linear.hd .grid .grid_item--2of3--large {
+    flex: 0 0 66.666%; }
+  body.linear.hd .grid .grid_item--1of4--large {
+    flex: 0 0 25%; }
+  body.linear.hd .grid .grid_item--3of4--large {
+    flex: 0 0 75%; } }
+
+/* End !SECTION Item Widths */
 /* End !SECTION GRID */
 /* End !SECTION CUSTOM */
 /** SECTION JOOMLA
@@ -1376,7 +1514,7 @@ body.linear.hd .moduletable.alert {
   background: #ffcccc;
   border: 3px solid #F00;
   padding: 0.3em 1em;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 /* Adjust link styles for links that appear inside an alert */
 body.linear.hd .alert a {
@@ -1389,7 +1527,7 @@ body.linear.hd .alert a {
 the banner and content */
 /* TODO: add see _file.scss @ Anchor: this */
 body.linear.hd #breadcrumbs > :last-child {
-  margin-bottom: 4.8; }
+  margin-bottom: 4.8rem; }
 
 /* End !SECTION Base Styles */
 /** SECTION IE Style
@@ -1414,7 +1552,7 @@ body.linear.hd .ie-alert {
 -------------------------------------------------------------------------- */
 .pagination {
   margin: 0;
-  margin: 0 0 1.6; }
+  margin: 0 0 1.6rem; }
 
 .pagination ul {
   text-shadow: none;
@@ -1431,7 +1569,7 @@ body.linear.hd .ie-alert {
   border: 0;
   display: inline-block;
   padding: 0.3em 1em;
-  margin: 0 0.8; }
+  margin: 0 0.8rem; }
 
 /* Button groups */
 .pagination ul > li.pagination-start > .pagenav
@@ -1445,10 +1583,10 @@ body.linear.hd .ie-alert {
   border-top-right-radius: 2px; }
 
 .pagination ul > li.pagination-prev > .pagenav {
-  margin-right: 0.8; }
+  margin-right: 0.8rem; }
 
 .pagination ul > li.pagination-next > .pagenav {
-  margin-left: 0.8; }
+  margin-left: 0.8rem; }
 
 /* Buttons */
 .pagination ul > li.pagination-start > a,
@@ -1499,7 +1637,7 @@ body.linear.hd.article-layout .article-info {
   text-align: right;
   border-top: 1px solid black;
   margin-bottom: 0;
-  padding-top: 1.6; }
+  padding-top: 1.6rem; }
 
 /* Remove calendar icon in article info */
 body.linear.hd.article-layout .article-info .icon-calendar {
@@ -1510,8 +1648,8 @@ body.linear.hd.article-layout .article-info .icon-calendar {
  * Allow images and videos to break out of the text column on both sides
 -------------------------------------------------------------------------- */
 body.linear.hd.article-layout #content .item-page.article-layout figure {
-  width: calc( 700px + 6.4);
-  margin-left: -3.2; }
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem; }
 
 /* End !SECTION Media */
 /** SECTION Intro
@@ -1519,9 +1657,9 @@ body.linear.hd.article-layout #content .item-page.article-layout figure {
  * Adds styling for an into section at the top of articles
 -------------------------------------------------------------------------- */
 body.linear.hd.article-layout .item-page.article-layout > div > .intro {
-  width: calc( 700px + 6.4);
-  margin-left: -3.2;
-  padding: 1.6 3.2;
+  width: calc( 700px + 6.4rem);
+  margin-left: -3.2rem;
+  padding: 1.6rem 3.2rem;
   border-top: 1px solid black;
   border-bottom: 1px solid black; }
 
@@ -1540,13 +1678,13 @@ Styles for widgetkit generated content and components
  * Selectors match those from ui kit
 -------------------------------------------------------------------------- */
 * + .uk-margin {
-  margin-top: 1.6; }
+  margin-top: 1.6rem; }
 
 .uk-margin {
-  margin-bottom: 1.6; }
+  margin-bottom: 1.6rem; }
 
 .uk-panel-space {
-  padding: 1.6; }
+  padding: 1.6rem; }
 
 /* FIX for item margins inside widgetkit blocks */
 body.linear.hd .uk-panel p:last-child {
@@ -1562,10 +1700,10 @@ body.linear.hd .uk-panel p:last-child {
 
 /* Add section spacing to widgetkit blocks */
 body.linear.hd [id*='wk']:not(:first-child) {
-  margin-top: 6.4; }
+  margin-top: 6.4rem; }
 
 body.linear.hd [id*='wk']:not(:last-child) {
-  margin-bottom: 6.4; }
+  margin-bottom: 6.4rem; }
 
 /* FIX for widgetkit blocks */
 /* REVIEW: given the change made above, is this still necessary? */
@@ -1580,7 +1718,7 @@ body.linear.hd h3 + [id*='wk']:not(:first-child),
 body.linear.hd h4 + [id*='wk']:not(:first-child),
 body.linear.hd h5 + [id*='wk']:not(:first-child),
 body.linear.hd h6 + [id*='wk']:not(:first-child) {
-  margin-top: 3.2; }
+  margin-top: 3.2rem; }
 
 /* End !SECTION Spacing */
 /** SECTION Typography
@@ -1588,7 +1726,7 @@ body.linear.hd h6 + [id*='wk']:not(:first-child) {
 -------------------------------------------------------------------------- */
 body.linear.hd .uk-panel-title {
   margin: 0;
-  margin-bottom: -0.8; }
+  margin-bottom: -0.8rem; }
 
 /* End !SECTION Typography */
 /* End !SECTION WIDGETKIT CORE */
@@ -1601,37 +1739,37 @@ body.linear.hd .uk-panel-title {
 -------------------------------------------------------------------------- */
 /* Adjust container margin for grid gap */
 .uk-grid {
-  margin-left: -1.6; }
+  margin-left: -1.6rem; }
 
 /* Apply grid gap */
 .uk-grid > * {
-  padding-left: 1.6; }
+  padding-left: 1.6rem; }
 
 .uk-grid + .uk-grid,
 .uk-grid-margin,
 .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 1.6; }
+  margin-top: 1.6rem; }
 
 /* Smaller grid gap */
 .uk-grid-small {
-  margin-left: -0.8; }
+  margin-left: -0.8rem; }
 
 .uk-grid-small > * {
-  padding-left: 0.8; }
+  padding-left: 0.8rem; }
 
 .uk-grid-small .uk-grid + .uk-grid,
 .uk-grid-small .uk-grid-margin,
 .uk-grid-small .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 0.8; }
+  margin-top: 0.8rem; }
 
 /* medium and large grid gap, share sizes on smaller screens */
 .uk-grid-medium,
 .uk-grid-large {
-  margin-left: -1.6; }
+  margin-left: -1.6rem; }
 
 .uk-grid-medium > *,
 .uk-grid-large > * {
-  padding-left: 1.6; }
+  padding-left: 1.6rem; }
 
 .uk-grid-medium .uk-grid + .uk-grid,
 .uk-grid-medium .uk-grid-margin,
@@ -1639,18 +1777,18 @@ body.linear.hd .uk-panel-title {
 .uk-grid-large .uk-grid + .uk-grid,
 .uk-grid-large .uk-grid-margin,
 .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
-  margin-top: 1.6; }
+  margin-top: 1.6rem; }
 
 @media all and (min-width: 1024px) {
   /* apply larger gap size to large screens */
   .uk-grid-large {
-    margin-left: -3.2; }
+    margin-left: -3.2rem; }
   .uk-grid-large > * {
-    padding-left: 3.2; }
+    padding-left: 3.2rem; }
   .uk-grid-large .uk-grid + .uk-grid,
   .uk-grid-large .uk-grid-margin,
   .uk-grid-large .uk-grid > * > .uk-panel + .uk-panel {
-    margin-top: 3.2; } }
+    margin-top: 3.2rem; } }
 
 /* End !SECTION Gaps */
 /** SECTION Nested Grid
@@ -1669,7 +1807,7 @@ body.linear.hd .uk-panel .uk-grid div {
   flex-shrink: 1; }
 
 body.linear.hd .uk-panel .uk-grid div.uk-row-first {
-  margin-right: 1.6;
+  margin-right: 1.6rem;
   flex-shrink: 0;
   width: 6rem; }
 
@@ -1686,7 +1824,7 @@ body.linear.hd .uk-panel .uk-grid div.uk-row-first img {
   border: 1px solid black;
   border-radius: 2px;
   background: white;
-  padding: 1.6; }
+  padding: 1.6rem; }
 
 /* FIX: Hide link style so the card will be visible */
 body.linear.hd a.uk-position-cover {
@@ -1823,7 +1961,7 @@ body.linear.hd .wk-numbers .uk-panel-title {
   color: #80BC00; }
 
 body.linear.hd [id*='wk'].wk-numbers {
-  margin-bottom: 3.2; }
+  margin-bottom: 3.2rem; }
 
 /* End !SECTION NUMBERS */
 /* End !SECTION WIDGETKIT */
@@ -1846,7 +1984,7 @@ body.linear.hd .localist-widget ul.localist-widget-eds {
 body.linear.hd .localist-widget li {
   list-style: none;
   display: flex;
-  margin-bottom: 0.8; }
+  margin-bottom: 0.8rem; }
 
 /* End !SECTION Base Styles */
 /** SECTION Date Block
@@ -1930,16 +2068,16 @@ body.linear.hd #whitebox ul.srfrList {
  * [5] Add space between the image and text
 **/
 body.linear.hd #whitebox ul li.srfrRow {
-  margin: 0 0 1.6;
+  margin: 0 0 1.6rem;
   /*[1]*/
-  padding-bottom: 1.6;
+  padding-bottom: 1.6rem;
   /*[2]*/
   border-bottom: 1px solid #cccdce;
   /*[3]*/
   display: grid;
   grid-template-columns: 200px 1fr;
   /*[4]*/
-  grid-column-gap: 3.2;
+  grid-column-gap: 3.2rem;
   /*[5]*/ }
 
 /* Remove default positioning logic */
@@ -1961,7 +2099,7 @@ body.linear.hd a.srfrTitle {
   display: block;
   float: none;
   border: none;
-  margin-bottom: 0.8; }
+  margin-bottom: 0.8rem; }
 
 body.linear.hd a.srfrTitle:hover {
   background: transparent;
@@ -2008,7 +2146,7 @@ body.linear.hd .srfrReadMore a[href*='uab.edu/it']::after {
  * Extra style for a highlighted story
 -------------------------------------------------------------------------- */
 body.linear.hd #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow {
-  margin: 0 0 3.2 0;
+  margin: 0 0 3.2rem 0;
   border-left: 3px solid #1E6B52;
   border-bottom: none;
   grid-template-areas: 'article image';
@@ -2020,7 +2158,7 @@ body.linear.hd .srfrStream.featured-rss-story .col1 {
   grid-area: image; }
 
 body.linear.hd .srfrStream.featured-rss-story .col2 {
-  padding: 6.4 0 3.2 3.2;
+  padding: 6.4rem 0 3.2rem 3.2rem;
   position: relative; }
 
 body.linear.hd .srfrStream.featured-rss-story .col2 p {
@@ -2054,7 +2192,7 @@ body.linear.hd .srfrStream.featured-rss-story .col2::before {
   content: 'Featured';
   display: inline-block;
   position: absolute;
-  top: 1.6;
+  top: 1.6rem;
   left: 0;
   padding: 0 1em;
   color: white;
@@ -2221,14 +2359,14 @@ body.linear.hd #leftcolumn .sidebar ul.menu li {
     top: 0;
     bottom: 0;
     left: 0;
-    right: -1.6;
+    right: -1.6rem;
     /* REVIEW half of grid gap, see layout */
     border-right: 1px solid #cccdce;
     pointer-events: none; } }
 
 @media all and (min-width: 1024px) {
   body.linear.hd #leftcolumn::after {
-    right: -1.6;
+    right: -1.6rem;
     /* REVIEW half of grid gap, see layout */ } }
 
 /* End !SECTION Column */
@@ -2304,7 +2442,7 @@ body.linear.hd #leftcolumn .sidebar ul.menu li {
 -------------------------------------------------------------------------- */
 /* Spacing */
 #leftcolumn .moduletable {
-  margin-bottom: 1.6; }
+  margin-bottom: 1.6rem; }
 
 /* Style for seperators */
 #leftcolumn .divider span.separator {
@@ -2394,7 +2532,7 @@ body.linear.hd .moduletable {
     body.linear.hd #whitebox {
       grid-template-columns: 200px 1fr;
       grid-template-areas: 'sys sys' 'left main' 'right right' 'epi epi';
-      grid-column-gap: 3.2; }
+      grid-column-gap: 3.2rem; }
     body.linear.hd #maincolumn-r,
     body.linear.hd #maincolumn-wide {
       grid-area: left / span 2; } }
@@ -2404,7 +2542,7 @@ body.linear.hd .moduletable {
     body.linear.hd #whitebox {
       grid-template-columns: 250px 1fr 250px;
       grid-template-areas: 'sys sys sys' 'left main right' 'epi epi epi';
-      grid-column-gap: 4.8; }
+      grid-column-gap: 4.8rem; }
     body.linear.hd #maincolumn-l {
       grid-area: main / span 2; }
     body.linear.hd #maincolumn-wide {
@@ -2416,14 +2554,14 @@ body.linear.hd .moduletable {
 /* Adds space around content so that content doesn't hit edge of screen */
 @supports (display: grid) {
   body.linear.hd #whitebox {
-    padding: 1.6;
+    padding: 1.6rem;
     width: auto !important;
     display: border-box !important;
     max-width: 1280px !important; } }
 
 /* Adds space above and below the main content area */
 body.linear.hd #whitebox {
-  margin: 6.4 auto; }
+  margin: 6.4rem auto; }
 
 /* End !SECTION Spacing */
 /** SECTION Sidebar
@@ -2447,10 +2585,10 @@ body.linear.hd #whitebox {
     body.linear.hd #leftcolumn {
       max-width: 300px !important;
       padding: 38px !important;
-      margin-top: calc(((6.4 / 2) + 38px) * -1) !important; }
+      margin-top: calc(((6.4rem / 2) + 38px) * -1) !important; }
     /*[3]*/
     body.linear.hd #sidebar_trigger {
-      margin-top: calc(((6.4 / 2) + 38px) * -1) !important;
+      margin-top: calc(((6.4rem / 2) + 38px) * -1) !important;
       border: none !important; }
     /* FIX a bug where the icon was not centered in the box */
     body.linear.hd #sidebar_trigger::before {
@@ -2492,7 +2630,7 @@ body.linear.hd #banner .moduletable {
   /*[1]*/
   margin: auto;
   /*[1]*/
-  padding: 1.6;
+  padding: 1.6rem;
   /*[2]*/ }
 
 /* End !SECTION Banner */
@@ -2501,8 +2639,8 @@ body.linear.hd #banner .moduletable {
  * QUESTION Why?
 -------------------------------------------------------------------------- */
 body.linear.hd #whitebar {
-  margin-top: 1.6;
-  margin-bottom: 1.6; }
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem; }
 
 /* End !SECTION Whitebar */
 /* End !SECTION LAYOUT */
@@ -2522,7 +2660,7 @@ body.linear.hd .stickyNav .page-header {
 
 /*[2]*/
 #banner h1 {
-  margin: 0 0 1.6;
+  margin: 0 0 1.6rem;
   color: white; }
 
 /* End !SECTION Page Header */
@@ -2538,7 +2676,7 @@ body.linear.hd .stickyNav .page-header {
 #banner {
   position: relative;
   /*[1]*/
-  padding-top: 12.8;
+  padding-top: 12.8rem;
   /*[2]*/
   min-height: 10rem;
   /*[3]*/
@@ -2609,7 +2747,7 @@ body.linear.hd .breadcrumb {
   padding: 0;
   margin: 0;
   /*[1]*/
-  margin: 0 0 1.6;
+  margin: 0 0 1.6rem;
   /*[3]*/ }
 
 /* End !SECTION Breadcrumb */
@@ -2623,8 +2761,8 @@ body.linear.hd .breadcrumb {
 /* Setup the flex container */
 body.linear.hd #footer .IT-footer {
   display: flex;
-  margin-top: 1.6;
-  margin-bottom: 1.6; }
+  margin-top: 1.6rem;
+  margin-bottom: 1.6rem; }
 
 /* Force containers to be full width and add padding */
 body.linear.hd #footer .IT-footer_left,
@@ -2648,16 +2786,16 @@ body.linear.hd #footer .IT-footer_right {
 
 /* Add spacing between logo and social links */
 body.linear.hd #footer .IT-footer .social {
-  margin-top: 1.6; }
+  margin-top: 1.6rem; }
 
 /* Set the size of the UAB logo */
 body.linear.hd #footer .IT-footer_logo {
   margin: 0;
-  max-height: 3.2; }
+  max-height: 3.2rem; }
 
 /* Add 1 line between footer and locked footer to maintain vertical rhythm */
 #lockedFooter {
-  padding-top: 1.6; }
+  padding-top: 1.6rem; }
 
 /* End !SECTION Content */
 /** SECTION Links
@@ -2762,26 +2900,26 @@ body.linear.hd .type-set-5 {
   border: 1px solid black; }
 
 .background {
-  padding: 1.6;
+  padding: 1.6rem;
   background-color: rgba(128, 130, 133, 0.15); }
 
 [class*='-space-0'] {
   --u-space: 0; }
 
 [class*='-space-05'] {
-  --u-space: 0.8; }
+  --u-space: 0.8rem; }
 
 [class*='-space-1'] {
-  --u-space: 1.6; }
+  --u-space: 1.6rem; }
 
 [class*='-space-2'] {
-  --u-space: 3.2; }
+  --u-space: 3.2rem; }
 
 [class*='-space-3'] {
-  --u-space: 4.8; }
+  --u-space: 4.8rem; }
 
 [class*='-space-4'] {
-  --u-space: 6.4; }
+  --u-space: 6.4rem; }
 
 [class*='u-margin-top-'] {
   margin-top: var(--u-space) !important; }

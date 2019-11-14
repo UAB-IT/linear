@@ -3,27 +3,93 @@
    This is intended to be a simple grid utility to allow content
    to be placed side by side without using widgetkit.
    WARNING: This module is unstable and needs to be tested
-   REVIEW: Class names
 ========================================================================== */
 
-/* Fallback for IE */
-#{$specify} .grid {
-  display: flex;
-  flex-wrap: wrap;
+/** SECTION Grid Container
+-------------------------------------------------------------------------- */
+#{$specify} .grid { display: flex; }
+#{$specify} .grid_item { flex: 1; }
+
+/* Grid Gaps */
+#{$specify} .grid--gap { margin: -$gap 0 0 -$gap; }
+#{$specify} .grid--gap > .grid_item { padding: $gap 0 0 $gap; }
+#{$specify} .grid--gap-small { margin: -$gap-sm 0 0 -$gap-sm; }
+#{$specify} .grid--gap-small > .grid-item { padding: $gap-sm 0 0 $gap-sm; }
+#{$specify} .grid--gap-medium { margin: -$gap-md 0 0 -$gap-md; }
+#{$specify} .grid--gap-medium > .grid-item { padding: $gap-md 0 0 $gap-md; }
+#{$specify} .grid--gap-large { margin: -$gap-lg 0 0 -$gap-lg; }
+#{$specify} .grid--gap-large > .grid-item { padding: $gap-lg 0 0 $gap-lg; }
+
+/* Grid Item Alignment */
+#{$specify} .grid--top { align-items: flex-start; }
+#{$specify} .grid--bottom { align-items: flex-end; }
+#{$specify} .grid--center { align-items: center; }
+
+/* End !SECTION Grid Container */
+/** SECTION Grid Columns
+-------------------------------------------------------------------------- */
+#{$specify} .grid--auto > .grid_item { flex: 1; }
+#{$specify} .grid--full > .grid_item { flex: 0 0 100%; }
+#{$specify} .grid--halves > .grid_item { flex: 0 0 50%; }
+#{$specify} .grid--thirds > .grid_item { flex: 0 0 33.333%; }
+#{$specify} .grid--fourths > .grid_item { flex: 0 0 25%; }
+
+@include breakpoint(medium) {
+  #{$specify} .grid--auto--medium > .grid_item { flex: 1; }
+  #{$specify} .grid--full--medium > .grid_item { flex: 0 0 100%; }
+  #{$specify} .grid--halves--medium > .grid_item { flex: 0 0 50%; }
+  #{$specify} .grid--thirds--medium > .grid_item { flex: 0 0 33.333%; }
+  #{$specify} .grid--fourths--medium > .grid_item { flex: 0 0 25%; }
+}
+@include breakpoint(large) {
+  #{$specify} .grid--auto--large > .grid_item { flex: 1; }
+  #{$specify} .grid--full--large > .grid_item { flex: 0 0 100%; }
+  #{$specify} .grid--halves--large > .grid_item { flex: 0 0 50%; }
+  #{$specify} .grid--thirds--large > .grid_item { flex: 0 0 33.333%; }
+  #{$specify} .grid--fourths--large > .grid_item { flex: 0 0 25%; }
 }
 
-@supports (display: grid) {
-  #{$specify} .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: s(0.5);
-  }
-  #{$specify} .gap-medium {
-    grid-gap: s(1);
-  }
-  #{$specify} .gap-large {
-    grid-gap: s(2);
-  }
+/* End !SECTION Grid Columns */
+/** SECTION Item Widths
+-------------------------------------------------------------------------- */
+#{$specify} .grid .grid_item--auto { flex: 1; }
+#{$specify} .grid .grid_item--1of1,
+#{$specify} .grid .grid_item--2of2,
+#{$specify} .grid .grid_item--3of3,
+#{$specify} .grid .grid_item--4of4 { flex: 0 0 100%; }
+#{$specify} .grid .grid_item--1of2,
+#{$specify} .grid .grid_item--2of4 { flex: 0 0 50%; }
+#{$specify} .grid .grid_item--1of3 { flex: 0 0 33.333%; }
+#{$specify} .grid .grid_item--2of3 { flex: 0 0 66.666%; }
+#{$specify} .grid .grid_item--1of4 { flex: 0 0 25%; }
+#{$specify} .grid .grid_item--3of4 { flex: 0 0 75%; }
+
+@include breakpoint(medium) {
+  #{$specify} .grid .grid_item--auto--medium { flex: 1; }
+  #{$specify} .grid .grid_item--1of1--medium,
+  #{$specify} .grid .grid_item--2of2--medium,
+  #{$specify} .grid .grid_item--3of3--medium,
+  #{$specify} .grid .grid_item--4of4--medium { flex: 0 0 100%; }
+  #{$specify} .grid .grid_item--1of2--medium,
+  #{$specify} .grid .grid_item--2of4--medium { flex: 0 0 50%; }
+  #{$specify} .grid .grid_item--1of3--medium { flex: 0 0 33.333%; }
+  #{$specify} .grid .grid_item--2of3--medium { flex: 0 0 66.666%; }
+  #{$specify} .grid .grid_item--1of4--medium { flex: 0 0 25%; }
+  #{$specify} .grid .grid_item--3of4--medium { flex: 0 0 75%; }
+}
+@include breakpoint(large) {
+  #{$specify} .grid .grid_item--auto--large { flex: 1; }
+  #{$specify} .grid .grid_item--1of1--large,
+  #{$specify} .grid .grid_item--2of2--large,
+  #{$specify} .grid .grid_item--3of3--large,
+  #{$specify} .grid .grid_item--4of4--large { flex: 0 0 100%; }
+  #{$specify} .grid .grid_item--1of2--large,
+  #{$specify} .grid .grid_item--2of4--large { flex: 0 0 50%; }
+  #{$specify} .grid .grid_item--1of3--large { flex: 0 0 33.333%; }
+  #{$specify} .grid .grid_item--2of3--large { flex: 0 0 66.666%; }
+  #{$specify} .grid .grid_item--1of4--large { flex: 0 0 25%; }
+  #{$specify} .grid .grid_item--3of4--large { flex: 0 0 75%; }
 }
 
+/* End !SECTION Item Widths */
 /* End !SECTION GRID */

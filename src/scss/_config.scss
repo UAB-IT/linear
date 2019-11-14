@@ -9,6 +9,7 @@ $font-head: 'kulturista-web', serif;
 $font-mono: monospace;
 $font-icon: 'IcoMoon';
 
+// TODO: Reduce to use small, normal, medium, large, huge instead of elements
 $font-sizes: (
   large: 6,
   h1: 5,
@@ -84,6 +85,7 @@ $section-margin: s(4);
 $section-padding: s(4);
 $section-padding-small: s(2);
 
+$gap: s(1);
 $gap-sm: s(0.5);
 $gap-md: s(1);
 $gap-lg: s(2);
