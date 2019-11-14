@@ -1,7 +1,7 @@
-/*------------------------
-START FOOTER
-------------------------*/
-//
+/* ==========================================================================
+   SECTION FOOTER
+========================================================================== */
+// TEMP: Why is this needed / commented out?
 // /* ------------------------
 // RESET
 // ------------------------ */
@@ -10,9 +10,11 @@ START FOOTER
 // #footer .moduletable {
 //   @include reset(padding);
 // }
-/* ------------------------
-BASE
------------------------- */
+
+/** SECTION Content
+ * OPTIMIZE: How is this done in other UAB sites? Can this be simplified?
+-------------------------------------------------------------------------- */
+
 /* Setup the flex container */
 #{$specify} #footer .IT-footer {
   display: flex;
@@ -60,9 +62,10 @@ BASE
   padding-top: $block-margin;
 }
 
-/* ------------------------
-LINKS
------------------------- */
+/* End !SECTION Content */
+/** SECTION Links
+-------------------------------------------------------------------------- */
+
 /* Adjust link colors in the footer section */
 #footer a,
 #lockedFooter a {
@@ -74,6 +77,11 @@ LINKS
   }
 }
 
+/* End !SECTION Links */
+/** SECTION Social Media
+ * OPTIMIZE: How is this done on other UAB sites? Can this be simplified?
+ * OPTIMIZE: Can these selectors be simplified?
+-------------------------------------------------------------------------- */
 /* Set size of social media icons */
 #{$specify} #footer .IT-footer .social img {
   @include reset(margin);
@@ -98,6 +106,5 @@ LINKS
   display: none;
 }
 
-/*------------------------
-END FOOTER
-------------------------*/
+/* End !SECTION Social Media */
+/* End !SECTION FOOTER */
