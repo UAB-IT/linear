@@ -4,7 +4,8 @@
 
 /* Apply card styles to the box theme */
 .uk-panel-box {
-  @include card-styles; // BUG: Mixin is no longer available
+  border: $bdr-width solid black;
+  border-radius: $bdr-radius;
   background: white;
   padding: $block-padding;
 }
@@ -17,7 +18,10 @@
 /* Add hover styles to cards */
 .uk-panel-box-hover:hover,
 .uk-panel-box-primary-hover:hover {
-  @include hover; // BUG: Mixin is no longer available
+  border-color: $c-primary;
+  box-shadow: 0 0 0 1px $c-primary;
+  background-color: c( $c-primary, 100 );
+  color: black;
 }
 /* fix link style on header when card is hovered */
 #{$specify} .uk-overlay-hover:hover h3 a {

@@ -38,7 +38,10 @@
   &:hover {
     outline: 0;
     text-decoration: none;
-    @include hover; /* BUG: Hover mixin is no longer available */
+    border-color: $c-primary;
+    box-shadow: 0 0 0 1px $c-primary;
+    background-color: c( $c-primary, 100 );
+    color: black;
   }
   &[disabled] {
     background: $c-background;
@@ -83,7 +86,10 @@
   color: white;
   background: $c-primary;
   &:hover {
-    @include hover;
+    border-color: $c-primary;
+    box-shadow: 0 0 0 1px $c-primary;
+    background-color: c( $c-primary, 100 );
+    color: black;;
   }
 }
 /* End !SECTION Button Themes */

@@ -65,20 +65,20 @@ $color-scale: (
 
 /// Sets the primary brand color
 /// @group color
-$c-primary: $c-light-blue !default;
+$c-primary: DeepSkyBlue !default;
 /// Sets the accent brand color
 /// @group color
-$c-accent: $c-teal !default;
+$c-accent: MediumTurquoise !default;
 /// Color used for success information
 /// @group color
-$c-green: green !default;
+$c-green: ForestGreen !default;
 /// Color used for caution information
 /// @group color
-$c-yellow: yellow !default;
+$c-yellow: Gold !default;
 /// Color used for warning information
 /// @group color
-$c-red: red !default;
+$c-red: FireBrick !default;
 
 /// Color used for backgrounds
 /// @group color
-$c-background: $c-light-grey !default;
+$c-background: Gainsboro !default;

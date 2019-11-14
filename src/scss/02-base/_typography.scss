@@ -216,9 +216,10 @@ body,
 #{$specify} [id='footer'],
 #{$specify} [id='lockedFooter'] {
   a[href]:not(.unstyled) {
-    @include link-style;
+    border-bottom: 2px solid c($c-primary, 200);
     &:hover {
-      @include link-style($hover: true);
+      background-color: c($c-primary, 100);
+      border-color: $c-primary;
     }
   }
 

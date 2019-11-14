@@ -42,7 +42,7 @@
     bottom: 0;
     left: 0;
     right: s(-1); /* REVIEW half of grid gap, see layout */
-    border-right: 1px solid $c-hr;
+    border-right: 1px solid $hr-color;
     pointer-events: none;
   }
 }

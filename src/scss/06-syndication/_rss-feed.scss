@@ -28,7 +28,7 @@
 #{$specify} #whitebox ul li.srfrRow {
   @include block-margin; /*[1]*/
   padding-bottom: s(1); /*[2]*/
-  border-bottom: 1px solid $c-hr; /*[3]*/
+  border-bottom: 1px solid $hr-color; /*[3]*/
   display: grid;
   grid-template-columns: 200px 1fr; /*[4]*/
   grid-column-gap: s(2); /*[5]*/
