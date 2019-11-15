@@ -37,6 +37,26 @@
 		"oAP": "/build/.vscode",
 		"oF": 0
 		},
+	"/build/it-custom-min.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/it-custom-min-min.css",
+		"oF": 0,
+		"oS": 3
+		},
+	"/build/it-custom.css": {
+		"aP": 1,
+		"bl": 0,
+		"ft": 16,
+		"ma": 0,
+		"oA": 0,
+		"oAP": "/build/it-custom-min.css",
+		"oF": 0,
+		"oS": 3
+		},
 	"/inc/stratus/LICENSE": {
 		"cB": 0,
 		"ft": 8192,
@@ -331,6 +351,28 @@
 		"oA": 1,
 		"oAP": "/LICENSE",
 		"oF": 1
+		},
+	"/node_modules": {
+		"ft": 65536,
+		"oA": 2,
+		"oAP": "/build/node_modules",
+		"oF": 0
+		},
+	"/package-lock.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/package-lock-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
+		},
+	"/package.json": {
+		"ft": 524288,
+		"oA": 1,
+		"oAP": "/package-min.json",
+		"oF": 0,
+		"oO": 0,
+		"oS": 1
 		},
 	"/README.md": {
 		"cB": 0,
@@ -837,7 +879,7 @@
 		"oS": 0,
 		"uL": 1
 		},
-	"/src/scss/style.scss": {
+	"/src/scss/it-custom.scss": {
 		"aP": 0,
 		"bl": 0,
 		"dP": 2,

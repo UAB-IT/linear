@@ -1,0 +1,39 @@
+{
+  "name": "website-design",
+  "version": "0.9.3",
+  "description": "Website design for UABIT",
+  "main": "dist/it-custom.js",
+  "private": true,
+  "scripts": {
+    "clean:build": "rm -r build/*",
+    "clean:dist": "rm -r dist/*",
+    "clean": "npm run clean:build ; npm run clean:dist",
+    "css:compile": "node-sass --output-style=expanded --source-map=true src/scss/it-custom.scss -o build",
+    "css:prefix": "postcss build/it-custom.css --use=autoprefixer --map=false --output=build/it-custom.prefixed.css",
+    "css:clean": "cleancss --level 2 --format beautify --source-map --source-map-inline-sources --output build/it-custom.clean.css build/it-custom.prefixed.css",
+    "css:minify": "cleancss --source-map --source-map-inline-sources --output dist/it-custom.min.css build/it-custom.clean.css",
+    "js:concat": "concat -o dist/it-custom.js src/js/banner-image.js src/js/interactive-cards.js src/js/sidebar.js src/js/toc.js",
+    "build:css": "npm run css:compile && npm run css:prefix && npm run css:clean && npm run css:minify",
+    "build": "npm run clean ; npm run build:css && npm run js:concat"
+  },
+  "browserslist": [
+    "last 2 versions"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UAB-IT/website-design.git"
+  },
+  "author": "",
+  "license": "MPL-2.0",
+  "bugs": {
+    "url": "https://github.com/UAB-IT/website-design/issues"
+  },
+  "homepage": "https://github.com/UAB-IT/website-design#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.1",
+    "clean-css-cli": "^4.3.0",
+    "concat": "^1.0.3",
+    "node-sass": "^4.13.0",
+    "postcss-cli": "^6.1.3"
+  }
+}

@@ -7,18 +7,21 @@
 
 /** SECTION Grid Container
 -------------------------------------------------------------------------- */
-#{$specify} .grid { display: flex; }
+#{$specify} .grid {
+  display: flex;
+  flex-wrap: wrap;
+}
 #{$specify} .grid_item { flex: 1; }
 
 /* Grid Gaps */
 #{$specify} .grid--gap { margin: -$gap 0 0 -$gap; }
 #{$specify} .grid--gap > .grid_item { padding: $gap 0 0 $gap; }
 #{$specify} .grid--gap-small { margin: -$gap-sm 0 0 -$gap-sm; }
-#{$specify} .grid--gap-small > .grid-item { padding: $gap-sm 0 0 $gap-sm; }
+#{$specify} .grid--gap-small > .grid_item { padding: $gap-sm 0 0 $gap-sm; }
 #{$specify} .grid--gap-medium { margin: -$gap-md 0 0 -$gap-md; }
-#{$specify} .grid--gap-medium > .grid-item { padding: $gap-md 0 0 $gap-md; }
+#{$specify} .grid--gap-medium > .grid_item { padding: $gap-md 0 0 $gap-md; }
 #{$specify} .grid--gap-large { margin: -$gap-lg 0 0 -$gap-lg; }
-#{$specify} .grid--gap-large > .grid-item { padding: $gap-lg 0 0 $gap-lg; }
+#{$specify} .grid--gap-large > .grid_item { padding: $gap-lg 0 0 $gap-lg; }
 
 /* Grid Item Alignment */
 #{$specify} .grid--top { align-items: flex-start; }
