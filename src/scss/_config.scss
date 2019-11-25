@@ -57,6 +57,7 @@ $use-grid: true; // boolean
 $specify: 'body.linear.hd'; // string
 $main: '#whitebox'; // string
 
+// TEMP: I think this can be removed
 // $adjust-layout: true; // boolean
 
 $icon-new-tab: '\e024'; // string
@@ -98,6 +99,7 @@ $gap-lg: s(2);
 $max-width: 1280px;
 $body-pad: s(1);
 
+// TODO: Map these values onto the Stratus config object to use with the breakpoint mixin
 $breakpoints: (
   xxl: 2560px,
   xl: 1440px,

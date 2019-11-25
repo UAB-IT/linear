@@ -9,10 +9,10 @@
 -------------------------------------------------------------------------- */
 
 * + .uk-margin {
-  margin-top: s( 1 );
+  margin-top: s(1);
 }
 .uk-margin {
-  margin-bottom: s( 1 );
+  margin-bottom: s(1);
 }
 .uk-panel-space {
   padding: s(1);
@@ -40,11 +40,11 @@
 #{$specify} [id*='wk']:not(:last-child) {
   margin-bottom: $section-margin;
 }
-/* FIX for widgetkit blocks */
 /* REVIEW: given the change made above, is this still necessary? */
-#{$specify} .section [id]:last-of-type {
-  margin-bottom: 0;
-}
+// TEMP: Try to remove this section, make sure nothing breaks
+// #{$specify} .section [id]:last-of-type {
+//   margin-bottom: 0;
+// }
 
 /* Decrease space between headers & widgetkit blocks */
 /* REVIEW: Is there a better solution to this? */

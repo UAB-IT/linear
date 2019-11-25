@@ -112,6 +112,7 @@
 -------------------------------------------------------------------------- */
 $mobile-padding: s(1);
 
+// REVIEW: Make this into block comment, explain these changes because of so many !importants
 /* Adds space around content so that content doesn't hit edge of screen */
 @supports (display: grid) {
   #{$specify} #whitebox {

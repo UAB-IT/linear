@@ -20,9 +20,7 @@
   margin-top: 0 !important;
 }
 
-/* Remove link styles from the tab links
- * REVIEW: This is because of conflict with our own styles?
- */
+/* Remove link styles from the tab links */
 #{$specify} ul.uk-tab > li > a {
   border-bottom: 1px solid transparent;
   border-radius: 0;
