@@ -34,17 +34,19 @@
   #{$specify} strong,
   #{$specify} em {
     @include reset(color, font-size);
-    font-family: inherit !important;
+    font-family: inherit;
   }
 
   /* Restore font weight inheritance to certain inline elements */
   #{$specify} .categories-list h3 a,
   #{$specify} span,
   #{$specify} #rightsidebar h4 .mod-articles-category-title {
-    font-weight: inherit !important;
+    font-weight: inherit;
   }
 
-  /* Correct header font on h5 elements */
+  /* Correct header font on h5 elements
+   * !important used to override aggressive styles from central css
+  **/
   #{$specify} h5 {
     font-family: $font-head !important;
   }
@@ -127,24 +129,24 @@
  * [1] ID is used here to overwrite equally high specificity from style.css
 -------------------------------------------------------------------------- */
 #{$specify} h1,
-#{$specify} .uk-h1 { @include type-setting(h1); }
+#{$specify} .uk-h1 { @include type-setting(huge); }
 #{$specify} h2,
-#{$specify} .uk-h2 { @include type-setting(h2); }
+#{$specify} .uk-h2 { @include type-setting(xlarge); }
 /*[1]*/
 #{$specify} h3,
 #leftcolumn h3,
-#{$specify} .uk-h3 { @include type-setting(h3); }
+#{$specify} .uk-h3 { @include type-setting(large); }
 #{$specify} h4,
-#{$specify} .uk-h4 { @include type-setting(h4); }
+#{$specify} .uk-h4 { @include type-setting(medium); }
 #{$specify} h5,
-#{$specify} .uk-h5 { @include type-setting(h5); }
+#{$specify} .uk-h5,
 #{$specify} h6,
-#{$specify} .uk-h6 { @include type-setting(h6); }
+#{$specify} .uk-h6,
 body,
 #{$specify} p,
-#{$specify} .uk-p { @include type-setting(p); }
+#{$specify} .uk-p { @include type-setting(normal); }
 #{$specify} small,
-#{$specify} .uk-small { @include type-setting(sm); }
+#{$specify} .uk-small { @include type-setting(small); }
 
 /* End !SECTION Font Sizes */
 /** SECTION Copy
@@ -200,9 +202,13 @@ body,
 /* End !SECTION Rule Lines */
 /** SECTION Links
 -------------------------------------------------------------------------- */
+/* WARNING: Do not change the specificity of the link selectors.
+ * Any higher and they cause problems with buttons, cards, etc.
+ * Any lower and they fail to override central css
+**/
 
 /* Remove existing link styles */
-#{$specify} a {
+body.linear a {
   @include reset(color, font-weight, transition);
   text-decoration: none;
 }
@@ -211,11 +217,11 @@ body,
  * Applies link styles to content areas only. Less specific than an id and
  * helps avoid overreaching styles.
 **/
-#{$specify} [role='banner'],
-#{$specify} [role='main'],
-#{$specify} [id='footer'],
-#{$specify} [id='lockedFooter'] {
-  a[href]:not(.unstyled) {
+body.linear [role='banner'],
+body.linear [role='main'],
+body.linear [id='footer'],
+body.linear [id='lockedFooter'] {
+  a {
     border-bottom: 2px solid c($c-primary, 200);
     &:hover {
       background-color: c($c-primary, 100);

@@ -7,7 +7,7 @@
 
 /* Style the numbers */
 #{$specify} .wk-numbers .uk-panel-title {
-  @include type-setting(h1);
+  @include type-setting(xlarge);
   color: $c-accent;
 }
 #{$specify} [id*='wk'].wk-numbers {

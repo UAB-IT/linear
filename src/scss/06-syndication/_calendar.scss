@@ -93,7 +93,7 @@
   /*min-width: 20em;*/
 }
 #{$specify} .localist-title h4 {
-  @include type-setting(0);
+  @include type-setting(normal);
   margin-top: -0.2em;
   margin-bottom: 0px;
   font-family: $font-body;
@@ -103,7 +103,7 @@
 }
 #{$specify} .localist-otherdetails div,
 .localist-otherdetails i {
-  @include type-setting(-1);
+  @include type-setting(small);
 }
 // TEMP: Hide the event venue
 // #{$specify} .localist-venue {

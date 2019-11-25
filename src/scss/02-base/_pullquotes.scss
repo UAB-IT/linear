@@ -17,7 +17,7 @@
 #{$specify} blockquote p,
 #{$specify} blockquote q {
   @include reset(margin);
-  @include type-setting(1);
+  @include type-setting(medium);
   display: block;
 }
 #{$specify} .pullquote footer,

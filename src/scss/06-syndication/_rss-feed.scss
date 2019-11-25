@@ -75,14 +75,16 @@
 
 /* Add button styles */
 // REVIEW: Add placeholder content in case queries below fail?
-#{$specify} .srfrReadMore a::after {
+/* NOTE: Selectors added here to override link after icon styles */
+
+#{$specify} .srfrContainer .srfrReadMore a::after {
+  content: 'Read More';
   border: 1px solid $c-primary;
   border-radius: $bdr-radius;
-  @include type-setting(0);
+  @include type-setting(normal);
   color: c( $c-grey, 700 );
   display: inline;
   font-family: 'kulturista-web', serif !important;
-  /* TEMP: I took this out, not sure if its needed: font-size: 14px; */
   padding: $input-padding;
 }
 #{$specify} .srfrReadMore a:hover::after {
@@ -142,14 +144,14 @@
 /* Style the featured title like a header */
 #{$specify} .featured-rss-story a.srfrTitle {
   font-family: 'kulturista-web', serif !important;
-  @include type-setting(h3);
+  @include type-setting(medium);
 }
 
 /* Add a "featured" flag on the element */
 #{$specify} .srfrStream.featured-rss-story .col2::before {
   content: 'Featured';
   display: inline-block;
-  @include position(absolute, s(1), null, null, 0);
+  @include position(absolute, s(1) null null 0);
   padding: 0 1em;
   color: white;
   background-color: $c-primary;

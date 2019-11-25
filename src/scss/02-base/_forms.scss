@@ -14,7 +14,7 @@
   border: 1px solid c($c-grey, 800);
   border-radius: $bdr-radius;
   color: c( $c-grey, 800 );
-  @include type-setting(0);
+  @include type-setting(normal);
   text-align: center;
   text-transform: uppercase;
   font-size: 90%;
@@ -51,15 +51,6 @@
   pointer-events: none;
 }
 
-// TEMP Add bottom margin to buttons that sit by themselves */
-// #{$specify} button,
-// #{$specify} .btn,
-// #{$specify} input[type='submit'],
-// #{$specify} input[type='reset'],
-// #{$specify} input[type='button'] {
-//   @include block-margin;
-// }
-
 /* NOTE !important is used to override aggressive rule from RS Forms */
 .uk-button {
   border: 1px solid $c-grey !important;
@@ -74,6 +65,7 @@
 /* ANCHOR Full */
 #{$specify} button.full,
 #{$specify} .btn.full {
+  border-width: 1px;
   display: block;
   text-align: center;
   width: 100%;
@@ -174,7 +166,7 @@ $checkbox-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221
 
 /* Apply typography styles to form elements */
 #{$specify} legend {
-  @include type-setting(h4);
+  @include type-setting(normal);
   color: $c-header;
   font-family: $font-head;
   font-weight: normal;
@@ -183,7 +175,7 @@ $checkbox-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%221
 #{$specify} input,
 #{$specify} select,
 #{$specify} textarea {
-  @include type-setting(p);
+  @include type-setting(normal);
 }
 
 // TODO Merge with resets above, duplicate selector warning

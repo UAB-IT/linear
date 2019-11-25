@@ -2,15 +2,6 @@
    SECTION HELPERS
 ========================================================================== */
 
-// REVIEW: Are these classes still useful, given we have uk- classes?
-#{$specify} .type-set--1 { @include type-setting(-1); }
-#{$specify} .type-set-0 { @include type-setting(0); }
-#{$specify} .type-set-1 { @include type-setting(1); }
-#{$specify} .type-set-2 { @include type-setting(2); }
-#{$specify} .type-set-3 { @include type-setting(3); }
-#{$specify} .type-set-4 { @include type-setting(4); }
-#{$specify} .type-set-5 { @include type-setting(5); }
-
 // REVIEW: class names
 .txt-c { text-align: center !important; }
 .txt-l { text-align: left !important; }
@@ -34,20 +25,8 @@
   background-color: $c-background;
 }
 
-// REVIEW: Are these classes still helpful? These are expensive and may not be worth using
-[class*='-space-0'] { --u-space: 0; }
-[class*='-space-05'] { --u-space: #{s( 0.5 )}; }
-[class*='-space-1'] { --u-space: #{s( 1 )}; }
-[class*='-space-2'] { --u-space: #{s( 2 )}; }
-[class*='-space-3'] { --u-space: #{s( 3 )}; }
-[class*='-space-4'] { --u-space: #{s( 4 )}; }
-[class*='u-margin-top-'] { margin-top: var( --u-space ) !important; }
-[class*='u-margin-right-'] { margin-right: var( --u-space ) !important; }
-[class*='u-margin-bottom-'] { margin-bottom: var( --u-space ) !important; }
-[class*='u-margin-left-'] { margin-left: var( --u-space ) !important; }
-[class*='u-padding-top-'] { padding-top: var( --u-space ) !important; }
-[class*='u-padding-right-'] { padding-right: var( --u-space ) !important; }
-[class*='u-padding-bottom-'] { padding-bottom: var( --u-space ) !important; }
-[class*='u-padding-left-'] { padding-left: var( --u-space ) !important; }
+.overflow-container {
+  overflow: auto;
+}
 
 /* End !SECTION HELPERS */

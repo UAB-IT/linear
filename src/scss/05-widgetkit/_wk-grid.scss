@@ -54,7 +54,7 @@
   margin-top: $gap-md;
 }
 
-@include breakpoint(lg) {
+@include breakpoint(large) {
   /* apply larger gap size to large screens */
   .uk-grid-large {
     margin-left: -$gap-lg;

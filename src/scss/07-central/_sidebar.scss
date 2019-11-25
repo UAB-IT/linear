@@ -31,7 +31,7 @@
 -------------------------------------------------------------------------- */
 
 /* Add border to the right of the sidebar */
-@include breakpoint(md) {
+@include breakpoint(medium) {
   #{$specify} #leftcolumn {
     position: relative;
   }
@@ -46,7 +46,7 @@
     pointer-events: none;
   }
 }
-@include breakpoint(lg) {
+@include breakpoint(large) {
   #{$specify} #leftcolumn::after {
     right: s(-1); /* REVIEW half of grid gap, see layout */
   }
@@ -60,19 +60,21 @@
 #leftcolumn ul.nav.menu a,
 #leftcolumn ul.nav.menu .nav-header {
   @include reset(margin, border, background);
-  @include type-setting(0);
+  @include type-setting(normal);
   display: block;
   padding: 0.5rem;
   color: c($stone, 800);
   border-left: 5px solid transparent;
+  font-weight: normal;
 }
 #leftcolumn ul.nav.menu .nav-header {
   text-transform: none;
+  font-weight: 600;
 }
 
 /* Style for link to Section Page */
 #leftcolumn ul.nav.menu > .parent > a {
-  @include type-setting(h4);
+  @include type-setting(normal);
   font-weight: 600;
 }
 
@@ -94,7 +96,6 @@
 #leftcolumn ul.nav.menu .nav-header:hover {
   color: inherit !important;
   background-color: $c-background;
-  /* TEMP border-left: 5px solid c($stone, 400);*/
 }
 
 /* End !SECTION States */
@@ -141,7 +142,7 @@
 }
 
 // QUESTION: What is this for?
-body.linear.hd #leftcolumn .moduletable::after {
+body.linear.hd #leftcolumn .moduletable {
   @include clearfix;
 }
 

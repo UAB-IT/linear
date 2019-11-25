@@ -47,7 +47,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 #banner::before,
 #banner::after {
   content: '';
-  @include position(cover);
+  @include position-cover;
   z-index: -1;
 }
 

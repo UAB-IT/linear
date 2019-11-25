@@ -32,22 +32,14 @@
   z-index: 1; /*[1]*/
 }
 
-// OPTIMIZE: this can be done a little cleaner I think
 .background-full::before {
   content: '';
-  @include position(cover);
+  @include position-cover;
   width: 150vw; /*[2]*/
   margin-left: -50vw; /*[3]*/
   background-color: $c-background;
   z-index: -1; /*[4]*/
 }
-
-// TEMP: off canvas section
-// .hero-sect {
-//   /*height: 70vh;*/
-//   margin-top: s( -2 );
-//   align-items: center;
-// }
 
 /* !SECTION Full Width */
 /** SECTION Margins

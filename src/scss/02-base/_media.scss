@@ -8,19 +8,22 @@
  * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
  * [4] Add block spacing to block level media
 -------------------------------------------------------------------------- */
+
+/*[4]*/
+#{$main} iframe,
+#{$main} figure,
+#{$main} .video-container {
+  @include block-margin;
+}
+
 #{$main} img {
   max-width: 100%; /*[1]*/
   object-fit: cover; /*[3]*/
   margin: auto; /*[2]*/
   display: block; /*[2]*/
 }
-
-/*[4]*/
-#{$main} :not(figure) > img,
-#{$main} iframe,
-#{$main} figure,
-#{$main} .video-container {
-  @include block-margin;
+#{$main} :not(figure) > img {
+  margin-bottom: s(1);
 }
 
 /* End !SECTION Images */
@@ -30,16 +33,10 @@
 /* Style figcaption to display small in the center under the image,
 Add rhythm spacing above caption instead of below image */
 #{$main} figure figcaption {
-  @include type-setting(sm);
+  @include type-setting(small);
   text-align: center;
   margin: $block-margin 0;
 }
-
-// TEMP: Remove problematic image styles from hidden links
-// #hidden-links img {
-//   display: inherit;
-//   margin: 0;
-// }
 
 /* End !SECTION Captions */
 /* End !SECTION MEDIA */

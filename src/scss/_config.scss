@@ -2,25 +2,27 @@
 // SECTION CONFIGURATION
 // ==========================================================================
 
+$stratus: (
+  'type': (
+    'scale': (
+      'huge': 5,
+      'xlarge': 3,
+      'large': 2,
+      'medium': 1,
+      'normal': 0,
+      'small': -1,
+      'xsmall': -2
+    ),
+    'ratio': $major-third
+  )
+);
+
 //  SECTION Fonts
 // --------------------------------------------------------------------------
 $font-body: 'proxima-nova', arial, helvetica, sans-serif !important;
 $font-head: 'kulturista-web', serif;
 $font-mono: monospace;
 $font-icon: 'IcoMoon';
-
-// TODO: Reduce to use small, normal, medium, large, huge instead of elements
-$font-sizes: (
-  large: 6,
-  h1: 5,
-  h2: 3,
-  h3: 2,
-  h4: 1,
-  h5: 0,
-  h6: 0,
-  p: 0,
-  sm: -1
-);
 
 // End !SECTION Fonts
 //  SECTION Colors

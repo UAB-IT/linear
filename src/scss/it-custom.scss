@@ -9,7 +9,7 @@ $rem-size: 16; // Integer(px)
 $ratio: 1.25; // Number
 $init-txt-size: 16; // Integer(px)
 $init-line-height: 1.6; // Number
-@import '../../inc/stratus/stratus.scss';
+@import '@mattmcadams/stratus/dist/_stratus.scss';
 @import '_config.scss';
 /** =========================================================================
   [-TABLE OF CONTENTS-]

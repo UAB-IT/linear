@@ -70,7 +70,7 @@
     grid-area: main;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(medium) {
     /* Add left column to tablet size */
     #{$specify} #whitebox {
       grid-template-columns: 200px 1fr;
@@ -87,7 +87,7 @@
     }
   }
 
-  @include breakpoint(lg) {
+  @include breakpoint(large) {
     /* Add right column and increase the column gap for
     larger screens */
     #{$specify} #whitebox {

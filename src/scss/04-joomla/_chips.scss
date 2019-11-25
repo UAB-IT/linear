@@ -14,7 +14,7 @@
 #{$specify} .label-info[href],
 #{$specify} .badge-info[href] {
   @include reset(border, shadow, font-weight, color);
-  @include type-setting(sm);
+  @include type-setting(small);
   background-color: $c-background;
   padding: 0.1em 0.7em; // HACK: Magic numbers
 }

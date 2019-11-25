@@ -6,10 +6,6 @@ $table-padding: s(0.5) !default; // inline-block - table
 
 /** SECTION Base Styles
 -------------------------------------------------------------------------- */
-// TODO: Move overflow container to helpers
-.overflow-container {
-  overflow: auto;
-}
 
 #{$specify} table {
   text-align: left;
@@ -29,7 +25,7 @@ $table-padding: s(0.5) !default; // inline-block - table
 
 /* Apply header styles to table headers */
 #{$specify} table th {
-  @include type-setting(h5);
+  @include type-setting(normal);
   font-family: $font-head;
   font-weight: normal;
   color: $c-header;
