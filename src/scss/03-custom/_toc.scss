@@ -13,20 +13,20 @@
 
 // OPTIMIZE Specificity seems extremely unruly
 
-#{$specify} #whitebox nav.table-of-contents ol {
+#{$specify} #whitebox .table-of-contents ol {
   list-style: none;
 }
-#{$specify} #whitebox nav.table-of-contents > ol {
+#{$specify} #whitebox .table-of-contents > ol {
   list-style: none;
   margin: 0;
 }
-#{$specify} #whitebox nav.table-of-contents ol li {
+#{$specify} #whitebox .table-of-contents ol li {
   margin: 0;
   padding: 0;
   color: $uabgreen;
   /*TEMP font-size: #{type-scale(sm) + 'rem'};*/
 }
-#{$specify} #whitebox nav.table-of-contents ol li a {
+#{$specify} #whitebox .table-of-contents ol li a {
   /*TEMP border: none !important;*/
   /*TEMP text-decoration: underline;*/
   color: black;
