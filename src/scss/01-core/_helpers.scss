@@ -1,0 +1,32 @@
+/* ==========================================================================
+   SECTION HELPERS
+========================================================================== */
+
+// REVIEW: class names
+.txt-c { text-align: center !important; }
+.txt-l { text-align: left !important; }
+.txt-r { text-align: right !important; }
+
+// REVIEW: Possible conflict with full template position
+.full {
+  display: block;
+  width: 100%;
+}
+
+// REVIEW: class names
+.round { border-radius: $bdr-radius; }
+.square { border-radius: 0; }
+.circle { border-radius: 50%; }
+.border { border: $bdr-width solid black; }
+
+// REVIEW: class name
+.background {
+  padding: $block-padding;
+  background-color: $c-background;
+}
+
+.overflow-container {
+  overflow: auto;
+}
+
+/* End !SECTION HELPERS */

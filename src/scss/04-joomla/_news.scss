@@ -1,0 +1,118 @@
+/* ==========================================================================
+   SECTION NEWSFLASH
+   Generated from Article Feed module
+   DEPRECIATED: Not used since the move to RSS based feeds
+========================================================================== */
+// Expected HTML:
+// <ul class="newsflash-vert it-news mod-list">
+//   <li class="newsflash-item">
+//     <h3 class="newsflash-title it-news">
+//       <a></a>
+//     </h3>
+//     <figure class="newsflash-image">
+//       <img>
+//     </figure>
+//     <p class="intro"></p>
+//   </li>
+// </ul>
+
+/** SECTION Resets
+ * [1] Remove style from central style.css
+ * [2] Removes space caused by an empty element
+ * QUESTION: Provide more context for [2]
+-------------------------------------------------------------------------- */
+
+#{$specify} li.newsflash-item {
+  float: none; /*[1]*/
+}
+
+.it-news .article-separator {
+  display: none; /*[2]*/
+}
+
+/* End !SECTION Resets */
+/** SECTION Base Styles
+-------------------------------------------------------------------------- */
+
+// OPTIMIZE: Can this specificity be lower?
+
+/**
+ * [1] QUESTION: What does this fix?
+ * [2] QUESTION: What is this for?
+ * [3] Remove all margins, add block element margin to bottom
+**/
+#{$specify} #{$main} ul.newsflash-vert {
+  overflow: visible; /*[1]*/
+  align-items: stretch; /*[2]*/
+  margin: 0 0 s(1) 0; /*[3]*/
+}
+
+/* Allows re-ordering of item's content */
+.it-news > .newsflash-item {
+  display: grid;
+  grid-template-areas:
+    'image'
+    'title'
+    'content'
+    'footer';
+  align-content: flex-start;
+  border: none;
+}
+
+/* Item Title */
+#{$specify} .it-news .newsflash-title {
+  grid-area: title;
+  display: block !important;
+  padding: 0;
+  margin-top: s(0.5);
+  margin-bottom: s(0.5);
+}
+
+/* Item Image Container (Figure) */
+.it-news .newsflash-image {
+  grid-area: image;
+  margin: 0; /* Removes margin from style.css */
+  max-height: s(10); // HACK: Magic number
+  overflow: hidden; /* Prevents parts of cropped image from showing */
+  img {
+    width: 100%;
+    max-height: s(10);
+  }
+}
+
+/* Remove trailing margin from inside paragraph */
+// OPTIMIZE: Shouldn't this be :lastchild instead?
+#{$specify} .it-news li.newsflash-item p {
+  margin: 0;
+}
+
+/* End !SECTION Base Styles */
+/* End !SECTION NEWSFLASH */
+/* ==========================================================================
+   SECTION NEWS FEED
+   Generated from article feed module
+   DEPRECIATED Not used since the move to RSS based feeds
+========================================================================== */
+// Expected HTML:
+// <ul class="category-module it-feed mod-list">
+//   <li>
+//     <a class="mod-articles-category-title"></a>
+//     <p class="mod-articles-category-introtext"></p>
+//   </li>
+// </ul>
+
+/* Remove list style and add block margin */
+#{$specify} ul.it-feed {
+  @include block-margin;
+  // TEMP list-style-type: none; // Not sure why this was here?
+}
+
+#{$specify} .it-feed .mod-articles-category-title {
+  margin: 0;
+  @include type-setting(h5);
+  font-family: $font-head;
+}
+#{$specify} .it-feed .mod-articles-category-introtext {
+  margin: s(0.5) 0 0;
+}
+/* End !SECTION NEWS FEED */

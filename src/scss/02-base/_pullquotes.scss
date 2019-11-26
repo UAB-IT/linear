@@ -1,0 +1,59 @@
+/* ==========================================================================
+   SECTION PULLQUOTES
+========================================================================== */
+// IDEA As specificity climbs, it would be nice to use .pullquote_text, is this viable with markup tools we have?
+
+#{$specify} .pullquote,
+#{$specify} blockquote {
+  @include block-margin;
+  padding: $block-padding;
+  background-color: $c-background;
+  border-left: $bdr-lg solid $c-accent;
+}
+
+// QUESTION Why reset margin here?
+#{$specify} .pullquote p,
+#{$specify} .pullquote q,
+#{$specify} blockquote p,
+#{$specify} blockquote q {
+  @include reset(margin);
+  @include type-setting(medium);
+  display: block;
+}
+#{$specify} .pullquote footer,
+#{$specify} blockquote footer {
+  text-align: right;
+  margin-top: s(0.5);
+}
+
+/* End !SECTION PULLQUOTES */
+/* ==========================================================================
+   SECTION CALLOUTS
+========================================================================== */
+
+// TODO Combine like styles for callouts & blockquotes
+
+#{$specify} .callout {
+  @include block-margin;
+  padding: 0 $block-padding;
+  border-left: $bdr-lg solid $c-accent;
+}
+
+// QUESTION Why is this style needed here?
+#{$specify} .callout p {
+  @include reset(margin);
+  display: block;
+}
+
+/** SECTION Callout Themes
+-------------------------------------------------------------------------- */
+
+// IDEA Decide to use css variables or not, use those here
+// REVIEW theme class names
+#{$specify} .callout.red { border-color: $c-red; }
+#{$specify} .callout.yellow { border-color: $c-yellow; }
+#{$specify} .callout.green { border-color: $c-green; }
+#{$specify} .callout.primary { border-color: $c-primary; }
+
+/* End !SECTION Callout Themes */
+/* End !SECTION CALLOUTS */

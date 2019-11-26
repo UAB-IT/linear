@@ -1,0 +1,70 @@
+/* ==========================================================================
+   SECTION SPACING
+========================================================================== */
+
+/** SECTION Sections
+ * [1] Add section top & bottom margin
+ * [2] Add padding on the section if it has a background
+ * [3] Add a larger padding on top and bottom, remove side paddings if
+ * the background is full width
+-------------------------------------------------------------------------- */
+
+.section {
+  margin: $section-margin 0; /*[1]*/
+}
+.section.background {
+  padding: $section-padding-small; /*[2]*/
+}
+.section.background-full {
+  padding: $section-padding 0; /*[3]*/
+}
+/* !SECTION Sections */
+/** SECTION Full Width
+ * Style for a background to stretch to the full width of the window
+ * [1] Fixes a bug where background is invisible on mobile
+ * [2] Size the background to be wider than the window
+ * [3] Position it so that it starts off the left edge of the screen
+ * [4] Position the background behind the element's content
+-------------------------------------------------------------------------- */
+
+.background-full {
+  position: relative;
+  z-index: 1; /*[1]*/
+}
+
+.background-full::before {
+  content: '';
+  @include position-cover;
+  width: 150vw; /*[2]*/
+  margin-left: -50vw; /*[3]*/
+  background-color: $c-background;
+  z-index: -1; /*[4]*/
+}
+
+/* !SECTION Full Width */
+/** SECTION Margins
+ * FIX for first and last child margins top and bottom
+ * [1] Fix for most sections
+ * [2] Fix for first element on the page
+ * [3] Fix for last element on the page
+ * [4] Fix for elements inside tables
+-------------------------------------------------------------------------- */
+
+#{$specify} .section > :last-child {
+  margin-bottom: 0; /*[1]*/
+}
+
+#{$specify} [itemprop='articleBody'] > :first-child {
+  margin-top: 0; /*[2]*/
+}
+
+#{$specify} [itemprop='articleBody'] > :last-child {
+  margin-bottom: 0; /*[3]*/
+}
+
+#{$specify} table td > :last-child {
+  @include reset(margin); /*[4]*/
+}
+
+/* !SECTION Margins */
+/* !SECTION SPACING */
