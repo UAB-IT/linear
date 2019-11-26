@@ -10,7 +10,7 @@ There are many ways to contribute, from writing tutorials or blog posts, improvi
 1. Every change must conform to the UAB [policies](https://www.uab.edu/policies/), [toolkit](https://www.uab.edu/toolkit/), and [accessibility](https://www.uab.edu/accessibility/) guidelines.
 2. After Version 1.0, no non-backwards compatible code may be added. If a good case is made for this kind of change, it may be discussed with IT leadership to determine if the team has the bandwidth to manage a breaking upgrade.
 3. All code must comply with the [SCSS Style Guide](https://github.com/UAB-IT/website-design/wiki/SCSS-Style-Guide).
-4. Contributors are encouraged to comment their code throughly using the [Code Comment Guide].
+4. Contributors are encouraged to comment their code throughly using the [Code Comment Guide](https://github.com/UAB-IT/website-design/wiki/Code-Comment-Guide).
 
 ## Versioning
 This project uses the [Semver](https://semver.org/) method of semantic versioning. 
