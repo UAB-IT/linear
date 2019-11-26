@@ -27,17 +27,17 @@ This CSS library is distributed in partnership between UABIT Communications and 
 ### Prerequisits:
 1. Become familiar with [Sass (SCSS)](https://sass-lang.com/guide)
 2. Install [Node.js](https://nodejs.org/en/) and NPM
-3. Set up [VS Code](https://github.com/UAB-IT/website-design/wiki/Setting-up-Visual-Studio-Code)
+3. Install [VS Code](https://code.visualstudio.com/) and [Comment Anchors](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors)
 4. Review this project's [contributor guide](https://github.com/UAB-IT/website-design/blob/master/CONTRIBUTING.md)
 
 ### Getting Started
 1. Clone this repository to your local directory using [github desktop](https://desktop.github.com/) or command line
-2. Run `npm install` to install this project's dependencies. You should have Node.js installed
+2. Run `npm install` to install this project's dependencies.
 
 You can now make edits to the project's work files
 
 ### Building
-When you are ready to build the project, run `npm run build`. This will create files in the build/ and dist/ folders.
+When you are ready to build the project, run `npm run build`. This will create files in the build/ and dist/ folders you can upload to Joomla to test.
 
 ## Support
 If anyone ever has any trouble with the build / development process for this project, please feel free to contact [Matt McAdams](https://github.com/MattMcAdams), the lead developer on the project at the time of its conception.
