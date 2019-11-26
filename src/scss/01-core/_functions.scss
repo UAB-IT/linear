@@ -1,0 +1,110 @@
+
+// SECTION Color
+// --------------------------------------------------------------------------
+
+/// Tint color
+/// @group utility
+/// @param {color} $color - color to be tinted
+/// @param {number(%)} $percentage - key to extract value of
+/// @return `$color` mixed with white by `$percentage`
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+/// Shade color
+/// @group utility
+/// @param {color} $color - color to be shaded
+/// @param {number(%)} $percentage - key to extract value of
+/// @return `$color` mixed with black by `$percentage`
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+/// configuration of color scale
+/// @group color
+/// 500 is the base color, higher numbers are mixed with black, lower numbers are mixed with white
+$color-scale: (
+  050: 90%,
+  100: 80%,
+  200: 60%,
+  300: 40%,
+  400: 20%,
+  500: 0%,
+  600: 20%,
+  700: 40%,
+  800: 60%,
+  900: 80%
+) !default;
+
+/// Generates tint or shade of color input
+/// @group utility
+/// @requires shade()
+/// @requires tint()
+/// @requires $color-scale
+/// @param {color} $color [black] - color to be manipulated
+/// @param {$color-scale.key} $level - level of the color
+/// @see $color-scale
+/// @return manipulated color
+@function c($color: black, $level: null) {
+  @if $level >= 600 {
+    $scale: map-get( $color-scale, $level );
+    @return shade( $color, $scale );
+  }
+  @else if $level <= 400 {
+    $scale: map-get( $color-scale, $level );
+    @return tint( $color, $scale );
+  }
+  @else {
+    @return $color;
+  }
+}
+
+// END !SECTION Color
+//  SECTION Fonts
+// --------------------------------------------------------------------------
+/// Sets the font weights to use numbers from font family
+/// @group typography
+/// @type map
+///   map properties are X00 value of font weight according to font used, or
+///   font weight keyword as used in CSS
+$font-weights: (
+  body: (
+    thin: 100,
+    normal: 400,
+    bold: 600,
+    black: 700
+  ),
+  head: (
+    thin: 300,
+    normal: 400,
+    bold: 600,
+    black: bold
+  ),
+  mono: (
+    thin: normal,
+    normal: normal,
+    bold: bold,
+    black: bold
+  )
+) !default;
+
+/// Default header weight
+/// @group typography
+/// @type string [normal]
+$header-weight: normal !default;
+
+/// Gets weight value for font based on `$font-weights`
+/// @group typography
+/// @requires $font-weights
+/// @requires map-deep-get
+/// @param {keyword (thin, normal, bold, black)} $weight [normal]
+///   The desired weight of the font
+/// @param {keyword (body, head, mono)} $font [body]
+///   The text font
+/// @output {string} font-weight: value from `$font-weights` matching both params
+/// @example
+///   @include weight(bold, head);
+@mixin weight($weight: normal, $font: body) {
+  font-weight: deep-map-get($font-weights, $font, $weight);
+}
+
+// End !SECTION Fonts
