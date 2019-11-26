@@ -50,6 +50,9 @@ When you are ready to build the project, run `npm run build`. This will create f
 If anyone ever has any trouble with the build / development process for this project, please feel free to contact [Matt McAdams](https://github.com/MattMcAdams), the lead developer on the project at the time of its conception.
 
 ## Authors and acknowledgment
+Kerry Bean, IT Communications & Marketing Director
+[Jessika Reed](https://github.com/orgs/UAB-IT/people/jessikareed), Project Coordinator
 [Matt McAdams](https://github.com/MattMcAdams), Web developer
+[MJ Moon](https://github.com/orgs/UAB-IT/people/macymoon), Designer
 
-I'd also like to thank all the great folks from Web Communications for helping out with the few back end parts of this project and answering tons of questions. You guys are great and we couldn't have done it without your knowledge and support.
+I'd also like to thank all the great folks from Web Communications for helping out with the back-end parts of this project and answering tons of questions. You guys are great and we couldn't have done it without your knowledge and support.
