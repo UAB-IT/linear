@@ -107,7 +107,7 @@ $header-weight: normal !default;
 /// @example
 ///   @include weight(bold, head);
 @mixin weight($weight: normal, $font: body) {
-  font-weight: map-deep-get($font-weights, $font, $weight);
+  font-weight: deep-map-get($font-weights, $font, $weight);
 }
 
 // End !SECTION Fonts

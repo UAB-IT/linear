@@ -213,10 +213,17 @@ body.linear a {
   text-decoration: none;
 }
 
+
 /**
- * Applies link styles to content areas only. Less specific than an id and
+ * [1] Applies link styles to content areas only. Less specific than an id and
  * helps avoid overreaching styles.
+ * [2] Add basic styles for the icon added to links that open in new
+ * tabs or lead to a pdf document.
+ * [3] Add new tab icon
+ * [4] Add pdf icon
 **/
+
+/*[1]*/
 body.linear [role='banner'],
 body.linear [role='main'],
 body.linear [id='footer'],
@@ -231,23 +238,16 @@ body.linear [id='lockedFooter'] {
 
   // Error handling. If no icon is found, don't print this CSS
   @if $icon-pdf != null and $icon-new-tab != null {
-    /**
-     * [1] Add basic styles for the icon added to links that open in new
-     * tabs or lead to a pdf document.
-     * [2] Add new tab icon
-     * [3] Add pdf icon
-    **/
-    /*[1]*/
     a:not(.btn)[target='_blank']::after,
     a:not(.btn)[href$='.pdf']::after {
-      font-family: $font-icon;
+      font-family: $font-icon;/*[2]*/
       margin-left: 0.5em;
       font-weight: normal;
       font-size: 75%;
     }
 
-    a:not(.btn)[target='_blank']::after { content: '#{$icon-new-tab}'; /*[2]*/ }
-    a:not(.btn)[href$='.pdf']::after { content: '#{$icon-pdf}'; /*[3]*/ }
+    a:not(.btn)[target='_blank']::after { content: '#{$icon-new-tab}'; /*[3]*/ }
+    a:not(.btn)[href$='.pdf']::after { content: '#{$icon-pdf}'; /*[4]*/ }
   }
 }
 
