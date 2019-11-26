@@ -1,6 +1,6 @@
 {
   "name": "website-design",
-  "version": "0.9.3",
+  "version": "0.10.1",
   "description": "Website design for UABIT",
   "main": "dist/it-custom.js",
   "private": true,
