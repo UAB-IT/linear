@@ -28,7 +28,7 @@ This CSS library is distributed in partnership between UABIT Communications and 
 1. Become familiar with [Sass (SCSS)](https://sass-lang.com/guide)
 2. Install [Node.js](https://nodejs.org/en/) and NPM
 3. Install [VS Code](https://code.visualstudio.com/) and [Comment Anchors](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors)
-4. Review this project's [contributor guide](https://github.com/UAB-IT/website-design/blob/master/CONTRIBUTING.md)
+4. Review this project's [contributor guide](https://github.com/UAB-IT/website-design/blob/master/.github/CONTRIBUTING.md)
 
 ### Getting Started
 1. Clone this repository to your local directory using [github desktop](https://desktop.github.com/) or command line
