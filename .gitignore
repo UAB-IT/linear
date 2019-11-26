@@ -1,3 +1,5 @@
 
 .DS_Store
 prepros-6.config
+.vscode/settings.json
+node_modules

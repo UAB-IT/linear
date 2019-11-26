@@ -1,0 +1,17 @@
+/* ==========================================================================
+   SECTION NUMBERS
+   Styles for a custom component built in widgetkit (.wk-numbers)
+   Used for stats, shows large number with small text inside.
+========================================================================== */
+// QUESTION: What is the html here?
+
+/* Style the numbers */
+#{$specify} .wk-numbers .uk-panel-title {
+  @include type-setting(xlarge);
+  color: $c-accent;
+}
+#{$specify} [id*='wk'].wk-numbers {
+  margin-bottom: s(2);
+}
+
+/* End !SECTION NUMBERS */

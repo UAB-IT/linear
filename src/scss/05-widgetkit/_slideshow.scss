@@ -1,0 +1,17 @@
+/* ==========================================================================
+   SECTION SLIDESHOW
+   These styles are for the built in slideshow widget in widgetkit
+========================================================================== */
+
+/**
+ * FIX Remove margins from slider elements.
+ * This will make sure the background image doesn't get cropped since
+ * widgetkit doesn't account for the margins in the sizing of the slideshow.
+**/
+body.linear.hd #content .item-page ul.uk-slideshow,
+body.linear.hd #content .item-page ul.uk-slideshow li,
+body.linear.hd #content .item-page ul.uk-slideshow img {
+  @include reset(margin);
+}
+
+/* End !SECTION SLIDESHOW */

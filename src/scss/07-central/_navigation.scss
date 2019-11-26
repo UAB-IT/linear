@@ -1,0 +1,133 @@
+/* ==========================================================================
+   SECTION NAVIGATION
+========================================================================== */
+
+/** SECTION Top Navigation
+ * Implement styles similar to UR department css (uab.edu/cas)
+-------------------------------------------------------------------------- */
+
+/**
+ * Removes link styles in the top navigation.
+ * REVIEW: Are these caused by my list / link styles?
+**/
+#{$specify} #ribbon .nav a {
+  @include reset(border);
+  padding: 15px !important;
+}
+
+/* QUESTION: Are these selectors same as those from UR CSS? */
+#{$specify} #tray #ribbon .nav.menu > .active > a,
+#{$specify} #tray #ribbon .nav.menu > .active > a:hover,
+#{$specify} #tray #ribbon .nav.menu > .active > a:focus,
+#{$specify} #tray #ribbon .nav.menu > .alias-parent-active > a {
+  background-color: $c-accent;
+  color: white !important;
+}
+#{$specify} div#tray {
+  border-bottom: 7px solid $c-accent;
+}
+
+/* Ensure grey colors are consistent with grey used throughout site */
+#{$specify} #ribbon .nav > li > a:hover,
+#{$specify} #ribbon .nav > li > a:focus,
+#{$specify} #ribbon .dropdown-menu > li > a:hover,
+#{$specify} #ribbon .dropdown-menu > li > a:focus,
+#{$specify} #ribbon .nav > li > span:hover,
+#{$specify} #ribbon .nav > li > span:focus,
+#{$specify} #ribbon .dropdown-menu > .active > a:hover,
+#{$specify} #ribbon .dropdown-menu > .active > a:focus {
+  background: $c-background;
+}
+
+/* End !SECTION Top Navigation */
+/** SECTION Quicklinks
+ * Fix several bugs and consistency issues with quicklinks
+-------------------------------------------------------------------------- */
+
+/* Remove list margin */
+// QUESTION: Why is this needed, can it be done better?
+#{$specify} #quicklinks ul {
+  @include reset(margin);
+}
+
+/* Ensure links are sized correctly */
+// QUESTION: Why is this needed?
+#{$specify} #quicklinks .dropdown-menu a {
+  box-sizing: border-box;
+}
+
+/* FIX: Make sure quicklinks are above banner */
+#{$specify} #quicklinks .moduletable {
+  z-index: 2;
+}
+
+/* Ensure hover color is consistent with link hover colors */
+#{$specify} #quicklinks .dropdown-submenu:hover > a,
+#{$specify} #quicklinks .dropdown-submenu:focus > a,
+#{$specify} #quicklinks .dropdown-menu > li > a:hover,
+#{$specify} #quicklinks .dropdown-menu > li > a:focus,
+#{$specify} #quicklinks .newsfeed > li:hover,
+#{$specify} #quicklinks .newsfeed > li:focus {
+  background-color: c( $c-primary, 100 );
+}
+
+/**
+ * FIX: box shadow styles on quicklinks feed to match
+ * This is a bug with central CSS, present on other UAB sites
+ * Remove when a fix is included in central
+**/
+#{$specify} #quicklinks ul.nav-child.unstyled.dropdown-menu,
+#{$specify} #quicklinks div.feed {
+  box-shadow: 0 2px 5px rgba( 0, 0, 0, 0.3 );
+}
+
+/* End !SECTION Quicklinks */
+/** SECTION Search
+ * Modify style of the search field and button
+-------------------------------------------------------------------------- */
+
+// QUESTION: Why is this needed?
+#{$specify} #search form {
+  display: flex;
+  justify-content: flex-end;
+  align-items: right;
+}
+
+/* Add consistent button styles to search button */
+#{$specify} #search button.btn-primary {
+  border: 1px solid $c-primary;
+}
+#{$specify} #search button.btn-primary:hover {
+  background: c( $c-primary, 100 );
+  color: black;
+  outline: 0;
+  box-shadow: none;
+}
+#{$specify} #search input:focus + .btn-primary,
+#{$specify} #search input:focus + .btn-primary:hover {
+  box-shadow: 0 0 0 1px $c-primary;
+}
+
+/* End !SECTION Search */
+/** SECTION Breadcrumbs
+-------------------------------------------------------------------------- */
+
+/**
+ * Add nicer link separators, uses icon-arrow-right from
+ * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
+**/
+.breadcrumb li span.divider::after {
+  content: '\e006';
+  font-family: 'IcoMoon';
+  font-size: .7em !important;
+  color: $c-accent;
+  margin-right: 3px;
+}
+
+/* QUESTION: What is this for? */
+.breadcrumb span.divider > img {
+  display: none;
+}
+
+/* End !SECTION Breadcrumbs */
+/* End !SECTION NAVIGATION */

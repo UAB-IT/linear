@@ -1,0 +1,114 @@
+/* ==========================================================================
+   SECTION CALENDAR
+   Generated from the Localist widget from campus calendar
+   https://calendar.uab.edu/help/widget
+========================================================================== */
+// Expected HTML:
+// <div class="localist-widget">
+//   <ul class="localist-widget-eds">
+//     <li>
+//       <div class="localist-dateblock">
+//         <div class="localist-month"> MON </div>
+//         <div class="localist-day"> DAY </div>
+//       </div>
+//       <div class="localist-secondblock">
+//         <div class="localist-title">
+//           <h4> <a>EVENT NAME</a> </h4>
+//         </div>
+//         <div class="localist-otherdetails">
+//           <div class="localist-time">
+//             <i>CLOCK ICON</i>
+//             TIME
+//           </div>
+//           <div class="localist-venue">
+//             <i> ICON </i>
+//             LOCATION
+//           </div>
+//         </div>
+//       </div>
+//     </li>
+//   </ul>
+// </div>
+
+/** SECTION Base Styles
+-------------------------------------------------------------------------- */
+
+/* remove margin from list
+ * QUESTION: This is because of _lists.scss?
+ */
+#{$specify} .localist-widget ul.localist-widget-eds {
+  margin: 0 !important;
+}
+
+#{$specify} .localist-widget li {
+  list-style: none;
+  display: flex;
+  margin-bottom: s(0.5);
+}
+
+/* End !SECTION Base Styles */
+/** SECTION Date Block
+ * Style the square that shows the date
+ * These styles are mostly taken from QUESTION ?
+-------------------------------------------------------------------------- */
+
+#{$specify} .localist-dateblock {
+  width: 60px;
+  min-width: 60px;
+  min-height: 50px;
+}
+
+#{$specify} .localist-widget-eds div.localist-month {
+  text-decoration: none;
+  color: white;
+  background-color: $c-primary;
+  font-size: 1em;
+  font-family: $font-head;
+  text-transform: uppercase;
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 1px;
+  border-bottom: 2px solid $c-accent;
+}
+#{$specify} .localist-day {
+  color: #555;
+  background-color: $c-background;
+  font-size: 1.4em;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* End !SECTION Date Block */
+/** SECTION Event Details
+ * Style the block that holds event title, time, etc.
+-------------------------------------------------------------------------- */
+
+#{$specify} .localist-widget-eds div.localist-secondblock {
+  margin: 0 0 0 1em !important;
+  min-height: 44px;
+  /*min-width: 20em;*/
+}
+#{$specify} .localist-title h4 {
+  @include type-setting(normal);
+  margin-top: -0.2em;
+  margin-bottom: 0px;
+  font-family: $font-body;
+}
+#{$specify} .localist-title h4 a {
+  border-bottom: $bdr-md solid transparent;
+}
+#{$specify} .localist-otherdetails div,
+.localist-otherdetails i {
+  @include type-setting(small);
+}
+// TEMP: Hide the event venue
+// #{$specify} .localist-venue {
+//   display: none;
+// }
+
+/* End !SECTION Event Details */
+/* End !SECTION CALENDAR */

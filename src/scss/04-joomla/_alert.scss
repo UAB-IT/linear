@@ -1,0 +1,68 @@
+/* ==========================================================================
+   SECTION ALERTS
+   // Expected HTML:
+   // <div class="moduletable alert">
+   //   <p> Content </p>
+   // </div>
+========================================================================== */
+
+/** SECTION Resets
+ * Removes default styles from QUESTION
+-------------------------------------------------------------------------- */
+
+#{$specify} .alert {
+  @include reset(border, margin, padding, background, shadow);
+}
+#{$specify} .alert,
+#{$specify} .alert h4 {
+  @include reset(color);
+}
+
+/* Remove bottom margin from paragraphs in an alert */
+// OPTIMIZE Shouldn't this be :lastchild instead of p?
+#{$specify} .alert p { @include reset(margin); }
+
+/* End !SECTION Resets */
+/** SECTION Base Styles
+-------------------------------------------------------------------------- */
+
+/* Apply the alert style to the alert container */
+#{$specify} .moduletable.alert {
+  // @include reset(shadow); REVIEW: shouldn't be needed because line 14?
+  background: c($c-red, 100);
+  border: $bdr-md solid $c-red;
+  padding: $input-padding;
+  @include block-margin;
+}
+
+/* Adjust link styles for links that appear inside an alert */
+#{$specify} .alert a {
+  border-color: $c-red;
+  &:hover {
+    border-color: $c-red;
+    background-color: c($c-red, 200);
+  }
+}
+
+/* Add margin between alerts and content. Should equal the margin between
+the banner and content */
+/* TODO: add see _file.scss @ Anchor: this */
+#{$specify} #breadcrumbs > :last-child {
+  margin-bottom: s( 3 );
+}
+
+/* End !SECTION Base Styles */
+/** SECTION IE Style
+ * Hide .ie-alert on non IE browsers, use IE exclusive media query to test
+-------------------------------------------------------------------------- */
+
+#{$specify} .ie-alert {
+  display: none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  #{$specify} .ie-alert {
+    display: block;
+  }
+}
+/* End !SECTION IE Style */
+/* End !SECTION ALERTS */
