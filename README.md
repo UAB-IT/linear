@@ -44,7 +44,7 @@ This CSS library is distributed in partnership between UABIT Communications and 
 You can now make edits to the project's work files
 
 ### Building
-When you are ready to build the project, run `npm run build`. This will create files in the build/ and dist/ folders you can upload to Joomla to test.
+When you are ready to build the project, run `npm run build`. This will create files in the build/ and dist/ folders you can upload to Joomla to test. To publish the CSS to a live site, see [Releasing a new build](https://github.com/UAB-IT/website-design/blob/master/.github/CONTRIBUTING.md#releasing-a-new-build) in the contributor guide.
 
 ## Support
 If anyone ever has any trouble with the build / development process for this project, please feel free to contact [Matt McAdams](https://github.com/MattMcAdams), the lead developer on the project at the time of its conception.
