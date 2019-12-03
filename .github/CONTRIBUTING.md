@@ -55,6 +55,12 @@ Build the project using the terminal to run `npm run build`, then test the code 
 ## Maintenence
 Using Git as source control is a highly important component of this project. Because this project builds on decades of CSS and is subject to bugs introduced by changes to that CSS, it is key that good versioning and change tracking is maintained. This allows us greater insight to bugs, a safety net to deal with regressions, and a formal history of changes to the website's style. Without these, there would be no way to successfully maintain this project in the future.
 
-To deal with specificity issued out of our control, there is a `$specificity` variable used to globally control the specificity of this project. Every selector should be as flat as possible but include this variable at the front. This variable can then be modified as core specificity issues are resolved.
+## Specificity
+To deal with specificity issued out of our control, there is a `$specificity` variable used to globally control the specificity of this project. Every selector should be as flat as possible but include this variable at the front. This variable can then be modified as core specificity issues are resolved. In cases where the specificity needs to be greater than the variable allows, comment this and/or provide the origional selector that needs an override and its source, for example:
+```
+/* Override style from xyz.file */
+$override: original.selector.specificity
+#{$specify} #{$override} .new-selector {}
+```
 
 Because this CSS project is built on and overrides decades of CSS, it is crucial to check every now and again that excessive overrides, odd work-arounds, and less than optimal tricks are still necessary. The hope is that over time, this project can be cleaner, faster, and more in line with best practices as the long standing problems with the central CSS are addressed and ironed out.
