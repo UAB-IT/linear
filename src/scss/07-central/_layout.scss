@@ -118,7 +118,6 @@ $mobile-padding: s(1);
   #{$specify} #whitebox {
     padding: $mobile-padding;
     width: auto !important;
-    display: block;
     box-sizing: border-box !important;
     max-width: $max-width !important;
   }
