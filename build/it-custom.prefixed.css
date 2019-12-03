@@ -3140,7 +3140,6 @@ body.linear.hd .moduletable {
   body.linear.hd #whitebox {
     padding: 1.6rem;
     width: auto !important;
-    display: block;
     -webkit-box-sizing: border-box !important;
             box-sizing: border-box !important;
     max-width: 1280px !important;
