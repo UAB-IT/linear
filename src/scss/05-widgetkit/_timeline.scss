@@ -1,0 +1,63 @@
+/* ==========================================================================
+   SECTION TIMELINE
+   The timeline is made with the widgetkit custom list component using the
+   class `wk-timeline`. The first item's header and date header must be
+   given an inline style of `margin-top: 0`.
+========================================================================== */
+/**
+ * Timeline Element
+ * [1] Creates the gap for the timeline date to sit in
+ * [2] Creates the timeline's visual line
+ * [3] Adds space between the line and the content
+ * [4] Adds the top margin back to the content block since it must be removed
+ * from the first header
+**/
+#{$specify} .wk-timeline {
+  margin-left: s(4) !important; /*[1]*/
+  border-left: 3px solid $apple; /*[2]*/
+  padding-left: s(1) !important; /*[3]*/
+  margin-top: s(2) !important; /*[4]*/
+}
+
+/**
+ * Timeline Item
+ * [1] Allow the timeline date to be positioned in relation to the timeline item
+**/
+#{$specify} .wk-timeline li {
+  position: relative; /*[1]*/
+}
+
+/**
+ * Timeline Date
+ * [1] Move the timeline date into the gap created on the left
+ * [2] This makes sure the date items are the same width and
+ * allows timeline dots to line up.
+ * [3] Align the date with the content header
+**/
+#{$specify} .wk-timeline-date {
+  position: absolute; /*[1]*/
+  left: s(-5); /*[1]*/
+  width: 5rem; /*[2]*/
+  top: 0.5rem; /*[3]*/
+  text-align: right !important;
+  color: $apple !important;
+}
+
+/**
+ * Timeline Dot
+ * [1] Create the timeline dot
+ * [2] Align the dot to the center of the date block
+ * [3] Align the dot to the center of the line
+**/
+#{$specify}  .wk-timeline-date::after {
+  content: ''; /*[1]*/
+  position: absolute;
+  top: 0.7em; /*[2]*/
+  right: -1.9rem; /*[3]*/
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  background-color: $apple;
+}
+
+/* END !SECTION TIMELINE */

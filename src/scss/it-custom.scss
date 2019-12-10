@@ -102,6 +102,7 @@ $init-line-height: 1.6; // Number
   * SLIDESHOW | _slideshow.scss .... Fix margins
   * TABS | _tabs.scss .............. Override styles & fix positioning
   * NUMBERS | _numbers.scss ........ Size numbers & correct margins
+  * TIMELINE | _timeline.scss ...... Style and positioning for timelines
 
   06-SYNDICATION
   * CALENDAR | _calendar.scss
@@ -190,6 +191,7 @@ Styles for widgetkit generated content and components
 @import '05-widgetkit/_slideshow.scss';
 @import '05-widgetkit/_tabs.scss';
 @import '05-widgetkit/_numbers.scss';
+@import '05-widgetkit/_timeline.scss';
 
 /* End !SECTION WIDGETKIT */
 /** SECTION SYNDICATION
