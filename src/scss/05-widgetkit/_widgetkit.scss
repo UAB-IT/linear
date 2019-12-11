@@ -46,15 +46,9 @@
 //   margin-bottom: 0;
 // }
 
-/* Decrease space between headers & widgetkit blocks */
-/* REVIEW: Is there a better solution to this? */
-#{$specify} h1 + [id*='wk']:not(:first-child),
-#{$specify} h2 + [id*='wk']:not(:first-child),
-#{$specify} h3 + [id*='wk']:not(:first-child),
-#{$specify} h4 + [id*='wk']:not(:first-child),
-#{$specify} h5 + [id*='wk']:not(:first-child),
-#{$specify} h6 + [id*='wk']:not(:first-child) {
-  margin-top: s(2);
+/* Offset the the gap between widgetkit blocks and headers meant for them */
+#{$specify} .wk-header {
+  margin-bottom: s(-2);
 }
 
 /* End !SECTION Spacing */
