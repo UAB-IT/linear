@@ -12,6 +12,7 @@ $list-margin: s(0.5) !default;
 #{$specify} ol {
   @include reset(margin, padding);
   list-style-position: outside;
+  margin-left: $list-indent;
 }
 #{$specify} li {
   @include reset(margin);
@@ -48,7 +49,7 @@ $list-margin: s(0.5) !default;
 #{$specify} #{$main} ol ol,
 #{$specify} #{$main} ol ul {
   margin-bottom: 0;
-  margin-left: $list-indent;
+  /*TEMP margin-left: $list-indent;*/
 }
 
 /*[4]*/
