@@ -55,7 +55,7 @@ $adjust-central-typography: true; //boolean
 $use-grid: true; // boolean
 
 $specify: 'body.linear.hd'; // string
-$main: '#whitebox'; // string
+$main: '[id="whitebox"]'; // string
 
 // TEMP: I think this can be removed
 // $adjust-layout: true; // boolean

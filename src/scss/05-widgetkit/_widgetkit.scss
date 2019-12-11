@@ -40,11 +40,6 @@
 #{$specify} [id*='wk']:not(:last-child) {
   margin-bottom: $section-margin;
 }
-/* REVIEW: given the change made above, is this still necessary? */
-// TEMP: Try to remove this section, make sure nothing breaks
-// #{$specify} .section [id]:last-of-type {
-//   margin-bottom: 0;
-// }
 
 /* Offset the the gap between widgetkit blocks and headers meant for them */
 #{$specify} .wk-header {

@@ -3,33 +3,49 @@
    Table of contents block
 ========================================================================== */
 
+/** SECTION Base Styles
+ * Ensure consistency
+-------------------------------------------------------------------------- */
 #{$specify} .table-of-contents {
   padding: $block-padding;
-  width: 80%; // HACK: Magic number
-  min-width: 200px; // HACK: Magic number
+  max-width: 700px;
   border: 1px solid c($c-grey, 200);
   @include block-margin;
 }
 
-// OPTIMIZE Specificity seems extremely unruly
+#{$specify} .table-of-contents > ol {
+  margin-left: 0;
+}
+#{$specify} .table-of-contents ol,
+#{$specify} .table-of-contents ol ol,
+#{$specify} .table-of-contents ol ol ol {
+  list-style-type: none;
+}
 
-#{$specify} #whitebox .table-of-contents ol {
-  list-style: none;
-}
-#{$specify} #whitebox .table-of-contents > ol {
-  list-style: none;
+#{$specify} .table-of-contents ol li {
   margin: 0;
 }
-#{$specify} #whitebox .table-of-contents ol li {
-  margin: 0;
-  padding: 0;
-  color: $uabgreen;
-  /*TEMP font-size: #{type-scale(sm) + 'rem'};*/
+
+/* End !SECTION Base Styles */
+/** SECTION Themes
+ * Alternate list styles
+-------------------------------------------------------------------------- */
+
+#{$specify} .table-of-contents.list-style-legal ol {
+  counter-reset: item;
 }
-#{$specify} #whitebox .table-of-contents ol li a {
-  /*TEMP border: none !important;*/
-  /*TEMP text-decoration: underline;*/
-  color: black;
+#{$specify} .table-of-contents.list-style-legal ol > li {
+  display: table;
+  counter-increment: item;
 }
-// TODO Add themes for list styles | Potentially move this to lists.scss?
+#{$specify} .table-of-contents.list-style-legal ol > li::before {
+  content: counters(item, ".") ". ";
+  display: table-cell;
+  padding-right: 0.6em;
+}
+#{$specify} .table-of-contents.list-style-legal li ol > li::before {
+  content: counters(item, ".") " ";
+}
+
+/* End !SECTION Themes */
 /* End !SECTION TOC */
