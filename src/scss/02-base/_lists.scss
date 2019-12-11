@@ -86,16 +86,9 @@ $list-margin: s(0.5) !default;
 /** SECTION Themes
  * Alternate style options for lists
 -------------------------------------------------------------------------- */
-/**
-  * Align text with paragraphs with the bullet sitting in the margin
-  * DEBUG: not sure if this works correctly
- **/
-#{$specify} #{$main} ul.list-align,
-#{$specify} #{$main} ol.list-align {
-  margin-left: 0;
-}
 
 /**
+  * DEPRECIATED: See Issue #87
   * Make the list decoration colored for unordered lists
   * [1] Create a pseudo element with the list character before each item
   * [2] position it to the location of native list indicators
