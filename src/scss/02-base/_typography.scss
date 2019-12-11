@@ -99,6 +99,12 @@
   }
 }
 
+#{$specify} [role='main'] h1 + h2,
+#{$specify} [role='main'] h2 + h3,
+#{$specify} [role='main'] h3 + h4 {
+  margin-top: s(1);
+}
+
 /* TEMP: Test margins for lower level headers + text
 #{$specify} h4 + p {
   margin-top: s(-1);
