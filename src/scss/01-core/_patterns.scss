@@ -64,7 +64,7 @@
 // }
 
 @mixin block-margin {
-  margin: 0 0 s(1) 0;
+  margin-bottom: s(1);
 }
 
 // End !SECTION Styles
