@@ -96,4 +96,15 @@
 }
 
 /* End !SECTION Nested Grid */
+
+/* Correct active text color on filterable grids */
+.uk-subnav > .uk-active > * {
+  color: $uabgreen;
+}
+
+/* Correct space between grid and grid filter */
+#{$specify} .uk-subnav + [id*="wk"] {
+  margin-top: s(1);
+}
+
 /* End !SECTION WK GRID */
