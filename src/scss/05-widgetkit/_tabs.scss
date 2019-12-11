@@ -32,6 +32,7 @@
 /* Add border to active tab */
 #{$specify} ul.uk-tab > li.uk-active > a {
   border-color: $stone;
+  color: $uabgreen;
 }
 /* Remove default border from the tab bar
  * QUESTION: Is this border added by me or by widgetkit?
