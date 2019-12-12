@@ -28,7 +28,8 @@
 #{$specify} .btn,
 #{$specify} input[type='submit'],
 #{$specify} input[type='reset'],
-#{$specify} input[type='button'] {
+#{$specify} input[type='button'],
+#{$specify} .uk-button {
   @include reset(background, shadow, margin);
   -webkit-appearance: none;
   text-decoration: none;
@@ -73,7 +74,8 @@
 
 /* ANCHOR Primary */
 #{$specify} .btn.primary,
-#{$specify} button.primary {
+#{$specify} button.primary,
+#{$specify} .uk-button-primary {
   border-color: $c-primary;
   color: white;
   background: $c-primary;
