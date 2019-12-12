@@ -12,9 +12,13 @@
  * [4] Adds the top margin back to the content block since it must be removed
  * from the first header
 **/
+@include breakpoint(small) {
+  #{$specify} .wk-timeline {
+    margin-left: s(4) !important; /*[1]*/
+    border-left: 3px solid $apple; /*[2]*/
+  }
+}
 #{$specify} .wk-timeline {
-  margin-left: s(4) !important; /*[1]*/
-  border-left: 3px solid $apple; /*[2]*/
   padding-left: s(1) !important; /*[3]*/
   margin-top: s(2) !important; /*[4]*/
 }
@@ -23,8 +27,10 @@
  * Timeline Item
  * [1] Allow the timeline date to be positioned in relation to the timeline item
 **/
-#{$specify} .wk-timeline li {
-  position: relative; /*[1]*/
+@include breakpoint(small) {
+  #{$specify} .wk-timeline li {
+    position: relative; /*[1]*/
+  }
 }
 
 /**
@@ -35,12 +41,16 @@
  * [3] Align the date with the content header
 **/
 #{$specify} .wk-timeline-date {
-  position: absolute; /*[1]*/
-  left: s(-5); /*[1]*/
-  width: 5rem; /*[2]*/
-  top: 0.5rem; /*[3]*/
-  text-align: right !important;
   color: $apple !important;
+}
+@include breakpoint(small) {
+  #{$specify} .wk-timeline-date {
+    position: absolute; /*[1]*/
+    left: s(-5); /*[1]*/
+    width: 5rem; /*[2]*/
+    top: 0.5rem; /*[3]*/
+    text-align: right !important;
+  }
 }
 
 /**
@@ -49,15 +59,17 @@
  * [2] Align the dot to the center of the date block
  * [3] Align the dot to the center of the line
 **/
-#{$specify}  .wk-timeline-date::after {
-  content: ''; /*[1]*/
-  position: absolute;
-  top: 0.7em; /*[2]*/
-  right: -1.9rem; /*[3]*/
-  width: 1em;
-  height: 1em;
-  border-radius: 50%;
-  background-color: $apple;
+@include breakpoint(small) {
+  #{$specify} .wk-timeline-date::after {
+    content: ''; /*[1]*/
+    position: absolute;
+    top: 0.7em; /*[2]*/
+    right: -1.9rem; /*[3]*/
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: $apple;
+  }
 }
 
 /* END !SECTION TIMELINE */
