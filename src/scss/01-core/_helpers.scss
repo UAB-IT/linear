@@ -2,31 +2,23 @@
    SECTION HELPERS
 ========================================================================== */
 
-// REVIEW: class names
-.txt-c { text-align: center !important; }
-.txt-l { text-align: left !important; }
-.txt-r { text-align: right !important; }
+.u-txt-c { text-align: center !important; }
+.u-txt-l { text-align: left !important; }
+.u-txt-r { text-align: right !important; }
 
-// REVIEW: Possible conflict with full template position
-.full {
+.u-full {
   display: block;
   width: 100%;
 }
 
-// REVIEW: class names
-.round { border-radius: $bdr-radius; }
-.square { border-radius: 0; }
-.circle { border-radius: 50%; }
-.border { border: $bdr-width solid black; }
+.u-round { border-radius: $bdr-radius; }
+.u-square { border-radius: 0 !important; }
+.u-circle { border-radius: 50%; }
+.u-border { border: $bdr-width solid black; }
 
-// REVIEW: class name
-.background {
-  padding: $block-padding;
-  background-color: $c-background;
-}
+.overflow-container { overflow: auto; }
 
-.overflow-container {
-  overflow: auto;
-}
+.u-no-margin-bottom { margin-bottom: 0 !important; }
+.u-no-margin-top { margin-top: 0 !important; }
 
 /* End !SECTION HELPERS */

@@ -12,10 +12,10 @@
 .section {
   margin: $section-margin 0; /*[1]*/
 }
-.section.background {
+.section.has-background {
   padding: $section-padding-small; /*[2]*/
 }
-.section.background-full {
+.section.has-background-full {
   padding: $section-padding 0; /*[3]*/
 }
 /* !SECTION Sections */
@@ -27,12 +27,17 @@
  * [4] Position the background behind the element's content
 -------------------------------------------------------------------------- */
 
-.background-full {
+.has-background {
+  padding: $block-padding;
+  background-color: $c-background;
+}
+
+.has-background-full {
   position: relative;
   z-index: 1; /*[1]*/
 }
 
-.background-full::before {
+.has-background-full::before {
   content: '';
   @include position-cover;
   width: 150vw; /*[2]*/
