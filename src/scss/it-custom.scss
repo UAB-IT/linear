@@ -212,6 +212,12 @@ such as the sidebar, banner, and footer.
 @import '07-central/_footer.scss';
 
 /* End !SECTION CENTRAL */
+/** SECTION PAGES
+Special styles that apply to custom components designed for a single page
+========================================================================= **/
+@import '08-pages/_techconnect.scss';
+
+/* End !SECTION PAGES */
 /** SECTION HELPERS
 Styles that provide atomic classes that help fix layout oddities
 on a case by case basis.
