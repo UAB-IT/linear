@@ -21,6 +21,8 @@
  * of the main content width. Take the screen width, subtract the main
  * content width, then divide the remaining by 2. Negative is used because
  * we want it to be a negative margin.
+ * [2.2] Fixes a bug where the text in the banner area couldn't be clicked
+ * or selected.
  * [3] Controlls the size of the banner image
  * [4] Controlls the angular cut on the left side of the image
  * [5] This has been commented out, but should be set with an inline style
@@ -40,6 +42,7 @@
   .TC-custom-banner-bg {
     width: 100vw; /*[2]*/
     margin-left: calc((100vw - 1300px) / -2); /*[2.1]*/
+    z-index: -1; /*[2.2]*/
   }
   .TC-custom-banner-bg::before,
   .TC-custom-banner-bg::after {
@@ -58,4 +61,18 @@
   }
 }
 
+#{$specify} .TC-partner-link {
+  display: inline-block;
+  max-width: 75px;
+  border-bottom: none;
+  margin-right: s(1);
+}
+
+#{$specify} .TC-partner-link img {
+  margin-bottom: 0;
+}
+
+#{$specify} .TC-partner-link::after {
+  display: none;
+}
 /* !SECTION TECHCONNECT */
