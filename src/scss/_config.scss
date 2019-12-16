@@ -39,21 +39,18 @@ $color: (
     'info': get($brand-color, 'uabgreen'),
     'notice': get($brand-color, 'blase'),
     'positive': get($brand-color, 'apple'),
-    'negative': #F00
+    'negative': #F00,
+    'disabled': get($brand-color, 'stone')
   ),
   'background': (
-    'light': rgba(128, 130, 133, 0.15),
-    'negative': #F00,
+    'light': color(get($brand-color, 'stone'), $opacity: 0.15),
+    'negative': color(#F00, $opacity: 0.15),
   ),
   'text': (
     'body': black,
     'header': black,
-    'disabled': get($brand-color, 'stone')
   )
 );
-
-//  SECTION Settings
-// --------------------------------------------------------------------------
 
 $settings: (
   'adjust-template': true,
