@@ -2,117 +2,121 @@
 // SECTION CONFIGURATION
 // ==========================================================================
 
-$stratus: (
-  'type': (
-    'scale': (
-      'huge': 5,
-      'xlarge': 3,
-      'large': 2,
-      'medium': 1,
-      'normal': 0,
-      'small': -1,
-      'xsmall': -2
-    ),
-    'ratio': $major-third
+$font: (
+  'body': 'proxima-nova', arial, helvetica, sans-serif !important,
+  'head': 'kulturista-web', serif,
+  'mono': monospace,
+  'icon': 'IcoMoon'
+);
+
+$type: (
+  'scale': (
+    'huge': 5,
+    'xlarge': 3,
+    'large': 2,
+    'medium': 1,
+    'normal': 0,
+    'small': -1,
+    'xsmall': -2
+  )
+  'ratio': $major-third
+);
+
+$brand-color: (
+  'uabgreen': #1E6B52,
+  'darkgreen': #295135,
+  'blaze': #FFD400,
+  'apple': #80BC00,
+  'gold': #AA9767,
+  'stone': #808285
+);
+
+$color: (
+  'brand': $brand-color,
+  'primary': get($brand-color, 'uabgreen'),
+  'accent': get($brand-color, 'apple'),
+  'status': (
+    'info': get($brand-color, 'uabgreen'),
+    'notice': get($brand-color, 'blase'),
+    'positive': get($brand-color, 'apple'),
+    'negative': #F00
+  ),
+  'background': (
+    'light': rgba(128, 130, 133, 0.15),
+    'negative': #F00,
+  ),
+  'text': (
+    'body': black,
+    'header': black,
+    'disabled': get($brand-color, 'stone')
   )
 );
 
-//  SECTION Fonts
-// --------------------------------------------------------------------------
-$font-body: 'proxima-nova', arial, helvetica, sans-serif !important;
-$font-head: 'kulturista-web', serif;
-$font-mono: monospace;
-$font-icon: 'IcoMoon';
-
-// End !SECTION Fonts
-//  SECTION Colors
-// --------------------------------------------------------------------------
-$uabgreen: #1E6B52;
-$darkgreen: #295135;
-$blaze: #FFD400;
-$apple: #80BC00;
-$gold: #AA9767;
-$stone: #808285;
-$coral: #EA6852;
-
-$c-primary: $uabgreen;
-$c-accent: $apple;
-
-$c-green: $apple;
-$c-yellow: $blaze;
-$c-red: #F00;
-$c-grey: $stone;
-
-$c-background: rgba(128, 130, 133, 0.15);
-$c-body: black;
-$c-header: black;
-
-// End !SECTION Fonts
 //  SECTION Settings
 // --------------------------------------------------------------------------
-$adjust-template: true; // boolean
-$adjust-central-typography: true; //boolean
-$use-grid: true; // boolean
 
-$specify: 'body.linear.hd'; // string
-$main: '[id="whitebox"]'; // string
-
-// TEMP: I think this can be removed
-// $adjust-layout: true; // boolean
-
-$icon-new-tab: '\e024'; // string
-$icon-pdf: '\e239'; // string
-
-// End !SECTION Settings
-//  SECTION Borders
-$bdr-radius: 2px;
-$bdr-width: 1px;
-$bdr-width-md: 2px;
-$bdr-width-lg: 5px;
-$bdr-color: black;
-
-$hr-color: c($c-grey, 200);
-$hr-width: 1px;
-
-// End !SECTION Borders
-//  SECTION Spacing
-// --------------------------------------------------------------------------
-$indent: 1em;
-$inline-padding: 0 0.2em 0.1em;
-$input-padding: 0.3em 1em;
-
-$block-margin: s(1);
-$block-padding: s(1);
-
-$section-margin: s(4);
-$section-padding: s(4);
-$section-padding-small: s(2);
-
-$gap: s(1);
-$gap-sm: s(0.5);
-$gap-md: s(1);
-$gap-lg: s(2);
-
-// End !SECTION Spacing
-//  SECTION Document
-// --------------------------------------------------------------------------
-$max-width: 1280px;
-$body-pad: s(1);
-
-// TODO: Map these values onto the Stratus config object to use with the breakpoint mixin
-$breakpoints: (
-  xxl: 2560px,
-  xl: 1440px,
-  lg: 1024px,
-  md: 700px,
-  sm: 300px,
-  xs: 299px
+$settings: (
+  'adjust-template': true,
+  'adjust-central-typography': true,
+  'use-grid': true,
+  'selectors': (
+    'specificity': 'body.linear.hd',
+    'main-content': '[id="whitebox"]'
+  ),
+  'max-width': 1280px
 );
 
-// End !SECTION Document
-//  SECTION Border
-// --------------------------------------------------------------------------
-$bdr-lg: 5px;
-$bdr-md: 3px;
-// End !SECTION Border
+$icons: (
+  'new-tab': '\e024',
+  'pdf': '\e239'
+);
+
+$border: (
+  'width': (
+    'hairline': 1px,
+    'medium': 2px,
+    'large': 5px
+  )
+  'radius': (
+    'default': 2px,
+  )
+  'color': (
+    'divider': black,
+    'accent': color(get($brand-color, 'stone'), 60%)
+  )
+);
+
+$spacing: (
+  'padding': (
+    'body': s(1),
+    'inline': 0 0.2em 0.1em,
+    'input': 0.3em 1em,
+    'block': s(1),
+    'section': (
+      'base': s(4),
+      'small': s(2)
+    )
+  ),
+  'margin': (
+    'block': s(1),
+    'section': s(4)
+  ),
+  'indent': 1em,
+  'gap': (
+    'base': s(1),
+    'small': s(0.5),
+    'medium': s(1),
+    'large': s(2)
+  ),
+);
+
+$breakpoints: (
+  'xxl': 2560px,
+  'xl': 1440px,
+  'lg': 1024px,
+  'md': 700px,
+  'sm': 300px,
+  'xs': 299px
+);
+
 // End !SECTION CONFIGURATION
