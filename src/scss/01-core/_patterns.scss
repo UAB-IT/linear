@@ -1,116 +1,152 @@
-// ==========================================================================
-// SECTION PATTERNS
-// ==========================================================================
+/* ==========================================================================
+   SECTION PATTERNS
+========================================================================== */
 
-//  SECTION Styles
-// --------------------------------------------------------------------------
-
-// TEMP Old header style mixin
-// @mixin header-style($size: null, $margin: true) {
-//   @if $margin == true {
-//     margin: 0 0 $header-bottom;
-//   }
-//   @if $size != null {
-//     @include type-setting($size);
-//   }
-//   @include weight($header-weight, head);
-//   font-family: $font-head;
-//   color: $c-header;
-// }
-
-// TEMP: Old link style mixin
-// @mixin link-style($theme: null, $hover: false) {
-//   @if $hover == true {
-//     @if $theme == alert {
-//       background-color: c($c-red, 200);
-//       border-color: $c-red;
-//     }
-//     @else if $theme == mute {
-//       background-color: initial;
-//       border-color: c($stone, 100);
-//     }
-//     @else {
-//       background-color: c($c-primary, 100);
-//       border-color: $c-primary;
-//     }
-//   }
-//   @else {
-//     @if $theme == alert {
-//       border-bottom: 2px solid $c-red;
-//     }
-//     @else if $theme == mute {
-//       color: white;
-//       border-bottom: 2px solid c($stone, 400);
-//     }
-//     @else {
-//       border-bottom: 2px solid c($c-primary, 200);
-//     }
-//   }
-// }
-
-// TEMP: Old hover mixin
-// @mixin hover {
-//   border-color: $c-primary;
-//   box-shadow: 0 0 0 1px $c-primary;
-//   background-color: c( $c-primary, 100 );
-//   color: black;
-// }
-
-// TEMP: Old card style mixin
-// @mixin card-styles {
-//   border: $bdr-width solid black;
-//   border-radius: $bdr-radius;
-//   padding: $block-padding;
-// }
+@use '@mattmcadams/stratus';
+@use 'token';
 
 @mixin block-margin {
-  margin-bottom: s(1);
+  margin-bottom: token.space('margin', 'block');
 }
 
-// End !SECTION Styles
-//  SECTION Reset
-// --------------------------------------------------------------------------
-@mixin reset($properties...) {
-  @for $i from 0 to length($properties) {
-    @if nth($properties, $i + 1) == margin {
-      margin: 0;
-    }
-    @if nth($properties, $i + 1) == padding {
-      padding: 0;
-    }
-    @if nth($properties, $i + 1) == border {
-      border: 0;
-    }
-    @if nth($properties, $i + 1) == float {
-      float: none;
-    }
-    @if nth($properties, $i + 1) == font-size {
-      font-size: inherit;
-    }
-    @if nth($properties, $i + 1) == font-weight {
-      font-weight: normal;
-    }
-    @if nth($properties, $i + 1) == color {
-      color: inherit;
-    }
-    @if nth($properties, $i + 1) == background {
-      background: none;
-      background-color: transparent;
-      background-image: none;
-    }
-    @if nth($properties, $i + 1) == shadow {
-      text-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-    @if nth($properties, $i + 1) == transition {
-      -webkit-transition-property: none;
-      -moz-transition-property: none;
-      -o-transition-property: none;
-      transition-property: none;
-    }
+/*  SECTION Text
+-------------------------------------------------------------------------- */
+
+/* Header Styles */
+%header {
+  font-family: token.font('head');
+  font-weight: token.font('head', 'normal');
+  @include block-margin;
+  color: token.color('text', 'header');
+}
+
+/* END !SECTION Text
+/*  SECTION Links
+-------------------------------------------------------------------------- */
+
+/* Link base */
+%link {
+  border-bottom-width: token.border('width', 'medium');
+  border-bottom-style: solid;
+}
+
+/* Link primary */
+%link-primary {
+  @extend %link;
+  border-color: token.color('primary', '200');
+  &:hover {
+    border-color: token.color('primary');
+    background-color: token.color('primary', '100');
   }
 }
-// End !SECTION Reset
-// End !SECTION PATTERNS
+
+/* Link alert */
+%link-alert {
+  @extend %link;
+  border-color: token.color('state', 'negative', '200');
+  &:hover {
+    border-color: token.color('state', 'negative');
+    background-color: token.color('state', 'negative', '100');
+  }
+}
+
+/* Link mute */
+%link-mute {
+  border-color: token.color('neutral', '400');
+  color: white;
+  @extend %link;
+  &:hover {
+    border-color: white;
+    background-color: initial;
+  }
+}
+
+/* END !SECTION Links
+/*  SECTION Cards
+-------------------------------------------------------------------------- */
+
+/* Card */
+%card {
+  border: token.border('width', 'medium');
+  border-radius: token.border('radius', 'large');
+  padding: token.space('padding', 'block');
+}
+
+/* Hover */
+%hover {
+  border-color: token.color('primary');
+  background-color: token.color('primary', '100');
+  box-shadow: 0 0 0 1px token.color('primary');
+  color: token.color('text', 'body');
+}
+
+/* END !SECTION Cards
+/*  SECTION Inputs
+-------------------------------------------------------------------------- */
+
+/* Input base */
+%input-template {
+  padding: token.space('padding', 'input');
+  background: white;
+  border: token.border('width', 'hairline') solid token.color('neutral', '200');
+}
+
+/* SECTION Buttons
+-------------------------------------------------------------------------- */
+
+/* Button base */
+%button {
+  @extend %input-template;
+  border-radius: token.border('radius');
+  color: token.color('neutral', '200');
+  text-transform: uppercase;
+  font-size: 90%;
+  line-height: token.space(1);
+}
+
+/* Prmary button */
+%button-primary {
+  color: white;
+  background: token.color('primary');
+  border-color: token.color('primary');
+}
+
+/* END !SECTION Buttons
+-------------------------------------------------------------------------- */
+
+/* Input field */
+%input {
+  @extend %input-template;
+  color: token.color('text', 'body');
+  &:focus {
+    border-color: token.color('accent');
+    box-shadow: 0 0 0 1px token.color('accent');
+    outline: thin dotted #333;
+    outline-offset: 0;
+  }
+}
+
+/* Input area */
+%input-area {
+  @extend %input-template;
+  height: token.space(4);
+  width: 100%;
+  resize: vertical;
+  overflow-y: scroll;
+}
+
+/* Toggle */
+%toggle {
+  height: 1em;
+  width: 1em;
+  border: token.border('width', 'hairline');
+}
+
+/* Active toggle */
+%toggle-active {
+  border-color: token.color('accent');
+  background: token.color('accent');
+}
+
+/* End !SECTION Inputs */
+/* End !SECTION PATTERNS */

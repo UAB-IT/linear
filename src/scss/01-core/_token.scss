@@ -1,0 +1,256 @@
+// ==========================================================================
+// SECTION DESIGN TOKENS
+// Design tokens are atomic items that record the semantic role of any value
+// Tokens also record high level design decisions and branding
+// ==========================================================================
+
+@use '@mattmcadams/stratus';
+@use 'sass:map';
+@use 'sass:meta';
+
+@function get($token, $keys...) {
+  @return stratus.get($token, $keys...);
+}
+
+$_default-key: 'base';
+
+// SECTION Typography
+// ==========================================================================
+
+$font: (
+  'body': (
+    'base': '"proxima-nova", arial, helvetica, sans-serif !important',
+    'weight': (
+      'thin': 100,
+      'normal': 400,
+      'bold': 600,
+      'black': 700
+    )
+  ),
+  'head': (
+    'base': '"kulturista-web", serif',
+    'weight': (
+      'thin': 300,
+      'normal': 400,
+      'bold': 600,
+      'black': bold
+    )
+  ),
+  'mono': (
+    'base': monospace,
+    'weight': (
+      'normal': normal,
+      'bold': bold
+    )
+  ),
+  'icon': (
+    'base': 'IcoMoon',
+    'weight': (
+      'normal': normal,
+      'bold': bold
+    )
+  )
+);
+
+@function font($name, $weight: null){
+  @if $weight {
+    @return stratus.get($font, $name, $weight);
+  }
+  @return stratus.get($font, $name, $_default-key);
+}
+
+@mixin font($name, $weight: null) {
+  $_family: font($name);
+  $_weight: font($name, $weight);
+  font-family: $_family;
+  @if $_weight { font-weight: $_weight; }
+}
+
+// END !SECTION Typography
+// SECTION Color
+// ==========================================================================
+
+$_brand-color: (
+  'uabgreen': #1E6B52,
+  'darkgreen': #295135,
+  'blaze': #FFD400,
+  'apple': #80BC00,
+  'gold': #AA9767,
+  'stone': #808285
+);
+
+$color: (
+  'primary': (
+    'base': map.get($_brand-color, 'uabgreen'),
+    '100': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(100)),
+    '200': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(200)),
+    '300': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(300)),
+    '400': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(400)),
+    '500': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(500)),
+    '600': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(600)),
+    '700': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(700)),
+    '800': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(800)),
+    '900': stratus.color-scale(map.get($_brand-color, 'uabgreen'), stratus.color-index(900)),
+  ),
+  'accent': (
+    'base': map.get($_brand-color, 'apple'),
+    '100': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(100)),
+    '200': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(200)),
+    '300': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(300)),
+    '400': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(400)),
+    '500': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(500)),
+    '600': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(600)),
+    '700': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(700)),
+    '800': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(800)),
+    '900': stratus.color-scale(map.get($_brand-color, 'apple'), stratus.color-index(900)),
+  ),
+  'secondary': (
+    'base': map.get($_brand-color, 'darkgreen'),
+    '100': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(100)),
+    '200': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(200)),
+    '300': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(300)),
+    '400': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(400)),
+    '500': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(500)),
+    '600': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(600)),
+    '700': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(700)),
+    '800': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(800)),
+    '900': stratus.color-scale(map.get($_brand-color, 'darkgreen'), stratus.color-index(900)),
+  ),
+  'neutral': (
+    'base': map.get($_brand-color, 'stone'),
+    '100': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(100)),
+    '200': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(200)),
+    '300': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(300)),
+    '400': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(400)),
+    '500': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(500)),
+    '600': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(600)),
+    '700': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(700)),
+    '800': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(800)),
+    '900': stratus.color-scale(map.get($_brand-color, 'stone'), stratus.color-index(900)),
+  ),
+  'state': (
+    'info': map.get($_brand-color, 'uabgreen'),
+    'notice': map.get($_brand-color, 'blase'),
+    'positive': map.get($_brand-color, 'apple'),
+    'negative': (
+      'base': #F00,
+      '100': stratus.color-scale(#F00, stratus.color-index(100)),
+      '200': stratus.color-scale(#F00, stratus.color-index(200)),
+      '300': stratus.color-scale(#F00, stratus.color-index(300)),
+      '400': stratus.color-scale(#F00, stratus.color-index(400)),
+      '500': stratus.color-scale(#F00, stratus.color-index(500)),
+      '600': stratus.color-scale(#F00, stratus.color-index(600)),
+      '700': stratus.color-scale(#F00, stratus.color-index(700)),
+      '800': stratus.color-scale(#F00, stratus.color-index(800)),
+      '900': stratus.color-scale(#F00, stratus.color-index(900)),
+      ),
+    'disabled': map.get($_brand-color, 'stone')
+  ),
+  'background': (
+    'base': stratus.color-scale(map.get($_brand-color, 'stone'), $opacity: 0.15),
+    'negative': stratus.color-scale(#F00, $opacity: 0.15),
+  ),
+  'text': (
+    'body': black,
+    'header': black,
+  )
+);
+
+@function color($keys...) {
+  $_output: stratus.get($color, $keys...);
+  @if meta.type-of($_output) == map {
+    @return map.get($_output, $_default-key); }
+  @return $_output;
+}
+
+// END !SECTION Color
+// SECTION Icons
+// ==========================================================================
+
+$icons: (
+  'new-tab': '\e024',
+  'pdf': '\e239'
+);
+@function icon($name) {
+  @return map.get($icons, $name);
+}
+
+// END !SECTION Icons
+// SECTION Border
+// ==========================================================================
+
+$border: (
+  'width': (
+    'hairline': 1px,
+    'medium': 2px,
+    'large': 5px
+  ),
+  'radius': (
+    'base': 2px,
+    'large': 4px,
+    'round': 50%,
+    'square': 0
+  ),
+  'color': (
+    'divider': black,
+    'accent': stratus.get($color, 'neutral', '200')
+  )
+);
+
+@function border($keys...) {
+  $_return: stratus.get($border, $keys...);
+  @if meta.type-of($_return) == map { @return map.get($_return, $_default-key); }
+  @return $_return;
+}
+
+// END !SECTION Border
+// SECTION Spacing
+// ==========================================================================
+
+$spacing: (
+  'padding': (
+    'body': stratus.sp(1),
+    'inline': 0 0.2em 0.1em,
+    'input': 0.3em 1em,
+    'block': stratus.sp(1),
+    'section': (
+      'base': stratus.sp(4),
+      'small': stratus.sp(2)
+    )
+  ),
+  'margin': (
+    'block': stratus.sp(1),
+    'section': stratus.sp(4)
+  ),
+  'text': (
+    'indent': 1em
+  ),
+  'gap': (
+    'base': stratus.sp(1),
+    'small': stratus.sp(0.5),
+    'medium': stratus.sp(1),
+    'large': stratus.sp(2)
+  ),
+);
+
+@function space($key: 1, $path...){
+  @if meta.type-of($key) == number {
+    @return stratus.sp($key);
+  }
+  @return stratus.get(map.get($spacing, $key), $path...);
+}
+
+// END !SECTION Border
+// SECTION Spacing
+// ==========================================================================
+
+$z-index: (
+  'background': -100,
+  'main-content': 0,
+  'modal': 100,
+  'navigation': 200
+);
+
+@function z-index($key) {
+  @return map.get($z-index, $key);
+}
