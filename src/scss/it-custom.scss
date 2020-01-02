@@ -1,226 +1,42 @@
-/* ==========================================================================
-  IT Website Stylesheet 0.10.0
-  University of Alabama at Birmingham
-  Department of Information Technology
-  2019 Mozilla Public License 2.0
-  https://github.com/UAB-IT/website-design
-========================================================================== */
-$rem-size: 16; // Integer(px)
-$ratio: 1.25; // Number
-$init-txt-size: 16; // Integer(px)
-$init-line-height: 1.6; // Number
-@import '@mattmcadams/stratus/dist/_stratus.scss';
-@import '01-core/_functions.scss';
-@import '_config.scss';
-/** =========================================================================
-  [-TABLE OF CONTENTS-]
+@use '01-core/_index.scss';
 
-  01-CORE
-  * ICONS | _icons.scss
-  * Sass variables for uab.edu/toolkit/web/build-maintain-your-site/icons
-  *
-  * PATTERNS | _patterns.scss
+@use '02-base/_typography.scss';
+//@use '02-base/_spacing.scss';
+//@use '02-base/_pullquotes.scss';
+//@use '02-base/_lists.scss';
+//@use '02-base/_tables.scss';
+//@use '02-base/_media.scss';
+//@use '02-base/_forms.scss';
 
-  02-BASE
-  * TYPOGRAPHY | _typography.scss
-  * Resets ......................... reset aggressive inline styles
-  * Header Spacing ................. h1-h6 & uk- class margins
-  * Font Sizes ..................... modular scale font sizes and line height
-  * Copy ........................... block level elements: pre, p
-  * Links .......................... a, and states of
-  * Semantic HTML .................. inline semantic elements
-  *
-  * SPACING | _spacing.scss
-  * Sections ....................... sections & backgrounds
-  * Full width ..................... sections that break out of the content
-  * Margin Fix ..................... fix for last & first child margins
-  *
-  * PULLQUOTES | _pullquotes.scss
-  * Pullquotes .................... <blockquote> & .pullquote
-  * Callouts ...................... .callout
-  * Callout Themes ................ .callout.green
-  *
-  * LISTS | _lists.scss
-  * Resets ......................... consistent margins & paddings
-  * Base Styles .................... ul, ol, dl, li, dt, dd
-  * Themes ......................... colored, aligned
-  *
-  * TABLES | _tables.scss
-  * Basic styles ................... table, thead, tfoot, tr, th, td
-  * Themes ......................... .striped, .borderless, .compact
-  * Comparison ..................... .comparison'
-  *
-  * MEDIA | _media.scss
-  * Images ......................... img, figure, and spacing
-  * Captions ....................... figcaption
-  *
-  * FORMS | _forms.scss
-  * Buttons ........................ button base and state styles
-  * Groups ......................... flex styles for input / button groups
-  * Inputs ......................... styles for form fields
+//@use '03-custom/_toc.scss';
+//@use '03-custom/_org-chart.scss';
+//@use '03-custom/_grid.scss';
 
-  03-CUSTOM
-  * TOC | _toc.scss
-  * ORG-CHART | _org-chart.scss
-  * GRID | _grid.scss
+//@use '04-joomla/_chips.scss';
+//@use '04-joomla/_alert.scss';
+//@use '04-joomla/_pagination.scss';
+//@use '04-joomla/_article.scss';
 
-  04-JOOMLA
-  * CHIPS | _chips.scss
-  * Chips .......................... .label, .label-info, .badge
-  * Flags .......................... .flag
-  *
-  * ALERT | _alert.scss
-  * Module overrides ............... remove default styles
-  * Base Styles .................... red style alert containers and links
-  * IE-Only ........................ hide IE alert for non IE devices
-  *
-  * // NEWS | _news.scss
-  * // Newsflash ...................... grid style news cards
-  * // Feed ........................... styles article feed module
-  *
-  * PAGINATION | _pagination.scss
-  * Base ........................... overrides joomla styles
-  * States ......................... styles for active, etc
-  *
-  * ARTICLE | _article.scss
-  * Layout ......................... reduce column width
-  * Details ........................ article info area
-  * Media .......................... allow wide alignment
-  * Intro .......................... styles fancy intro section
+//@use '05-widgetkit/_widgetkit.scss';
+//@use '05-widgetkit/_wk-grid.scss';
+//@use '05-widgetkit/_panels.scss';
 
-  05-WIDGETKIT
-  * CORE OVERRIDES | _widgetkit.scss
-  * Spacing ........................ Replace wk paddings with s(x) units
-  *
-  * GRID | _wk-grid.scss
-  * Gaps ........................... Use s() units for grid gaps
-  *
-  * PANELS | _panels.scss
-  *
-  * DETAILS | _details.scss ........ Size detail image & columns
-  * FEATURES | _features.scss ...... Size feature image
-  * SLIDESHOW | _slideshow.scss .... Fix margins
-  * TABS | _tabs.scss .............. Override styles & fix positioning
-  * NUMBERS | _numbers.scss ........ Size numbers & correct margins
-  * TIMELINE | _timeline.scss ...... Style and positioning for timelines
+//@use '05-widgetkit/_details.scss';
+//@use '05-widgetkit/_features.scss';
+//@use '05-widgetkit/_slideshow.scss';
+//@use '05-widgetkit/_tabs.scss';
+//@use '05-widgetkit/_numbers.scss';
+//@use '05-widgetkit/_timeline.scss';
 
-  06-SYNDICATION
-  * CALENDAR | _calendar.scss
-  * Localist widget from campus calendar
-  *
-  * RSS | _rss-feed.scss
-  * Simple RSS Feed Generator
+//@use '06-syndication/_calendar.scss';
+//@use '06-syndication/_rss-feed.scss';
 
-  07-CENTRAL
-  * NAVIGATION | _navigation.scss
-  * Top navigation ................. Add department styles
-  * Quicklinks ..................... Fix several bugs related to quicklinks
-  * Search ......................... Enforce consistent button style
-  * Breadcrumbs .................... Add nicer link divider
-  *
-  * SIDEBAR | _sidebar.scss
-  * Resets ......................... Correct default styles
-  * Column ......................... Border between sidebar & content
-  * Links .......................... Styles for link items
-  * Dropdown ....................... Toggle style for sidebar js
-  * Misc ........................... Style for item separators and spacing
-  *
-  * LAYOUT | _layout.scss
-  * Grid ........................... Use grid layout on browsers that can
-  * Spacing ........................ Use s() units for paddings & margins
-  * Sidebar ........................ Responsive styles for sidebar
-  * Banner ......................... banner spacing adjustments
-  *
-  * BANNER | _banner.scss
-  * Reset .......................... Remove several default styles
-  * Background ..................... Add banner background
-  * Header ......................... Style page header
-  * Breadcrumbs .................... Style breadcrumbs in the header
-  *
-  * FOOTER | _footer.scss
-  * Flex ........................... Position footer info
-  * Links .......................... Change footer link styles
-  * Social ......................... Style for social icons in the footer
-========================================================================= **/
+//@use '07-central/_navigation.scss';
+//@use '07-central/_sidebar.scss';
+//@use '07-central/_layout.scss';
+//@use '07-central/_banner.scss';
+//@use '07-central/_footer.scss';
 
-// CORE
-// Sass variables, functions, and mixins
-// ====================================================================== **/
-@import '01-core/_icons.scss';
-@import '01-core/_patterns.scss';
+//@use '08-pages/_techconnect.scss';
 
-/** SECTION BASE
-Basic styling for html elements
-========================================================================= **/
-@import '02-base/_typography.scss';
-@import '02-base/_spacing.scss';
-@import '02-base/_pullquotes.scss';
-@import '02-base/_lists.scss';
-@import '02-base/_tables.scss';
-@import '02-base/_media.scss';
-@import '02-base/_forms.scss';
-
-/* End !SECTION BASE */
-/** SECTION CUSTOM
-Styles for hand crafted components
-========================================================================= **/
-@import '03-custom/_toc.scss';
-@import '03-custom/_org-chart.scss';
-@import '03-custom/_grid.scss';
-
-/* End !SECTION CUSTOM */
-/** SECTION JOOMLA
-Styles for joomla generated content
-========================================================================= **/
-@import '04-joomla/_chips.scss';
-@import '04-joomla/_alert.scss';
-// DEPRECATED @import '04-joomla/_news.scss';
-@import '04-joomla/_pagination.scss';
-@import '04-joomla/_article.scss';
-
-/* End !SECTION JOOMLA */
-/** SECTION WIDGETKIT
-Styles for widgetkit generated content and components
-========================================================================= **/
-@import '05-widgetkit/_widgetkit.scss';
-@import '05-widgetkit/_wk-grid.scss';
-@import '05-widgetkit/_panels.scss';
-
-@import '05-widgetkit/_details.scss';
-@import '05-widgetkit/_features.scss';
-@import '05-widgetkit/_slideshow.scss';
-@import '05-widgetkit/_tabs.scss';
-@import '05-widgetkit/_numbers.scss';
-@import '05-widgetkit/_timeline.scss';
-
-/* End !SECTION WIDGETKIT */
-/** SECTION SYNDICATION
-Styles for widgets used to syndicate data, such as RSS feeds
-========================================================================= **/
-@import '06-syndication/_calendar.scss';
-@import '06-syndication/_rss-feed.scss';
-
-/* End !SECTION SYNDICATION */
-/** SECTION CENTRAL
-Styles that heavily override central CSS and styles related to positions
-such as the sidebar, banner, and footer.
-========================================================================= **/
-@import '07-central/_navigation.scss';
-@import '07-central/_sidebar.scss';
-@import '07-central/_layout.scss';
-@import '07-central/_banner.scss';
-@import '07-central/_footer.scss';
-
-/* End !SECTION CENTRAL */
-/** SECTION PAGES
-Special styles that apply to custom components designed for a single page
-========================================================================= **/
-@import '08-pages/_techconnect.scss';
-
-/* End !SECTION PAGES */
-/** SECTION HELPERS
-Styles that provide atomic classes that help fix layout oddities
-on a case by case basis.
-========================================================================= **/
-@import '01-core/_helpers.scss';
-/* End !SECTION HELPERS */
+//@use '01-core/_helpers.scss';

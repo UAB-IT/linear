@@ -1,0 +1,40 @@
+// ==========================================================================
+// SECTION CONFIGURATION
+// ==========================================================================
+
+@use '@mattmcadams/stratus/src/config' with (
+  $use-dynamic-scale: false,
+  $rem-size: 16px,
+  $line-height: 1.6,
+  $default-scale: (
+    'huge': 5,
+    'xlarge': 3,
+    'large': 2,
+    'medium': 1,
+    'normal': 0,
+    'small': -1,
+    'xsmall': -2,
+  ),
+  $default-ratio: 1.25,
+  $use-vertical-rhythm: true,
+  $use-mix-method: true,
+  $space-unit-size: 1.6rem,
+  $breakpoint-map: (
+    'xxl': 2560px,
+    'xl': 1440px,
+    'lg': 1024px,
+    'md': 700px,
+    'sm': 300px,
+    'xs': 299px
+  )
+);
+
+$adjust-template: true;
+$adjust-central-type: true;
+$use-css-grid: true;
+$max-width: 1280px;
+
+$specify: 'body.linear.hd';
+$specify-main: '[role="main"]';
+
+// End !SECTION CONFIGURATION

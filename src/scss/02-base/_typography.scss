@@ -2,13 +2,17 @@
    SECTION TYPOGRAPHY
 ========================================================================== */
 
+@use '@mattmcadams/stratus';
+@use '../01-core' as *;
+@use '../01-core/token';
+
+@if $adjust-central-type {
 /** SECTION Resets
  * These styles override aggressive styles from central style.css
 -------------------------------------------------------------------------- */
-@if $adjust-central-typography == true {
   :root {
-    font-size: #{$rem-size + 'px'};
-    color: $c-body;
+    font-size: 16px;
+    color: token.color('text', 'body');
   }
   /* Restore inheritance to inline elements */
   #{$specify} h1 a,
@@ -48,16 +52,16 @@
    * !important used to override aggressive styles from central css
   **/
   #{$specify} h5 {
-    font-family: $font-head !important;
+    font-family: token.font('head') !important;
   }
 
   /* remove spacing and border from the generated header from the article title */
   #{$specify} .page-header {
     @include reset(margin, padding, border);
   }
+/* End !SECTION Resets */
 }
 
-/* End !SECTION Resets */
 /** SECTION Header Spacing
  * Create a consistent style for headers and their spacing
 -------------------------------------------------------------------------- */
@@ -74,60 +78,39 @@
 #{$specify} .uk-h5,
 #{$specify} h6,
 #{$specify} .uk-h6 {
-  @include reset(margin, color);
-  text-align: inherit;
-  margin: 0 0 s(1);
-  font-family: $font-head;
-  color: $c-header;
+  @if $adjust-central-type { @include reset(margin, color); }
+  @extend %header;
 }
 
-/* Gives added top margin to headers when they follow content */
+/* Gives added top margin to headers */
 //OPTIMIZE: specificity
-#{$specify} [role='main'] * + {
+#{$specify} #{$specify-main} {
   h1,
   h2,
   h3,
   h4 {
-    margin-top: s(2);
+    margin-top: token.space(2);
   }
 }
-#{$specify} [role='main'] {
+#{$specify} #{$specify-main} {
   h4,
   h5,
   h6 {
-    margin-bottom: s(0.5);
+    margin-bottom: token.space(0.5);
   }
 }
 
-#{$specify} [role='main'] h1 + h2,
-#{$specify} [role='main'] h2 + h3,
-#{$specify} [role='main'] h3 + h4 {
-  margin-top: s(1);
+/* Reduce top margin when directly following previous header */
+#{$specify} #{$specify-main} h1 + h2,
+#{$specify} #{$specify-main} h2 + h3,
+#{$specify} #{$specify-main} h3 + h4 {
+  margin-top: token.space(1);
 }
-
-/* TEMP: Test margins for lower level headers + text
-#{$specify} h4 + p {
-  margin-top: s(-1);
-}
-#{$specify} h5 + p {
-  margin-top: s(-1);
-}
-*/
 
 #{$specify} h5,
 #{$specify} h6 {
-  @include weight(bold, head);
+  font-weight: token.font('head', 'bold');
 }
-
-/* TEMP: Remove additional margin between headers in the content area
-#{$specify} [role='main'] h1 + h2,
-#{$specify} [role='main'] h2 + h3,
-#{$specify} [role='main'] h3 + h4,
-#{$specify} [role='main'] h4 + h5,
-#{$specify} [role='main'] h5 + h6 {
-  margin-top: 0;
-}
-*/
 
 /* End !SECTION Header Spacing */
 /** SECTION Font Sizes
@@ -135,24 +118,24 @@
  * [1] ID is used here to overwrite equally high specificity from style.css
 -------------------------------------------------------------------------- */
 #{$specify} h1,
-#{$specify} .uk-h1 { @include type-setting(huge); }
+#{$specify} .uk-h1 { @include stratus.type-set(huge); }
 #{$specify} h2,
-#{$specify} .uk-h2 { @include type-setting(xlarge); }
+#{$specify} .uk-h2 { @include stratus.type-set(xlarge); }
 /*[1]*/
 #{$specify} h3,
 #leftcolumn h3,
-#{$specify} .uk-h3 { @include type-setting(large); }
+#{$specify} .uk-h3 { @include stratus.type-set(large); }
 #{$specify} h4,
-#{$specify} .uk-h4 { @include type-setting(medium); }
+#{$specify} .uk-h4 { @include stratus.type-set(medium); }
 #{$specify} h5,
 #{$specify} .uk-h5,
 #{$specify} h6,
 #{$specify} .uk-h6,
 body,
 #{$specify} p,
-#{$specify} .uk-p { @include type-setting(normal); }
+#{$specify} .uk-p { @include stratus.type-set(normal); }
 #{$specify} small,
-#{$specify} .uk-small { @include type-setting(small); }
+#{$specify} .uk-small { @include stratus.type-set(small); }
 
 /* End !SECTION Font Sizes */
 /** SECTION Copy
@@ -166,7 +149,7 @@ body,
   @include block-margin;
 }
 #{$specify} p + p {
-  margin-top: s(-0.5);
+  margin-top: token.space(-0.5);
 }
 
 #{$specify} pre {
@@ -175,7 +158,7 @@ body,
 
 #{$specify} pre > code {
   display: block;
-  padding: $block-padding;
+  padding: token.space('padding', 'block');
   white-space: inherit;
 }
 
@@ -192,8 +175,8 @@ body,
   height: 0; /*[1]*/
   overflow: visible; /*[1]*/
   border-style: solid;
-  border-width: 0 0 $hr-width;
-  border-color: $hr-color;
+  border-width: 0 0 token.border('width', 'hairline');
+  border-color: token.border('color', 'accent');
 }
 
 #{$specify} h1 + hr,
@@ -202,7 +185,7 @@ body,
 #{$specify} h4 + hr,
 #{$specify} h5 + hr,
 #{$specify} h6 + hr {
-  margin-top: s(-0.5); /*[2]*/
+  margin-top: token.space(-0.5); /*[2]*/
 }
 
 /* End !SECTION Rule Lines */
@@ -228,33 +211,26 @@ body.linear a {
  * [3] Add new tab icon
  * [4] Add pdf icon
 **/
-
+// TODO: Reduce specificity as much as possible
 /*[1]*/
 body.linear [role='banner'],
 body.linear [role='main'],
 body.linear [id='footer'],
 body.linear [id='lockedFooter'] {
   a {
-    border-bottom: 2px solid c($c-primary, 200);
-    &:hover {
-      background-color: c($c-primary, 100);
-      border-color: $c-primary;
-    }
+    @extend %link-primary;
   }
 
-  // Error handling. If no icon is found, don't print this CSS
-  @if $icon-pdf != null and $icon-new-tab != null {
-    a:not(.btn)[target='_blank']::after,
-    a:not(.btn)[href$='.pdf']::after {
-      font-family: $font-icon;/*[2]*/
-      margin-left: 0.5em;
-      font-weight: normal;
-      font-size: 75%;
-    }
-
-    a:not(.btn)[target='_blank']::after { content: '#{$icon-new-tab}'; /*[3]*/ }
-    a:not(.btn)[href$='.pdf']::after { content: '#{$icon-pdf}'; /*[4]*/ }
+  a:not(.btn)[target='_blank']::after,
+  a:not(.btn)[href$='.pdf']::after {
+    font-family: token.font('icon');/*[2]*/
+    margin-left: 0.5em;
+    font-weight: normal;
+    font-size: 75%;
   }
+
+  a:not(.btn)[target='_blank']::after { content: '#{token.icon('new-tab')}'; /*[3]*/ }
+  a:not(.btn)[href$='.pdf']::after { content: '#{token.icon('pdf')}'; /*[4]*/ }
 }
 
 /* End !SECTION Links */
@@ -269,26 +245,26 @@ body.linear [id='lockedFooter'] {
 #{$specify} mark,
 #{$specify} code,
 #{$specify} kbd {
-  padding: $inline-padding;
+  padding: token.space('padding', 'inline');
 }
 #{$specify} code,
 #{$specify} kbd {
   white-space: pre;
-  border-radius: $bdr-radius;
-  font-family: $font-mono;
+  border-radius: token.border('radius');
+  font-family: token.font('mono');
 }
 
 #{$specify} mark {
-  background-color: c($c-accent, 100);
+  background-color: token.color('accent', '100');
 }
 
 #{$specify} code {
-  background-color: $c-background;
-  color: c( $c-grey, 700 );
+  background-color: token.color('background');
+  color: token.color('neutral', '700' );
 }
 #{$specify} kbd {
-  background-color: c( $c-grey, 800 );
-  color: c( $c-grey, 050 );
+  background-color: token.color('neutral', '800' );
+  color: white;
 }
 
 /* End !SECTION SEMANTIC HTML */

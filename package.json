@@ -1,43 +1,30 @@
 {
   "name": "website-design",
   "version": "0.10.1",
-  "description": "Website design for UABIT",
-  "main": "dist/it-custom.js",
+  "description": "Website design for the University of Alabama at Birmingham's Department of Information Technology",
+  "license": "MPL-2.0",
   "private": true,
   "scripts": {
     "clean:build": "rm -r build/*",
     "clean:dist": "rm -r dist/*",
     "clean": "npm run clean:build ; npm run clean:dist",
-    "css:compile": "node-sass --include-path=node_modules --output-style=expanded src/scss/it-custom.scss -o build/",
-    "css:prefix": "postcss build/it-custom.css --use=autoprefixer --output=build/it-custom-prefixed.css",
-    "css:minify": "cleancss --output dist/it-custom-min.css build/it-custom-prefixed.css",
+    "css:dev": "sass --load-path=node_modules --style=expanded src/scss/it-custom.scss build/it-custom.css",
+    "css:prod": "sass --load-path=node_modules --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
+    "css:help": "sass -h",
     "js:concat": "concat -o dist/it-custom.js src/js/banner-image.js src/js/interactive-cards.js src/js/sidebar.js src/js/toc.js",
-    "build:css": "npm run css:compile && npm run css:prefix && npm run css:minify",
+    "build:css": "npm run css:dev && npm run css:prod",
     "build:js": "npm run js:concat",
     "build": "npm run clean ; npm run build:css && npm run build:js"
   },
-  "browserslist": [
-    "last 2 versions"
-  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/UAB-IT/website-design.git"
   },
-  "author": "",
-  "license": "MPL-2.0",
-  "bugs": {
-    "url": "https://github.com/UAB-IT/website-design/issues"
-  },
   "homepage": "https://github.com/UAB-IT/website-design#readme",
   "devDependencies": {
-    "autoprefixer": "^9.7.1",
-    "clean-css-cli": "^4.3.0",
+    "@mattmcadams/stratus": "^1.0.0-6",
     "concat": "^1.0.3",
-    "node-sass": "^4.13.0",
-    "postcss-cli": "^6.1.3"
+    "sass": "^1.24.0"
   },
-  "dependencies": {
-    "@mattmcadams/stratus": "^0.2.1",
-    "bourbon": "^6.0.0"
-  }
+  "dependencies": {}
 }
