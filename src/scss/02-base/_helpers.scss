@@ -24,4 +24,12 @@
 .u-font-head { font-family: $font-head; }
 .u-font-body { font-family: $font-body; }
 
+
+[disabled] {
+  pointer-events: none !important;
+  background-color: token.color('neutral', 100) !important;
+  color: token.color('neutral', 300) !important;
+  border: none !important;
+}
+
 /* End !SECTION HELPERS */
