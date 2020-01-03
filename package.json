@@ -5,16 +5,10 @@
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "clean:build": "rm -r build/*",
-    "clean:dist": "rm -r dist/*",
-    "clean": "npm run clean:build ; npm run clean:dist",
     "css:dev": "sass --load-path=node_modules --style=expanded src/scss/it-custom.scss build/it-custom.css",
     "css:prod": "sass --load-path=node_modules --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
-    "css:help": "sass -h",
     "js:concat": "concat -o dist/it-custom.js src/js/banner-image.js src/js/interactive-cards.js src/js/sidebar.js src/js/toc.js",
-    "build:css": "npm run css:dev && npm run css:prod",
-    "build:js": "npm run js:concat",
-    "build": "npm run clean ; npm run build:css && npm run build:js"
+    "build": "npm run css:prod && npm run js:concat"
   },
   "repository": {
     "type": "git",
