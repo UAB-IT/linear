@@ -6,6 +6,8 @@
 @use '../01-core' as *;
 @use '../01-core/token';
 
+#{$specify-all} {
+
 @if $adjust-central-type {
 /** SECTION Resets
  * These styles override aggressive styles from central style.css
@@ -15,100 +17,103 @@
     color: token.color('text', 'body');
   }
   /* Restore inheritance to inline elements */
-  #{$specify} h1 a,
-  #{$specify} h1 strong,
-  #{$specify} h1 b,
-  #{$specify} h1 span,
-  #{$specify} h2 a,
-  #{$specify} h2 strong,
-  #{$specify} h2 b,
-  #{$specify} h2 span,
-  #{$specify} h3 a,
-  #{$specify} h3 strong,
-  #{$specify} h3 b,
-  #{$specify} h3 span,
-  #{$specify} h4 a,
-  #{$specify} h4 strong,
-  #{$specify} h4 b,
-  #{$specify} h4 span,
-  #{$specify} #footer a,
-  #{$specify} #footer span,
-  #{$specify} b,
-  #{$specify} span,
-  #{$specify} strong,
-  #{$specify} em {
+  h1 a,
+  h1 strong,
+  h1 b,
+  h1 span,
+  h2 a,
+  h2 strong,
+  h2 b,
+  h2 span,
+  h3 a,
+  h3 strong,
+  h3 b,
+  h3 span,
+  h4 a,
+  h4 strong,
+  h4 b,
+  h4 span,
+  b,
+  span,
+  strong,
+  em {
     @include reset(color, font-size);
     font-family: inherit;
+    text-align: inherit;
   }
 
   /* Restore font weight inheritance to certain inline elements */
-  #{$specify} .categories-list h3 a,
-  #{$specify} span,
-  #{$specify} #rightsidebar h4 .mod-articles-category-title {
+  .categories-list h3 a,
+  span,
+  #rightsidebar h4 .mod-articles-category-title {
     font-weight: inherit;
+  }
+
+  /* Restore text alignment inheritance for h3 */
+  h3, h3 a, h3 strong, h3 b {
+    text-align: inherit;
   }
 
   /* Correct header font on h5 elements
    * !important used to override aggressive styles from central css
   **/
-  #{$specify} h5 {
+  h5 {
     font-family: token.font('head') !important;
   }
 
   /* remove spacing and border from the generated header from the article title */
-  #{$specify} .page-header {
+  .page-header {
     @include reset(margin, padding, border);
   }
-/* End !SECTION Resets */
 }
+/* End !SECTION Resets */
 
 /** SECTION Header Spacing
  * Create a consistent style for headers and their spacing
 -------------------------------------------------------------------------- */
 
-#{$specify} h1,
-#{$specify} .uk-h1,
-#{$specify} h2,
-#{$specify} .uk-h2,
-#{$specify} h3,
-#{$specify} .uk-h3,
-#{$specify} h4,
-#{$specify} .uk-h4,
-#{$specify} h5,
-#{$specify} .uk-h5,
-#{$specify} h6,
-#{$specify} .uk-h6 {
-  @if $adjust-central-type { @include reset(margin, color); }
+h1,
+.uk-h1,
+h2,
+.uk-h2,
+h3,
+.uk-h3,
+h4,
+.uk-h4,
+h5,
+.uk-h5,
+h6,
+.uk-h6 {
   @extend %header;
 }
 
 /* Gives added top margin to headers */
 //OPTIMIZE: specificity
-#{$specify} #{$specify-main} {
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin-top: token.space(2);
-  }
+//#{$specify-main} {
+h1,
+h2,
+h3,
+h4 {
+  margin-top: token.space(2);
 }
-#{$specify} #{$specify-main} {
-  h4,
-  h5,
-  h6 {
-    margin-bottom: token.space(0.5);
-  }
+//}
+//#{$specify-main} {
+h4,
+h5,
+h6 {
+  margin-bottom: token.space(0.5);
 }
+//}
 
 /* Reduce top margin when directly following previous header */
-#{$specify} #{$specify-main} h1 + h2,
-#{$specify} #{$specify-main} h2 + h3,
-#{$specify} #{$specify-main} h3 + h4 {
+#{$specify-main} h1 + h2,
+#{$specify-main} h2 + h3,
+#{$specify-main} h3 + h4 {
   margin-top: token.space(1);
 }
 
-#{$specify} h5,
-#{$specify} h6 {
+h5,
+h6 {
   font-weight: token.font('head', 'bold');
 }
 
@@ -117,46 +122,47 @@
  * Use modular scale for font sizes and line heights
  * [1] ID is used here to overwrite equally high specificity from style.css
 -------------------------------------------------------------------------- */
-#{$specify} h1,
-#{$specify} .uk-h1 { @include stratus.type-set(huge); }
-#{$specify} h2,
-#{$specify} .uk-h2 { @include stratus.type-set(xlarge); }
+h1,
+.uk-h1 { @include stratus.type-set(huge); }
+h2,
+.uk-h2 { @include stratus.type-set(xlarge); }
 /*[1]*/
-#{$specify} h3,
+h3,
 #leftcolumn h3,
-#{$specify} .uk-h3 { @include stratus.type-set(large); }
-#{$specify} h4,
-#{$specify} .uk-h4 { @include stratus.type-set(medium); }
-#{$specify} h5,
-#{$specify} .uk-h5,
-#{$specify} h6,
-#{$specify} .uk-h6,
+.uk-h3 { @include stratus.type-set(large); }
+h4,
+.uk-h4 { @include stratus.type-set(medium); }
+h5,
+.uk-h5,
+h6,
+.uk-h6,
 body,
-#{$specify} p,
-#{$specify} .uk-p { @include stratus.type-set(normal); }
-#{$specify} small,
-#{$specify} .uk-small { @include stratus.type-set(small); }
+p,
+li,
+.uk-p { @include stratus.type-set(normal); }
+small,
+.uk-small { @include stratus.type-set(small); }
 
 /* End !SECTION Font Sizes */
 /** SECTION Copy
  * Styles for block level typographical elements
 -------------------------------------------------------------------------- */
 
-#{$specify} p,
-#{$specify} hr,
-#{$specify} pre {
+p,
+hr,
+pre {
   margin-top: 0;
-  @include block-margin;
+  @include token.block-margin;
 }
-#{$specify} p + p {
+p + p {
   margin-top: token.space(-0.5);
 }
 
-#{$specify} pre {
+pre {
   white-space: pre-wrap;
 }
 
-#{$specify} pre > code {
+pre > code {
   display: block;
   padding: token.space('padding', 'block');
   white-space: inherit;
@@ -170,7 +176,7 @@ body,
  * header's baseline
 -------------------------------------------------------------------------- */
 
-#{$specify} hr {
+hr {
   box-sizing: content-box; /*[1]*/
   height: 0; /*[1]*/
   overflow: visible; /*[1]*/
@@ -179,29 +185,23 @@ body,
   border-color: token.border('color', 'accent');
 }
 
-#{$specify} h1 + hr,
-#{$specify} h2 + hr,
-#{$specify} h3 + hr,
-#{$specify} h4 + hr,
-#{$specify} h5 + hr,
-#{$specify} h6 + hr {
+h1 + hr,
+h2 + hr,
+h3 + hr,
+h4 + hr,
+h5 + hr,
+h6 + hr {
   margin-top: token.space(-0.5); /*[2]*/
 }
 
 /* End !SECTION Rule Lines */
 /** SECTION Links
 -------------------------------------------------------------------------- */
-/* WARNING: Do not change the specificity of the link selectors.
- * Any higher and they cause problems with buttons, cards, etc.
- * Any lower and they fail to override central css
-**/
-
 /* Remove existing link styles */
-body.linear a {
+a {
   @include reset(color, font-weight, transition);
   text-decoration: none;
 }
-
 
 /**
  * [1] Applies link styles to content areas only. Less specific than an id and
@@ -211,61 +211,57 @@ body.linear a {
  * [3] Add new tab icon
  * [4] Add pdf icon
 **/
-// TODO: Reduce specificity as much as possible
-/*[1]*/
-body.linear [role='banner'],
-body.linear [role='main'],
-body.linear [id='footer'],
-body.linear [id='lockedFooter'] {
-  a {
-    @extend %link-primary;
-  }
-
-  a:not(.btn)[target='_blank']::after,
-  a:not(.btn)[href$='.pdf']::after {
-    font-family: token.font('icon');/*[2]*/
-    margin-left: 0.5em;
-    font-weight: normal;
-    font-size: 75%;
-  }
-
-  a:not(.btn)[target='_blank']::after { content: '#{token.icon('new-tab')}'; /*[3]*/ }
-  a:not(.btn)[href$='.pdf']::after { content: '#{token.icon('pdf')}'; /*[4]*/ }
+a {
+  @extend %link-primary;
 }
+
+[target='_blank']::after,
+[href$='.pdf']::after,
+[data-link-type='document']::after,
+[data-link-type='external']::after {
+  font-family: token.font('icon');/*[2]*/
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 75%;
+}
+
+[target='_blank']::after, [data-link-type='external']::after { content: '#{token.icon('new-tab')}'; /*[3]*/ }
+[href$='.pdf']::after, [data-link-type='document']::after { content: '#{token.icon('pdf')}'; /*[4]*/ }
 
 /* End !SECTION Links */
 /** SECTION Semantic HTML
 -------------------------------------------------------------------------- */
 
-#{$specify} abbr {
+abbr {
   text-decoration: none;
 }
 
 /* Add padding to inline elements with background */
-#{$specify} mark,
-#{$specify} code,
-#{$specify} kbd {
+mark,
+code,
+kbd {
   padding: token.space('padding', 'inline');
 }
-#{$specify} code,
-#{$specify} kbd {
+code,
+kbd {
   white-space: pre;
   border-radius: token.border('radius');
   font-family: token.font('mono');
 }
 
-#{$specify} mark {
+mark {
   background-color: token.color('accent', '100');
 }
 
-#{$specify} code {
+code {
   background-color: token.color('background');
   color: token.color('neutral', '700' );
 }
-#{$specify} kbd {
+kbd {
   background-color: token.color('neutral', '800' );
   color: white;
 }
 
+}
 /* End !SECTION SEMANTIC HTML */
 /* End !SECTION TYPOGRAPHY */

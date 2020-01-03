@@ -1,34 +1,36 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
+
 /* ==========================================================================
    SECTION TABLES
 ========================================================================== */
 
-$table-padding: s(0.5) !default; // inline-block - table
+#{$specify-main} {
 
 /** SECTION Base Styles
 -------------------------------------------------------------------------- */
 
-#{$specify} table {
-  text-align: left;
+table {
+  //text-align: left;
   border-collapse: collapse;
   width: 100%;
-  @include block-margin;
+  @include token.block-margin;
 }
 
 /* Add borders, padding, and ensure text alignment is respected */
-#{$specify} table tr td,
-#{$specify} table tr th {
-  border: $bdr-width solid black;
-  padding: $table-padding;
+td,
+th {
+  border: token.border('width', 'hairline') solid black;
+  padding: token.space('padding', 'inline-block');
   text-align: inherit;
   color: inherit;
 }
 
 /* Apply header styles to table headers */
-#{$specify} table th {
-  @include type-setting(normal);
-  font-family: $font-head;
-  font-weight: normal;
-  color: $c-header;
+th {
+  @extend %header;
+  @include stratus.type-set(normal);
 }
 
 /* End !SECTION Base Styles */
@@ -41,82 +43,76 @@ $table-padding: s(0.5) !default; // inline-block - table
  * Comparison
 -------------------------------------------------------------------------- */
 
-/* ANCHOR Borderless */
-#{$specify} table.borderless tr td,
-#{$specify} table.borderless tr th {
+.borderless td,
+.borderless th {
   border: none;
 }
 
-/* ANCHOR Condensed */
-#{$specify} table.condensed tr td,
-#{$specify} table.condensed tr th {
-  padding: 0.4rem;
+.table-condensed td,
+.table-condensed th {
+  padding: #{token.space('padding', 'inline-block') / 2};
 }
 
 /* ANCHOR Striped */
-#{$specify} table.striped tbody > tr:nth-child(odd) {
-  background: $c-background;
-}
-#{$specify} table.hover tbody tr:hover {
-  background: $c-background;
-}
-#{$specify} table.striped.hover tbody tr:hover {
-  background: c($stone, 100);
+.table-striped tbody > tr:nth-child(odd),
+.table-hover tr:hover {
+  background: token.color('background');
 }
 
-/* ANCHOR Colored */
-#{$specify} table.primary {
-  border: $bdr-md solid $c-primary;
+
+.table-accent {
+  border: token.border('width', 'medium') solid token.color('accent');
   & thead {
-    background: $c-primary;
+    background: token.color('accent');
     color: white;
   }
 }
-#{$specify} table.accent {
-  border: $bdr-md solid $c-green;
+.table-secondary {
+  border: token.border('width', 'medium') solid token.color('secondary');
   & thead {
-    background: $c-green;
+    background: token.color('secondary');
     color: white;
   }
 }
-#{$specify} table.green {
-  border: $bdr-md solid $c-green;
+.table-primary {
+  border: token.border('width', 'medium') solid token.color('primary');
   & thead {
-    background: $c-green;
+    background: token.color('primary');
     color: white;
   }
 }
-#{$specify} table.yellow {
-  border: $bdr-md solid $c-yellow;
+
+.table-notice {
+  border: token.border('width', 'medium') solid token.color('state', 'notice');
   & thead {
-    background: $c-yellow;
+    background: token.color('state', 'notice');
+    color: white;
   }
 }
-#{$specify} table.red {
-  border: $bdr-md solid $c-red;
+.table-caution {
+  border: token.border('width', 'medium') solid token.color('state', 'caution');
   & thead {
-    background: $c-red;
+    background: token.color('state', 'caution');
+  }
+}
+.table-warning {
+  border: token.border('width', 'medium') solid token.color('state', 'warning');
+  & thead {
+    background: token.color('state', 'warning');
     color: white;
   }
 }
 
 /* ANCHOR Comparison */
-#{$specify} table.comparison td,
-#{$specify} table.comparison thead {
-  text-align: center !important;
-}
-#{$specify} table.comparison td {
-  vertical-align: middle;
-}
-#{$specify} table.comparison em.icon-ok {
-  color: $c-green;
-}
-#{$specify} table.comparison em.icon-minus-sign {
-  color: $c-yellow;
-}
-#{$specify} table.comparison em.icon-remove {
-  color: $c-red;
-}
+// table.comparison-table td,
+// table.comparison-table thead {
+//   text-align: center !important;
+// }
+
+.comparison-table td { vertical-align: middle; }
+.comparison-table .icon-ok { color: token.color('state', 'positive'); }
+.comparison-table .icon-minus-sign { color: token.color('state', 'caution'); }
+.comparison-table .icon-remove { color: token.color('state', 'negative'); }
 
 /* End !SECTION Themes */
 /** SECTION Overrides
@@ -124,38 +120,39 @@ $table-padding: s(0.5) !default; // inline-block - table
  * TODO: Move this code to its own file under Joomla
  * OPTIMIZE: Just use important on these. Specificity is already out of control
 -------------------------------------------------------------------------- */
-
-#{$specify} .category-list .table-bordered {
+/*
+.category-list .table-bordered {
   @include reset(border);
   border-collapse: collapse;
   border-radius: 0;
 }
 
-#{$specify} .category-list .table-bordered th,
-#{$specify} .category-list .table-bordered td,
-#{$specify} .category-list table.category td,
-#{$specify} .category-list table.table-striped tr td,
-#{$specify} .category-list table.table-striped tr th {
+.category-list .table-bordered th,
+.category-list .table-bordered td,
+.category-list table.category td,
+.category-list table.table-striped tr td,
+.category-list table.table-striped tr th {
   @include reset(border);
 }
-#{$specify} .category-list .table-hover tbody tr:hover > td,
-#{$specify} .category-list .table-hover tbody tr:hover > th,
-#{$specify} .category-list .table-striped tbody > tr:nth-child(odd) > td,
-#{$specify} .category-list .table-striped tbody > tr:nth-child(odd) > th {
+.category-list .table-hover tbody tr:hover > td,
+.category-list .table-hover tbody tr:hover > th,
+.category-list .table-striped tbody > tr:nth-child(odd) > td,
+.category-list .table-striped tbody > tr:nth-child(odd) > th {
   @include reset(background);
 }
 
-#{$specify} .category-list .table-bordered caption + thead tr:first-child th:first-child,
-#{$specify} .category-list .table-bordered caption + tbody tr:first-child td:first-child,
-#{$specify} .category-list .table-bordered colgroup + thead tr:first-child th:first-child,
-#{$specify} .category-list .table-bordered colgroup + tbody tr:first-child td:first-child {
+.category-list .table-bordered caption + thead tr:first-child th:first-child,
+.category-list .table-bordered caption + tbody tr:first-child td:first-child,
+.category-list .table-bordered colgroup + thead tr:first-child th:first-child,
+.category-list .table-bordered colgroup + tbody tr:first-child td:first-child {
   border-top-left-radius: 0;
 }
 
-#{$specify} .category-list .category.table tbody a {
+.category-list .category.table tbody a {
   @include reset(border);
   text-decoration: underline;
 }
-
+*/
+}
 /* End !SECTION Overrides */
 /* End !SECTION TABLES */

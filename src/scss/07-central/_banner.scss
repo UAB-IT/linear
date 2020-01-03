@@ -1,25 +1,27 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION BANNER
 ========================================================================== */
-$banner-top: $section-margin * 2 !default;
 $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
+
+#{$specify} {
 
 /** SECTION Page Header
  * [1] Remove default positional styles
  * [2] Apply consistent spacing & adjust text color
  * This is a QUESTION: what kind of module
 -------------------------------------------------------------------------- */
-
-/* QUESTION: display block? */
 /*[1]*/
-#{$specify} .stickyNav .page-header {
+#banner .stickyNav .page-header {
   @include reset(float);
+  display: block;
   max-width: 100%;
 }
 
 /*[2]*/
 #banner h1 {
-  @include block-margin;
+  margin: 0;
   color: white;
 }
 
@@ -29,15 +31,14 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 -------------------------------------------------------------------------- */
 /**
  * [1] Relative allows us to position the background
- * [2] padding moves the title and breadcrumbs to the bottom of the container
- * [3] min height sets the size of the banner
- * [4] FIX z-index is incremented to ensure the banner shows up on mobile
+ * [2] padding adjusts the height of the banner, and position of text inside
+ * [3] FIX z-index is incremented to ensure the banner shows up on mobile
 **/
 #banner {
   position: relative; /*[1]*/
-  padding-top: $banner-top; /*[2]*/
-  min-height: 10rem; /*[3]*/
-  z-index: 1; /*[4]*/
+  padding-top: token.space(5); /*[2]*/
+  padding-bottom: token.space(1);
+  z-index: token.z-index('foreground'); /*[3]*/
 }
 
 /**
@@ -47,8 +48,8 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 #banner::before,
 #banner::after {
   content: '';
-  @include position-cover;
-  z-index: -1;
+  @include position(cover);
+  z-index: token.z-index('background');
 }
 
 /* Set default banner image and and position */
@@ -61,7 +62,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 
 /* Add the image filter effect */
 #banner::after {
-  background: $darkgreen;
+  background: token.color('secondary');
   mix-blend-mode: multiply;
   opacity: 0.9;
 }
@@ -73,7 +74,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * TODO: Move this to the JS banner script
 -------------------------------------------------------------------------- */
 
-#{$specify}:not(.article-layout) .item-image {
+.item-image {
   display: none;
 }
 
@@ -84,22 +85,51 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * [3] Apply consistent spacing
 -------------------------------------------------------------------------- */
 
-#{$specify} .breadcrumb > li,
-#{$specify} .breadcrumb > .active {
+.breadcrumb > li,
+.breadcrumb > .active {
   @include reset(shadow); /*[1]*/
   color: white; /*[2]*/
 }
 
-#{$specify} .breadcrumb > li > .divider,
-#{$specify} .breadcrumb a,
-#{$specify} .breadcrumb > li > span {
+.breadcrumb > li > .divider,
+.breadcrumb a,
+.breadcrumb > li > span {
   @include reset(color, font-size); /*[1]*/
 }
 
-#{$specify} .breadcrumb {
+.breadcrumb {
   @include reset(border, padding, margin); /*[1]*/
-  @include block-margin; /*[3]*/
+  @include token.block-margin; /*[3]*/
 }
 
+/**
+ * Add nicer link separators, uses icon-arrow-right from
+ * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
+**/
+.breadcrumb li span.divider::after {
+  content: '\e006';
+  font-family: 'IcoMoon';
+  font-size: .7em !important;
+  color: token.color('accent');
+  margin-right: 3px;
+}
+
+/* Removes default divider image */
+.breadcrumb span.divider > img {
+  display: none;
+}
+
+/**
+ * [1] Ensure content inside the banner stays within the width of
+ * the main column
+ * [2] Add same padding as is on whitebox
+**/
+#banner .moduletable {
+  max-width: $max-width; /*[1]*/
+  margin: auto; /*[1]*/
+  padding: $layout-gap; /*[2]*/
+}
+
+}
 /* End !SECTION Breadcrumb */
 /* End !SECTION BANNER */

@@ -1,8 +1,12 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+
 /* ==========================================================================
    SECTION HELPERS
 ========================================================================== */
 
-.u-txt-c { text-align: center !important; }
+.u-txt-c,
+.uk-text-center { text-align: center !important; }
 .u-txt-l { text-align: left !important; }
 .u-txt-r { text-align: right !important; }
 
@@ -11,18 +15,17 @@
   width: 100%;
 }
 
-.u-round { border-radius: $bdr-radius; }
+.u-round { border-radius: token.border('radius') !important; }
 .u-square { border-radius: 0 !important; }
-.u-circle { border-radius: 50%; }
-.u-border { border: $bdr-width solid black; }
+.u-circle { border-radius: 50% !important; }
 
-.overflow-container { overflow: auto; }
+.overflow-container { overflow: auto !important; }
 
 .u-no-margin-bottom { margin-bottom: 0 !important; }
 .u-no-margin-top { margin-top: 0 !important; }
 
-.u-font-head { font-family: $font-head; }
-.u-font-body { font-family: $font-body; }
+.u-font-head { font-family: token.font('head'); }
+.u-font-body { font-family: token.font('body'); }
 
 
 [disabled] {

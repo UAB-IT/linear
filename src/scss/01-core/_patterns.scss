@@ -5,18 +5,13 @@
 @use '@mattmcadams/stratus';
 @use 'token';
 
-@mixin block-margin {
-  margin-bottom: token.space('margin', 'block');
-}
-
 /*  SECTION Text
 -------------------------------------------------------------------------- */
 
 /* Header Styles */
 %header {
-  font-family: token.font('head');
-  font-weight: token.font('head', 'normal');
-  @include block-margin;
+  @include token.font('head', 'normal');
+  @include token.block-margin;
   color: token.color('text', 'header');
 }
 
@@ -43,10 +38,10 @@
 /* Link alert */
 %link-alert {
   @extend %link;
-  border-color: token.color('state', 'negative', '200');
+  border-color: token.color('state', 'warning', '200');
   &:hover {
-    border-color: token.color('state', 'negative');
-    background-color: token.color('state', 'negative', '100');
+    border-color: token.color('state', 'warning');
+    background-color: token.color('state', 'warning', '100');
   }
 }
 
@@ -76,7 +71,7 @@
 %hover {
   border-color: token.color('primary');
   background-color: token.color('primary', '100');
-  box-shadow: 0 0 0 1px token.color('primary');
+  box-shadow: inset 0 0 0 1px token.color('primary');
   color: token.color('text', 'body');
 }
 
@@ -86,9 +81,10 @@
 
 /* Input base */
 %input-template {
+  box-sizing: border-box;
   padding: token.space('padding', 'input');
   background: white;
-  border: token.border('width', 'hairline') solid token.color('neutral', '200');
+  border: token.border('width', 'hairline') solid token.color('neutral', '800');
 }
 
 /* SECTION Buttons
@@ -98,7 +94,7 @@
 %button {
   @extend %input-template;
   border-radius: token.border('radius');
-  color: token.color('neutral', '200');
+  color: token.color('neutral', '800');
   text-transform: uppercase;
   font-size: 90%;
   line-height: token.space(1);
@@ -106,19 +102,19 @@
 
 /* Prmary button */
 %button-primary {
+  @extend %button;
   color: white;
   background: token.color('primary');
   border-color: token.color('primary');
 }
 
-/* END !SECTION Buttons
--------------------------------------------------------------------------- */
+/* END !SECTION Buttons */
 
 /* Input field */
 %input {
   @extend %input-template;
   color: token.color('text', 'body');
-  &:focus {
+  &:focus, &:focus {
     border-color: token.color('accent');
     box-shadow: 0 0 0 1px token.color('accent');
     outline: thin dotted #333;
@@ -128,7 +124,7 @@
 
 /* Input area */
 %input-area {
-  @extend %input-template;
+  @extend %input;
   height: token.space(4);
   width: 100%;
   resize: vertical;
@@ -146,6 +142,9 @@
 %toggle-active {
   border-color: token.color('accent');
   background: token.color('accent');
+  &:focus {
+    border-color: token.color('accent');
+  }
 }
 
 /* End !SECTION Inputs */

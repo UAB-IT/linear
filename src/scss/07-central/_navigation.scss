@@ -108,25 +108,4 @@
 }
 
 /* End !SECTION Search */
-/** SECTION Breadcrumbs
--------------------------------------------------------------------------- */
-
-/**
- * Add nicer link separators, uses icon-arrow-right from
- * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
-**/
-.breadcrumb li span.divider::after {
-  content: '\e006';
-  font-family: 'IcoMoon';
-  font-size: .7em !important;
-  color: $c-accent;
-  margin-right: 3px;
-}
-
-/* QUESTION: What is this for? */
-.breadcrumb span.divider > img {
-  display: none;
-}
-
-/* End !SECTION Breadcrumbs */
 /* End !SECTION NAVIGATION */

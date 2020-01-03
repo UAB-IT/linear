@@ -1,5 +1,3 @@
-//  SECTION Reset
-// --------------------------------------------------------------------------
 @mixin reset($properties...) {
   @for $i from 0 to length($properties) {
     @if nth($properties, $i + 1) == margin {
@@ -42,4 +40,28 @@
     }
   }
 }
-// End !SECTION Reset
+
+@mixin position($position, $top: null, $right: $top, $bottom: $top, $left: $right) {
+  @if $position == cover {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+  @else {
+    position: $position;
+    @if $top { top: $top; }
+    @if $right { right: $right; }
+    @if $bottom { bottom: $bottom; }
+    @if $left { left: $left; }
+  }
+}
+
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: block;
+  }
+}

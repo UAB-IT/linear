@@ -19,7 +19,7 @@ $_default-key: 'base';
 
 $font: (
   'body': (
-    'base': '"proxima-nova", arial, helvetica, sans-serif !important',
+    'base': #{"proxima-nova", arial, helvetica, sans-serif !important},
     'weight': (
       'thin': 100,
       'normal': 400,
@@ -28,7 +28,7 @@ $font: (
     )
   ),
   'head': (
-    'base': '"kulturista-web", serif',
+    'base': #{"kulturista-web", serif},
     'weight': (
       'thin': 300,
       'normal': 400,
@@ -54,7 +54,7 @@ $font: (
 
 @function font($name, $weight: null){
   @if $weight {
-    @return stratus.get($font, $name, $weight);
+    @return stratus.get($font, $name, 'weight', $weight);
   }
   @return stratus.get($font, $name, $_default-key);
 }
@@ -137,9 +137,9 @@ $color: (
   ),
   'state': (
     'info': _brand('uabgreen'),
-    'notice': _brand('blase'),
-    'positive': _brand('apple'),
-    'negative': (
+    'notice': _brand('apple'),
+    'caution': _brand('blaze'),
+    'warning': (
       'base': #F00,
       '100': _color-step(#F00, 100),
       '200': _color-step(#F00, 200),
@@ -181,6 +181,10 @@ $icons: (
   @return map.get($icons, $name);
 }
 
+$checkbox-checked: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A';
+
+$radio-checked: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E';
+
 // END !SECTION Icons
 // SECTION Border
 // ==========================================================================
@@ -192,8 +196,8 @@ $border: (
     'large': 5px
   ),
   'radius': (
-    'base': 2px,
-    'large': 4px,
+    'base': 3px,
+    'large': 6px,
     'round': 50%,
     'square': 0
   ),
@@ -217,19 +221,17 @@ $spacing: (
   'padding': (
     'body': stratus.sp(1),
     'inline': 0 0.2em 0.1em,
+    'inline-block': stratus.sp(0.5),
     'input': 0.3em 1em,
     'block': stratus.sp(1),
-    'section': (
-      'base': stratus.sp(4),
-      'small': stratus.sp(2)
-    )
+    'section': stratus.sp(4)
   ),
   'margin': (
     'block': stratus.sp(1),
     'section': stratus.sp(4)
   ),
   'text': (
-    'indent': 1em
+    'indent': 1.2em
   ),
   'gap': (
     'base': stratus.sp(1),
@@ -246,13 +248,17 @@ $spacing: (
   @return stratus.get(map.get($spacing, $key), $path...);
 }
 
+@mixin block-margin {
+  margin-bottom: space('margin', 'block');
+}
+
 // END !SECTION Border
 // SECTION Spacing
 // ==========================================================================
 
 $z-index: (
   'background': -100,
-  'main-content': 0,
+  'foreground': 1,
   'modal': 100,
   'navigation': 200
 );

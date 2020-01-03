@@ -1,7 +1,11 @@
+@use '@mattmcadams/stratus';
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION MEDIA
 ========================================================================== */
 
+#{$specify-main} {
 /** SECTION Images
  * [1] Make sure image is never larger than it's container
  * [2] Make images block / auto by default
@@ -10,21 +14,21 @@
 -------------------------------------------------------------------------- */
 
 /*[4]*/
-#{$main} iframe,
-#{$main} figure,
-#{$main} .video-container {
-  @include block-margin;
+iframe,
+figure,
+.video-container,
+img {
+  @include token.block-margin;
 }
 
-#{$main} img {
+img {
   max-width: 100%; /*[1]*/
   object-fit: cover; /*[3]*/
   margin: auto; /*[2]*/
   display: block; /*[2]*/
 }
-#{$main} :not(figure) > img {
-  margin-bottom: s(1);
-}
+
+figure img { margin-bottom: 0; }
 
 /* End !SECTION Images */
 /** SECTION Captions
@@ -32,11 +36,11 @@
 -------------------------------------------------------------------------- */
 /* Style figcaption to display small in the center under the image,
 Add rhythm spacing above caption instead of below image */
-#{$main} figure figcaption {
-  @include type-setting(small);
+figcaption {
+  @include stratus.type-set(small);
   text-align: center;
-  margin: $block-margin 0;
+  margin: token.space(1) 0;
 }
-
+}
 /* End !SECTION Captions */
 /* End !SECTION MEDIA */
