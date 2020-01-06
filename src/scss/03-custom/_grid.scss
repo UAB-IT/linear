@@ -66,7 +66,7 @@ $column-gap: (token.space('gap', 'base') / 2);
       flex: none;
       width: 100%;
     }
-    &.is-three-quarters#{$breakpoint} {
+    &.is-three-fourths#{$breakpoint} {
       flex: none;
       width: 75%;
     }
@@ -82,7 +82,7 @@ $column-gap: (token.space('gap', 'base') / 2);
       flex: none;
       width: 33.3333%;
     }
-    &.is-one-quarter#{$breakpoint} {
+    &.is-one-fourth#{$breakpoint} {
       flex: none;
       width: 25%;
     }

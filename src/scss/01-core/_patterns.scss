@@ -62,17 +62,9 @@
 
 /* Card */
 %card {
-  border: token.border('width', 'medium');
+  border: token.border('width', 'hairline') solid token.color('neutral', '800');
   border-radius: token.border('radius', 'large');
   padding: token.space('padding', 'block');
-}
-
-/* Hover */
-%hover {
-  border-color: token.color('primary');
-  background-color: token.color('primary', '100');
-  box-shadow: inset 0 0 0 1px token.color('primary');
-  color: token.color('text', 'body');
 }
 
 /* END !SECTION Cards
@@ -98,6 +90,7 @@
   text-transform: uppercase;
   font-size: 90%;
   line-height: token.space(1);
+  &::after { display: none; }
 }
 
 /* Prmary button */
@@ -148,4 +141,13 @@
 }
 
 /* End !SECTION Inputs */
+
+/* Hover */
+%hover {
+  border-color: token.color('primary');
+  background-color: token.color('primary', '100');
+  box-shadow: inset 0 0 0 1px token.color('primary');
+  color: token.color('text', 'body');
+}
+
 /* End !SECTION PATTERNS */

@@ -86,8 +86,12 @@
 -------------------------------------------------------------------------- */
 
 #leftcolumn ul.nav.menu .current > a {
-  background-color: token.color('primary', '100');
+  background-color: token.color('background');
   border-left: 3px solid token.color('accent');
+}
+#leftcolumn ul.nav.menu a:hover {
+  color: inherit;
+  background-color: token.color('background');
 }
 
 /* End !SECTION States */
@@ -133,7 +137,7 @@
   border-top: token.border('width', 'medium') solid token.color('accent');
 }
 
-// QUESTION: What is this for?
+// FIX sizing of modules
 #leftcolumn .moduletable {
   @include clearfix;
   padding: 0;
@@ -141,8 +145,10 @@
 
 // FIX for sidebar not filling a consistent space
 #leftcolumn { width: 100%; }
-.left-position { width: 100% !important; }
-
+  .left-position { width: 100% !important; }
+}
+#leftcolumn {
+  padding-right: token.space(1);
 }
 /* End !SECTION Misc */
 /* End !SECTION SIDEBAR */

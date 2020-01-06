@@ -1,3 +1,6 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
 /* ==========================================================================
    SECTION CALENDAR
    Generated from the Localist widget from campus calendar
@@ -32,18 +35,18 @@
 
 /** SECTION Base Styles
 -------------------------------------------------------------------------- */
-
+#{$specify-main} {
 /* remove margin from list
  * QUESTION: This is because of _lists.scss?
  */
-#{$specify} .localist-widget ul.localist-widget-eds {
+.localist-widget ul.localist-widget-eds {
   margin: 0 !important;
 }
 
-#{$specify} .localist-widget li {
+.localist-widget li {
   list-style: none;
   display: flex;
-  margin-bottom: s(0.5);
+  margin-bottom: token.space(0.5);
 }
 
 /* End !SECTION Base Styles */
@@ -52,27 +55,27 @@
  * These styles are mostly taken from QUESTION ?
 -------------------------------------------------------------------------- */
 
-#{$specify} .localist-dateblock {
+.localist-dateblock {
   width: 60px;
   min-width: 60px;
   min-height: 50px;
 }
 
-#{$specify} .localist-widget-eds div.localist-month {
+.localist-widget-eds div.localist-month {
   text-decoration: none;
   color: white;
-  background-color: $c-primary;
+  background-color: token.color('primary');
   font-size: 1em;
-  font-family: $font-head;
+  font-family: token.font('head');
   text-transform: uppercase;
   text-align: center;
   padding-top: 2px;
   padding-bottom: 1px;
-  border-bottom: 2px solid $c-accent;
+  border-bottom: 2px solid token.color('accent');
 }
-#{$specify} .localist-day {
+.localist-day {
   color: #555;
-  background-color: $c-background;
+  background-color: token.color('background');
   font-size: 1.4em;
   font-weight: 600;
   text-align: center;
@@ -87,28 +90,24 @@
  * Style the block that holds event title, time, etc.
 -------------------------------------------------------------------------- */
 
-#{$specify} .localist-widget-eds div.localist-secondblock {
+.localist-widget-eds div.localist-secondblock {
   margin: 0 0 0 1em !important;
   min-height: 44px;
   /*min-width: 20em;*/
 }
-#{$specify} .localist-title h4 {
-  @include type-setting(normal);
+.localist-title h4 {
+  @include stratus.type-set(normal);
   margin-top: -0.2em;
   margin-bottom: 0px;
-  font-family: $font-body;
+  font-family: token.font('body');
 }
-#{$specify} .localist-title h4 a {
-  border-bottom: $bdr-md solid transparent;
+.localist-title h4 a {
+  border-bottom: token.border('width', 'medium') solid transparent;
 }
-#{$specify} .localist-otherdetails div,
+.localist-otherdetails div,
 .localist-otherdetails i {
-  @include type-setting(small);
+  @include stratus.type-set(small);
 }
-// TEMP: Hide the event venue
-// #{$specify} .localist-venue {
-//   display: none;
-// }
-
+}
 /* End !SECTION Event Details */
 /* End !SECTION CALENDAR */

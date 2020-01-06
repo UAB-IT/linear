@@ -1,3 +1,5 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION WIDGETKIT CORE
    Override of widgetkit styles for a more consistent look on the site
@@ -7,54 +9,47 @@
  * Add block spacing to the widgetkit margins
  * Selectors match those from ui kit
 -------------------------------------------------------------------------- */
-
-* + .uk-margin {
-  margin-top: s(1);
-}
-.uk-margin {
-  margin-bottom: s(1);
-}
-.uk-panel-space {
-  padding: s(1);
-}
-
-/* FIX for item margins inside widgetkit blocks */
-// REVIEW Should this just be :last-child instead of p:last-child?
-#{$specify} .uk-panel p:last-child {
-  @include reset(margin);
-}
+#{$specify-main} {
+// * + .uk-margin {
+//   margin-top: token.space(1);
+// }
+// .uk-margin {
+//   margin-bottom: token.space(1);
+// }
+// .uk-panel-space {
+//   padding: token.space(1);
+// }
 
 /**
  * Remove default margin from .uk elements so
  * their correct margin can be used
 **/
-.uk-panel-teaser,
-.uk-panel-title {
-  margin-bottom: 0;
-}
+// .uk-panel-teaser,
+// .uk-panel-title {
+//   margin-bottom: 0;
+// }
 
 /* Add section spacing to widgetkit blocks */
-#{$specify} [id*='wk']:not(:first-child) {
-  margin-top: $section-margin;
+[id*='wk']:not(:first-child) {
+  margin-top: token.space(2);
 }
-#{$specify} [id*='wk']:not(:last-child) {
-  margin-bottom: $section-margin;
+[id*='wk']:not(:last-child) {
+  margin-bottom: token.space(2);
 }
 
-/* Offset the the gap between widgetkit blocks and headers meant for them */
-#{$specify} .wk-header {
-  margin-bottom: s(-2);
-}
+// /* Offset the the gap between widgetkit blocks and headers meant for them */
+// #{$specify} .wk-header {
+//   margin-bottom: s(-2);
+// }
 
 /* End !SECTION Spacing */
-/** SECTION Typography
- * QUESTION What is this for?
--------------------------------------------------------------------------- */
-
-#{$specify} .uk-panel-title {
+// /** SECTION Typography
+//  * QUESTION What is this for?
+// -------------------------------------------------------------------------- */
+.uk-panel-title {
   @include reset(margin);
   margin-bottom: s( -0.5 );
 }
-
-/* End !SECTION Typography */
+}
+// /* End !SECTION Typography */
 /* End !SECTION WIDGETKIT CORE */

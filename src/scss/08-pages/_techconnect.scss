@@ -1,7 +1,10 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
 /* ==========================================================================
    SECTION TECHCONNECT
 ========================================================================== */
-
+#{$specify-main}{
 /** Banner container
  * [1] Allow banner background to be positioned in relation to the banner
  * content
@@ -30,8 +33,7 @@
  * [7] Adds the colored border to the angle
  * [7.1] Adjusts the width of the border
 -------------------------------------------------------------------------- */
-
-@include breakpoint(medium) {
+@include stratus.media(medium) {
   .TC-custom-banner-bg,
   .TC-custom-banner-bg::before,
   .TC-custom-banner-bg::after {
@@ -56,23 +58,25 @@
     right: 0; /*[6]*/
   }
   .TC-custom-banner-bg:before {
-    background-color: $apple; /*[7]*/
+    background-color: token.color('accent'); /*[7]*/
     right: 15px; /*[7.1]*/
   }
 }
 
-#{$specify} .TC-partner-link {
+.TC-partner-link {
   display: inline-block;
   max-width: 75px;
-  border-bottom: none;
-  margin-right: s(1);
+  border-bottom-width: 0;
+  margin-right: token.space(1);
 }
 
-#{$specify} .TC-partner-link img {
+.TC-partner-link img {
   margin-bottom: 0;
+  display: inline-block;
 }
 
-#{$specify} .TC-partner-link::after {
+a.TC-partner-link::after {
   display: none;
+}
 }
 /* !SECTION TECHCONNECT */

@@ -1,3 +1,6 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
 /* ==========================================================================
    SECTION TIMELINE
    The timeline is made with the widgetkit custom list component using the
@@ -12,23 +15,24 @@
  * [4] Adds the top margin back to the content block since it must be removed
  * from the first header
 **/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline {
-    margin-left: s(4) !important; /*[1]*/
-    border-left: 3px solid $apple; /*[2]*/
+#{$specify-main} {
+@include stratus.media(small) {
+  .wk-timeline {
+    margin-left: token.space(4) !important; /*[1]*/
+    border-left: token.border('width', 'medium') solid token.color('accent'); /*[2]*/
   }
 }
-#{$specify} .wk-timeline {
-  padding-left: s(1) !important; /*[3]*/
-  margin-top: s(2) !important; /*[4]*/
+.wk-timeline {
+  padding-left: token.space(1) !important; /*[3]*/
+  margin-top: token.space(2) !important; /*[4]*/
 }
 
 /**
  * Timeline Item
  * [1] Allow the timeline date to be positioned in relation to the timeline item
 **/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline li {
+@include stratus.media(small) {
+  .wk-timeline li {
     position: relative; /*[1]*/
   }
 }
@@ -40,13 +44,13 @@
  * allows timeline dots to line up.
  * [3] Align the date with the content header
 **/
-#{$specify} .wk-timeline-date {
-  color: $apple !important;
+.wk-timeline-date {
+  color: token.color('accent') !important;
 }
-@include breakpoint(small) {
-  #{$specify} .wk-timeline-date {
+@include stratus.media(small) {
+  .wk-timeline-date {
     position: absolute; /*[1]*/
-    left: s(-5); /*[1]*/
+    left: token.space(-5); /*[1]*/
     width: 5rem; /*[2]*/
     top: 0.5rem; /*[3]*/
     text-align: right !important;
@@ -59,8 +63,8 @@
  * [2] Align the dot to the center of the date block
  * [3] Align the dot to the center of the line
 **/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline-date::after {
+@include stratus.media(small) {
+  .wk-timeline-date::after {
     content: ''; /*[1]*/
     position: absolute;
     top: 0.7em; /*[2]*/
@@ -68,8 +72,9 @@
     width: 1em;
     height: 1em;
     border-radius: 50%;
-    background-color: $apple;
+    background-color: token.color('accent');
   }
 }
 
+}
 /* END !SECTION TIMELINE */

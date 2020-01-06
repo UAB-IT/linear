@@ -110,9 +110,9 @@ th {
 // }
 
 .comparison-table td { vertical-align: middle; }
-.comparison-table .icon-ok { color: token.color('state', 'positive'); }
+.comparison-table .icon-ok { color: token.color('state', 'notice'); }
 .comparison-table .icon-minus-sign { color: token.color('state', 'caution'); }
-.comparison-table .icon-remove { color: token.color('state', 'negative'); }
+.comparison-table .icon-remove { color: token.color('state', 'warning'); }
 
 /* End !SECTION Themes */
 /** SECTION Overrides

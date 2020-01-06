@@ -1,44 +1,43 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION PANELS
 ========================================================================== */
-
+#{$specify-main} {
 /* Apply card styles to the box theme */
 .uk-panel-box {
-  border: $bdr-width solid black;
-  border-radius: $bdr-radius;
+  @extend %card;
   background: white;
-  padding: $block-padding;
 }
 
 /* FIX: Hide link style so the card will be visible */
-#{$specify} a.uk-position-cover {
+a.uk-position-cover {
   opacity: 0 !important;
 }
 
 /* Add hover styles to cards */
 .uk-panel-box-hover:hover,
 .uk-panel-box-primary-hover:hover {
-  border-color: $c-primary;
-  box-shadow: 0 0 0 1px $c-primary;
-  background-color: c( $c-primary, 100 );
-  color: black;
+  @extend %hover;
 }
 /* fix link style on header when card is hovered */
-#{$specify} .uk-overlay-hover:hover h3 a {
-  border-color: $c-primary;
-  background-color: c($c-primary, 100);
+.uk-overlay-hover:hover h3 a {
+  border-color: token.color('primary');
+  background-color: token.color('primary', '100');
 }
 
-/* Enforce text color */
-// QUESTION: Why does this need to be here? / Could this be inherit instead?
-.uk-panel-title,
-.uk-panel-box-primary,
-.uk-panel-box,
-.uk-panel-box .uk-panel-title,
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary .uk-panel-title,
-.uk-panel-box-primary-hover:hover {
-  color: $c-body;
-}
+// /* Enforce text color */
+// TEMP: Old code, commented out. See if there are any reasons for this still
+// // QUESTION: Why does this need to be here? / Could this be inherit instead?
+// .uk-panel-title,
+// .uk-panel-box-primary,
+// .uk-panel-box,
+// .uk-panel-box .uk-panel-title,
+// .uk-panel-box-hover:hover,
+// .uk-panel-box-primary .uk-panel-title,
+// .uk-panel-box-primary-hover:hover {
+//   color: $c-body;
+// }
 
 /* End !SECTION Panels */
+}

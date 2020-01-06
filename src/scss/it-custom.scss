@@ -9,35 +9,34 @@
 @use '02-base/_media.scss';
 @use '02-base/_forms.scss';
 
-//@use '03-custom/_toc.scss';
-//@use '03-custom/_org-chart.scss';
+@use '03-custom/_toc.scss';
 @use '03-custom/_grid.scss';
 
+@use '04-joomla/_alert.scss';
 //@use '04-joomla/_chips.scss';
-//@use '04-joomla/_alert.scss';
 //@use '04-joomla/_pagination.scss';
 //@use '04-joomla/_article.scss';
 
-//@use '05-widgetkit/_widgetkit.scss';
+@use '05-widgetkit/_widgetkit.scss';
+@use '05-widgetkit/_panels.scss';
 //@use '05-widgetkit/_wk-grid.scss';
-//@use '05-widgetkit/_panels.scss';
 
-//@use '05-widgetkit/_details.scss';
-//@use '05-widgetkit/_features.scss';
-//@use '05-widgetkit/_slideshow.scss';
-//@use '05-widgetkit/_tabs.scss';
-//@use '05-widgetkit/_numbers.scss';
-//@use '05-widgetkit/_timeline.scss';
+// DEPRECIATED @use '05-widgetkit/_slideshow.scss';
+// DEPRECIATED @use '05-widgetkit/_details.scss';
+@use '05-widgetkit/_features.scss';
+@use '05-widgetkit/_tabs.scss';
+@use '05-widgetkit/_numbers.scss';
+@use '05-widgetkit/_timeline.scss';
 
-//@use '06-syndication/_calendar.scss';
-//@use '06-syndication/_rss-feed.scss';
+@use '06-syndication/_calendar.scss';
+@use '06-syndication/_rss-feed.scss';
 
-//@use '07-central/_navigation.scss';
+@use '07-central/_navigation.scss';
 @use '07-central/_sidebar.scss';
 //@use '07-central/_layout.scss';
 @use '07-central/_banner.scss';
-//@use '07-central/_footer.scss';
+// TODO @use '07-central/_footer.scss';
 
-//@use '08-pages/_techconnect.scss';
+@use '08-pages/_techconnect.scss';
 
 @use '02-base/_helpers.scss';

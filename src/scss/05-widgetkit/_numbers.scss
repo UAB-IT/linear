@@ -1,17 +1,19 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
 /* ==========================================================================
    SECTION NUMBERS
    Styles for a custom component built in widgetkit (.wk-numbers)
    Used for stats, shows large number with small text inside.
 ========================================================================== */
-// QUESTION: What is the html here?
-
+#{$specify-main} {
 /* Style the numbers */
-#{$specify} .wk-numbers .uk-panel-title {
-  @include type-setting(xlarge);
-  color: $c-accent;
+.wk-numbers .uk-panel-title {
+  @include stratus.type-set(xlarge);
+  color: token.color('accent');
 }
 #{$specify} [id*='wk'].wk-numbers {
-  margin-bottom: s(2);
+  margin-bottom: token.space(2);
 }
-
+}
 /* End !SECTION NUMBERS */

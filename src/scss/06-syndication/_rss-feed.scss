@@ -1,44 +1,40 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
 /* ==========================================================================
    SECTION RSS FEED
    Generated from the Simple RSS Feed Generator module in Joomla
 ========================================================================== */
-
+#{$specify-main}{
 /** SECTION Layout
  * Setup columns
 -------------------------------------------------------------------------- */
 
-#{$specify} .srfrContainer.srfrStream {
+.srfrContainer.srfrStream {
   float: none;
   display: block;
 }
 
 // QUESTION: This specificity is from lists.scss?
-#{$specify} #whitebox ul.srfrList {
+.srfrList {
   list-style: none;
   margin-left: 0;
 }
 
-/**
- * [1] Give each feed entry block margins
- * [2] QUESTION: Why?
- * [3] Add hr to divide feed entries
- * [4] Setup columns, 200px for image, 1fr for text
- * [5] Add space between the image and text
-**/
-#{$specify} #whitebox ul li.srfrRow {
-  @include block-margin; /*[1]*/
-  padding-bottom: s(1); /*[2]*/
-  border-bottom: 1px solid $hr-color; /*[3]*/
+li.srfrRow {
+  @include token.block-margin;
+  padding-bottom: token.space(1);
+  border-bottom: token.border('width', 'hairline') solid token.border('color', 'accent'); /*[3]*/
   display: grid;
-  grid-template-columns: 200px 1fr; /*[4]*/
-  grid-column-gap: s(2); /*[5]*/
+  grid-template-columns: 200px 1fr;
+  grid-column-gap: token.space(2);
 }
 
 /* Remove default positioning logic */
 // OPTIMIZE: keep these styles, add a supports query for ie support?
-#{$specify} .srfrStream .col1 { width: 100%; }
-#{$specify} .srfrStream .col1 a::after { display: none; }
-#{$specify} .srfrStream .col2 {
+.srfrStream .col1 { width: 100%; }
+.srfrStream .col1 a::after { display: none; }
+.srfrStream .col2 {
   width: auto;
   margin: 0;
 }
@@ -48,22 +44,22 @@
  * Style the entry title
 -------------------------------------------------------------------------- */
 
-#{$specify} a.srfrTitle {
+a.srfrTitle {
   display: block;
   float: none;
   border: none;
-  margin-bottom: s(0.5);
+  margin-bottom: token.space(0.5);
 }
 
-#{$specify} a.srfrTitle:hover {
+a.srfrTitle:hover {
   background: transparent;
   text-decoration: underline;
   border: none;
 }
 
 // FIX Remove unnecessary clearfix so it doesn't mess with the grid
-#{$specify} a.srfrTitle::after { display: none; }
-#{$specify} .srfrStream .srfrReadMore > a {
+a.srfrTitle::after { display: none; }
+.srfrStream .srfrReadMore > a {
   font-size: 0;
   border: none;
 }
@@ -77,87 +73,85 @@
 // REVIEW: Add placeholder content in case queries below fail?
 /* NOTE: Selectors added here to override link after icon styles */
 
-#{$specify} .srfrContainer .srfrReadMore a::after {
+.srfrContainer .srfrReadMore a::after {
   content: 'Read More';
-  border: 1px solid $c-primary;
-  border-radius: $bdr-radius;
-  @include type-setting(normal);
-  color: c( $c-grey, 700 );
+  @extend %button;
+  font-size: 0.9rem;
   display: inline;
   font-family: 'kulturista-web', serif !important;
-  padding: $input-padding;
 }
-#{$specify} .srfrReadMore a:hover::after {
-  text-decoration: underline;
+.srfrReadMore a:hover::after {
+  @extend %hover;
 }
 
 /* Change button title depending on destination */
-#{$specify} .srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
-#{$specify} .srfrReadMore a[href*='reporter']::after { content: 'UAB Reporter'; }
-#{$specify} .srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
+.srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
+.srfrReadMore a[href*='reporter']::after { content: 'UAB Reporter'; }
+.srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
 
 /** SECTION Featured Story
  * Extra style for a highlighted story
 -------------------------------------------------------------------------- */
 
-#{$specify} #whitebox .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow {
-  margin: 0 0 s(2) 0;
-  border-left: $bdr-md solid $c-primary;
-  border-bottom: none;
-  grid-template-areas: 'article image';
-  grid-template-columns: 2fr 1fr;
-  padding: 0;
-  background-color: $c-background;
-}
-#{$specify} .srfrStream.featured-rss-story .col1 { grid-area: image; }
+// .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow {
+//   margin: 0 0 s(2) 0;
+//   border-left: $bdr-md solid $c-primary;
+//   border-bottom: none;
+//   grid-template-areas: 'article image';
+//   grid-template-columns: 2fr 1fr;
+//   padding: 0;
+//   background-color: $c-background;
+// }
+// .srfrStream.featured-rss-story .col1 { grid-area: image; }
 
-// REVIEW: Explain what is happening here, does it need a grid-area as well, fallbacks for IE?
-#{$specify} .srfrStream.featured-rss-story .col2 {
-  padding: s(4) 0 s(2) s(2);
-  position: relative;
-}
+// // REVIEW: Explain what is happening here, does it need a grid-area as well, fallbacks for IE?
+// .srfrStream.featured-rss-story .col2 {
+//   padding: s(4) 0 s(2) s(2);
+//   position: relative;
+// }
 
-// OPTIMIZE: Can the key selector here not be an element? :last-child maybe?
-#{$specify} .srfrStream.featured-rss-story .col2 p {
-  margin-bottom: 0;
-}
+// // OPTIMIZE: Can the key selector here not be an element? :last-child maybe?
+// .srfrStream.featured-rss-story .col2 p {
+//   margin-bottom: 0;
+// }
 
-/**
- * Styles the featured image to be as large as possible
- * crops the image to whatever size is needed
- * QUESTION: Why margin 0?
- */
-#{$specify} #wrapper div.srfrContainer.srfrStream.featured-rss-story ul.srfrList li img.srfrImage {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  margin: 0;
-}
+// /**
+//  * Styles the featured image to be as large as possible
+//  * crops the image to whatever size is needed
+//  * QUESTION: Why margin 0?
+//  */
+// #wrapper div.srfrContainer.srfrStream.featured-rss-story ul.srfrList li img.srfrImage {
+//   max-width: 100%;
+//   max-height: 100%;
+//   width: 100%;
+//   height: 100%;
+//   object-fit: cover;
+//   margin: 0;
+// }
 
-/* Hide the read more button on the featured story */
-#{$specify} .srfrStream.featured-rss-story .srfrReadMore {
-  display: none;
-}
+// /* Hide the read more button on the featured story */
+// .srfrStream.featured-rss-story .srfrReadMore {
+//   display: none;
+// }
 
-/* Style the featured title like a header */
-#{$specify} .featured-rss-story a.srfrTitle {
-  font-family: 'kulturista-web', serif !important;
-  @include type-setting(medium);
-}
+// /* Style the featured title like a header */
+// .featured-rss-story a.srfrTitle {
+//   font-family: 'kulturista-web', serif !important;
+//   @include type-setting(medium);
+// }
 
-/* Add a "featured" flag on the element */
-#{$specify} .srfrStream.featured-rss-story .col2::before {
-  content: 'Featured';
-  display: inline-block;
-  @include position(absolute, s(1) null null 0);
-  padding: 0 1em;
-  color: white;
-  background-color: $c-primary;
-  line-height: 2em;
-  align-content: center;
-}
+// /* Add a "featured" flag on the element */
+// .srfrStream.featured-rss-story .col2::before {
+//   content: 'Featured';
+//   display: inline-block;
+//   @include position(absolute, s(1) null null 0);
+//   padding: 0 1em;
+//   color: white;
+//   background-color: $c-primary;
+//   line-height: 2em;
+//   align-content: center;
+// }
 
 /* End !SECTION Featured Story */
 /* End !SECTION RSS FEED */
+}

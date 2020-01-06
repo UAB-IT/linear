@@ -1,3 +1,5 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION FOOTER
 ========================================================================== */
@@ -9,8 +11,8 @@
 /* Setup the flex container */
 #{$specify} #footer .IT-footer {
   display: flex;
-  margin-top: $block-margin;
-  margin-bottom: $block-margin;
+  margin-top: token.space('margin', 'block');
+  margin-bottom: token.space('margin', 'block');
 }
 
 /* Force containers to be full width and add padding */
@@ -34,23 +36,23 @@
 
 /* Add middle divider */
 #{$specify} #footer .IT-footer_right {
-  border-left: $bdr-md solid white;
+  border-left: token.border('width', 'medium') solid white;
 }
 
 /* Add spacing between logo and social links */
 #{$specify} #footer .IT-footer .social {
-  margin-top: s( 1 );
+  margin-top: token.space(1);
 }
 
 /* Set the size of the UAB logo */
 #{$specify} #footer .IT-footer_logo {
   @include reset(margin);
-  max-height: s( 2 );
+  max-height: token.space(2);
 }
 
 /* Add 1 line between footer and locked footer to maintain vertical rhythm */
 #lockedFooter {
-  padding-top: $block-margin;
+  padding-top: token.space('margin', 'block');
 }
 
 /* End !SECTION Content */
@@ -60,12 +62,7 @@
 /* Adjust link colors in the footer section */
 #footer a,
 #lockedFooter a {
-  color: white;
-  border-color: c( $stone, 400 );
-  &:hover {
-    border-color: c( $stone, 100 );
-    background-color: initial;
-  }
+  @extend %link-mute;
 }
 
 /* End !SECTION Links */
@@ -82,16 +79,14 @@
 /* Add spacing between social media links, apply round border */
 #{$specify} #footer .IT-footer_right .social a {
   display: inline-block;
-  border: 2px solid c($c-grey, 400);
-  border-radius: 50%;
   margin-right: 1rem;
   margin-top: 0.2rem;
   padding: 0.5rem;
 }
 
-#{$specify} #footer .IT-footer_right .social a:hover {
-  border-color: c($stone, 100);
-}
+// #{$specify} #footer .IT-footer_right .social a:hover {
+//   border-color: c($stone, 100);
+// }
 #{$specify} #footer .IT-footer_right .social a::after {
   content: '';
   display: none;

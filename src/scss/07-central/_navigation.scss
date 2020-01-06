@@ -1,3 +1,5 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION NAVIGATION
 ========================================================================== */
@@ -5,38 +7,34 @@
 /** SECTION Top Navigation
  * Implement styles similar to UR department css (uab.edu/cas)
 -------------------------------------------------------------------------- */
+#{$specify}{
 
-/**
- * Removes link styles in the top navigation.
- * REVIEW: Are these caused by my list / link styles?
-**/
-#{$specify} #ribbon .nav a {
+#ribbon .nav a {
   @include reset(border);
   padding: 15px !important;
 }
 
-/* QUESTION: Are these selectors same as those from UR CSS? */
-#{$specify} #tray #ribbon .nav.menu > .active > a,
-#{$specify} #tray #ribbon .nav.menu > .active > a:hover,
-#{$specify} #tray #ribbon .nav.menu > .active > a:focus,
-#{$specify} #tray #ribbon .nav.menu > .alias-parent-active > a {
-  background-color: $c-accent;
+#tray #ribbon .nav > .active > a,
+#tray #ribbon .nav > .active > a:hover,
+#tray #ribbon .nav > .active > a:focus,
+#tray #ribbon .nav > .alias-parent-active > a {
+  background-color: token.color('accent');
   color: white !important;
 }
-#{$specify} div#tray {
-  border-bottom: 7px solid $c-accent;
+div#tray {
+  border-bottom: 7px solid token.color('accent');
 }
 
 /* Ensure grey colors are consistent with grey used throughout site */
-#{$specify} #ribbon .nav > li > a:hover,
-#{$specify} #ribbon .nav > li > a:focus,
-#{$specify} #ribbon .dropdown-menu > li > a:hover,
-#{$specify} #ribbon .dropdown-menu > li > a:focus,
-#{$specify} #ribbon .nav > li > span:hover,
-#{$specify} #ribbon .nav > li > span:focus,
-#{$specify} #ribbon .dropdown-menu > .active > a:hover,
-#{$specify} #ribbon .dropdown-menu > .active > a:focus {
-  background: $c-background;
+#ribbon .nav > li > a:hover,
+#ribbon .nav > li > a:focus,
+#ribbon .dropdown-menu > li > a:hover,
+#ribbon .dropdown-menu > li > a:focus,
+#ribbon .nav > li > span:hover,
+#ribbon .nav > li > span:focus,
+#ribbon .dropdown-menu > .active > a:hover,
+#ribbon .dropdown-menu > .active > a:focus {
+  background: token.color('background');
 }
 
 /* End !SECTION Top Navigation */
@@ -44,68 +42,39 @@
  * Fix several bugs and consistency issues with quicklinks
 -------------------------------------------------------------------------- */
 
-/* Remove list margin */
-// QUESTION: Why is this needed, can it be done better?
-#{$specify} #quicklinks ul {
-  @include reset(margin);
-}
 
 /* Ensure links are sized correctly */
-// QUESTION: Why is this needed?
-#{$specify} #quicklinks .dropdown-menu a {
+#quicklinks .dropdown-menu a {
   box-sizing: border-box;
+  border: none;
 }
 
 /* FIX: Make sure quicklinks are above banner */
-#{$specify} #quicklinks .moduletable {
-  z-index: 2;
+#quicklinks .moduletable {
+  z-index: token.z-index('modal');
 }
 
 /* Ensure hover color is consistent with link hover colors */
-#{$specify} #quicklinks .dropdown-submenu:hover > a,
-#{$specify} #quicklinks .dropdown-submenu:focus > a,
-#{$specify} #quicklinks .dropdown-menu > li > a:hover,
-#{$specify} #quicklinks .dropdown-menu > li > a:focus,
-#{$specify} #quicklinks .newsfeed > li:hover,
-#{$specify} #quicklinks .newsfeed > li:focus {
-  background-color: c( $c-primary, 100 );
-}
-
-/**
- * FIX: box shadow styles on quicklinks feed to match
- * This is a bug with central CSS, present on other UAB sites
- * Remove when a fix is included in central
-**/
-#{$specify} #quicklinks ul.nav-child.unstyled.dropdown-menu,
-#{$specify} #quicklinks div.feed {
-  box-shadow: 0 2px 5px rgba( 0, 0, 0, 0.3 );
+#quicklinks .dropdown-submenu:hover > a,
+#quicklinks .dropdown-submenu:focus > a,
+#quicklinks .dropdown-menu > li > a:hover,
+#quicklinks .dropdown-menu > li > a:focus,
+#quicklinks .newsfeed > li:hover,
+#quicklinks .newsfeed > li:focus {
+  background-color: token.color('primary', '100');
 }
 
 /* End !SECTION Quicklinks */
 /** SECTION Search
  * Modify style of the search field and button
 -------------------------------------------------------------------------- */
-
-// QUESTION: Why is this needed?
-#{$specify} #search form {
+@if $adjust-template {
+// Creates better alignment of search field and button
+#search form {
   display: flex;
   justify-content: flex-end;
 }
-
-/* Add consistent button styles to search button */
-#{$specify} #search button.btn-primary {
-  border: 1px solid $c-primary;
 }
-#{$specify} #search button.btn-primary:hover {
-  background: c( $c-primary, 100 );
-  color: black;
-  outline: 0;
-  box-shadow: none;
-}
-#{$specify} #search input:focus + .btn-primary,
-#{$specify} #search input:focus + .btn-primary:hover {
-  box-shadow: 0 0 0 1px $c-primary;
-}
-
 /* End !SECTION Search */
 /* End !SECTION NAVIGATION */
+}

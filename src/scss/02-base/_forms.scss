@@ -188,5 +188,8 @@ textarea {
   border: 1px solid token.color('neutral') !important;
 }
 
+form::after {
+  display: none;
+}
 /* End !SECTION INPUTS */
 }

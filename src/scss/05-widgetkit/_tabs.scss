@@ -1,43 +1,37 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
 /* ==========================================================================
    SECTION TABS
    Styles for the built in tabs widgetkit widget
 ========================================================================== */
+#{$specify-main} {
 
-/* Remove default list margins
- * OPTIMIZE: I think this is to combat overly specific styles in _lists.scss
- */
-#{$specify} #content ul.uk-tab,
-#{$specify} #content ul.uk-tab li,
-#{$specify} #content ul.uk-switcher,
-#{$specify} #content ul.uk-switcher li {
-  margin: 0;
+ul.uk-tab,
+ul.uk-tab li,
+ul.uk-switcher,
+ul.uk-switcher li {
+  margin: 0 !important;
 }
 
-/* Remove margin from content to let it sit right next to the tabs
- * REVIEW: Why important? If we use important, simplify the selector?
- */
-#{$specify} #content ul.uk-tab + ul.uk-switcher.uk-margin-top {
+ul.uk-tab + ul.uk-switcher.uk-margin-top {
   margin-top: 0 !important;
 }
 
 /* Remove link styles from the tab links */
-#{$specify} ul.uk-tab > li > a {
+ul.uk-tab > li > a {
   border-bottom: 1px solid transparent;
   border-radius: 0;
 }
-#{$specify} ul.uk-tab > li > a:hover {
+ul.uk-tab > li > a:hover {
   border-bottom: 1px solid transparent;
 }
 
 /* Add border to active tab */
-#{$specify} ul.uk-tab > li.uk-active > a {
-  border-color: $stone;
-  color: $uabgreen;
+ul.uk-tab > li.uk-active > a {
+  border-color: token.color('neutral');
+  color: token.color('primary');
 }
-/* Remove default border from the tab bar
- * QUESTION: Is this border added by me or by widgetkit?
- */
-#{$specify} ul.uk-tab {
+ul.uk-tab {
   border-bottom: 0px solid transparent;
 }
 
@@ -45,9 +39,9 @@
  * [1] Add a border, since we can't add uk-panel-box through this widget
  * [2] Bump panel up a pixel to align its border with tab border
 **/
-#{$specify} ul.uk-tab + ul.uk-switcher .uk-panel {
-  border: 1px solid $stone; /*[1]*/
+ul.uk-tab + ul.uk-switcher .uk-panel {
+  border: 1px solid token.color('neutral'); /*[1]*/
   margin-top: -1px; /*[2]*/
 }
-
+}
 /* End !SECTION TABS */
