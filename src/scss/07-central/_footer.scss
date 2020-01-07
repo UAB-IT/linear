@@ -4,93 +4,40 @@
    SECTION FOOTER
 ========================================================================== */
 
-/** SECTION Content
- * OPTIMIZE: How is this done in other UAB sites? Can this be simplified?
--------------------------------------------------------------------------- */
-
-/* Setup the flex container */
-#{$specify} #footer .IT-footer {
-  display: flex;
-  margin-top: token.space('margin', 'block');
-  margin-bottom: token.space('margin', 'block');
-}
-
-/* Force containers to be full width and add padding */
-#{$specify} #footer .IT-footer_left,
-#{$specify} #footer .IT-footer_right {
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* Align content */
-#{$specify} #footer .IT-footer_left p {
-  text-align: right;
-  @include reset(margin);
-}
-
-#{$specify} #footer .IT-footer_right,
-#{$specify} #footer .IT-footer_right .social {
-  text-align: left;
-}
-
-/* Add middle divider */
-#{$specify} #footer .IT-footer_right {
-  border-left: token.border('width', 'medium') solid white;
-}
-
-/* Add spacing between logo and social links */
-#{$specify} #footer .IT-footer .social {
-  margin-top: token.space(1);
-}
-
-/* Set the size of the UAB logo */
-#{$specify} #footer .IT-footer_logo {
-  @include reset(margin);
-  max-height: token.space(2);
-}
-
-/* Add 1 line between footer and locked footer to maintain vertical rhythm */
-#lockedFooter {
-  padding-top: token.space('margin', 'block');
-}
 
 /* End !SECTION Content */
 /** SECTION Links
 -------------------------------------------------------------------------- */
-
+#{$specify} {
 /* Adjust link colors in the footer section */
 #footer a,
 #lockedFooter a {
-  @extend %link-mute;
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
 }
-
-/* End !SECTION Links */
-/** SECTION Social Media
- * OPTIMIZE: How is this done on other UAB sites? Can this be simplified?
- * OPTIMIZE: Can these selectors be simplified?
--------------------------------------------------------------------------- */
-/* Set size of social media icons */
-#{$specify} #footer .IT-footer .social img {
-  @include reset(margin);
-  max-height: 1.5rem;
+#footer.footerGray .at-icon {
+  fill: #595959 !important;
 }
-
-/* Add spacing between social media links, apply round border */
-#{$specify} #footer .IT-footer_right .social a {
-  display: inline-block;
-  margin-right: 1rem;
-  margin-top: 0.2rem;
-  padding: 0.5rem;
+#footer.footerGray .at-icon-wrapper {
+  background-color: white !important
 }
-
-// #{$specify} #footer .IT-footer_right .social a:hover {
-//   border-color: c($stone, 100);
-// }
-#{$specify} #footer .IT-footer_right .social a::after {
-  content: '';
-  display: none;
+#footer .flexFooter {
+  align-items: center !important;
+  padding-top: token.space(1);
 }
-
-/* End !SECTION Social Media */
+#footer .flexFooter .flexFooterColumn {
+  margin: 0 !important;
+}
+#footer .flexFooter .footerLeft {
+  padding-right: token.space(1);
+}
+#footer .flexFooter .footerRight {
+  border-left: 2px solid white;
+  padding-left: token.space(1);
+}
+.at-follow-btn {
+  border: none !important;
+}
+}
 /* End !SECTION FOOTER */
