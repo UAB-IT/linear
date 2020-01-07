@@ -27,17 +27,15 @@ a.uk-position-cover {
 }
 
 // /* Enforce text color */
-// TEMP: Old code, commented out. See if there are any reasons for this still
-// // QUESTION: Why does this need to be here? / Could this be inherit instead?
-// .uk-panel-title,
-// .uk-panel-box-primary,
-// .uk-panel-box,
-// .uk-panel-box .uk-panel-title,
-// .uk-panel-box-hover:hover,
-// .uk-panel-box-primary .uk-panel-title,
-// .uk-panel-box-primary-hover:hover {
-//   color: $c-body;
-// }
+.uk-panel-title,
+.uk-panel-box-primary,
+.uk-panel-box,
+.uk-panel-box .uk-panel-title,
+.uk-panel-box-hover:hover,
+.uk-panel-box-primary .uk-panel-title,
+.uk-panel-box-primary-hover:hover {
+  color: token.color('text', 'body');
+}
 
 /* End !SECTION Panels */
 }
