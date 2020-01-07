@@ -31,6 +31,7 @@ th {
 th {
   @extend %header;
   @include stratus.type-set(normal);
+  font-weight: token.font('head', 'bold');
 }
 
 /* End !SECTION Base Styles */
