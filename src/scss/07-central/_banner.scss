@@ -68,17 +68,6 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 }
 
 /* End !SECTION Banner Image */
-/** SECTION Media
- * Remove main image from page, this gets put into the banner background
- * with JS. Don't remove the image on pages that miss this functionality.
- * TODO: Move this to the JS banner script
--------------------------------------------------------------------------- */
-
-.item-image {
-  display: none;
-}
-
-/* End !SECTION Media */
 /** SECTION Breadcrumb
  * [1] Reset default styles from QUESTION
  * [2] Adjust text color
