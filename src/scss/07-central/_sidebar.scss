@@ -1,150 +1,163 @@
-/* ==========================================================================
-   SECTION SIDEBAR
-========================================================================== */
+@use '@mattmcadams/stratus';
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-/** SECTION Resets
--------------------------------------------------------------------------- */
-/**
+/* SECTION Sidebar Resets
+ * Uses the same selectors from central style.css
  * [1] Reset font sizes in the sidebar
  * [2] Background must be solid for mobile screens
-**/
-#{$specify} div.sidebar.no-seal,
-#{$specify} #leftcolumn.sidebarpanel.no-seal {
-  @include reset(font-size); /*[1]*/
-  background-color: white; /*[2]*/
-}
-
-/* Remove list styles */
-// QUESTION: Is this because of my own styles?
-#{$specify} #leftcolumn ul.nav-child,
-#{$specify} #leftcolumn ul.nav {
-  @include reset(margin);
-}
-
-// QUESTION Why is this needed?
-#{$specify} #leftcolumn .sidebar ul.menu li {
-  @include reset(padding, font-weight, margin);
-}
-
-/* End !SECTION Resets */
-/** SECTION Column
+ * [3] Remove list margins
 -------------------------------------------------------------------------- */
 
-/* Add border to the right of the sidebar */
-@include breakpoint(medium) {
-  #{$specify} #leftcolumn {
-    position: relative;
+#{$specify-all} {
+  #leftcolumn .sidebar.no-seal,
+  #leftcolumn.sidebarpanel.no-seal {
+    /*[1]*/ @include reset(font-size);
+    /*[2]*/ background-color: white;
   }
-  #{$specify} #leftcolumn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: s(-1); /* REVIEW half of grid gap, see layout */
-    border-right: 1px solid $hr-color;
-    pointer-events: none;
-  }
-}
-@include breakpoint(large) {
-  #{$specify} #leftcolumn::after {
-    right: s(-1); /* REVIEW half of grid gap, see layout */
+  #leftcolumn ul,
+  #leftcolumn li {
+    /*[3]*/ @include reset(margin);
   }
 }
 
-/* End !SECTION Column */
-/** SECTION Links
+/* END !SECTION Sidebar Resets */
+// /** SECTION Column
+// -------------------------------------------------------------------------- */
+// /* Add border to the right of the sidebar */
+// @include stratus.media(medium) {
+//   #leftcolumn {
+//     position: relative;
+//   }
+//   #leftcolumn::after {
+//     content: '';
+//     @include position(absolute, 0, token.space(-1), 0, 0);
+//     /* REVIEW half of grid gap, see layout */
+//     border-right: 1px solid green;
+//     pointer-events: none;
+//   }
+// }
+// @include breakpoint(large) {
+//   #leftcolumn::after {
+//     right: s(-1); /* REVIEW half of grid gap, see layout */
+//   }
+// }
+// /* END !SECTION Column */
+
+/* SECTION Sidebar Links
+ * [1] Reset default styles
+ * [2] Add consistent typography
+ * [3] Base styles
+-------------------------------------------------------------------------- */
+#{$specify-all} {
+  #leftcolumn ul.nav.menu a,
+  #leftcolumn .nav-header {
+    /*[1]*/ @include reset(margin, border);
+    /*[2]*/ @include stratus.type-set(normal);
+    font-weight: normal;
+    display: block;
+    /*[3]*/
+    padding: 0.3rem;
+    color: token.color('neutral', '800');
+    border-left: 3px solid transparent;
+  }
+  #leftcolumn .nav-header {
+    /*[1]*/
+    text-transform: none;
+    text-shadow: none;
+    font-weight: token.font('body', 'bold');
+  }
+  #leftcolumn ul.nav.menu > .parent > a {
+    /* Style for link to Section Page */
+    @include stratus.type-set(normal);
+    font-weight: token.font('body', 'bold');
+  }
+  #leftcolumn ul.nav.menu .nav-child .parent > ul a {
+    /* Child items */
+    padding-left: 1.5rem;
+  }
+}
+
+/* END !SECTION Sidebar Links */
+/* SECTION Sidebar link states
 -------------------------------------------------------------------------- */
 
-/* Default style for links */
-#leftcolumn ul.nav.menu a,
-#leftcolumn ul.nav.menu .nav-header {
-  @include reset(margin, border, background);
-  @include type-setting(normal);
-  display: block;
-  padding: 0.5rem;
-  color: c($stone, 800);
-  border-left: 5px solid transparent;
-  font-weight: normal;
-}
-#leftcolumn ul.nav.menu .nav-header {
-  text-transform: none;
-  font-weight: 600;
+#{$specify-all} {
+  #leftcolumn ul.nav.menu .current > a {
+    background-color: token.color('background');
+    border-left: 3px solid token.color('accent');
+  }
+  #leftcolumn ul.nav.menu a:hover {
+    color: inherit;
+    background-color: token.color('background');
+  }
 }
 
-/* Style for link to Section Page */
-#leftcolumn ul.nav.menu > .parent > a {
-  @include type-setting(normal);
-  font-weight: 600;
-}
-
-/* Child items */
-#leftcolumn ul.nav.menu .nav-child .parent > ul a {
-  padding-left: 1.5rem;
-}
-
-/* End !SECTION Links */
-/** SECTION States
+/* END !SECTION Sidebar link states */
+/* SECTION Dropdown
+ * [1] Show items when .active is added
+ * [2] Change cursor to indicate clickable state
+ * [3] Add drop down icon to header items
+ * [4] Change drop down icon when it is open
 -------------------------------------------------------------------------- */
 
-#leftcolumn ul.nav.menu .current > a {
-  background-color: $c-background;
-  border-left: 5px solid $apple;
-}
-
-#leftcolumn ul.nav.menu a:hover,
-#leftcolumn ul.nav.menu .nav-header:hover {
-  color: inherit !important;
-  background-color: $c-background;
-}
-
-/* End !SECTION States */
-/** SECTION Dropdown
- * Logic for sidebar drop down
--------------------------------------------------------------------------- */
-
-/* Show items when .active is added */
-.clickFade .deeper.parent .deeper.parent.active ul { display: block !important; }
-/* Change cursor to indicate clickable state */
-.clickFade .nav-header { cursor: pointer; }
-
-/* Add drop down icon to header items */
-.clickFade .nav-header::after {
-  font-family: 'FontAwesome';
-  content: '\f0d7';
-  color: $c-accent;
-  margin-left: 5px;
-}
-/* Change drop down icon when it is open */
-.clickFade .active > .nav-header::after {
-  content: '\f0d8';
+#{$specify-all} {
+  .clickFade .deeper.parent .deeper.parent.active ul {
+    /*[1]*/ display: block !important;
+  }
+  .clickFade .nav-header {
+    /*[2]*/ cursor: pointer;
+  }
+  .clickFade .nav-header::after {
+    /*[3]*/
+    font-family: 'FontAwesome';
+    content: '\f0d7';
+    color: token.color('accent');
+    margin-left: 5px;
+  }
+  .clickFade .active > .nav-header::after {
+    /*[4]*/ content: '\f0d8';
+  }
 }
 
 /* End !SECTION Dropdown */
-/** SECTION Misc
- * Ensure consistency
+/* SECTION Sidebar misc
+ * [1] Ensure spacing consistency
+ * [2] Remove default separator
+ * [3] Style for separators
+ * [4] FIX sizing of modules
+ * [5] FIX for sidebar not filling a consistent space
+ * [6] Add space between sidebar and content
 -------------------------------------------------------------------------- */
 
-/* Spacing */
-#leftcolumn .moduletable {
-  margin-bottom: s(1);
+#{$specify-all} {
+  #leftcolumn .moduletable {
+    /*[1]*/ margin-bottom: token.space(1);
+  }
+  #leftcolumn .divider span.separator {
+    /*[2]*/ display: none;
+  }
+  #leftcolumn .divider span.separator + ul::before {
+    /*[3]*/
+    content: '';
+    display: block;
+    margin: 1rem 0.5rem;
+    border-top: token.border('width', 'medium') solid token.color('accent');
+  }
+  #leftcolumn .moduletable {
+    /*[4]*/
+    @include clearfix;
+    padding: 0;
+  }
+  #leftcolumn {
+    /*[5]*/ width: 100%;
+  }
+  .left-position {
+    /*[5]*/ width: 100% !important;
+  }
+  #leftcolumn {
+    /*[6]*/ padding-right: token.space(1);
+  }
 }
 
-/* Style for separators */
-#leftcolumn .divider span.separator {
-  display: none;
-}
-#leftcolumn .divider span.separator + ul::before {
-  content: '';
-  display: block;
-  margin: 1rem 0.5rem;
-  border-top: 3px solid $c-accent;
-}
-
-// QUESTION: What is this for?
-body.linear.hd #leftcolumn .moduletable {
-  @include clearfix;
-}
-
-/* End !SECTION Misc */
-/* End !SECTION SIDEBAR */
+/* End !SECTION Sidebar misc */

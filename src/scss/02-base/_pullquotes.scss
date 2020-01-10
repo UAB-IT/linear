@@ -1,59 +1,41 @@
-/* ==========================================================================
-   SECTION PULLQUOTES
-========================================================================== */
-// IDEA As specificity climbs, it would be nice to use .pullquote_text, is this viable with markup tools we have?
+@use '@mattmcadams/stratus';
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-#{$specify} .pullquote,
-#{$specify} blockquote {
-  @include block-margin;
-  padding: $block-padding;
-  background-color: $c-background;
-  border-left: $bdr-lg solid $c-accent;
-}
-
-// QUESTION Why reset margin here?
-#{$specify} .pullquote p,
-#{$specify} .pullquote q,
-#{$specify} blockquote p,
-#{$specify} blockquote q {
-  @include reset(margin);
-  @include type-setting(medium);
-  display: block;
-}
-#{$specify} .pullquote footer,
-#{$specify} blockquote footer {
-  text-align: right;
-  margin-top: s(0.5);
-}
-
-/* End !SECTION PULLQUOTES */
-/* ==========================================================================
-   SECTION CALLOUTS
-========================================================================== */
-
-// TODO Combine like styles for callouts & blockquotes
-
-#{$specify} .callout {
-  @include block-margin;
-  padding: 0 $block-padding;
-  border-left: $bdr-lg solid $c-accent;
-}
-
-// QUESTION Why is this style needed here?
-#{$specify} .callout p {
-  @include reset(margin);
-  display: block;
-}
-
-/** SECTION Callout Themes
+/* SECTION Pullquotes
 -------------------------------------------------------------------------- */
 
-// IDEA Decide to use css variables or not, use those here
-// REVIEW theme class names
-#{$specify} .callout.red { border-color: $c-red; }
-#{$specify} .callout.yellow { border-color: $c-yellow; }
-#{$specify} .callout.green { border-color: $c-green; }
-#{$specify} .callout.primary { border-color: $c-primary; }
+#{$specify-main}{
+  .pullquote,
+  blockquote {
+    @include token.block-margin;
+    padding: token.space('padding', 'block');
+    background-color: token.color('background');
+    border-left: token.border('width', 'large') solid token.color('accent');
+  }
+  .pullquote p,
+  .pullquote q,
+  blockquote p,
+  blockquote q {
+    @include stratus.type-set(medium);
+    display: block;
+  }
+  .pullquote footer,
+  blockquote footer {
+    text-align: right;
+    margin-top: token.space(0.5);
+  }
+  .callout {
+    @include token.block-margin;
+    padding: 0 token.space('padding', 'block');
+    border-left: token.border('width', 'large') solid token.color('neutral');
+  }
+  .callout-accent { border-color: token.color('accent'); }
+  .callout-secondary { border-color: token.color('secondary'); }
+  .callout-primary { border-color: token.color('primary'); }
+  .callout-notice { border-color: token.color('state', 'notice'); }
+  .callout-caution { border-color: token.color('state', 'caution'); }
+  .callout-warning { border-color: token.color('state', 'warning'); }
+}
 
-/* End !SECTION Callout Themes */
-/* End !SECTION CALLOUTS */
+/* END !SECTION Pullquotes */

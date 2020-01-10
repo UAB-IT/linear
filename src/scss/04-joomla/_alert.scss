@@ -1,68 +1,46 @@
-/* ==========================================================================
-   SECTION ALERTS
-   // Expected HTML:
-   // <div class="moduletable alert">
-   //   <p> Content </p>
-   // </div>
-========================================================================== */
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-/** SECTION Resets
- * Removes default styles from QUESTION
+/* SECTION Alerts
+ * Removes default styles from bootstrap
+ * [1] Remove bottom margin from paragraphs in an alert
+ * [2] Adjust card colors for alerts
+ * [3] Hide .ie-alert on all browsers
+ * [4] Show .ie-alert on Internet Explorer
+// Expected HTML:
+// <div class="moduletable alert">
+//   <p> Content </p>
+// </div>
 -------------------------------------------------------------------------- */
 
-#{$specify} .alert {
-  @include reset(border, margin, padding, background, shadow);
-}
-#{$specify} .alert,
-#{$specify} .alert h4 {
-  @include reset(color);
-}
-
-/* Remove bottom margin from paragraphs in an alert */
-// OPTIMIZE Shouldn't this be :lastchild instead of p?
-#{$specify} .alert p { @include reset(margin); }
-
-/* End !SECTION Resets */
-/** SECTION Base Styles
--------------------------------------------------------------------------- */
-
-/* Apply the alert style to the alert container */
-#{$specify} .moduletable.alert {
-  // @include reset(shadow); REVIEW: shouldn't be needed because line 14?
-  background: c($c-red, 100);
-  border: $bdr-md solid $c-red;
-  padding: $input-padding;
-  @include block-margin;
-}
-
-/* Adjust link styles for links that appear inside an alert */
-#{$specify} .alert a {
-  border-color: $c-red;
-  &:hover {
-    border-color: $c-red;
-    background-color: c($c-red, 200);
+#{$specify-main} {
+  .alert {
+    @include reset(border, margin, padding, background, shadow);
   }
-}
+  .alert,
+  .alert h4 {
+    @include reset(color);
+  }
+  .alert p { /*[1]*/ @include reset(margin); }
 
-/* Add margin between alerts and content. Should equal the margin between
-the banner and content */
-/* TODO: add see _file.scss @ Anchor: this */
-#{$specify} #breadcrumbs > :last-child {
-  margin-bottom: s( 3 );
+  .moduletable.alert {
+    @extend %card;
+    /*[2]*/ background: token.color('state', 'warning', '100');
+    /*[2]*/ border-color: token.color('state', 'warning');
+    @include token.block-margin;
+  }
+  .alert a { @extend %link-alert; }
+
+  // /* Add margin between alerts and content. Should equal the margin between
+  // the banner and content */
+  // #breadcrumbs > :last-child {
+  //   margin-bottom: token.space( 3 );
+  // }
+
+  .ie-alert { /*[3]*/ display: none; }
+  @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .ie-alert { /*[4]*/ display: block; }
+  }
 }
 
 /* End !SECTION Base Styles */
-/** SECTION IE Style
- * Hide .ie-alert on non IE browsers, use IE exclusive media query to test
--------------------------------------------------------------------------- */
-
-#{$specify} .ie-alert {
-  display: none;
-}
-@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-  #{$specify} .ie-alert {
-    display: block;
-  }
-}
-/* End !SECTION IE Style */
-/* End !SECTION ALERTS */

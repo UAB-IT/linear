@@ -1,101 +1,71 @@
-/* ==========================================================================
-   SECTION FOOTER
-========================================================================== */
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-/** SECTION Content
- * OPTIMIZE: How is this done in other UAB sites? Can this be simplified?
+/* SECTION Footer
+ * [1] Add underline to footer links on focus
+ * [2] Make social icons same color as footer background
+ * [3] Make social icons' background white
+ * [4] Make sure both footer columns line up. It is set as 'baseline'
+ * with high specificity in central css, so !important is used to override it
+ * [5] Add more space to the top of the footer so that it roughly matches
+ * the space between the footer and locked footer
+ * [6] remove default spacing
+ * [7] Add new spacing
+ * [8] Add border between the footer columns
 -------------------------------------------------------------------------- */
 
-/* Setup the flex container */
-#{$specify} #footer .IT-footer {
-  display: flex;
-  margin-top: $block-margin;
-  margin-bottom: $block-margin;
-}
-
-/* Force containers to be full width and add padding */
-#{$specify} #footer .IT-footer_left,
-#{$specify} #footer .IT-footer_right {
-  width: 100%;
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-/* Align content */
-#{$specify} #footer .IT-footer_left p {
-  text-align: right;
-  @include reset(margin);
-}
-
-#{$specify} #footer .IT-footer_right,
-#{$specify} #footer .IT-footer_right .social {
-  text-align: left;
-}
-
-/* Add middle divider */
-#{$specify} #footer .IT-footer_right {
-  border-left: $bdr-md solid white;
-}
-
-/* Add spacing between logo and social links */
-#{$specify} #footer .IT-footer .social {
-  margin-top: s( 1 );
-}
-
-/* Set the size of the UAB logo */
-#{$specify} #footer .IT-footer_logo {
-  @include reset(margin);
-  max-height: s( 2 );
-}
-
-/* Add 1 line between footer and locked footer to maintain vertical rhythm */
-#lockedFooter {
-  padding-top: $block-margin;
-}
-
-/* End !SECTION Content */
-/** SECTION Links
--------------------------------------------------------------------------- */
-
-/* Adjust link colors in the footer section */
-#footer a,
-#lockedFooter a {
-  color: white;
-  border-color: c( $stone, 400 );
-  &:hover {
-    border-color: c( $stone, 100 );
-    background-color: initial;
+#{$specify} {
+  #footer a,
+  #lockedFooter a {
+    &:hover, &:focus {
+      /*[1]*/ text-decoration: underline;
+    }
+  }
+  #footer.footerGray .at-icon {
+    /*[2]*/ fill: #595959 !important;
+  }
+  #footer.footerGray .at-icon-wrapper {
+    /*[3]*/ background-color: white !important
+  }
+  #footer .flexFooter {
+    /*[4]*/ align-items: center !important;
+    /*[5]*/ padding-top: token.space(1);
+  }
+  #footer .flexFooter .flexFooterColumn {
+    /*[6]*/ margin: 0 !important;
+  }
+  #footer .flexFooter .footerLeft {
+    /*[7]*/ padding-right: token.space(1);
+  }
+  #footer .flexFooter .footerRight {
+    /*[8]*/ border-left: 2px solid white;
+    /*[7]*/ padding-left: token.space(1);
   }
 }
 
-/* End !SECTION Links */
-/** SECTION Social Media
- * OPTIMIZE: How is this done on other UAB sites? Can this be simplified?
- * OPTIMIZE: Can these selectors be simplified?
+/* Alt Footer
+ * Place in the "lower 3" module position with the "alt-footer" class
+ * [1] Move the content so that it sits right on top of the footer
+ * [2] Set a comfortable minimum width and center it
+ * [3] Add space above and below the content. Below is half because the
+ * last element inside the content will have a bottom margin
+ * NOTE: .has-background-full should also be put on .alt-footer-inner
 -------------------------------------------------------------------------- */
-/* Set size of social media icons */
-#{$specify} #footer .IT-footer .social img {
-  @include reset(margin);
-  max-height: 1.5rem;
+
+#{$specify} {
+  .moduletable.alt-footer {
+    /*[1]*/
+    position: relative;
+    bottom: token.space(-4);
+  }
+  .alt-footer .alt-footer-inner {
+    /*[2]*/
+    max-width: 700px;
+    margin: auto;
+    /*[3]*/
+    padding-top: 3.2rem;
+    padding-bottom: 1.6rem;
+  }
 }
 
-/* Add spacing between social media links, apply round border */
-#{$specify} #footer .IT-footer_right .social a {
-  display: inline-block;
-  border: 2px solid c($c-grey, 400);
-  border-radius: 50%;
-  margin-right: 1rem;
-  margin-top: 0.2rem;
-  padding: 0.5rem;
-}
-
-#{$specify} #footer .IT-footer_right .social a:hover {
-  border-color: c($stone, 100);
-}
-#{$specify} #footer .IT-footer_right .social a::after {
-  content: '';
-  display: none;
-}
-
-/* End !SECTION Social Media */
-/* End !SECTION FOOTER */
+/* END !SECTION Footer */

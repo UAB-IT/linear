@@ -1,8 +1,11 @@
-/* ==========================================================================
-   SECTION CALENDAR
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
+
+/* SECTION Calendar
    Generated from the Localist widget from campus calendar
    https://calendar.uab.edu/help/widget
-========================================================================== */
+-------------------------------------------------------------------------- */
 // Expected HTML:
 // <div class="localist-widget">
 //   <ul class="localist-widget-eds">
@@ -30,85 +33,79 @@
 //   </ul>
 // </div>
 
-/** SECTION Base Styles
+/* Base Styles
+ * [1] Remove margin from list QUESTION: This is because of _lists.scss?
 -------------------------------------------------------------------------- */
 
-/* remove margin from list
- * QUESTION: This is because of _lists.scss?
- */
-#{$specify} .localist-widget ul.localist-widget-eds {
-  margin: 0 !important;
+#{$specify-main} {
+  .localist-widget ul.localist-widget-eds {
+    /*[1]*/ margin: 0 !important;
+  }
+  .localist-widget li {
+    list-style: none;
+    display: flex;
+    margin-bottom: token.space(0.5);
+  }
 }
 
-#{$specify} .localist-widget li {
-  list-style: none;
-  display: flex;
-  margin-bottom: s(0.5);
-}
-
-/* End !SECTION Base Styles */
-/** SECTION Date Block
+/* Date Block
  * Style the square that shows the date
- * These styles are mostly taken from QUESTION ?
+ * These styles are mostly taken from UR CSS
 -------------------------------------------------------------------------- */
 
-#{$specify} .localist-dateblock {
-  width: 60px;
-  min-width: 60px;
-  min-height: 50px;
+#{$specify-main} {
+  .localist-dateblock {
+    width: 60px;
+    min-width: 60px;
+    min-height: 50px;
+  }
+  .localist-widget-eds div.localist-month {
+    text-decoration: none;
+    color: white;
+    background-color: token.color('primary');
+    font-size: 1em;
+    font-family: token.font('head');
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 2px;
+    padding-bottom: 1px;
+    border-bottom: 2px solid token.color('accent');
+  }
+  .localist-day {
+    color: #555;
+    background-color: token.color('background');
+    font-size: 1.4em;
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    line-height: 1;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
 }
 
-#{$specify} .localist-widget-eds div.localist-month {
-  text-decoration: none;
-  color: white;
-  background-color: $c-primary;
-  font-size: 1em;
-  font-family: $font-head;
-  text-transform: uppercase;
-  text-align: center;
-  padding-top: 2px;
-  padding-bottom: 1px;
-  border-bottom: 2px solid $c-accent;
-}
-#{$specify} .localist-day {
-  color: #555;
-  background-color: $c-background;
-  font-size: 1.4em;
-  font-weight: 600;
-  text-align: center;
-  text-decoration: none;
-  line-height: 1;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-/* End !SECTION Date Block */
-/** SECTION Event Details
+/* Event Details
  * Style the block that holds event title, time, etc.
 -------------------------------------------------------------------------- */
 
-#{$specify} .localist-widget-eds div.localist-secondblock {
-  margin: 0 0 0 1em !important;
-  min-height: 44px;
-  /*min-width: 20em;*/
+#{$specify-main} {
+  .localist-widget-eds div.localist-secondblock {
+    margin: 0 0 0 1em !important;
+    min-height: 44px;
+  }
+  .localist-title h4 {
+    @include stratus.type-set(normal);
+    margin-top: -0.2em;
+    margin-bottom: 0px;
+    font-family: token.font('body');
+  }
+  .localist-title h4 a {
+    border-bottom: token.border('width', 'medium') solid transparent;
+  }
+  .localist-otherdetails div,
+  .localist-otherdetails i {
+    @include stratus.type-set(small);
+  }
 }
-#{$specify} .localist-title h4 {
-  @include type-setting(normal);
-  margin-top: -0.2em;
-  margin-bottom: 0px;
-  font-family: $font-body;
-}
-#{$specify} .localist-title h4 a {
-  border-bottom: $bdr-md solid transparent;
-}
-#{$specify} .localist-otherdetails div,
-.localist-otherdetails i {
-  @include type-setting(small);
-}
-// TEMP: Hide the event venue
-// #{$specify} .localist-venue {
-//   display: none;
-// }
 
-/* End !SECTION Event Details */
-/* End !SECTION CALENDAR */
+/* END !SECTION Calendar */

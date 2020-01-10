@@ -1,275 +1,170 @@
-/* ==========================================================================
-  SECTION BUTTONS
-========================================================================== */
-@mixin button-primary {
-  color: white;
-  background: $c-primary;
-  border-color: $c-primary;
-}
+@use '@mattmcadams/stratus';
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-@mixin button {
-  box-sizing: border-box;
-  padding: $input-padding;
-  background: white;
-  border: 1px solid c($c-grey, 800);
-  border-radius: $bdr-radius;
-  color: c( $c-grey, 800 );
-  @include type-setting(normal);
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 90%;
-  white-space: nowrap;
-}
-
-/** SECTION Base Button Styles
- * Reset browser / central styles & include custom
+/* SECTION Buttons
 -------------------------------------------------------------------------- */
-#{$specify} button,
-#{$specify} .btn,
-#{$specify} input[type='submit'],
-#{$specify} input[type='reset'],
-#{$specify} input[type='button'] {
-  @include reset(background, shadow, margin);
-  -webkit-appearance: none;
-  text-decoration: none;
-  cursor: pointer;
-  @include button;
-  &:focus,
-  &:hover {
-    outline: 0;
+
+#{$specify-main},
+#{$specify-banner} {
+  button,
+  .btn,
+  input[type='submit'],
+  input[type='reset'],
+  input[type='button'],
+  .uk-button {
+    @include reset(shadow, margin);
+    @extend %button;
+    -webkit-appearance: none;
     text-decoration: none;
-    border-color: $c-primary;
-    box-shadow: 0 0 0 1px $c-primary;
-    background-color: c( $c-primary, 100 );
-    color: black;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+      @extend %hover;
+      text-decoration: none;
+      outline: 0;
+    }
+    & .u-full {
+      display: block;
+      text-align: center;
+    }
   }
-  &[disabled] {
-    background: $c-background;
+  .btn-primary,
+  .uk-button-primary {
+    box-shadow: none;
+    @extend %button-primary;
+    &:hover {
+      @extend %hover;
+    }
   }
-}
-[disabled] {
-  pointer-events: none;
-}
-
-/* NOTE !important is used to override aggressive rule from RS Forms */
-.uk-button {
-  border: 1px solid $c-grey !important;
-}
-
-/* End !SECTION Base Button Styles */
-/** SECTION Button Themes
- * Full
- * Primary
--------------------------------------------------------------------------- */
-
-/* ANCHOR Full */
-#{$specify} button.full,
-#{$specify} .btn.full {
-  border-width: 1px;
-  display: block;
-  text-align: center;
-  width: 100%;
-}
-
-/* ANCHOR Primary */
-#{$specify} .btn.primary,
-#{$specify} button.primary {
-  border-color: $c-primary;
-  color: white;
-  background: $c-primary;
-  &:hover {
-    border-color: $c-primary;
-    box-shadow: 0 0 0 1px $c-primary;
-    background-color: c( $c-primary, 100 );
-    color: black;;
+  .btn.u-full {
+    justify-content: center;
   }
 }
-/* End !SECTION Button Themes */
-/* End !SECTION BUTTONS */
-/* ==========================================================================
-  SECTION INPUTS
-========================================================================== */
-$radio-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E';
-$checkbox-checked-image: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A';
 
+/* END !SECTION Buttons */
 /** SECTION Button Groups
- * TODO: Move to bottom
--------------------------------------------------------------------------- */
-// TEMP:  misc bugfix for form on category list page
-#undefined {
-  @include reset(margin);
-}
-
-// QUESTION: where is this used?
-.formContainer .row {
-  margin: 0;
-}
-
-// QUESTION: where is this used?
-// /* add spacing for button toolbar. */
-// .btn-toolbar {
-//   margin: 0 0 $block-margin;
-// }
-
-/* Setup positioning for input groups, add spacing */
-.input-group {
-  display: flex;
-  @include block-margin;
-}
-/* remove spacing from input group children */
-#{$specify} .input-group button,
-#{$specify} .input-group input,
-#{$specify} .input-group .btn {
-  @include reset(margin);
-}
-
-/**
- * Adjust border radius
- * expected html:
+ * Expected HTML
  * <div class="input-group">
  *   <input> or <button> or <a class="btn">
  *   <button> or <a class="btn">
  * </div>
-**/
-#{$specify} .input-group :first-child {
-  border-radius: $bdr-radius;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-#{$specify} .input-group :last-child {
-  border-radius: $bdr-radius;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-/* End !SECTION Button Groups */
-/** SECTION Form Field Resets
--------------------------------------------------------------------------- */
-#{$specify} textarea,
-#{$specify} input[type='email'],
-#{$specify} input[type='number'],
-#{$specify} input[type='text'],
-#{$specify} input[type='tel'],
-#{$specify} input[type='url'],
-#{$specify} input[type='search'] {
-  @include reset(background, shadow, transition);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: 0;
-  box-sizing: border-box;
-  height: auto;
-}
-
-/* End !SECTION Form Field Resets
-/** SECTION Form Field Base Styles
 -------------------------------------------------------------------------- */
 
-/* Apply typography styles to form elements */
-#{$specify} legend {
-  @include type-setting(normal);
-  color: $c-header;
-  font-family: $font-head;
-  font-weight: normal;
-}
-#{$specify} label,
-#{$specify} input,
-#{$specify} select,
-#{$specify} textarea {
-  @include type-setting(normal);
-}
-
-// TODO Merge with resets above, duplicate selector warning
-/* Basic styles for input fields */
-#{$specify} textarea,
-#{$specify} input[type='email'],
-#{$specify} input[type='number'],
-#{$specify} input[type='text'],
-#{$specify} input[type='tel'],
-#{$specify} input[type='url'],
-#{$specify} input[type='search'] {
-  padding: $input-padding;
-  color: $c-body;
-  border: $bdr-width solid $c-grey;
-  display: block;
-  width: 100%;
-  background-color: white;
-}
-
-#{$specify} textarea {
-  height: s(4);
-  resize: vertical;
-  overflow-y: scroll;
-}
-
-#{$specify} input[type='radio'],
-#{$specify} input[type='checkbox'] {
-  @include reset(margin);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  float: none;
-  padding-left: 0;
-  margin-right: s(0.5);
-  width: 1em;
-  height: 1em;
-  border: 1px solid $stone;
-}
-
-#{$specify} input[type='radio'] {
-  border-radius: 50%;
-}
-
-/* End !SECTION Form Field Base Styles
-/** SECTION Form Field States
--------------------------------------------------------------------------- */
-/* Add focus states */
-#{$specify} textarea:focus,
-#{$specify} input:focus,
-#{$specify} select:focus {
-  border-color: $c-accent;
-  box-shadow: 0 0 0 1px $c-accent;
-}
-#{$specify} select:focus,
-#{$specify} input[type='file']:focus,
-#{$specify} input[type='radio']:focus,
-#{$specify} input[type='checkbox']:focus {
-  outline: thin dotted #333;
-  outline-offset: 0;
-}
-
-/* Add style for checked radio and checkboxes */
-#{$specify} input[type='radio']:checked {
-  background-image: url(#{$radio-checked-image});
-  background-position: center;
-  border-color: $c-accent;
-  background-color: $c-accent;
-  &:focus {
-    background-color: $c-accent;
+#{$specify-main}{
+  .input-group,
+  .input-group form {
+    display: flex;
+    @include token.block-margin;
   }
-}
-#{$specify} input[type='checkbox']:checked {
-  background-image: url(#{$checkbox-checked-image});
-  background-position: center;
-  border-color: $c-accent;
-  background-color: $c-accent;
-  &:focus {
-    background-color: $c-accent;
+  .input-group button,
+  .input-group input,
+  .input-group .btn,
+  .input-group form button,
+  .input-group form input,
+  .input-group form .btn {
+    @include reset(margin);
+  }
+  .input-group :first-child,
+  .input-group form :first-child {
+    border-radius: token.border('radius');
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-grow: 1;
+  }
+  .input-group :last-child,
+  .input-group form :last-child {
+    border-radius: token.border('radius');
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
-/* End !SECTION Form Field States */
+/* END !SECTION Button Groups */
+/* SECTION Form Field Resets
+-------------------------------------------------------------------------- */
 
-/* FIX for RS Forms */
-.uk-checkbox:checked,
-.uk-checkbox:indeterminate,
-input[type='radio']:checked,
-.uk-checkbox:checked:focus,
-.uk-checkbox:indeterminate:focus,
-input[type='radio']:checked:focus {
-  background-color: $c-accent;
+#{$specify-main}{
+  textarea,
+  input[type='email'],
+  input[type='number'],
+  input[type='text'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'] {
+    @include reset(shadow, transition);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    @extend %input;
+    box-sizing: border-box;
+    height: auto;
+    display: block;
+    width: 100%;
+  }
 }
 
-/* FIX for RS Forms */
-body.uk-form ::selection { color: black; }
+/* END !SECTION Form Field Resets
+/* SECTION Inputs
+ * [1] Apply typography styles to form elements
+-------------------------------------------------------------------------- */
 
-/* End !SECTION INPUTS */
+#{$specify-main} {
+  legend {
+    /*[1]*/
+    @include stratus.type-set(normal);
+    @include token.font('head', 'normal');
+    color: token.color('text', 'header');
+  }
+  label,
+  input,
+  select,
+  textarea {
+    @include stratus.type-set(normal);
+  }
+  textarea {
+    @extend %input-area;
+  }
+  [type='radio'],
+  [type='checkbox'] {
+    @include reset(margin);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    float: none;
+    @extend %toggle;
+    padding-left: 0;
+    margin-right: s(0.5);
+  }
+  [type='radio'] {
+    border-radius: 50%;
+  }
+  [type='radio']:checked {
+    background-image: url(#{token.$radio-checked});
+    background-position: center;
+    @extend %toggle-active;
+  }
+  [type='checkbox']:checked {
+    background-image: url(#{token.$checkbox-checked});
+    background-position: center;
+    @extend %toggle-active;
+  }
+
+  .uk-checkbox:checked,
+  .uk-checkbox:indeterminate,
+  [type='radio']:checked,
+  .uk-checkbox:checked:focus,
+  .uk-checkbox:indeterminate:focus,
+  [type='radio']:checked:focus {
+    /* FIX for RS Forms */
+    background-color: token.color('accent');
+  }
+  .uk-button {
+    /* NOTE !important is used to override aggressive rule from RS Forms */
+    border: 1px solid token.color('neutral') !important;
+  }
+  form::after { display: none; }
+}
+
+/* END !SECTION Inputs */

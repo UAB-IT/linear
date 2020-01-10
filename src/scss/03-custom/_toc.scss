@@ -1,35 +1,30 @@
-/* ==========================================================================
-   SECTION TOC
-   Table of contents block
-========================================================================== */
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-#{$specify} .table-of-contents {
-  padding: $block-padding;
-  width: 80%; // HACK: Magic number
-  min-width: 200px; // HACK: Magic number
-  border: 1px solid c($c-grey, 200);
-  @include block-margin;
+/* SECTION TOC
+ * Table of contents block
+ * [1] Set a max width so it doesn't get too wide. This number just felt right
+ * [2] Remove the list styles
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  .table-of-contents {
+    padding: token.space('padding', 'block');
+    /*[1]*/ max-width: 700px;
+    border: token.border('width', 'hairline') solid token.border('color', 'accent');
+    @include token.block-margin;
+  }
+  .table-of-contents > ol {
+    /*[2]*/ margin-left: 0;
+  }
+  .table-of-contents ol,
+  .table-of-contents ol ol,
+  .table-of-contents ol ol ol {
+    /*[2]*/ list-style-type: none;
+  }
+  .table-of-contents ol li {
+    /*[2]*/ margin: 0;
+  }
 }
 
-// OPTIMIZE Specificity seems extremely unruly
-
-#{$specify} #whitebox .table-of-contents ol {
-  list-style: none;
-}
-#{$specify} #whitebox .table-of-contents > ol {
-  list-style: none;
-  margin: 0;
-}
-#{$specify} #whitebox .table-of-contents ol li {
-  margin: 0;
-  padding: 0;
-  color: $uabgreen;
-  /*TEMP font-size: #{type-scale(sm) + 'rem'};*/
-}
-#{$specify} #whitebox .table-of-contents ol li a {
-  /*TEMP border: none !important;*/
-  /*TEMP text-decoration: underline;*/
-  color: black;
-}
-// TODO Add themes for list styles | Potentially move this to lists.scss?
-/* End !SECTION TOC */
+/* END !SECTION TOC */

@@ -1,65 +1,23 @@
-/* ==========================================================================
-   SECTION CHIPS
-========================================================================== */
+@use '@mattmcadams/stratus';
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-/** SECTION Base Styling
+/* SECTION Base Styling
  * Style for Joomla generated chips
- * REVIEW what is the purpose of each?
 -------------------------------------------------------------------------- */
 
-#{$specify} .label-info,
-#{$specify} .badge-info,
-#{$specify} .badge,
-#{$specify} .label,
-#{$specify} .label-info[href],
-#{$specify} .badge-info[href] {
-  @include reset(border, shadow, font-weight, color);
-  @include type-setting(small);
-  background-color: $c-background;
-  padding: 0.1em 0.7em; // HACK: Magic numbers
+#{$specify} {
+  .label-info,
+  .badge-info,
+  .badge,
+  .label,
+  .label-info[href],
+  .badge-info[href] {
+    @include reset(border, shadow, font-weight, color);
+    @include stratus.type-set(small);
+    background-color: token.color('background');
+    padding: 0.1em 0.7em;
+  }
 }
 
-/* End !SECTION Base Styling */
-/** SECTION Flags
- * DEPRECATED
- * TEMP This was conceptual code and is no longer used.
--------------------------------------------------------------------------- */
-
-// :root {
-//   --theme-color: #{$c-primary};
-// }
-// .flag {
-//   display: inline-block;
-//   position: relative;
-//   padding: 0 1em;
-//   color: white;
-//   background-color: $c-primary;
-//   background-color: var(--theme-color);
-//   line-height: 2em;
-//   align-content: center;
-// }
-// .flag::after {
-//   content: '';
-//   position: absolute;
-//   bottom: 0;
-//   right: -1em;
-//   width: 0;
-//   height: 0;
-//   border-top: 2em solid $c-primary;
-//   border-top: 2em solid var(--theme-color);
-//   border-right: 1em solid transparent;
-// }
-
-// .flag.l-right {
-//   float: right;
-// }
-// .flag.l-right::after {
-//   left: -1em;
-//   right: 0;
-//   border-right: 0;
-//   border-left: 1em solid transparent;
-//   clear: both;
-// }
-
-/* End !SECTION Flags */
 /* End !SECTION CHIPS */

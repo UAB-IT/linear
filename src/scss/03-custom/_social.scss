@@ -1,0 +1,22 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+
+/* SECTION Social icons
+ * [1] Remove link style from social buttons
+ * [2] Remove hover style from link
+ * [3] Remove the 'open in new tab' icon
+-------------------------------------------------------------------------- */
+
+#{$specify-all} {
+  .at-follow-btn {
+    /*[1]*/ border: none;
+    &:hover, &:focus {
+      /*[2]*/ background: none;
+    }
+    &::after {
+      /*[3]*/ display: none;
+    }
+  }
+}
+
+/* END !SECTION Social icons */

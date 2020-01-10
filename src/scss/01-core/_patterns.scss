@@ -1,116 +1,141 @@
-// ==========================================================================
-// SECTION PATTERNS
-// ==========================================================================
+@use '@mattmcadams/stratus';
+@use 'token';
 
-//  SECTION Styles
-// --------------------------------------------------------------------------
+/* SECTION PATTERNS
+========================================================================== */
 
-// TEMP Old header style mixin
-// @mixin header-style($size: null, $margin: true) {
-//   @if $margin == true {
-//     margin: 0 0 $header-bottom;
-//   }
-//   @if $size != null {
-//     @include type-setting($size);
-//   }
-//   @include weight($header-weight, head);
-//   font-family: $font-head;
-//   color: $c-header;
-// }
+/* Header Styles
+-------------------------------------------------------------------------- */
 
-// TEMP: Old link style mixin
-// @mixin link-style($theme: null, $hover: false) {
-//   @if $hover == true {
-//     @if $theme == alert {
-//       background-color: c($c-red, 200);
-//       border-color: $c-red;
-//     }
-//     @else if $theme == mute {
-//       background-color: initial;
-//       border-color: c($stone, 100);
-//     }
-//     @else {
-//       background-color: c($c-primary, 100);
-//       border-color: $c-primary;
-//     }
-//   }
-//   @else {
-//     @if $theme == alert {
-//       border-bottom: 2px solid $c-red;
-//     }
-//     @else if $theme == mute {
-//       color: white;
-//       border-bottom: 2px solid c($stone, 400);
-//     }
-//     @else {
-//       border-bottom: 2px solid c($c-primary, 200);
-//     }
-//   }
-// }
-
-// TEMP: Old hover mixin
-// @mixin hover {
-//   border-color: $c-primary;
-//   box-shadow: 0 0 0 1px $c-primary;
-//   background-color: c( $c-primary, 100 );
-//   color: black;
-// }
-
-// TEMP: Old card style mixin
-// @mixin card-styles {
-//   border: $bdr-width solid black;
-//   border-radius: $bdr-radius;
-//   padding: $block-padding;
-// }
-
-@mixin block-margin {
-  margin: 0 0 s(1) 0;
+%header {
+  @include token.font('head', 'normal');
+  @include token.block-margin;
+  color: token.color('text', 'header');
 }
 
-// End !SECTION Styles
-//  SECTION Reset
-// --------------------------------------------------------------------------
-@mixin reset($properties...) {
-  @for $i from 0 to length($properties) {
-    @if nth($properties, $i + 1) == margin {
-      margin: 0;
-    }
-    @if nth($properties, $i + 1) == padding {
-      padding: 0;
-    }
-    @if nth($properties, $i + 1) == border {
-      border: 0;
-    }
-    @if nth($properties, $i + 1) == float {
-      float: none;
-    }
-    @if nth($properties, $i + 1) == font-size {
-      font-size: inherit;
-    }
-    @if nth($properties, $i + 1) == font-weight {
-      font-weight: normal;
-    }
-    @if nth($properties, $i + 1) == color {
-      color: inherit;
-    }
-    @if nth($properties, $i + 1) == background {
-      background: none;
-      background-color: transparent;
-      background-image: none;
-    }
-    @if nth($properties, $i + 1) == shadow {
-      text-shadow: none;
-      -webkit-box-shadow: none;
-      -moz-box-shadow: none;
-      box-shadow: none;
-    }
-    @if nth($properties, $i + 1) == transition {
-      -webkit-transition-property: none;
-      -moz-transition-property: none;
-      -o-transition-property: none;
-      transition-property: none;
-    }
+/* Links
+-------------------------------------------------------------------------- */
+
+/* Link base - medium border bottom */
+%link {
+  border-bottom-width: token.border('width', 'medium');
+  border-bottom-style: solid;
+}
+
+/* Link primary
+ * border is primary 200 with uab green and light background on hover
+**/
+%link-primary {
+  @extend %link;
+  border-color: token.color('primary', '200');
+  &:hover {
+    border-color: token.color('primary');
+    background-color: token.color('primary', '100');
   }
 }
-// End !SECTION Reset
-// End !SECTION PATTERNS
+
+/* Link alert
+ * This is a red theme of the link style
+**/
+%link-alert {
+  @extend %link;
+  border-color: token.color('state', 'warning', '200');
+  &:hover {
+    border-color: token.color('state', 'warning');
+    background-color: token.color('state', 'warning', '100');
+  }
+}
+
+/* Cards
+-------------------------------------------------------------------------- */
+
+%card {
+  border: token.border('width', 'hairline') solid token.color('neutral', '800');
+  border-radius: token.border('radius', 'large');
+  padding: token.space('padding', 'block');
+}
+
+/*  Input template
+-------------------------------------------------------------------------- */
+
+%input-template {
+  box-sizing: border-box;
+  padding: token.space('padding', 'input');
+  background: white;
+  border: token.border('width', 'hairline') solid token.color('neutral', '800');
+  border-radius: token.border('radius');
+}
+
+/* Buttons
+-------------------------------------------------------------------------- */
+
+/* Base button styles, extends base input styles */
+%button {
+  @extend %input-template;
+  color: token.color('neutral', '800');
+  text-transform: uppercase;
+  font-size: 90%;
+  line-height: token.space(1);
+  &::after { display: none; }
+}
+
+/* Prmary button, extends base button styles */
+%button-primary {
+  @extend %button;
+  color: white;
+  background: token.color('primary');
+  border-color: token.color('primary');
+}
+
+/* Inputs
+-------------------------------------------------------------------------- */
+
+/* Base text box / form field style */
+%input {
+  @extend %input-template;
+  color: token.color('text', 'body');
+  &:focus, &:focus {
+    border-color: token.color('accent');
+    box-shadow: 0 0 0 1px token.color('accent');
+    outline: thin dotted #333;
+    outline-offset: 0;
+  }
+}
+
+/* Base styles for a text area */
+%input-area {
+  @extend %input;
+  height: token.space(4);
+  width: 100%;
+  resize: vertical;
+  overflow-y: scroll;
+}
+
+/* Base style for checkboxes and radio buttons */
+%toggle {
+  height: 1em;
+  width: 1em;
+  border: token.border('width', 'hairline');
+}
+
+/* Active checkboxes and radio buttons */
+%toggle-active {
+  border-color: token.color('accent');
+  background: token.color('accent');
+  &:focus {
+    border-color: token.color('accent');
+  }
+}
+
+/* Basic hover style
+-------------------------------------------------------------------------- */
+
+%hover {
+  border-color: token.color('primary');
+  background-color: token.color('primary', '100');
+  box-shadow: inset 0 0 0 1px token.color('primary');
+  color: token.color('text', 'body');
+}
+
+/* END !SECTION PATTERNS
+========================================================================== */

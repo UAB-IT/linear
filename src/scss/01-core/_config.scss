@@ -1,0 +1,46 @@
+// ==========================================================================
+// SECTION CONFIGURATION
+// ==========================================================================
+@use '@mattmcadams/stratus/src/config' with (
+  $use-dynamic-scale: false,
+  $rem-size: 16px,
+  $line-height: 1.6,
+  $default-scale: (
+    'huge': 5,
+    'xlarge': 3,
+    'large': 2,
+    'medium': 1,
+    'normal': 0,
+    'small': -1,
+    'xsmall': -2,
+  ),
+  $default-ratio: 1.25,
+  $use-vertical-rhythm: true,
+  $use-mix-method: true,
+  $space-unit-size: 1.6rem,
+  $breakpoint-map: (
+    'huge': 2560px,
+    'xlarge': 1440px,
+    'large': 1024px,
+    'medium': 700px,
+    'small': 300px,
+    'xsmall': 299px
+  )
+);
+@use '@mattmcadams/stratus';
+
+$adjust-template: true;
+$adjust-central-type: true;
+$use-css-grid: false;
+$max-width: 1280px;
+$layout-gap: stratus.sp(0.5);
+$content-margin: stratus.sp(4);
+$half-content-margin: stratus.sp(2);
+
+$specify: 'body.linear';
+$specify-all: 'body.linear [id="wrapper"]';
+$specify-main: 'body.linear [id="whitebox"]';
+$specify-banner: 'body.linear [id="banner"]';
+$specify-footer: 'body.linear [id="footer"]';
+
+// End !SECTION CONFIGURATION

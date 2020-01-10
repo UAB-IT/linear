@@ -1,193 +1,61 @@
-/* ==========================================================================
-   SECTION LISTS
-========================================================================== */
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-$list-indent: $indent !default;
-$list-margin: s(0.5) !default;
-
-/** SECTION Resets
- * Ensure consistency
+/* SECTION Lists
+ * [1] Reset list margin & padding
+ * [2] Add block margin to block list elements
+ * [3] Remove the block margin from nested lists and add margin top to make
+ * spacing consistent with other list items
+ * [4] Add colored bullets for browsers that support them
 -------------------------------------------------------------------------- */
-#{$specify} ul,
-#{$specify} ol {
-  @include reset(margin, padding);
-  list-style-position: outside;
-}
-#{$specify} li {
-  @include reset(margin);
-  list-style-position: inherit;
-}
 
-/* End !SECTION Resets */
-/** SECTION Base Styles
- * Establish base styles for list elements
- * [1] Apply margin to compensate for list style only to lists inside main
- * content area
- * [2] Add block element margin to lists in main content area
- * [3] Add indentation to child lists
- * [4] Add bold weight to description terms
- * [5] Add list styles
- * [6] Add vertical space between list items
--------------------------------------------------------------------------- */
-/*[1]*/
-#{$specify} #{$main} ul,
-#{$specify} #{$main} ol {
-  margin-left: 1.2em;
-}
-
-/*[2]*/
-#{$specify} #{$main} ul,
-#{$specify} #{$main} ol,
-#{$specify} #{$main} dl {
-  @include block-margin;
-}
-
-/*[3]*/
-#{$specify} #{$main} ul ul,
-#{$specify} #{$main} ul ol,
-#{$specify} #{$main} ol ol,
-#{$specify} #{$main} ol ul {
-  margin-bottom: 0;
-  margin-left: $list-indent;
-}
-
-/*[4]*/
-#{$specify} #{$main} dt {
-  font-weight: bolder;
-}
-
-/*[5]*/
-#{$specify} #{$main} ul {
-  list-style-type: disc;
-  ul {
-    list-style-type: circle;
-    ul { list-style-type: square; }
-  }
-}
-#{$specify} #{$main} ol {
-  list-style-type: decimal;
+#{$specify-main}{
+  ul,
   ol {
-    list-style-type: upper-latin;
-    ol { list-style-type: lower-latin; }
+    /*[1]*/
+    margin-top: 0;
+    padding: 0;
+  }
+  ul,
+  ol,
+  dl {
+    /*[2]*/
+    @include token.block-margin;
+  }
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    /*[3]*/
+    margin-bottom: 0;
+    margin-top: token.space(0.5);
+  }
+
+  // TEMP: Not sure if this is necessary
+  // ul {
+  //   list-style-type: disc;
+  //   ul {
+  //     list-style-type: circle;
+  //     ul { list-style-type: square; }
+  //   }
+  // }
+  // ol {
+  //   list-style-type: decimal;
+  //   ol {
+  //     list-style-type: upper-latin;
+  //     ol { list-style-type: lower-latin; }
+  //   }
+  // }
+
+  li {
+    margin: 0;
+    margin-bottom: token.space(0.5);
+    /*[4]*/ &::marker { color: token.color('accent'); }
+  }
+  dd {
+    margin-left: token.space('text', 'indent');
+    margin-bottom: token.space(0.5);
   }
 }
 
-/*[6]*/
-#{$specify} #{$main} ul li,
-#{$specify} #{$main} ol li {
-  margin: $list-margin 0 0;
-}
-#{$specify} #{$main} dl dd {
-  margin: 0 0 $list-margin $list-indent;
-}
-
-/* End !SECTION Base Styles */
-/** SECTION Themes
- * Alternate style options for lists
--------------------------------------------------------------------------- */
-/**
-  * Align text with paragraphs with the bullet sitting in the margin
-  * DEBUG: not sure if this works correctly
- **/
-#{$specify} #{$main} ul.list-align,
-#{$specify} #{$main} ol.list-align {
-  margin-left: 0;
-}
-
-/**
-  * Make the list decoration colored for unordered lists
-  * [1] Create a pseudo element with the list character before each item
-  * [2] position it to the location of native list indicators
-  * [3] size the indicator to a reasonable size
- **/
-
-#{$specify} #{$main} ul.color,
-#{$specify} #{$main} ul.color ul,
-#{$specify} #{$main} ul.color ul ul {
-  list-style: none !important;
-  position: relative;
-}
-#{$specify} #{$main} ul.color li::before {
-  content: '\2022'; /*[1]*/
-  color: $c-accent;
-  position: absolute; /*[2]*/
-  left: -0.8em; /*[2]*/
-  width: 1em; /*[3]*/
-  font-size: 1.5em; /*[3]*/
-}
-#{$specify} #{$main} ul.color ul li::before {
-  content: '\25E6'; /*[1]*/
-}
-#{$specify} #{$main} ul.color ul ul li::before {
-  content: '\25AA'; /*[1]*/
-}
-
-/**
-  * Setup the ordered list indicators
-  * [1] Position the indicator
-  * [2] Make sure the '.' lines up
- **/
-#{$specify} #{$main} ol.color li::before {
-  color: $c-accent;
-  display: inline-block; /*[1]*/
-  width: 1em; /*[1]*/
-  margin-left: -1.5em; /*[1]*/
-  margin-right: 0.5em; /*[1]*/
-  text-align: right; /*[2]*/
-  direction: rtl; /*[2]*/
-}
-
-/**
-  * Setup the top level list counter
-  * [1] Create / reset a counter
-  * [2] Increment the counter for every item at the top level
-  * [3] Add the indicator to the pseudo element
- **/
-#{$specify} #{$main} ol.color {
-  list-style: none !important;
-  counter-reset: topli; /*[1]*/
-}
-#{$specify} #{$main} ol.color > li {
-  counter-increment: topli; /*[2]*/
-}
-#{$specify} #{$main} ol.color > li::before {
-  content: '.' counter(topli, decimal); /*[3]*/
-}
-
-/**
-  * Setup the second level list counter
-  * [1] Create / reset a counter
-  * [2] Increment the counter for every item at the top level
-  * [3] Add the indicator to the pseudo element
- **/
-#{$specify} #{$main} ol.color > li > ol {
-  list-style: none !important;
-  counter-reset: secondli; /*[1]*/
-}
-#{$specify} #{$main} ol.color > li > ol > li {
-  counter-increment: secondli; /*[2]*/
-}
-#{$specify} #{$main} ol.color ol > li::before {
-  content: '.' counter(secondli, upper-latin); /*[3]*/
-}
-
-/**
-  * Setup the third level list counter
-  * [1] Create / reset a counter
-  * [2] Increment the counter for every item at the top level
-  * [3] Add the indicator to the pseudo element
- **/
-// REVIEW .color class name
-#{$specify} #{$main} ol.color > li > ol > li > ol {
-  list-style: none !important;
-  counter-reset: thirdli; /*[1]*/
-}
-#{$specify} #{$main} ol.color > li > ol > li > ol > li {
-  counter-increment: thirdli; /*[2]*/
-}
-#{$specify} #{$main} ol.color ol ol > li::before {
-  content: '.' counter(thirdli, lower-latin); /*[3]*/
-}
-
-/* End !SECTION Themes */
-/* End !SECTION LISTS */
+/* END !SECTION Lists */

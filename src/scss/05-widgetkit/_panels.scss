@@ -1,44 +1,38 @@
-/* ==========================================================================
-   SECTION PANELS
-========================================================================== */
+@use '../01-core/' as *;
+@use '../01-core/token';
 
-/* Apply card styles to the box theme */
-.uk-panel-box {
-  border: $bdr-width solid black;
-  border-radius: $bdr-radius;
-  background: white;
-  padding: $block-padding;
+/* SECTION Panels
+ * [1] FIX: Hide link style so the card will be visible
+ * [2] Fix link style on header when card is hovered
+ * [3] Enforce text color
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  .uk-panel-box {
+    @extend %card;
+    background: white;
+  }
+  a.uk-position-cover {
+    /*[1]*/ opacity: 0 !important;
+  }
+  .uk-panel-box-hover:hover,
+  .uk-panel-box-primary-hover:hover {
+    @extend %hover;
+  }
+  .uk-overlay-hover:hover h3 a {
+    /*[2]*/
+    border-color: token.color('primary');
+    background-color: token.color('primary', '100');
+  }
+  .uk-panel-title,
+  .uk-panel-box-primary,
+  .uk-panel-box,
+  .uk-panel-box .uk-panel-title,
+  .uk-panel-box-hover:hover,
+  .uk-panel-box-primary .uk-panel-title,
+  .uk-panel-box-primary-hover:hover {
+    /*[3]*/ color: token.color('text', 'body');
+  }
 }
 
-/* FIX: Hide link style so the card will be visible */
-#{$specify} a.uk-position-cover {
-  opacity: 0 !important;
-}
-
-/* Add hover styles to cards */
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary-hover:hover {
-  border-color: $c-primary;
-  box-shadow: 0 0 0 1px $c-primary;
-  background-color: c( $c-primary, 100 );
-  color: black;
-}
-/* fix link style on header when card is hovered */
-#{$specify} .uk-overlay-hover:hover h3 a {
-  border-color: $c-primary;
-  background-color: c($c-primary, 100);
-}
-
-/* Enforce text color */
-// QUESTION: Why does this need to be here? / Could this be inherit instead?
-.uk-panel-title,
-.uk-panel-box-primary,
-.uk-panel-box,
-.uk-panel-box .uk-panel-title,
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary .uk-panel-title,
-.uk-panel-box-primary-hover:hover {
-  color: $c-body;
-}
-
-/* End !SECTION Panels */
+/* END !SECTION Panels */

@@ -1,34 +1,46 @@
-var mainImg = document.querySelectorAll("div.item-image>img");
-console.log(mainImg[0]);
+function IT_addCSS(css) {
+  const head = document.head || document.getElementsByTagName('head')[0];
+  const style = document.createElement('style');
+  head.appendChild(style);
+  style.type = 'text/css';
+  style.appendChild(document.createTextNode(css));
+}
 
-var mainSrc = mainImg[0].getAttribute("src");
-console.log(mainSrc);
+function IT_replaceBanner(debug = false) {
+  const mainImg = document.querySelectorAll("div.item-image>img");
+    if (debug) { console.log(mainImg[0]); }
+  const mainSrc = mainImg[0].getAttribute("src");
+    if (debug) { console.log(mainSrc); }
 
-var css = '#banner::before { background-image: url( "'+mainSrc+'" ) !important; }',
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
-
-head.appendChild(style);
-
-style.type = 'text/css';
-style.appendChild(document.createTextNode(css));
+  let css = `
+    #banner::before {
+      background-image: url("${mainSrc}") !important;
+    }
+    div.item-image {
+      display: none !important;
+    }`;
+  IT_addCSS(css);
+}
 
 // Adds tab index to interactive cards in Widgetkit
-
-var widget = document.getElementsByClassName("interactive-cards")[0];
-var elem = widget.getElementsByClassName("uk-panel");
-    
-for (let i = 0; i < elem.length; i++) {
-  //console.log(elem[i]);
-  elem[i].tabIndex = 0;
+function IT_tabIndex(containerClass = "interactive-cards", elementClass = "uk-panel", debug = false){
+  let container = document.getElementsByClassName(containerClass);
+  let elem = container.getElementsByClassName(elementClass);
+  for (let i = 0; i < elem.length; i++){
+    if (debug === true) {console.log(elem[i]);}
+    elem[i].tabIndex = 0;
+  }
 }
+
 // NAV TOGGLE ONCLICK WITH FADE
+// LOGIC TAKEN FROM UR TOOLKIT
 jQuery(".clickFade .deeper.parent .deeper.parent ul").hide();
 jQuery(".clickFade .deeper.parent .deeper.parent > .nav-header").click(function () {
   jQuery(this).children("ul").stop(true, true).toggle("fast, linear"),
     jQuery(this).parent().toggleClass("active");
   return false
 });
+
  /*!
  * jQuery-TOC
  * Table of Contents Generator Plugin for (non-)jQuery

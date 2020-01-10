@@ -1,8 +1,10 @@
-/* ==========================================================================
-   SECTION NEWSFLASH
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
+
+/* SECTION Newsflash
    Generated from Article Feed module
-   DEPRECIATED: Not used since the move to RSS based feeds
-========================================================================== */
+-------------------------------------------------------------------------- */
 // Expected HTML:
 // <ul class="newsflash-vert it-news mod-list">
 //   <li class="newsflash-item">
@@ -16,103 +18,99 @@
 //   </li>
 // </ul>
 
-/** SECTION Resets
+/* Resets
  * [1] Remove style from central style.css
  * [2] Removes space caused by an empty element
- * QUESTION: Provide more context for [2]
 -------------------------------------------------------------------------- */
 
-#{$specify} li.newsflash-item {
-  float: none; /*[1]*/
-}
-
-.it-news .article-separator {
-  display: none; /*[2]*/
-}
-
-/* End !SECTION Resets */
-/** SECTION Base Styles
--------------------------------------------------------------------------- */
-
-// OPTIMIZE: Can this specificity be lower?
-
-/**
- * [1] QUESTION: What does this fix?
- * [2] QUESTION: What is this for?
- * [3] Remove all margins, add block element margin to bottom
-**/
-#{$specify} #{$main} ul.newsflash-vert {
-  overflow: visible; /*[1]*/
-  align-items: stretch; /*[2]*/
-  margin: 0 0 s(1) 0; /*[3]*/
-}
-
-/* Allows re-ordering of item's content */
-.it-news > .newsflash-item {
-  display: grid;
-  grid-template-areas:
-    'image'
-    'title'
-    'content'
-    'footer';
-  align-content: flex-start;
-  border: none;
-}
-
-/* Item Title */
-#{$specify} .it-news .newsflash-title {
-  grid-area: title;
-  display: block !important;
-  padding: 0;
-  margin-top: s(0.5);
-  margin-bottom: s(0.5);
-}
-
-/* Item Image Container (Figure) */
-.it-news .newsflash-image {
-  grid-area: image;
-  margin: 0; /* Removes margin from style.css */
-  max-height: s(10); // HACK: Magic number
-  overflow: hidden; /* Prevents parts of cropped image from showing */
-  img {
-    width: 100%;
-    max-height: s(10);
+#{$specify-main} {
+  li.newsflash-item {
+    float: none; /*[1]*/
+  }
+  .it-news .article-separator {
+    display: none; /*[2]*/
   }
 }
 
-/* Remove trailing margin from inside paragraph */
-// OPTIMIZE: Shouldn't this be :lastchild instead?
-#{$specify} .it-news li.newsflash-item p {
-  margin: 0;
+/* Base Styles
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  .it-news > .newsflash-item {
+    border: none;
+  }
+  .it-news .newsflash-title {
+    /* Item Title */
+    @include stratus.type-set('medium');
+    padding: 0;
+    margin-top: s(0.5);
+    margin-bottom: s(0.5);
+  }
 }
 
-/* End !SECTION Base Styles */
+/* Layout
+ * [1] Remove default list margins
+ * [2] Allow content to sit on same row
+ * [3] Allow content to wrap if there's not enough room
+ * [4] Force content to wrap if the content would be less than 300
+ * [5] Set a low starting width - Would be 1/3, but we'll go much less than
+ * that to give room for padding
+ * [6] Add space between the items left and right
+ * [7] Allow items to fill remaining space
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  ul.it-news {
+    /*[1]*/ margin-left: 0;
+    /*[2]*/ display: flex;
+    /*[3]*/ flex-wrap: wrap;
+  }
+  .it-news > .newsflash-item {
+    /*[4]*/ min-width: 300px;
+    /*[5]*/ width: 20%;
+    /*[6]*/ padding: 0 token.space(0.5);
+    /*[7]*/ flex-grow: 1;
+  }
+}
+
+/* Top Featured
+ * Give alternate styles to first item in the list
+ * [1] Allow it to sit on its own row
+ * [2] Add block padding, border, and radius
+ * [3] Add space between full feature and the next row of items.
+ * Important used to override ID selector from bootstrap-plus
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  ul.it-news.has-leading-story > :first-child {
+    /*[1]*/ width: 100%;
+    /*[2]*/ padding: token.space(2);
+    border: token.color('accent') solid token.border('width', 'medium');
+    border-radius: token.border('radius', 'large');
+    /*[3]*/ margin-bottom: token.space(3) !important;
+    padding-bottom: token.space(1);
+    .newsflash-title {
+      @include stratus.type-set('large');
+    }
+  }
+  @include stratus.media('medium') {
+    ul.it-news.has-leading-story > :first-child {
+      position: relative;
+      padding-right: 33%;
+      .newsflash-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 30%;
+        margin-bottom: 0;
+        img {
+          object-fit: cover;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
 /* End !SECTION NEWSFLASH */
-/* ==========================================================================
-   SECTION NEWS FEED
-   Generated from article feed module
-   DEPRECIATED Not used since the move to RSS based feeds
-========================================================================== */
-// Expected HTML:
-// <ul class="category-module it-feed mod-list">
-//   <li>
-//     <a class="mod-articles-category-title"></a>
-//     <p class="mod-articles-category-introtext"></p>
-//   </li>
-// </ul>
-
-/* Remove list style and add block margin */
-#{$specify} ul.it-feed {
-  @include block-margin;
-  // TEMP list-style-type: none; // Not sure why this was here?
-}
-
-#{$specify} .it-feed .mod-articles-category-title {
-  margin: 0;
-  @include type-setting(h5);
-  font-family: $font-head;
-}
-#{$specify} .it-feed .mod-articles-category-introtext {
-  margin: s(0.5) 0 0;
-}
-/* End !SECTION NEWS FEED */
