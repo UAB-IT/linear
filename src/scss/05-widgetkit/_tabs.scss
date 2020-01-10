@@ -1,47 +1,44 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION TABS
-   Styles for the built in tabs widgetkit widget
-========================================================================== */
+
+/* SECTION TABS
+ * Styles for the built in tabs widgetkit widget
+ * [1] Remove link styles from the tab links
+ * [2] Add border to active tab
+ * [3] Add a border, since we can't add uk-panel-box through this widget
+ * [4] Bump panel up a pixel to align its border with tab border
+-------------------------------------------------------------------------- */
+
 #{$specify-main} {
-
-ul.uk-tab,
-ul.uk-tab li,
-ul.uk-switcher,
-ul.uk-switcher li {
-  margin: 0 !important;
+  ul.uk-tab,
+  ul.uk-tab li,
+  ul.uk-switcher,
+  ul.uk-switcher li {
+    margin: 0 !important;
+  }
+  ul.uk-tab + ul.uk-switcher.uk-margin-top {
+    margin-top: 0 !important;
+  }
+  ul.uk-tab > li > a {
+    /*[1]*/
+    border-bottom: 1px solid transparent;
+    border-radius: 0;
+  }
+  ul.uk-tab > li > a:hover {
+    border-bottom: 1px solid transparent;
+  }
+  ul.uk-tab > li.uk-active > a {
+    /*[2]*/
+    border-color: token.color('neutral');
+    color: token.color('primary');
+  }
+  ul.uk-tab {
+    border-bottom: 0px solid transparent;
+  }
+  ul.uk-tab + ul.uk-switcher .uk-panel {
+    /*[3]*/ border: 1px solid token.color('neutral');
+    /*[4]*/ margin-top: -1px;
+  }
 }
 
-ul.uk-tab + ul.uk-switcher.uk-margin-top {
-  margin-top: 0 !important;
-}
-
-/* Remove link styles from the tab links */
-ul.uk-tab > li > a {
-  border-bottom: 1px solid transparent;
-  border-radius: 0;
-}
-ul.uk-tab > li > a:hover {
-  border-bottom: 1px solid transparent;
-}
-
-/* Add border to active tab */
-ul.uk-tab > li.uk-active > a {
-  border-color: token.color('neutral');
-  color: token.color('primary');
-}
-ul.uk-tab {
-  border-bottom: 0px solid transparent;
-}
-
-/**
- * [1] Add a border, since we can't add uk-panel-box through this widget
- * [2] Bump panel up a pixel to align its border with tab border
-**/
-ul.uk-tab + ul.uk-switcher .uk-panel {
-  border: 1px solid token.color('neutral'); /*[1]*/
-  margin-top: -1px; /*[2]*/
-}
-}
 /* End !SECTION TABS */

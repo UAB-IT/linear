@@ -88,74 +88,62 @@ $_brand-color: (
 
 $color: (
   'primary': (
-    'base': _brand('uabgreen'),
-    '100': _color-step(_brand('uabgreen'), 100),
-    '200': _color-step(_brand('uabgreen'), 200),
-    '300': _color-step(_brand('uabgreen'), 300),
-    '400': _color-step(_brand('uabgreen'), 400),
-    '500': _color-step(_brand('uabgreen'), 500),
-    '600': _color-step(_brand('uabgreen'), 600),
-    '700': _color-step(_brand('uabgreen'), 700),
-    '800': _color-step(_brand('uabgreen'), 800),
-    '900': _color-step(_brand('uabgreen'), 900),
+    'base': #1E6B52,
+    '100': #D2E1DC, '200': #A5C4BA, '300': #78A697, '400': #4B8975,
+    '500': #1E6B52,
+    '600': #185642, '700': #124031, '800': #0C2B21, '900': #061510
   ),
   'accent': (
-    'base': _brand('apple'),
-    '100': _color-step(_brand('apple'), 100),
-    '200': _color-step(_brand('apple'), 200),
-    '300': _color-step(_brand('apple'), 300),
-    '400': _color-step(_brand('apple'), 400),
-    '500': _color-step(_brand('apple'), 500),
-    '600': _color-step(_brand('apple'), 600),
-    '700': _color-step(_brand('apple'), 700),
-    '800': _color-step(_brand('apple'), 800),
-    '900': _color-step(_brand('apple'), 900),
+    'base': #80BC00,
+    '100': #E6F2CC, '200': #CCE499, '300': #B3D766, '400': #99C933,
+    '500': #80BC00,
+    '600': #669600, '700': #4D7100, '800': #334B00, '900': #1A2600
   ),
   'secondary': (
-    'base': _brand('darkgreen'),
-    '100': _color-step(_brand('darkgreen'), 100),
-    '200': _color-step(_brand('darkgreen'), 200),
-    '300': _color-step(_brand('darkgreen'), 300),
-    '400': _color-step(_brand('darkgreen'), 400),
-    '500': _color-step(_brand('darkgreen'), 500),
-    '600': _color-step(_brand('darkgreen'), 600),
-    '700': _color-step(_brand('darkgreen'), 700),
-    '800': _color-step(_brand('darkgreen'), 800),
-    '900': _color-step(_brand('darkgreen'), 900),
+    'base': #295135,
+    '100': #D4DCD7, '200': #A9B9AE, '300': #7F9786, '400': #54745D,
+    '500': #295135,
+    '600': #21412A, '700': #193120, '800': #102015, '900': #08100B
   ),
   'neutral': (
-    'base': _brand('stone'),
-    '100': _color-step(_brand('stone'), 100),
-    '200': _color-step(_brand('stone'), 200),
-    '300': _color-step(_brand('stone'), 300),
-    '400': _color-step(_brand('stone'), 400),
-    '500': _color-step(_brand('stone'), 500),
-    '600': _color-step(_brand('stone'), 600),
-    '700': _color-step(_brand('stone'), 700),
-    '800': _color-step(_brand('stone'), 800),
-    '900': _color-step(_brand('stone'), 900),
+    'base': #808285,
+    '100': #E6E6E7, '200': #CCCDCE, '300': #B3B4B6, '400': #999B9D,
+    '500': #808285,
+    '600': #66686A, '700': #4D4E50, '800': #333435, '900': #1A1A1B
   ),
   'state': (
-    'info': _brand('uabgreen'),
-    'notice': _brand('apple'),
-    'caution': _brand('blaze'),
+    'info': (
+      'base': #1E6B52,
+      '100': #D2E1DC, '200': #A5C4BA, '300': #78A697, '400': #4B8975,
+      '500': #1E6B52,
+      '600': #185642, '700': #124031, '800': #0C2B21, '900': #061510
+    ),
+    'notice': (
+      'base': #80BC00,
+      '100': #E6F2CC, '200': #CCE499, '300': #B3D766, '400': #99C933,
+      '500': #80BC00,
+      '600': #669600, '700': #4D7100, '800': #334B00, '900': #1A2600
+    ),
+    'caution': (
+      'base': #FFD400,
+      '100': #FFF6CC, '200': #FFEE99, '300': #FFE566, '400': #FFDD33,
+      '500': #FFD400,
+      '600': #CCAA00, '700': #997F00, '800': #665500, '900': #332A00
+    ),
+    'caution-alt': (
+      'base': #FF9800,
+      '100': #FFEACC, '200': #FFD699, '300': #FFC166, '400': #FFAD33,
+      '500': #FF9800,
+      '600': #CC7A00, '700': #995B00, '800': #663D00, '900': #331E00
+    ),
     'warning': (
-      'base': #F00,
-      '100': _color-step(#F00, 100),
-      '200': _color-step(#F00, 200),
-      '300': _color-step(#F00, 300),
-      '400': _color-step(#F00, 400),
-      '500': _color-step(#F00, 500),
-      '600': _color-step(#F00, 600),
-      '700': _color-step(#F00, 700),
-      '800': _color-step(#F00, 800),
-      '900': _color-step(#F00, 900),
+      'base': #FF0000,
+      '100': #FFCCCC, '200': #FF9999, '300': #FF6666, '400': #FF3333,
+      '500': #FF0000,
+      '600': #CC0000, '700': #990000, '800': #660000, '900': #330000,
     )
   ),
-  'background': (
-    'base': stratus.color-scale(_brand('stone'), $opacity: 0.15),
-    'negative': stratus.color-scale(#F00, $opacity: 0.15),
-  ),
+  'background': stratus.color-alpha(#808285, 0.15),
   'text': (
     'body': black,
     'header': black,

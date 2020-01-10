@@ -1,84 +1,61 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION LISTS
-========================================================================== */
-#{$specify-main}{
 
-/* Reset list margin & padding */
-/* Add left margin */
-ul,
-ol {
-  margin-top: 0;
-  padding: 0;
-  //list-style-position: outside;
-  // margin-left: token.space('text', 'indent');
-}
-
-ul,
-ol,
-dl {
-  @include token.block-margin;
-}
-
-ul ul,
-ul ol,
-ol ol,
-ol ul {
-  margin-bottom: 0;
-  margin-top: token.space(0.5);
-}
-
-ul {
-  list-style-type: disc;
-  ul {
-    list-style-type: circle;
-    ul { list-style-type: square; }
-  }
-}
-ol {
-  list-style-type: decimal;
-  ol {
-    list-style-type: upper-latin;
-    ol { list-style-type: lower-latin; }
-  }
-}
-
-li {
-  margin: 0;
-  margin-bottom: token.space(0.5);
-  &::marker { color: token.color('accent'); }
-}
-dd {
-  margin-left: token.space('text', 'indent');
-  margin-bottom: token.space(0.5);
-}
-
-
-
-/* End !SECTION Resets */
-/** SECTION Base Styles
- * Establish base styles for list elements
- * [1] Apply margin to compensate for list style only to lists inside main
- * content area
- * [2] Add block element margin to lists in main content area
- * [3] Add indentation to child lists
- * [4] Add bold weight to description terms
- * [5] Add list styles
- * [6] Add vertical space between list items
+/* SECTION Lists
+ * [1] Reset list margin & padding
+ * [2] Add block margin to block list elements
+ * [3] Remove the block margin from nested lists and add margin top to make
+ * spacing consistent with other list items
+ * [4] Add colored bullets for browsers that support them
 -------------------------------------------------------------------------- */
 
-/**
- * NOTE: Problematic style from bootstrap
- * #content li {margin-bottom: 0.7em}
- * margin top is better practice. Using same selector.
-**/
+#{$specify-main}{
+  ul,
+  ol {
+    /*[1]*/
+    margin-top: 0;
+    padding: 0;
+  }
+  ul,
+  ol,
+  dl {
+    /*[2]*/
+    @include token.block-margin;
+  }
+  ul ul,
+  ul ol,
+  ol ol,
+  ol ul {
+    /*[3]*/
+    margin-bottom: 0;
+    margin-top: token.space(0.5);
+  }
 
-// #content li {
-//   margin-top: $list-margin;
-//   margin-bottom: 0;
-// }
+  // TEMP: Not sure if this is necessary
+  // ul {
+  //   list-style-type: disc;
+  //   ul {
+  //     list-style-type: circle;
+  //     ul { list-style-type: square; }
+  //   }
+  // }
+  // ol {
+  //   list-style-type: decimal;
+  //   ol {
+  //     list-style-type: upper-latin;
+  //     ol { list-style-type: lower-latin; }
+  //   }
+  // }
 
+  li {
+    margin: 0;
+    margin-bottom: token.space(0.5);
+    /*[4]*/ &::marker { color: token.color('accent'); }
+  }
+  dd {
+    margin-left: token.space('text', 'indent');
+    margin-bottom: token.space(0.5);
+  }
 }
-/* End !SECTION Base Styles */
-/* End !SECTION LISTS */
+
+/* END !SECTION Lists */

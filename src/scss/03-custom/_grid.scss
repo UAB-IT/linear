@@ -1,13 +1,16 @@
 @use '@mattmcadams/stratus';
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION GRID
-   This is intended to be a simple grid utility to allow content
-   to be placed side by side without using widgetkit.
-   WARNING: This module is unstable and needs to be tested
-========================================================================== */
+
 $column-gap: (token.space('gap', 'base') / 2);
+
+/* SECTION Grid
+ * This is intended to be a simple grid utility to allow content
+ * to be placed side by side without using widgetkit.
+ * Inspired by bulma
+ * WARNING: This module is unstable and needs to be tested
+-------------------------------------------------------------------------- */
+
 .grid {
   margin-left: (-$column-gap);
   margin-right: (-$column-gap);
@@ -19,7 +22,6 @@ $column-gap: (token.space('gap', 'base') / 2);
     margin-bottom: calc(#{token.space(1)} - #{$column-gap})
   }
 }
-
 .grid {
   &.is-centered{ justify-content: center; }
   &.is-vcentered { align-items: center; }
@@ -105,3 +107,5 @@ $column-gap: (token.space('gap', 'base') / 2);
 @include stratus.media('large') {
   @include grid_item('-lg');
 }
+
+/* END !SECTION Grid */

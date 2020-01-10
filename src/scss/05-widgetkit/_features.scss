@@ -1,17 +1,18 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION FEATURES
+
+/* SECTION Features
    Style for a custom component called "features" .wk-features
    Expected use is 3 columns with an image, header, and optional text
-========================================================================== */
+-------------------------------------------------------------------------- */
+
 #{$specify-main} {
-/* Size image used in the features component */
-.wk-features .uk-panel img {
-  height: token.space(5);
-  width: auto;
-  display: block;
-  margin: auto;
+  .wk-features .uk-panel img {
+    height: token.space(5);
+    width: auto;
+    display: block;
+    margin: auto;
+  }
 }
-}
-/* End !SECTION FEATURES */
+
+/* END !SECTION Features */

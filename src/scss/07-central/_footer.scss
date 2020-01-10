@@ -1,43 +1,46 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION FOOTER
-========================================================================== */
 
-
-/* End !SECTION Content */
-/** SECTION Links
+/* SECTION Footer
+ * [1] Add underline to footer links on focus
+ * [2] Make social icons same color as footer background
+ * [3] Make social icons' background white
+ * [4] Make sure both footer columns line up. It is set as 'baseline'
+ * with high specificity in central css, so !important is used to override it
+ * [5] Add more space to the top of the footer so that it roughly matches
+ * the space between the footer and locked footer
+ * [6] remove default spacing
+ * [7] Add new spacing
+ * [8] Add border between the footer columns
 -------------------------------------------------------------------------- */
+
 #{$specify} {
-/* Adjust link colors in the footer section */
-#footer a,
-#lockedFooter a {
-  &:hover, &:focus {
-    text-decoration: underline;
+  #footer a,
+  #lockedFooter a {
+    &:hover, &:focus {
+      /*[1]*/ text-decoration: underline;
+    }
+  }
+  #footer.footerGray .at-icon {
+    /*[2]*/ fill: #595959 !important;
+  }
+  #footer.footerGray .at-icon-wrapper {
+    /*[3]*/ background-color: white !important
+  }
+  #footer .flexFooter {
+    /*[4]*/ align-items: center !important;
+    /*[5]*/ padding-top: token.space(1);
+  }
+  #footer .flexFooter .flexFooterColumn {
+    /*[6]*/ margin: 0 !important;
+  }
+  #footer .flexFooter .footerLeft {
+    /*[7]*/ padding-right: token.space(1);
+  }
+  #footer .flexFooter .footerRight {
+    /*[8]*/ border-left: 2px solid white;
+    /*[7]*/ padding-left: token.space(1);
   }
 }
-#footer.footerGray .at-icon {
-  fill: #595959 !important;
-}
-#footer.footerGray .at-icon-wrapper {
-  background-color: white !important
-}
-#footer .flexFooter {
-  align-items: center !important;
-  padding-top: token.space(1);
-}
-#footer .flexFooter .flexFooterColumn {
-  margin: 0 !important;
-}
-#footer .flexFooter .footerLeft {
-  padding-right: token.space(1);
-}
-#footer .flexFooter .footerRight {
-  border-left: 2px solid white;
-  padding-left: token.space(1);
-}
-.at-follow-btn {
-  border: none !important;
-}
-}
-/* End !SECTION FOOTER */
+
+/* END !SECTION Footer */

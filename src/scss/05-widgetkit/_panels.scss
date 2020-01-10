@@ -1,41 +1,38 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION PANELS
-========================================================================== */
+
+/* SECTION Panels
+ * [1] FIX: Hide link style so the card will be visible
+ * [2] Fix link style on header when card is hovered
+ * [3] Enforce text color
+-------------------------------------------------------------------------- */
+
 #{$specify-main} {
-/* Apply card styles to the box theme */
-.uk-panel-box {
-  @extend %card;
-  background: white;
+  .uk-panel-box {
+    @extend %card;
+    background: white;
+  }
+  a.uk-position-cover {
+    /*[1]*/ opacity: 0 !important;
+  }
+  .uk-panel-box-hover:hover,
+  .uk-panel-box-primary-hover:hover {
+    @extend %hover;
+  }
+  .uk-overlay-hover:hover h3 a {
+    /*[2]*/
+    border-color: token.color('primary');
+    background-color: token.color('primary', '100');
+  }
+  .uk-panel-title,
+  .uk-panel-box-primary,
+  .uk-panel-box,
+  .uk-panel-box .uk-panel-title,
+  .uk-panel-box-hover:hover,
+  .uk-panel-box-primary .uk-panel-title,
+  .uk-panel-box-primary-hover:hover {
+    /*[3]*/ color: token.color('text', 'body');
+  }
 }
 
-/* FIX: Hide link style so the card will be visible */
-a.uk-position-cover {
-  opacity: 0 !important;
-}
-
-/* Add hover styles to cards */
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary-hover:hover {
-  @extend %hover;
-}
-/* fix link style on header when card is hovered */
-.uk-overlay-hover:hover h3 a {
-  border-color: token.color('primary');
-  background-color: token.color('primary', '100');
-}
-
-// /* Enforce text color */
-.uk-panel-title,
-.uk-panel-box-primary,
-.uk-panel-box,
-.uk-panel-box .uk-panel-title,
-.uk-panel-box-hover:hover,
-.uk-panel-box-primary .uk-panel-title,
-.uk-panel-box-primary-hover:hover {
-  color: token.color('text', 'body');
-}
-
-/* End !SECTION Panels */
-}
+/* END !SECTION Panels */

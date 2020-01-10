@@ -1,31 +1,30 @@
-/* ==========================================================================
-   SECTION PATTERNS
-========================================================================== */
-
 @use '@mattmcadams/stratus';
 @use 'token';
 
-/*  SECTION Text
+/* SECTION PATTERNS
+========================================================================== */
+
+/* Header Styles
 -------------------------------------------------------------------------- */
 
-/* Header Styles */
 %header {
   @include token.font('head', 'normal');
   @include token.block-margin;
   color: token.color('text', 'header');
 }
 
-/* END !SECTION Text
-/*  SECTION Links
+/* Links
 -------------------------------------------------------------------------- */
 
-/* Link base */
+/* Link base - medium border bottom */
 %link {
   border-bottom-width: token.border('width', 'medium');
   border-bottom-style: solid;
 }
 
-/* Link primary */
+/* Link primary
+ * border is primary 200 with uab green and light background on hover
+**/
 %link-primary {
   @extend %link;
   border-color: token.color('primary', '200');
@@ -35,7 +34,9 @@
   }
 }
 
-/* Link alert */
+/* Link alert
+ * This is a red theme of the link style
+**/
 %link-alert {
   @extend %link;
   border-color: token.color('state', 'warning', '200');
@@ -45,47 +46,32 @@
   }
 }
 
-/* Link mute */
-%link-mute {
-  border-color: token.color('neutral', '400');
-  color: white;
-  @extend %link;
-  &:hover {
-    border-color: white;
-    background-color: initial;
-  }
-}
-
-/* END !SECTION Links
-/*  SECTION Cards
+/* Cards
 -------------------------------------------------------------------------- */
 
-/* Card */
 %card {
   border: token.border('width', 'hairline') solid token.color('neutral', '800');
   border-radius: token.border('radius', 'large');
   padding: token.space('padding', 'block');
 }
 
-/* END !SECTION Cards
-/*  SECTION Inputs
+/*  Input template
 -------------------------------------------------------------------------- */
 
-/* Input base */
 %input-template {
   box-sizing: border-box;
   padding: token.space('padding', 'input');
   background: white;
   border: token.border('width', 'hairline') solid token.color('neutral', '800');
+  border-radius: token.border('radius');
 }
 
-/* SECTION Buttons
+/* Buttons
 -------------------------------------------------------------------------- */
 
-/* Button base */
+/* Base button styles, extends base input styles */
 %button {
   @extend %input-template;
-  border-radius: token.border('radius');
   color: token.color('neutral', '800');
   text-transform: uppercase;
   font-size: 90%;
@@ -93,7 +79,7 @@
   &::after { display: none; }
 }
 
-/* Prmary button */
+/* Prmary button, extends base button styles */
 %button-primary {
   @extend %button;
   color: white;
@@ -101,9 +87,10 @@
   border-color: token.color('primary');
 }
 
-/* END !SECTION Buttons */
+/* Inputs
+-------------------------------------------------------------------------- */
 
-/* Input field */
+/* Base text box / form field style */
 %input {
   @extend %input-template;
   color: token.color('text', 'body');
@@ -115,7 +102,7 @@
   }
 }
 
-/* Input area */
+/* Base styles for a text area */
 %input-area {
   @extend %input;
   height: token.space(4);
@@ -124,14 +111,14 @@
   overflow-y: scroll;
 }
 
-/* Toggle */
+/* Base style for checkboxes and radio buttons */
 %toggle {
   height: 1em;
   width: 1em;
   border: token.border('width', 'hairline');
 }
 
-/* Active toggle */
+/* Active checkboxes and radio buttons */
 %toggle-active {
   border-color: token.color('accent');
   background: token.color('accent');
@@ -140,9 +127,9 @@
   }
 }
 
-/* End !SECTION Inputs */
+/* Basic hover style
+-------------------------------------------------------------------------- */
 
-/* Hover */
 %hover {
   border-color: token.color('primary');
   background-color: token.color('primary', '100');
@@ -150,4 +137,5 @@
   color: token.color('text', 'body');
 }
 
-/* End !SECTION PATTERNS */
+/* END !SECTION PATTERNS
+========================================================================== */

@@ -1,22 +1,25 @@
-/* ==========================================================================
-   SECTION TYPOGRAPHY
-========================================================================== */
-
 @use '@mattmcadams/stratus';
 @use '../01-core' as *;
 @use '../01-core/token';
 
-#{$specify-all} {
-
 @if $adjust-central-type {
-/** SECTION Resets
+
+/* SECTION Typography Resets
  * These styles override aggressive styles from central style.css
+ * [1] Restore inheritance to inline elements
+ * [2] Restore font weight inheritance to certain inline elements
+ * [3] Restore text alignment inheritance for h3
+ * [4] Correct header font on h5 elements !important used to override
+ * an !important from central style.css
+ * [5] Remove spacing and border from the generated header from the
+ * article title
 -------------------------------------------------------------------------- */
+
+#{$specify-all} {
   :root {
     font-size: 16px;
     color: token.color('text', 'body');
   }
-  /* Restore inheritance to inline elements */
   h1 a,
   h1 strong,
   h1 b,
@@ -37,231 +40,222 @@
   span,
   strong,
   em {
+    /*[1]*/
     @include reset(color, font-size);
     font-family: inherit;
     text-align: inherit;
   }
 
-  /* Restore font weight inheritance to certain inline elements */
   .categories-list h3 a,
   span,
   #rightsidebar h4 .mod-articles-category-title {
-    font-weight: inherit;
+    /*[2]*/ font-weight: inherit;
   }
 
-  /* Restore text alignment inheritance for h3 */
   h3, h3 a, h3 strong, h3 b {
-    text-align: inherit;
+    /*[3]*/ text-align: inherit;
   }
 
-  /* Correct header font on h5 elements
-   * !important used to override aggressive styles from central css
-  **/
   h5 {
-    font-family: token.font('head') !important;
+    /*[4]*/ font-family: token.font('head') !important;
   }
-
-  /* remove spacing and border from the generated header from the article title */
   .page-header {
+    /*[5]*/
     @include reset(margin, padding, border);
   }
 }
-/* End !SECTION Resets */
 
-/** SECTION Header Spacing
+/* END !SECTION Typography Resets */
+/* SECTION Header Spacing
  * Create a consistent style for headers and their spacing
+ * [1] Gives added top margin to headers
+ * [2] Reduce top margin when directly following previous header
 -------------------------------------------------------------------------- */
 
-h1,
-.uk-h1,
-h2,
-.uk-h2,
-h3,
-.uk-h3,
-h4,
-.uk-h4,
-h5,
-.uk-h5,
-h6,
-.uk-h6 {
-  @extend %header;
+#{$specify-all} {
+  h1,
+  .uk-h1,
+  h2,
+  .uk-h2,
+  h3,
+  .uk-h3,
+  h4,
+  .uk-h4,
+  h5,
+  .uk-h5,
+  h6,
+  .uk-h6 {
+    @extend %header;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    /*[1]*/ margin-top: token.space(2);
+  }
+  h4,
+  h5,
+  h6 {
+    /*[1]*/ margin-bottom: token.space(0.5);
+  }
+  h1 + h2,
+  h2 + h3,
+  h3 + h4 {
+    /*[2]*/ margin-top: token.space(1);
+  }
+  h5,
+  h6 {
+    font-weight: token.font('head', 'bold');
+  }
 }
 
-/* Gives added top margin to headers */
-//OPTIMIZE: specificity
-//#{$specify-main} {
-h1,
-h2,
-h3,
-h4 {
-  margin-top: token.space(2);
-}
-//}
-//#{$specify-main} {
-h4,
-h5,
-h6 {
-  margin-bottom: token.space(0.5);
-}
-//}
-
-/* Reduce top margin when directly following previous header */
-#{$specify-main} h1 + h2,
-#{$specify-main} h2 + h3,
-#{$specify-main} h3 + h4 {
-  margin-top: token.space(1);
-}
-
-h5,
-h6 {
-  font-weight: token.font('head', 'bold');
-}
-
-/* End !SECTION Header Spacing */
-/** SECTION Font Sizes
+/* END !SECTION Header Spacing */
+/* SECTION Font Sizes
  * Use modular scale for font sizes and line heights
  * [1] ID is used here to overwrite equally high specificity from style.css
 -------------------------------------------------------------------------- */
-h1,
-.uk-h1 { @include stratus.type-set(huge); }
-h2,
-.uk-h2 { @include stratus.type-set(xlarge); }
-/*[1]*/
-h3,
-#leftcolumn h3,
-.uk-h3 { @include stratus.type-set(large); }
-h4,
-.uk-h4 { @include stratus.type-set(medium); }
-h5,
-.uk-h5,
-h6,
-.uk-h6,
-body,
-p,
-li,
-.uk-p { @include stratus.type-set(normal); }
-small,
-.uk-small { @include stratus.type-set(small); }
 
-/* End !SECTION Font Sizes */
-/** SECTION Copy
+#{$specify-all} {
+  h1,
+  .uk-h1 { @include stratus.type-set(huge); }
+  h2,
+  .uk-h2 { @include stratus.type-set(xlarge); }
+  h3,
+  #leftcolumn h3,
+  .uk-h3 { /*[1]*/ @include stratus.type-set(large); }
+  h4,
+  .uk-h4 { @include stratus.type-set(medium); }
+  h5,
+  .uk-h5,
+  h6,
+  .uk-h6,
+  body,
+  p,
+  li,
+  .uk-p { @include stratus.type-set(normal); }
+  small,
+  .uk-small { @include stratus.type-set(small); }
+}
+
+/* END !SECTION Font Sizes */
+} // End if statement
+/* SECTION Copy
  * Styles for block level typographical elements
 -------------------------------------------------------------------------- */
 
-p,
-hr,
-pre {
-  margin-top: 0;
-  @include token.block-margin;
-}
-p + p {
-  margin-top: token.space(-0.5);
+#{$specify-main} {
+  p,
+  hr,
+  pre {
+    margin-top: 0;
+    @include token.block-margin;
+  }
+  p + p {
+    margin-top: token.space(-0.5);
+  }
+  pre {
+    white-space: pre-wrap;
+  }
+  pre > code {
+    display: block;
+    padding: token.space('padding', 'block');
+    white-space: inherit;
+  }
 }
 
-pre {
-  white-space: pre-wrap;
-}
-
-pre > code {
-  display: block;
-  padding: token.space('padding', 'block');
-  white-space: inherit;
-}
-
-/* End !SECTION Copy */
-/** SECTION Rule Lines
+/* END !SECTION Copy */
+/* SECTION Rule Lines
  * Style for the <hr> element
  * [1] Ensure hr takes up no vertical space, but is still visible
  * [2] Allow rule lines that immediately follow headers to sit on the
  * header's baseline
 -------------------------------------------------------------------------- */
 
-hr {
-  box-sizing: content-box; /*[1]*/
-  height: 0; /*[1]*/
-  overflow: visible; /*[1]*/
-  border-style: solid;
-  border-width: 0 0 token.border('width', 'hairline');
-  border-color: token.border('color', 'accent');
+#{$specify-main} {
+  hr {
+    /*[1]*/ box-sizing: content-box;
+    /*[1]*/ height: 0;
+    /*[1]*/ overflow: visible;
+    border-style: solid;
+    border-width: 0 0 token.border('width', 'hairline');
+    border-color: token.border('color', 'accent');
+  }
+  h1 + hr,
+  h2 + hr,
+  h3 + hr,
+  h4 + hr,
+  h5 + hr,
+  h6 + hr {
+    margin-top: token.space(-0.5); /*[2]*/
+  }
 }
 
-h1 + hr,
-h2 + hr,
-h3 + hr,
-h4 + hr,
-h5 + hr,
-h6 + hr {
-  margin-top: token.space(-0.5); /*[2]*/
-}
-
-/* End !SECTION Rule Lines */
-/** SECTION Links
--------------------------------------------------------------------------- */
-/* Remove existing link styles */
-a {
-  @include reset(color, font-weight, transition);
-  text-decoration: none;
-}
-
-/**
- * [1] Applies link styles to content areas only. Less specific than an id and
- * helps avoid overreaching styles.
+/* END !SECTION Rule Lines */
+/* SECTION Links
+ * [1] Remove existing link styles
  * [2] Add basic styles for the icon added to links that open in new
  * tabs or lead to a pdf document.
  * [3] Add new tab icon
  * [4] Add pdf icon
-**/
-a {
-  @extend %link-primary;
-}
-
-[target='_blank']::after,
-[href$='.pdf']::after,
-[data-link-type='document']::after,
-[data-link-type='external']::after {
-  font-family: token.font('icon');/*[2]*/
-  margin-left: 0.5em;
-  font-weight: normal;
-  font-size: 75%;
-}
-
-[target='_blank']::after, [data-link-type='external']::after { content: '#{token.icon('new-tab')}'; /*[3]*/ }
-[href$='.pdf']::after, [data-link-type='document']::after { content: '#{token.icon('pdf')}'; /*[4]*/ }
-
-/* End !SECTION Links */
-/** SECTION Semantic HTML
 -------------------------------------------------------------------------- */
 
-abbr {
-  text-decoration: none;
+#{$specify-main} {
+  a {
+    /*[1]*/
+    @include reset(color, font-weight, transition);
+    text-decoration: none;
+  }
+
+  a {
+    @extend %link-primary;
+  }
+
+  [target='_blank']::after,
+  [href$='.pdf']::after,
+  [data-link-type='document']::after,
+  [data-link-type='external']::after {
+    /*[2]*/
+    font-family: token.font('icon');
+    margin-left: 0.5em;
+    font-weight: normal;
+    font-size: 75%;
+  }
+
+  [target='_blank']::after, [data-link-type='external']::after { /*[3]*/  content: '#{token.icon('new-tab')}';}
+  [href$='.pdf']::after, [data-link-type='document']::after { /*[4]*/ content: '#{token.icon('pdf')}'; }
 }
 
-/* Add padding to inline elements with background */
-mark,
-code,
-kbd {
-  padding: token.space('padding', 'inline');
-}
-code,
-kbd {
-  white-space: pre;
-  border-radius: token.border('radius');
-  font-family: token.font('mono');
+/* END !SECTION Links */
+/* SECTION Semantic HTML
+ * [1] Add padding to inline elements with background
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  abbr {
+    text-decoration: none;
+  }
+  mark,
+  code,
+  kbd {
+    /*[1]*/ padding: token.space('padding', 'inline');
+  }
+  code,
+  kbd {
+    white-space: pre;
+    border-radius: token.border('radius');
+    font-family: token.font('mono');
+  }
+  mark {
+    background-color: token.color('accent', '100');
+  }
+  code {
+    background-color: token.color('background');
+    color: token.color('neutral', '700' );
+  }
+  kbd {
+    background-color: token.color('neutral', '800' );
+    color: white;
+  }
 }
 
-mark {
-  background-color: token.color('accent', '100');
-}
-
-code {
-  background-color: token.color('background');
-  color: token.color('neutral', '700' );
-}
-kbd {
-  background-color: token.color('neutral', '800' );
-  color: white;
-}
-
-}
-/* End !SECTION SEMANTIC HTML */
-/* End !SECTION TYPOGRAPHY */
+/* END !SECTION Semantic HTML */

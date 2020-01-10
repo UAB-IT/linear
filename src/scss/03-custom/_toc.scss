@@ -1,55 +1,30 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION TOC
-   Table of contents block
-========================================================================== */
+
+/* SECTION TOC
+ * Table of contents block
+ * [1] Set a max width so it doesn't get too wide. This number just felt right
+ * [2] Remove the list styles
+-------------------------------------------------------------------------- */
+
 #{$specify-main} {
-
-/** SECTION Base Styles
- * Ensure consistency
--------------------------------------------------------------------------- */
-.table-of-contents {
-  padding: token.space('padding', 'block');
-  max-width: 700px;
-  border: token.border('width', 'hairline') solid token.border('color', 'accent');
-  @include token.block-margin;
+  .table-of-contents {
+    padding: token.space('padding', 'block');
+    /*[1]*/ max-width: 700px;
+    border: token.border('width', 'hairline') solid token.border('color', 'accent');
+    @include token.block-margin;
+  }
+  .table-of-contents > ol {
+    /*[2]*/ margin-left: 0;
+  }
+  .table-of-contents ol,
+  .table-of-contents ol ol,
+  .table-of-contents ol ol ol {
+    /*[2]*/ list-style-type: none;
+  }
+  .table-of-contents ol li {
+    /*[2]*/ margin: 0;
+  }
 }
 
-.table-of-contents > ol {
-  margin-left: 0;
-}
-.table-of-contents ol,
-.table-of-contents ol ol,
-.table-of-contents ol ol ol {
-  list-style-type: none;
-}
-
-.table-of-contents ol li {
-  margin: 0;
-}
-
-/* End !SECTION Base Styles */
-/** SECTION Themes
- * Alternate list styles
--------------------------------------------------------------------------- */
-
-// #{$specify} .table-of-contents.list-style-legal ol {
-//   counter-reset: item;
-// }
-// #{$specify} .table-of-contents.list-style-legal ol > li {
-//   display: table;
-//   counter-increment: item;
-// }
-// #{$specify} .table-of-contents.list-style-legal ol > li::before {
-//   content: counters(item, ".") ". ";
-//   display: table-cell;
-//   padding-right: 0.6em;
-// }
-// #{$specify} .table-of-contents.list-style-legal li ol > li::before {
-//   content: counters(item, ".") " ";
-// }
-
-/* End !SECTION Themes */
-/* End !SECTION TOC */
-}
+/* END !SECTION TOC */

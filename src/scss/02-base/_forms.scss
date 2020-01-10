@@ -2,194 +2,169 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* ==========================================================================
-  SECTION BUTTONS
-========================================================================== */
+/* SECTION Buttons
+-------------------------------------------------------------------------- */
 
 #{$specify-main},
 #{$specify-banner} {
-
-// @mixin button-primary {
-//   color: white;
-//   background: token.color('primary');
-//   border-color: $c-primary;
-// }
-
-// @mixin button {
-//   box-sizing: border-box;
-//   padding: $input-padding;
-//   background: white;
-//   border: 1px solid c($c-grey, 800);
-//   border-radius: $bdr-radius;
-//   color: c( $c-grey, 800 );
-//   @include type-setting(normal);
-//   text-align: center;
-//   text-transform: uppercase;
-//   font-size: 90%;
-//   white-space: nowrap;
-// }
-
-button,
-.btn,
-input[type='submit'],
-input[type='reset'],
-input[type='button'],
-.uk-button {
-  @include reset(shadow, margin);
-  @extend %button;
-  -webkit-appearance: none;
-  text-decoration: none;
-  cursor: pointer;
-  &:focus,
-  &:hover {
-    @extend %hover;
+  button,
+  .btn,
+  input[type='submit'],
+  input[type='reset'],
+  input[type='button'],
+  .uk-button {
+    @include reset(shadow, margin);
+    @extend %button;
+    -webkit-appearance: none;
     text-decoration: none;
-    outline: 0;
+    cursor: pointer;
+    &:focus,
+    &:hover {
+      @extend %hover;
+      text-decoration: none;
+      outline: 0;
+    }
+    & .u-full {
+      display: block;
+      text-align: center;
+    }
   }
-  & .u-full {
-    display: block;
-    text-align: center;
+  .btn-primary,
+  .uk-button-primary {
+    box-shadow: none;
+    @extend %button-primary;
+    &:hover {
+      @extend %hover;
+    }
+  }
+  .btn.u-full {
+    justify-content: center;
   }
 }
-.btn-primary,
-.uk-button-primary {
-  box-shadow: none;
-  @extend %button-primary;
-  &:hover {
-    @extend %hover;
-  }
-}
-.btn.u-full {
-  justify-content: center;
-}
-/* End !SECTION BUTTONS */
-/* ==========================================================================
-  SECTION INPUTS
-========================================================================== */
 
+/* END !SECTION Buttons */
 /** SECTION Button Groups
--------------------------------------------------------------------------- */
-/* Setup positioning for input groups, add spacing */
-.input-group {
-  display: flex;
-  @include token.block-margin;
-}
-/* remove spacing from input group children */
-.input-group button,
-.input-group input,
-.input-group .btn {
-  @include reset(margin);
-}
-
-/**
- * Adjust border radius
- * expected html:
+ * Expected HTML
  * <div class="input-group">
  *   <input> or <button> or <a class="btn">
  *   <button> or <a class="btn">
  * </div>
-**/
-.input-group :first-child {
-  border-radius: token.border('radius');
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.input-group :last-child {
-  border-radius: token.border('radius');
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-/* End !SECTION Button Groups */
-/** SECTION Form Field Resets
--------------------------------------------------------------------------- */
-textarea,
-input[type='email'],
-input[type='number'],
-input[type='text'],
-input[type='tel'],
-input[type='url'],
-input[type='search'] {
-  @include reset(background, shadow, transition);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: 0;
-  @extend %input;
-  box-sizing: border-box;
-  height: auto;
-  display: block;
-  width: 100%;
-}
-
-/* End !SECTION Form Field Resets
-/** SECTION Form Field Base Styles
 -------------------------------------------------------------------------- */
 
-/* Apply typography styles to form elements */
-legend {
-  @include stratus.type-set(normal);
-  @include token.font('head', 'normal');
-  color: token.color('text', 'header');
-}
-label,
-input,
-select,
-textarea {
-  @include stratus.type-set(normal);
-}
-
-textarea {
-  @extend %input-area;
-}
-
-[type='radio'],
-[type='checkbox'] {
-  @include reset(margin);
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  float: none;
-  @extend %toggle;
-  padding-left: 0;
-  margin-right: s(0.5);
-}
-
-[type='radio'] {
-  border-radius: 50%;
+#{$specify-main}{
+  .input-group,
+  .input-group form {
+    display: flex;
+    @include token.block-margin;
+  }
+  .input-group button,
+  .input-group input,
+  .input-group .btn,
+  .input-group form button,
+  .input-group form input,
+  .input-group form .btn {
+    @include reset(margin);
+  }
+  .input-group :first-child,
+  .input-group form :first-child {
+    border-radius: token.border('radius');
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex-grow: 1;
+  }
+  .input-group :last-child,
+  .input-group form :last-child {
+    border-radius: token.border('radius');
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
 }
 
-/* Add style for checked radio and checkboxes */
-[type='radio']:checked {
-  background-image: url(#{token.$radio-checked});
-  background-position: center;
-  @extend %toggle-active;
-}
-[type='checkbox']:checked {
-  background-image: url(#{token.$checkbox-checked});
-  background-position: center;
-  @extend %toggle-active;
+/* END !SECTION Button Groups */
+/* SECTION Form Field Resets
+-------------------------------------------------------------------------- */
+
+#{$specify-main}{
+  textarea,
+  input[type='email'],
+  input[type='number'],
+  input[type='text'],
+  input[type='tel'],
+  input[type='url'],
+  input[type='search'] {
+    @include reset(background, shadow, transition);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: 0;
+    @extend %input;
+    box-sizing: border-box;
+    height: auto;
+    display: block;
+    width: 100%;
+  }
 }
 
-/* FIX for RS Forms */
-.uk-checkbox:checked,
-.uk-checkbox:indeterminate,
-[type='radio']:checked,
-.uk-checkbox:checked:focus,
-.uk-checkbox:indeterminate:focus,
-[type='radio']:checked:focus {
-  background-color: token.color('accent');
+/* END !SECTION Form Field Resets
+/* SECTION Inputs
+ * [1] Apply typography styles to form elements
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  legend {
+    /*[1]*/
+    @include stratus.type-set(normal);
+    @include token.font('head', 'normal');
+    color: token.color('text', 'header');
+  }
+  label,
+  input,
+  select,
+  textarea {
+    @include stratus.type-set(normal);
+  }
+  textarea {
+    @extend %input-area;
+  }
+  [type='radio'],
+  [type='checkbox'] {
+    @include reset(margin);
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    float: none;
+    @extend %toggle;
+    padding-left: 0;
+    margin-right: s(0.5);
+  }
+  [type='radio'] {
+    border-radius: 50%;
+  }
+  [type='radio']:checked {
+    background-image: url(#{token.$radio-checked});
+    background-position: center;
+    @extend %toggle-active;
+  }
+  [type='checkbox']:checked {
+    background-image: url(#{token.$checkbox-checked});
+    background-position: center;
+    @extend %toggle-active;
+  }
+
+  .uk-checkbox:checked,
+  .uk-checkbox:indeterminate,
+  [type='radio']:checked,
+  .uk-checkbox:checked:focus,
+  .uk-checkbox:indeterminate:focus,
+  [type='radio']:checked:focus {
+    /* FIX for RS Forms */
+    background-color: token.color('accent');
+  }
+  .uk-button {
+    /* NOTE !important is used to override aggressive rule from RS Forms */
+    border: 1px solid token.color('neutral') !important;
+  }
+  form::after { display: none; }
 }
 
-/* FIX for RS Forms */
-.uk-form ::selection { color: black; }
-
-/* NOTE !important is used to override aggressive rule from RS Forms */
-.uk-button {
-  border: 1px solid token.color('neutral') !important;
-}
-
-form::after {
-  display: none;
-}
-/* End !SECTION INPUTS */
-}
+/* END !SECTION Inputs */

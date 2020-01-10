@@ -1,46 +1,47 @@
 @use '@mattmcadams/stratus';
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION MEDIA
-========================================================================== */
+
+/* SECTION Media
+ * [1] Add block spacing to block level media
+ * [2] Make sure image is never larger than it's container
+ * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
+ * [4] Make images block / auto by default
+-------------------------------------------------------------------------- */
 
 #{$specify-main} {
-/** SECTION Images
- * [1] Make sure image is never larger than it's container
- * [2] Make images block / auto by default
- * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
- * [4] Add block spacing to block level media
--------------------------------------------------------------------------- */
-
-/*[4]*/
-iframe,
-figure,
-.video-container,
-img {
-  @include token.block-margin;
+  iframe,
+  figure,
+  .video-container,
+  img {
+    /*[1]*/
+    margin: 0;
+    @include token.block-margin;
+  }
+  img {
+    /*[2]*/ max-width: 100%;
+    /*[3]*/ object-fit: cover;
+    /*[4]*/ margin: auto;
+    /*[4]*/ display: block;
+  }
+  figure img { margin-bottom: 0; }
 }
 
-img {
-  max-width: 100%; /*[1]*/
-  object-fit: cover; /*[3]*/
-  margin: auto; /*[2]*/
-  display: block; /*[2]*/
-}
-
-figure img { margin-bottom: 0; }
-
-/* End !SECTION Images */
-/** SECTION Captions
+/* END !SECTION Media */
+/* SECTION Captions
  * Correct font sizing and margins of captions
+ * [1] Style figcaption to display small in the center under the image
+ * [2] Add rhythm spacing above caption instead of below image because the image
+ * can't tell if a caption exists or not.
 -------------------------------------------------------------------------- */
-/* Style figcaption to display small in the center under the image,
-Add rhythm spacing above caption instead of below image */
-figcaption {
-  @include stratus.type-set(small);
-  text-align: center;
-  margin: token.space(1) 0;
+
+#{$specify-main} {
+  figcaption {
+    /*[1]*/
+    @include stratus.type-set(small);
+    text-align: center;
+    /*[2]*/ margin: token.space(1) 0;
+  }
 }
-}
-/* End !SECTION Captions */
-/* End !SECTION MEDIA */
+
+/* END !SECTION Captions */

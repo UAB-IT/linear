@@ -1,43 +1,61 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* ==========================================================================
-   SECTION SPACING
-========================================================================== */
-/*
+/* SECTION Structure
  * [1] allow elements to overflow the grid to cover the full width
  * of the screen.
  * [2] Add space above and below the content.
  * [3] fixes a bug where elements that overflow the whitebox could overflow
  * the body and allow the page to be scrolled on the x axis.
-**/
-body.linear.hd {
+ * [4] Fixes a bug where elements that overflowed the content would be invisible
+ * [5] Margin fix for first and last elements
+ * [6] Adds an option to have an inside page the same width as the home page
+ * Add 'layout-wide' as a page class on the menu item
+-------------------------------------------------------------------------- */
+
+#{$specify} {
   #whitebox {
-    overflow: visible; /*[1]*/
-    margin: $content-margin auto; /*[2]*/
+    /*[1]*/ overflow: visible;
+    /*[2]*/ margin: $content-margin auto;
     @include clearfix;
     max-width: $max-width;
   }
-  #wrapper { overflow-x: hidden; /*[3]*/ }
+  #wrapper { /*[3]*/ overflow-x: hidden; }
   #whitebox { margin: $content-margin auto; }
+  #content {
+    /*[4]*/ overflow: visible;
+  }
+}
+#{$specify-main} {
+  :last-child {
+    /*[5]*/ margin-bottom: 0;
+  }
+  :first-child {
+    /*[5]*/ margin-top: 0;
+  }
 }
 
-#{$specify-main} {
+body.hd.layout-wide #whitebox {
+  /*[6]*/ max-width: 1280px;
+}
 
-/** SECTION Sections
+/** Sections
  * [1] Add section top & bottom margin
  * [2] Add a larger padding on top and bottom, remove side paddings if
  * the background is full width
 -------------------------------------------------------------------------- */
-.section {
-  margin: token.space('margin', 'section') 0; /*[1]*/
-}
-.section.has-background-full {
-  padding: token.space('padding', 'section') 0; /*[2]*/
+
+#{$specify-main} {
+  .section {
+    /*[1]*/ margin: token.space('margin', 'section') 0;
+  }
+  .section.has-background-full {
+    /*[2]*/ padding: token.space('padding', 'section') 0;
+  }
 }
 
-/* !SECTION Sections */
-/** SECTION Background
+/* END !SECTION Structure */
+/* SECTION Background
  * Style for a background to stretch to the full width of the window
  * [1] Fixes a bug where background is invisible on mobile
  * [2] Size the background to be wider than the window
@@ -45,38 +63,23 @@ body.linear.hd {
  * [4] Position the background behind the element's content
 -------------------------------------------------------------------------- */
 
-.has-background {
-  padding: token.space('padding', 'block');
-  background-color: token.color('background');
+#{$specify-main} {
+  .has-background {
+    padding: token.space('padding', 'block');
+    background-color: token.color('background');
+  }
+  .has-background-full {
+    position: relative;
+    /*[1]*/ z-index: token.z-index('foreground');
+  }
+  .has-background-full::before {
+    content: '';
+    @include position(cover);
+    /*[2]*/ width: 150vw;
+    /*[3]*/ margin-left: -50vw;
+    background-color: token.color('background');
+    /*[4]*/ z-index: token.z-index('background');
+  }
 }
 
-.has-background-full {
-  position: relative;
-  //z-index: 1; /*[1]*/
-  z-index: token.z-index('foreground');
-}
-
-.has-background-full::before {
-  content: '';
-  @include position(cover);
-  width: 150vw; /*[2]*/
-  margin-left: -50vw; /*[3]*/
-  background-color: token.color('background');
-  z-index: token.z-index('background'); /*[4]*/
-}
-
-/* !SECTION Full Width */
-/** SECTION Margins
- * [1] Fix for elements inside tables
--------------------------------------------------------------------------- */
-
-:last-child {
-  margin-bottom: 0;
-}
-:first-child {
-  margin-top: 0;
-}
-
-/* !SECTION Margins */
-/* !SECTION SPACING */
-}
+/* END !SECTION Background */

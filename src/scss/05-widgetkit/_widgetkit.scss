@@ -1,55 +1,43 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION WIDGETKIT CORE
-   Override of widgetkit styles for a more consistent look on the site
-========================================================================== */
 
-/** SECTION Spacing
- * Add block spacing to the widgetkit margins
+/** SECTION Widgetkit
  * Selectors match those from ui kit
+ * [1] Add consistent margin space between widgetkit items
+ * [2] Remove default margin from .uk elements so the new margin can be used
+ * [3] Add section spacing to widgetkit blocks
+ * [4] Offset the the gap between widgetkit blocks and headers meant for them
+ * [5] Reset the header margins for widgetkit item headers
 -------------------------------------------------------------------------- */
+
 #{$specify-main} {
-// * + .uk-margin {
-//   margin-top: token.space(1);
-// }
-// .uk-margin {
-//   margin-bottom: token.space(1);
-// }
-// .uk-panel-space {
-//   padding: token.space(1);
-// }
-
-/**
- * Remove default margin from .uk elements so
- * their correct margin can be used
-**/
-// .uk-panel-teaser,
-// .uk-panel-title {
-//   margin-bottom: 0;
-// }
-
-/* Add section spacing to widgetkit blocks */
-[id*='wk']:not(:first-child) {
-  margin-top: token.space(2);
+  // * + .uk-margin {
+  //   /*[1]*/ margin-top: token.space(1);
+  // }
+  // .uk-margin {
+  //   /*[1]*/ margin-bottom: token.space(1);
+  // }
+  // .uk-panel-space {
+  //   /*[1]*/ padding: token.space(1);
+  // }
+  // .uk-panel-teaser,
+  // .uk-panel-title {
+  //   /*[2]*/ margin-bottom: 0;
+  // }
+  [id*='wk']:not(:first-child) {
+    /*[3]*/ margin-top: token.space(2);
+  }
+  [id*='wk']:not(:last-child) {
+    /*[3]*/ margin-bottom: token.space(2);
+  }
+  // #{$specify} .wk-header {
+  //   /*[4]*/ margin-bottom: s(-2);
+  // }
+  .uk-panel-title {
+    /*[5]*/
+    @include reset(margin);
+    margin-bottom: s( -0.5 );
+  }
 }
-[id*='wk']:not(:last-child) {
-  margin-bottom: token.space(2);
-}
 
-// /* Offset the the gap between widgetkit blocks and headers meant for them */
-// #{$specify} .wk-header {
-//   margin-bottom: s(-2);
-// }
-
-/* End !SECTION Spacing */
-// /** SECTION Typography
-//  * QUESTION What is this for?
-// -------------------------------------------------------------------------- */
-.uk-panel-title {
-  @include reset(margin);
-  margin-bottom: s( -0.5 );
-}
-}
-// /* End !SECTION Typography */
-/* End !SECTION WIDGETKIT CORE */
+/* END !SECTION Widgetkit */

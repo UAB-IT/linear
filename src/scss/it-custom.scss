@@ -11,8 +11,10 @@
 
 @use '03-custom/_toc.scss';
 @use '03-custom/_grid.scss';
+@use '03-custom/_social.scss';
 
 @use '04-joomla/_alert.scss';
+@use '04-joomla/_news.scss';
 //@use '04-joomla/_chips.scss';
 //@use '04-joomla/_pagination.scss';
 //@use '04-joomla/_article.scss';
@@ -21,8 +23,7 @@
 @use '05-widgetkit/_panels.scss';
 //@use '05-widgetkit/_wk-grid.scss';
 
-// DEPRECIATED @use '05-widgetkit/_slideshow.scss';
-// DEPRECIATED @use '05-widgetkit/_details.scss';
+@use '05-widgetkit/_slideshow.scss';
 @use '05-widgetkit/_features.scss';
 @use '05-widgetkit/_tabs.scss';
 @use '05-widgetkit/_numbers.scss';

@@ -1,50 +1,41 @@
 @use '@mattmcadams/stratus';
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION PULLQUOTES
-========================================================================== */
-// IDEA As specificity climbs, it would be nice to use .pullquote_text, is this viable with markup tools we have?
 
-#{$specify-main}{
-
-.pullquote,
-blockquote {
-  @include token.block-margin;
-  padding: token.space('padding', 'block');
-  background-color: token.color('background');
-  border-left: token.border('width', 'large') solid token.color('accent');
-}
-
-.pullquote p,
-.pullquote q,
-blockquote p,
-blockquote q {
-  @include stratus.type-set(medium);
-  display: block;
-}
-.pullquote footer,
-blockquote footer {
-  text-align: right;
-  margin-top: token.space(0.5);
-}
-
-.callout {
-  @include token.block-margin;
-  padding: 0 token.space('padding', 'block');
-  border-left: token.border('width', 'large') solid token.color('neutral');
-}
-
-/** SECTION Callout Themes
+/* SECTION Pullquotes
 -------------------------------------------------------------------------- */
 
-.callout-accent { border-color: token.color('accent'); }
-.callout-secondary { border-color: token.color('secondary'); }
-.callout-primary { border-color: token.color('primary'); }
-.callout-notice { border-color: token.color('state', 'notice'); }
-.callout-caution { border-color: token.color('state', 'caution'); }
-.callout-warning { border-color: token.color('state', 'warning'); }
-
+#{$specify-main}{
+  .pullquote,
+  blockquote {
+    @include token.block-margin;
+    padding: token.space('padding', 'block');
+    background-color: token.color('background');
+    border-left: token.border('width', 'large') solid token.color('accent');
+  }
+  .pullquote p,
+  .pullquote q,
+  blockquote p,
+  blockquote q {
+    @include stratus.type-set(medium);
+    display: block;
+  }
+  .pullquote footer,
+  blockquote footer {
+    text-align: right;
+    margin-top: token.space(0.5);
+  }
+  .callout {
+    @include token.block-margin;
+    padding: 0 token.space('padding', 'block');
+    border-left: token.border('width', 'large') solid token.color('neutral');
+  }
+  .callout-accent { border-color: token.color('accent'); }
+  .callout-secondary { border-color: token.color('secondary'); }
+  .callout-primary { border-color: token.color('primary'); }
+  .callout-notice { border-color: token.color('state', 'notice'); }
+  .callout-caution { border-color: token.color('state', 'caution'); }
+  .callout-warning { border-color: token.color('state', 'warning'); }
 }
-/* End !SECTION Callout Themes */
-/* End !SECTION CALLOUTS */
+
+/* END !SECTION Pullquotes */

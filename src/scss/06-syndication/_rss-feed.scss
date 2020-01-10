@@ -1,98 +1,109 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
-/* ==========================================================================
-   SECTION RSS FEED
-   Generated from the Simple RSS Feed Generator module in Joomla
-========================================================================== */
-#{$specify-main}{
-/** SECTION Layout
- * Setup columns
+
+/* SECTION RSS feed
+ * Generated from the Simple RSS Feed Generator module in Joomla
+ * [1] Remove list style & margin
+ * [2] Reset default layout logic
+ * [3] Add consistent spacing between each entry
+ * Important is used to override an ID selector from bootstrap-plus
+ * [4] Setup new layout logic
 -------------------------------------------------------------------------- */
 
-.srfrContainer.srfrStream {
-  float: none;
-  display: block;
+#{$specify-main} {
+  .srfrList {
+    /*[1]*/
+    list-style: none;
+    margin-left: 0;
+  }
+  .srfrContainer.srfrStream {
+    /*[2]*/
+    float: none;
+    display: block;
+  }
+  .srfrStream .col1 {
+    width: auto;
+  }
+  .srfrStream .col1,
+  .srfrStream .col2 {
+    padding: token.space(0.5);
+  }
+  .srfrStream .col1 a::after {
+    /*[2]*/ display: none;
+  }
+  .srfrStream .col2 {
+    width: 50%;
+    flex-grow: 1;
+    /*[2]*/ margin: 0;
+  }
+  li.srfrRow {
+    /*[3]*/
+    margin-bottom: token.space('margin', 'block') !important;
+    border-bottom: token.border('width', 'hairline') solid token.border('color', 'accent'); /*[3]*/
+    /*[4]*/
+    display: flex;
+    flex-wrap: wrap;
+  }
 }
 
-// QUESTION: This specificity is from lists.scss?
-.srfrList {
-  list-style: none;
-  margin-left: 0;
-}
 
-li.srfrRow {
-  @include token.block-margin;
-  padding-bottom: token.space(1);
-  border-bottom: token.border('width', 'hairline') solid token.border('color', 'accent'); /*[3]*/
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  grid-column-gap: token.space(2);
-}
-
-/* Remove default positioning logic */
-// OPTIMIZE: keep these styles, add a supports query for ie support?
-.srfrStream .col1 { width: 100%; }
-.srfrStream .col1 a::after { display: none; }
-.srfrStream .col2 {
-  width: auto;
-  margin: 0;
-}
-
-/* End !SECTION Layout */
-/** SECTION Title
- * Style the entry title
+/* Title
+ * [1] Remove link styles from entry title
+ * [2] Make sure the title renders as a block element
+ * [3] FIX Remove unnecessary clearfix so it doesn't mess with the grid
 -------------------------------------------------------------------------- */
 
-a.srfrTitle {
-  display: block;
-  float: none;
-  border: none;
-  margin-bottom: token.space(0.5);
+#{$specify-main} {
+  a.srfrTitle {
+    /*[2]*/
+    display: block;
+    float: none;
+    border: none;
+    margin-bottom: token.space(0.5);
+  }
+  a.srfrTitle:hover {
+    /*[1]*/
+    background: transparent;
+    text-decoration: underline;
+    border: none;
+  }
+  a.srfrTitle::after {
+    /*[3]*/ display: none;
+  }
 }
 
-a.srfrTitle:hover {
-  background: transparent;
-  text-decoration: underline;
-  border: none;
-}
-
-// FIX Remove unnecessary clearfix so it doesn't mess with the grid
-a.srfrTitle::after { display: none; }
-.srfrStream .srfrReadMore > a {
-  font-size: 0;
-  border: none;
-}
-
-/* End !SECTION Title */
-/** SECTION Read More
+/* Read More
  * Add contextual button information
+ * [1] Remove the default "read more" link
+ * [2] Default text if source can't be determined
+ * [3] Change button title depending on destination
 -------------------------------------------------------------------------- */
 
-/* Add button styles */
-// REVIEW: Add placeholder content in case queries below fail?
-/* NOTE: Selectors added here to override link after icon styles */
-
-.srfrContainer .srfrReadMore a::after {
-  content: 'Read More';
-  @extend %button;
-  font-size: 0.9rem;
-  display: inline;
-  font-family: 'kulturista-web', serif !important;
+#{$specify-main} {
+  .srfrStream .srfrReadMore > a {
+    /*[1]*/
+    font-size: 0;
+    border: none;
+  }
+  .srfrContainer .srfrReadMore a::after {
+    /*[2]*/ content: 'Read More';
+    @extend %button;
+    font-size: 0.9rem;
+    display: inline;
+    font-family: 'kulturista-web', serif !important;
+  }
+  .srfrReadMore a:hover::after {
+    @extend %hover;
+  }
+  .srfrReadMore a[href*='uab.edu/news']::after { /*[3]*/ content: 'UAB News'; }
+  .srfrReadMore a[href*='reporter']::after { /*[3]*/ content: 'UAB Reporter'; }
+  .srfrReadMore a[href*='uab.edu/it']::after { /*[3]*/ content: 'IT News'; }
 }
-.srfrReadMore a:hover::after {
-  @extend %hover;
-}
 
-/* Change button title depending on destination */
-.srfrReadMore a[href*='uab.edu/news']::after { content: 'UAB News'; }
-.srfrReadMore a[href*='reporter']::after { content: 'UAB Reporter'; }
-.srfrReadMore a[href*='uab.edu/it']::after { content: 'IT News'; }
-
-/** SECTION Featured Story
- * Extra style for a highlighted story
--------------------------------------------------------------------------- */
-
+// /** SECTION Featured Story
+//  * Extra style for a highlighted story
+// -------------------------------------------------------------------------- */
 // .srfrContainer.srfrStream.featured-rss-story ul li.srfrRow {
 //   margin: 0 0 s(2) 0;
 //   border-left: $bdr-md solid $c-primary;
@@ -103,18 +114,15 @@ a.srfrTitle::after { display: none; }
 //   background-color: $c-background;
 // }
 // .srfrStream.featured-rss-story .col1 { grid-area: image; }
-
 // // REVIEW: Explain what is happening here, does it need a grid-area as well, fallbacks for IE?
 // .srfrStream.featured-rss-story .col2 {
 //   padding: s(4) 0 s(2) s(2);
 //   position: relative;
 // }
-
 // // OPTIMIZE: Can the key selector here not be an element? :last-child maybe?
 // .srfrStream.featured-rss-story .col2 p {
 //   margin-bottom: 0;
 // }
-
 // /**
 //  * Styles the featured image to be as large as possible
 //  * crops the image to whatever size is needed
@@ -128,18 +136,15 @@ a.srfrTitle::after { display: none; }
 //   object-fit: cover;
 //   margin: 0;
 // }
-
 // /* Hide the read more button on the featured story */
 // .srfrStream.featured-rss-story .srfrReadMore {
 //   display: none;
 // }
-
 // /* Style the featured title like a header */
 // .featured-rss-story a.srfrTitle {
 //   font-family: 'kulturista-web', serif !important;
 //   @include type-setting(medium);
 // }
-
 // /* Add a "featured" flag on the element */
 // .srfrStream.featured-rss-story .col2::before {
 //   content: 'Featured';
@@ -151,7 +156,6 @@ a.srfrTitle::after { display: none; }
 //   line-height: 2em;
 //   align-content: center;
 // }
+// /* End !SECTION Featured Story */
 
-/* End !SECTION Featured Story */
-/* End !SECTION RSS FEED */
-}
+/* END !SECTION RSS feed */

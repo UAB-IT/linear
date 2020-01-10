@@ -2,40 +2,33 @@
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
 
-/* ==========================================================================
-   SECTION TABLES
-========================================================================== */
-
-#{$specify-main} {
-
-/** SECTION Base Styles
+/* SECTION Tables
+ * [1] Add borders, padding, and ensure text alignment is respected
+ * [2] Apply header styles to table headers
 -------------------------------------------------------------------------- */
 
-table {
-  //text-align: left;
-  border-collapse: collapse;
-  width: 100%;
-  @include token.block-margin;
+#{$specify-main} {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    @include token.block-margin;
+  }
+  td,
+  th {
+    /*[1]*/
+    border: token.border('width', 'hairline') solid black;
+    padding: token.space('padding', 'inline-block');
+    text-align: inherit;
+    color: inherit;
+  }
+  th {
+    @extend %header;
+    @include stratus.type-set(normal);
+    font-weight: token.font('head', 'bold');
+  }
 }
 
-/* Add borders, padding, and ensure text alignment is respected */
-td,
-th {
-  border: token.border('width', 'hairline') solid black;
-  padding: token.space('padding', 'inline-block');
-  text-align: inherit;
-  color: inherit;
-}
-
-/* Apply header styles to table headers */
-th {
-  @extend %header;
-  @include stratus.type-set(normal);
-  font-weight: token.font('head', 'bold');
-}
-
-/* End !SECTION Base Styles */
-/** SECTION Themes
+/* Themes
  * Borderless
  * Condensed
  * Striped
@@ -44,116 +37,76 @@ th {
  * Comparison
 -------------------------------------------------------------------------- */
 
-.borderless td,
-.borderless th {
-  border: none;
-}
-
-.table-condensed td,
-.table-condensed th {
-  padding: #{token.space('padding', 'inline-block') / 2};
-}
-
-/* ANCHOR Striped */
-.table-striped tbody > tr:nth-child(odd),
-.table-hover tr:hover {
-  background: token.color('background');
-}
-
-
-.table-accent {
-  border: token.border('width', 'medium') solid token.color('accent');
-  & thead {
-    background: token.color('accent');
-    color: white;
+#{$specify-main} {
+  .borderless td,
+  .borderless th {
+    border: none;
   }
-}
-.table-secondary {
-  border: token.border('width', 'medium') solid token.color('secondary');
-  & thead {
-    background: token.color('secondary');
-    color: white;
+
+  .table-condensed td,
+  .table-condensed th {
+    padding: #{token.space('padding', 'inline-block') / 2};
   }
-}
-.table-primary {
-  border: token.border('width', 'medium') solid token.color('primary');
-  & thead {
-    background: token.color('primary');
-    color: white;
+
+  .table-striped tbody > tr:nth-child(odd),
+  .table-hover tr:hover {
+    background: token.color('background');
   }
-}
 
-.table-notice {
-  border: token.border('width', 'medium') solid token.color('state', 'notice');
-  & thead {
-    background: token.color('state', 'notice');
-    color: white;
+  .table-accent {
+    border: token.border('width', 'medium') solid token.color('accent');
+    & thead {
+      background: token.color('accent');
+      color: white;
+    }
   }
-}
-.table-caution {
-  border: token.border('width', 'medium') solid token.color('state', 'caution');
-  & thead {
-    background: token.color('state', 'caution');
+  .table-secondary {
+    border: token.border('width', 'medium') solid token.color('secondary');
+    & thead {
+      background: token.color('secondary');
+      color: white;
+    }
   }
-}
-.table-warning {
-  border: token.border('width', 'medium') solid token.color('state', 'warning');
-  & thead {
-    background: token.color('state', 'warning');
-    color: white;
+  .table-primary {
+    border: token.border('width', 'medium') solid token.color('primary');
+    & thead {
+      background: token.color('primary');
+      color: white;
+    }
   }
+  .table-notice {
+    border: token.border('width', 'medium') solid token.color('state', 'notice');
+    & thead {
+      background: token.color('state', 'notice');
+      color: white;
+    }
+  }
+  .table-caution {
+    border: token.border('width', 'medium') solid token.color('state', 'caution');
+    & thead {
+      background: token.color('state', 'caution');
+    }
+  }
+  .table-warning {
+    border: token.border('width', 'medium') solid token.color('state', 'warning');
+    & thead {
+      background: token.color('state', 'warning');
+      color: white;
+    }
+  }
+
+  .cell-accent{ background-color: token.color('accent', '300'); }
+  .cell-secondary{ background-color: token.color('secondary', '300'); }
+  .cell-primary{ background-color: token.color('primary', '300'); }
+  .cell-notice{ background-color: token.color('state', 'notice', '300'); }
+  .cell-caution{ background-color: token.color('state', 'caution', '300'); }
+  .cell-caution-alt{ background-color: token.color('state', 'caution-alt', '300'); }
+  .cell-warning{ background-color: token.color('state', 'warning', '300'); }
+
+  .comparison-table td { vertical-align: middle; }
+  .comparison-table .icon-ok { color: token.color('state', 'notice'); }
+  .comparison-table .icon-minus-sign { color: token.color('state', 'caution'); }
+  .comparison-table .icon-remove { color: token.color('state', 'warning'); }
 }
 
-/* ANCHOR Comparison */
-// table.comparison-table td,
-// table.comparison-table thead {
-//   text-align: center !important;
-// }
-
-.comparison-table td { vertical-align: middle; }
-.comparison-table .icon-ok { color: token.color('state', 'notice'); }
-.comparison-table .icon-minus-sign { color: token.color('state', 'caution'); }
-.comparison-table .icon-remove { color: token.color('state', 'warning'); }
-
-/* End !SECTION Themes */
-/** SECTION Overrides
- * These styles override the category list generated by Joomla
- * TODO: Move this code to its own file under Joomla
- * OPTIMIZE: Just use important on these. Specificity is already out of control
--------------------------------------------------------------------------- */
-/*
-.category-list .table-bordered {
-  @include reset(border);
-  border-collapse: collapse;
-  border-radius: 0;
-}
-
-.category-list .table-bordered th,
-.category-list .table-bordered td,
-.category-list table.category td,
-.category-list table.table-striped tr td,
-.category-list table.table-striped tr th {
-  @include reset(border);
-}
-.category-list .table-hover tbody tr:hover > td,
-.category-list .table-hover tbody tr:hover > th,
-.category-list .table-striped tbody > tr:nth-child(odd) > td,
-.category-list .table-striped tbody > tr:nth-child(odd) > th {
-  @include reset(background);
-}
-
-.category-list .table-bordered caption + thead tr:first-child th:first-child,
-.category-list .table-bordered caption + tbody tr:first-child td:first-child,
-.category-list .table-bordered colgroup + thead tr:first-child th:first-child,
-.category-list .table-bordered colgroup + tbody tr:first-child td:first-child {
-  border-top-left-radius: 0;
-}
-
-.category-list .category.table tbody a {
-  @include reset(border);
-  text-decoration: underline;
-}
-*/
-}
-/* End !SECTION Overrides */
-/* End !SECTION TABLES */
+/* END !SECTION Tables */

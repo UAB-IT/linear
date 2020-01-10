@@ -1,80 +1,83 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
-/* ==========================================================================
-   SECTION NAVIGATION
-========================================================================== */
 
-/** SECTION Top Navigation
+/* SECTION Top Navigation
  * Implement styles similar to UR department css (uab.edu/cas)
+ * [1] Remove default link styles
+ * [2] Add more space around menu items. Important is used to override
+ * another important from central css
+ * [3] Add accent color to menu items
+ * [4] Change menu item text color. Important is used to override another
+ * important from central css
+ * [5] Add accent border, width to match UR sites
+ * [6] Ensure grey color is consistent with grey used throughout site
 -------------------------------------------------------------------------- */
-#{$specify}{
 
-#ribbon .nav a {
-  @include reset(border);
-  padding: 15px !important;
+#{$specify} {
+  #ribbon .nav a {
+    /*[1]*/ @include reset(border);
+    /*[2]*/ padding: 15px !important;
+  }
+  #tray #ribbon .nav > .active > a,
+  #tray #ribbon .nav > .active > a:hover,
+  #tray #ribbon .nav > .active > a:focus,
+  #tray #ribbon .nav > .alias-parent-active > a {
+    /*[3]*/ background-color: token.color('accent');
+    /*[4]*/ color: white !important;
+  }
+  div#tray {
+    /*[5]*/ border-bottom: 7px solid token.color('accent');
+  }
+  #ribbon .nav > li > a:hover,
+  #ribbon .nav > li > a:focus,
+  #ribbon .dropdown-menu > li > a:hover,
+  #ribbon .dropdown-menu > li > a:focus,
+  #ribbon .nav > li > span:hover,
+  #ribbon .nav > li > span:focus,
+  #ribbon .dropdown-menu > .active > a:hover,
+  #ribbon .dropdown-menu > .active > a:focus {
+    /*[6]*/ background: token.color('background');
+  }
 }
 
-#tray #ribbon .nav > .active > a,
-#tray #ribbon .nav > .active > a:hover,
-#tray #ribbon .nav > .active > a:focus,
-#tray #ribbon .nav > .alias-parent-active > a {
-  background-color: token.color('accent');
-  color: white !important;
-}
-div#tray {
-  border-bottom: 7px solid token.color('accent');
-}
-
-/* Ensure grey colors are consistent with grey used throughout site */
-#ribbon .nav > li > a:hover,
-#ribbon .nav > li > a:focus,
-#ribbon .dropdown-menu > li > a:hover,
-#ribbon .dropdown-menu > li > a:focus,
-#ribbon .nav > li > span:hover,
-#ribbon .nav > li > span:focus,
-#ribbon .dropdown-menu > .active > a:hover,
-#ribbon .dropdown-menu > .active > a:focus {
-  background: token.color('background');
-}
-
-/* End !SECTION Top Navigation */
-/** SECTION Quicklinks
+/* END !SECTION Top Navigation */
+/* SECTION Quicklinks
  * Fix several bugs and consistency issues with quicklinks
+ * [1] Ensure links are sized correctly
+ * [2] FIX: Make sure quicklinks are above banner
+ * [3] Ensure hover color is consistent with link hover colors
 -------------------------------------------------------------------------- */
 
-
-/* Ensure links are sized correctly */
-#quicklinks .dropdown-menu a {
-  box-sizing: border-box;
-  border: none;
+#{$specify} {
+  #quicklinks .dropdown-menu a {
+    /*[1]*/ box-sizing: border-box;
+    border: none;
+  }
+  #quicklinks .moduletable {
+    /*[2]*/ z-index: token.z-index('modal');
+  }
+  #quicklinks .dropdown-submenu:hover > a,
+  #quicklinks .dropdown-submenu:focus > a,
+  #quicklinks .dropdown-menu > li > a:hover,
+  #quicklinks .dropdown-menu > li > a:focus,
+  #quicklinks .newsfeed > li:hover,
+  #quicklinks .newsfeed > li:focus {
+    /*[3]*/ background-color: token.color('primary', '100');
+  }
 }
 
-/* FIX: Make sure quicklinks are above banner */
-#quicklinks .moduletable {
-  z-index: token.z-index('modal');
-}
-
-/* Ensure hover color is consistent with link hover colors */
-#quicklinks .dropdown-submenu:hover > a,
-#quicklinks .dropdown-submenu:focus > a,
-#quicklinks .dropdown-menu > li > a:hover,
-#quicklinks .dropdown-menu > li > a:focus,
-#quicklinks .newsfeed > li:hover,
-#quicklinks .newsfeed > li:focus {
-  background-color: token.color('primary', '100');
-}
-
-/* End !SECTION Quicklinks */
-/** SECTION Search
- * Modify style of the search field and button
--------------------------------------------------------------------------- */
+/* END !SECTION Quicklinks */
 @if $adjust-template {
-// Creates better alignment of search field and button
-#search form {
-  display: flex;
-  justify-content: flex-end;
+/* SECTION Search
+ * Creates better alignment of search field and button
+-------------------------------------------------------------------------- */
+
+#{$specify} {
+  #search form {
+    display: flex;
+    justify-content: flex-end;
+  }
 }
-}
-/* End !SECTION Search */
-/* End !SECTION NAVIGATION */
-}
+
+/* END !SECTION Search */
+} // End If statement
