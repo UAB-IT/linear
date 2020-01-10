@@ -92,7 +92,7 @@
   input[type='tel'],
   input[type='url'],
   input[type='search'] {
-    @include reset(background, shadow, transition);
+    @include reset(shadow, transition);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;

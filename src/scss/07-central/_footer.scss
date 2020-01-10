@@ -43,4 +43,29 @@
   }
 }
 
+/* Alt Footer
+ * Place in the "lower 3" module position with the "alt-footer" class
+ * [1] Move the content so that it sits right on top of the footer
+ * [2] Set a comfortable minimum width and center it
+ * [3] Add space above and below the content. Below is half because the
+ * last element inside the content will have a bottom margin
+ * NOTE: .has-background-full should also be put on .alt-footer-inner
+-------------------------------------------------------------------------- */
+
+#{$specify} {
+  .moduletable.alt-footer {
+    /*[1]*/
+    position: relative;
+    bottom: token.space(-4);
+  }
+  .alt-footer .alt-footer-inner {
+    /*[2]*/
+    max-width: 700px;
+    margin: auto;
+    /*[3]*/
+    padding-top: 3.2rem;
+    padding-bottom: 1.6rem;
+  }
+}
+
 /* END !SECTION Footer */
