@@ -1,0 +1,256 @@
+// ==========================================================================
+// SECTION DESIGN TOKENS
+// Design tokens are atomic items that record the semantic role of any value
+// Tokens also record high level design decisions and branding
+// ==========================================================================
+
+@use '@mattmcadams/stratus';
+@use 'sass:map';
+@use 'sass:meta';
+
+@function get($token, $keys...) {
+  @return stratus.get($token, $keys...);
+}
+
+$_default-key: 'base';
+
+// SECTION Typography
+// ==========================================================================
+
+$font: (
+  'body': (
+    'base': #{"proxima-nova", arial, helvetica, sans-serif !important},
+    'weight': (
+      'thin': 100,
+      'normal': 400,
+      'bold': 600,
+      'black': 700
+    )
+  ),
+  'head': (
+    'base': #{"kulturista-web", serif},
+    'weight': (
+      'thin': 300,
+      'normal': 400,
+      'bold': 600,
+      'black': bold
+    )
+  ),
+  'mono': (
+    'base': monospace,
+    'weight': (
+      'normal': normal,
+      'bold': bold
+    )
+  ),
+  'icon': (
+    'base': 'IcoMoon',
+    'weight': (
+      'normal': normal,
+      'bold': bold
+    )
+  )
+);
+
+@function font($name, $weight: null){
+  @if $weight {
+    @return stratus.get($font, $name, 'weight', $weight);
+  }
+  @return stratus.get($font, $name, $_default-key);
+}
+
+@mixin font($name, $weight: null) {
+  $_family: font($name);
+  $_weight: font($name, $weight);
+  font-family: $_family;
+  @if $_weight { font-weight: $_weight; }
+}
+
+// END !SECTION Typography
+// SECTION Color
+// ==========================================================================
+
+@function _color-step($color, $step) {
+  @return stratus.color-scale($color, stratus.color-index($step));
+}
+
+$_brand-color: (
+  'uabgreen': #1E6B52,
+  'darkgreen': #295135,
+  'blaze': #FFD400,
+  'apple': #80BC00,
+  'gold': #AA9767,
+  'stone': #808285
+);
+@function _brand($color) {
+  @return map.get($_brand-color, $color);
+}
+
+$color: (
+  'primary': (
+    'base': #1E6B52,
+    '100': #D2E1DC, '200': #A5C4BA, '300': #78A697, '400': #4B8975,
+    '500': #1E6B52,
+    '600': #185642, '700': #124031, '800': #0C2B21, '900': #061510
+  ),
+  'accent': (
+    'base': #80BC00,
+    '100': #E6F2CC, '200': #CCE499, '300': #B3D766, '400': #99C933,
+    '500': #80BC00,
+    '600': #669600, '700': #4D7100, '800': #334B00, '900': #1A2600
+  ),
+  'secondary': (
+    'base': #295135,
+    '100': #D4DCD7, '200': #A9B9AE, '300': #7F9786, '400': #54745D,
+    '500': #295135,
+    '600': #21412A, '700': #193120, '800': #102015, '900': #08100B
+  ),
+  'neutral': (
+    'base': #808285,
+    '100': #E6E6E7, '200': #CCCDCE, '300': #B3B4B6, '400': #999B9D,
+    '500': #808285,
+    '600': #66686A, '700': #4D4E50, '800': #333435, '900': #1A1A1B
+  ),
+  'state': (
+    'info': (
+      'base': #1E6B52,
+      '100': #D2E1DC, '200': #A5C4BA, '300': #78A697, '400': #4B8975,
+      '500': #1E6B52,
+      '600': #185642, '700': #124031, '800': #0C2B21, '900': #061510
+    ),
+    'notice': (
+      'base': #80BC00,
+      '100': #E6F2CC, '200': #CCE499, '300': #B3D766, '400': #99C933,
+      '500': #80BC00,
+      '600': #669600, '700': #4D7100, '800': #334B00, '900': #1A2600
+    ),
+    'caution': (
+      'base': #FFD400,
+      '100': #FFF6CC, '200': #FFEE99, '300': #FFE566, '400': #FFDD33,
+      '500': #FFD400,
+      '600': #CCAA00, '700': #997F00, '800': #665500, '900': #332A00
+    ),
+    'caution-alt': (
+      'base': #FF9800,
+      '100': #FFEACC, '200': #FFD699, '300': #FFC166, '400': #FFAD33,
+      '500': #FF9800,
+      '600': #CC7A00, '700': #995B00, '800': #663D00, '900': #331E00
+    ),
+    'warning': (
+      'base': #FF0000,
+      '100': #FFCCCC, '200': #FF9999, '300': #FF6666, '400': #FF3333,
+      '500': #FF0000,
+      '600': #CC0000, '700': #990000, '800': #660000, '900': #330000,
+    )
+  ),
+  'background': stratus.color-alpha(#808285, 0.15),
+  'text': (
+    'body': black,
+    'header': black,
+  )
+);
+
+@function color($keys...) {
+  $_output: stratus.get($color, $keys...);
+  @if meta.type-of($_output) == map {
+    @return map.get($_output, $_default-key); }
+  @return $_output;
+}
+
+// END !SECTION Color
+// SECTION Icons
+// ==========================================================================
+
+$icons: (
+  'new-tab': '\e024',
+  'pdf': '\e239'
+);
+@function icon($name) {
+  @return map.get($icons, $name);
+}
+
+$checkbox-checked: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A';
+
+$radio-checked: 'data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E';
+
+// END !SECTION Icons
+// SECTION Border
+// ==========================================================================
+
+$border: (
+  'width': (
+    'hairline': 1px,
+    'medium': 2px,
+    'large': 5px
+  ),
+  'radius': (
+    'base': 3px,
+    'large': 6px,
+    'round': 50%,
+    'square': 0
+  ),
+  'color': (
+    'divider': black,
+    'accent': stratus.get($color, 'neutral', '200')
+  )
+);
+
+@function border($keys...) {
+  $_return: stratus.get($border, $keys...);
+  @if meta.type-of($_return) == map { @return map.get($_return, $_default-key); }
+  @return $_return;
+}
+
+// END !SECTION Border
+// SECTION Spacing
+// ==========================================================================
+
+$spacing: (
+  'padding': (
+    'body': stratus.sp(1),
+    'inline': 0 0.2em 0.1em,
+    'inline-block': stratus.sp(0.5),
+    'input': 0.3em 1em,
+    'block': stratus.sp(1),
+    'section': stratus.sp(4)
+  ),
+  'margin': (
+    'block': stratus.sp(1),
+    'section': stratus.sp(4)
+  ),
+  'text': (
+    'indent': 1.2em
+  ),
+  'gap': (
+    'base': stratus.sp(1),
+    'small': stratus.sp(0.5),
+    'medium': stratus.sp(1),
+    'large': stratus.sp(2)
+  ),
+);
+
+@function space($key: 1, $path...){
+  @if meta.type-of($key) == number {
+    @return stratus.sp($key);
+  }
+  @return stratus.get(map.get($spacing, $key), $path...);
+}
+
+@mixin block-margin {
+  margin-bottom: space('margin', 'block');
+}
+
+// END !SECTION Border
+// SECTION Spacing
+// ==========================================================================
+
+$z-index: (
+  'background': -100,
+  'foreground': 1,
+  'modal': 100,
+  'navigation': 200
+);
+
+@function z-index($key) {
+  @return map.get($z-index, $key);
+}

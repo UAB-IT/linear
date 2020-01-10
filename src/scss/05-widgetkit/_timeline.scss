@@ -1,35 +1,34 @@
-/* ==========================================================================
-   SECTION TIMELINE
-   The timeline is made with the widgetkit custom list component using the
-   class `wk-timeline`. The first item's header and date header must be
-   given an inline style of `margin-top: 0`.
-========================================================================== */
-/**
- * Timeline Element
+@use '../01-core/' as *;
+@use '../01-core/token';
+@use '@mattmcadams/stratus';
+
+/* SECTION Timeline
+ * The timeline is made with the widgetkit custom list component using the
+ * class `wk-timeline`. The first item's header and date header must be
+ * given an inline style of `margin-top: 0`.
  * [1] Creates the gap for the timeline date to sit in
  * [2] Creates the timeline's visual line
  * [3] Adds space between the line and the content
  * [4] Adds the top margin back to the content block since it must be removed
  * from the first header
-**/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline {
-    margin-left: s(4) !important; /*[1]*/
-    border-left: 3px solid $apple; /*[2]*/
-  }
-}
-#{$specify} .wk-timeline {
-  padding-left: s(1) !important; /*[3]*/
-  margin-top: s(2) !important; /*[4]*/
-}
+ * [5] Allow the timeline date to be positioned in relation to the timeline item
+-------------------------------------------------------------------------- */
 
-/**
- * Timeline Item
- * [1] Allow the timeline date to be positioned in relation to the timeline item
-**/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline li {
-    position: relative; /*[1]*/
+#{$specify-main} {
+  @include stratus.media(small) {
+    .wk-timeline {
+      /*[1]*/ margin-left: token.space(4) !important;
+      /*[2]*/ border-left: token.border('width', 'medium') solid token.color('accent');
+    }
+  }
+  .wk-timeline {
+    /*[3]*/ padding-left: token.space(1) !important;
+    /*[4]*/ margin-top: token.space(2) !important;
+  }
+  @include stratus.media(small) {
+    .wk-timeline li {
+      position: relative; /*[5]*/
+    }
   }
 }
 
@@ -40,36 +39,41 @@
  * allows timeline dots to line up.
  * [3] Align the date with the content header
 **/
-#{$specify} .wk-timeline-date {
-  color: $apple !important;
-}
-@include breakpoint(small) {
-  #{$specify} .wk-timeline-date {
-    position: absolute; /*[1]*/
-    left: s(-5); /*[1]*/
-    width: 5rem; /*[2]*/
-    top: 0.5rem; /*[3]*/
-    text-align: right !important;
+
+#{$specify-main} {
+  .wk-timeline-date {
+    color: token.color('accent') !important;
+  }
+  @include stratus.media(small) {
+    .wk-timeline-date {
+      /*[1]*/ position: absolute;
+      /*[1]*/ left: token.space(-5);
+      /*[2]*/ width: 5rem;
+      /*[3]*/ top: 0.5rem;
+      text-align: right !important;
+    }
   }
 }
 
 /**
  * Timeline Dot
- * [1] Create the timeline dot
- * [2] Align the dot to the center of the date block
- * [3] Align the dot to the center of the line
+ * [1] Align the dot to the center of the date block
+ * [2] Align the dot to the center of the line
 **/
-@include breakpoint(small) {
-  #{$specify} .wk-timeline-date::after {
-    content: ''; /*[1]*/
-    position: absolute;
-    top: 0.7em; /*[2]*/
-    right: -1.9rem; /*[3]*/
-    width: 1em;
-    height: 1em;
-    border-radius: 50%;
-    background-color: $apple;
+
+#{$specify-main} {
+  @include stratus.media(small) {
+    .wk-timeline-date::after {
+      content: '';
+      position: absolute;
+      /*[1]*/ top: 0.7em;
+      /*[2]*/ right: -1.9rem;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: token.color('accent');
+    }
   }
 }
 
-/* END !SECTION TIMELINE */
+/* END !SECTION Timeline */

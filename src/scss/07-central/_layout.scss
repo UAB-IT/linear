@@ -4,11 +4,13 @@
    to offer a better experience on browsers that support it.
 ========================================================================== */
 
-/* FIX for bug where outlines would be cutoff in modules */
-// REVIEW: Is this just for when grid is enabled, what does this override?
-#{$specify} .moduletable {
-  overflow: visible !important;
-}
+#{$specify-all}{
+
+// /* FIX for bug where outlines would be cutoff in modules */
+// // REVIEW: Is this just for when grid is enabled, what does this override?
+// .moduletable {
+//   overflow: visible !important;
+// }
 
 /** SECTION Grid
  * Implement grid positioning instead of floats for supported browsers
@@ -18,24 +20,20 @@
  * [1] reset sizing and positional properties of main areas to prevent
  * old layout issues when using grid. These resets require grid to be
  * supported, so the site will fallback to the old positioning CSS.
- * [2] fixes a bug where elements that overflow the whitebox could overflow
- * the body and allow the page to be scrolled on the x axis.
- * [3] Setup basic grid areas and layout
- * [4] allow elements to overflow the grid to cover the full width
- * of the screen.
+ * [2] Setup basic grid areas and layout
 **/
 
 @supports (display: grid) {
   /*[1]*/
-  #{$specify} #maincolumn-r,
-  #{$specify} #maincolumn-l,
-  #{$specify} #maincolumn-l-r,
-  #{$specify} #maincolumn-wide,
-  #{$specify} #system-message-container,
-  #{$specify} #leftcolumn,
-  #{$specify} #downright,
-  #{$specify} #epilogue,
-  #{$specify} .left-position {
+  #maincolumn-r,
+  #maincolumn-l,
+  #maincolumn-l-r,
+  #maincolumn-wide,
+  #system-message-container,
+  #leftcolumn,
+  #downright,
+  #epilogue,
+  .left-position {
     width: auto !important;
     max-width: 100% !important;
     padding: 0 !important;
@@ -43,13 +41,8 @@
     box-sizing: border-box !important;
   }
   /*[2]*/
-  #{$specify} #wrapper {
-    overflow-x: hidden;
-  }
-  /*[3]*/
-  #{$specify} #whitebox {
+  #whitebox {
     display: grid;
-    overflow: visible; /*[4]*/
     grid-template-columns: 1fr;
     grid-template-areas:
       'sys'
@@ -58,21 +51,21 @@
       'right'
       'epi';
   }
-  #{$specify} #system-message-container { grid-area: sys; }
-  #{$specify} #sidebar_trigger { grid-area: left; }
-  #{$specify} #leftcolumn { grid-area: left; }
-  #{$specify} #downright { grid-area: right; }
-  #{$specify} #epilogue { grid-area: epi; }
-  #{$specify} #maincolumn-l-r,
-  #{$specify} #maincolumn-l,
-  #{$specify} #maincolumn-r,
-  #{$specify} #maincolumn-wide {
+  #system-message-container { grid-area: sys; }
+  #sidebar_trigger { grid-area: left; }
+  #leftcolumn { grid-area: left; }
+  #downright { grid-area: right; }
+  #epilogue { grid-area: epi; }
+  #maincolumn-l-r,
+  #maincolumn-l,
+  #maincolumn-r,
+  #maincolumn-wide {
     grid-area: main;
   }
 
   @include breakpoint(medium) {
     /* Add left column to tablet size */
-    #{$specify} #whitebox {
+    #whitebox {
       grid-template-columns: 200px 1fr;
       grid-template-areas:
         'sys sys'
@@ -81,8 +74,8 @@
         'epi epi';
       grid-column-gap: s(2);
     }
-    #{$specify} #maincolumn-r,
-    #{$specify} #maincolumn-wide {
+    #maincolumn-r,
+    #maincolumn-wide {
       grid-area: left / span 2;
     }
   }
@@ -90,7 +83,7 @@
   @include breakpoint(large) {
     /* Add right column and increase the column gap for
     larger screens */
-    #{$specify} #whitebox {
+    #whitebox {
       grid-template-columns: 250px 1fr 250px;
       grid-template-areas:
         'sys sys sys'
@@ -98,10 +91,10 @@
         'epi epi epi';
       grid-column-gap: s(3);
     }
-    #{$specify} #maincolumn-l {
+    #maincolumn-l {
       grid-area: main / span 2;
     }
-    #{$specify} #maincolumn-wide {
+    #maincolumn-wide {
       grid-area: left / span 3;
     }
   }
@@ -115,20 +108,12 @@ $mobile-padding: s(1);
 // REVIEW: Make this into block comment, explain these changes because of so many !importants
 /* Adds space around content so that content doesn't hit edge of screen */
 @supports (display: grid) {
-  #{$specify} #whitebox {
+  #whitebox {
     padding: $mobile-padding;
     width: auto !important;
     box-sizing: border-box !important;
     max-width: $max-width !important;
   }
-}
-
-/* Adds space above and below the main content area */
-$content-margin: $section-margin !default;
-$half-content-margin: $content-margin / 2;
-
-#{$specify} #whitebox {
-  margin: $content-margin auto;
 }
 
 /* End !SECTION Spacing */
@@ -152,23 +137,23 @@ $touch-target: 38px;
   /*[1]*/
   @supports (display: grid) {
     /*[2]*/
-    #{$specify} #leftcolumn {
+    #leftcolumn {
       max-width: 300px !important;
       padding: $touch-target !important;
       margin-top: calc(((#{$content-margin} / 2) + #{$touch-target}) * -1) !important;
     }
     /*[3]*/
-    #{$specify} #sidebar_trigger {
+    #sidebar_trigger {
       margin-top: calc(((#{$content-margin} / 2) + #{$touch-target}) * -1) !important;
       border: none !important;
     }
     /* FIX a bug where the icon was not centered in the box */
-    #{$specify} #sidebar_trigger::before {
+    #sidebar_trigger::before {
       height: auto;
     }
 
     /*[4]*/
-    #{$specify} #sidebar_trigger.active {
+    #sidebar_trigger.active {
       border: none !important;
       width: $touch-target !important;
       height: $touch-target !important;
@@ -176,7 +161,7 @@ $touch-target: 38px;
       margin-left: 300px - $touch-target !important;
     }
     /*[5]*/
-    #{$specify} #sidebar_trigger.active::after {
+    #sidebar_trigger.active::after {
       content: '\49';
       font-family: $font-icon;
       display: block !important;
@@ -188,40 +173,5 @@ $touch-target: 38px;
   }
 }
 
-@supports (display: grid) {
-  /* remove unneeded padding from module tables */
-  #{$specify} #leftcolumn .moduletable {
-    padding: 0;
-  }
-}
-
-/* End !SECTION Sidebar */
-/** SECTION Banner
- * Adjusts the content of the banner position to ensure content lines up
- * and doesn't hit the edge of the screen.
--------------------------------------------------------------------------- */
-
-/**
- * [1] Ensure content inside the banner stays within the width of
- * the main column
- * [2] Add same padding as is on whitebox
-**/
-#{$specify} #banner .moduletable {
-  max-width: $max-width; /*[1]*/
-  margin: auto; /*[1]*/
-  padding: $mobile-padding; /*[2]*/
-}
-
-/* End !SECTION Banner */
-/** SECTION Whitebar
- * Adds space to the site name area
- * QUESTION Why?
--------------------------------------------------------------------------- */
-
-#{$specify} #whitebar {
-  margin-top: s(1);
-  margin-bottom: s(1);
-}
-
-/* End !SECTION Whitebar */
 /* End !SECTION LAYOUT */
+}

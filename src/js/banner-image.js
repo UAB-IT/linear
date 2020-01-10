@@ -1,14 +1,23 @@
-var mainImg = document.querySelectorAll("div.item-image>img");
-console.log(mainImg[0]);
+function IT_addCSS(css) {
+  const head = document.head || document.getElementsByTagName('head')[0];
+  const style = document.createElement('style');
+  head.appendChild(style);
+  style.type = 'text/css';
+  style.appendChild(document.createTextNode(css));
+}
 
-var mainSrc = mainImg[0].getAttribute("src");
-console.log(mainSrc);
+function IT_replaceBanner(debug = false) {
+  const mainImg = document.querySelectorAll("div.item-image>img");
+    if (debug) { console.log(mainImg[0]); }
+  const mainSrc = mainImg[0].getAttribute("src");
+    if (debug) { console.log(mainSrc); }
 
-var css = '#banner::before { background-image: url( "'+mainSrc+'" ) !important; }',
-    head = document.head || document.getElementsByTagName('head')[0],
-    style = document.createElement('style');
-
-head.appendChild(style);
-
-style.type = 'text/css';
-style.appendChild(document.createTextNode(css));
+  let css = `
+    #banner::before {
+      background-image: url("${mainSrc}") !important;
+    }
+    div.item-image {
+      display: none !important;
+    }`;
+  IT_addCSS(css);
+}
