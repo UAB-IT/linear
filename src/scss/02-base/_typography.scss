@@ -15,6 +15,9 @@
  * article title
 -------------------------------------------------------------------------- */
 
+/* FIX for tiny text on small screens */
+html { font-size: 100% !important; }
+
 #{$specify-all} {
   :root {
     font-size: 16px;
