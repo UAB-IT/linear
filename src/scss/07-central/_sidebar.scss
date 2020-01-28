@@ -126,8 +126,6 @@
  * [2] Remove default separator
  * [3] Style for separators
  * [4] FIX sizing of modules
- * [5] FIX for sidebar not filling a consistent space
- * [6] Add space between sidebar and content
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
@@ -149,15 +147,26 @@
     @include clearfix;
     padding: 0;
   }
-  #leftcolumn {
-    /*[5]*/ width: 100%;
-  }
-  .left-position {
-    /*[5]*/ width: 100% !important;
-  }
-  #leftcolumn {
-    /*[6]*/ padding-right: token.space(1);
-  }
 }
 
 /* End !SECTION Sidebar misc */
+/* SECTION Sidebar layout
+ * [1] FIX for sidebar not filling a consistent space
+ * [2] Add space between sidebar and content
+ * [3] FIX for layout break on medium screens
+-------------------------------------------------------------------------- */
+
+#{$specify-all} {
+  #leftcolumn {
+    /*[1]*/ width: 100%;
+  }
+  .left-position {
+    /*[1]*/ width: 100% !important;
+  }
+  #leftcolumn {
+    /*[2]*/ padding-right: token.space(1);
+  }
+  #maincolumn-l {
+    margin: auto !important;
+  }
+}

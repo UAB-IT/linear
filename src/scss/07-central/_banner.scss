@@ -87,6 +87,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
   .breadcrumb {
     /*[1]*/ @include reset(border, padding, margin);
     /*[3]*/ @include token.block-margin;
+    margin-top: token.space(1);
   }
   .breadcrumb li span.divider::after {
     /*[4]*/

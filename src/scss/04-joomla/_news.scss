@@ -92,23 +92,8 @@
     .newsflash-title {
       @include stratus.type-set('large');
     }
-  }
-  @include stratus.media('medium') {
-    ul.it-news.has-leading-story > :first-child {
-      position: relative;
-      padding-right: 33%;
-      .newsflash-image {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        width: 30%;
-        margin-bottom: 0;
-        img {
-          object-fit: cover;
-          height: 100%;
-        }
-      }
+    figure.newsflash-image {
+      display: none;
     }
   }
 }
