@@ -41,10 +41,9 @@ function IT_googleSheet(parentElem, googleSheet) {
     tr.appendChild(td);
 
     // Add themes to cells if their contents match criteria
-    if (val == "Active") { td.classList.add('cell-notice'); }
-    if (val == "Containment") { td.classList.add('cell-caution'); }
-    if (val == "Phasing Out") { td.classList.add('cell-caution-alt'); }
-    if (val == "End of Life") { td.classList.add('cell-warning'); }
+    if (IT_applyConditionalClasses(val)) {
+      td.classList.add(IT_applyConditionalClasses(val));
+    }
 
     // Write the cell's data to the <td> element
     td.innerHTML = val;
@@ -86,8 +85,8 @@ function IT_googleSheet(parentElem, googleSheet) {
 }
 
 function IT_loadFile(url, timeout, callback) {
-  var args = Array.prototype.slice.call(arguments, 3);
-  var xhr = new XMLHttpRequest();
+  let args = Array.prototype.slice.call(arguments, 3);
+  let xhr = new XMLHttpRequest();
   xhr.ontimeout = function () {
     console.error("The request for " + url + " timed out.");
   };
@@ -103,4 +102,14 @@ function IT_loadFile(url, timeout, callback) {
   xhr.open("GET", url, true);
   xhr.timeout = timeout;
   xhr.send(null);
+}
+
+function IT_applyConditionalClasses(query) {
+  switch(query) {
+    case 'Active': return 'cell-notice';
+    case 'Containment': return 'cell-caution';
+    case 'Phasing Out': return 'cell-caution-alt';
+    case 'End of Life': return 'cell-warning';
+    default: null;
+  }
 }
