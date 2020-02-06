@@ -71,6 +71,8 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * [4] Add nicer link separators, uses icon-arrow-right from
  * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
  * [5] Remove default divider image
+ * [6] Enforce text color on hover. !important used to override !important
+ * from central style.css
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -83,6 +85,9 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
   .breadcrumb a,
   .breadcrumb > li > span {
     /*[1]*/ @include reset(color, font-size);
+    &:hover {
+      /*[6]*/ color: white !important;
+    }
   }
   .breadcrumb {
     /*[1]*/ @include reset(border, padding, margin);
