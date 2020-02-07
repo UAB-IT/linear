@@ -51,7 +51,7 @@ function IT_googleSheet(parentElem, googleSheet) {
     return td;
   }
 
-  IT_loadFile(googleSheet, 2000, populateTable);
+  IT_loadFile(googleSheet, 3000, populateTable);
 
   function populateTable() {
     let data = JSON.parse(this.responseText);
