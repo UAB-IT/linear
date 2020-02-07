@@ -9,4 +9,3 @@ function IT_sidebar() {
     return false
   });
 }
-IT_sidebar();
