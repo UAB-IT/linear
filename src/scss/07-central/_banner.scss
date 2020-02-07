@@ -32,6 +32,8 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * and send them to the back. These will be the banner image and overlay
  * [5] Set default banner image and and position
  * [6] Add the image filter effect
+ * [7] Hide he main article image since this is moved with JS
+ * See banner-image.js "IT_replaceBanner()"
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -60,6 +62,10 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
     background: token.color('secondary');
     mix-blend-mode: multiply;
     opacity: 0.9;
+  }
+
+  div.item-image {
+    /*[7]*/ display: none !important;
   }
 }
 
