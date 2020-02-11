@@ -43,6 +43,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
     padding-bottom: token.space(1);
     /*[3]*/ z-index: token.z-index('foreground');
   }
+  // TODO combine with banner::after when depreciated code is removed
   #banner::before,
   #banner::after {
     /*[4]*/
@@ -50,6 +51,7 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
     @include position(cover);
     z-index: token.z-index('background');
   }
+  // DEPRECIATED
   #banner::before {
     /*[5]*/
     background: url( #{$banner-image} );
@@ -64,6 +66,18 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
     opacity: 0.9;
   }
 
+  .banner-image img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -100;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  // TODO Remove when depreciated code is removed
   div.item-image {
     /*[7]*/ display: none !important;
   }
