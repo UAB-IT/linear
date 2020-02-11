@@ -21,29 +21,6 @@
   }
 }
 
-/* END !SECTION Sidebar Resets */
-// /** SECTION Column
-// -------------------------------------------------------------------------- */
-// /* Add border to the right of the sidebar */
-// @include stratus.media(medium) {
-//   #leftcolumn {
-//     position: relative;
-//   }
-//   #leftcolumn::after {
-//     content: '';
-//     @include position(absolute, 0, token.space(-1), 0, 0);
-//     /* REVIEW half of grid gap, see layout */
-//     border-right: 1px solid green;
-//     pointer-events: none;
-//   }
-// }
-// @include breakpoint(large) {
-//   #leftcolumn::after {
-//     right: s(-1); /* REVIEW half of grid gap, see layout */
-//   }
-// }
-// /* END !SECTION Column */
-
 /* SECTION Sidebar Links
  * [1] Reset default styles
  * [2] Add consistent typography
@@ -151,7 +128,7 @@
 
 /* End !SECTION Sidebar misc */
 /* SECTION Sidebar layout
- * [1] FIX for sidebar not filling a consistent space
+ * [1] FIX for sidebar not filling consistent space
  * [2] Add space between sidebar and content
  * [3] FIX for layout break on medium screens
 -------------------------------------------------------------------------- */
@@ -167,6 +144,7 @@
     /*[2]*/ padding-right: token.space(1);
   }
   #maincolumn-l {
+    /*[3]*/
     margin: auto !important;
   }
 }
