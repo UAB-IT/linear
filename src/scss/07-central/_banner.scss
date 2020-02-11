@@ -28,10 +28,9 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * [1] Relative allows us to position the background
  * [2] padding adjusts the height of the banner, and position of text inside
  * [3] FIX z-index is incremented to ensure the banner shows up on mobile
- * [4] Set the before and after elements to cover the banner area
- * and send them to the back. These will be the banner image and overlay
- * [5] Set default banner image and and position
- * [6] Add the image filter effect
+ * [4] Add the image filter effect
+ * [5] Fit the banner image to the full size of the banner. Position it
+ * behind the image filter effect
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -41,25 +40,25 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
     padding-bottom: token.space(1);
     /*[3]*/ z-index: token.z-index('foreground');
   }
-  #banner::before,
   #banner::after {
     /*[4]*/
     content: '';
     @include position(cover);
     z-index: token.z-index('background');
-  }
-  #banner::before {
-    /*[5]*/
-    background: url( #{$banner-image} );
-    background-size: cover;
-    background-position: bottom;
-    background-attachment: scroll;
-  }
-  #banner::after {
-    /*[6]*/
     background: token.color('secondary');
     mix-blend-mode: multiply;
     opacity: 0.9;
+  }
+
+  .banner-image img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -100;
+    height: 100%;
+    object-fit: cover;
   }
 }
 
@@ -71,6 +70,8 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
  * [4] Add nicer link separators, uses icon-arrow-right from
  * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
  * [5] Remove default divider image
+ * [6] Enforce text color on hover. !important used to override !important
+ * from central style.css
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -83,6 +84,9 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
   .breadcrumb a,
   .breadcrumb > li > span {
     /*[1]*/ @include reset(color, font-size);
+    &:hover {
+      /*[6]*/ color: white !important;
+    }
   }
   .breadcrumb {
     /*[1]*/ @include reset(border, padding, margin);

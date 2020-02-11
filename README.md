@@ -1,11 +1,9 @@
 # UAB IT Website CSS
-This CSS library is used on web pages owned by the University of Alabama at Birmingham's Department of Information Technology. 
+This CSS library is used on web pages owned by the University of Alabama at Birmingham's Department of Information Technology.
 
 [![Release](https://img.shields.io/github/v/release/UAB-IT/website-design?include_prereleases)](https://github.com/UAB-IT/website-design/releases)
 ![Valid?](https://img.shields.io/badge/w3c-validated-green)
 [![License](https://img.shields.io/github/license/UAB-IT/website-design?color=green)](https://github.com/UAB-IT/website-design/blob/master/LICENSE)
-![Size](https://img.shields.io/github/size/UAB-IT/website-design/build/it-custom.css)
-![Compressed](https://img.shields.io/github/size/UAB-IT/website-design/dist/it-custom.min.css?label=compressed)
 ![Sass](https://img.shields.io/badge/made%20with-Sass-%23bf4080)
 
 This CSS project is accompanied with a new and developing web communications strategy for IT as well as a rebuild of the core IT website, so not everything here always makes sense. This project runs on UAB Joomla sites also running the Linear template, it has not been tested with legacy templates and is incompatible with Wordpress sites.
