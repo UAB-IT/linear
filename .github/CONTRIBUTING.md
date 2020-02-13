@@ -13,7 +13,7 @@ There are many ways to contribute, from writing tutorials or blog posts, improvi
 4. Contributors are encouraged to comment their code throughly using the [Code Comment Guide](https://github.com/UAB-IT/website-design/wiki/Code-Comment-Guide).
 
 ## Versioning
-This project uses the [Semver](https://semver.org/) method of semantic versioning. 
+This project uses the [Semver](https://semver.org/) method of semantic versioning.
 
 ## Getting started
 
@@ -29,7 +29,7 @@ Now open a new terminal in VS Code and enter `npm install` in the command line. 
 ## Developing
 Take a look at this project's [wiki](https://github.com/UAB-IT/website-design/wiki) for more things to be mindful of while developing on this project.
 
-Build the project using the terminal to run `npm run build`, then test the code on the development servers by uploading the distributable files to the dev server's media folder.
+Build the project using the terminal `npm run build`, then test the code on the development servers by uploading the distributable files to the dev server's media folder. JavaScript will need to be copied and pasted into a custom module in the `ribbon` position.
 
 ### To make a bug fix
 1. Make a branch off of `master` named `[FIX]<name>`
@@ -43,24 +43,25 @@ Build the project using the terminal to run `npm run build`, then test the code 
 1. Make a branch off of `development`
 2. Develop the feature
 3. Create a new pull request to `development`
-4. Delete the feature branch after is has been merged
+4. Delete the feature branch after it has been merged
 
 ### Releasing a new build
 1. Make a new branch off of `development`
 2. Name the branch X.Y.Z replacing “X.Y.Z” with the version number, see versioning above
-3. Create a pull request into `master`
-4. Create a new release from `master` with the new version number. Include a change log of **New Features**, **Bug Fixes**, **Optimizations**, and **experimental** if applicable. Link to any relevent Issues, Commits, or Pull Requests
-5. Send the distributables from this new release to Webcomm to review and distribute to the live sites.
+3. Implement any necessary bug fixes
+4. Create a pull request into `master`
+5. Create a new release from `master` with the new version number. Include a change log of **New Features**, **Bug Fixes**, **Optimizations**, and **experimental** if applicable. Link to any relevent Issues, Commits, or Pull Requests
+6. Send the distributables from this new release to Webcomm to review and distribute to the live sites. It may be helpful to sent them a link to the pull request so they can see what changed.
 
 ## Maintenence
 Using Git as source control is a highly important component of this project. Because this project builds on decades of CSS and is subject to bugs introduced by changes to that CSS, it is key that good versioning and change tracking is maintained. This allows us greater insight to bugs, a safety net to deal with regressions, and a formal history of changes to the website's style. Without these, there would be no way to successfully maintain this project in the future.
 
 ## Specificity
-To deal with specificity issued out of our control, there is a `$specificity` variable used to globally control the specificity of this project. Every selector should be as flat as possible but include this variable at the front. This variable can then be modified as core specificity issues are resolved. In cases where the specificity needs to be greater than the variable allows, comment this and/or provide the origional selector that needs an override and its source, for example:
+To deal with specificity issues out of our control, there is a `$specificity` variable used to globally control the specificity of this project. Every selector should be as flat as possible but include this variable at the front. This variable can then be modified as core specificity issues are resolved. In cases where the specificity needs to be greater than the variable allows, comment this and/or provide the origional selector that needs an override and its source, for example:
 ```
 /* Override style from xyz.file */
 $override: original.selector.specificity
 #{$specify} #{$override} .new-selector {}
 ```
 
-Because this CSS project is built on and overrides decades of CSS, it is crucial to check every now and again that excessive overrides, odd work-arounds, and less than optimal tricks are still necessary. The hope is that over time, this project can be cleaner, faster, and more in line with best practices as the long standing problems with the central CSS are addressed and ironed out.
+Because this CSS project is built on and overrides decades of CSS, it is crucial to check every now and again that excessive overrides, odd work-arounds, and less than optimal tricks are still necessary. The hope is that over time, this project can be cleaner, faster, and more in line with best practices as specificity issues in the central CSS are addressed and ironed out.

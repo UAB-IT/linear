@@ -16,9 +16,10 @@
   },
   "homepage": "https://github.com/UAB-IT/website-design#readme",
   "devDependencies": {
-    "@mattmcadams/stratus": "^1.0.0",
     "concat": "^1.0.3",
     "sass": "^1.24.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@mattmcadams/stratus": "^1.0.0"
+  }
 }
