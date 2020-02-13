@@ -1,13 +1,13 @@
 {
   "name": "website-design",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "Website design for the University of Alabama at Birmingham's Department of Information Technology",
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "css:dev": "sass --load-path=node_modules --style=expanded src/scss/it-custom.scss build/it-custom.css",
-    "css:prod": "sass --load-path=node_modules --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
-    "js:concat": "concat -o dist/it-custom.js src/js/interactive-cards.js src/js/sidebar.js src/js/toc.js src/js/twitter-timeline.js",
+    "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it-custom.scss build/it-custom.css",
+    "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
+    "js:concat": "concat -o dist/it-custom.js src/js/interactive-cards.js src/js/sidebar.js src/js/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js",
     "build": "npm run css:prod && npm run js:concat"
   },
   "repository": {
