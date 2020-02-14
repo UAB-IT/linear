@@ -135,7 +135,7 @@
     float: none;
     @extend %toggle;
     padding-left: 0;
-    margin-right: s(0.5);
+    margin-right: token.space(0.5);
   }
   [type='radio'] {
     border-radius: 50%;

@@ -115,7 +115,7 @@
 %toggle {
   height: 1em;
   width: 1em;
-  border: token.border('width', 'hairline');
+  border: token.border('width', 'hairline') solid token.color('neutral', '800');
 }
 
 /* Active checkboxes and radio buttons */
