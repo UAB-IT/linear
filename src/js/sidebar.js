@@ -1,5 +1,6 @@
-// NAV TOGGLE ONCLICK WITH FADE
-// LOGIC TAKEN FROM UR TOOLKIT
+/* @function IT_sidebar
+ * Logic taken from similar implementation on uab.edu/toolkit
+-------------------------------------------------------------------------- */
 
 function IT_sidebar() {
   jQuery(".clickFade .deeper.parent .deeper.parent ul").hide();
