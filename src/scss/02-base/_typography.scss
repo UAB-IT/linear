@@ -13,6 +13,7 @@
  * an !important from central style.css
  * [5] Remove spacing and border from the generated header from the
  * article title
+ * [6] Fixes an issue where spans would not line up with surrounding text
 -------------------------------------------------------------------------- */
 
 /* FIX for tiny text on small screens */
@@ -65,6 +66,10 @@ html { font-size: 100% !important; }
   .page-header {
     /*[5]*/
     @include reset(margin, padding, border);
+  }
+  #content span {
+    /*[6]*/
+    line-height: inherit;
   }
 }
 
