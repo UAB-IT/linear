@@ -1,6 +1,6 @@
 {
   "name": "website-design",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "description": "Website design for the University of Alabama at Birmingham's Department of Information Technology",
   "license": "MPL-2.0",
   "private": true,
@@ -16,9 +16,10 @@
   },
   "homepage": "https://github.com/UAB-IT/website-design#readme",
   "devDependencies": {
-    "@mattmcadams/stratus": "^1.0.0",
     "concat": "^1.0.3",
     "sass": "^1.24.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@mattmcadams/stratus": "^1.0.0"
+  }
 }

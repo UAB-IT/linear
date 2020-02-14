@@ -45,12 +45,12 @@ $column-gap: (token.space('gap', 'base') / 2);
 }
 
 @include stratus.media('medium') {
-  .grid:not(.large-only) {
+  .grid:not(.grid--large-only) {
     display: flex;
   }
 }
 @include stratus.media('large') {
-  .grid.large-only {
+  .grid--large-only {
     display: flex;
   }
 }

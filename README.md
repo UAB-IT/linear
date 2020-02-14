@@ -8,7 +8,7 @@ This CSS library is used on web pages owned by the University of Alabama at Birm
 
 This CSS project is accompanied with a new and developing web communications strategy for IT as well as a rebuild of the core IT website, so not everything here always makes sense. This project runs on UAB Joomla sites also running the Linear template, it has not been tested with legacy templates and is incompatible with Wordpress sites.
 
-This CSS library is maintained by UABIT's Communications team and builds on the CSS written by central University Relations and Web Communications. It takes direction from the [UAB brand toolkit](https://www.uab.edu/toolkit/) and other UAB websites to reinforce the UAB brand and the personality of IT.
+This CSS library is maintained by UABIT's Communications team and builds on the CSS written by central University Relations and Web Communications. It takes direction from the [UAB brand toolkit](https://www.uab.edu/toolkit/) and other UAB websites to reinforce the UAB brand and the personality of Information Technology.
 
 ## Deployment
 
@@ -17,13 +17,15 @@ Currently, this library is a work-in-progress and is not used on any production 
 As of writing, this CSS library is planned to be used on
 * https://www.uab.edu/it/home/
 * https://www.uab.edu/it/news/
+* https://www.uab.edu/it/techconnect/
 * https://www.uab.edu/it/annualreport/
 
 It is currently used on
 * https://dev.uab.edu/it/home/
 * https://dev.uab.edu/it/news/
+* https://dev.uab.edu/it/techconnect/
 
-Note that you will need to be on the secure network to access any development server. You can log in through the on-campus wifi or through use of the VPN.
+Note that you will need to be on the secure UAB network to access any development server. You can log in through the on-campus wifi or through use of the VPN.
 
 ## Installation
 This CSS library is distributed in partnership between UABIT Communications and the University Web Communications team. To have this CSS applied to your website, please contact UABIT Communications and Marketing.
@@ -31,7 +33,7 @@ This CSS library is distributed in partnership between UABIT Communications and 
 ## Development
 ### Prerequisits:
 1. Become familiar with [Sass (SCSS)](https://sass-lang.com/guide)
-2. Install [Node.js](https://nodejs.org/en/) and NPM
+2. Install [Node.js](https://nodejs.org/en/) and NPM (included with Node)
 3. Install [VS Code](https://code.visualstudio.com/) and [Comment Anchors](https://marketplace.visualstudio.com/items?itemName=ExodiusStudios.comment-anchors)
 4. Review this project's [contributor guide](https://github.com/UAB-IT/website-design/blob/master/.github/CONTRIBUTING.md)
 
@@ -50,7 +52,7 @@ If anyone ever has any trouble with the build / development process for this pro
 ## Authors and acknowledgment
 Kerry Bean, IT Communications & Marketing Director<br>
 [Jessika Reed](https://github.com/orgs/UAB-IT/people/jessikareed), Project Coordinator<br>
-[Matt McAdams](https://github.com/MattMcAdams), Web developer<br>
+[Matt McAdams](https://github.com/MattMcAdams), Web designer & developer<br>
 [MJ Moon](https://github.com/orgs/UAB-IT/people/macymoon), Designer
 
-I'd also like to thank all the great folks from Web Communications for helping out with the back-end parts of this project and answering tons of questions. You guys are great and we couldn't have done it without your knowledge and support.
+I'd also like to thank all the great folks from UAB Web Communications for helping out with the back-end parts of this project and answering tons of questions. I know you all probably got tired of me, but you guys are great and we couldn't have done it without your knowledge and support.
