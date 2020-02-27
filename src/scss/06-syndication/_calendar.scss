@@ -2,9 +2,9 @@
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
 
-/* SECTION Calendar
-   Generated from the Localist widget from campus calendar
-   https://calendar.uab.edu/help/widget
+/** SECTION Calendar
+    Generated from the Localist widget from campus calendar
+    https://calendar.uab.edu/help/widget
 -------------------------------------------------------------------------- */
 // Expected HTML:
 // <div class="localist-widget">
@@ -33,8 +33,8 @@
 //   </ul>
 // </div>
 
-/* Base Styles
- * [1] Remove margin from list QUESTION: This is because of _lists.scss?
+/** Base Styles
+  * [1] Remove margin from list QUESTION: This is because of _lists.scss?
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -48,9 +48,9 @@
   }
 }
 
-/* Date Block
- * Style the square that shows the date
- * These styles are mostly taken from UR CSS
+/** Date Block
+  * Style the square that shows the date
+  * These styles are mostly taken from UR CSS
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -84,8 +84,8 @@
   }
 }
 
-/* Event Details
- * Style the block that holds event title, time, etc.
+/** Event Details
+  * Style the block that holds event title, time, etc.
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -96,7 +96,7 @@
   .localist-title h4 {
     @include stratus.type-set(normal);
     margin-top: -0.2em;
-    margin-bottom: 0px;
+    margin-bottom: 0;
     font-family: token.font('body');
   }
   .localist-title h4 a {

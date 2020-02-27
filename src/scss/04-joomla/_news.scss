@@ -2,9 +2,10 @@
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
 
-/* SECTION Newsflash
-   Generated from Article Feed module
+/** SECTION Newsflash
+  * Generated from Article Feed module
 -------------------------------------------------------------------------- */
+
 // Expected HTML:
 // <ul class="newsflash-vert it-news mod-list">
 //   <li class="newsflash-item">
@@ -18,9 +19,9 @@
 //   </li>
 // </ul>
 
-/* Resets
- * [1] Remove style from central style.css
- * [2] Removes space caused by an empty element
+/** Resets
+  * [1] Remove style from central style.css
+  * [2] Removes space caused by an empty element
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -32,7 +33,7 @@
   }
 }
 
-/* Base Styles
+/** Base Styles
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -48,15 +49,15 @@
   }
 }
 
-/* Layout
- * [1] Remove default list margins
- * [2] Allow content to sit on same row
- * [3] Allow content to wrap if there's not enough room
- * [4] Force content to wrap if the content would be less than 300
- * [5] Set a low starting width - Would be 1/3, but we'll go much less than
- * that to give room for padding
- * [6] Add space between the items left and right
- * [7] Allow items to fill remaining space
+/** Layout
+  * [1] Remove default list margins
+  * [2] Allow content to sit on same row
+  * [3] Allow content to wrap if there's not enough room
+  * [4] Force content to wrap if the content would be less than 300
+  * [5] Set a low starting width - Would be 1/3, but we'll go much less than
+  * that to give room for padding
+  * [6] Add space between the items left and right
+  * [7] Allow items to fill remaining space
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -73,12 +74,12 @@
   }
 }
 
-/* Top Featured
- * Give alternate styles to first item in the list
- * [1] Allow it to sit on its own row
- * [2] Add block padding, border, and radius
- * [3] Add space between full feature and the next row of items.
- * Important used to override ID selector from bootstrap-plus
+/** Top Featured
+  * Give alternate styles to first item in the list
+  * [1] Allow it to sit on its own row
+  * [2] Add block padding, border, and radius
+  * [3] Add space between full feature and the next row of items.
+  * Important used to override ID selector from bootstrap-plus
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

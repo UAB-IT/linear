@@ -2,13 +2,13 @@
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
 
-/* SECTION RSS feed
- * Generated from the Simple RSS Feed Generator module in Joomla
- * [1] Remove list style & margin
- * [2] Reset default layout logic
- * [3] Add consistent spacing between each entry
- * Important is used to override an ID selector from bootstrap-plus
- * [4] Setup new layout logic
+/** SECTION RSS feed
+  * Generated from the Simple RSS Feed Generator module in Joomla
+  * [1] Remove list style & margin
+  * [2] Reset default layout logic
+  * [3] Add consistent spacing between each entry
+  * Important is used to override an ID selector from bootstrap-plus
+  * [4] Setup new layout logic
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -47,8 +47,7 @@
   }
 }
 
-
-/* Title
+/** Title
  * [1] Remove link styles from entry title
  * [2] Make sure the title renders as a block element
  * [3] FIX Remove unnecessary clearfix so it doesn't mess with the grid
@@ -73,7 +72,7 @@
   }
 }
 
-/* Read More
+/** Read More
  * Add contextual button information
  * [1] Remove the default "read more" link
  * [2] Default text if source can't be determined

@@ -1,12 +1,12 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION TABS
- * Styles for the built in tabs widgetkit widget
- * [1] Remove link styles from the tab links
- * [2] Add border to active tab
- * [3] Add a border, since we can't add uk-panel-box through this widget
- * [4] Bump panel up a pixel to align its border with tab border
+/** SECTION TABS
+  * Styles for the built in tabs widgetkit widget
+  * [1] Remove link styles from the tab links
+  * [2] Add border to active tab
+  * [3] Add a border, since we can't add uk-panel-box through this widget
+  * [4] Bump panel up a pixel to align its border with tab border
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -33,7 +33,7 @@
     color: token.color('primary');
   }
   ul.uk-tab {
-    border-bottom: 0px solid transparent;
+    border-bottom: 0 solid transparent;
   }
   ul.uk-tab + ul.uk-switcher .uk-panel {
     /*[3]*/ border: 1px solid token.color('neutral');

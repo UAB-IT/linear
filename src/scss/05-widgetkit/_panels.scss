@@ -1,10 +1,10 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Panels
- * [1] FIX: Hide link style so the card will be visible
- * [2] Fix link style on header when card is hovered
- * [3] Enforce text color
+/** SECTION Panels
+  * [1] FIX: Hide link style so the card will be visible
+  * [2] Fix link style on header when card is hovered
+  * [3] Enforce text color
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

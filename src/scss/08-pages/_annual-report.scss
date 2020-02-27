@@ -1,23 +1,14 @@
-/* Navigation
- * [1] Hide default navigation bar
- * [2] Enable smooth scrolling when clicking on anchor link
- * [3] Remove top content margin
+/** Navigation
+  * [1] Hide default navigation bar
+  * [2] Enable smooth scrolling when clicking on anchor link
+  * [3] Remove top content margin
 -------------------------------------------------------------------------- */
 
-.navbar-static-top {
-  /*[1]*/
-  display: none !important;
-}
+.navbar-static-top { /*[1]*/ display: none !important; }
 
-html {
-  /*[2]*/
-  scroll-behavior: smooth;
-}
+html { /*[2]*/ scroll-behavior: smooth; }
 
-#whitebox {
-  /*[3]*/
-  margin-top: 0 !important;
-}
+#whitebox { /*[3]*/ margin-top: 0 !important; }
 
 .sticky {
   position: sticky !important;
@@ -44,7 +35,7 @@ html {
   width: 100%;
   background-color: white;
   display: flex;
-  box-shadow: 0px 4px #eee;
+  box-shadow: 0 4px #eee;
   margin-bottom: 1.6rem !important;
 }
 
@@ -88,7 +79,7 @@ html {
   }
   .topnav.responsive .icon {
     position: absolute;
-    top: 0px;
+    top: 0;
     right: 2rem;
   }
   .topnav.responsive {

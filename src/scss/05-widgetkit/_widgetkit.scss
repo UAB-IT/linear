@@ -2,15 +2,16 @@
 @use '../01-core/token';
 
 /** SECTION Widgetkit
- * Selectors match those from ui kit
- * [1] Add consistent margin space between widgetkit items
- * [2] Remove default margin from .uk elements so the new margin can be used
- * [3] Add section spacing to widgetkit blocks
- * [4] Offset the the gap between widgetkit blocks and headers meant for them
- * [5] Reset the header margins for widgetkit item headers
+  * Selectors match those from ui kit
+  * [1] Add consistent margin space between widgetkit items
+  * [2] Remove default margin from .uk elements so the new margin can be used
+  * [3] Add section spacing to widgetkit blocks
+  * [4] Offset the the gap between widgetkit blocks and headers meant for them
+  * [5] Reset the header margins for widgetkit item headers
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
+  // TEMP: old margin sizes
   // * + .uk-margin {
   //   /*[1]*/ margin-top: token.space(1);
   // }
@@ -36,7 +37,7 @@
   .uk-panel-title {
     /*[5]*/
     @include reset(margin);
-    margin-bottom: s( -0.5 );
+    margin-bottom: s(-0.5);
   }
 }
 

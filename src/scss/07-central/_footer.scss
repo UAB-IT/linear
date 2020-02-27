@@ -1,23 +1,24 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Footer
- * [1] Add underline to footer links on focus
- * [2] Make social icons same color as footer background
- * [3] Make social icons' background white
- * [4] Make sure both footer columns line up. It is set as 'baseline'
- * with high specificity in central css, so !important is used to override it
- * [5] Add more space to the top of the footer so that it roughly matches
- * the space between the footer and locked footer
- * [6] remove default spacing
- * [7] Add new spacing
- * [8] Add border between the footer columns
+/** SECTION Footer
+  * [1] Add underline to footer links on focus
+  * [2] Make social icons same color as footer background
+  * [3] Make social icons' background white
+  * [4] Make sure both footer columns line up. It is set as 'baseline'
+  * with high specificity in central css, so !important is used to override it
+  * [5] Add more space to the top of the footer so that it roughly matches
+  * the space between the footer and locked footer
+  * [6] remove default spacing
+  * [7] Add new spacing
+  * [8] Add border between the footer columns
 -------------------------------------------------------------------------- */
 
 #{$specify} {
   #footer a,
   #lockedFooter a {
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       /*[1]*/ text-decoration: underline;
     }
   }
@@ -25,7 +26,7 @@
     /*[2]*/ fill: #595959 !important;
   }
   #footer.footerGray .at-icon-wrapper {
-    /*[3]*/ background-color: white !important
+    /*[3]*/ background-color: white !important;
   }
   #footer .flexFooter {
     /*[4]*/ align-items: center !important;
@@ -43,13 +44,13 @@
   }
 }
 
-/* Alt Footer
- * Place in the "lower 3" module position with the "alt-footer" class
- * [1] Move the content so that it sits right on top of the footer
- * [2] Set a comfortable minimum width and center it
- * [3] Add space above and below the content. Below is half because the
- * last element inside the content will have a bottom margin
- * NOTE: .has-background-full should also be put on .alt-footer-inner
+/** Alt Footer
+  * Place in the "lower 3" module position with the "alt-footer" class
+  * [1] Move the content so that it sits right on top of the footer
+  * [2] Set a comfortable minimum width and center it
+  * [3] Add space above and below the content. Below is half because the
+  * last element inside the content will have a bottom margin
+  * NOTE: .has-background-full should also be put on .alt-footer-inner
 -------------------------------------------------------------------------- */
 
 #{$specify} {

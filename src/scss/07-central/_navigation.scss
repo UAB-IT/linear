@@ -1,16 +1,16 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Top Navigation
- * Implement styles similar to UR department css (uab.edu/cas)
- * [1] Remove default link styles
- * [2] Add more space around menu items. Important is used to override
- * another important from central css
- * [3] Add accent color to menu items
- * [4] Change menu item text color. Important is used to override another
- * important from central css
- * [5] Add accent border, width to match UR sites
- * [6] Ensure grey color is consistent with grey used throughout site
+/** SECTION Top Navigation
+  * Implement styles similar to UR department css (uab.edu/cas)
+  * [1] Remove default link styles
+  * [2] Add more space around menu items. Important is used to override
+  * another important from central css
+  * [3] Add accent color to menu items
+  * [4] Change menu item text color. Important is used to override another
+  * important from central css
+  * [5] Add accent border, width to match UR sites
+  * [6] Ensure grey color is consistent with grey used throughout site
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -41,11 +41,11 @@
 }
 
 /* END !SECTION Top Navigation */
-/* SECTION Quicklinks
- * Fix several bugs and consistency issues with quicklinks
- * [1] Ensure links are sized correctly
- * [2] FIX: Make sure quicklinks are above banner
- * [3] Ensure hover color is consistent with link hover colors
+/** SECTION Quicklinks
+  * Fix several bugs and consistency issues with quicklinks
+  * [1] Ensure links are sized correctly
+  * [2] FIX: Make sure quicklinks are above banner
+  * [3] Ensure hover color is consistent with link hover colors
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -67,17 +67,18 @@
 }
 
 /* END !SECTION Quicklinks */
+
 @if $adjust-template {
-/* SECTION Search
- * Creates better alignment of search field and button
--------------------------------------------------------------------------- */
+  /** SECTION Search
+    * Creates better alignment of search field and button
+  -------------------------------------------------------------------------- */
 
-#{$specify} {
-  #search form {
-    display: flex;
-    justify-content: flex-end;
+  #{$specify} {
+    #search form {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
-}
 
-/* END !SECTION Search */
+  /* END !SECTION Search */
 } // End If statement

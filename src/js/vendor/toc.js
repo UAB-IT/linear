@@ -1,4 +1,4 @@
-/* jQuery-TOC
+/** jQuery-TOC
  * Table of Contents Generator Plugin for (non-)jQuery
  * https://github.com/idiotWu/jQuery-TOC
  *

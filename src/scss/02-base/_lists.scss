@@ -1,15 +1,15 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Lists
- * [1] Reset list margin & padding
- * [2] Add block margin to block list elements
- * [3] Remove the block margin from nested lists and add margin top to make
- * spacing consistent with other list items
- * [4] Add colored bullets for browsers that support them
+/** SECTION Lists
+  * [1] Reset list margin & padding
+  * [2] Add block margin to block list elements
+  * [3] Remove the block margin from nested lists and add margin top to make
+  * spacing consistent with other list items
+  * [4] Add colored bullets for browsers that support them
 -------------------------------------------------------------------------- */
 
-#{$specify-main}{
+#{$specify-main} {
   ul,
   ol {
     /*[1]*/

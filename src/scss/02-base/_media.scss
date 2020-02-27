@@ -2,11 +2,11 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Media
- * [1] Add block spacing to block level media
- * [2] Make sure image is never larger than it's container
- * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
- * [4] Make images block / auto by default
+/** SECTION Media
+  * [1] Add block spacing to block level media
+  * [2] Make sure image is never larger than it's container
+  * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
+  * [4] Make images block / auto by default
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -28,11 +28,11 @@
 }
 
 /* END !SECTION Media */
-/* SECTION Captions
- * Correct font sizing and margins of captions
- * [1] Style figcaption to display small in the center under the image
- * [2] Add rhythm spacing above caption instead of below image because the image
- * can't tell if a caption exists or not.
+/** SECTION Captions
+  * Correct font sizing and margins of captions
+  * [1] Style figcaption to display small in the center under the image
+  * [2] Add rhythm spacing above caption instead of below image because the image
+  * can't tell if a caption exists or not.
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

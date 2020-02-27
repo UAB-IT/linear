@@ -2,38 +2,38 @@
 @use '../01-core/token';
 @use '@mattmcadams/stratus';
 
-/* SECTION TechConnect
+/** SECTION TechConnect
 -------------------------------------------------------------------------- */
 
-/* Banner container
- * [1] Allow banner background to be positioned in relation to the banner
- * content
- * [2] Ensure banner background is visible since it will overflow
- * the banner content area
+/** Banner container
+  * [1] Allow banner background to be positioned in relation to the banner
+  * content
+  * [2] Ensure banner background is visible since it will overflow
+  * the banner content area
 -------------------------------------------------------------------------- */
 
-#{$specify-main}{
+#{$specify-main} {
   [id="TC-custom-banner"] {
     position: relative; /*[1]*/
     overflow-x: visible; /*[2]*/
   }
 }
 
-/* Side Image
- * [1] Allow banner image to cover the height of the banner section
- * [2] Make the banner the full width of the screen
- * [2.1] Adjust the left margin to counter the extra screen width outside
- * of the main content width. Take the screen width, subtract the main
- * content width, then divide the remaining by 2. Negative is used because
- * we want it to be a negative margin.
- * [2.2] Fixes a bug where the text in the banner area couldn't be clicked
- * or selected.
- * [3] Controlls the size of the banner image
- * [4] Controlls the angular cut on the left side of the image
- * [5] This has been commented out, but should be set with an inline style
- * [6] Positions the banner image to the right edge of the screen
- * [7] Adds the colored border to the angle
- * [7.1] Adjusts the width of the border
+/** Side Image
+  * [1] Allow banner image to cover the height of the banner section
+  * [2] Make the banner the full width of the screen
+  * [2.1] Adjust the left margin to counter the extra screen width outside
+  * of the main content width. Take the screen width, subtract the main
+  * content width, then divide the remaining by 2. Negative is used because
+  * we want it to be a negative margin.
+  * [2.2] Fixes a bug where the text in the banner area couldn't be clicked
+  * or selected.
+  * [3] Controlls the size of the banner image
+  * [4] Controlls the angular cut on the left side of the image
+  * [5] This has been commented out, but should be set with an inline style
+  * [6] Positions the banner image to the right edge of the screen
+  * [7] Adds the colored border to the angle
+  * [7.1] Adjusts the width of the border
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -61,7 +61,7 @@
       background-size: cover;
       right: 0; /*[6]*/
     }
-    .TC-custom-banner-bg:before {
+    .TC-custom-banner-bg::before {
       background-color: token.color('accent'); /*[7]*/
       right: 15px; /*[7.1]*/
     }

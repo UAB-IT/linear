@@ -1,21 +1,21 @@
-/* ==========================================================================
-   SECTION DETAILS
-   Styles for custom component called "details" .wk-details
-   This has a small icon on the left with text on the right.
+/** SECTION Details
+    Styles for custom component called "details" .wk-details
+    This has a small icon on the left with text on the right.
+  * REVIEW: Can this specificity be cleaner?
+  * [1] Size image for details component
+  * [2] FIX for spacing issue
 ========================================================================== */
 
-// REVIEW: Can this specificity be cleaner?
-
-/* Size image for details component */
 #{$specify} .wk-details .uk-panel img {
-  height: 5rem; // HACK: Magic number
+  /*[1]*/
+  height: 5rem;
   width: auto;
   display: block;
   margin: auto;
 }
 
-/* FIX for spacing issue */
 #{$specify} .wk-details.uk-text-left .uk-panel img {
+  /*[2]*/
   @include reset(margin);
 }
 

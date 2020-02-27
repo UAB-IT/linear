@@ -4,7 +4,7 @@
 
 $column-gap: (token.space('gap', 'base') / 2);
 
-/* SECTION Grid
+/** SECTION Grid
  * This is intended to be a simple grid utility to allow content
  * to be placed side by side without using widgetkit.
  * Inspired by bulma
@@ -15,17 +15,16 @@ $column-gap: (token.space('gap', 'base') / 2);
   margin-left: (-$column-gap);
   margin-right: (-$column-gap);
   margin-top: (-$column-gap);
-  &:last-child{
+  &:last-child {
     margin-bottom: (-$column-gap);
   }
-  &:not(:last-child){
-    margin-bottom: calc(#{token.space(1)} - #{$column-gap})
+  &:not(:last-child) {
+    margin-bottom: calc(#{token.space(1)} - #{$column-gap});
   }
-}
-.grid {
-  &.is-centered{ justify-content: center; }
+
+  &.is-centered { justify-content: center; }
   &.is-vcentered { align-items: center; }
-  &.is-gapless{
+  &.is-gapless {
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
@@ -62,8 +61,9 @@ $column-gap: (token.space('gap', 'base') / 2);
   flex-shrink: 1;
   padding: $column-gap;
 }
+
 @mixin grid_item($breakpoint) {
-  .grid_item{
+  .grid_item {
     &.is-full#{$breakpoint} {
       flex: none;
       width: 100%;
@@ -98,12 +98,14 @@ $column-gap: (token.space('gap', 'base') / 2);
 @include stratus.media('small') {
   @include grid_item('-sm');
 }
+
 @include stratus.media('medium') {
   .grid:not(.is-mobile) {
     @include grid_item(null);
   }
   @include grid_item('-md');
 }
+
 @include stratus.media('large') {
   @include grid_item('-lg');
 }
