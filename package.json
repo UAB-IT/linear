@@ -9,6 +9,7 @@
     "js:lint--fix": "npx standard 'src/js/*.js' --fix",
     "js:concat": "concat -o dist/it-custom.js src/js/interactive-cards.js src/js/vendor/sidebar.js src/js/vendor/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js",
     "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it-custom.scss build/it-custom.css",
+    "ar:css": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/08-pages/_annual-report.scss build/itar-custom.css",
     "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
     "css:lint": "npx stylelint 'src/**/*.scss'",
     "css:lint--fix": "npx stylelint 'src/**/*.scss' --fix",
