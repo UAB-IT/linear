@@ -15,6 +15,10 @@
 -------------------------------------------------------------------------- */
 
 #{$specify} {
+  #footer,
+  #lockedFooter {
+    background-color: token.color('neutral', '700') !important;
+  }
   #footer a,
   #lockedFooter a {
     &:hover,
