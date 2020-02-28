@@ -3,7 +3,8 @@
 
 /** Navigation
   * [1] Hide default navigation bar
-  * [3] Remove top content margin
+  * [3] Offset the custom navigation by the top content margin so that it
+  * sits roughly where the default navigation would be.
   * [4] Remove list styles and margins
   * [5] Set base style for Full width navbar
   * [6] Style individual links
@@ -11,7 +12,6 @@
 -------------------------------------------------------------------------- */
 
 .navbar-static-top { /*[1]*/ display: none !important; }
-#whitebox { /*[3]*/ margin-top: 0 !important; }
 
 @supports (position: sticky) {
   .sticky {
@@ -22,6 +22,10 @@
 }
 
 #{$specify-main} {
+  #AR_NAV {
+    /*[3]*/ margin-top: token.space(-4) !important;
+  }
+
   #AR_NAV,
   #AR_NAV ul,
   #AR_NAV li {
@@ -53,7 +57,7 @@
 
     &:hover {
       background: token.color('neutral', '100');
-      border-bottom: 4px solid #1e6b52;
+      border-bottom: 4px solid token.color('primary');
       border-bottom: 4px solid var(--theme-color);
       position: relative;
       z-index: 4;
