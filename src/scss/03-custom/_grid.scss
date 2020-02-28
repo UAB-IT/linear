@@ -60,6 +60,7 @@ $column-gap: (token.space('gap', 'base') / 2);
   flex-grow: 1;
   flex-shrink: 1;
   padding: $column-gap;
+  box-sizing: border-box;
 }
 
 @mixin grid_item($breakpoint) {
