@@ -2,28 +2,66 @@
 @use '../01-core/token';
 
 /** SECTION Panels
+  * [01] Preserve border radius on inner image - Equal to the card's padding
+  * [03] Ensure the image sits within the hover border
+  * [04] Adjust margin to account for invisible border
+  * [02] Align teaser image with edge of card
   * [1] FIX: Hide link style so the card will be visible
   * [2] Fix link style on header when card is hovered
   * [3] Enforce text color
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
+  a.uk-position-cover { /*[1]*/ opacity: 0 !important; }
+
   .uk-panel-box {
     @extend %card;
-    background: white;
+    background-color: white;
+    /*[01]*/ overflow: hidden;
+
+    & > .uk-panel-teaser {
+      /*[02]*/
+      margin-top: #{token.space(-1)};
+      margin-left: #{token.space(-1)};
+      margin-right: #{token.space(-1)};
+    }
   }
-  a.uk-position-cover {
-    /*[1]*/ opacity: 0 !important;
-  }
+
   .uk-panel-box-hover:hover,
-  .uk-panel-box-primary-hover:hover {
+  .uk-panel-box-primary-hover:hover,
+  .uk-panel-box-secondary-hover:hover {
     @extend %hover;
+    & > .uk-panel-teaser {
+      /*[03]*/
+      margin-top: calc(#{token.space(-1)} + 1px);
+      margin-left: calc(#{token.space(-1)} + 1px);
+      margin-right: calc(#{token.space(-1)} + 1px);
+    }
   }
-  .uk-overlay-hover:hover h3 a {
-    /*[2]*/
-    border-color: token.color('primary');
-    background-color: token.color('primary', '100');
+
+  .uk-panel-box-primary-hover:hover {
+    & h3 a {
+      /*[2]*/
+      border-color: token.color('primary');
+      background-color: token.color('primary', '100');
+    }
   }
+
+  .uk-panel-box-secondary {
+    background-color: token.color('background');
+    border-color: transparent;
+
+    & > .uk-panel-teaser {
+      /*[04]*/
+      margin-top: calc(#{token.space(-1)} - 1px);
+      margin-left: calc(#{token.space(-1)} - 1px);
+      margin-right: calc(#{token.space(-1)} - 1px);
+    }
+  }
+  .uk-panel-box-secondary-hover:hover {
+    background-color: token.color('background');
+  }
+
   .uk-panel-title,
   .uk-panel-box-primary,
   .uk-panel-box,
