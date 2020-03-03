@@ -113,10 +113,16 @@ function IT_loadFile(url, timeout, callback) {
 
 function IT_applyConditionalClasses(query) {
   switch(query) {
-    case 'Active': return 'cell-notice';
-    case 'Containment': return 'cell-caution';
+    case 'Active':
+    case 'Functional':
+      return 'cell-notice';
+    case 'Containment':
+    case 'Functional with issues':
+      return 'cell-caution';
     case 'Phasing Out': return 'cell-caution-alt';
-    case 'End of Life': return 'cell-warning';
+    case 'Down':
+    case 'End of Life':
+      return 'cell-warning';
     default: null;
   }
 }
