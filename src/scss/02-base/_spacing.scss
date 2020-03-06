@@ -49,7 +49,8 @@ body.hd.layout-wide #whitebox {
   .section {
     /*[1]*/ margin: token.space('margin', 'section') 0;
   }
-  .section.has-background-full {
+  .section.has-background-full,
+  .section.section-pad {
     /*[2]*/ padding: token.space('padding', 'section') 0;
   }
 }
