@@ -107,12 +107,18 @@ function IT_loadFile (url, timeout, callback) {
   * @return {string} - The name of a class to be applied
 -------------------------------------------------------------------------- */
 
-function IT_applyConditionalClasses (query) {
-  switch (query) {
-    case 'Active': return 'cell-notice'
-    case 'Containment': return 'cell-caution'
-    case 'Phasing Out': return 'cell-caution-alt'
-    case 'End of Life': return 'cell-warning'
-    default: return null
+function IT_applyConditionalClasses(query) {
+  switch(query) {
+    case 'Active':
+    case 'Functional':
+      return 'cell-notice';
+    case 'Containment':
+    case 'Functional with issues':
+      return 'cell-caution';
+    case 'Phasing Out': return 'cell-caution-alt';
+    case 'Down':
+    case 'End of Life':
+      return 'cell-warning';
+    default: null;
   }
 }
