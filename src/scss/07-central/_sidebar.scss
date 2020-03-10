@@ -44,12 +44,13 @@
     text-shadow: none;
     font-weight: token.font('body', 'bold');
   }
-  #leftcolumn ul.nav.menu > .parent > a {
+  #leftcolumn ul.nav.menu > li:first-child > a {
     /* Style for link to Section Page */
     @include stratus.type-set(normal);
     font-weight: token.font('body', 'bold');
   }
-  #leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  #leftcolumn ul.nav.menu .nav-header + ul a,
+  #leftcolumn ul.nav.menu .nav-header + ul a {
     /* Child items */
     padding-left: 1.5rem;
   }
@@ -79,7 +80,7 @@
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
-  .clickFade .deeper.parent .deeper.parent.active ul {
+  .clickFade .active > .nav-header + ul {
     /*[1]*/ display: block !important;
   }
   .clickFade .nav-header {
