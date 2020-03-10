@@ -23,7 +23,7 @@
   #tray #ribbon .nav > .active > a:focus,
   #tray #ribbon .nav > .alias-parent-active > a {
     /*[3]*/ background-color: token.color('accent');
-    /*[4]*/ color: white !important;
+    /*[4]*/ color: black !important;
   }
   div#tray {
     /*[5]*/ border-bottom: 7px solid token.color('accent');
