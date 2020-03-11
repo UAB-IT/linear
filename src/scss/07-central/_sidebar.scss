@@ -2,11 +2,11 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Sidebar Resets
- * Uses the same selectors from central style.css
- * [1] Reset font sizes in the sidebar
- * [2] Background must be solid for mobile screens
- * [3] Remove list margins
+/** SECTION Sidebar Resets
+  * Uses the same selectors from central style.css
+  * [1] Reset font sizes in the sidebar
+  * [2] Background must be solid for mobile screens
+  * [3] Remove list margins
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
@@ -21,10 +21,10 @@
   }
 }
 
-/* SECTION Sidebar Links
- * [1] Reset default styles
- * [2] Add consistent typography
- * [3] Base styles
+/** SECTION Sidebar Links
+  * [1] Reset default styles
+  * [2] Add consistent typography
+  * [3] Base styles
 -------------------------------------------------------------------------- */
 #{$specify-all} {
   #leftcolumn ul.nav.menu a,
@@ -44,19 +44,20 @@
     text-shadow: none;
     font-weight: token.font('body', 'bold');
   }
-  #leftcolumn ul.nav.menu > .parent > a {
+  #leftcolumn ul.nav.menu > li:first-child > a {
     /* Style for link to Section Page */
     @include stratus.type-set(normal);
     font-weight: token.font('body', 'bold');
   }
-  #leftcolumn ul.nav.menu .nav-child .parent > ul a {
+  #leftcolumn ul.nav.menu .nav-header + ul a,
+  #leftcolumn ul.nav.menu .nav-header + ul a {
     /* Child items */
     padding-left: 1.5rem;
   }
 }
 
 /* END !SECTION Sidebar Links */
-/* SECTION Sidebar link states
+/** SECTION Sidebar link states
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
@@ -71,15 +72,15 @@
 }
 
 /* END !SECTION Sidebar link states */
-/* SECTION Dropdown
- * [1] Show items when .active is added
- * [2] Change cursor to indicate clickable state
- * [3] Add drop down icon to header items
- * [4] Change drop down icon when it is open
+/** SECTION Dropdown
+  * [1] Show items when .active is added
+  * [2] Change cursor to indicate clickable state
+  * [3] Add drop down icon to header items
+  * [4] Change drop down icon when it is open
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
-  .clickFade .deeper.parent .deeper.parent.active ul {
+  .clickFade .active > .nav-header + ul {
     /*[1]*/ display: block !important;
   }
   .clickFade .nav-header {
@@ -87,7 +88,7 @@
   }
   .clickFade .nav-header::after {
     /*[3]*/
-    font-family: 'FontAwesome';
+    font-family: 'FontAwesome', monospace;
     content: '\f0d7';
     color: token.color('accent');
     margin-left: 5px;
@@ -98,11 +99,11 @@
 }
 
 /* End !SECTION Dropdown */
-/* SECTION Sidebar misc
- * [1] Ensure spacing consistency
- * [2] Remove default separator
- * [3] Style for separators
- * [4] FIX sizing of modules
+/** SECTION Sidebar misc
+  * [1] Ensure spacing consistency
+  * [2] Remove default separator
+  * [3] Style for separators
+  * [4] FIX sizing of modules
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
@@ -127,10 +128,10 @@
 }
 
 /* End !SECTION Sidebar misc */
-/* SECTION Sidebar layout
- * [1] FIX for sidebar not filling consistent space
- * [2] Add space between sidebar and content
- * [3] FIX for layout break on medium screens
+/** SECTION Sidebar layout
+  * [1] FIX for sidebar not filling consistent space
+  * [2] Add space between sidebar and content
+  * [3] FIX for layout break on medium screens
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {

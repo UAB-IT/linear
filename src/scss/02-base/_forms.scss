@@ -2,11 +2,10 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Buttons
+/** SECTION Buttons
 -------------------------------------------------------------------------- */
 
-#{$specify-main},
-#{$specify-banner} {
+#{$specify-main} {
   button,
   .btn,
   input[type='submit'],
@@ -44,14 +43,14 @@
 
 /* END !SECTION Buttons */
 /** SECTION Button Groups
- * Expected HTML
- * <div class="input-group">
- *   <input> or <button> or <a class="btn">
- *   <button> or <a class="btn">
- * </div>
+  * Expected HTML
+  * <div class="input-group">
+  *   <input> or <button> or <a class="btn">
+  *   <button> or <a class="btn">
+  * </div>
 -------------------------------------------------------------------------- */
 
-#{$specify-main}{
+#{$specify-main} {
   .input-group,
   .input-group form {
     display: flex;
@@ -81,10 +80,10 @@
 }
 
 /* END !SECTION Button Groups */
-/* SECTION Form Field Resets
+/** SECTION Form Field Resets
 -------------------------------------------------------------------------- */
 
-#{$specify-main}{
+#{$specify-main} {
   textarea,
   input[type='email'],
   input[type='number'],
@@ -105,9 +104,9 @@
   }
 }
 
-/* END !SECTION Form Field Resets
-/* SECTION Inputs
- * [1] Apply typography styles to form elements
+/* END !SECTION Form Field Resets*/
+/** SECTION Inputs
+  * [1] Apply typography styles to form elements
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

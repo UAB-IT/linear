@@ -1,0 +1,25 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+
+/** Themes
+-------------------------------------------------------------------------- */
+.bg-theme-color {
+  background: token.color('primary') !important;
+  background: var(--theme-color, #{token.color('primary')}) !important;
+}
+
+.txt-theme-color {
+  color: token.color('primary') !important;
+  color: var(--theme-color, #{token.color('primary')}) !important;
+}
+
+.u-txt-white { color: white !important; }
+.u-txt-bold { font-weight: bold !important; }
+
+.u-pad-05 { padding: token.space(0.5) !important; }
+.u-pad-1 { padding: token.space(1) !important; }
+
+.theme-uab { --theme-color: #{token.color('primary')}; }
+.theme-apple { --theme-color: #{token.color('accent')}; }
+.theme-blaze { --theme-color: #{token.color('state', 'caution')}; }
+.theme-dark-green { --theme-color: #{token.color('secondary')}; }

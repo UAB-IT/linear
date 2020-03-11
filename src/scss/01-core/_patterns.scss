@@ -1,10 +1,10 @@
 @use '@mattmcadams/stratus';
 @use 'token';
 
-/* SECTION PATTERNS
+/** SECTION PATTERNS
 ========================================================================== */
 
-/* Header Styles
+/** Header Styles
 -------------------------------------------------------------------------- */
 
 %header {
@@ -13,7 +13,7 @@
   color: token.color('text', 'header');
 }
 
-/* Links
+/** Links
 -------------------------------------------------------------------------- */
 
 /* Link base - medium border bottom */
@@ -22,7 +22,7 @@
   border-bottom-style: solid;
 }
 
-/* Link primary
+/** Link primary
  * border is primary 200 with uab green and light background on hover
 **/
 %link-primary {
@@ -34,7 +34,7 @@
   }
 }
 
-/* Link alert
+/** Link alert
  * This is a red theme of the link style
 **/
 %link-alert {
@@ -46,7 +46,7 @@
   }
 }
 
-/* Cards
+/** Cards
 -------------------------------------------------------------------------- */
 
 %card {
@@ -55,7 +55,7 @@
   padding: token.space('padding', 'block');
 }
 
-/*  Input template
+/**  Input template
 -------------------------------------------------------------------------- */
 
 %input-template {
@@ -66,7 +66,7 @@
   border-radius: token.border('radius');
 }
 
-/* Buttons
+/** Buttons
 -------------------------------------------------------------------------- */
 
 /* Base button styles, extends base input styles */
@@ -86,14 +86,15 @@
   border-color: token.color('primary');
 }
 
-/* Inputs
+/** Inputs
 -------------------------------------------------------------------------- */
 
 /* Base text box / form field style */
 %input {
   @extend %input-template;
   color: token.color('text', 'body');
-  &:focus, &:focus {
+  &:focus,
+  &:focus {
     border-color: token.color('accent');
     box-shadow: 0 0 0 1px token.color('accent');
     outline: thin dotted #333;
@@ -126,7 +127,7 @@
   }
 }
 
-/* Basic hover style
+/** Basic hover style
 -------------------------------------------------------------------------- */
 
 %hover {

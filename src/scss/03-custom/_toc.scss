@@ -1,10 +1,10 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION TOC
- * Table of contents block
- * [1] Set a max width so it doesn't get too wide. This number just felt right
- * [2] Remove the list styles
+/** SECTION TOC
+  * Table of contents block
+  * [1] Set a max width so it doesn't get too wide. This number just felt right
+  * [2] Remove the list styles
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

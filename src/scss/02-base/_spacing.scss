@@ -1,16 +1,16 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Structure
- * [1] allow elements to overflow the grid to cover the full width
- * of the screen.
- * [2] Add space above and below the content.
- * [3] fixes a bug where elements that overflow the whitebox could overflow
- * the body and allow the page to be scrolled on the x axis.
- * [4] Fixes a bug where elements that overflowed the content would be invisible
- * [5] Margin fix for first and last elements
- * [6] Adds an option to have an inside page the same width as the home page
- * Add 'layout-wide' as a page class on the menu item
+/** SECTION Structure
+  * [1] allow elements to overflow the grid to cover the full width
+  * of the screen.
+  * [2] Add space above and below the content.
+  * [3] fixes a bug where elements that overflow the whitebox could overflow
+  * the body and allow the page to be scrolled on the x axis.
+  * [4] Fixes a bug where elements that overflowed the content would be invisible
+  * [5] Margin fix for first and last elements
+  * [6] Adds an option to have an inside page the same width as the home page
+  * Add 'layout-wide' as a page class on the menu item
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -40,27 +40,28 @@ body.hd.layout-wide #whitebox {
 }
 
 /** Sections
- * [1] Add section top & bottom margin
- * [2] Add a larger padding on top and bottom, remove side paddings if
- * the background is full width
+  * [1] Add section top & bottom margin
+  * [2] Add a larger padding on top and bottom, remove side paddings if
+  * the background is full width
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
   .section {
     /*[1]*/ margin: token.space('margin', 'section') 0;
   }
-  .section.has-background-full {
+  .section.has-background-full,
+  .section.section-pad {
     /*[2]*/ padding: token.space('padding', 'section') 0;
   }
 }
 
 /* END !SECTION Structure */
-/* SECTION Background
- * Style for a background to stretch to the full width of the window
- * [1] Fixes a bug where background is invisible on mobile
- * [2] Size the background to be wider than the window
- * [3] Position it so that it starts off the left edge of the screen
- * [4] Position the background behind the element's content
+/** SECTION Background
+  * Style for a background to stretch to the full width of the window
+  * [1] Fixes a bug where background is invisible on mobile
+  * [2] Size the background to be wider than the window
+  * [3] Position it so that it starts off the left edge of the screen
+  * [4] Position the background behind the element's content
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {

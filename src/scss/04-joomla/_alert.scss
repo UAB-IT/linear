@@ -1,17 +1,18 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-/* SECTION Alerts
- * Removes default styles from bootstrap
- * [1] Remove bottom margin from paragraphs in an alert
- * [2] Adjust card colors for alerts
- * [3] Hide .ie-alert on all browsers
- * [4] Show .ie-alert on Internet Explorer
+/** SECTION Alerts
+  * Removes default styles from bootstrap
+  * [1] Remove bottom margin from paragraphs in an alert
+  * [2] Adjust card colors for alerts
+  * [3] Hide .ie-alert on all browsers
+  * [4] Show .ie-alert on Internet Explorer
+-------------------------------------------------------------------------- */
+
 // Expected HTML:
 // <div class="moduletable alert">
 //   <p> Content </p>
 // </div>
--------------------------------------------------------------------------- */
 
 #{$specify-main} {
   .alert {
@@ -30,12 +31,6 @@
     @include token.block-margin;
   }
   .alert a { @extend %link-alert; }
-
-  // /* Add margin between alerts and content. Should equal the margin between
-  // the banner and content */
-  // #breadcrumbs > :last-child {
-  //   margin-bottom: token.space( 3 );
-  // }
 
   .ie-alert { /*[3]*/ display: none; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {

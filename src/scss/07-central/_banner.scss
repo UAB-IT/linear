@@ -1,11 +1,9 @@
 @use '../01-core/' as *;
 @use '../01-core/token';
 
-$banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
-
-/* SECTION Page Header
- * [1] Remove default positional styles
- * [2] Apply consistent spacing & adjust text color
+/** SECTION Page Header
+  * [1] Remove default positional styles
+  * [2] Apply consistent spacing & adjust text color
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -23,15 +21,15 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 }
 
 /* END !SECTION Page Header */
-/* SECTION Banner Image
- * Setup the banner background image
- * [1] Relative allows us to position the background
- * [2] padding adjusts the height of the banner, and position of text inside
- * [3] FIX z-index is incremented to ensure the banner shows up on mobile
- * [4] Add the image filter effect
- * [5] Fit the banner image to the full size of the banner. Position it
- * behind the image filter effect
- * [6] !important used to override high specificity from respo.css:841
+/** SECTION Banner Image
+  * Setup the banner background image
+  * [1] Relative allows us to position the background
+  * [2] padding adjusts the height of the banner, and position of text inside
+  * [3] FIX z-index is incremented to ensure the banner shows up on mobile
+  * [4] Add the image filter effect
+  * [5] Fit the banner image to the full size of the banner. Position it
+  * behind the image filter effect
+  * [6] !important used to override high specificity from respo.css:841
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -65,15 +63,15 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 }
 
 /* END !SECTION Banner Image */
-/* SECTION Breadcrumb
- * [1] Reset default styles
- * [2] Adjust text color
- * [3] Apply consistent spacing
- * [4] Add nicer link separators, uses icon-arrow-right from
- * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
- * [5] Remove default divider image
- * [6] Enforce text color on hover. !important used to override !important
- * from central style.css
+/** SECTION Breadcrumb
+  * [1] Reset default styles
+  * [2] Adjust text color
+  * [3] Apply consistent spacing
+  * [4] Add nicer link separators, uses icon-arrow-right from
+  * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
+  * [5] Remove default divider image
+  * [6] Enforce text color on hover. !important used to override !important
+  * from central style.css
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -98,8 +96,8 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
   .breadcrumb li span.divider::after {
     /*[4]*/
     content: '\e006';
-    font-family: 'IcoMoon';
-    font-size: .7em !important;
+    font-family: 'IcoMoon', monospace;
+    font-size: 0.7em !important;
     color: token.color('accent');
     margin-right: 3px;
   }
@@ -109,10 +107,10 @@ $banner-image: '/it/home/images/banners/Default-WebHeader.jpg' !default;
 }
 
 /* END !SECTION Breadcrumb */
-/* SECTION Banner layout
- * [1] Ensure content inside the banner stays within the width of
- * the main column
- * [2] Ensure the content inside the banner lines up with the main content
+/** SECTION Banner layout
+  * [1] Ensure content inside the banner stays within the width of
+  * the main column
+  * [2] Ensure the content inside the banner lines up with the main content
 -------------------------------------------------------------------------- */
 
 #{$specify} {

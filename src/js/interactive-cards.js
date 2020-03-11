@@ -1,24 +1,26 @@
-// Adds tab index to interactive cards in Widgetkit
-function IT_tabIndex(
-  containerClass = "interactive-cards",
-  elementClass = "uk-panel",
-  dev = false) {
+/** @function IT_tabIndex
+  * Adds tab index to interactive cards in Widgetkit
+  * @param {string} containerClass - The class name of the parent container
+  * @param {string} elementClass - The class name of the elements to include
+  * @param {boolean} dev - true to print console logs
+-------------------------------------------------------------------------- */
 
-  let containers = document.getElementsByClassName(containerClass);
-
-  if (dev === true) { console.log("containers", containers); }
-
-  if (containers) {
-    for (let i=0; i < containers.length; i++) {
-      let container = containers[i];
-      if (dev === true) { console.log("container", container); }
-      let elements = container.getElementsByClassName(elementClass);
-
-      for (let i=0; i < elements.length; i++) {
-        if (dev === true) { console.log("elements["+i+"]", elements[i]); }
-        elements[i].tabIndex = 0;
+function IT_tabIndex (
+  containerClass = 'interactive-cards',
+  elementClass = 'uk-panel',
+  dev = false
+) {
+  const CONTAINERS = document.getElementsByClassName(containerClass)
+  if (dev) { console.log('CONTAINERS', CONTAINERS) }
+  if (CONTAINERS) {
+    for (let i = 0; i < CONTAINERS.length; i++) {
+      const CONTAINER = CONTAINERS[i]
+      const ELEMENTS = CONTAINER.getElementsByClassName(elementClass)
+      if (dev) { console.log('CONTAINER', CONTAINER) }
+      for (let i = 0; i < ELEMENTS.length; i++) {
+        if (dev) { console.log('ELEMENTS[' + i + ']', ELEMENTS[i]) }
+        ELEMENTS[i].tabIndex = 0
       }
-
     }
   }
 }
