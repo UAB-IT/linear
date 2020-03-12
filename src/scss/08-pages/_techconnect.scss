@@ -12,12 +12,12 @@
   * the banner content area
 -------------------------------------------------------------------------- */
 
-#{$specify-main} {
-  [id="TC-custom-banner"] {
-    position: relative; /*[1]*/
-    overflow-x: visible; /*[2]*/
-  }
-}
+// #{$specify-main} {
+//   [id="TC-custom-banner"] {
+//     position: relative; /*[1]*/
+//     overflow-x: visible; /*[2]*/
+//   }
+// }
 
 /** Side Image
   * [1] Allow banner image to cover the height of the banner section
@@ -37,35 +37,35 @@
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
-  @include stratus.media(medium) {
-    .TC-custom-banner-bg,
-    .TC-custom-banner-bg::before,
-    .TC-custom-banner-bg::after {
-      position: absolute; /*[1]*/
-      top: 0; /*[1]*/
-      bottom: 0; /*[1]*/
-    }
-    .TC-custom-banner-bg {
-      width: 100vw; /*[2]*/
-      margin-left: calc((100vw - 1300px) / -2); /*[2.1]*/
-      z-index: -1; /*[2.2]*/
-    }
-    .TC-custom-banner-bg::before,
-    .TC-custom-banner-bg::after {
-      content: "";
-      width: 35vw; /*[3]*/
-      clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%); /*[4]*/
-    }
-    .TC-custom-banner-bg::after {
-      /* background-image: url(); [5]*/
-      background-size: cover;
-      right: 0; /*[6]*/
-    }
-    .TC-custom-banner-bg::before {
-      background-color: token.color('accent'); /*[7]*/
-      right: 15px; /*[7.1]*/
-    }
-  }
+  // @include stratus.media(medium) {
+  //   .TC-custom-banner-bg,
+  //   .TC-custom-banner-bg::before,
+  //   .TC-custom-banner-bg::after {
+  //     position: absolute; /*[1]*/
+  //     top: 0; /*[1]*/
+  //     bottom: 0; /*[1]*/
+  //   }
+  //   .TC-custom-banner-bg {
+  //     width: 100vw; /*[2]*/
+  //     margin-left: calc((100vw - 1300px) / -2); /*[2.1]*/
+  //     z-index: -1; /*[2.2]*/
+  //   }
+  //   .TC-custom-banner-bg::before,
+  //   .TC-custom-banner-bg::after {
+  //     content: "";
+  //     width: 35vw; /*[3]*/
+  //     clip-path: polygon(0 0, 100% 0%, 100% 100%, 10% 100%); /*[4]*/
+  //   }
+  //   .TC-custom-banner-bg::after {
+  //     /* background-image: url(); [5]*/
+  //     background-size: cover;
+  //     right: 0; /*[6]*/
+  //   }
+  //   .TC-custom-banner-bg::before {
+  //     background-color: token.color('accent'); /*[7]*/
+  //     right: 15px; /*[7.1]*/
+  //   }
+  // }
 
   .TC-partner-link {
     display: inline-block;
