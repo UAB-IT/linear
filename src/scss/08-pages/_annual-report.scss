@@ -3,6 +3,10 @@
 
 /** Themes
 -------------------------------------------------------------------------- */
+
+#whitebox { background: none !important; }
+#page_bg { z-index: -1000; }
+
 .bg-theme-color {
   background: token.color('primary') !important;
   background: var(--theme-color, #{token.color('primary')}) !important;
@@ -11,6 +15,11 @@
 .txt-theme-color {
   color: token.color('primary') !important;
   color: var(--theme-color, #{token.color('primary')}) !important;
+}
+
+.bdr-theme-color {
+  border-color: token.color('primary') !important;
+  border-color: (--theme-color, #{token.color('primary')}) !important;
 }
 
 .u-txt-white { color: white !important; }
@@ -23,3 +32,24 @@
 .theme-apple { --theme-color: #{token.color('accent')}; }
 .theme-blaze { --theme-color: #{token.color('state', 'caution')}; }
 .theme-dark-green { --theme-color: #{token.color('secondary')}; }
+.theme-coral { --theme-color: #ea6852; }
+.theme-cyan { --theme-color: #238dc1; }
+.theme-navy { --theme-color: #1c355e; }
+.theme-gray { --theme-color: #{token.color('neutral')}; }
+.theme-dark { --theme-color: #{token.color('neutral', '800')}; }
+
+.parallax-container { position: relative; }
+
+.parallax-container::after {
+  content: "";
+  position: absolute;
+  top: 0; right: calc((100vw - 100%) / -2); bottom: 0; left: calc((100vw - 100%) / -2);
+  background: #295135;
+  background: var(--parallax-image, var(--theme-color, #295135));
+  background-position: center;
+  background-position: var(--parallax-image-position, center);
+  z-index: token.z-index('deep-background');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
