@@ -19,13 +19,13 @@
     /*[2]*/ margin: $content-margin auto;
     @include clearfix;
     max-width: $max-width;
+    background: none;
   }
-  #wrapper { /*[3]*/ overflow-x: hidden; }
-  #whitebox { margin: $content-margin auto; }
-  #content {
-    /*[4]*/ overflow: visible;
-  }
+  #wrapper { /*[3]*/ overflow: hidden; }
+  #content { overflow: visible; }
+  #page_bg { z-index: -1000; }
 }
+
 #{$specify-main} {
   :last-child {
     /*[5]*/ margin-bottom: 0;
