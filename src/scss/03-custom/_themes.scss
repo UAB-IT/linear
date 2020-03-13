@@ -1,0 +1,40 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+
+/** Themes
+ * These utility classes can be used to change the color of some elements
+ * NOTE: It is not advised to use this outside of edge cases
+ * CSS Variables do not work in Internet Explorer. Always use the component's
+ * theme class where possible.
+-------------------------------------------------------------------------- */
+
+.bg-theme-color {
+  background: token.color('primary') !important;
+  background: var(--theme-color, #{token.color('primary')}) !important;
+}
+
+.txt-theme-color {
+  color: token.color('primary') !important;
+  color: var(--theme-color, #{token.color('primary')}) !important;
+}
+
+.bdr-theme-color {
+  border-color: token.color('primary') !important;
+  border-color: (--theme-color, #{token.color('primary')}) !important;
+}
+
+.u-txt-white { color: white !important; }
+.u-txt-bold { font-weight: bold !important; }
+
+.u-pad-05 { padding: token.space(0.5) !important; }
+.u-pad-1 { padding: token.space(1) !important; }
+
+.theme-uab { --theme-color: #{token.color('primary')}; }
+.theme-apple { --theme-color: #{token.color('accent')}; }
+.theme-blaze { --theme-color: #{token.color('state', 'caution')}; }
+.theme-dark-green { --theme-color: #{token.color('secondary')}; }
+.theme-coral { --theme-color: #ea6852; }
+.theme-cyan { --theme-color: #238dc1; }
+.theme-navy { --theme-color: #1c355e; }
+.theme-gray { --theme-color: #{token.color('neutral')}; }
+.theme-dark { --theme-color: #{token.color('neutral', '800')}; }
