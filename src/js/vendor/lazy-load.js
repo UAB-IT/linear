@@ -2,73 +2,119 @@
  * Simple lazy loader
  * https://ultimatecourses.com/blog/echo-js-simple-javascript-image-lazy-loading
  *
- * @author Todd Motto <https://github.com/toddmotto>
+ * Original concept by Todd Motto <https://github.com/toddmotto>
+ * Modified with option to add classes by Matt McAdams
 -------------------------------------------------------------------------- */
 
-window.echo = (function (window, document) {
+function IT_echo () {
   'use strict'
 
-  /* Constructor function */
-  var Echo = function (elem) {
-    this.elem = elem
-    this.render()
-    this.listen()
-  }
-
   /* Images for echoing */
-  var echoStore = []
+  const SRC_STORE = []
+  const CLASS_STORE = []
 
-  /* Element in viewport logic */
-  var scrolledIntoView = function (element) {
-    var coords = element.getBoundingClientRect()
-    return ((coords.top >= 0 && coords.left >= 0 && coords.top) <= (window.innerHeight || document.documentElement.clientHeight))
-  }
-
-  /* Changing src attr logic */
-  var echoSrc = function (img, callback) {
-    img.src = img.getAttribute('data-echo')
-    if (callback) {
-      callback()
+  class EchoImage {
+    constructor (elem) {
+      this.elem = elem
+      this.render()
+      this.listen()
     }
-  }
 
-  /* Remove loaded item from array */
-  var removeEcho = function (element, index) {
-    if (echoStore.indexOf(element) !== -1) {
-      echoStore.splice(index, 1)
+    init () {
+      SRC_STORE.push(this.elem)
     }
-  }
 
-  /* Echo the images and callbacks */
-  var echoImages = function () {
-    for (var i = 0; i < echoStore.length; i++) {
-      var self = echoStore[i]
-      if (scrolledIntoView(self)) {
-        echoSrc(self, removeEcho(self, i))
-      }
-    }
-  }
-
-  /* Prototypal setup */
-  Echo.prototype = {
-    init: function () {
-      echoStore.push(this.elem)
-    },
-    render: function () {
+    render () {
       if (document.addEventListener) {
         document.addEventListener('DOMContentLoaded', echoImages, false)
       } else {
         window.onload = echoImages
       }
-    },
-    listen: function () {
+    }
+
+    listen () {
       window.onscroll = echoImages
     }
   }
 
-  /* Initiate the plugin */
-  var lazyImgs = document.querySelectorAll('img[data-echo]')
-  for (var i = 0; i < lazyImgs.length; i++) {
-    new Echo(lazyImgs[i]).init()
+  class EchoClass {
+    constructor (elem) {
+      this.elem = elem
+      this.render()
+      this.listen()
+    }
+
+    init () {
+      CLASS_STORE.push(this.elem)
+    }
+
+    render () {
+      if (document.addEventListener) {
+        document.addEventListener('DOMContentLoaded', echoClasses, false)
+      } else {
+        window.onload = echoClasses
+      }
+    }
+
+    listen () {
+      window.onscroll = echoClasses
+    }
   }
-})(window, document)
+
+  /* Element in viewport logic */
+  function scrolledIntoView (element) {
+    const COORDS = element.getBoundingClientRect()
+    return ((COORDS.top >= 0 && COORDS.left >= 0 && COORDS.top) <= (window.innerHeight || document.documentElement.clientHeight))
+  }
+
+  /* Changing src attr logic */
+  function echoSrc (img, callback) {
+    img.src = img.getAttribute('data-echo-src')
+    if (callback) { callback() }
+  }
+
+  /* Changing class attr logic */
+  function echoClassName (elem, callback) {
+    elem.className += ' ' + elem.getAttribute('data-echo-class')
+    if (callback) { callback() }
+  }
+
+  /* Remove loaded item from array */
+  function removeEcho (element, store, index) {
+    if (store.indexOf(element) !== -1) {
+      store.splice(index, 1)
+    }
+  }
+
+  /* Echo the images and callbacks */
+  function echoImages () {
+    for (let i = 0; i < SRC_STORE.length; i++) {
+      const SELF = SRC_STORE[i]
+      if (scrolledIntoView(SELF)) {
+        echoSrc(SELF, removeEcho(SELF, SRC_STORE, i))
+      }
+    }
+  }
+
+  /* Echo the images and callbacks */
+  function echoClasses () {
+    for (let i = 0; i < CLASS_STORE.length; i++) {
+      const SELF = CLASS_STORE[i]
+      if (scrolledIntoView(SELF)) {
+        echoClassName(SELF, removeEcho(SELF, CLASS_STORE, i))
+      }
+    }
+  }
+
+  /* Initiate the plugin */
+  const LAZY_IMAGES = document.querySelectorAll('[data-echo-src]')
+  for (let i = 0; i < LAZY_IMAGES.length; i++) {
+    new EchoImage(LAZY_IMAGES[i]).init()
+  }
+
+  /* Initiate the plugin */
+  const LAZY_CLASSES = document.querySelectorAll('[data-echo-class]')
+  for (let i = 0; i < LAZY_CLASSES.length; i++) {
+    new EchoClass(LAZY_CLASSES[i]).init()
+  }
+}
