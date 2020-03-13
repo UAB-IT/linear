@@ -64,12 +64,13 @@ function IT_googleSheet (
     let rowData = []
     for (let i = 0; i < data.length; i++) { // [1]
       const CELL = data[i].gs$cell
+      console.log(CELL)
       const VAL = CELL.$t
-      if (CELL.col === 1) { // [2]
+      if (CELL.col == '1') { // [2]
         drawRow(TABLE, rowData)
         rowData = []
       }
-      if (CELL.row !== 1) { rowData.push(VAL) } // [3]
+      if (CELL.row != '1') { rowData.push(VAL) } // [3]
     }
     drawRow(TABLE, rowData)
   }
@@ -107,18 +108,18 @@ function IT_loadFile (url, timeout, callback) {
   * @return {string} - The name of a class to be applied
 -------------------------------------------------------------------------- */
 
-function IT_applyConditionalClasses(query) {
-  switch(query) {
+function IT_applyConditionalClasses (query) {
+  switch (query) {
     case 'Active':
     case 'Functional':
-      return 'cell-notice';
+      return 'cell-notice'
     case 'Containment':
     case 'Functional with issues':
-      return 'cell-caution';
-    case 'Phasing Out': return 'cell-caution-alt';
+      return 'cell-caution'
+    case 'Phasing Out': return 'cell-caution-alt'
     case 'Down':
     case 'End of Life':
-      return 'cell-warning';
-    default: null;
+      return 'cell-warning'
+    default: return null
   }
 }
