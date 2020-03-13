@@ -12,6 +12,9 @@
 @use '03-custom/_toc.scss';
 @use '03-custom/_grid.scss';
 @use '03-custom/_social.scss';
+@use '03-custom/_animations.scss';
+@use '03-custom/_parallax.scss';
+@use '03-custom/_themes.scss';
 
 @use '04-joomla/_alert.scss';
 @use '04-joomla/_news.scss';
@@ -35,7 +38,5 @@
 @use '07-central/_sidebar.scss';
 @use '07-central/_banner.scss';
 @use '07-central/_footer.scss';
-
-@use '08-pages/_techconnect.scss';
 
 @use '02-base/_helpers.scss';
