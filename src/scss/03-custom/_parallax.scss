@@ -1,0 +1,36 @@
+@use '../01-core/' as *;
+@use '../01-core/token';
+
+/** SECTION Parallax
+ * parallax-container can be used like has-background-wide to create a section
+ * with a parallaxed background image. A basic effect can be achieved with
+ * CSS, but advanced effects may be enabled by using enllax.js
+ *
+ * The parallax-container-forefround does not produce a parallax effect on
+ * its own, and must be used with enllax.js. This container class only helps
+ * position elements on the screen.
+-------------------------------------------------------------------------- */
+
+.parallax-container { position: relative; }
+
+.parallax-container::after {
+  content: "";
+  position: absolute;
+  top: 0; right: calc((100vw - 100%) / -2); bottom: 0; left: calc((100vw - 100%) / -2);
+  background: #295135;
+  background: var(--parallax-image, var(--theme-color, #295135));
+  background-position: center;
+  background-position: var(--parallax-image-position, center);
+  z-index: token.z-index('deep-background');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.parallax-container-foreground {
+  content: "";
+  position: absolute;
+  top: 0; right: calc((100vw - 100%) / -2); bottom: 0; left: calc((100vw - 100%) / -2);
+}
+
+/* END !SECTION Parallax */

@@ -16,7 +16,8 @@
   position: relative;
 }
 
-.anim-fadein-active {
+.anim-fadein.anim-active {
+  position: relative;
   animation-name: fade-in;
   animation-duration: 0.4s;
   opacity: 1;
@@ -43,7 +44,7 @@
   transition-delay: 0.5s;
 }
 
-.anim-underline.anim-underline-active::before {
+.anim-underline.anim-active::before {
   left: 0;
   right: 0;
 }
