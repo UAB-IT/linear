@@ -22,6 +22,7 @@ It is currently used on
 * https://dev.uab.edu/it/home/
 * https://dev.uab.edu/it/news/
 * https://dev.uab.edu/it/techconnect/
+* https://dev.uab.edu/it/annualreport/
 
 Note that you will need to be on the secure UAB network to access any development server. You can log in through the on-campus wifi or through use of the VPN.
 
