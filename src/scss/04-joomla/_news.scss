@@ -74,6 +74,28 @@
   }
 }
 
+/** Control content to display
+  * [1] Hide most content
+  * [2] Display the title
+  * [3] Display the image
+  * [4] Display the first paragraph
+-------------------------------------------------------------------------- */
+
+#{$specify-main} {
+  .newsflash-item > * {
+    /*[1]*/ display: none;
+  }
+  .newsflash-item .newsflash-title {
+    /*[2]*/ display: block;
+  }
+  .newsflash-item .newsflash-image {
+    /*[3]*/ display: block;
+  }
+  .newsflash-item > p:first-of-type {
+    /*[4]*/ display: block;
+  }
+}
+
 /** Top Featured
   * Give alternate styles to first item in the list
   * [1] Allow it to sit on its own row
@@ -93,7 +115,7 @@
     .newsflash-title {
       @include stratus.type-set('large');
     }
-    figure.newsflash-image {
+    .newsflash-image {
       display: none;
     }
   }
