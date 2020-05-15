@@ -1,6 +1,6 @@
 {
   "name": "website-design",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "description": "Website design for the University of Alabama at Birmingham's Department of Information Technology",
   "license": "MPL-2.0",
   "private": true,
@@ -21,11 +21,11 @@
   "homepage": "https://github.com/UAB-IT/website-design#readme",
   "devDependencies": {
     "concat": "^1.0.3",
-    "sass": "^1.24.0",
-    "standard": "^14.3.1",
-    "stylelint": "^13.2.0",
+    "sass": "^1.26.3",
+    "standard": "^14.3.3",
+    "stylelint": "^13.3.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.14.2"
+    "stylelint-scss": "^3.17.1"
   },
   "dependencies": {
     "@mattmcadams/stratus": "^1.0.0"

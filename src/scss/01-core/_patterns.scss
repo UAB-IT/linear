@@ -34,15 +34,33 @@
   }
 }
 
-/** Link alert
- * This is a red theme of the link style
+/** Link themes
+ * State themes for links
 **/
-%link-alert {
+%link-warning {
   @extend %link;
   border-color: token.color('state', 'warning', '200');
   &:hover {
     border-color: token.color('state', 'warning');
     background-color: token.color('state', 'warning', '100');
+  }
+}
+
+%link-caution {
+  @extend %link;
+  border-color: token.color('state', 'caution', '200');
+  &:hover {
+    border-color: token.color('state', 'caution');
+    background-color: token.color('state', 'caution', '100');
+  }
+}
+
+%link-notice {
+  @extend %link;
+  border-color: token.color('state', 'notice', '200');
+  &:hover {
+    border-color: token.color('state', 'notice');
+    background-color: token.color('state', 'notice', '100');
   }
 }
 

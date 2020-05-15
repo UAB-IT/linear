@@ -26,11 +26,31 @@
 
   .moduletable.alert {
     @extend %card;
+    /*[2]*/ background: token.color('state', 'notice', '100');
+    /*[2]*/ border-color: token.color('state', 'notice');
+    @include token.block-margin;
+  }
+  .alert a { @extend %link-notice; }
+
+  .moduletable.alert.alert-warning {
+    @extend %card;
     /*[2]*/ background: token.color('state', 'warning', '100');
     /*[2]*/ border-color: token.color('state', 'warning');
     @include token.block-margin;
   }
-  .alert a { @extend %link-alert; }
+  .alert.alert-warning a { @extend %link-warning; }
+
+  .moduletable.alert.alert-caution {
+    @extend %card;
+    /*[2]*/ background: token.color('state', 'caution', '100');
+    /*[2]*/ border-color: token.color('state', 'caution');
+    @include token.block-margin;
+  }
+  .alert.alert-caution a { @extend %link-caution; }
+
+  .moduletable.alert:last-child {
+    margin-bottom: token.space('margin', 'section')
+  }
 
   .ie-alert { /*[3]*/ display: none; }
   @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
