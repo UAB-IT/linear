@@ -1,6 +1,7 @@
 module.exports = {
   title: "UABIT CSS Library",
   dest: "docs",
+  base: "/linear/",
   themeConfig: {
     nav: [
       { text: "Home", link: "/" },
