@@ -22,7 +22,9 @@ module.exports = {
       {
         title: "Components",
         collapsable: false,
-        children: [],
+        children: [
+          "/components/buttons"
+        ],
       },
     ],
   },
