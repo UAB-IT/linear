@@ -45,7 +45,7 @@ When you are ready to build the project, run `npm run build`. This will create f
 
 ## Authors and acknowledgment
 Kerry Bean, IT Communications & Marketing Director<br>
-[Jessika Reed](https://github.com/orgs/UAB-IT/people/jessikareed), Project Coordinator<br>
+[Jessika Reed](https://github.com/orgs/UAB-IT/people/jessikareed), Creative director<br>
 [Matt McAdams](https://github.com/MattMcAdams), Web designer & developer<br>
 [MJ Moon](https://github.com/orgs/UAB-IT/people/macymoon), Designer
 
