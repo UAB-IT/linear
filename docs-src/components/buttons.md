@@ -24,7 +24,7 @@ A Button is the most common form of a Call To Action (CTA). These are powerful c
 
 Adding the `btn-primary` **class** will turn the button into a primary button with solid UAB green styling. Note that the hover and disabled states are the same for all buttons, regardless of theme.
 
-![Primary button example](/linear/btn-primary.png)
+![Primary button example](/linear/btn_primary.png)
 
 ```html
 <a class="btn btn-primary" href="LINK URL">
@@ -40,7 +40,7 @@ Buttons can have two states, hover/focused and disabled. The hover/focused state
 
 To disable a button, add the `disabled` **attribute** to the button's HTML element. Disabled buttons do not accept click events and have no hover styles or alternate states.
 
-![Disabled button example](/linear/btn-disabled.png)
+![Disabled button example](/linear/btn_disabled.png)
 
 ```html
 <a class="btn" href="LINK URL" disabled>
