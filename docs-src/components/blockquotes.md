@@ -20,3 +20,12 @@ The blockquote styles are applied directly to the `blockquote` html element and 
   <p>Quote source</p>
 </blockquote>
 ```
+
+If the `<blockquote>` element is not semantically correct, a `<div>` element may be used instead with the **class** `pullquote`.
+
+```html
+<div class="pullquote">
+  <p>Quote text</p>
+  <p>Quote source</p>
+</div>
+```
