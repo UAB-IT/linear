@@ -24,6 +24,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/components/buttons"
+          "/components/callouts"
         ],
       },
     ],
