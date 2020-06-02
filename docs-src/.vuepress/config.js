@@ -23,7 +23,8 @@ module.exports = {
         title: "Components",
         collapsable: false,
         children: [
-          "/components/buttons"
+          "/components/blockquotes",
+          "/components/buttons",
           "/components/callouts"
         ],
       },
