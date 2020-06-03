@@ -18,11 +18,11 @@ A video embed componenet can substitute a link to a YouTube video in favor of an
 </div>
 ```
 
+The division **element** with the `video-container` **class** makes sure the video fills the full width of it’s container, and ensures the video resizes with the proper 16:9 aspect ratio on screen resize.
+
 ## Embedding video
 
 To embed a YouTube video, right click the video on YouTube and select “copy embed code”. Then paste that embed code in the area indicated in the code sample above.
-
-The division **element** with the `video-container` **class** makes sure the video fills the full width of it’s container, and ensures the video resizes with the proper 16:9 aspect ratio on screen resize.
 
 The resulting HTML should look similar like this:
 

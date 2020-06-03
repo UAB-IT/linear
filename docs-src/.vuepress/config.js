@@ -26,6 +26,7 @@ module.exports = {
           "/components/blockquotes",
           "/components/buttons",
           "/components/callouts",
+          "/components/images",
           "/components/video"
         ],
       },
