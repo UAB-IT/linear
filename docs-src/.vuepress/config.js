@@ -25,7 +25,8 @@ module.exports = {
         children: [
           "/components/blockquotes",
           "/components/buttons",
-          "/components/callouts"
+          "/components/callouts",
+          "/components/video"
         ],
       },
     ],
