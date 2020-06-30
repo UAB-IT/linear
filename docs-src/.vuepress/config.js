@@ -17,6 +17,7 @@ module.exports = {
           "/principals/typography",
           "/principals/color",
           "/principals/space",
+          "/principals/inclusive-design"
         ],
       },
       {
