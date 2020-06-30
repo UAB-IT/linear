@@ -8,7 +8,7 @@
 
 ## Usage
 
-An image **element** may be used to embed an image on a web page. One should be careful to use images intentionally to avoid overwhelming the user with visual information. They should be surrounded and supported by text. For more detailed information about images on the web, please see the [Mozilla web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img).
+An image **element** may be used to embed an image on a web page. One should be careful to use images intentionally to avoid overwhelming the user with visual information. They should be surrounded and supported by text. For more detailed information about images on the web, please see the [Mozilla web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img). Please also review [UAB's guidelines on web images](https://www.uab.edu/toolkit/web/web-images).
 
 ## Markup
 
