@@ -28,6 +28,7 @@ module.exports = {
           "/components/buttons",
           "/components/callouts",
           "/components/images",
+          "/components/section",
           "/components/table-of-contents",
           "/components/video"
         ],
