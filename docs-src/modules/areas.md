@@ -4,6 +4,8 @@ Below is a diagram of University Relations designated positions on the website. 
 
 ![areas](/linear/layout-areas.png)
 
+## Design specs
+
 Below are design measurements of the various layouts. Keep in mind that all website measurements are relative
 
 ![layout specs](/linear/layout-specs.png)
