@@ -8,16 +8,16 @@ There are a lot of things we can do while developing webpages to make sure the c
 
 After you have an idea of what HTML is, how its used, and why it is so important, read up on these HTML elements - you'll use them a lot when making new webpages:
 
-* `<h1>, <h2>, <h3>, <h4>, <h5>, <h6>` headding elements
-* `<p>` paragraph element
+* `<h1>, <h2>, <h3>, <h4>, <h5>, <h6>` headlines
+* `<p>` paragraph
 * `<ol>, <ul>, <li>` ordered lists, unordered lists, and list items
 * `<dl>, <dt>, <dd>` definition list, definition term, and definition description
 * `<table>, <thead>, <tbody>, <tr>, <th>, <td>` table, table header, table body, table row, table headding, and table data
-* `<a>` the anchor element, used to create links
-* `<img>` the image element
+* `<a>` anchor
+* `<img>` image
 * `<figure>, <figcaption>` figure and figure caption
 * `<strong>` strong
-* `<blockquote>` The blockquote element, used to create pullquotes
+* `<blockquote>` blockquote
 * `<div>` division
 
 These elements form the backbone of every website on the internet and is core to the experience of every student, faculty member, employee, researcher, and parent that comes to our website.
@@ -28,4 +28,4 @@ To understand more about web acceessibility, please review the [UAB Accessibilit
 
 ## Adjusting language
 
-Beyond perfectly structured code, we can make content more inclusive by being more mindful about how we say things. First and formost, be sure to adhere to the [University's writing style](https://www.uab.edu/toolkit/brand-basics/voice/style-guide) as outlined by University Relations. Also be careful not to assumptions based on the audience's race, national origin, age, genetic or family medical history, gender, faith, gender identity and expression as well as sexual orientation.
+Beyond perfectly structured code, we can make content more inclusive by being more mindful about how we say things. First and formost, be sure to adhere to the [University's writing style](https://www.uab.edu/toolkit/brand-basics/voice/style-guide) as outlined by University Relations. Also be careful not to make assumptions based on the audience's race, national origin, age, genetic or family medical history, gender, faith, gender identity and expression or sexual orientation.
