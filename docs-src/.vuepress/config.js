@@ -32,6 +32,13 @@ module.exports = {
           "/components/video"
         ],
       },
+      {
+        title: "Modules",
+        collapsable: false,
+        children: [
+          "/modules/areas"
+        ],
+      },
     ],
   },
 };
