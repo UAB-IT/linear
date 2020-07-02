@@ -39,7 +39,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/modules/areas",
-          "/modules/banners"
+          "/modules/banners",
         ],
       },
     ],
