@@ -8,7 +8,7 @@
 
 ## Usage
 
-A blockquote should be used to highlight a quote from an individual. Because of the visual weight of the component, not all quotes should be inside a blockquote. It is advised to have no more than 2 blockquotes on a single page and that they should be seperated by other blocks of content such as several paragraphs of text.
+A blockquote should be used to highlight a quote from an individual. Because of the visual weight of the component, not all quotes should be inside a blockquote. It is advised to have no more than 2 blockquotes on a single page and that they should be separated by other blocks of content such as several paragraphs of text.
 
 ## Markup
 

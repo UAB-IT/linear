@@ -1,8 +1,8 @@
 # Section
 
-Sections group chuncks of content together by adding a "section space" above and below the group using top and bottom margins.
+Sections group chunks of content together by adding a "section space" above and below the group using top and bottom margins.
 
-Create a section be wrapping its contents in a division element with the `section` class.
+Create a section by wrapping its contents in a division element with the `section` class.
 
 ```html
 <div class="section">

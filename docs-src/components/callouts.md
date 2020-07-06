@@ -20,7 +20,7 @@ A callout is used to bring attention to a specific piece of information that wou
 
 ## Themes
 
-Adding a theme **class** will turn change the color of the accent border. Remember to consider thoughtful use of [color](/linear/principals/color.html).
+Adding a theme **class** will change the color of the accent border. Remember to consider thoughtful use of [color](/linear/principals/color.html).
 
 ### Primary `callout-primary`
 

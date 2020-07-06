@@ -8,7 +8,7 @@
 
 ## Usage
 
-A video embed componenet can substitute a link to a YouTube video in favor of an embedded version. Only videos from official UAB channels should be embedded.
+A video embed component can substitute a link to a YouTube video in favor of an embedded version. Only videos from official UAB channels should be embedded.
 
 ## Markup
 
@@ -18,7 +18,7 @@ A video embed componenet can substitute a link to a YouTube video in favor of an
 </div>
 ```
 
-The division **element** with the `video-container` **class** makes sure the video fills the full width of it’s container, and ensures the video resizes with the proper 16:9 aspect ratio on screen resize.
+The division **element** with the `video-container` **class** makes sure the video fills the full width of its container, and ensures the video resizes with the proper 16:9 aspect ratio on screen resize.
 
 ## Embedding video
 

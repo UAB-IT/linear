@@ -20,7 +20,7 @@ If the image is used for decorative purposes only, leave the `alt` **attribute**
 
 ## Captions
 
-An image caption, or more acurately a figure caption, is a set of standard HTML **elements** used to semantically group a visual piece of information with a caption. Please see the [Mozalla web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) for more information on the `figure` **elements**.
+An image caption, or more accurately a figure caption, is a set of standard HTML **elements** used to semantically group a visual piece of information with a caption. Please see the [Mozilla web docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/figure) for more information on the `figure` **elements**.
 
 ```html
 <figure>

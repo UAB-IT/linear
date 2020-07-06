@@ -1,10 +1,10 @@
 # Color
 
-The UABIT Website uses an expanded version of the official color pallete provided by University Relations. Each color is given a semantic name and a number value in 100 increments between 100 and 900 inclusive. 500 represents the base color, with lower numbers being tints and higher numbers being shades.
+The UABIT Website uses an expanded version of the official color palette provided by University Relations. Each color is given a semantic name and a number value in 100 increments between 100 and 900 inclusive. 500 represents the base color, with lower numbers being tints and higher numbers being shades.
 
 ## Neutral
 
-This color is used to create depth and create divisions. The base of this color is **Smoke Gray** from the UAB brand toolkit. This color is reffered to as its old name **Stone** in the code.
+This color is used to create depth and create divisions. The base of this color is **Smoke Gray** from the UAB brand toolkit. This color is referred to as its old name **Stone** in the code.
 
 <div style="display: flex; flex-wrap: wrap;">
   <div style="margin: 10px;">
@@ -49,7 +49,7 @@ The background color for many elements is Neutral 500 at 15% opacity.
 
 ## Primary
 
-This color is used for navigational ques and as a theme in some components. The use of this color should indicate high importance or an actionable item such as a button or link. This base of this color is **UAB green** from the UAB brand toolkit.
+This color is used for navigational cues and as a theme in some components. The use of this color should indicate high importance or an actionable item such as a button or link. This base of this color is **UAB green** from the UAB brand toolkit.
 
 <div style="display: flex; flex-wrap: wrap;">
   <div style="margin: 10px;">
@@ -92,7 +92,7 @@ This color is used for navigational ques and as a theme in some components. The 
 
 ## Secondary
 
-This color is typically used to provide depth, it has no defined meaning and so can be used anywhere to provide color. The base of this color is **Dragon's Lair Green** from the UAB brand toolkit. This color is refered to as its old name **Dark Green** in the code.
+This color is typically used to provide depth, it has no defined meaning and so can be used anywhere to provide color. The base of this color is **Dragon's Lair Green** from the UAB brand toolkit. This color is referred to as its old name **Dark Green** in the code.
 
 <div style="display: flex; flex-wrap: wrap;">
   <div style="margin: 10px;">
@@ -135,7 +135,7 @@ This color is typically used to provide depth, it has no defined meaning and so 
 
 ## Accent
 
-This color is used in two contexts, in the first it serves as an accent color on certain UI elements. In the other context, it is used to communicate a positive status. The base of this color is **Campus Green** in the UAB brand toolkit. This color is reffered to as its old name **Apple Green** in the code.
+This color is used in two contexts, in the first it serves as an accent color on certain UI elements. In the other context, it is used to communicate a positive status. The base of this color is **Campus Green** in the UAB brand toolkit. This color is referred to as its old name **Apple Green** in the code.
 
 <div style="display: flex; flex-wrap: wrap;">
   <div style="margin: 10px;">
@@ -178,7 +178,7 @@ This color is used in two contexts, in the first it serves as an accent color on
 
 ## Caution
 
-This color is typically used to indicate information or actions that the user should think about more carefully before proceeding. The base of this color is **Loyal Yellow** from the UAB brand toolkit. This color is refered to as its old name **Blaze** in the code.
+This color is typically used to indicate information or actions that the user should think about more carefully before proceeding. The base of this color is **Loyal Yellow** from the UAB brand toolkit. This color is referred to as its old name **Blaze** in the code.
 
 <div style="display: flex; flex-wrap: wrap;">
   <div style="margin: 10px;">

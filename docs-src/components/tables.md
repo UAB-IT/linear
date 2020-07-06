@@ -8,11 +8,11 @@
 
 ## Usage
 
-Tables are used to display **tabular data** such as financial information. Please see the [MDN Web Docs]() on basic table markup structure.
+Tables are used to display **tabular data** such as financial information. Please see the [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/table) on basic table markup structure.
 
 ## Themes
 
-Adding a theme **class** will turn change the background color of the header. Remember to consider thoughtful use of [color](/linear/principals/color.html).
+Adding a theme **class** will change the background color of the header. Remember to consider thoughtful use of [color](/linear/principals/color.html).
 
 ### Primary `table-primary`
 
@@ -68,7 +68,7 @@ OR
 
 ## Modifiers
 
-These classes can be added to any table and combined with the classes above or with eachother.
+These classes can be added to any table and combined with the classes above or with each other.
 
 ### Borderless
 
