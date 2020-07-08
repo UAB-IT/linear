@@ -12,7 +12,9 @@
     "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
     "css:lint": "npx stylelint 'src/**/*.scss'",
     "css:lint--fix": "npx stylelint 'src/**/*.scss' --fix",
-    "build": "npm run css:prod && npm run js:concat"
+    "build": "npm run css:prod && npm run js:concat",
+    "docs:dev": "vuepress dev docs-src",
+    "docs:build": "vuepress build docs-src"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,8 @@
     "standard": "^14.3.3",
     "stylelint": "^13.3.2",
     "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.17.1"
+    "stylelint-scss": "^3.17.1",
+    "vuepress": "^1.5.0"
   },
   "dependencies": {
     "@mattmcadams/stratus": "^1.0.0"

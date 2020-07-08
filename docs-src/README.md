@@ -1,4 +1,5 @@
-# UAB IT Website CSS
+# Introduction
+
 This project was developed by the University of Alabama at Birmingham's Department of Information Technology for use on UABIT websites and projects. This project runs on UAB Joomla sites also running the Linear template, it has not been tested with legacy templates and is incompatible with UAB Wordpress sites.
 
 [![Release](https://img.shields.io/github/v/release/UAB-IT/website-design?include_prereleases)](https://github.com/UAB-IT/website-design/releases)
