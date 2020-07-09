@@ -40,6 +40,7 @@ module.exports = {
         children: [
           "/modules/areas",
           "/modules/banners",
+          "/modules/menus"
         ],
       },
     ],
