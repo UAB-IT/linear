@@ -27,7 +27,7 @@ $column-gap: (token.space('gap', 'base') / 2);
     margin-left: 0;
     margin-right: 0;
     margin-top: 0;
-    & > .column {
+    & > .grid_item {
       margin: 0;
       padding: 0 !important;
     }
