@@ -27,6 +27,7 @@ module.exports = {
           "/components/blockquotes",
           "/components/buttons",
           "/components/callouts",
+          "/components/grid",
           "/components/images",
           "/components/section",
           "/components/tables",
