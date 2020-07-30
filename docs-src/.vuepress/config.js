@@ -40,6 +40,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/widgetkit/details",
+          "/widgetkit/features",
         ],
       },
       {
