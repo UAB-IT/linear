@@ -41,6 +41,7 @@ module.exports = {
         children: [
           "/widgetkit/details",
           "/widgetkit/features",
+          "/widgetkit/gallery"
         ],
       },
       {
