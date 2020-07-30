@@ -36,6 +36,13 @@ module.exports = {
         ],
       },
       {
+        title: "Widgetkit",
+        collapsable: false,
+        children: [
+          "/widgetkit/details",
+        ],
+      },
+      {
         title: "Modules",
         collapsable: false,
         children: [
