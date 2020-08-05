@@ -41,7 +41,8 @@ module.exports = {
         children: [
           "/widgetkit/details",
           "/widgetkit/features",
-          "/widgetkit/gallery"
+          "/widgetkit/gallery",
+          "/widgetkit/numbers",
         ],
       },
       {
