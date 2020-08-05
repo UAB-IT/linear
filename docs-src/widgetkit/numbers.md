@@ -51,5 +51,5 @@ In "Content" use these settings
 
 In "General" use these settings
 
-- Open all links in a new window: Yes
+- Open all links in a new window: No
 - HTML Class: `wk-numbers`
