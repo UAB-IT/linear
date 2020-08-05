@@ -55,4 +55,4 @@ In "General" use these settings
 
 - Link target: No
 - Date format: Medium
-- HTML Class: "wk-features"
+- HTML Class: `wk-features`

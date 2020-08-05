@@ -52,4 +52,4 @@ For a Video gallery, set Lightbox: Disabled
 In "General" use these settings
 
 - Open all links in a new window: Yes
-- HTML Class: "u-txt-c"
+- HTML Class: `u-txt-c`
