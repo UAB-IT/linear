@@ -47,12 +47,12 @@ module.exports = {
         ],
       },
       {
-        title: "Modules",
+        title: "Joomla",
         collapsable: false,
         children: [
-          "/modules/areas",
-          "/modules/banners",
-          "/modules/menus"
+          "/joomla/areas",
+          "/joomla/banners",
+          "/joomla/menus"
         ],
       },
     ],
