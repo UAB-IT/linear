@@ -27,6 +27,7 @@ module.exports = {
           "/components/blockquotes",
           "/components/buttons",
           "/components/callouts",
+          "/components/grid",
           "/components/images",
           "/components/section",
           "/components/tables",
@@ -35,11 +36,25 @@ module.exports = {
         ],
       },
       {
-        title: "Modules",
+        title: "Widgetkit",
         collapsable: false,
         children: [
-          "/modules/areas",
-          "/modules/banners",
+          "/widgetkit/details",
+          "/widgetkit/features",
+          "/widgetkit/gallery",
+          "/widgetkit/hero",
+          "/widgetkit/numbers",
+          "/widgetkit/panels"
+        ],
+      },
+      {
+        title: "Joomla",
+        collapsable: false,
+        children: [
+          "/joomla/areas",
+          "/joomla/articles",
+          "/joomla/banners",
+          "/joomla/menus"
         ],
       },
     ],
