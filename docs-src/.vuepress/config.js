@@ -42,6 +42,7 @@ module.exports = {
           "/widgetkit/details",
           "/widgetkit/features",
           "/widgetkit/gallery",
+          "/widgetkit/hero",
           "/widgetkit/numbers",
           "/widgetkit/panels"
         ],
