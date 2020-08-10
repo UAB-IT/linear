@@ -52,6 +52,7 @@ module.exports = {
         collapsable: false,
         children: [
           "/joomla/areas",
+          "/joomla/articles",
           "/joomla/banners",
           "/joomla/menus"
         ],
