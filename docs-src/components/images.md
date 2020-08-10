@@ -28,3 +28,15 @@ An image caption, or more accurately a figure caption, is a set of standard HTML
   <figcaption>Image caption</figcaption>
 </figure>
 ```
+
+## Sizes
+
+All images should be cropped and compressed, following these image size guidelines:
+
+- Banner: 1600 x 300
+- Illustrations: 266 x 720
+- Large (full width) images: 1280 x 720
+- Medium (half width) images: 640 x auto
+- Small (thumbnail) images: 320 x auto
+
+Generally, images should be 9:12 ratio, but judge this on case by case. Images should be around 300kb, but no larger than 500kb.
