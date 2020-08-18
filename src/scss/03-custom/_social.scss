@@ -2,20 +2,21 @@
 @use '../01-core/token';
 
 /** SECTION Social icons
-  * [1] Remove link style from social buttons
-  * [2] Remove hover style from link
-  * [3] Remove the 'open in new tab' icon
+  * [1] Allow the icons to sit side-by-side
+  * [2] Restrict the max-width of the icon to a reasonable size
+  * [3] Add top and side padding for space
+  * [4] Add a scale effect to the icon when hovered.
 -------------------------------------------------------------------------- */
 
-#{$specify-all} {
-  .at-follow-btn {
-    /*[1]*/ border: none;
-    &:hover,
-    &:focus {
-      /*[2]*/ background: none;
+#{$specify} {
+  .social-icon {
+    /*[1]*/ display: inline-block;
+    img {
+      /*[2]*/ max-width: 25px;
+      /*[3]*/ padding: 0.8rem 5px;
     }
-    &::after {
-      /*[3]*/ display: none;
+    a:hover img {
+      /*[4]*/ transform: scale(1.5);
     }
   }
 }
