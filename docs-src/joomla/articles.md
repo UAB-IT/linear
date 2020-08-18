@@ -6,7 +6,7 @@ When adding content in any article remember these rules
 
 - Do not paste from word with formatting.
 - Paste content block by block "without formatting" using the options in JCE to format the content. Or add content in the "Code" tab
-- Remember to look over the [inclusive design](/linear/principals/inclusive-design.html) page.
+- Remember to look over the [inclusive design](/principals/inclusive-design.html) page.
 
 ## News Articles
 
@@ -16,7 +16,7 @@ When adding content in any article remember these rules
 
 ### Adding a Thumbnail
 
-If the news article includes an [image](/linear/components/images.html), the image should also be set as the article's thumbnail to display in RSS feeds.
+If the news article includes an [image](/components/images.html), the image should also be set as the article's thumbnail to display in RSS feeds.
 
 1. Navigate to the **Images and Links** tab.
 2. Select the desired image in the **Intro Image** field.
@@ -48,4 +48,4 @@ Web pages have much fewer rules to follow, but need to have menus and banners ad
 2. Select the category the page falls under. This should correspond to what sidebar it will display on.
 3. Place the page's content in the content box. It should begin with a headding 2 element `h2` and follow with paragraphs and other content.
 4. Use a short descriptive alias. This will display in the page's URL, so the shorter the better.
-5. Save and close the article and go on to [add the page to a menu](/linear/joomla/menus.html), and [assign the page a banner](/linear/joomla/banners.html)
+5. Save and close the article and go on to [add the page to a menu](/joomla/menus.html), and [assign the page a banner](/joomla/banners.html)
