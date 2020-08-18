@@ -6,6 +6,7 @@
   * [2] Restrict the max-width of the icon to a reasonable size
   * [3] Add top and side padding for space
   * [4] Add a scale effect to the icon when hovered.
+  * [5] Remove the "open in new tab" icon
 -------------------------------------------------------------------------- */
 
 #{$specify} {
@@ -17,6 +18,9 @@
     }
     a:hover img {
       /*[4]*/ transform: scale(1.5);
+    }
+    a::after {
+      /*[5]*/ display: none;
     }
   }
 }
