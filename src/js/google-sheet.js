@@ -47,7 +47,7 @@ function IT_googleSheet (
     if (IT_applyConditionalClasses(val)) {
       TD.classList.add(IT_applyConditionalClasses(val))
     }
-    TD.innerHTML = val
+    TD.textContent = val
     return TD
   }
 
