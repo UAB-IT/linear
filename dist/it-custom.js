@@ -1,3 +1,11 @@
+/* ==========================================================================
+  IT Website JavaScript 1.1.3
+  University of Alabama at Birmingham
+  Department of Information Technology
+  2019 Mozilla Public License 2.0
+  https://github.com/UAB-IT/linear
+========================================================================== */
+
 /** @function IT_tabIndex
   * Adds tab index to interactive cards in Widgetkit
   * @param {string} containerClass - The class name of the parent container
@@ -37,6 +45,10 @@ function IT_sidebar () {
     return false
   })
 }
+
+jQuery(document).ready(function () {
+  IT_sidebar()
+})
 
 /** jQuery-TOC
  * Table of Contents Generator Plugin for (non-)jQuery
