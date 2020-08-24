@@ -5,6 +5,7 @@
 /** SECTION Tables
   * [1] Add borders, padding, and ensure text alignment is respected
   * [2] Apply header styles to table headers
+  * [3] Remove odd style rule from central CSS. See issue #116
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -22,10 +23,14 @@
     color: inherit;
   }
   th {
-    @extend %header;
+    /*[2]*/ @extend %header;
     @include stratus.type-set(normal);
     font-weight: token.font('head', 'bold');
   }
+}
+
+body.linear #content thead {
+  /*[3]*/ display: revert;
 }
 
 /** Themes
