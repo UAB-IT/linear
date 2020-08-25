@@ -55,8 +55,6 @@ body.linear #content thead {
 
   .table-striped tbody > tr:nth-child(odd) > td,
   .table-striped tbody > tr:nth-child(odd) > th,
-  .comparison-table tbody > tr:nth-child(odd) > td,
-  .comparison-table tbody > tr:nth-child(odd) > th,
   .table-hover tr:hover {
     background: token.color('background');
   }
