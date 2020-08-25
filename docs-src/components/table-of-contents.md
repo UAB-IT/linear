@@ -26,16 +26,16 @@ Place the script at the bottom of the file / article.
 
 ```html
 <script>
-  var TOCcontainer = document.querySelector(‘#toc’);
-
-  var toc = initTOC({
-    selector: ‘h3, h4, h5’,
-    scope: ‘#content’,
-    overwrite: false,
-    prefix: ‘toc’
+  jQuery(document).ready( function() {
+    var TOCcontainer = document.querySelector(‘#toc’);
+    var toc = initTOC({
+      selector: ‘h3, h4, h5’,
+      scope: ‘#content’,
+      overwrite: false,
+      prefix: ‘toc’
+    });
+    TOCcontainer.appendChild(toc);
   });
-
-  TOCcontainer.appendChild(toc);
 </script>
 ```
 
