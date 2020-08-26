@@ -7,9 +7,9 @@
   "scripts": {
     "js:lint": "npx standard 'src/js/*.js'",
     "js:lint--fix": "npx standard 'src/js/*.js' --fix",
-    "js:concat": "concat -o dist/it-custom.js src/js/interactive-cards.js src/js/vendor/sidebar.js src/js/vendor/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js src/js/vendor/lazy-load.js src/js/vendor/enllax.js",
-    "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it-custom.scss build/it-custom.css",
-    "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
+    "js:concat": "concat -o dist/it_group.js src/js/interactive-cards.js src/js/vendor/sidebar.js src/js/vendor/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js src/js/vendor/lazy-load.js src/js/vendor/enllax.js",
+    "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it_group.scss build/it_group.css",
+    "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it_group.scss dist/it_group-min.css",
     "css:lint": "npx stylelint 'src/**/*.scss'",
     "css:lint--fix": "npx stylelint 'src/**/*.scss' --fix",
     "build": "npm run css:prod && npm run js:concat",
