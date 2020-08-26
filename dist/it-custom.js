@@ -1,8 +1,8 @@
 /* ==========================================================================
-  IT Website JavaScript 1.1.5
+  IT Website JavaScript 1.1.6
   University of Alabama at Birmingham
   Department of Information Technology
-  2019 Mozilla Public License 2.0
+  2020 Mozilla Public License 2.0
   https://github.com/UAB-IT/linear
 ========================================================================== */
 
