@@ -1,17 +1,13 @@
 {
   "name": "website-design",
-  "version": "0.14.0",
+  "version": "1.1.6",
   "description": "Website design for the University of Alabama at Birmingham's Department of Information Technology",
   "license": "MPL-2.0",
   "private": true,
   "scripts": {
-    "js:lint": "npx standard 'src/js/*.js'",
-    "js:lint--fix": "npx standard 'src/js/*.js' --fix",
-    "js:concat": "concat -o dist/it-custom.js src/js/interactive-cards.js src/js/vendor/sidebar.js src/js/vendor/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js src/js/vendor/lazy-load.js src/js/vendor/enllax.js",
-    "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it-custom.scss build/it-custom.css",
-    "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it-custom.scss dist/it-custom-min.css",
-    "css:lint": "npx stylelint 'src/**/*.scss'",
-    "css:lint--fix": "npx stylelint 'src/**/*.scss' --fix",
+    "js:concat": "concat -o dist/it_group.js src/js/interactive-cards.js src/js/vendor/sidebar.js src/js/vendor/toc.js src/js/twitter-timeline.js src/js/google-sheet.js src/js/search-list.js src/js/vendor/lazy-load.js src/js/vendor/enllax.js",
+    "css:dev": "sass --load-path=node_modules --no-source-map --style=expanded src/scss/it_group.scss build/it_group.css",
+    "css:prod": "sass --load-path=node_modules --no-source-map --style=compressed src/scss/it_group.scss dist/it_group-min.css",
     "build": "npm run css:prod && npm run js:concat",
     "docs:dev": "vuepress dev docs-src",
     "docs:build": "vuepress build docs-src"
@@ -23,14 +19,10 @@
   "homepage": "https://github.com/UAB-IT/website-design#readme",
   "devDependencies": {
     "concat": "^1.0.3",
-    "sass": "^1.26.3",
-    "standard": "^14.3.3",
-    "stylelint": "^13.3.2",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-scss": "^3.17.1",
-    "vuepress": "^1.5.0"
+    "sass": "^1.26.10"
   },
   "dependencies": {
-    "@mattmcadams/stratus": "^1.0.0"
+    "@mattmcadams/stratus": "^1.0.2",
+    "vuepress": "^1.5.4"
   }
 }
