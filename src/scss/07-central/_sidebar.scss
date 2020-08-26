@@ -4,20 +4,27 @@
 
 /** SECTION Sidebar Resets
   * Uses the same selectors from central style.css
-  * [1] Reset font sizes in the sidebar
-  * [2] Background must be solid for mobile screens
-  * [3] Remove list margins
+  * [1] Fixes an issue on mobile where the link targets would be below
+  * the page content so that if the menu happened to be open on top of a
+  * link in the page, the tap would go to the page link instead.
+  * [2] Reset font sizes in the sidebar
+  * [3] Background must be solid for mobile screens
+  * [4] Remove list margins
 -------------------------------------------------------------------------- */
 
 #{$specify-all} {
+  #leftcolumn.sidebarpanel,
+  #sidebar_trigger {
+    /*[1]*/ z-index: 100;
+  }
   #leftcolumn .sidebar.no-seal,
   #leftcolumn.sidebarpanel.no-seal {
-    /*[1]*/ @include reset(font-size);
-    /*[2]*/ background-color: white;
+    /*[2]*/ @include reset(font-size);
+    /*[3]*/ background-color: white;
   }
   #leftcolumn ul,
   #leftcolumn li {
-    /*[3]*/ @include reset(margin);
+    /*[4]*/ @include reset(margin);
   }
 }
 
