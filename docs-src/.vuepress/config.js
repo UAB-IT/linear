@@ -28,6 +28,7 @@ module.exports = {
           "/components/buttons",
           "/components/callouts",
           "/components/comparison-table",
+          "/components/google-sheets",
           "/components/grid",
           "/components/images",
           "/components/section",
