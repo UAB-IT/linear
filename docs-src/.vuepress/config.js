@@ -1,5 +1,5 @@
 module.exports = {
-  title: "UABIT CSS Library",
+  title: "UABIT CSS/JS Library",
   dest: "docs",
   base: "/linear/",
   themeConfig: {
