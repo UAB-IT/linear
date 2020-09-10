@@ -46,7 +46,8 @@ module.exports = {
           "/widgetkit/gallery",
           "/widgetkit/hero",
           "/widgetkit/numbers",
-          "/widgetkit/panels"
+          "/widgetkit/panels",
+          "/widgetkit/timeline"
         ],
       },
       {
