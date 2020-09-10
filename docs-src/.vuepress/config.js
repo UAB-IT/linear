@@ -1,5 +1,5 @@
 module.exports = {
-  title: "UABIT CSS Library",
+  title: "UABIT CSS/JS Library",
   dest: "docs",
   base: "/linear/",
   themeConfig: {
@@ -28,6 +28,7 @@ module.exports = {
           "/components/buttons",
           "/components/callouts",
           "/components/comparison-table",
+          "/components/google-sheets",
           "/components/grid",
           "/components/images",
           "/components/section",
@@ -45,7 +46,8 @@ module.exports = {
           "/widgetkit/gallery",
           "/widgetkit/hero",
           "/widgetkit/numbers",
-          "/widgetkit/panels"
+          "/widgetkit/panels",
+          "/widgetkit/timeline"
         ],
       },
       {
