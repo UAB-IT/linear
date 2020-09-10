@@ -40,6 +40,8 @@ body.linear #content thead {
   * Hoverable
   * Colored
   * Comparison
+  * Important is used to ensure cell status classes take priority over
+  *   anything else, as there should be no reason for these to be overridden
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
@@ -101,13 +103,13 @@ body.linear #content thead {
     }
   }
 
-  .cell-accent { background-color: token.color('accent', '300'); }
-  .cell-secondary { background-color: token.color('secondary', '300'); }
-  .cell-primary { background-color: token.color('primary', '300'); }
-  .cell-notice { background-color: token.color('state', 'notice', '300'); }
-  .cell-caution { background-color: token.color('state', 'caution', '300'); }
-  .cell-caution-alt { background-color: token.color('state', 'caution-alt', '300'); }
-  .cell-warning { background-color: token.color('state', 'warning', '300'); }
+  .cell-accent { background-color: token.color('accent', '300') !important; }
+  .cell-secondary { background-color: token.color('secondary', '300') !important; }
+  .cell-primary { background-color: token.color('primary', '300') !important; }
+  .cell-notice { background-color: token.color('state', 'notice', '300') !important; }
+  .cell-caution { background-color: token.color('state', 'caution', '300') !important; }
+  .cell-caution-alt { background-color: token.color('state', 'caution-alt', '300') !important; }
+  .cell-warning { background-color: token.color('state', 'warning', '300') !important; }
 
   .comparison-table td { vertical-align: middle; }
   .comparison-table .icon-ok { color: token.color('state', 'notice'); }

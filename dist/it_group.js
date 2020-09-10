@@ -1,10 +1,11 @@
 /* ==========================================================================
-  IT Website JavaScript 1.1.6
+  IT Website JavaScript 1.1.7
   University of Alabama at Birmingham
   Department of Information Technology
   2020 Mozilla Public License 2.0
   https://github.com/UAB-IT/linear
 ========================================================================== */
+
 
 /** @function IT_tabIndex
   * Adds tab index to interactive cards in Widgetkit
