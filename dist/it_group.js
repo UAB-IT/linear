@@ -1,5 +1,5 @@
 /* ==========================================================================
-  IT Website JavaScript 1.1.7
+  IT Website JavaScript 1.1.8
   University of Alabama at Birmingham
   Department of Information Technology
   2020 Mozilla Public License 2.0
@@ -46,10 +46,6 @@ function IT_sidebar () {
     return false
   })
 }
-
-jQuery(document).ready(function () {
-  IT_sidebar()
-})
 
 /** jQuery-TOC
  * Table of Contents Generator Plugin for (non-)jQuery
