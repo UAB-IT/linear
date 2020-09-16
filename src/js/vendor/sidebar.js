@@ -10,7 +10,3 @@ function IT_sidebar () {
     return false
   })
 }
-
-jQuery(document).ready(function () {
-  IT_sidebar()
-})
