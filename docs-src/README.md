@@ -21,8 +21,8 @@ Note that you will need to be on the secure UAB network to access any developmen
 
 ## Authors and acknowledgment
 Kerry Bean, IT Communications & Marketing Director<br>
-[Jessika Reed](https://github.com/orgs/UAB-IT/people/jessikareed), Creative director<br>
-[Matt McAdams](https://github.com/MattMcAdams), Web designer & developer<br>
-[MJ Moon](https://github.com/orgs/UAB-IT/people/macymoon), Designer
+Jessika Reed, Creative director<br>
+Matt McAdams, Web designer & developer<br>
+MJ Moon, Designer
 
 I'd also like to thank all the great folks from UAB Web Communications for helping out with the back-end parts of this project and answering tons of questions. You guys are great and we couldn't have done it without your knowledge and support.
