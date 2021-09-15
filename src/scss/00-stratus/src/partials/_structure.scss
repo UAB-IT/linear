@@ -1,0 +1,77 @@
+////
+/// @group structure
+////
+
+// ==========================================================================
+// SECTION STRUCTURE
+// Custom measurement unit, set to 1 line height by default to help
+// establish vertical rhythm
+// ==========================================================================
+
+@use '../core/' as stratus;
+@use 'typography' as type;
+@use '../../config';
+
+$config-lh-unit: type.line-height(0) !default;
+$config-sp-unit: config.$space-unit-size !default;
+$config-ms-unit: config.$default-ratio !default;
+
+/// --------------------------------------------------------------------------
+/// Line Height Unit
+/// Use the base line height to calculate measurements
+/// @access public
+///
+/// @requires $config-lh-unit
+///
+/// @param {number(unitless)} $input
+/// @param {number} $line-height
+///
+/// @returns {number} `$line-height` times `$input`
+/// --------------------------------------------------------------------------
+@function lh(
+  $input,
+  $line-height: $config-lh-unit
+) {
+  @return ($line-height * $input);
+}
+
+/// --------------------------------------------------------------------------
+/// Custom Space Unit
+/// function to create a general unit of measurement for spacing
+/// @access public
+///
+/// @requires $config-sp-unit
+/// @requires lh
+///
+/// @param {number(unitless)} $input
+/// @param {number | 'auto'} $size
+///
+/// @returns {number} `$size` times `$input`
+/// --------------------------------------------------------------------------
+@function sp(
+  $input,
+  $size: $config-sp-unit
+) {
+  @if $size == auto { @return lh($input); }
+  @return ($size * $input);
+}
+
+/// --------------------------------------------------------------------------
+/// Modular Scale Unit
+/// function to get an `em` value based on the modular scale
+/// @access public
+///
+/// @requires stratus.modular-scale (core)
+///
+/// @param {number(unitless)} $input
+/// @param {number(unitless)} $ratio [$config-ms-unit]
+///
+/// @returns {number} `$size` times `$input`
+/// --------------------------------------------------------------------------
+@function ms(
+  $input,
+  $ratio: $config-ms-unit
+) {
+  @return stratus.modular-scale($input, 1em, $ratio);
+}
+// END !SECTION STRUCTURE
