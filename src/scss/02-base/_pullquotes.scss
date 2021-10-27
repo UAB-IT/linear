@@ -6,13 +6,16 @@
 -------------------------------------------------------------------------- */
 
 #{$specify-main} {
-  .pullquote,
   blockquote {
     @include token.block-margin;
     padding: token.space('padding', 'block');
+  }
+  .pullquote {
+    @extend blockquote;
     background-color: token.color('background');
     border-left: token.border('width', 'large') solid token.color('accent');
   }
+  
   .pullquote p,
   .pullquote q,
   blockquote p,
