@@ -1,0 +1,216 @@
+////
+/// @group core
+////
+
+// ==========================================================================
+// SECTION FUNCTIONS
+// Functions required by several functions and mixins.
+// ==========================================================================
+
+@use 'sass:map';
+@use 'sass:meta';
+@use 'sass:math';
+
+@use 'validation' as v;
+@use '../../config';
+
+$config-rem-size: config.$rem-size !default;
+$config-type-ratio: config.$default-ratio !default;
+
+/// --------------------------------------------------------------------------
+/// Deep Map Get
+/// Get a value from a nested map by the keys
+/// @access public
+///
+/// @requires map.get (sass:map)
+/// @requires meta.type-of (sass:meta)
+/// @requires v.is-map (validation.scss)
+///
+/// @arg {map} $map - map to check
+/// @arg {string(s)} $keys - keys in $map
+///
+/// @returns {Unspecified} it may return anything as a result
+/// @example scss - Get the value of a key from a nested map
+///   $example-map: (
+///     'top-key': (
+///       'deep-key': foo
+///     );
+///   );
+///
+///   stratus.get($example-map, 'top-key', 'deep-key')
+///   // -> Value of second level key
+/// --------------------------------------------------------------------------
+@function get(
+  $map,
+  $keys...
+) {
+  @if not (v.is-map($map)) {
+    @error 'The argument $map: "#{$map}" is of incorrect type: "#{meta.type-of($map)}". Type of "Map" is required!';
+  }
+  @each $key in $keys {
+    $map: map.get($map, $key);
+  }
+  @return $map;
+}
+
+/// --------------------------------------------------------------------------
+/// Power function
+/// @access private
+///
+/// @arg {number} $base - number to be multiplied
+/// @arg {number(unitless)} $exponents - number of times it should be multiplied
+///
+/// @returns {number}
+/// @example
+/// pow(10, 3)
+/// > 1,000
+/// --------------------------------------------------------------------------
+@function _pow($base, $exponents) {
+  $_raised: 1;
+  @for $_i from 1 through $exponents {
+    $_raised: $_raised * $base;
+  }
+  @return $_raised;
+}
+
+/// --------------------------------------------------------------------------
+/// Modular Scale
+/// Increments up or down a defined scale and returns an adjusted value.
+/// @access public
+///
+/// @requires _pow
+/// @requires $config-type-ratio
+///
+/// @arg {number(unitless)} $increment
+/// How many steps to increment up or down the scale.
+/// @param {number(with-unit)} $base [1em]
+///   The base value the scale starts at.
+/// @param {number(unitless)} $ratio [config.$type-ratio]
+///   The ratio the scale is built on.
+///
+/// @returns {number(with-unit)}
+/// --------------------------------------------------------------------------
+@function modular-scale(
+  $increment,
+  $base: 1em,
+  $ratio: $config-type-ratio
+){
+  @if $increment == 0 {
+    @return $base;
+  }
+  @if $increment < 0 {
+    // remove negative from number, division does this for us
+    $increment: $increment * -1;
+    @return $base / _pow( $ratio, $increment );
+  }
+  @return $base * _pow( $ratio, $increment );
+}
+
+/// --------------------------------------------------------------------------
+/// min-multiple
+/// Returns a multiple of x/y >= z
+/// @access public
+///
+/// @arg {number} $base
+///   The value to be multiplied
+/// @arg {number} $min
+///   The lowest possible output
+/// @param {number} $multiple [1]
+///   Can be 0-1 inclusive. Allows half multiples
+///
+/// @return {number}
+/// --------------------------------------------------------------------------
+@function min-multiple($base, $min, $multiple: 1) {
+  $_output: $base;
+  $_i: $multiple;
+  @while $_output < $min {
+    $_output: $base * $_i;
+    $_i: $_i + $multiple;
+  }
+  @return $_output;
+}
+
+/// --------------------------------------------------------------------------
+/// Strip Unit
+/// Strips the unit from a number.
+/// @access public
+///
+/// @arg {number} $value
+///
+/// @return {number (unitless)}
+/// @example scss
+///   $dimension: strip-unit(10em);
+///
+///   // Output
+///   $dimension: 10;
+/// --------------------------------------------------------------------------
+@function strip-unit($value) {
+  @return ($value / ($value * 0 + 1));
+}
+
+/// --------------------------------------------------------------------------
+/// Convert Unit
+/// Converts unit measurements
+/// @access public
+///
+/// @requires math.unit (sass:math)
+/// @requires math.percentage (sass:math)
+/// @requires math.is-unitless (sass:math)
+/// @requires $config-rem-size
+/// @requires strip-unit
+///
+/// @arg {number(with-unit)} $value
+///   Starting value to be converted
+/// @arg {keyword['px'|'pt'|'%'|'em'|'rem']} $unit
+///   Unit to be converted to
+/// @param {number(px)} $base [config.$type-base]
+///   The px value of 1rem in your project
+///
+/// @returns {number(with-unit)} $value conveted to $unit
+/// --------------------------------------------------------------------------
+@function convert-unit(
+  $value,
+  $unit,
+  $base: $config-rem-size
+) {
+  $_current-unit: math.unit($value);
+  $_value: strip-unit($value);
+  $_base: null;
+  @if not (math.is-unitless($base)) {
+    @if math.unit($base) != px {
+      @error "Not supported unit '#{math.unit($base)}' as convert base! Must be 'px'.";
+    }
+    $_base: strip-unit($base);
+  }
+  @if $_current-unit == 'px' {
+    @if $unit == 'px' { @return $value; }
+    @if $unit == 'em' { @return ($_value / $_base) + 0em; }
+    @if $unit == 'rem' { @return ($_value / $_base) + 0rem; }
+    @if $unit == '%' { @return math.percentage($_value / $_base); }
+    @if $unit == 'pt' { @return ($_value * 0.75) + 0pt; }
+  }
+  @if $_current-unit == '%' {
+    @if $unit == 'px' { @return ($_value * $_base / 100) + 0px; }
+    @if $unit == 'em' { @return ($_value / 100) + 0em; }
+    @if $unit == 'rem' { @return ($_value / 100) + 0rem; }
+    @if $unit == '%' { @return $value; }
+    @if $unit == 'pt' { @return (($_value * $_base / 100) * 0.75) + 0pt; }
+  }
+  @if ($_current-unit == 'em') or ($_current-unit == 'rem') {
+    @if $unit == 'px' { @return ($_value * $_base) + 0px; }
+    @if $unit == 'em' { @return $_value + 0em; }
+    @if $unit == 'rem' { @return $_value + 0rem; }
+    @if $unit == '%' { @return math.percentage($_value); }
+    @if $unit == 'pt' { @return (($_value * $_base) * 0.75) + 0pt; }
+  }
+  @if $_current-unit == 'pt' {
+    @if $unit == 'px' { @return ($_value / 0.75) + 0px; }
+    @if $unit == 'em' { @return (($_value / 0.75) / $_base) + 0em; }
+    @if $unit == 'rem' { @return (($_value / 0.75) / $_base) + 0rem; }
+    @if $unit == '%' { @return math.percentage(($_value / 0.75) / $_base); }
+    @if $unit == 'pt' { @return $value; }
+  }
+  @error "Can't convert '#{$value}' to unit '#{$unit}'!";
+}
+
+// END !SECTION FUNCTIONS

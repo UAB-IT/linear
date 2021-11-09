@@ -4,7 +4,7 @@
 // Tokens also record high level design decisions and branding
 // ==========================================================================
 
-@use '@mattmcadams/stratus';
+@use '../00-stratus/index' as stratus;
 @use 'sass:map';
 @use 'sass:meta';
 

@@ -1,4 +1,4 @@
-@use '@mattmcadams/stratus';
+@use '../00-stratus/index' as stratus;
 @use '../01-core/' as *;
 @use '../01-core/token';
 

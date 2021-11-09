@@ -1,0 +1,86 @@
+////
+/// @group media
+////
+
+// ===========================================================================
+// SECTION MEDIA QUERIES
+// Utility mixins to help you write cleaner, easier to read CSS
+// ===========================================================================
+
+@use 'sass:meta';
+@use 'sass:map';
+@use 'sass:string';
+@use '../../config';
+
+$config-breakpoint-map: config.$breakpoint-map !default;
+
+/// --------------------------------------------------------------------------
+/// Orientation Media Query
+/// Creates a media query based on screen rotation / orientation
+/// @access private
+///
+/// @param {keyword['portrait' | 'landscape']} $oriendation ['portrait']
+/// --------------------------------------------------------------------------
+@mixin orientation(
+  $orientation: 'portrait'
+) {
+  @if $orientation == 'landscape' {
+    @media ( orientation: landscape ) { @content; }
+  }
+  @else if $orientation == 'portrait' {
+    @media ( orientation: portrait ) { @content; }
+  }
+}
+
+/// --------------------------------------------------------------------------
+/// Get Breakpoint
+/// Resolves input breakpoint to a number
+/// @access private
+///
+/// @requires meta.type-of (sass:meta)
+/// @requires map.has-key (sass:map)
+/// @requires map.get (sass:map)
+/// @requires $config-breakpoint-map
+///
+/// @param {number | key(config.$breakpoints)} $key
+/// @param {map} $map [config.$breakpoints]
+///
+/// @returns {number}
+/// --------------------------------------------------------------------------
+@function get-breakpoint(
+  $key,
+  $map: $config-breakpoint-map
+) {
+  @if meta.type-of($key) == number { @return $key; }
+  @if map.has-key($map, $key) { @return map.get($map, $key); }
+  @else { @return $key; }
+}
+
+/// --------------------------------------------------------------------------
+/// Media Query Mixin
+/// @access public
+///
+/// @requires string.index (sass:string)
+/// @requires get-breakpoint
+/// @requires orientation
+///
+/// @param {key[config.$breakpoints] | keyword[landscape, portrait] | number } $input
+///    Sets the media query orientation or width
+/// @param {string} $direction [min]
+///    Used as #{$direction}-width to detect screen size
+/// --------------------------------------------------------------------------
+@mixin media(
+  $breakpoint,
+  $direction: min
+) {
+  // See if the breakpoint pertains to orientation
+  @if $breakpoint == 'landscape'
+    or $breakpoint == 'portrait' {
+    @include orientation($breakpoint) { @content; }
+  } @else {
+    $query-size: get-breakpoint($breakpoint);
+    @media ( #{$direction}-width: $query-size ) { @content; }
+  }
+}
+
+// END !SECTION MEDIA QUERIES
