@@ -1,0 +1,141 @@
+////
+/// @group color
+////
+
+// ===========================================================================
+// SECTION COLOR
+// ===========================================================================
+
+@use 'sass:meta';
+@use 'sass:color';
+@use 'sass:map';
+@use '../core/validation' as v;
+@use '../core/error';
+@use '../../config';
+
+/// @type boolean
+$config-use-mix-method: config.$use-mix-method !default;
+
+/// --------------------------------------------------------------------------
+/// Color Index
+/// Converts a value from a numerical index to a usable percentage
+/// @access public
+///
+/// @requires v.is-integer (validation.scss)
+/// @requires error.inspect-param (error.scss)
+///
+/// @param {number(unitless)} $number
+///   Must be a positive integer < 1000 & divisible by 50
+///
+/// @returns {number(%)}
+/// @example stratus.color-index(400) -> 20%
+/// 500 is 0. every 50 represents 10%.
+/// Inputs less than 500 will be converted to positive percentages,
+/// Inputs greater than 500 will be converted to negative percentages.
+/// --------------------------------------------------------------------------
+@function color-index(
+  $number
+) {
+  @if (v.is-integer(($number / 50)))
+    and ($number < 1000)
+    and ($number > 0) {
+    @return (($number - 500) / - 5) + 0%;
+  }
+  @error 'Invalid arg `$number`, expected a positive integer less than 1000 that is also divisible by 50. $number: #{error.inspect-param($number)}';
+}
+
+// ===========================================================================
+// SECTION Color Modifications
+// ===========================================================================
+
+/// --------------------------------------------------------------------------
+/// Mix Color
+/// Tints or shades a color using the sass color.mix function
+/// @access public
+///
+/// @requires color.mix (sass:color)
+///
+/// @param {color} $color
+///   Color to be manipulated
+/// @param {number(%)} $percent
+///   How much white or black to mix with the color
+///   Can be positive or negative
+///
+/// @returns {color}
+/// --------------------------------------------------------------------------
+@function color-mix(
+  $color,
+  $percent
+) {
+  $_base: #fff;
+  @if $percent < 0 {
+    $_base: #000; $percent: $percent * -1;
+  }
+  @return color.mix($_base, $color, $percent);
+}
+
+/// --------------------------------------------------------------------------
+/// Color Alpha
+/// Adjusts a color's opacity
+/// @access public
+///
+/// @requires color.change (sass:color)
+///
+/// @param {color} $color
+///   Color to be manipulated
+/// @param {number(unitless) | number(%)} $opacity
+///   0-1 inclusive. 0 is invisible, 1 is fully opaque
+///
+/// @returns {color(rgba)}
+/// --------------------------------------------------------------------------
+@function color-alpha(
+  $color,
+  $opacity
+) {
+  @if v.is-percentage($opacity) {
+    $opacity: $opacity / 100;
+  }
+  @return color.change($color, $alpha: $opacity);
+}
+
+/// --------------------------------------------------------------------------
+/// Scale Color
+/// Adjusts a color's lightness and/or opacity
+/// @access public
+///
+/// @requires color.scale (sass:color)
+/// @requires color-mix
+/// @requires $config-use-mix-method
+///
+/// @param {color} $color
+///   Color to be manipulated
+/// @param {number(%)} $percent [null]
+///   Percent by which to be manipulated, can be positive or negative
+/// @param {number(unitless)} $opacity [null]
+///   0-1 inclusive, or percentage 0-100
+/// @param {boolean} $mix [$config-use-mix-method]
+///   Use color.mix() or color.scale() to calculate new color.
+///
+/// @returns {color}
+/// @example background-color: stratus.color-scale(#AAA, -20%);
+/// --------------------------------------------------------------------------
+@function color-scale(
+  $color,
+  $percent: null,
+  $opacity: null,
+  $mix: $config-use-mix-method
+) {
+  $_output: $color;
+  @if $percent {
+    @if $mix { $_output: color-mix($color, $percent); }
+    @else { $_output: color.scale($color, $lightness: $percent); }
+  }
+  @if $opacity {
+    @return color-alpha($_output, $opacity);
+  }
+  @return $_output;
+}
+
+// END !SECTION Color Modifications
+// END !SECTION COLOR
+// ==========================================================================

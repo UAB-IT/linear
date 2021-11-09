@@ -1,0 +1,75 @@
+////
+/// @group errors
+/// @access private
+////
+
+// SECTION Error Reporting
+// --------------------------------------------------------------------------
+
+@use 'sass:meta';
+
+$test-environment: false !default;
+
+/// Error [function]
+/// Optionally override error-output for testing failure-cases
+/// @param {string} $message -
+///   The error to report
+/// @param {string} $source -
+///   The source of the error
+/// @param {bool} $override [$_true-error-output-override] -
+///   Optionally override error-output for testing failure-cases
+/// @return {string}
+///   A message detailing the source and error,
+///   when the `$override` is `true`
+/// @throw
+///   A message detailing the source and error,
+///   when the `$override` is `false`
+/// @requires $test-environment
+
+@function error(
+  $message,
+  $source,
+  $override: $test-environment
+) {
+  @if $override {
+    @return 'ERROR [#{$source}] #{$message}';
+  }
+  @error '[#{$source}] #{$message}';
+}
+
+// /// Error [mixin]
+// /// @access private
+// /// @group error-reporting
+// /// @author Miriam Suzanne
+// /// @param {string} $message -
+// ///   The error to report
+// /// @param {string} $source -
+// ///   The source of the error
+// /// @param {bool} $override [$_true-error-output-override] -
+// ///   Optionally override error-output for testing failure-cases
+// /// @output
+// ///   A message detailing the source and error,
+// ///   when the `$override` is `true`
+// /// @throw
+// ///   A message detailing the source and error,
+// ///   when the `$override` is `false`
+// /// @requires $test-environment
+
+// @mixin error(
+//   $message,
+//   $source,
+//   $override: $test-environment
+// ) {
+//   @if $override {
+//     $error: 'ERROR [#{$source}] #{$message}';
+//     @include _true-message($error, 'comments');
+//   } @else {
+//     @error '[#{$source}] #{$message}';
+//   }
+// }
+
+@function inspect-param($param) {
+  @return '`(#{$param}{#{meta.type-of($param)}})`';
+}
+
+// END !SECTION Error Reporting

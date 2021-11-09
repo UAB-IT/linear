@@ -1,0 +1,71 @@
+////
+/// @group configuration
+////
+
+// Typography
+// ===========================================================================
+/// @type boolean
+$use-dynamic-scale: false !default;
+
+/// @type number(px)
+$rem-size: 16px !default;
+
+/// @type number
+$text-size: $rem-size !default;
+
+/// @type number(unitless)
+$line-height: 1.6 !default;
+
+/// @type string['rem'|'em'|'px'|'pt']
+$type-unit: 'rem' !default;
+
+/// @type number(unitless)
+$default-ratio: 1.25 !default;
+
+/// @type map
+$default-scale: (
+  'xlarge': 3,
+  'large': 2,
+  'medium': 1,
+  'normal': 0,
+  'small': -1,
+  'xsmall': -2,
+) !default;
+
+@function _type-unit($unit: $type-unit) {
+  @if $unit == 'rem' { @return 0rem; }
+  @if $unit == 'px' { @return 0px; }
+  @if $unit == 'pt' { @return 0pt; }
+  @if $unit == 'em' { @return 0em; }
+  @error "Invalid arg for `$type-unit` expected a string['rem'|'em'|'px'|'pt']";
+}
+
+/// @type number
+$type-unit-zero: _type-unit();
+
+/// @type boolean
+$use-vertical-rhythm: true !default;
+
+// Media Queries
+// ===========================================================================
+/// @type map
+$breakpoint-map: (
+  'xxlarge': 2560px,
+  'xlarge': 1440px,
+  'large': 1024px,
+  'medium': 761px,
+  'small': 760px,
+  'xsmall': 300px
+) !default;
+
+// Color
+// ===========================================================================
+/// Method used for shifting color lightness
+/// false uses the color.scale method, true uses the color.mix method
+/// @type boolean
+$use-mix-method: true !default;
+
+// Structure
+// ===========================================================================
+/// @type number | auto
+$space-unit-size: auto !default;

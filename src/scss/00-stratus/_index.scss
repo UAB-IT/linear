@@ -1,0 +1,12 @@
+// ==========================================================================
+// Stratus
+// License: MIT License 2019
+// Documentation: https://github.com/MattMcAdams/stratus/
+// ==========================================================================
+
+@forward 'src/core' hide $config-rem-size, $config-type-ratio;
+
+@forward 'src/partials/typography' hide line-height, type-scale, $config-use-dynamic-scale, $config-rem-size, $config-base-text-size,$config-type-unit-zero, $config-text-size, $config-line-height, $config-default-ratio, $config-default-scale, $config-use-vertical-rhythm;
+@forward 'src/partials/color' hide $config-use-mix-method;
+@forward 'src/partials/structure' hide $config-lh-unit, $config-sp-unit, $config-ms-unit;
+@forward 'src/partials/media' hide orientation, get-breakpoint, $config-breakpoint-map;

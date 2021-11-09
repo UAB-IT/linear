@@ -1,7 +1,7 @@
 // ==========================================================================
 // SECTION CONFIGURATION
 // ==========================================================================
-@use '@mattmcadams/stratus/config' with (
+@use '../00-stratus/config' with (
   $use-dynamic-scale: false,
   $rem-size: 16px,
   $line-height: 1.6,
@@ -28,7 +28,7 @@
   )
 );
 
-@use '@mattmcadams/stratus';
+@use '../00-stratus/index' as stratus;
 
 $adjust-template: true;
 $adjust-central-type: true;

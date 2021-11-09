@@ -1,0 +1,201 @@
+////
+/// @group typography
+////
+
+// ===========================================================================
+// SECTION TYPOGRAPHY
+// ===========================================================================
+
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:string';
+@use '../core/' as stratus;
+@use '../../config';
+
+// SECTION Config
+// ===========================================================================
+
+$config-use-dynamic-scale: config.$use-dynamic-scale !default;
+$config-rem-size: config.$rem-size !default;
+
+$config-base-text-size: config.$text-size !default;
+$config-type-unit-zero: config.$type-unit-zero !default;
+$config-text-size: stratus.convert-unit($config-base-text-size, math.unit($config-type-unit-zero), $config-rem-size) !default;
+
+$config-line-height: config.$line-height !default;
+$config-default-ratio: config.$default-ratio !default;
+$config-default-scale: config.$default-scale !default;
+$config-use-vertical-rhythm: config.$use-vertical-rhythm !default;
+
+// END !SECTION Config
+// SECTION Logic
+// ===========================================================================
+
+/// --------------------------------------------------------------------------
+/// Type scale
+/// Increments the font size up or down a defined scale and returns an adjusted value.
+/// @access private
+///
+/// @requires $config-text-size
+/// @requires $config-default-ratio
+/// @requires stratus.modular-scale (core)
+///
+/// @param {number(unitless)} $increment
+///   How many steps to increment up or down the scale.
+/// @param {number} $base [$config-text-size]
+///   The base value the scale starts at.
+/// @param {number(unitless)} $ratio [$config-default-ratio]
+///   The ratio the scale is built on.
+///
+/// @returns {number}
+/// --------------------------------------------------------------------------
+@function type-scale(
+  $increment,
+  $base: $config-text-size,
+  $ratio: $config-default-ratio
+) {
+  @return stratus.modular-scale($increment, $base, $ratio);
+}
+
+/// --------------------------------------------------------------------------
+/// Line Height
+/// Calculate line height based on input text size
+/// @access private
+///
+/// @requires math.unit (sass:math)
+/// @requires stratus.min-multiple (core)
+/// @requires $config-line-height
+/// @requires $config-text-size
+/// @requires $config-use-vertical-rhythm
+///
+/// @param {number(with-unit)} $text-size
+///   Text size to calculate line height for
+/// @param {number(unitless)} $line-height [$config-line-height]
+///   Line height to use as the base for calculation
+/// @param {number(with-unit)} $base-text-size [$config-text-size]
+///   The standard text size for your project
+/// @param {boolean} $static-output [$config-use-vertical-rhythm]
+///   True will output a static line height using the same unit as the input
+///   text size. False returns the unitless input lineheight
+///
+/// @return {number}
+/// --------------------------------------------------------------------------
+@function line-height(
+  $text-size,
+  $line-height: $config-line-height,
+  $base-text-size: $config-text-size,
+  $static-output: $config-use-vertical-rhythm
+) {
+
+  @if math.unit($base-text-size) == 'em'
+    or (not $static-output) { @return $line-height; }
+
+  $_line-height: $line-height * $base-text-size;
+  @return stratus.min-multiple($_line-height, $text-size, 0.5);
+}
+
+// END !SECTION Logic
+// SECTION Mixins
+// ===========================================================================
+
+/// --------------------------------------------------------------------------
+/// Type Init
+/// Generate css custom properties based on keys on input map and input ratio
+/// @access public
+///
+/// @requires $config-default-scale
+/// @requires $config-default-ratio
+/// @requires $config-use-vertical-rhythm
+/// @requires $config-use-dynamic-scale
+/// @requires type-scale
+/// @requires line-height
+///
+/// @param {map} $scale [$config-default-scale]
+///   A typographical scale map consisting of name:step pairs
+/// @param {number(unitless)} $ratio [$config-default-ratio]
+///   Ratio used to generate font sizes
+///
+/// @example
+/// :root { @include type-init($scale: 'scale-alt'); }
+/// @example
+/// :root { @include type-init($ratio: 'ratio-alt'); }
+/// :root { @include type-init($ratio: 1.25); }
+/// --------------------------------------------------------------------------
+@mixin type-init(
+  $scale: $config-default-scale,
+  $ratio: $config-default-ratio
+) {
+  --ratio: #{$ratio + 0em};
+  @each $_key, $_step in $scale {
+    $_size: type-scale($increment: $_step, $ratio: $ratio);
+    --#{$_key}: #{$_size};
+    @if $config-use-vertical-rhythm {
+      --#{$_key}-lh: #{line-height($_size)};
+    }
+  }
+  @if not ($config-use-dynamic-scale) {
+    @warn "The mixin type-init is only used to output css custom properties for use with multiple typographical scales, but stratus is set to use a single scale. See the 'use-dynamic-scale' key in `$type-base`";
+  }
+}
+
+/// --------------------------------------------------------------------------
+/// Typesetting
+/// Assign font size and line height using the modular scale
+/// @access public
+///
+/// @requires map.get (sass:map)
+/// @requires $config-default-scale
+/// @requires $config-use-dynamic-scale
+/// @requires type-scale
+/// @requires line-height
+///
+/// @param {string} $name ['normal']
+///   String used to generate css variables and calculate the step
+///   from the input map.
+/// @param {null | number(unitless)} $step [null]
+///   Number of steps to move up or down the scale, development
+///   parameter only, should not be used in production.
+/// @param {boolean} $print-variables [$config-use-dynamic-scale]
+///    Tells the mixin if it should include css variables in the output.
+/// @param {map} $map [$config-default-scale]
+///   Optional custom map override. Mostly for debugging purposes or
+///   edge case problems when a custom map must be used.
+///
+/// @example
+/// p { @include type-set(normal); }
+/// h1 { @include type-set(large); }
+/// --------------------------------------------------------------------------
+@mixin type-set(
+  $name: 'normal',
+  $step: null,
+  $print-variables: $config-use-dynamic-scale,
+  $map: $config-default-scale
+) {
+
+  @if $step == null { $step: map.get($map, $name); }
+  @else if $print-variables {
+    @warn "Using a generic string and defining a manual `$step` value may produce unpredictable problems.";
+  }
+
+  $size: type-scale($step);
+  font-size: $size;
+  line-height: line-height($size);
+
+  @if $print-variables {
+    font-size: var(--#{$name});
+    line-height: var(--#{$name}-lh);
+  }
+}
+
+//$font-stack: (
+//  'body': $font-stack-georgia,
+//  'head': $font-stack-helvetica,
+//  'mono': $font-stack-monaco,
+//  'icon': null
+//);
+//
+//@mixin font($name, $weight: 'normal') {
+//  font-family: map-get($font-stack, $name);
+//}
+// END !SECTION Mixins
+// END !SECTION TYPOGRAPHY
