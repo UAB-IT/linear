@@ -1,0 +1,2645 @@
+@charset "UTF-8";
+/* ==========================================================================
+  IT Website Stylesheet 1.1.9
+  University of Alabama at Birmingham
+  Department of Information Technology
+  2020 Mozilla Public License 2.0
+  https://github.com/UAB-IT/linear
+========================================================================== */
+/** SECTION PATTERNS
+========================================================================== */
+/** Header Styles
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] th, body.linear [id=wrapper] h1,
+body.linear [id=wrapper] .uk-h1,
+body.linear [id=wrapper] h2,
+body.linear [id=wrapper] .uk-h2,
+body.linear [id=wrapper] h3,
+body.linear [id=wrapper] .uk-h3,
+body.linear [id=wrapper] h4,
+body.linear [id=wrapper] .uk-h4,
+body.linear [id=wrapper] h5,
+body.linear [id=wrapper] .uk-h5,
+body.linear [id=wrapper] h6,
+body.linear [id=wrapper] .uk-h6 {
+  font-family: kulturista-web, serif;
+  font-weight: 400;
+  margin-bottom: 1.6rem;
+  color: black;
+}
+
+/** Links
+-------------------------------------------------------------------------- */
+/* Link base - medium border bottom */
+body.linear [id=whitebox] .alert a, body.linear [id=whitebox] .alert.alert-caution a, body.linear [id=whitebox] .alert.alert-warning a, body.linear [id=whitebox] a {
+  border-bottom-width: 2px;
+  border-bottom-style: solid;
+}
+
+/** Link primary
+ * border is primary 200 with uab green and light background on hover
+**/
+body.linear [id=whitebox] a {
+  border-color: #a5c4ba;
+}
+body.linear [id=whitebox] a:hover {
+  border-color: #1e6b52;
+  background-color: #d2e1dc;
+}
+
+/** Link themes
+ * State themes for links
+**/
+body.linear [id=whitebox] .alert.alert-warning a {
+  border-color: #f99;
+}
+body.linear [id=whitebox] .alert.alert-warning a:hover {
+  border-color: #f00;
+  background-color: #fcc;
+}
+
+body.linear [id=whitebox] .alert.alert-caution a {
+  border-color: #fe9;
+}
+body.linear [id=whitebox] .alert.alert-caution a:hover {
+  border-color: #ffd400;
+  background-color: #fff6cc;
+}
+
+body.linear [id=whitebox] .alert a {
+  border-color: #cce499;
+}
+body.linear [id=whitebox] .alert a:hover {
+  border-color: #80bc00;
+  background-color: #e6f2cc;
+}
+
+/** Cards
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .uk-panel-box, body.linear [id=whitebox] .moduletable.alert, body.linear [id=whitebox] .moduletable.alert.alert-warning, body.linear [id=whitebox] .moduletable.alert.alert-caution {
+  border: 1px solid #333435;
+  border-radius: 6px;
+  padding: 1.6rem;
+}
+
+/**  Input template
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] textarea,
+body.linear [id=whitebox] input[type=email],
+body.linear [id=whitebox] input[type=number],
+body.linear [id=whitebox] input[type=text],
+body.linear [id=whitebox] input[type=tel],
+body.linear [id=whitebox] input[type=url],
+body.linear [id=whitebox] input[type=search], body.linear [id=whitebox] .srfrContainer .srfrReadMore a::after, .pagination a.pagenav,
+.pagination span.pagenav, body.linear [id=whitebox] button,
+body.linear [id=whitebox] .btn,
+body.linear [id=whitebox] input[type=submit],
+body.linear [id=whitebox] input[type=reset],
+body.linear [id=whitebox] input[type=button],
+body.linear [id=whitebox] .uk-button, body.linear [id=whitebox] .btn-primary,
+body.linear [id=whitebox] .uk-button-primary {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0.3em 1em;
+  background: white;
+  border: 1px solid #333435;
+  border-radius: 3px;
+}
+
+/** Buttons
+-------------------------------------------------------------------------- */
+/* Base button styles, extends base input styles */
+body.linear [id=whitebox] .srfrContainer .srfrReadMore a::after, .pagination a.pagenav,
+.pagination span.pagenav, body.linear [id=whitebox] button,
+body.linear [id=whitebox] .btn,
+body.linear [id=whitebox] input[type=submit],
+body.linear [id=whitebox] input[type=reset],
+body.linear [id=whitebox] input[type=button],
+body.linear [id=whitebox] .uk-button, body.linear [id=whitebox] .btn-primary,
+body.linear [id=whitebox] .uk-button-primary {
+  color: #333435;
+  text-transform: uppercase;
+  line-height: 1.6rem;
+}
+body.linear [id=whitebox] .srfrContainer .srfrReadMore a::after, .pagination a.pagenav::after,
+.pagination span.pagenav::after, body.linear [id=whitebox] button::after,
+body.linear [id=whitebox] .btn::after,
+body.linear [id=whitebox] input[type=submit]::after,
+body.linear [id=whitebox] input[type=reset]::after,
+body.linear [id=whitebox] input[type=button]::after,
+body.linear [id=whitebox] .uk-button::after, body.linear [id=whitebox] .btn-primary::after,
+body.linear [id=whitebox] .uk-button-primary::after {
+  display: none;
+}
+
+/* Prmary button, extends base button styles */
+body.linear [id=whitebox] .btn-primary,
+body.linear [id=whitebox] .uk-button-primary {
+  color: white;
+  background: #1e6b52;
+  border-color: #1e6b52;
+}
+
+/** Inputs
+-------------------------------------------------------------------------- */
+/* Base text box / form field style */
+body.linear [id=whitebox] textarea,
+body.linear [id=whitebox] input[type=email],
+body.linear [id=whitebox] input[type=number],
+body.linear [id=whitebox] input[type=text],
+body.linear [id=whitebox] input[type=tel],
+body.linear [id=whitebox] input[type=url],
+body.linear [id=whitebox] input[type=search] {
+  color: black;
+}
+body.linear [id=whitebox] textarea:focus,
+body.linear [id=whitebox] input[type=email]:focus,
+body.linear [id=whitebox] input[type=number]:focus,
+body.linear [id=whitebox] input[type=text]:focus,
+body.linear [id=whitebox] input[type=tel]:focus,
+body.linear [id=whitebox] input[type=url]:focus,
+body.linear [id=whitebox] input[type=search]:focus {
+  border-color: #80bc00;
+  -webkit-box-shadow: 0 0 0 1px #80bc00;
+          box-shadow: 0 0 0 1px #80bc00;
+  outline: thin dotted #333;
+  outline-offset: 0;
+}
+
+/* Base styles for a text area */
+body.linear [id=whitebox] textarea {
+  height: 6.4rem;
+  width: 100%;
+  resize: vertical;
+  overflow-y: scroll;
+}
+
+/* Base style for checkboxes and radio buttons */
+body.linear [id=whitebox] [type=radio],
+body.linear [id=whitebox] [type=checkbox] {
+  height: 1em;
+  width: 1em;
+  border: 1px solid #333435;
+}
+
+/* Active checkboxes and radio buttons */
+body.linear [id=whitebox] [type=radio]:checked, body.linear [id=whitebox] [type=checkbox]:checked {
+  border-color: #80bc00;
+  background: #80bc00;
+}
+body.linear [id=whitebox] [type=radio]:focus:checked, body.linear [id=whitebox] [type=checkbox]:focus:checked {
+  border-color: #80bc00;
+}
+
+/** Basic hover style
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .srfrReadMore a:hover::after, body.linear [id=whitebox] .uk-panel-box-hover:hover,
+body.linear [id=whitebox] .uk-panel-box-primary-hover:hover,
+body.linear [id=whitebox] .uk-panel-box-secondary-hover:hover, .pagination a.pagenav:hover, body.linear [id=whitebox] button:focus, body.linear [id=whitebox] button:hover,
+body.linear [id=whitebox] .btn:focus,
+body.linear [id=whitebox] .btn:hover,
+body.linear [id=whitebox] input[type=submit]:focus,
+body.linear [id=whitebox] input[type=submit]:hover,
+body.linear [id=whitebox] input[type=reset]:focus,
+body.linear [id=whitebox] input[type=reset]:hover,
+body.linear [id=whitebox] input[type=button]:focus,
+body.linear [id=whitebox] input[type=button]:hover,
+body.linear [id=whitebox] .uk-button:focus,
+body.linear [id=whitebox] .uk-button:hover, body.linear [id=whitebox] .btn-primary:hover,
+body.linear [id=whitebox] .uk-button-primary:hover {
+  border-color: #1e6b52;
+  background-color: #d2e1dc;
+  -webkit-box-shadow: inset 0 0 0 1px #1e6b52;
+          box-shadow: inset 0 0 0 1px #1e6b52;
+  color: black;
+}
+
+/* END !SECTION PATTERNS
+========================================================================== */
+/** SECTION Typography Resets
+  * These styles override aggressive styles from central style.css
+  * [1] Restore inheritance to inline elements
+  * [2] Restore font weight inheritance to certain inline elements
+  * [3] Restore text alignment inheritance for h3
+  * [4] Correct header font on h5 elements !important used to override
+  * an !important from central style.css
+  * [5] Remove spacing and border from the generated header from the
+  * article title
+  * [6] Fixes an issue where spans would not line up with surrounding text
+-------------------------------------------------------------------------- */
+/* FIX for tiny text on small screens */
+html {
+  font-size: 100% !important;
+}
+
+body.linear [id=wrapper] :root {
+  font-size: 16px;
+  color: black;
+}
+body.linear [id=wrapper] h1 a,
+body.linear [id=wrapper] h1 strong,
+body.linear [id=wrapper] h1 b,
+body.linear [id=wrapper] h1 span,
+body.linear [id=wrapper] h2 a,
+body.linear [id=wrapper] h2 strong,
+body.linear [id=wrapper] h2 b,
+body.linear [id=wrapper] h2 span,
+body.linear [id=wrapper] h3 a,
+body.linear [id=wrapper] h3 strong,
+body.linear [id=wrapper] h3 b,
+body.linear [id=wrapper] h3 span,
+body.linear [id=wrapper] h4 a,
+body.linear [id=wrapper] h4 strong,
+body.linear [id=wrapper] h4 b,
+body.linear [id=wrapper] h4 span,
+body.linear [id=wrapper] b,
+body.linear [id=wrapper] span,
+body.linear [id=wrapper] strong,
+body.linear [id=wrapper] em {
+  /*[1]*/
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  text-align: inherit;
+}
+body.linear [id=wrapper] .categories-list h3 a,
+body.linear [id=wrapper] span,
+body.linear [id=wrapper] #rightsidebar h4 .mod-articles-category-title {
+  /*[2]*/
+  font-weight: inherit;
+}
+body.linear [id=wrapper] h3,
+body.linear [id=wrapper] h3 a,
+body.linear [id=wrapper] h3 strong,
+body.linear [id=wrapper] h3 b {
+  /*[3]*/
+  text-align: inherit;
+}
+body.linear [id=wrapper] h5 {
+  /*[4]*/
+  font-family: kulturista-web, serif !important;
+}
+body.linear [id=wrapper] .page-header {
+  /*[5]*/
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+body.linear [id=wrapper] #content span {
+  /*[6]*/
+  line-height: inherit;
+}
+
+/* END !SECTION Typography Resets */
+/** SECTION Header Spacing
+  * Create a consistent style for headers and their spacing
+  * [1] Gives added top margin to headers
+  * [2] Reduce top margin when directly following previous header
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] h1,
+body.linear [id=wrapper] h2,
+body.linear [id=wrapper] h3,
+body.linear [id=wrapper] h4 {
+  /*[1]*/
+  margin-top: 3.2rem;
+}
+body.linear [id=wrapper] h4,
+body.linear [id=wrapper] h5,
+body.linear [id=wrapper] h6 {
+  /*[1]*/
+  margin-bottom: 0.8rem;
+}
+body.linear [id=wrapper] h1 + h2,
+body.linear [id=wrapper] h2 + h3,
+body.linear [id=wrapper] h3 + h4 {
+  /*[2]*/
+  margin-top: 1.6rem;
+}
+body.linear [id=wrapper] h5,
+body.linear [id=wrapper] h6 {
+  font-weight: 600;
+}
+
+/* END !SECTION Header Spacing */
+/** SECTION Font Sizes
+  * Use modular scale for font sizes and line heights
+  * [1] ID is used here to overwrite equally high specificity from style.css
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] h1,
+body.linear [id=wrapper] .uk-h1 {
+  font-size: 3.0517578125rem;
+  line-height: 3.2rem;
+}
+body.linear [id=wrapper] h2,
+body.linear [id=wrapper] .uk-h2 {
+  font-size: 1.953125rem;
+  line-height: 2.4rem;
+}
+body.linear [id=wrapper] h3,
+body.linear [id=wrapper] #leftcolumn h3,
+body.linear [id=wrapper] .uk-h3 {
+  /*[1]*/
+  font-size: 1.5625rem;
+  line-height: 1.6rem;
+}
+body.linear [id=wrapper] h4,
+body.linear [id=wrapper] .uk-h4 {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+}
+body.linear [id=wrapper] h5,
+body.linear [id=wrapper] .uk-h5,
+body.linear [id=wrapper] h6,
+body.linear [id=wrapper] .uk-h6,
+body.linear [id=wrapper] body,
+body.linear [id=wrapper] p,
+body.linear [id=wrapper] li,
+body.linear [id=wrapper] .uk-p {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+body.linear [id=wrapper] small,
+body.linear [id=wrapper] .uk-small {
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+}
+
+/* END !SECTION Font Sizes */
+/** SECTION Copy
+  * Styles for block level typographical elements
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] p,
+body.linear [id=whitebox] hr,
+body.linear [id=whitebox] pre {
+  margin-top: 0;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] p + p {
+  margin-top: -0.8rem;
+}
+body.linear [id=whitebox] pre {
+  white-space: pre-wrap;
+}
+body.linear [id=whitebox] pre > code {
+  display: block;
+  padding: 1.6rem;
+  white-space: inherit;
+}
+
+/* END !SECTION Copy */
+/** SECTION Rule Lines
+  * Style for the <hr> element
+  * [1] Ensure hr takes up no vertical space, but is still visible
+  * [2] Allow rule lines that immediately follow headers to sit on the
+  * header's baseline
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] hr {
+  /*[1]*/
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  /*[1]*/
+  height: 0;
+  /*[1]*/
+  overflow: visible;
+  border-style: solid;
+  border-width: 0 0 1px;
+  border-color: #cccdce;
+}
+body.linear [id=whitebox] h1 + hr,
+body.linear [id=whitebox] h2 + hr,
+body.linear [id=whitebox] h3 + hr,
+body.linear [id=whitebox] h4 + hr,
+body.linear [id=whitebox] h5 + hr,
+body.linear [id=whitebox] h6 + hr {
+  margin-top: -0.8rem;
+  /*[2]*/
+}
+
+/* END !SECTION Rule Lines */
+/** SECTION Links
+  * [1] Remove existing link styles
+  * [2] Add basic styles for the icon added to links that open in new
+  * tabs or lead to a pdf document.
+  * [3] Add new tab icon
+  * [4] Add pdf icon
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] a {
+  /*[1]*/
+  color: inherit;
+  font-weight: normal;
+  -webkit-transition-property: none;
+  transition-property: none;
+  text-decoration: none;
+}
+body.linear [id=whitebox] [target=_blank]::after,
+body.linear [id=whitebox] [href$=".pdf"]::after,
+body.linear [id=whitebox] [data-link-type=document]::after,
+body.linear [id=whitebox] [data-link-type=external]::after {
+  /*[2]*/
+  font-family: "IcoMoon";
+  margin-left: 0.5em;
+  font-weight: normal;
+  font-size: 75%;
+}
+body.linear [id=whitebox] [target=_blank]::after,
+body.linear [id=whitebox] [data-link-type=external]::after {
+  /*[3]*/
+  content: "";
+}
+body.linear [id=whitebox] [href$=".pdf"]::after,
+body.linear [id=whitebox] [data-link-type=document]::after {
+  /*[4]*/
+  content: "";
+}
+
+/* END !SECTION Links */
+/** SECTION Semantic HTML
+  * [1] Add padding to inline elements with background
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] abbr {
+  text-decoration: none;
+}
+body.linear [id=whitebox] mark,
+body.linear [id=whitebox] code,
+body.linear [id=whitebox] kbd {
+  /*[1]*/
+  padding: 0 0.2em 0.1em;
+}
+body.linear [id=whitebox] code,
+body.linear [id=whitebox] kbd {
+  white-space: pre;
+  border-radius: 3px;
+  font-family: monospace;
+}
+body.linear [id=whitebox] mark {
+  background-color: #e6f2cc;
+}
+body.linear [id=whitebox] code {
+  background-color: rgba(128, 130, 133, 0.15);
+  color: #4d4e50;
+}
+body.linear [id=whitebox] kbd {
+  background-color: #333435;
+  color: white;
+}
+
+/* END !SECTION Semantic HTML */
+/** SECTION Structure
+  * [1] allow elements to overflow the grid to cover the full width
+  * of the screen.
+  * [2] Add space above and below the content.
+  * [3] fixes a bug where elements that overflow the whitebox could overflow
+  * the body and allow the page to be scrolled on the x axis.
+  * [4] Fixes a bug where elements that overflowed the content would be invisible
+  * [5] Margin fix for first and last elements
+  * [6] Adds an option to have an inside page the same width as the home page
+  * Add 'layout-wide' as a page class on the menu item
+-------------------------------------------------------------------------- */
+body.linear #whitebox {
+  /*[1]*/
+  overflow: visible;
+  /*[2]*/
+  margin: 6.4rem auto;
+  max-width: 1280px;
+  background: none;
+}
+body.linear #whitebox::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+body.linear #wrapper {
+  /*[3]*/
+  overflow: hidden;
+}
+body.linear #content {
+  overflow: visible;
+}
+body.linear #page_bg {
+  z-index: -1000;
+}
+
+body.linear [id=whitebox] :last-child {
+  /*[5]*/
+  margin-bottom: 0;
+}
+body.linear [id=whitebox] :first-child {
+  /*[5]*/
+  margin-top: 0;
+}
+
+body.hd.layout-wide #whitebox {
+  /*[6]*/
+  max-width: 1280px;
+}
+
+/** Sections
+  * [1] Add section top & bottom margin
+  * [2] Add a larger padding on top and bottom, remove side paddings if
+  * the background is full width
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .section {
+  /*[1]*/
+  margin: 6.4rem 0;
+}
+body.linear [id=whitebox] .section.has-background-full,
+body.linear [id=whitebox] .section.section-pad {
+  /*[2]*/
+  padding: 6.4rem 0;
+}
+
+/* END !SECTION Structure */
+/** SECTION Background
+  * Style for a background to stretch to the full width of the window
+  * [1] Fixes a bug where background is invisible on mobile
+  * [2] Size the background to be wider than the window
+  * [3] Position it so that it starts off the left edge of the screen
+  * [4] Position the background behind the element's content
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .has-background {
+  padding: 1.6rem;
+  background-color: rgba(128, 130, 133, 0.15);
+}
+body.linear [id=whitebox] .has-background-full {
+  position: relative;
+  /*[1]*/
+  z-index: 1;
+}
+body.linear [id=whitebox] .has-background-full::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*[2]*/
+  width: 150vw;
+  /*[3]*/
+  margin-left: -50vw;
+  background-color: rgba(128, 130, 133, 0.15);
+  /*[4]*/
+  z-index: -100;
+}
+
+/* END !SECTION Background */
+/* SECTION Pullquotes
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] blockquote, body.linear [id=whitebox] .pullquote {
+  margin-bottom: 1.6rem;
+  padding: 1.6rem;
+}
+body.linear [id=whitebox] .pullquote {
+  background-color: rgba(128, 130, 133, 0.15);
+  border-left: 5px solid #80bc00;
+}
+body.linear [id=whitebox] .pullquote p,
+body.linear [id=whitebox] .pullquote q,
+body.linear [id=whitebox] blockquote p,
+body.linear [id=whitebox] blockquote q {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  display: block;
+}
+body.linear [id=whitebox] .pullquote footer,
+body.linear [id=whitebox] blockquote footer {
+  text-align: right;
+  margin-top: 0.8rem;
+}
+body.linear [id=whitebox] .callout {
+  margin-bottom: 1.6rem;
+  padding: 0 1.6rem;
+  border-left: 5px solid #808285;
+}
+body.linear [id=whitebox] .callout-accent {
+  border-color: #80bc00;
+}
+body.linear [id=whitebox] .callout-secondary {
+  border-color: #295135;
+}
+body.linear [id=whitebox] .callout-primary {
+  border-color: #1e6b52;
+}
+body.linear [id=whitebox] .callout-notice {
+  border-color: #80bc00;
+}
+body.linear [id=whitebox] .callout-caution {
+  border-color: #ffd400;
+}
+body.linear [id=whitebox] .callout-warning {
+  border-color: #f00;
+}
+
+/* END !SECTION Pullquotes */
+/** SECTION Lists
+  * [1] Reset list margin & padding
+  * [2] Add block margin to block list elements
+  * [3] Remove the block margin from nested lists and add margin top to make
+  * spacing consistent with other list items
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] ul,
+body.linear [id=whitebox] ol {
+  /*[1]*/
+  margin-top: 0;
+  padding: 0;
+}
+body.linear [id=whitebox] ul,
+body.linear [id=whitebox] ol,
+body.linear [id=whitebox] dl {
+  /*[2]*/
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] ul ul,
+body.linear [id=whitebox] ul ol,
+body.linear [id=whitebox] ol ol,
+body.linear [id=whitebox] ol ul {
+  /*[3]*/
+  margin-bottom: 0;
+  margin-top: 0.8rem;
+}
+body.linear [id=whitebox] li {
+  margin: 0;
+  margin-bottom: 0.8rem;
+}
+body.linear [id=whitebox] dd {
+  margin-left: 1.2em;
+  margin-bottom: 0.8rem;
+}
+
+/* END !SECTION Lists */
+/** SECTION Tables
+  * [1] Add borders, padding, and ensure text alignment is respected
+  * [2] Apply header styles to table headers
+  * [3] Remove odd style rule from central CSS. See issue #116
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] td,
+body.linear [id=whitebox] th {
+  /*[1]*/
+  border: 1px solid black;
+  padding: 0.8rem;
+  text-align: inherit;
+  color: inherit;
+}
+body.linear [id=whitebox] th {
+  /*[2]*/
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+}
+
+body.linear #content thead {
+  /*[3]*/
+  display: revert;
+}
+
+/** Themes
+  * Borderless
+  * Condensed
+  * Striped
+  * Hoverable
+  * Colored
+  * Comparison
+  * Important is used to ensure cell status classes take priority over
+  *   anything else, as there should be no reason for these to be overridden
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .borderless td,
+body.linear [id=whitebox] .borderless th {
+  border: none;
+}
+body.linear [id=whitebox] .table-condensed td,
+body.linear [id=whitebox] .table-condensed th {
+  padding: 0.4rem;
+}
+body.linear [id=whitebox] .table-striped tbody > tr:nth-child(odd) > td,
+body.linear [id=whitebox] .table-striped tbody > tr:nth-child(odd) > th,
+body.linear [id=whitebox] .table-hover tr:hover {
+  background: rgba(128, 130, 133, 0.15);
+}
+body.linear [id=whitebox] .table-accent {
+  border: 2px solid #80bc00;
+}
+body.linear [id=whitebox] .table-accent thead {
+  background: #80bc00;
+  color: white;
+}
+body.linear [id=whitebox] .table-secondary {
+  border: 2px solid #295135;
+}
+body.linear [id=whitebox] .table-secondary thead {
+  background: #295135;
+  color: white;
+}
+body.linear [id=whitebox] .table-primary {
+  border: 2px solid #1e6b52;
+}
+body.linear [id=whitebox] .table-primary thead {
+  background: #1e6b52;
+  color: white;
+}
+body.linear [id=whitebox] .table-notice {
+  border: 2px solid #80bc00;
+}
+body.linear [id=whitebox] .table-notice thead {
+  background: #80bc00;
+  color: white;
+}
+body.linear [id=whitebox] .table-caution {
+  border: 2px solid #ffd400;
+}
+body.linear [id=whitebox] .table-caution thead {
+  background: #ffd400;
+}
+body.linear [id=whitebox] .table-warning {
+  border: 2px solid #f00;
+}
+body.linear [id=whitebox] .table-warning thead {
+  background: #f00;
+  color: white;
+}
+body.linear [id=whitebox] .cell-accent {
+  background-color: #b3d766 !important;
+}
+body.linear [id=whitebox] .cell-secondary {
+  background-color: #7f9786 !important;
+}
+body.linear [id=whitebox] .cell-primary {
+  background-color: #78a697 !important;
+}
+body.linear [id=whitebox] .cell-notice {
+  background-color: #b3d766 !important;
+}
+body.linear [id=whitebox] .cell-caution {
+  background-color: #ffe566 !important;
+}
+body.linear [id=whitebox] .cell-caution-alt {
+  background-color: #ffc166 !important;
+}
+body.linear [id=whitebox] .cell-warning {
+  background-color: #f66 !important;
+}
+body.linear [id=whitebox] .comparison-table td {
+  vertical-align: middle;
+}
+body.linear [id=whitebox] .comparison-table .icon-ok {
+  color: #80bc00;
+}
+body.linear [id=whitebox] .comparison-table .icon-minus-sign {
+  color: #ffd400;
+}
+body.linear [id=whitebox] .comparison-table .icon-remove {
+  color: #f00;
+}
+
+/* END !SECTION Tables */
+/** SECTION Media
+  * [1] Add block spacing to block level media
+  * [2] Make sure image is never larger than it's container
+  * [3] Ensures image isn't stretched if given hight/width is incorrect ratio
+  * [4] Make images block / auto by default
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] iframe,
+body.linear [id=whitebox] figure,
+body.linear [id=whitebox] .video-container,
+body.linear [id=whitebox] img {
+  /*[1]*/
+  margin: 0;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] img {
+  /*[2]*/
+  max-width: 100%;
+  /*[3]*/
+  -o-object-fit: cover;
+     object-fit: cover;
+  /*[4]*/
+  margin: auto;
+  /*[4]*/
+  display: block;
+}
+body.linear [id=whitebox] figure img {
+  margin-bottom: 0;
+}
+
+/* END !SECTION Media */
+/** SECTION Captions
+  * Correct font sizing and margins of captions
+  * [1] Style figcaption to display small in the center under the image
+  * [2] Add rhythm spacing above caption instead of below image because the image
+  * can't tell if a caption exists or not.
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] figcaption {
+  /*[1]*/
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  text-align: center;
+  /*[2]*/
+  margin: 1.6rem 0;
+}
+
+/* END !SECTION Captions */
+/** SECTION Buttons
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] button,
+body.linear [id=whitebox] .btn,
+body.linear [id=whitebox] input[type=submit],
+body.linear [id=whitebox] input[type=reset],
+body.linear [id=whitebox] input[type=button],
+body.linear [id=whitebox] .uk-button {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  margin: 0;
+  -webkit-appearance: none;
+  text-decoration: none;
+  cursor: pointer;
+}
+body.linear [id=whitebox] button:focus, body.linear [id=whitebox] button:hover,
+body.linear [id=whitebox] .btn:focus,
+body.linear [id=whitebox] .btn:hover,
+body.linear [id=whitebox] input[type=submit]:focus,
+body.linear [id=whitebox] input[type=submit]:hover,
+body.linear [id=whitebox] input[type=reset]:focus,
+body.linear [id=whitebox] input[type=reset]:hover,
+body.linear [id=whitebox] input[type=button]:focus,
+body.linear [id=whitebox] input[type=button]:hover,
+body.linear [id=whitebox] .uk-button:focus,
+body.linear [id=whitebox] .uk-button:hover {
+  text-decoration: none;
+  outline: 0;
+}
+body.linear [id=whitebox] button .u-full,
+body.linear [id=whitebox] .btn .u-full,
+body.linear [id=whitebox] input[type=submit] .u-full,
+body.linear [id=whitebox] input[type=reset] .u-full,
+body.linear [id=whitebox] input[type=button] .u-full,
+body.linear [id=whitebox] .uk-button .u-full {
+  display: block;
+  text-align: center;
+}
+body.linear [id=whitebox] .btn-primary,
+body.linear [id=whitebox] .uk-button-primary {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+body.linear [id=whitebox] .btn.u-full {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* END !SECTION Buttons */
+/** SECTION Button Groups
+  * Expected HTML
+  * <div class="input-group">
+  *   <input> or <button> or <a class="btn">
+  *   <button> or <a class="btn">
+  * </div>
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .input-group,
+body.linear [id=whitebox] .input-group form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .input-group button,
+body.linear [id=whitebox] .input-group input,
+body.linear [id=whitebox] .input-group .btn,
+body.linear [id=whitebox] .input-group form button,
+body.linear [id=whitebox] .input-group form input,
+body.linear [id=whitebox] .input-group form .btn {
+  margin: 0;
+}
+body.linear [id=whitebox] .input-group :first-child,
+body.linear [id=whitebox] .input-group form :first-child {
+  border-radius: 3px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+body.linear [id=whitebox] .input-group :last-child,
+body.linear [id=whitebox] .input-group form :last-child {
+  border-radius: 3px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* END !SECTION Button Groups */
+/** SECTION Form Field Resets
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] textarea,
+body.linear [id=whitebox] input[type=email],
+body.linear [id=whitebox] input[type=number],
+body.linear [id=whitebox] input[type=text],
+body.linear [id=whitebox] input[type=tel],
+body.linear [id=whitebox] input[type=url],
+body.linear [id=whitebox] input[type=search] {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-transition-property: none;
+  transition-property: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  outline: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: auto;
+  display: block;
+  width: 100%;
+}
+
+/* END !SECTION Form Field Resets*/
+/** SECTION Inputs
+  * [1] Apply typography styles to form elements
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] legend {
+  /*[1]*/
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-family: kulturista-web, serif;
+  font-weight: 400;
+  color: black;
+}
+body.linear [id=whitebox] label,
+body.linear [id=whitebox] input,
+body.linear [id=whitebox] select,
+body.linear [id=whitebox] textarea {
+  font-size: 1rem;
+  line-height: 1.6rem;
+}
+body.linear [id=whitebox] [type=radio],
+body.linear [id=whitebox] [type=checkbox] {
+  margin: 0;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  float: none;
+  padding-left: 0;
+  margin-right: 0.8rem;
+}
+body.linear [id=whitebox] [type=radio] {
+  border-radius: 50%;
+}
+body.linear [id=whitebox] [type=radio]:checked {
+  background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Ccircle%20fill%3D%22%23fff%22%20cx%3D%228%22%20cy%3D%228%22%20r%3D%222%22%20%2F%3E%0A%3C%2Fsvg%3E);
+  background-position: center;
+}
+body.linear [id=whitebox] [type=checkbox]:checked {
+  background-image: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2214%22%20height%3D%2211%22%20viewBox%3D%220%200%2014%2011%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23fff%22%20points%3D%2212%201%205%207.5%202%205%201%205.5%205%2010%2013%201.5%22%20%2F%3E%0A%3C%2Fsvg%3E%0A);
+  background-position: center;
+}
+body.linear [id=whitebox] .uk-checkbox:checked,
+body.linear [id=whitebox] .uk-checkbox:indeterminate,
+body.linear [id=whitebox] [type=radio]:checked,
+body.linear [id=whitebox] .uk-checkbox:checked:focus,
+body.linear [id=whitebox] .uk-checkbox:indeterminate:focus,
+body.linear [id=whitebox] [type=radio]:checked:focus {
+  /* FIX for RS Forms */
+  background-color: #80bc00;
+}
+body.linear [id=whitebox] .uk-button {
+  /* NOTE !important is used to override aggressive rule from RS Forms */
+  border: 1px solid #808285 !important;
+}
+body.linear [id=whitebox] form::after {
+  display: none;
+}
+
+/* END !SECTION Inputs */
+/** SECTION TOC
+  * Table of contents block
+  * [1] Set a max width so it doesn't get too wide. This number just felt right
+  * [2] Remove the list styles
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .table-of-contents {
+  padding: 1.6rem;
+  /*[1]*/
+  max-width: 700px;
+  border: 1px solid #cccdce;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .table-of-contents > ol {
+  /*[2]*/
+  margin-left: 0;
+}
+body.linear [id=whitebox] .table-of-contents ol,
+body.linear [id=whitebox] .table-of-contents ol ol,
+body.linear [id=whitebox] .table-of-contents ol ol ol {
+  /*[2]*/
+  list-style-type: none;
+}
+body.linear [id=whitebox] .table-of-contents ol li {
+  /*[2]*/
+  margin: 0;
+}
+
+/* END !SECTION TOC */
+/** SECTION Grid
+ * This is intended to be a simple grid utility to allow content
+ * to be placed side by side without using widgetkit.
+ * Inspired by bulma
+-------------------------------------------------------------------------- */
+.grid {
+  margin-left: -0.8rem;
+  margin-right: -0.8rem;
+  margin-top: -0.8rem;
+}
+.grid:last-child {
+  margin-bottom: -0.8rem;
+}
+.grid:not(:last-child) {
+  margin-bottom: calc(1.6rem - 0.8rem);
+}
+.grid.is-centered {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.grid.is-vcentered {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.grid.is-gapless {
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 0;
+}
+.grid.is-gapless > .grid_item {
+  margin: 0;
+  padding: 0 !important;
+}
+.grid.is-gapless:not(:last-child) {
+  margin-bottom: 1.6rem;
+}
+.grid.is-gapless:last-child {
+  margin-bottom: 0;
+}
+.grid.is-mobile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.grid.is-multiline {
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+@media (min-width: 700px) {
+  .grid:not(.grid--large-only) {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+@media (min-width: 1024px) {
+  .grid--large-only {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+}
+.grid_item {
+  display: block;
+  -ms-flex-preferred-size: 0;
+      flex-basis: 0;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  padding: 0.8rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.grid.is-mobile .grid_item.is-full {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 100%;
+}
+.grid.is-mobile .grid_item.is-three-fourths {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 75%;
+}
+.grid.is-mobile .grid_item.is-two-thirds {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 66.6666%;
+}
+.grid.is-mobile .grid_item.is-half {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 50%;
+}
+.grid.is-mobile .grid_item.is-one-third {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 33.3333%;
+}
+.grid.is-mobile .grid_item.is-one-fourth {
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  width: 25%;
+}
+
+@media (min-width: 300px) {
+  .grid_item.is-full-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+  }
+  .grid_item.is-three-fourths-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 75%;
+  }
+  .grid_item.is-two-thirds-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 66.6666%;
+  }
+  .grid_item.is-half-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 50%;
+  }
+  .grid_item.is-one-third-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 33.3333%;
+  }
+  .grid_item.is-one-fourth-sm {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 25%;
+  }
+}
+@media (min-width: 700px) {
+  .grid:not(.is-mobile) .grid_item.is-full {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+  }
+  .grid:not(.is-mobile) .grid_item.is-three-fourths {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 75%;
+  }
+  .grid:not(.is-mobile) .grid_item.is-two-thirds {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 66.6666%;
+  }
+  .grid:not(.is-mobile) .grid_item.is-half {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 50%;
+  }
+  .grid:not(.is-mobile) .grid_item.is-one-third {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 33.3333%;
+  }
+  .grid:not(.is-mobile) .grid_item.is-one-fourth {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 25%;
+  }
+
+  .grid_item.is-full-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+  }
+  .grid_item.is-three-fourths-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 75%;
+  }
+  .grid_item.is-two-thirds-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 66.6666%;
+  }
+  .grid_item.is-half-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 50%;
+  }
+  .grid_item.is-one-third-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 33.3333%;
+  }
+  .grid_item.is-one-fourth-md {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 25%;
+  }
+}
+@media (min-width: 1024px) {
+  .grid_item.is-full-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 100%;
+  }
+  .grid_item.is-three-fourths-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 75%;
+  }
+  .grid_item.is-two-thirds-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 66.6666%;
+  }
+  .grid_item.is-half-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 50%;
+  }
+  .grid_item.is-one-third-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 33.3333%;
+  }
+  .grid_item.is-one-fourth-lg {
+    -webkit-box-flex: 0;
+        -ms-flex: none;
+            flex: none;
+    width: 25%;
+  }
+}
+/* END !SECTION Grid */
+/** SECTION Social icons
+  * [1] Allow the icons to sit side-by-side
+  * [2] Restrict the max-width of the icon to a reasonable size
+  * [3] Add top and side padding for space
+  * [4] Add a scale effect to the icon when hovered.
+  * [5] Remove the "open in new tab" icon
+-------------------------------------------------------------------------- */
+body.linear .social-icon {
+  /*[1]*/
+  display: inline-block;
+}
+body.linear .social-icon img {
+  /*[2]*/
+  max-width: 25px;
+  /*[3]*/
+  padding: 0.8rem 5px;
+}
+body.linear .social-icon a:hover img {
+  /*[4]*/
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+}
+body.linear .social-icon a::after {
+  /*[5]*/
+  display: none;
+}
+
+/* END !SECTION Social icons */
+/** Animations
+-------------------------------------------------------------------------- */
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+    top: 100px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    top: 100px;
+  }
+  to {
+    opacity: 1;
+    top: 0;
+  }
+}
+.anim-fadein {
+  opacity: 0;
+  position: relative;
+}
+
+.anim-fadein.anim-active {
+  position: relative;
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 0.4s;
+          animation-duration: 0.4s;
+  opacity: 1;
+}
+
+.anim-underline {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+}
+
+.anim-underline::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  right: 100%;
+  bottom: 0;
+  background: currentColor;
+  height: 2px;
+  -webkit-transition-property: left, right;
+  transition-property: left, right;
+  -webkit-transition-duration: 1s;
+          transition-duration: 1s;
+  -webkit-transition-timing-function: ease-out;
+          transition-timing-function: ease-out;
+  -webkit-transition-delay: 0.5s;
+          transition-delay: 0.5s;
+}
+
+.anim-underline.anim-active::before {
+  left: 0;
+  right: 0;
+}
+
+/** SECTION Parallax
+ * parallax-container can be used like has-background-wide to create a section
+ * with a parallaxed background image. A basic effect can be achieved with
+ * CSS, but advanced effects may be enabled by using enllax.js
+ *
+ * The parallax-container-forefround does not produce a parallax effect on
+ * its own, and must be used with enllax.js. This container class only helps
+ * position elements on the screen.
+-------------------------------------------------------------------------- */
+.parallax-container {
+  position: relative;
+}
+
+.parallax-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc((100vw - 100%) / -2);
+  bottom: 0;
+  left: calc((100vw - 100%) / -2);
+  background: #295135;
+  background: var(--parallax-image, var(--theme-color, #295135));
+  background-position: center;
+  background-position: var(--parallax-image-position, center);
+  z-index: -200;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.parallax-container-foreground {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: calc((100vw - 100%) / -2);
+  bottom: 0;
+  left: calc((100vw - 100%) / -2);
+}
+
+/* END !SECTION Parallax */
+/** Themes
+ * These utility classes can be used to change the color of some elements
+ * NOTE: It is not advised to use this outside of edge cases
+ * CSS Variables do not work in Internet Explorer. Always use the component's
+ * theme class where possible.
+-------------------------------------------------------------------------- */
+.bg-theme-color {
+  background: #1e6b52 !important;
+  background: var(--theme-color, #1e6b52) !important;
+}
+
+.txt-theme-color {
+  color: #1e6b52 !important;
+  color: var(--theme-color, #1e6b52) !important;
+}
+
+.bdr-theme-color {
+  border-color: #1e6b52 !important;
+  border-color: --theme-color, #1e6b52 !important;
+}
+
+.u-txt-white {
+  color: white !important;
+}
+
+.u-txt-bold {
+  font-weight: bold !important;
+}
+
+.u-pad-05 {
+  padding: 0.8rem !important;
+}
+
+.u-pad-1 {
+  padding: 1.6rem !important;
+}
+
+.theme-uab {
+  --theme-color: #1e6b52;
+}
+
+.theme-apple {
+  --theme-color: #80bc00;
+}
+
+.theme-blaze {
+  --theme-color: #ffd400;
+}
+
+.theme-dark-green {
+  --theme-color: #295135;
+}
+
+.theme-coral {
+  --theme-color: #ea6852;
+}
+
+.theme-cyan {
+  --theme-color: #238dc1;
+}
+
+.theme-navy {
+  --theme-color: #1c355e;
+}
+
+.theme-gray {
+  --theme-color: #808285;
+}
+
+.theme-dark {
+  --theme-color: #333435;
+}
+
+/** SECTION Alerts
+  * Removes default styles from bootstrap
+  * [1] Remove bottom margin from paragraphs in an alert
+  * [2] Adjust card colors for alerts
+  * [3] Hide .ie-alert on all browsers
+  * [4] Show .ie-alert on Internet Explorer
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .alert {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  background: none;
+  background-color: transparent;
+  background-image: none;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+body.linear [id=whitebox] .alert,
+body.linear [id=whitebox] .alert h4 {
+  color: inherit;
+}
+body.linear [id=whitebox] .alert p {
+  /*[1]*/
+  margin: 0;
+}
+body.linear [id=whitebox] .moduletable.alert {
+  /*[2]*/
+  background: #e6f2cc;
+  /*[2]*/
+  border-color: #80bc00;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .moduletable.alert.alert-warning {
+  /*[2]*/
+  background: #fcc;
+  /*[2]*/
+  border-color: #f00;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .moduletable.alert.alert-caution {
+  /*[2]*/
+  background: #fff6cc;
+  /*[2]*/
+  border-color: #ffd400;
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .moduletable.alert:last-child {
+  margin-bottom: 6.4rem;
+}
+body.linear [id=whitebox] .ie-alert {
+  /*[3]*/
+  display: none;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  body.linear [id=whitebox] .ie-alert {
+    /*[4]*/
+    display: block;
+  }
+}
+
+/* End !SECTION Base Styles */
+/** SECTION Newsflash
+  * Generated from Article Feed module
+-------------------------------------------------------------------------- */
+/** Resets
+  * [1] Remove style from central style.css
+  * [2] Removes space caused by an empty element
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] li.newsflash-item {
+  float: none;
+  /*[1]*/
+}
+body.linear [id=whitebox] .it-news .article-separator {
+  display: none;
+  /*[2]*/
+}
+
+/** Base Styles
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .it-news > .newsflash-item {
+  border: none;
+}
+body.linear [id=whitebox] .it-news .newsflash-title {
+  /* Item Title */
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  padding: 0;
+  margin-top: s(0.5);
+  margin-bottom: s(0.5);
+}
+
+/** Layout
+  * [1] Remove default list margins
+  * [2] Allow content to sit on same row
+  * [3] Allow content to wrap if there's not enough room
+  * [4] Force content to wrap if the content would be less than 300
+  * [5] Set a low starting width - Would be 1/3, but we'll go much less than
+  * that to give room for padding
+  * [6] Add space between the items left and right
+  * [7] Allow items to fill remaining space
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] ul.it-news {
+  /*[1]*/
+  margin-left: 0;
+  /*[2]*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  /*[3]*/
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+body.linear [id=whitebox] .it-news > .newsflash-item {
+  /*[4]*/
+  min-width: 300px;
+  /*[5]*/
+  width: 20%;
+  /*[6]*/
+  padding: 0 0.8rem;
+  /*[7]*/
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+/** Control content to display
+  * [1] Hide most content
+  * [2] Display the title
+  * [3] Display the image
+  * [4] Display the first paragraph
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .newsflash-item > * {
+  /*[1]*/
+  display: none;
+}
+body.linear [id=whitebox] .newsflash-item .newsflash-title {
+  /*[2]*/
+  display: block;
+}
+body.linear [id=whitebox] .newsflash-item .newsflash-image {
+  /*[3]*/
+  display: block;
+}
+body.linear [id=whitebox] .newsflash-item > p:first-of-type {
+  /*[4]*/
+  display: block;
+}
+
+/** Top Featured
+  * Give alternate styles to first item in the list
+  * [1] Allow it to sit on its own row
+  * [2] Add block padding, border, and radius
+  * [3] Add space between full feature and the next row of items.
+  * Important used to override ID selector from bootstrap-plus
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] ul.it-news.has-leading-story > :first-child {
+  /*[1]*/
+  width: 100%;
+  /*[2]*/
+  padding: 3.2rem;
+  border: #80bc00 solid 2px;
+  border-radius: 6px;
+  /*[3]*/
+  margin-bottom: 4.8rem !important;
+  padding-bottom: 1.6rem;
+}
+body.linear [id=whitebox] ul.it-news.has-leading-story > :first-child .newsflash-title {
+  font-size: 1.5625rem;
+  line-height: 1.6rem;
+}
+body.linear [id=whitebox] ul.it-news.has-leading-story > :first-child .newsflash-image {
+  display: none;
+}
+
+/* End !SECTION NEWSFLASH */
+/** SECTION Base Styling
+  * Style for Joomla generated chips
+-------------------------------------------------------------------------- */
+body.linear .label-info,
+body.linear .badge-info,
+body.linear .badge,
+body.linear .label,
+body.linear .label-info[href],
+body.linear .badge-info[href] {
+  border: 0;
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  font-weight: normal;
+  color: inherit;
+  font-size: 0.8rem;
+  line-height: 1.6rem;
+  background-color: rgba(128, 130, 133, 0.15);
+  padding: 0.1em 0.7em;
+}
+
+/* End !SECTION CHIPS */
+/** SECTION Pagination
+  * This markup is generated by Joomla. Selectors have been matched with
+  * that of the default stylesheet
+-------------------------------------------------------------------------- */
+.pagination {
+  margin: 0;
+  margin-bottom: 1.6rem;
+}
+
+.pagination ul {
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.pagination a.pagenav,
+.pagination span.pagenav {
+  border-radius: 0;
+}
+
+/* End !SECTION PAGINATION */
+/** SECTION Widgetkit
+  * Selectors match those from ui kit
+  * [1] Add section spacing to widgetkit blocks
+  * [2] Reset the header margins for widgetkit item headers
+  * [3] UAB green background color instead of blue on active widgetkit nav
+  * !important used to override !important from style.css:548
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] [id*=wk]:not(:first-child) {
+  /*[1]*/
+  margin-top: 3.2rem;
+}
+body.linear [id=whitebox] [id*=wk]:not(:last-child) {
+  /*[1]*/
+  margin-bottom: 3.2rem;
+}
+body.linear [id=whitebox] .uk-panel-title {
+  /*[2]*/
+  margin: 0;
+  margin-bottom: s(-0.5);
+}
+body.linear [id=whitebox] .uk-subnav-pill > .uk-active > a,
+body.linear [id=whitebox] .uk-subnav-pill > .uk-active > a:hover {
+  /*[3]*/
+  background: #1e6b52;
+  color: white !important;
+}
+
+/* END !SECTION Widgetkit */
+/** SECTION Panels
+  * [01] Preserve border radius on inner image - Equal to the card's padding
+  * [03] Ensure the image sits within the hover border
+  * [04] Adjust margin to account for invisible border
+  * [02] Align teaser image with edge of card
+  * [1] FIX: Hide link style so the card will be visible
+  * [2] Fix link style on header when card is hovered
+  * [3] Enforce text color
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] a.uk-position-cover {
+  /*[1]*/
+  opacity: 0 !important;
+}
+body.linear [id=whitebox] .uk-panel-box {
+  background-color: white;
+  /*[01]*/
+  overflow: hidden;
+}
+body.linear [id=whitebox] .uk-panel-box > .uk-panel-teaser {
+  /*[02]*/
+  margin-top: -1.6rem;
+  margin-left: -1.6rem;
+  margin-right: -1.6rem;
+}
+body.linear [id=whitebox] .uk-panel-box-hover:hover > .uk-panel-teaser,
+body.linear [id=whitebox] .uk-panel-box-primary-hover:hover > .uk-panel-teaser,
+body.linear [id=whitebox] .uk-panel-box-secondary-hover:hover > .uk-panel-teaser {
+  /*[03]*/
+  margin-top: calc(-1.6rem + 1px);
+  margin-left: calc(-1.6rem + 1px);
+  margin-right: calc(-1.6rem + 1px);
+}
+body.linear [id=whitebox] .uk-panel-box-primary-hover:hover h3 a {
+  /*[2]*/
+  border-color: #1e6b52;
+  background-color: #d2e1dc;
+}
+body.linear [id=whitebox] .uk-panel-box-secondary {
+  background-color: rgba(128, 130, 133, 0.15);
+  border-color: transparent;
+}
+body.linear [id=whitebox] .uk-panel-box-secondary > .uk-panel-teaser {
+  /*[04]*/
+  margin-top: calc(-1.6rem - 1px);
+  margin-left: calc(-1.6rem - 1px);
+  margin-right: calc(-1.6rem - 1px);
+}
+body.linear [id=whitebox] .uk-panel-box-secondary-hover:hover {
+  background-color: rgba(128, 130, 133, 0.15);
+}
+body.linear [id=whitebox] .uk-panel-title,
+body.linear [id=whitebox] .uk-panel-box-primary,
+body.linear [id=whitebox] .uk-panel-box,
+body.linear [id=whitebox] .uk-panel-box .uk-panel-title,
+body.linear [id=whitebox] .uk-panel-box-hover:hover,
+body.linear [id=whitebox] .uk-panel-box-primary .uk-panel-title,
+body.linear [id=whitebox] .uk-panel-box-primary-hover:hover {
+  /*[3]*/
+  color: black;
+}
+
+/* END !SECTION Panels */
+/** SECTION Slideshow
+  * These styles are for the built in slideshow widget in widgetkit
+  * FIX: make sure the slideshow image doesn't get cropped
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .uk-slideshow .uk-cover-background {
+  background-size: contain;
+}
+
+/* END !SECTION Slideshow */
+/** SECTION Features
+    Style for a custom component called "features" .wk-features
+    Expected use is 3 columns with an image, header, and optional text
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .wk-features .uk-panel img {
+  height: 8rem;
+  width: auto;
+  display: block;
+  margin: auto;
+}
+
+/* END !SECTION Features */
+/** SECTION TABS
+  * Styles for the built in tabs widgetkit widget
+  * [1] Remove link styles from the tab links
+  * [2] Add border to active tab
+  * [3] Add a border, since we can't add uk-panel-box through this widget
+  * [4] Bump panel up a pixel to align its border with tab border
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] ul.uk-tab,
+body.linear [id=whitebox] ul.uk-tab li,
+body.linear [id=whitebox] ul.uk-switcher,
+body.linear [id=whitebox] ul.uk-switcher li {
+  margin: 0 !important;
+}
+body.linear [id=whitebox] ul.uk-tab + ul.uk-switcher.uk-margin-top {
+  margin-top: 0 !important;
+}
+body.linear [id=whitebox] ul.uk-tab > li > a {
+  /*[1]*/
+  border-bottom: 1px solid transparent;
+  border-radius: 0;
+}
+body.linear [id=whitebox] ul.uk-tab > li > a:hover {
+  border-bottom: 1px solid transparent;
+}
+body.linear [id=whitebox] ul.uk-tab > li.uk-active > a {
+  /*[2]*/
+  border-color: #808285;
+  color: #1e6b52;
+}
+body.linear [id=whitebox] ul.uk-tab {
+  border-bottom: 0 solid transparent;
+}
+body.linear [id=whitebox] ul.uk-tab + ul.uk-switcher .uk-panel {
+  /*[3]*/
+  border: 1px solid #808285;
+  /*[4]*/
+  margin-top: -1px;
+}
+
+/* End !SECTION TABS */
+/** SECTION NUMBERS
+    Styles for a custom component built in widgetkit (.wk-numbers)
+    Used for stats, shows large number with small text inside.
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .wk-numbers .uk-panel-title {
+  font-size: 1.953125rem;
+  line-height: 2.4rem;
+  color: #80bc00;
+}
+
+/* End !SECTION NUMBERS */
+/** SECTION Timeline
+  * The timeline is made with the widgetkit custom list component using the
+  * class `wk-timeline`. The first item's header and date header must be
+  * given an inline style of `margin-top: 0`.
+  * [1] Creates the gap for the timeline date to sit in
+  * [2] Creates the timeline's visual line
+  * [3] Adds space between the line and the content
+  * [4] Adds the top margin back to the content block since it must be removed
+  * from the first header
+  * [5] Allow the timeline date to be positioned in relation to the timeline item
+-------------------------------------------------------------------------- */
+@media (min-width: 300px) {
+  body.linear [id=whitebox] .wk-timeline {
+    /*[1]*/
+    margin-left: 6.4rem !important;
+    /*[2]*/
+    border-left: 2px solid #80bc00;
+  }
+}
+body.linear [id=whitebox] .wk-timeline {
+  /*[3]*/
+  padding-left: 1.6rem !important;
+  /*[4]*/
+  margin-top: 3.2rem !important;
+}
+@media (min-width: 300px) {
+  body.linear [id=whitebox] .wk-timeline li {
+    position: relative;
+    /*[5]*/
+  }
+}
+
+/** Timeline Date
+  * [1] Move the timeline date into the gap created on the left
+  * [2] This makes sure the date items are the same width and
+  * allows timeline dots to line up.
+  * [3] Align the date with the content header
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .wk-timeline-date {
+  color: #80bc00 !important;
+}
+@media (min-width: 300px) {
+  body.linear [id=whitebox] .wk-timeline-date {
+    /*[1]*/
+    position: absolute;
+    /*[1]*/
+    left: -8rem;
+    /*[2]*/
+    width: 5rem;
+    /*[3]*/
+    top: 0.5rem;
+    text-align: right !important;
+  }
+}
+
+/** Timeline Dot
+  * [1] Align the dot to the center of the date block
+  * [2] Align the dot to the center of the line
+-------------------------------------------------------------------------- */
+@media (min-width: 300px) {
+  body.linear [id=whitebox] .wk-timeline-date::after {
+    content: "";
+    position: absolute;
+    /*[1]*/
+    top: 0.7em;
+    /*[2]*/
+    right: -1.9rem;
+    width: 1em;
+    height: 1em;
+    border-radius: 50%;
+    background-color: #80bc00;
+  }
+}
+
+/* END !SECTION Timeline */
+/** SECTION Accordion
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .uk-accordion {
+  border-bottom: 2px solid rgba(128, 130, 133, 0.15);
+  margin-bottom: 1.6rem;
+}
+body.linear [id=whitebox] .uk-accordion-title {
+  font-size: 1.25rem;
+  line-height: 1.6rem;
+  font-family: proxima-nova, arial, helvetica, sans-serif !important;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 1.6rem;
+  background-color: inherit;
+  border-top: 2px solid rgba(128, 130, 133, 0.15);
+}
+body.linear [id=whitebox] .uk-accordion-content {
+  padding: 0 1.6rem 1.6rem;
+}
+
+/* END !SECTION Accordion */
+/** SECTION Calendar
+    Generated from the Localist widget from campus calendar
+    https://calendar.uab.edu/help/widget
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .localist-date__title,
+body.linear [id=whitebox] #leftcolumn .localist-date__title {
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+body.linear [id=whitebox] .localist-date__item {
+  margin-bottom: 0.8rem !important;
+}
+
+/* END !SECTION Calendar */
+/** SECTION RSS feed
+  * Generated from the Simple RSS Feed Generator module in Joomla
+  * [1] Remove list style & margin
+  * [2] Reset default layout logic
+  * [3] Add consistent spacing between each entry
+  * Important is used to override an ID selector from bootstrap-plus
+  * [4] Setup new layout logic
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .srfrList {
+  /*[1]*/
+  list-style: none;
+  margin-left: 0;
+}
+body.linear [id=whitebox] .srfrContainer.srfrStream {
+  /*[2]*/
+  float: none;
+  display: block;
+}
+body.linear [id=whitebox] .srfrStream .col1 {
+  width: auto;
+}
+body.linear [id=whitebox] .srfrStream .col1,
+body.linear [id=whitebox] .srfrStream .col2 {
+  padding: 0.8rem;
+}
+body.linear [id=whitebox] .srfrStream .col1 a::after {
+  /*[2]*/
+  display: none;
+}
+body.linear [id=whitebox] .srfrStream .col2 {
+  width: 50%;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  /*[2]*/
+  margin: 0;
+}
+body.linear [id=whitebox] li.srfrRow {
+  /*[3]*/
+  margin-bottom: 1.6rem !important;
+  border-bottom: 1px solid #cccdce;
+  /*[3]*/
+  /*[4]*/
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+/** Title
+ * [1] Remove link styles from entry title
+ * [2] Make sure the title renders as a block element
+ * [3] FIX Remove unnecessary clearfix so it doesn't mess with the grid
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] a.srfrTitle {
+  /*[2]*/
+  display: block;
+  float: none;
+  border: none;
+  margin-bottom: 0.8rem;
+}
+body.linear [id=whitebox] a.srfrTitle:hover {
+  /*[1]*/
+  background: transparent;
+  text-decoration: underline;
+  border: none;
+}
+body.linear [id=whitebox] a.srfrTitle::after {
+  /*[3]*/
+  display: none;
+}
+
+/** Read More
+ * Add contextual button information
+ * [1] Remove the default "read more" link
+ * [2] Default text if source can't be determined
+ * [3] Change button title depending on destination
+-------------------------------------------------------------------------- */
+body.linear [id=whitebox] .srfrStream .srfrReadMore > a {
+  /*[1]*/
+  font-size: 0;
+  border: none;
+}
+body.linear [id=whitebox] .srfrContainer .srfrReadMore a::after {
+  /*[2]*/
+  content: "Read More";
+  font-size: 0.9rem;
+  display: inline;
+  font-family: "kulturista-web", serif !important;
+}
+body.linear [id=whitebox] .srfrReadMore a[href*="uab.edu/news"]::after {
+  /*[3]*/
+  content: "UAB News";
+}
+body.linear [id=whitebox] .srfrReadMore a[href*=reporter]::after {
+  /*[3]*/
+  content: "UAB Reporter";
+}
+body.linear [id=whitebox] .srfrReadMore a[href*="uab.edu/it"]::after {
+  /*[3]*/
+  content: "IT News";
+}
+
+/* END !SECTION RSS feed */
+/** SECTION Top Navigation
+  * Implement styles similar to UR department css (uab.edu/cas)
+  * [1] Remove default link styles
+  * [2] Add more space around menu items. Important is used to override
+  * another important from central css
+  * [3] Add accent color to menu items
+  * [4] Change menu item text color. Important is used to override another
+  * important from central css
+  * [5] Add accent border, width to match UR sites
+  * [6] Ensure grey color is consistent with grey used throughout site
+-------------------------------------------------------------------------- */
+body.linear #ribbon .nav a {
+  /*[1]*/
+  border: 0;
+  /*[2]*/
+  padding: 15px !important;
+}
+body.linear #tray #ribbon .nav > .active > a,
+body.linear #tray #ribbon .nav > .active > a:hover,
+body.linear #tray #ribbon .nav > .active > a:focus,
+body.linear #tray #ribbon .nav > .alias-parent-active > a {
+  /*[3]*/
+  background-color: #80bc00;
+  /*[4]*/
+  color: black !important;
+}
+body.linear div#tray {
+  /*[5]*/
+  border-bottom: 7px solid #80bc00;
+}
+body.linear #ribbon .nav > li > a:hover,
+body.linear #ribbon .nav > li > a:focus,
+body.linear #ribbon .dropdown-menu > li > a:hover,
+body.linear #ribbon .dropdown-menu > li > a:focus,
+body.linear #ribbon .nav > li > span:hover,
+body.linear #ribbon .nav > li > span:focus,
+body.linear #ribbon .dropdown-menu > .active > a:hover,
+body.linear #ribbon .dropdown-menu > .active > a:focus {
+  /*[6]*/
+  background: rgba(128, 130, 133, 0.15);
+}
+
+/* END !SECTION Top Navigation */
+/** SECTION Quicklinks
+  * Fix several bugs and consistency issues with quicklinks
+  * [1] Ensure links are sized correctly
+  * [2] FIX: Make sure quicklinks are above banner
+  * [3] Ensure hover color is consistent with link hover colors
+-------------------------------------------------------------------------- */
+body.linear #quicklinks .dropdown-menu a {
+  /*[1]*/
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+}
+body.linear #quicklinks .moduletable {
+  /*[2]*/
+  z-index: 100;
+}
+body.linear #quicklinks .dropdown-submenu:hover > a,
+body.linear #quicklinks .dropdown-submenu:focus > a,
+body.linear #quicklinks .dropdown-menu > li > a:hover,
+body.linear #quicklinks .dropdown-menu > li > a:focus,
+body.linear #quicklinks .newsfeed > li:hover,
+body.linear #quicklinks .newsfeed > li:focus {
+  /*[3]*/
+  background-color: #d2e1dc;
+}
+
+/* END !SECTION Quicklinks */
+/** SECTION Search
+  * Creates better alignment of search field and button
+-------------------------------------------------------------------------- */
+body.linear #search form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+/* END !SECTION Search */
+/** SECTION Sidebar Resets
+  * Uses the same selectors from central style.css
+  * [1] Fixes an issue on mobile where the link targets would be below
+  * the page content so that if the menu happened to be open on top of a
+  * link in the page, the tap would go to the page link instead.
+  * [2] Reset font sizes in the sidebar
+  * [3] Background must be solid for mobile screens
+  * [4] Remove list margins
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] #leftcolumn.sidebarpanel,
+body.linear [id=wrapper] #sidebar_trigger {
+  /*[1]*/
+  z-index: 100;
+}
+body.linear [id=wrapper] #leftcolumn .sidebar.no-seal,
+body.linear [id=wrapper] #leftcolumn.sidebarpanel.no-seal {
+  /*[2]*/
+  font-size: inherit;
+  /*[3]*/
+  background-color: white;
+}
+body.linear [id=wrapper] #leftcolumn ul,
+body.linear [id=wrapper] #leftcolumn li {
+  /*[4]*/
+  margin: 0;
+}
+
+/** SECTION Sidebar Links
+  * [1] Reset default styles
+  * [2] Add consistent typography
+  * [3] Base styles
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] #leftcolumn ul.nav.menu a,
+body.linear [id=wrapper] #leftcolumn .nav-header {
+  /*[1]*/
+  margin: 0;
+  border: 0;
+  /*[2]*/
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: normal;
+  display: block;
+  /*[3]*/
+  padding: 0.3rem;
+  color: #333435;
+  border-left: 3px solid transparent;
+}
+body.linear [id=wrapper] #leftcolumn .nav-header {
+  /*[1]*/
+  text-transform: none;
+  text-shadow: none;
+  font-weight: 600;
+}
+body.linear [id=wrapper] #leftcolumn ul.nav.menu > li:first-child > a {
+  /* Style for link to Section Page */
+  font-size: 1rem;
+  line-height: 1.6rem;
+  font-weight: 600;
+}
+body.linear [id=wrapper] #leftcolumn ul.nav.menu .nav-header + ul a,
+body.linear [id=wrapper] #leftcolumn ul.nav.menu .nav-header + ul a {
+  /* Child items */
+  padding-left: 1.5rem;
+}
+
+/* END !SECTION Sidebar Links */
+/** SECTION Sidebar link states
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] #leftcolumn ul.nav.menu .current > a {
+  background-color: rgba(128, 130, 133, 0.15);
+  border-left: 3px solid #80bc00;
+}
+body.linear [id=wrapper] #leftcolumn ul.nav.menu a:hover {
+  color: inherit;
+  background-color: rgba(128, 130, 133, 0.15);
+}
+
+/* END !SECTION Sidebar link states */
+/** SECTION Dropdown
+  * [1] Show items when .active is added
+  * [2] Change cursor to indicate clickable state
+  * [3] Add drop down icon to header items
+  * [4] Change drop down icon when it is open
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] .clickFade .active > .nav-header + ul {
+  /*[1]*/
+  display: block !important;
+}
+body.linear [id=wrapper] .clickFade .nav-header {
+  /*[2]*/
+  cursor: pointer;
+}
+body.linear [id=wrapper] .clickFade .nav-header::after {
+  /*[3]*/
+  font-family: "FontAwesome", monospace;
+  content: "";
+  color: #80bc00;
+  margin-left: 5px;
+}
+body.linear [id=wrapper] .clickFade .active > .nav-header::after {
+  /*[4]*/
+  content: "";
+}
+
+/* End !SECTION Dropdown */
+/** SECTION Sidebar misc
+  * [1] Ensure spacing consistency
+  * [2] Remove default separator
+  * [3] Style for separators
+  * [4] FIX sizing of modules
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] #leftcolumn .moduletable {
+  /*[1]*/
+  margin-bottom: 1.6rem;
+}
+body.linear [id=wrapper] #leftcolumn .divider span.separator {
+  /*[2]*/
+  display: none;
+}
+body.linear [id=wrapper] #leftcolumn .divider span.separator + ul::before {
+  /*[3]*/
+  content: "";
+  display: block;
+  margin: 1rem 0.5rem;
+  border-top: 2px solid #80bc00;
+}
+body.linear [id=wrapper] #leftcolumn .moduletable {
+  /*[4]*/
+  padding: 0;
+}
+body.linear [id=wrapper] #leftcolumn .moduletable::after {
+  clear: both;
+  content: "";
+  display: block;
+}
+
+/* End !SECTION Sidebar misc */
+/** SECTION Sidebar layout
+  * [1] FIX for sidebar not filling consistent space
+  * [2] Add space between sidebar and content
+  * [3] FIX for layout break on medium screens
+-------------------------------------------------------------------------- */
+body.linear [id=wrapper] #leftcolumn {
+  /*[1]*/
+  width: 100%;
+}
+body.linear [id=wrapper] .left-position {
+  /*[1]*/
+  width: 100% !important;
+}
+body.linear [id=wrapper] #leftcolumn {
+  /*[2]*/
+  padding-right: 1.6rem;
+}
+body.linear [id=wrapper] #maincolumn-l {
+  /*[3]*/
+  margin: auto !important;
+}
+
+/** SECTION Page Header
+  * [1] Remove default positional styles
+  * [2] Apply consistent spacing & adjust text color
+-------------------------------------------------------------------------- */
+body.linear #banner .stickyNav .page-header {
+  /*[1]*/
+  float: none;
+  display: block;
+  max-width: 100%;
+}
+body.linear #banner h1 {
+  /*[2]*/
+  margin: 0;
+  color: white;
+}
+
+/* END !SECTION Page Header */
+/** SECTION Banner Image
+  * Setup the banner background image
+  * [1] Relative allows us to position the background
+  * [2] padding adjusts the height of the banner, and position of text inside
+  * [3] FIX z-index is incremented to ensure the banner shows up on mobile
+  * [4] Add the image filter effect
+  * [5] Fit the banner image to the full size of the banner. Position it
+  * behind the image filter effect
+  * [6] !important used to override high specificity from respo.css:841
+-------------------------------------------------------------------------- */
+body.linear #banner {
+  /*[1]*/
+  position: relative;
+  /*[2]*/
+  padding-top: 8rem;
+  padding-bottom: 1.6rem;
+  /*[3]*/
+  z-index: 1;
+}
+body.linear #banner::after {
+  /*[4]*/
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100;
+  background: #295135;
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+body.linear .banner-image img {
+  /*[5]*/
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -100;
+  /*[6]*/
+  height: 100% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* END !SECTION Banner Image */
+/** SECTION Breadcrumb
+  * [1] Reset default styles
+  * [2] Adjust text color
+  * [3] Apply consistent spacing
+  * [4] Add nicer link separators, uses icon-arrow-right from
+  * https://www.uab.edu/toolkit/web/build-maintain-your-site/icons
+  * [5] Remove default divider image
+  * [6] Enforce text color on hover. !important used to override !important
+  * from central style.css
+-------------------------------------------------------------------------- */
+body.linear .breadcrumb > li,
+body.linear .breadcrumb > .active {
+  /*[1]*/
+  text-shadow: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  /*[2]*/
+  color: white;
+}
+body.linear .breadcrumb > li > .divider,
+body.linear .breadcrumb a,
+body.linear .breadcrumb > li > span {
+  /*[1]*/
+  color: inherit;
+  font-size: inherit;
+}
+body.linear .breadcrumb > li > .divider:hover,
+body.linear .breadcrumb a:hover,
+body.linear .breadcrumb > li > span:hover {
+  /*[6]*/
+  color: white !important;
+}
+body.linear .breadcrumb {
+  /*[1]*/
+  border: 0;
+  padding: 0;
+  margin: 0;
+  /*[3]*/
+  margin-bottom: 1.6rem;
+  margin-top: 1.6rem;
+}
+body.linear .breadcrumb li span.divider::after {
+  /*[4]*/
+  content: "";
+  font-family: "IcoMoon", monospace;
+  font-size: 0.7em !important;
+  color: #80bc00;
+  margin-right: 3px;
+}
+body.linear .breadcrumb span.divider > img {
+  /*[5]*/
+  display: none;
+}
+
+/* END !SECTION Breadcrumb */
+/** SECTION Banner layout
+  * [1] Ensure content inside the banner stays within the width of
+  * the main column
+  * [2] Ensure the content inside the banner lines up with the main content
+-------------------------------------------------------------------------- */
+body.linear #banner .moduletable {
+  /*[1]*/
+  max-width: 1280px;
+  margin: auto;
+  /*[2]*/
+  width: 90%;
+}
+
+/* End !SECTION Banner layout */
+/** SECTION Footer
+  * [1] Add underline to footer links on focus
+  * [2] Make social icons same color as footer background
+  * [3] Make social icons' background white
+  * [4] Make sure both footer columns line up. It is set as 'baseline'
+  * with high specificity in central css, so !important is used to override it
+  * [5] Add more space to the top of the footer so that it roughly matches
+  * the space between the footer and locked footer
+  * [6] remove default spacing
+  * [7] Add new spacing
+  * [8] Add border between the footer columns
+-------------------------------------------------------------------------- */
+body.linear #footer,
+body.linear #lockedFooter {
+  background-color: #4d4e50 !important;
+}
+body.linear #footer a:hover, body.linear #footer a:focus,
+body.linear #lockedFooter a:hover,
+body.linear #lockedFooter a:focus {
+  /*[1]*/
+  text-decoration: underline;
+}
+body.linear #footer.footerGray .at-icon {
+  /*[2]*/
+  fill: #595959 !important;
+}
+body.linear #footer.footerGray .at-icon-wrapper {
+  /*[3]*/
+  background-color: white !important;
+}
+body.linear #footer .flexFooter {
+  /*[4]*/
+  -webkit-box-align: center !important;
+      -ms-flex-align: center !important;
+          align-items: center !important;
+  /*[5]*/
+  padding-top: 1.6rem;
+}
+body.linear #footer .flexFooter .flexFooterColumn {
+  /*[6]*/
+  margin: 0 !important;
+}
+body.linear #footer .flexFooter .footerLeft {
+  /*[7]*/
+  padding-right: 1.6rem;
+}
+body.linear #footer .flexFooter .footerRight {
+  /*[8]*/
+  border-left: 2px solid white;
+  /*[7]*/
+  padding-left: 1.6rem;
+}
+
+/** Alt Footer
+  * Place in the "lower 3" module position with the "alt-footer" class
+  * [1] Move the content so that it sits right on top of the footer
+  * [2] Set a comfortable minimum width and center it
+  * [3] Add space above and below the content. Below is half because the
+  * last element inside the content will have a bottom margin
+  * NOTE: .has-background-full should also be put on .alt-footer-inner
+-------------------------------------------------------------------------- */
+body.linear .moduletable.alt-footer {
+  /*[1]*/
+  position: relative;
+  bottom: -6.4rem;
+}
+body.linear .alt-footer .alt-footer-inner {
+  /*[2]*/
+  max-width: 700px;
+  margin: auto;
+  /*[3]*/
+  padding-top: 3.2rem;
+  padding-bottom: 1.6rem;
+}
+
+/* END !SECTION Footer */
+/* SECTION Helpers
+-------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+}
+
+.u-txt-c,
+.uk-text-center {
+  text-align: center !important;
+}
+
+.u-txt-l {
+  text-align: left !important;
+}
+
+.u-txt-r {
+  text-align: right !important;
+}
+
+.u-full {
+  display: block;
+  width: 100%;
+}
+
+.u-round {
+  border-radius: 3px !important;
+}
+
+.u-square {
+  border-radius: 0 !important;
+}
+
+.u-circle {
+  border-radius: 50% !important;
+}
+
+.overflow-container {
+  overflow: auto !important;
+}
+
+.u-no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
+.u-no-margin-top {
+  margin-top: 0 !important;
+}
+
+.u-font-head {
+  font-family: kulturista-web, serif;
+}
+
+.u-font-body {
+  font-family: proxima-nova, arial, helvetica, sans-serif !important;
+}
+
+[disabled] {
+  pointer-events: none !important;
+  background-color: rgba(128, 130, 133, 0.15) !important;
+  color: #b3b4b6 !important;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden:not(:focus):not(:active) {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
+  white-space: nowrap;
+}
+
+/* End !SECTION HELPERS */
