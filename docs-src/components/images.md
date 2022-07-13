@@ -35,6 +35,7 @@ All images should be cropped and compressed, following these image size guidelin
 
 - Banner: 1600 x 300
 - Illustrations: 266 x 720
+- News: 640 x 360
 - Large (full width) images: 1280 x 720
 - Medium (half width) images: 640 x auto
 - Small (thumbnail) images: 320 x auto
